@@ -22,7 +22,7 @@ class PokemonChatApp {
         const stored = localStorage.getItem('pokemon_chat_user_id');
         if (stored) return stored;
         
-        const newId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        const newId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
         localStorage.setItem('pokemon_chat_user_id', newId);
         return newId;
     }

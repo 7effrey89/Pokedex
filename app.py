@@ -20,7 +20,8 @@ CORS(app)
 # Initialize Pokemon tools
 pokemon_tools = PokemonTools()
 
-# Store conversation history (in production, use a database)
+# Store conversation history (in-memory only - will be lost on restart)
+# TODO: For production, implement persistent storage (Redis, PostgreSQL, etc.)
 conversations = {}
 
 
@@ -249,4 +250,5 @@ if __name__ == '__main__':
     
     # Run the app
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)

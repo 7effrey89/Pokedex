@@ -501,8 +501,15 @@ body {
     .app-container {
         margin-top: 2rem;
         margin-bottom: 2rem;
-        height: calc(100vh - 4rem);
+        height: calc(100dvh - 4rem);
         border-radius: 20px;
+    }
+    
+    /* Fallback for browsers that don't support dvh */
+    @supports not (height: 100dvh) {
+        .app-container {
+            height: calc(100vh - 4rem);
+        }
     }
 }
 
