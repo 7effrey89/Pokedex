@@ -9,6 +9,7 @@ A real-time, mobile-friendly Pokemon chat assistant that allows users to ask que
 - 🖼️ **Pokemon Images** - Official artwork and sprites
 - 📊 **Detailed Information** - Stats, types, abilities, and descriptions
 - 💬 **Natural Language** - Ask questions in plain English
+- 🎤 **Voice Conversation** - Talk to the assistant using voice commands (NEW!)
 - ⚡ **Fast Lookup** - Powered by PokeAPI for comprehensive Pokemon data
 - 🎨 **Beautiful UI** - Modern, colorful design inspired by Pokemon
 
@@ -26,6 +27,7 @@ The app features a clean, mobile-first design with:
 - **Backend**: Python Flask
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **API**: [PokeAPI](https://pokeapi.co/) for Pokemon data
+- **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
 
@@ -81,6 +83,23 @@ Ask about any Pokemon using natural language:
 - "What is Mewtwo"
 - "Find Bulbasaur"
 - Just type a Pokemon name: "Eevee"
+
+### Voice Conversation (NEW! 🎤)
+
+Talk to the assistant using your voice:
+
+1. **Click the "Voice" button** in the top-right corner of the header
+2. **Allow microphone access** when prompted
+3. **Speak your query** (e.g., "Tell me about Pikachu")
+4. The assistant will:
+   - Display your spoken message
+   - Fetch Pokemon information
+   - Show Pokemon cards with images
+   - **Speak the response back to you!**
+
+**Supported browsers**: Chrome, Edge, Safari (iOS/macOS)
+
+For detailed setup and Azure OpenAI integration, see [VOICE_SETUP.md](VOICE_SETUP.md)
 
 ### Quick Actions
 

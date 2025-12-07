@@ -4,6 +4,7 @@ class PokemonChatApp {
     constructor() {
         this.userId = this.generateUserId();
         this.isLoading = false;
+        this.isVoiceActive = false;
         
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
@@ -13,6 +14,13 @@ class PokemonChatApp {
         this.pokemonCardOverlay = document.getElementById('pokemonCardOverlay');
         this.pokemonCardContent = document.getElementById('pokemonCardContent');
         this.closeCardBtn = document.getElementById('closeCard');
+        this.voiceButton = document.getElementById('voiceButton');
+        this.statusText = document.querySelector('.status-text');
+        
+        // Voice recognition setup
+        this.recognition = null;
+        this.synthesis = window.speechSynthesis;
+        this.initializeVoiceRecognition();
         
         this.initializeEventListeners();
         this.adjustTextareaHeight();
@@ -65,6 +73,183 @@ class PokemonChatApp {
                 this.closePokemonCard();
             }
         });
+        
+        // Voice button
+        this.voiceButton.addEventListener('click', () => this.toggleVoiceConversation());
+    }
+    
+    initializeVoiceRecognition() {
+        // Check if browser supports Speech Recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            console.warn('Speech Recognition not supported in this browser');
+            if (this.voiceButton) {
+                this.voiceButton.style.display = 'none';
+            }
+            return;
+        }
+        
+        this.recognition = new SpeechRecognition();
+        this.recognition.continuous = false;
+        this.recognition.interimResults = false;
+        this.recognition.lang = 'en-US';
+        
+        this.recognition.onstart = () => {
+            console.log('Voice recognition started');
+            this.isVoiceActive = true;
+            this.voiceButton.classList.add('active');
+            this.statusText.textContent = 'Listening...';
+            const voiceText = this.voiceButton.querySelector('.voice-text');
+            if (voiceText) voiceText.textContent = 'Listening';
+        };
+        
+        this.recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            console.log('Voice input:', transcript);
+            
+            // Display user's spoken message
+            this.addMessage('user', transcript);
+            this.hideWelcomeMessage();
+            
+            // Process the message
+            this.processVoiceMessage(transcript);
+        };
+        
+        this.recognition.onerror = (event) => {
+            console.error('Voice recognition error:', event.error);
+            this.stopVoiceConversation();
+            
+            if (event.error === 'no-speech') {
+                this.addMessage('assistant', "I didn't hear anything. Please try again!");
+            } else if (event.error === 'not-allowed') {
+                this.addMessage('assistant', "Microphone access denied. Please enable microphone permissions.");
+            }
+        };
+        
+        this.recognition.onend = () => {
+            console.log('Voice recognition ended');
+            if (this.isVoiceActive) {
+                // Auto-restart if still in voice mode (for continuous conversation)
+                setTimeout(() => {
+                    if (this.isVoiceActive && !this.isLoading) {
+                        this.recognition.start();
+                    }
+                }, 1000);
+            }
+        };
+    }
+    
+    toggleVoiceConversation() {
+        if (this.isVoiceActive) {
+            this.stopVoiceConversation();
+        } else {
+            this.startVoiceConversation();
+        }
+    }
+    
+    startVoiceConversation() {
+        if (!this.recognition) {
+            alert('Voice recognition is not supported in your browser. Please try Chrome, Edge, or Safari.');
+            return;
+        }
+        
+        this.isVoiceActive = true;
+        this.voiceButton.classList.add('active');
+        this.hideWelcomeMessage();
+        
+        // Add a system message
+        this.addMessage('assistant', "🎤 Voice mode activated! Speak your Pokemon query now...");
+        
+        try {
+            this.recognition.start();
+        } catch (error) {
+            console.error('Error starting recognition:', error);
+            this.stopVoiceConversation();
+        }
+    }
+    
+    stopVoiceConversation() {
+        this.isVoiceActive = false;
+        this.voiceButton.classList.remove('active');
+        this.statusText.textContent = 'Online';
+        const voiceText = this.voiceButton.querySelector('.voice-text');
+        if (voiceText) voiceText.textContent = 'Voice';
+        
+        if (this.recognition) {
+            try {
+                this.recognition.stop();
+            } catch (error) {
+                console.error('Error stopping recognition:', error);
+            }
+        }
+        
+        // Stop any ongoing speech
+        if (this.synthesis) {
+            this.synthesis.cancel();
+        }
+    }
+    
+    async processVoiceMessage(message) {
+        this.setLoading(true);
+        
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    user_id: this.userId
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to get response');
+            }
+            
+            const data = await response.json();
+            
+            // Add assistant message to chat
+            this.addMessage('assistant', data.message, data.pokemon_data);
+            
+            // Speak the response
+            this.speakText(data.message);
+            
+        } catch (error) {
+            console.error('Error processing voice message:', error);
+            this.addMessage('assistant', 'Sorry, I encountered an error. Please try again.');
+            this.speakText('Sorry, I encountered an error. Please try again.');
+        } finally {
+            this.setLoading(false);
+        }
+    }
+    
+    speakText(text) {
+        if (!this.synthesis) return;
+        
+        // Cancel any ongoing speech
+        this.synthesis.cancel();
+        
+        // Clean the text for speech (remove markdown and special characters)
+        const cleanText = text
+            .replace(/\*\*/g, '')  // Remove bold markers
+            .replace(/\n/g, ' ')    // Replace newlines with spaces
+            .replace(/•/g, '')      // Remove bullet points
+            .replace(/#\d+/g, '')   // Remove Pokemon numbers
+            .substring(0, 500);     // Limit length for speech
+        
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        
+        utterance.onend = () => {
+            console.log('Speech finished');
+        };
+        
+        this.synthesis.speak(utterance);
     }
     
     adjustTextareaHeight() {
