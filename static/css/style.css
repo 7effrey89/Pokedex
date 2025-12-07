@@ -6,25 +6,39 @@
 }
 
 :root {
-    --primary-color: #EE6B2F;
-    --primary-dark: #CC5200;
-    --secondary-color: #3B4CCA;
-    --background-color: #F5F7FA;
-    --chat-bg: #FFFFFF;
-    --user-bubble: #EE6B2F;
-    --assistant-bubble: #F0F0F0;
-    --text-primary: #2C3E50;
-    --text-secondary: #7F8C8D;
-    --border-color: #E0E0E0;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
-    --voice-active-bg: #EF4444;
-    --voice-active-border: #DC2626;
+    /* Classic Pokedex Colors */
+    --pokedex-red: #DC0A2D;
+    --pokedex-red-dark: #A80820;
+    --pokedex-red-darker: #8B0000;
+    --pokedex-blue: #2B72B8;
+    --pokedex-blue-light: #3D8FD8;
+    --pokedex-screen: #9FC5E8;
+    --pokedex-screen-dark: #7BA3C7;
+    --pokedex-yellow: #FFCB05;
+    --pokedex-black: #1A1A1A;
+    --pokedex-gray: #4A4A4A;
+    --pokedex-light-gray: #D3D3D3;
+    
+    /* App Colors */
+    --primary-color: var(--pokedex-red);
+    --primary-dark: var(--pokedex-red-dark);
+    --secondary-color: var(--pokedex-blue);
+    --background-color: var(--pokedex-screen);
+    --chat-bg: #E8F4FA;
+    --user-bubble: var(--pokedex-red);
+    --assistant-bubble: #FFFFFF;
+    --text-primary: var(--pokedex-black);
+    --text-secondary: var(--pokedex-gray);
+    --border-color: #A0A0A0;
+    --shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --voice-active-bg: var(--pokedex-yellow);
+    --voice-active-border: #E5B800;
 }
 
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2A2A2A;
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -38,18 +52,77 @@ body {
     display: flex;
     flex-direction: column;
     background: var(--background-color);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--pokedex-black);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
 }
 
 /* Header */
 .app-header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(180deg, var(--pokedex-red) 0%, var(--pokedex-red-dark) 100%);
     color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 1.25rem 1rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 3px solid var(--pokedex-red-darker);
+}
+
+.pokedex-lights {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.power-light {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #6DD5FA, #2980B9);
+    border: 4px solid var(--pokedex-black);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(109, 213, 250, 0.5);
+    position: relative;
+}
+
+.power-light::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.indicator-lights {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.indicator-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--pokedex-black);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.indicator-light.red {
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+}
+
+.indicator-light.yellow {
+    background: radial-gradient(circle at 30% 30%, #ffe066, #fab005);
+}
+
+.indicator-light.green {
+    background: radial-gradient(circle at 30% 30%, #51cf66, #2f9e44);
 }
 
 .header-content {
@@ -66,17 +139,14 @@ body {
 
 .pokeball-icon {
     font-size: 1.5rem;
-    animation: rotate 3s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
 }
 
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
 }
 
 .header-actions {
@@ -90,27 +160,32 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
     color: white;
     font-family: inherit;
     font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .voice-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-1px);
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .voice-button.active {
     background: var(--voice-active-bg);
     border-color: var(--voice-active-border);
+    color: var(--pokedex-black);
     animation: voice-pulse 1.5s infinite;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 203, 5, 0.6);
 }
 
 .voice-button.active .voice-icon {
@@ -157,6 +232,9 @@ body {
     overflow-y: auto;
     padding: 1rem;
     scroll-behavior: smooth;
+    background: linear-gradient(180deg, var(--pokedex-screen) 0%, var(--pokedex-screen-dark) 100%);
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .chat-container::-webkit-scrollbar {
@@ -190,13 +268,14 @@ body {
 }
 
 .welcome-message h2 {
-    color: var(--text-primary);
+    color: var(--pokedex-red-dark);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .welcome-message p {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -212,19 +291,22 @@ body {
 .example-chip {
     background: white;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
+    border-radius: 18px;
     font-size: 0.875rem;
-    color: var(--primary-color);
-    box-shadow: var(--shadow);
+    color: var(--pokedex-red);
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 2px solid var(--pokedex-light-gray);
 }
 
 .example-chip:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    background: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    background: var(--pokedex-red);
     color: white;
+    border-color: var(--pokedex-red-dark);
 }
 
 /* Message Bubbles */
@@ -255,6 +337,8 @@ body {
     color: white;
     margin-left: auto;
     border-bottom-right-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--pokedex-red-dark);
 }
 
 .message-bubble.assistant {
@@ -265,6 +349,8 @@ body {
     background: var(--assistant-bubble);
     color: var(--text-primary);
     border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
 }
 
 .message-timestamp {
@@ -277,17 +363,19 @@ body {
 /* Pokemon Display in Chat */
 .pokemon-display {
     background: white;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 1rem;
     margin-top: 0.5rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.9);
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 2px solid var(--pokedex-light-gray);
 }
 
 .pokemon-display:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    border-color: var(--pokedex-blue);
 }
 
 .pokemon-display img {
@@ -352,7 +440,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     display: none;
     align-items: center;
     justify-content: center;
@@ -366,14 +454,16 @@ body {
 }
 
 .pokemon-card {
-    background: white;
-    border-radius: 20px;
+    background: var(--pokedex-screen);
+    border-radius: 16px;
     max-width: 500px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
     animation: scaleIn 0.3s ease-out;
+    border: 4px solid var(--pokedex-black);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
 @keyframes scaleIn {
@@ -385,19 +475,26 @@ body {
     position: sticky;
     top: 0;
     right: 0;
-    background: var(--primary-color);
+    background: var(--pokedex-red);
     color: white;
-    border: none;
+    border: 3px solid var(--pokedex-black);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
     margin: 1rem;
     margin-left: auto;
     display: block;
     z-index: 10;
-    box-shadow: var(--shadow);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.close-card:hover {
+    background: var(--pokedex-red-dark);
+    transform: scale(1.1);
 }
 
 .pokemon-card-content {
@@ -406,10 +503,10 @@ body {
 
 /* Input Container */
 .input-container {
-    background: white;
+    background: var(--pokedex-gray);
     padding: 1rem;
-    border-top: 1px solid var(--border-color);
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--pokedex-black);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .input-wrapper {
@@ -421,38 +518,43 @@ body {
 .message-input {
     flex: 1;
     padding: 0.875rem 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 24px;
+    border: 2px solid var(--pokedex-black);
+    border-radius: 20px;
     font-family: inherit;
     font-size: 1rem;
     resize: none;
     max-height: 120px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .message-input:focus {
-    border-color: var(--primary-color);
+    border-color: var(--pokedex-blue);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 8px rgba(43, 114, 184, 0.4);
 }
 
 .send-button {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: var(--pokedex-blue);
     color: white;
-    border: none;
+    border: 3px solid var(--pokedex-black);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .send-button:hover:not(:disabled) {
-    background: var(--primary-dark);
+    background: var(--pokedex-blue-light);
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .send-button:disabled {
@@ -479,22 +581,26 @@ body {
 
 .quick-action-btn {
     padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border: 2px solid var(--pokedex-black);
+    border-radius: 18px;
     background: white;
     font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .quick-action-btn:hover {
-    background: var(--primary-color);
+    background: var(--pokedex-blue);
     color: white;
-    border-color: var(--primary-color);
+    border-color: var(--pokedex-black);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
 /* Loading Indicator */
