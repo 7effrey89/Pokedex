@@ -18,6 +18,8 @@
     --border-color: #E0E0E0;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --voice-active-bg: #EF4444;
+    --voice-active-border: #DC2626;
 }
 
 body {
@@ -106,8 +108,8 @@ body {
 }
 
 .voice-button.active {
-    background: #EF4444;
-    border-color: #DC2626;
+    background: var(--voice-active-bg);
+    border-color: var(--voice-active-border);
     animation: voice-pulse 1.5s infinite;
 }
 

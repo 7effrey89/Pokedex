@@ -127,13 +127,26 @@ class PokemonChatApp {
             }
         };
         
+        this.voiceRetryCount = 0;
+        this.maxVoiceRetries = 3;
+        
         this.recognition.onend = () => {
             console.log('Voice recognition ended');
             if (this.isVoiceActive) {
                 // Auto-restart if still in voice mode (for continuous conversation)
                 setTimeout(() => {
-                    if (this.isVoiceActive && !this.isLoading) {
-                        this.recognition.start();
+                    if (this.isVoiceActive && !this.isLoading && this.voiceRetryCount < this.maxVoiceRetries) {
+                        try {
+                            this.recognition.start();
+                            this.voiceRetryCount = 0; // Reset on successful start
+                        } catch (error) {
+                            this.voiceRetryCount++;
+                            console.error('Voice restart failed, retry count:', this.voiceRetryCount);
+                            if (this.voiceRetryCount >= this.maxVoiceRetries) {
+                                this.stopVoiceConversation();
+                                this.addMessage('assistant', 'Voice recognition stopped due to repeated errors. Please try again.');
+                            }
+                        }
                     }
                 }, 1000);
             }
@@ -150,7 +163,7 @@ class PokemonChatApp {
     
     startVoiceConversation() {
         if (!this.recognition) {
-            alert('Voice recognition is not supported in your browser. Please try Chrome, Edge, or Safari.');
+            this.addMessage('assistant', '⚠️ Voice recognition is not supported in your browser. Please try Chrome, Edge, or Safari.');
             return;
         }
         
@@ -232,13 +245,23 @@ class PokemonChatApp {
         // Cancel any ongoing speech
         this.synthesis.cancel();
         
+        // Text cleaning patterns for speech
+        const TEXT_CLEANING_PATTERNS = {
+            BOLD_MARKERS: /\*\*/g,
+            NEWLINES: /\n/g,
+            BULLET_POINTS: /•/g,
+            POKEMON_NUMBERS: /#\d+/g
+        };
+        
+        const MAX_SPEECH_LENGTH = 500;
+        
         // Clean the text for speech (remove markdown and special characters)
         const cleanText = text
-            .replace(/\*\*/g, '')  // Remove bold markers
-            .replace(/\n/g, ' ')    // Replace newlines with spaces
-            .replace(/•/g, '')      // Remove bullet points
-            .replace(/#\d+/g, '')   // Remove Pokemon numbers
-            .substring(0, 500);     // Limit length for speech
+            .replace(TEXT_CLEANING_PATTERNS.BOLD_MARKERS, '')
+            .replace(TEXT_CLEANING_PATTERNS.NEWLINES, ' ')
+            .replace(TEXT_CLEANING_PATTERNS.BULLET_POINTS, '')
+            .replace(TEXT_CLEANING_PATTERNS.POKEMON_NUMBERS, '')
+            .substring(0, MAX_SPEECH_LENGTH);
         
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.rate = 1.0;
