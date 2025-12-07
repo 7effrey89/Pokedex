@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Pokemon Chat Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="pokeball-icon">⚾</span>
+                    <h1>Pokemon Chat</h1>
+                </div>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <!-- Welcome Message -->
+            <div class="welcome-message">
+                <div class="welcome-icon">👋</div>
+                <h2>Welcome to Pokemon Chat!</h2>
+                <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
+                <div class="example-queries">
+                    <span class="example-chip">Tell me about Pikachu</span>
+                    <span class="example-chip">Show me Charizard</span>
+                    <span class="example-chip">What is Mewtwo</span>
+                </div>
+            </div>
+
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- Pokemon Card Display -->
+        <div class="pokemon-card-overlay" id="pokemonCardOverlay">
+            <div class="pokemon-card">
+                <button class="close-card" id="closeCard">&times;</button>
+                <div class="pokemon-card-content" id="pokemonCardContent">
+                    <!-- Pokemon details will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea 
+                    id="messageInput" 
+                    class="message-input" 
+                    placeholder="Ask about a Pokemon..."
+                    rows="1"
+                ></textarea>
+                <button id="sendButton" class="send-button" aria-label="Send message">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-action-btn" data-action="help">
+                    <span>❓</span> Help
+                </button>
+                <button class="quick-action-btn" data-action="random">
+                    <span>🎲</span> Random
+                </button>
+                <button class="quick-action-btn" data-action="popular">
+                    <span>⭐</span> Popular
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <span>Thinking...</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
