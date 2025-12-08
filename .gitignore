@@ -26,6 +26,15 @@ wheels/
 .installed.cfg
 *.egg
 
+# Node.js / TypeScript MCP servers
+node_modules/
+*/node_modules/
+*/dist/
+ptcg-mcp/dist/
+poke-mcp/dist/
+*.js.map
+*.tsbuildinfo
+
 # IDEs
 .vscode/
 .idea/
@@ -39,3 +48,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Tool config persistence
+tools_config.json

@@ -23,8 +23,8 @@ class PokemonTools:
         Returns:
             Dict containing Pokemon data or None if not found
         """
-        # Try mock data first if enabled or use it as fallback
-        if self.use_mock or name_or_id.lower() in MOCK_POKEMON_DATA:
+        # Only use mock if explicitly enabled (API was unavailable)
+        if self.use_mock:
             mock_data = MOCK_POKEMON_DATA.get(name_or_id.lower())
             if mock_data:
                 print(f"Using mock data for {name_or_id}")
@@ -32,13 +32,16 @@ class PokemonTools:
         
         try:
             url = f"{self.base_url}/pokemon/{name_or_id.lower()}"
-            response = requests.get(url, timeout=5)
+            response = requests.get(url, timeout=10)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
             print(f"Error fetching Pokemon from API: {e}, using mock data")
-            self.use_mock = True
-            return MOCK_POKEMON_DATA.get(name_or_id.lower())
+            # Only use mock as fallback
+            mock_data = MOCK_POKEMON_DATA.get(name_or_id.lower())
+            if mock_data:
+                return mock_data
+            return None
     
     def get_pokemon_species(self, name_or_id: str) -> Optional[Dict]:
         """
@@ -50,21 +53,24 @@ class PokemonTools:
         Returns:
             Dict containing species data or None if not found
         """
-        # Try mock data first if enabled or use it as fallback
-        if self.use_mock or name_or_id.lower() in MOCK_SPECIES_DATA:
+        # Only use mock if explicitly enabled
+        if self.use_mock:
             mock_data = MOCK_SPECIES_DATA.get(name_or_id.lower())
             if mock_data:
                 return mock_data
         
         try:
             url = f"{self.base_url}/pokemon-species/{name_or_id.lower()}"
-            response = requests.get(url, timeout=5)
+            response = requests.get(url, timeout=10)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
             print(f"Error fetching Pokemon species from API: {e}, using mock data")
-            self.use_mock = True
-            return MOCK_SPECIES_DATA.get(name_or_id.lower())
+            # Only use mock as fallback
+            mock_data = MOCK_SPECIES_DATA.get(name_or_id.lower())
+            if mock_data:
+                return mock_data
+            return None
     
     def format_pokemon_info(self, pokemon_data: Dict, species_data: Optional[Dict] = None) -> Dict:
         """

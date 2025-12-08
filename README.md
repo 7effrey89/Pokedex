@@ -9,7 +9,9 @@ A real-time, mobile-friendly Pokemon chat assistant that allows users to ask que
 - 🖼️ **Pokemon Images** - Official artwork and sprites
 - 📊 **Detailed Information** - Stats, types, abilities, and descriptions
 - 💬 **Natural Language** - Ask questions in plain English
-- 🎤 **Voice Conversation** - Talk to the assistant using voice commands (NEW!)
+- 🎤 **Voice Conversation** - Talk to the assistant using voice commands
+- 🃏 **Trading Card Game** - Search and view Pokemon TCG cards with images (NEW!)
+- 🛠️ **Tool Management** - Enable/disable features via settings modal (NEW!)
 - ⚡ **Fast Lookup** - Powered by PokeAPI for comprehensive Pokemon data
 - 🎨 **Beautiful UI** - Modern, colorful design inspired by Pokemon
 
@@ -21,12 +23,15 @@ The app features a clean, mobile-first design with:
 - Interactive Pokemon cards with images
 - Type badges with official Pokemon colors
 - Detailed stat displays with progress bars
+- TCG card grid with clickable card previews
 
 ## Technologies Used
 
 - **Backend**: Python Flask
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **API**: [PokeAPI](https://pokeapi.co/) for Pokemon data
+- **APIs**: 
+  - [PokeAPI](https://pokeapi.co/) for Pokemon game data
+  - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
 - **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
@@ -83,6 +88,29 @@ Ask about any Pokemon using natural language:
 - "What is Mewtwo"
 - "Find Bulbasaur"
 - Just type a Pokemon name: "Eevee"
+
+### Trading Card Game Queries (NEW! 🃏)
+
+Search for Pokemon Trading Card Game cards:
+
+- "Show me Pikachu cards"
+- "Find Charizard TCG cards"
+- "Search trading cards for Mewtwo"
+- Click on any card to see full details including:
+  - High-resolution card image
+  - Attacks and abilities
+  - HP and retreat cost
+  - Format legality (Standard, Expanded, Unlimited)
+  - Rarity and artist information
+
+### Tool Management (NEW! 🛠️)
+
+Click the **Tools** button in the header to manage available features:
+
+1. **PokeAPI** 🎮 - Pokemon game data (stats, types, abilities)
+2. **Pokemon TCG** 🃏 - Trading card search and display
+
+Enable or disable tools based on your needs!
 
 ### Voice Conversation (NEW! 🎤)
 
