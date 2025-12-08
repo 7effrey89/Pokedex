@@ -32,10 +32,15 @@ class PokemonChatApp {
         this.tcgCardModalContent = document.getElementById('tcgCardModalContent');
         this.tcgCardModalClose = document.getElementById('tcgCardModalClose');
         
-        // Voice recognition setup
+        // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
         this.synthesis = window.speechSynthesis;
-        this.initializeVoiceRecognition();
+        
+        // Azure OpenAI Realtime Voice client
+        this.realtimeVoice = null;
+        this.useRealtimeApi = false; // Will be set to true if available
+        
+        this.initializeVoice();
         
         this.initializeEventListeners();
         this.initializeToolsModal();
@@ -326,6 +331,113 @@ class PokemonChatApp {
         document.body.style.overflow = 'hidden';
     }
 
+    /**
+     * Initialize voice - try Realtime API first, fall back to browser Speech Recognition
+     */
+    async initializeVoice() {
+        // First, check if Azure OpenAI Realtime API is available
+        if (window.RealtimeVoiceClient && RealtimeVoiceClient.isSupported()) {
+            try {
+                const statusResponse = await fetch('/api/realtime/status');
+                const status = await statusResponse.json();
+                
+                if (status.available) {
+                    console.log('Azure OpenAI Realtime API available, initializing...');
+                    this.initializeRealtimeVoice();
+                    return;
+                } else {
+                    console.log('Realtime API not configured:', status.message);
+                }
+            } catch (error) {
+                console.log('Could not check Realtime API status:', error);
+            }
+        }
+        
+        // Fall back to browser Speech Recognition
+        console.log('Using browser Speech Recognition (fallback)');
+        this.initializeVoiceRecognition();
+    }
+    
+    /**
+     * Initialize Azure OpenAI Realtime Voice client
+     */
+    initializeRealtimeVoice() {
+        this.realtimeVoice = new RealtimeVoiceClient({
+            debug: true,
+            
+            onStatusChange: (status, message) => {
+                console.log('Realtime status:', status, message);
+                this.updateVoiceStatus(status, message);
+            },
+            
+            onTranscript: (text, role) => {
+                if (role === 'user') {
+                    this.addMessage('user', text);
+                    this.hideWelcomeMessage();
+                }
+            },
+            
+            onResponse: (text, isPartial) => {
+                if (!isPartial && text) {
+                    // Full response received
+                    this.addMessage('assistant', text);
+                }
+            },
+            
+            onError: (error) => {
+                console.error('Realtime voice error:', error);
+                this.addMessage('assistant', `⚠️ Voice error: ${error}`);
+            },
+            
+            onAudioStart: () => {
+                this.updateVoiceStatus('speaking', 'Speaking...');
+            },
+            
+            onAudioEnd: () => {
+                if (this.isVoiceActive) {
+                    this.updateVoiceStatus('listening', 'Listening...');
+                }
+            },
+            
+            onToolCall: (toolName, args) => {
+                console.log('Tool called:', toolName, args);
+            }
+        });
+        
+        this.useRealtimeApi = true;
+        console.log('Realtime Voice client initialized');
+    }
+    
+    /**
+     * Update voice status display
+     */
+    updateVoiceStatus(status, message) {
+        if (this.statusText) {
+            const statusMap = {
+                'ready': 'Ready',
+                'connecting': 'Connecting...',
+                'connected': 'Connected',
+                'session_ready': 'Voice Ready',
+                'recording': 'Listening...',
+                'listening': 'Listening...',
+                'processing': 'Processing...',
+                'speaking': 'Speaking...',
+                'disconnected': 'Offline',
+                'error': 'Error'
+            };
+            this.statusText.textContent = statusMap[status] || message || 'Online';
+        }
+        
+        // Update button appearance
+        if (status === 'recording' || status === 'listening' || status === 'speaking') {
+            this.voiceButton?.classList.add('active');
+        } else if (status === 'disconnected' || status === 'error' || status === 'ready') {
+            if (!this.isVoiceActive) {
+                this.voiceButton?.classList.remove('active');
+            }
+        }
+    }
+
     initializeVoiceRecognition() {
         // Check if browser supports Speech Recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -409,7 +521,34 @@ class PokemonChatApp {
         }
     }
     
-    startVoiceConversation() {
+    async startVoiceConversation() {
+        // Use Realtime API if available
+        if (this.useRealtimeApi && this.realtimeVoice) {
+            this.isVoiceActive = true;
+            this.voiceButton.classList.add('active');
+            this.hideWelcomeMessage();
+            
+            try {
+                // Connect and start recording
+                await this.realtimeVoice.connect();
+                await this.realtimeVoice.startRecording();
+                
+                this.addMessage('assistant', "🎤 **Real-time voice mode activated!** Using Azure OpenAI Realtime API. Just speak naturally and I'll respond in real-time.");
+            } catch (error) {
+                console.error('Error starting realtime voice:', error);
+                this.addMessage('assistant', `⚠️ Could not start voice: ${error.message}. Falling back to browser voice...`);
+                this.isVoiceActive = false;
+                this.voiceButton.classList.remove('active');
+                
+                // Fall back to browser recognition
+                this.useRealtimeApi = false;
+                this.initializeVoiceRecognition();
+                this.startVoiceConversation();
+            }
+            return;
+        }
+        
+        // Fallback: Browser Speech Recognition
         if (!this.recognition) {
             this.addMessage('assistant', '⚠️ Voice recognition is not supported in your browser. Please try Chrome, Edge, or Safari.');
             return;
@@ -420,7 +559,7 @@ class PokemonChatApp {
         this.hideWelcomeMessage();
         
         // Add a system message
-        this.addMessage('assistant', "🎤 Voice mode activated! Speak your Pokemon query now...");
+        this.addMessage('assistant', "🎤 Voice mode activated! (Browser speech recognition). Speak your Pokemon query now...");
         
         try {
             this.recognition.start();
@@ -437,6 +576,13 @@ class PokemonChatApp {
         const voiceText = this.voiceButton.querySelector('.voice-text');
         if (voiceText) voiceText.textContent = 'Voice';
         
+        // Stop Realtime API if active
+        if (this.useRealtimeApi && this.realtimeVoice) {
+            this.realtimeVoice.stopRecording();
+            // Don't disconnect - keep connection for quick restart
+        }
+        
+        // Stop browser recognition
         if (this.recognition) {
             try {
                 this.recognition.stop();
@@ -449,6 +595,8 @@ class PokemonChatApp {
         if (this.synthesis) {
             this.synthesis.cancel();
         }
+        
+        this.addMessage('assistant', '🔇 Voice mode deactivated.');
     }
     
     async processVoiceMessage(message) {

@@ -1,0 +1,669 @@
+/**
+ * Azure OpenAI Realtime API WebSocket Client
+ * Handles real-time voice conversation with bidirectional audio streaming
+ */
+
+class RealtimeVoiceClient {
+    constructor(options = {}) {
+        this.wsUrl = null;
+        this.apiKey = null;
+        this.ws = null;
+        this.audioContext = null;
+        this.playbackContext = null; // Separate context for playback
+        this.mediaStream = null;
+        this.audioWorklet = null;
+        this.isConnected = false;
+        this.isRecording = false;
+        this.sessionConfig = null;
+        this.tools = [];
+        
+        // Audio playback queue and buffering
+        this.audioQueue = [];
+        this.isPlaying = false;
+        this.minBufferChunks = 3; // Wait for this many chunks before starting playback
+        
+        // Callbacks
+        this.onStatusChange = options.onStatusChange || (() => {});
+        this.onTranscript = options.onTranscript || (() => {});
+        this.onResponse = options.onResponse || (() => {});
+        this.onError = options.onError || (() => {});
+        this.onAudioStart = options.onAudioStart || (() => {});
+        this.onAudioEnd = options.onAudioEnd || (() => {});
+        this.onToolCall = options.onToolCall || (() => {});
+        
+        // Audio settings
+        this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
+        this.inputSampleRate = 16000;
+        
+        // Debug mode
+        this.debug = options.debug || false;
+    }
+    
+    log(...args) {
+        if (this.debug) {
+            console.log('[RealtimeVoice]', ...args);
+        }
+    }
+    
+    /**
+     * Initialize the client by fetching configuration from the server
+     */
+    async initialize() {
+        try {
+            this.onStatusChange('initializing', 'Checking realtime availability...');
+            
+            const response = await fetch('/api/realtime/config');
+            const data = await response.json();
+            
+            if (!data.available) {
+                throw new Error(data.error || 'Realtime API not available');
+            }
+            
+            this.wsUrl = data.ws_url;
+            this.apiKey = data.api_key;
+            this.sessionConfig = data.session_config;
+            this.tools = data.tools || [];
+            
+            this.log('Configuration loaded:', { wsUrl: this.wsUrl, hasKey: !!this.apiKey });
+            this.onStatusChange('ready', 'Realtime voice ready');
+            
+            return true;
+        } catch (error) {
+            this.log('Initialization error:', error);
+            this.onError(error.message);
+            this.onStatusChange('error', error.message);
+            return false;
+        }
+    }
+    
+    /**
+     * Connect to Azure OpenAI Realtime API via WebSocket
+     */
+    async connect() {
+        if (this.isConnected) {
+            this.log('Already connected');
+            return true;
+        }
+        
+        if (!this.wsUrl || !this.apiKey) {
+            const initialized = await this.initialize();
+            if (!initialized) return false;
+        }
+        
+        return new Promise((resolve, reject) => {
+            try {
+                this.onStatusChange('connecting', 'Connecting to Azure OpenAI...');
+                
+                // Create WebSocket connection with API key header
+                this.ws = new WebSocket(this.wsUrl, [], {
+                    headers: {
+                        'api-key': this.apiKey
+                    }
+                });
+                
+                // For browsers that don't support headers in WebSocket constructor
+                // We'll use the URL parameter approach
+                const wsUrlWithKey = `${this.wsUrl}&api-key=${this.apiKey}`;
+                this.ws = new WebSocket(wsUrlWithKey);
+                
+                this.ws.onopen = () => {
+                    this.log('WebSocket connected');
+                    this.isConnected = true;
+                    this.onStatusChange('connected', 'Connected to Azure OpenAI');
+                    
+                    // Send session configuration
+                    this.sendSessionConfig();
+                    
+                    resolve(true);
+                };
+                
+                this.ws.onmessage = (event) => {
+                    this.handleMessage(event.data);
+                };
+                
+                this.ws.onerror = (error) => {
+                    this.log('WebSocket error:', error);
+                    this.onError('WebSocket connection error');
+                    this.onStatusChange('error', 'Connection error');
+                    reject(error);
+                };
+                
+                this.ws.onclose = (event) => {
+                    this.log('WebSocket closed:', event.code, event.reason);
+                    this.isConnected = false;
+                    this.isRecording = false;
+                    this.onStatusChange('disconnected', 'Disconnected');
+                };
+                
+            } catch (error) {
+                this.log('Connection error:', error);
+                this.onError(error.message);
+                reject(error);
+            }
+        });
+    }
+    
+    /**
+     * Send session configuration after connection
+     */
+    sendSessionConfig() {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
+        
+        const config = this.sessionConfig || {
+            type: "session.update",
+            session: {
+                modalities: ["text", "audio"],
+                instructions: "You are PokéChat, a friendly Pokemon assistant. Keep responses conversational and concise.",
+                voice: "alloy",
+                input_audio_format: "pcm16",
+                output_audio_format: "pcm16",
+                turn_detection: {
+                    type: "server_vad",
+                    threshold: 0.5,
+                    prefix_padding_ms: 300,
+                    silence_duration_ms: 500
+                }
+            }
+        };
+        
+        // Add tools if available
+        if (this.tools.length > 0) {
+            config.session.tools = this.tools;
+            config.session.tool_choice = "auto";
+        }
+        
+        this.log('Sending session config:', config);
+        this.ws.send(JSON.stringify(config));
+    }
+    
+    /**
+     * Handle incoming WebSocket messages
+     */
+    handleMessage(data) {
+        try {
+            const message = JSON.parse(data);
+            this.log('Received message:', message.type);
+            
+            switch (message.type) {
+                case 'session.created':
+                    this.log('Session created:', message.session);
+                    this.onStatusChange('session_ready', 'Session ready - you can speak now');
+                    break;
+                    
+                case 'session.updated':
+                    this.log('Session updated:', message.session);
+                    break;
+                    
+                case 'input_audio_buffer.speech_started':
+                    this.log('Speech detected');
+                    this.onStatusChange('listening', 'Listening...');
+                    break;
+                    
+                case 'input_audio_buffer.speech_stopped':
+                    this.log('Speech stopped');
+                    this.onStatusChange('processing', 'Processing...');
+                    break;
+                    
+                case 'conversation.item.input_audio_transcription.completed':
+                    this.log('User transcript:', message.transcript);
+                    this.onTranscript(message.transcript, 'user');
+                    break;
+                    
+                case 'response.audio_transcript.delta':
+                    // Partial transcript of AI response
+                    this.onResponse(message.delta, true);
+                    break;
+                    
+                case 'response.audio_transcript.done':
+                    // Complete transcript of AI response
+                    this.log('AI response transcript:', message.transcript);
+                    this.onResponse(message.transcript, false);
+                    break;
+                    
+                case 'response.audio.delta':
+                    // Audio chunk from AI
+                    this.handleAudioChunk(message.delta);
+                    break;
+                    
+                case 'response.audio.done':
+                    this.log('Audio response complete');
+                    this.onAudioEnd();
+                    break;
+                    
+                case 'response.function_call_arguments.done':
+                    this.log('Tool call:', message.name, message.arguments);
+                    this.handleToolCall(message);
+                    break;
+                    
+                case 'response.done':
+                    this.log('Response complete');
+                    this.onStatusChange('ready', 'Ready');
+                    break;
+                    
+                case 'error':
+                    this.log('Error:', message.error);
+                    this.onError(message.error?.message || 'Unknown error');
+                    break;
+                    
+                default:
+                    this.log('Unhandled message type:', message.type);
+            }
+        } catch (error) {
+            this.log('Error parsing message:', error);
+        }
+    }
+    
+    /**
+     * Handle audio chunks from the AI response
+     */
+    handleAudioChunk(base64Audio) {
+        if (!base64Audio) return;
+        
+        try {
+            // Decode base64 audio
+            const binaryString = atob(base64Audio);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            
+            // Convert to Int16Array (PCM16)
+            const int16Array = new Int16Array(bytes.buffer);
+            
+            // Queue for playback
+            this.audioQueue.push(int16Array);
+            
+            // Start playback when we have enough buffered (reduces stuttering)
+            if (!this.isPlaying && this.audioQueue.length >= this.minBufferChunks) {
+                this.onAudioStart();
+                this.playAudioQueueSmooth();
+            }
+        } catch (error) {
+            this.log('Error processing audio chunk:', error);
+        }
+    }
+    
+    /**
+     * Play queued audio chunks with smooth continuous playback
+     * Uses scheduled playback to eliminate gaps between chunks
+     */
+    async playAudioQueueSmooth() {
+        if (this.isPlaying) return;
+        
+        this.isPlaying = true;
+        
+        if (!this.playbackContext) {
+            this.playbackContext = new (window.AudioContext || window.webkitAudioContext)({
+                sampleRate: this.sampleRate
+            });
+        }
+        
+        // Resume if suspended
+        if (this.playbackContext.state === 'suspended') {
+            await this.playbackContext.resume();
+        }
+        
+        // Track when next audio should start (for gapless playback)
+        let nextStartTime = this.playbackContext.currentTime + 0.05; // Small initial delay
+        
+        const processQueue = async () => {
+            while (this.audioQueue.length > 0 || this.isPlaying) {
+                if (this.audioQueue.length === 0) {
+                    // Wait a bit for more audio to arrive
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                    
+                    // If still empty after waiting, we're done
+                    if (this.audioQueue.length === 0) {
+                        break;
+                    }
+                }
+                
+                // Combine multiple small chunks for smoother playback
+                const chunksToPlay = [];
+                let totalSamples = 0;
+                const maxSamplesPerBuffer = this.sampleRate * 0.5; // Max 500ms per buffer
+                
+                while (this.audioQueue.length > 0 && totalSamples < maxSamplesPerBuffer) {
+                    const chunk = this.audioQueue.shift();
+                    chunksToPlay.push(chunk);
+                    totalSamples += chunk.length;
+                }
+                
+                if (chunksToPlay.length === 0) continue;
+                
+                // Combine chunks into single buffer
+                const combinedArray = new Float32Array(totalSamples);
+                let offset = 0;
+                for (const chunk of chunksToPlay) {
+                    for (let i = 0; i < chunk.length; i++) {
+                        combinedArray[offset + i] = chunk[i] / 32768.0;
+                    }
+                    offset += chunk.length;
+                }
+                
+                // Create audio buffer
+                const audioBuffer = this.playbackContext.createBuffer(1, totalSamples, this.sampleRate);
+                audioBuffer.getChannelData(0).set(combinedArray);
+                
+                // Schedule playback at precise time (gapless)
+                const source = this.playbackContext.createBufferSource();
+                source.buffer = audioBuffer;
+                source.connect(this.playbackContext.destination);
+                
+                // If we've fallen behind, catch up
+                const now = this.playbackContext.currentTime;
+                if (nextStartTime < now) {
+                    nextStartTime = now + 0.01;
+                }
+                
+                source.start(nextStartTime);
+                nextStartTime += audioBuffer.duration;
+                
+                // Wait until this chunk is mostly done before processing more
+                const waitTime = (nextStartTime - this.playbackContext.currentTime - 0.1) * 1000;
+                if (waitTime > 0) {
+                    await new Promise(resolve => setTimeout(resolve, Math.min(waitTime, 200)));
+                }
+            }
+            
+            this.isPlaying = false;
+            this.onAudioEnd();
+        };
+        
+        processQueue();
+    }
+    
+    /**
+     * Handle tool calls from the AI
+     */
+    async handleToolCall(message) {
+        const toolName = message.name;
+        const args = JSON.parse(message.arguments || '{}');
+        const callId = message.call_id;
+        
+        this.log('Executing tool:', toolName, args);
+        this.onToolCall(toolName, args);
+        
+        let result = {};
+        
+        try {
+            // Call the dedicated tool execution endpoint
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: toolName,
+                    arguments: args
+                })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                result = data.result || data;
+                this.log('Tool result:', result);
+            } else {
+                const errorData = await response.json();
+                result = { error: errorData.error || 'Tool execution failed' };
+            }
+        } catch (error) {
+            this.log('Tool call error:', error);
+            result = { error: error.message };
+        }
+        
+        // Send tool result back to the API
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            this.ws.send(JSON.stringify({
+                type: 'conversation.item.create',
+                item: {
+                    type: 'function_call_output',
+                    call_id: callId,
+                    output: JSON.stringify(result)
+                }
+            }));
+            
+            // Request the model to continue
+            this.ws.send(JSON.stringify({
+                type: 'response.create'
+            }));
+        }
+    }
+    
+    /**
+     * Start recording audio from the microphone
+     */
+    async startRecording() {
+        if (this.isRecording) return;
+        
+        try {
+            // Request microphone access
+            this.mediaStream = await navigator.mediaDevices.getUserMedia({
+                audio: {
+                    sampleRate: this.inputSampleRate,
+                    channelCount: 1,
+                    echoCancellation: true,
+                    noiseSuppression: true
+                }
+            });
+            
+            if (!this.audioContext) {
+                this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
+                    sampleRate: this.sampleRate
+                });
+            }
+            
+            // Resume audio context if suspended
+            if (this.audioContext.state === 'suspended') {
+                await this.audioContext.resume();
+            }
+            
+            // Create audio processing pipeline
+            const source = this.audioContext.createMediaStreamSource(this.mediaStream);
+            const processor = this.audioContext.createScriptProcessor(4096, 1, 1);
+            
+            processor.onaudioprocess = (event) => {
+                if (!this.isRecording || !this.isConnected) return;
+                
+                const inputData = event.inputBuffer.getChannelData(0);
+                
+                // Resample to 24kHz and convert to PCM16
+                const resampledData = this.resampleAudio(inputData, this.audioContext.sampleRate, this.sampleRate);
+                const pcm16Data = this.float32ToPcm16(resampledData);
+                
+                // Send to WebSocket
+                this.sendAudioChunk(pcm16Data);
+            };
+            
+            source.connect(processor);
+            processor.connect(this.audioContext.destination);
+            
+            this.audioWorklet = { source, processor };
+            this.isRecording = true;
+            
+            this.onStatusChange('recording', 'Listening...');
+            this.log('Recording started');
+            
+        } catch (error) {
+            this.log('Recording error:', error);
+            this.onError('Microphone access denied or not available');
+            throw error;
+        }
+    }
+    
+    /**
+     * Stop recording audio
+     */
+    stopRecording() {
+        if (!this.isRecording) return;
+        
+        this.isRecording = false;
+        
+        if (this.audioWorklet) {
+            this.audioWorklet.processor.disconnect();
+            this.audioWorklet.source.disconnect();
+            this.audioWorklet = null;
+        }
+        
+        if (this.mediaStream) {
+            this.mediaStream.getTracks().forEach(track => track.stop());
+            this.mediaStream = null;
+        }
+        
+        // Send commit message to signal end of audio input
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            this.ws.send(JSON.stringify({
+                type: 'input_audio_buffer.commit'
+            }));
+        }
+        
+        this.onStatusChange('processing', 'Processing...');
+        this.log('Recording stopped');
+    }
+    
+    /**
+     * Send audio chunk to the WebSocket
+     */
+    sendAudioChunk(pcm16Data) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
+        
+        // Convert to base64
+        const base64Audio = this.arrayBufferToBase64(pcm16Data.buffer);
+        
+        this.ws.send(JSON.stringify({
+            type: 'input_audio_buffer.append',
+            audio: base64Audio
+        }));
+    }
+    
+    /**
+     * Resample audio data to target sample rate
+     */
+    resampleAudio(inputData, inputSampleRate, outputSampleRate) {
+        if (inputSampleRate === outputSampleRate) {
+            return inputData;
+        }
+        
+        const ratio = inputSampleRate / outputSampleRate;
+        const outputLength = Math.round(inputData.length / ratio);
+        const output = new Float32Array(outputLength);
+        
+        for (let i = 0; i < outputLength; i++) {
+            const srcIndex = i * ratio;
+            const srcIndexFloor = Math.floor(srcIndex);
+            const srcIndexCeil = Math.min(srcIndexFloor + 1, inputData.length - 1);
+            const fraction = srcIndex - srcIndexFloor;
+            
+            output[i] = inputData[srcIndexFloor] * (1 - fraction) + inputData[srcIndexCeil] * fraction;
+        }
+        
+        return output;
+    }
+    
+    /**
+     * Convert Float32 audio to PCM16
+     */
+    float32ToPcm16(float32Array) {
+        const pcm16 = new Int16Array(float32Array.length);
+        for (let i = 0; i < float32Array.length; i++) {
+            const s = Math.max(-1, Math.min(1, float32Array[i]));
+            pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+        }
+        return pcm16;
+    }
+    
+    /**
+     * Convert ArrayBuffer to base64
+     */
+    arrayBufferToBase64(buffer) {
+        const bytes = new Uint8Array(buffer);
+        let binary = '';
+        for (let i = 0; i < bytes.byteLength; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return btoa(binary);
+    }
+    
+    /**
+     * Send a text message (for testing or fallback)
+     */
+    sendTextMessage(text) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.onError('Not connected');
+            return;
+        }
+        
+        this.ws.send(JSON.stringify({
+            type: 'conversation.item.create',
+            item: {
+                type: 'message',
+                role: 'user',
+                content: [{
+                    type: 'input_text',
+                    text: text
+                }]
+            }
+        }));
+        
+        // Request response
+        this.ws.send(JSON.stringify({
+            type: 'response.create'
+        }));
+    }
+    
+    /**
+     * Disconnect from the WebSocket
+     */
+    disconnect() {
+        this.stopRecording();
+        
+        if (this.ws) {
+            this.ws.close();
+            this.ws = null;
+        }
+        
+        if (this.audioContext) {
+            this.audioContext.close();
+            this.audioContext = null;
+        }
+        
+        if (this.playbackContext) {
+            this.playbackContext.close();
+            this.playbackContext = null;
+        }
+        
+        this.isConnected = false;
+        this.audioQueue = [];
+        this.isPlaying = false;
+        
+        this.onStatusChange('disconnected', 'Disconnected');
+        this.log('Disconnected');
+    }
+    
+    /**
+     * Toggle recording state
+     */
+    async toggleRecording() {
+        if (this.isRecording) {
+            this.stopRecording();
+        } else {
+            if (!this.isConnected) {
+                await this.connect();
+            }
+            await this.startRecording();
+        }
+    }
+    
+    /**
+     * Check if realtime voice is supported
+     */
+    static isSupported() {
+        return !!(
+            navigator.mediaDevices &&
+            navigator.mediaDevices.getUserMedia &&
+            (window.AudioContext || window.webkitAudioContext) &&
+            window.WebSocket
+        );
+    }
+}
+
+// Export for use in main app
+window.RealtimeVoiceClient = RealtimeVoiceClient;

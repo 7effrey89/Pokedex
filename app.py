@@ -12,6 +12,7 @@ from pokemon_tcg_tools import PokemonTCGTools
 from mcp_client import search_tcg_cards as mcp_search_cards, get_tcg_card_price as mcp_get_price, format_cards_for_display
 from tool_manager import tool_manager
 from azure_openai_chat import get_azure_chat
+from realtime_chat import get_realtime_config, get_session_config, check_realtime_availability, get_available_tools as get_realtime_tools
 import time
 import re
 
@@ -693,6 +694,191 @@ def get_history(user_id):
 def health():
     """Health check endpoint"""
     return jsonify({"status": "healthy", "service": "Pokemon Chat Demo"})
+
+
+# ============= Realtime Voice API Endpoints =============
+
+@app.route('/api/realtime/config', methods=['GET'])
+def get_realtime_connection_config():
+    """
+    Get WebSocket configuration for Azure OpenAI Realtime API.
+    The browser will use this to establish a direct WebSocket connection.
+    
+    Returns:
+        JSON with WebSocket URL and session configuration
+    """
+    try:
+        availability = check_realtime_availability()
+        
+        if not availability['available']:
+            return jsonify({
+                "error": availability['message'],
+                "available": False
+            }), 400
+        
+        config = get_realtime_config()
+        session_config = get_session_config()
+        tools = get_realtime_tools()
+        
+        return jsonify({
+            "available": True,
+            "ws_url": config['ws_url'],
+            "api_key": config['api_key'],
+            "session_config": session_config,
+            "tools": tools
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "error": str(e),
+            "available": False
+        }), 500
+
+
+@app.route('/api/realtime/status', methods=['GET'])
+def get_realtime_status():
+    """
+    Check if Azure OpenAI Realtime API is available.
+    
+    Returns:
+        JSON with availability status
+    """
+    availability = check_realtime_availability()
+    return jsonify(availability)
+
+
+@app.route('/api/realtime/tool', methods=['POST'])
+def execute_realtime_tool():
+    """
+    Execute a tool call from the Realtime API.
+    This endpoint allows the Realtime voice client to invoke MCP servers and other tools.
+    
+    Request body:
+        {
+            "tool_name": "get_pokemon_info",
+            "arguments": {"pokemon_name": "pikachu"}
+        }
+    
+    Returns:
+        JSON with tool execution result
+    """
+    try:
+        data = request.get_json()
+        tool_name = data.get('tool_name')
+        arguments = data.get('arguments', {})
+        
+        if not tool_name:
+            return jsonify({"error": "tool_name is required"}), 400
+        
+        result = {}
+        
+        # Execute the appropriate tool handler
+        if tool_name == 'get_pokemon_info':
+            pokemon_name = arguments.get('pokemon_name', '')
+            use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
+            use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
+            
+            if not use_pokeapi and not use_poke_mcp:
+                result = {"error": "Pokemon lookup tools are disabled"}
+            else:
+                pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
+                if pokemon_info:
+                    species_info = pokemon_tools.get_pokemon_species(pokemon_name)
+                    result = pokemon_tools.format_pokemon_info(pokemon_info, species_info)
+                else:
+                    result = {"error": f"Pokemon '{pokemon_name}' not found"}
+        
+        elif tool_name == 'get_random_pokemon':
+            import random
+            random_id = random.randint(1, 1000)
+            pokemon_data = pokemon_tools.get_pokemon(str(random_id))
+            if pokemon_data:
+                species_info = pokemon_tools.get_pokemon_species(str(random_id))
+                result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
+            else:
+                result = {"error": "Failed to get random Pokemon"}
+        
+        elif tool_name == 'get_random_pokemon_from_region':
+            import random
+            region = arguments.get('region', 'kanto')
+            region_ranges = {
+                "kanto": (1, 151), "johto": (152, 251), "hoenn": (252, 386),
+                "sinnoh": (387, 493), "unova": (494, 649), "kalos": (650, 721),
+                "alola": (722, 809), "galar": (810, 905), "paldea": (906, 1010)
+            }
+            region_lower = region.lower()
+            if region_lower in region_ranges:
+                start, end = region_ranges[region_lower]
+                random_id = random.randint(start, end)
+                pokemon_data = pokemon_tools.get_pokemon(str(random_id))
+                if pokemon_data:
+                    species_info = pokemon_tools.get_pokemon_species(str(random_id))
+                    result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
+                    result["region"] = region.title()
+                else:
+                    result = {"error": f"Failed to get random Pokemon from {region}"}
+            else:
+                result = {"error": f"Unknown region: {region}"}
+        
+        elif tool_name == 'get_random_pokemon_by_type':
+            import random
+            import requests
+            pokemon_type = arguments.get('pokemon_type', 'fire')
+            try:
+                response = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon_type.lower()}", timeout=10)
+                if response.status_code == 200:
+                    type_data = response.json()
+                    pokemon_list = type_data.get("pokemon", [])
+                    if pokemon_list:
+                        random_pokemon = random.choice(pokemon_list)
+                        pokemon_name = random_pokemon["pokemon"]["name"]
+                        pokemon_data = pokemon_tools.get_pokemon(pokemon_name)
+                        if pokemon_data:
+                            species_info = pokemon_tools.get_pokemon_species(pokemon_name)
+                            result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
+                        else:
+                            result = {"error": f"Failed to get {pokemon_type} Pokemon"}
+                    else:
+                        result = {"error": f"No {pokemon_type} type Pokemon found"}
+                else:
+                    result = {"error": f"Invalid type: {pokemon_type}"}
+            except Exception as e:
+                result = {"error": str(e)}
+        
+        elif tool_name == 'search_pokemon_cards':
+            pokemon_name = arguments.get('pokemon_name', '')
+            use_mcp_tcg = tool_manager.is_tool_enabled("pokemon_tcg_mcp")
+            use_direct_tcg = tool_manager.is_tool_enabled("pokemon_tcg")
+            
+            if not use_mcp_tcg and not use_direct_tcg:
+                result = {"error": "TCG tools are disabled"}
+            elif use_mcp_tcg:
+                try:
+                    mcp_result = mcp_search_cards(name=pokemon_name, page_size=6)
+                    formatted = format_cards_for_display(mcp_result)
+                    if "cards" in formatted:
+                        result = {"cards": formatted["cards"], "total_count": formatted.get("count", 0)}
+                    else:
+                        result = {"error": "No cards found"}
+                except Exception as e:
+                    result = {"error": str(e)}
+            elif use_direct_tcg:
+                cards_data = pokemon_tcg_tools.search_cards(pokemon_name, page_size=6)
+                if cards_data and cards_data.get("data"):
+                    result = {
+                        "cards": pokemon_tcg_tools.format_cards_response(cards_data),
+                        "total_count": cards_data.get("totalCount", 0)
+                    }
+                else:
+                    result = {"error": "No cards found"}
+        
+        else:
+            result = {"error": f"Unknown tool: {tool_name}"}
+        
+        return jsonify({"result": result})
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 # ============= Tool Management API Endpoints =============
