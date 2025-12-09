@@ -45,6 +45,14 @@
                         </svg>
                         <span class="voice-text">Voice</span>
                     </button>
+                    <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="camera-text">Scan</span>
+                    </button>
                     <div class="status-indicator" id="statusIndicator">
                         <span class="status-dot"></span>
                         <span class="status-text">Online</span>
@@ -142,6 +150,26 @@
                 <button class="tcg-card-modal-close" id="tcgCardModalClose">&times;</button>
                 <div class="tcg-card-modal-content" id="tcgCardModalContent">
                     <!-- TCG card details will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Camera Scanner Modal -->
+        <div class="camera-modal-overlay" id="cameraModalOverlay">
+            <div class="camera-modal">
+                <div class="camera-modal-header">
+                    <div>
+                        <h2>Image Scanner</h2>
+                        <p class="camera-modal-subtitle">Share a card or poster and get real-time insights.</p>
+                    </div>
+                    <button class="camera-modal-close" id="cameraModalClose" aria-label="Close camera scanner">&times;</button>
+                </div>
+                <div class="camera-modal-body">
+                    <video id="cameraPreview" autoplay playsinline muted></video>
+                    <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
+                </div>
+                <div class="camera-modal-actions">
+                    <p class="camera-modal-note">Scanning runs the moment this window opens and pauses as soon as you close it.</p>
                 </div>
             </div>
         </div>

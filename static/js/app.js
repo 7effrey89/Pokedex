@@ -23,6 +23,17 @@ class PokemonChatApp {
         this.voiceButton = document.getElementById('voiceButton');
         this.statusText = document.querySelector('.status-text');
         
+        // Camera scanner elements
+        this.cameraButton = document.getElementById('cameraButton');
+        this.cameraModalOverlay = document.getElementById('cameraModalOverlay');
+        this.cameraModalClose = document.getElementById('cameraModalClose');
+        this.cameraPreview = document.getElementById('cameraPreview');
+        this.cameraStatusText = document.getElementById('cameraStatusText');
+        this.cameraStream = null;
+        this.isScanModeActive = false;
+        this.shouldSendSnapshotOnNextQuestion = false;
+        this.isSendingImage = false;
+        
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
         this.toolsModalOverlay = document.getElementById('toolsModalOverlay');
@@ -43,11 +54,13 @@ class PokemonChatApp {
         // Azure OpenAI Realtime Voice client
         this.realtimeVoice = null;
         this.useRealtimeApi = false; // Will be set to true if available
+        this.realtimeVoiceSessionAnnounced = false;
         
         this.initializeVoice();
         
         this.initializeEventListeners();
         this.initializeToolsModal();
+        this.initializeCameraControls();
         this.adjustTextareaHeight();
         this.loadTools();
     }
@@ -144,6 +157,187 @@ class PokemonChatApp {
                     this.closeTcgCardModal();
                 }
             });
+        }
+    }
+
+    initializeCameraControls() {
+        if (this.cameraButton) {
+            this.cameraButton.addEventListener('click', () => this.openCameraModal());
+        }
+
+        if (this.cameraModalOverlay) {
+            this.cameraModalOverlay.addEventListener('click', (e) => {
+                if (e.target === this.cameraModalOverlay) {
+                    this.closeCameraModal();
+                }
+            });
+        }
+
+        if (this.cameraModalClose) {
+            this.cameraModalClose.addEventListener('click', () => this.closeCameraModal());
+        }
+
+    }
+
+    async openCameraModal() {
+        if (!this.cameraModalOverlay) return;
+        this.cameraModalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        await this.startCameraPreview();
+        await this.startCameraScanningSession();
+    }
+
+    closeCameraModal() {
+        if (!this.cameraModalOverlay) return;
+        this.cameraModalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        this.stopCameraScanning();
+        this.stopCameraStream();
+        this.updateCameraStatus('Camera closed. Reopen to scan more.');
+    }
+
+    enableScanMode() {
+        this.isScanModeActive = true;
+        this.shouldSendSnapshotOnNextQuestion = true;
+        this.updateCameraStatus('Scan mode active. Ask a question any time to include the current frame.');
+    }
+
+    disableScanMode() {
+        this.isScanModeActive = false;
+        this.shouldSendSnapshotOnNextQuestion = false;
+        this.updateCameraStatus('Scan mode paused.');
+    }
+
+    async startCameraScanningSession() {
+        if (this.isScanModeActive) {
+            return true;
+        }
+
+        try {
+            await this.activateRealtimeConversation({ announce: false });
+        } catch (error) {
+            console.error('Failed to start realtime session for scanning:', error);
+            this.updateCameraStatus('Realtime voice session required to scan images.');
+            this.showToast('Image Scanner', 'Enable realtime voice so I can describe what I see.', 'error');
+            return false;
+        }
+
+        this.enableScanMode();
+        return true;
+    }
+
+    stopCameraScanning() {
+        if (this.isScanModeActive) {
+            this.disableScanMode();
+        }
+    }
+
+    async startCameraPreview() {
+        if (!this.cameraPreview) return;
+
+        if (this.cameraStream) {
+            this.cameraPreview.srcObject = this.cameraStream;
+            return;
+        }
+
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            this.updateCameraStatus('Camera access is not supported on this device.');
+            return;
+        }
+
+        try {
+            this.cameraStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'environment' },
+                audio: false
+            });
+
+            this.cameraPreview.srcObject = this.cameraStream;
+            await this.cameraPreview.play().catch(() => {});
+            this.updateCameraStatus('Camera ready. Capture or scan when you are ready.');
+        } catch (error) {
+            console.error('Camera preview failed:', error);
+            this.updateCameraStatus('Camera access denied or unavailable.');
+            this.stopCameraStream();
+        }
+    }
+
+    stopCameraStream() {
+        if (this.cameraStream) {
+            this.cameraStream.getTracks().forEach(track => track.stop());
+            this.cameraStream = null;
+        }
+
+        if (this.cameraPreview) {
+            this.cameraPreview.pause();
+            this.cameraPreview.srcObject = null;
+        }
+    }
+
+    async sendCameraSnapshot(mode = 'manual') {
+        if (this.isSendingImage) return;
+        if (!this.cameraPreview || this.cameraPreview.readyState < 2) {
+            this.updateCameraStatus('Waiting for camera feed...');
+            return false;
+        }
+
+        if (!this.realtimeVoice || !this.useRealtimeApi) {
+            this.updateCameraStatus('Realtime session is not ready. Activate voice mode first.');
+            this.showToast('Image Scanner', 'Enable Realtime voice so the model can analyze the image.', 'info');
+            return false;
+        }
+
+        this.isSendingImage = true;
+        this.updateCameraStatus('Sending image to GPT...');
+
+        const prompt = null;
+        const willRequestResponse = false;
+
+        try {
+            await this.activateRealtimeConversation({ announce: false });
+            if (willRequestResponse) {
+                this.realtimeVoice.cancelCurrentResponse();
+            }
+            const sent = await this.realtimeVoice.captureAndSendImage(this.cameraPreview, prompt);
+            if (sent) {
+                if (willRequestResponse) {
+                    this.updateCameraStatus('Image sent. Waiting for the response...');
+                } else {
+                    this.updateCameraStatus('Image added to the context. Ask me anything whenever you are ready.');
+                }
+            } else {
+                this.updateCameraStatus('Could not send the image.');
+                this.showToast('Image Scanner', 'Failed to send the image. Try again.', 'error');
+            }
+            return sent;
+        } catch (error) {
+            console.error('Image send error:', error);
+            this.updateCameraStatus('Image capture failed.');
+            this.showToast('Image Scanner', 'Unable to send the image to GPT. Check your connection.', 'error');
+            return false;
+        } finally {
+            this.isSendingImage = false;
+        }
+    }
+
+    async maybeSendScanSnapshotForQuestion() {
+        if (!this.isScanModeActive || !this.shouldSendSnapshotOnNextQuestion) {
+            return false;
+        }
+
+        this.shouldSendSnapshotOnNextQuestion = false;
+        try {
+            return await this.sendCameraSnapshot('scan');
+        } finally {
+            if (this.isScanModeActive) {
+                this.shouldSendSnapshotOnNextQuestion = true;
+            }
+        }
+    }
+
+    updateCameraStatus(message) {
+        if (this.cameraStatusText) {
+            this.cameraStatusText.textContent = message;
         }
     }
     
@@ -382,6 +576,7 @@ class PokemonChatApp {
                 if (role === 'user') {
                     this.addMessage('user', text);
                     this.hideWelcomeMessage();
+                        void this.maybeSendScanSnapshotForQuestion();
                     // Clear tool calls for new conversation turn
                     this.currentToolCalls = [];
                 }
@@ -557,6 +752,7 @@ class PokemonChatApp {
             // Display user's spoken message
             this.addMessage('user', transcript);
             this.hideWelcomeMessage();
+            void this.maybeSendScanSnapshotForQuestion();
             
             // Process the message
             this.processVoiceMessage(transcript);
@@ -610,30 +806,24 @@ class PokemonChatApp {
     async startVoiceConversation() {
         // Use Realtime API if available
         if (this.useRealtimeApi && this.realtimeVoice) {
-            this.isVoiceActive = true;
-            this.voiceButton.classList.add('active');
-            this.hideWelcomeMessage();
-            
             try {
-                // Connect and start recording
-                await this.realtimeVoice.connect();
-                await this.realtimeVoice.startRecording();
-                
-                this.addMessage('assistant', "🎤 **Real-time voice mode activated!** Using Azure OpenAI Realtime API. Just speak naturally and I'll respond in real-time.");
+                await this.activateRealtimeConversation({ announce: true });
+                return;
             } catch (error) {
                 console.error('Error starting realtime voice:', error);
                 this.addMessage('assistant', `⚠️ Could not start voice: ${error.message}. Falling back to browser voice...`);
                 this.isVoiceActive = false;
                 this.voiceButton.classList.remove('active');
+                this.realtimeVoiceSessionAnnounced = false;
                 
                 // Fall back to browser recognition
                 this.useRealtimeApi = false;
                 this.initializeVoiceRecognition();
                 this.startVoiceConversation();
+                return;
             }
-            return;
         }
-        
+
         // Fallback: Browser Speech Recognition
         if (!this.recognition) {
             this.addMessage('assistant', '⚠️ Voice recognition is not supported in your browser. Please try Chrome, Edge, or Safari.');
@@ -654,6 +844,36 @@ class PokemonChatApp {
             this.stopVoiceConversation();
         }
     }
+
+    async activateRealtimeConversation({ announce = false } = {}) {
+        if (!this.useRealtimeApi) {
+            throw new Error('Realtime API is not enabled');
+        }
+
+        if (!this.realtimeVoice) {
+            throw new Error('Realtime voice client is not initialized');
+        }
+
+        if (!this.realtimeVoice.isConnected) {
+            await this.realtimeVoice.connect();
+        }
+
+        if (!this.realtimeVoice.isRecording) {
+            await this.realtimeVoice.startRecording();
+        }
+
+        const becameActive = !this.isVoiceActive;
+        if (becameActive) {
+            this.isVoiceActive = true;
+            this.voiceButton?.classList.add('active');
+            this.hideWelcomeMessage();
+        }
+
+        if (announce && becameActive && !this.realtimeVoiceSessionAnnounced) {
+            this.addMessage('assistant', "🎤 **Real-time voice mode activated!** Using Azure OpenAI Realtime API. Just speak naturally and I'll respond in real-time.");
+            this.realtimeVoiceSessionAnnounced = true;
+        }
+    }
     
     stopVoiceConversation() {
         this.isVoiceActive = false;
@@ -664,6 +884,7 @@ class PokemonChatApp {
         
         // Stop Realtime API if active
         if (this.useRealtimeApi && this.realtimeVoice) {
+            this.realtimeVoice.cancelCurrentResponse();
             this.realtimeVoice.stopRecording();
             // Don't disconnect - keep connection for quick restart
         }
@@ -683,6 +904,7 @@ class PokemonChatApp {
         }
         
         this.addMessage('assistant', '🔇 Voice mode deactivated.');
+        this.realtimeVoiceSessionAnnounced = false;
     }
     
     async processVoiceMessage(message) {
@@ -786,6 +1008,7 @@ class PokemonChatApp {
         
         // Add user message to chat
         this.addMessage('user', message);
+        void this.maybeSendScanSnapshotForQuestion();
         
         // Show loading indicator
         this.setLoading(true);
