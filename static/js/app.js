@@ -686,7 +686,8 @@ class PokemonChatApp {
                 }
                 
                 if (success && result && result.assistant_text) {
-                    this.addMessage('assistant', result.assistant_text, result);
+                    const displayData = result.pokemon_data || result;
+                    this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
                 }
             }
         });
@@ -991,16 +992,64 @@ class PokemonChatApp {
         this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 120) + 'px';
     }
     
-    handleQuickAction(action) {
+    async handleQuickAction(action) {
+        if (action === 'random') {
+            await this.triggerRandomQuickAction();
+            return;
+        }
+
         const messages = {
             'help': 'What can you do?',
-            'random': 'Show me a random Pokemon',
             'popular': 'List some popular Pokemon'
         };
         
         if (messages[action]) {
             this.messageInput.value = messages[action];
             this.sendMessage();
+        }
+    }
+
+    async triggerRandomQuickAction() {
+        const userMessage = 'Show me a random Pokemon';
+        this.addMessage('user', userMessage);
+        this.hideWelcomeMessage();
+        this.setLoading(true);
+
+        try {
+            const response = await fetch(`/api/random-pokemon?user_id=${encodeURIComponent(this.userId)}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch a random Pokemon');
+            }
+
+            const data = await response.json();
+            const toolResult = data.result || {};
+            const assistantText = toolResult.assistant_text || `Here's a random Pokémon!`;
+            this.addMessage('assistant', assistantText, toolResult);
+            await this.recordQuickActionContext(userMessage, assistantText, toolResult);
+        } catch (error) {
+            console.error('Random quick action failed:', error);
+            this.addMessage('assistant', 'Sorry, I could not fetch a random Pokémon right now. Try again later.');
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
+    async recordQuickActionContext(userMessage, assistantText, pokemonData) {
+        const cardContext = this.getCardContextPayload();
+        try {
+            await fetch('/api/chat/record', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: this.userId,
+                    user_message: userMessage,
+                    assistant_text: assistantText,
+                    pokemon_data: pokemonData,
+                    card_context: cardContext
+                })
+            });
+        } catch (error) {
+            console.error('Failed to record quick action context:', error);
         }
     }
     
@@ -1015,6 +1064,10 @@ class PokemonChatApp {
         
         // Add user message to chat
         this.addMessage('user', message);
+        // Mirror the text into the realtime context so voice/history stays in sync
+        if (this.useRealtimeApi && this.realtimeVoice?.isConnected) {
+            void this.realtimeVoice.sendContextMessage(message);
+        }
         void this.maybeSendScanSnapshotForQuestion();
         
         // Show loading indicator
@@ -1135,6 +1188,7 @@ class PokemonChatApp {
         if (pokemonData && role === 'assistant') {
             const pokemonDisplay = this.createPokemonDisplay(pokemonData);
             messageDiv.appendChild(pokemonDisplay);
+            this.setCardContext(pokemonData);
         }
         
         // Add TCG cards display if data is provided

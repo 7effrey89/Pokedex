@@ -74,6 +74,141 @@ def build_pokemon_assistant_text(pokemon_info: Dict[str, Any]) -> Optional[str]:
     return markdown.strip() if markdown.strip() else None
 
 
+def parse_mcp_markdown(text: str) -> Dict[str, Any]:
+    parsed: Dict[str, Any] = {}
+    if not text:
+        return parsed
+
+    header_match = re.search(r"#\s*(.+?)\s*\(#(\d+)\)", text)
+    if header_match:
+        parsed['name'] = header_match.group(1).strip()
+        parsed['id'] = int(header_match.group(2))
+
+    description_match = re.search(r"\*\*Description:\*\*\s*(.+)", text)
+    if description_match:
+        parsed['description'] = description_match.group(1).strip()
+
+    types_match = re.search(r"\*\*Types:\*\*\s*(.+)", text)
+    if types_match:
+        types = [t.strip().title() for t in types_match.group(1).split(',') if t.strip()]
+        if types:
+            parsed['types'] = types
+
+    height_match = re.search(r"\*\*Height:\*\*\s*([\d\.]+)m", text)
+    if height_match:
+        parsed['height'] = float(height_match.group(1))
+
+    weight_match = re.search(r"\*\*Weight:\*\*\s*([\d\.]+)kg", text)
+    if weight_match:
+        parsed['weight'] = float(weight_match.group(1))
+
+    abilities_match = re.search(r"\*\*Abilities:\*\*\s*(.+)", text)
+    if abilities_match:
+        abilities = [a.strip().title() for a in abilities_match.group(1).split(',') if a.strip()]
+        if abilities:
+            parsed['abilities'] = abilities
+
+    return parsed
+
+
+def apply_mcp_markdown_data(result: Dict[str, Any]) -> None:
+    if not result or 'error' in result:
+        return
+
+    content = result.get('content', [])
+    for item in content:
+        if item.get('type') != 'text':
+            continue
+        parsed = parse_mcp_markdown(item.get('text', ''))
+        if not parsed:
+            continue
+
+        # Merge parsed values into top level and pokemon_data
+        pokemon_data = result.setdefault('pokemon_data', {})
+        for key, value in parsed.items():
+            if value is None:
+                continue
+            if result.get(key) is None:
+                result[key] = value
+            if pokemon_data.get(key) is None:
+                pokemon_data[key] = value
+
+        # Save the original markdown for reference
+        if 'mcp_text' not in result:
+            result['mcp_text'] = item.get('text')
+        break
+
+
+def build_official_artwork_url(pokemon_id: Any) -> Optional[str]:
+    try:
+        pokemon_id = int(pokemon_id)
+    except (TypeError, ValueError):
+        return None
+
+    return (
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
+        "/other/official-artwork/" f"{pokemon_id}.png"
+    )
+
+
+def extract_pokemon_identity_from_content(result: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    for item in result.get('content', []):
+        if item.get('type') != 'text':
+            continue
+        text = item.get('text', '')
+        match = re.search(r"#\s*(.+?)\s*\(#(\d+)\)", text)
+        if match:
+            name = match.group(1).strip()
+            try:
+                pokemon_id = int(match.group(2))
+            except ValueError:
+                continue
+            return {'name': name, 'id': pokemon_id}
+    return None
+
+
+def apply_official_artwork(result: Dict[str, Any]) -> None:
+    if not result or 'error' in result:
+        return
+
+    pokemon_data = result.get('pokemon_data') if isinstance(result.get('pokemon_data'), dict) else {}
+    pokemon_id = result.get('id') or pokemon_data.get('id')
+    identity = None
+    if not pokemon_id:
+        identity = extract_pokemon_identity_from_content(result)
+        if identity:
+            pokemon_id = identity.get('id')
+            if identity.get('name') and not result.get('name'):
+                result['name'] = identity['name']
+    if identity and identity.get('name') and not pokemon_data.get('name'):
+        pokemon_data['name'] = identity['name']
+
+    if not pokemon_id:
+        return
+
+    if not result.get('id'):
+        result['id'] = pokemon_id
+    if not pokemon_data.get('id'):
+        pokemon_data['id'] = pokemon_id
+
+    artwork = build_official_artwork_url(pokemon_id)
+    if not artwork:
+        return
+
+    if not result.get('image'):
+        result['image'] = artwork
+    if not result.get('sprite'):
+        result['sprite'] = artwork
+
+    if not pokemon_data:
+        pokemon_data = {}
+        result['pokemon_data'] = pokemon_data
+    if not pokemon_data.get('image'):
+        pokemon_data['image'] = artwork
+    if not pokemon_data.get('sprite'):
+        pokemon_data['sprite'] = artwork
+
+
 def annotate_pokemon_result_with_text(result: Dict[str, Any]) -> Dict[str, Any]:
     if not result or 'error' in result:
         return result
@@ -81,6 +216,8 @@ def annotate_pokemon_result_with_text(result: Dict[str, Any]) -> Dict[str, Any]:
         assistant_text = build_pokemon_assistant_text(result)
         if assistant_text:
             result['assistant_text'] = assistant_text
+    apply_mcp_markdown_data(result)
+    apply_official_artwork(result)
     return result
 
 
@@ -191,7 +328,7 @@ def handle_get_random_pokemon() -> Dict[str, Any]:
             logger.info("📡 Using poke-mcp for get_random_pokemon")
             result = get_random_pokemon_via_mcp()
             if "error" not in result:
-                return result
+                return annotate_pokemon_result_with_text(result)
             logger.warning(f"poke-mcp error: {result.get('error')}")
         except Exception as e:
             logger.warning(f"poke-mcp exception: {e}")
@@ -202,7 +339,8 @@ def handle_get_random_pokemon() -> Dict[str, Any]:
         pokemon_data = pokemon_tools.get_pokemon(str(random_id))
         if pokemon_data:
             species_info = pokemon_tools.get_pokemon_species(str(random_id))
-            return pokemon_tools.format_pokemon_info(pokemon_data, species_info)
+            formatted = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
+            return annotate_pokemon_result_with_text(formatted)
     
     return {"error": "Failed to get random Pokemon"}
 

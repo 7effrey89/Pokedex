@@ -15,7 +15,7 @@ class PokemonTools:
     
     def get_pokemon(self, name_or_id: str) -> Optional[Dict]:
         """
-        Get Pokemon data by name or ID
+        Get Pokemon data by name or ID. Introduces a user to a Pokemon.
         
         Args:
             name_or_id: Pokemon name or ID

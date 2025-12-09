@@ -175,7 +175,7 @@ def detect_tcg_query(message: str) -> tuple:
     return False, None
 
 
-def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None) -> dict:
+def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None, context_only: bool = False) -> dict:
     """
     Generate a response to the user message using Azure OpenAI
     
@@ -203,6 +203,14 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
                 "timestamp": time.time()
             })
             card_contexts[user_id] = normalized_context
+
+    if context_only:
+        return {
+            "message": "",
+            "pokemon_data": None,
+            "tcg_data": None,
+            "timestamp": time.time()
+        }
 
     # Add user message to history
     conversations[user_id].append({
@@ -702,6 +710,53 @@ def execute_realtime_tool():
     except Exception as e:
         print(f"💥 EXCEPTION: {str(e)}")
         print(f"{'='*60}\n")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/random-pokemon', methods=['GET'])
+def random_pokemon_tool():
+    """Return a random Pokemon result via the shared tool handlers."""
+    try:
+        from tool_handlers import execute_tool
+        result = execute_tool('get_random_pokemon', {})
+        return jsonify({"result": result})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/chat/record', methods=['POST'])
+def record_chat_entry():
+    """Store arbitrary chat entries (used by quick actions sharing tool results)."""
+    try:
+        data = request.get_json() or {}
+        user_id = data.get('user_id', 'default')
+        user_message = data.get('user_message')
+        assistant_text = data.get('assistant_text')
+        pokemon_data = data.get('pokemon_data')
+        tcg_data = data.get('tcg_data')
+        card_context = data.get('card_context')
+
+        if card_context:
+            generate_response('', user_id, card_context, context_only=True)
+
+        if user_message:
+            conversations.setdefault(user_id, []).append({
+                "role": "user",
+                "content": user_message,
+                "timestamp": time.time()
+            })
+
+        if assistant_text:
+            conversations.setdefault(user_id, []).append({
+                "role": "assistant",
+                "content": assistant_text,
+                "pokemon_data": pokemon_data,
+                "tcg_data": tcg_data,
+                "timestamp": time.time()
+            })
+
+        return jsonify({"status": "ok"})
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
