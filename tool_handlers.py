@@ -30,6 +30,60 @@ from tool_manager import tool_manager
 logger = logging.getLogger(__name__)
 
 
+def build_pokemon_assistant_text(pokemon_info: Dict[str, Any]) -> Optional[str]:
+    """Generate the markdown-style assistant message for a Pokemon entry."""
+    if not pokemon_info or 'name' not in pokemon_info:
+        return None
+
+    lines = []
+    header = f"**{pokemon_info.get('name').title()}**"
+    if pokemon_info.get('id'):
+        header += f" (#{pokemon_info.get('id')})"
+    lines.append(header)
+
+    description = pokemon_info.get('description') or pokemon_info.get('mcp_text')
+    if description:
+        lines.append('')
+        lines.append(description.strip())
+
+    types = pokemon_info.get('types') or []
+    if types:
+        rendered_types = ', '.join([t.title() for t in types])
+        lines.append('')
+        lines.append(f"**Type(s):** {rendered_types}")
+
+    if pokemon_info.get('height') is not None:
+        lines.append(f"**Height:** {pokemon_info.get('height')}m")
+    if pokemon_info.get('weight') is not None:
+        lines.append(f"**Weight:** {pokemon_info.get('weight')}kg")
+
+    abilities = pokemon_info.get('abilities') or []
+    if abilities:
+        rendered_abilities = ', '.join([a.title() for a in abilities])
+        lines.append(f"**Abilities:** {rendered_abilities}")
+
+    stats = pokemon_info.get('stats') or {}
+    if stats:
+        lines.append('')
+        lines.append("**Base Stats:**")
+        for stat_name, value in stats.items():
+            pretty_name = stat_name.replace('-', ' ').title()
+            lines.append(f"- {pretty_name}: {value}")
+
+    markdown = '\n'.join(line for line in lines if line is not None)
+    return markdown.strip() if markdown.strip() else None
+
+
+def annotate_pokemon_result_with_text(result: Dict[str, Any]) -> Dict[str, Any]:
+    if not result or 'error' in result:
+        return result
+    if not result.get('assistant_text'):
+        assistant_text = build_pokemon_assistant_text(result)
+        if assistant_text:
+            result['assistant_text'] = assistant_text
+    return result
+
+
 # ============= Pokemon Data Handlers =============
 
 def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
@@ -99,10 +153,10 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
                         if parsed_id:
                             fallback["image"] = make_official_artwork_url(parsed_id)
                             fallback["sprite"] = fallback["image"].replace("other/official-artwork/", "")
-                        return fallback
+                        return annotate_pokemon_result_with_text(fallback)
 
                 # Otherwise return the raw MCP result
-                return result
+                return annotate_pokemon_result_with_text(result)
             logger.warning(f"poke-mcp error: {result.get('error')}")
         except Exception as e:
             logger.warning(f"poke-mcp exception: {e}")
@@ -112,7 +166,8 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
         pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
         if pokemon_info:
             species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-            return pokemon_tools.format_pokemon_info(pokemon_info, species_info)
+            formatted = pokemon_tools.format_pokemon_info(pokemon_info, species_info)
+            return annotate_pokemon_result_with_text(formatted)
     
     return {"error": f"Pokemon '{pokemon_name}' not found"}
 

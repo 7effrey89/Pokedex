@@ -11,6 +11,7 @@ A real-time, mobile-friendly Pokemon chat assistant that allows users to ask que
 - 💬 **Natural Language** - Ask questions in plain English
 - 🎤 **Voice Conversation** - Talk to the assistant using voice commands
 - 🃏 **Trading Card Game** - Search and view Pokemon TCG cards with images (NEW!)
+- 💡 **Card Context Awareness** - The assistant keeps track of the MCP card you have open and injects that card’s summary into every conversation so follow-ups can reference it directly
 - 🛠️ **Tool Management** - Enable/disable features via settings modal (NEW!)
 - ⚡ **Fast Lookup** - Powered by PokeAPI for comprehensive Pokemon data
 - 🎨 **Beautiful UI** - Modern, colorful design inspired by Pokemon

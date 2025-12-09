@@ -684,6 +684,10 @@ class PokemonChatApp {
                 if (!success) {
                     console.warn(`Tool ${displayName} failed:`, result.error || 'Unknown error');
                 }
+                
+                if (success && result && result.assistant_text) {
+                    this.addMessage('assistant', result.assistant_text, result);
+                }
             }
         });
         
