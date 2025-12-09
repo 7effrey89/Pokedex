@@ -1181,3 +1181,232 @@ body {
     background: #fff3cd;
     color: #856404;
 }
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: toastSlideIn 0.3s ease-out;
+    pointer-events: auto;
+    max-width: 350px;
+    font-size: 0.9rem;
+}
+
+.toast.toast-tool {
+    border-color: rgba(100, 200, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(100, 200, 255, 0.3);
+}
+
+.toast.toast-success {
+    border-color: rgba(100, 255, 150, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(100, 255, 150, 0.3);
+}
+
+.toast.toast-error {
+    border-color: rgba(255, 100, 100, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 100, 100, 0.3);
+}
+
+.toast-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.toast-message {
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+.toast.hiding {
+    animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Loading spinner for tool calls */
+.toast-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #64c8ff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Chain of Thought Accordion */
+.chain-of-thought {
+    margin-top: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cot-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(100, 200, 255, 0.1);
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    color: #64c8ff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.cot-toggle:hover {
+    background: rgba(100, 200, 255, 0.2);
+}
+
+.cot-toggle-icon {
+    transition: transform 0.3s;
+    font-size: 0.7rem;
+}
+
+.chain-of-thought.expanded .cot-toggle-icon {
+    transform: rotate(90deg);
+}
+
+.cot-content {
+    display: none;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chain-of-thought.expanded .cot-content {
+    display: block;
+}
+
+.cot-step {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #64c8ff;
+}
+
+.cot-step:last-child {
+    margin-bottom: 0;
+}
+
+.cot-step-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.cot-step-icon {
+    font-size: 1rem;
+}
+
+.cot-step.success {
+    border-left-color: #4caf50;
+}
+
+.cot-step.error {
+    border-left-color: #f44336;
+}
+
+.cot-step.pending {
+    border-left-color: #ff9800;
+}
+
+.cot-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cot-params, .cot-result {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 6px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.cot-result {
+    border-left: 2px solid #4caf50;
+}
+
+.cot-result.error {
+    border-left-color: #f44336;
+    color: #ff8a80;
+}
+
+.cot-duration {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+}

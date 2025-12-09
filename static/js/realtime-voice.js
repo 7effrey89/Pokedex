@@ -16,11 +16,18 @@ class RealtimeVoiceClient {
         this.isRecording = false;
         this.sessionConfig = null;
         this.tools = [];
+        this.useNativeMcp = false; // If true, API handles tool calls automatically
+        this.supportsImageInput = false; // If true, can send images to the conversation
         
         // Audio playback queue and buffering
         this.audioQueue = [];
         this.isPlaying = false;
         this.minBufferChunks = 3; // Wait for this many chunks before starting playback
+        this.currentAudioSources = []; // Track active audio sources for cancellation
+        this.currentResponseId = null; // Track current response for interruption
+        this.isResponseActive = false; // Track if AI is currently responding
+        this.audioBytesSent = 0; // Track bytes sent to avoid empty buffer commits
+        this.minAudioBytesForCommit = 3200; // Minimum ~100ms at 16kHz 16-bit mono
         
         // Callbacks
         this.onStatusChange = options.onStatusChange || (() => {});
@@ -30,6 +37,7 @@ class RealtimeVoiceClient {
         this.onAudioStart = options.onAudioStart || (() => {});
         this.onAudioEnd = options.onAudioEnd || (() => {});
         this.onToolCall = options.onToolCall || (() => {});
+        this.onToolResult = options.onToolResult || (() => {});
         
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
@@ -63,8 +71,15 @@ class RealtimeVoiceClient {
             this.apiKey = data.api_key;
             this.sessionConfig = data.session_config;
             this.tools = data.tools || [];
+            this.useNativeMcp = data.use_native_mcp || false;
+            this.supportsImageInput = data.supports_image_input || false;
             
-            this.log('Configuration loaded:', { wsUrl: this.wsUrl, hasKey: !!this.apiKey });
+            this.log('Configuration loaded:', { 
+                wsUrl: this.wsUrl, 
+                hasKey: !!this.apiKey,
+                useNativeMcp: this.useNativeMcp,
+                supportsImageInput: this.supportsImageInput
+            });
             this.onStatusChange('ready', 'Realtime voice ready');
             
             return true;
@@ -195,8 +210,10 @@ class RealtimeVoiceClient {
                     break;
                     
                 case 'input_audio_buffer.speech_started':
-                    this.log('Speech detected');
+                    this.log('Speech detected - interrupting AI');
                     this.onStatusChange('listening', 'Listening...');
+                    // Interrupt any ongoing AI response
+                    this.cancelCurrentResponse();
                     break;
                     
                 case 'input_audio_buffer.speech_stopped':
@@ -231,18 +248,63 @@ class RealtimeVoiceClient {
                     break;
                     
                 case 'response.function_call_arguments.done':
-                    this.log('Tool call:', message.name, message.arguments);
-                    this.handleToolCall(message);
+                    // Only handle tool calls client-side if NOT using native MCP
+                    // With native MCP, the API handles tool calls automatically
+                    if (!this.useNativeMcp) {
+                        this.log('Tool call (client-handled):', message.name, message.arguments);
+                        this.handleToolCall(message);
+                    } else {
+                        // Native MCP - API handles it, but we still notify the UI
+                        this.log('Tool call (native MCP):', message.name, '- handled by API');
+                        const args = JSON.parse(message.arguments || '{}');
+                        this.onToolCall(message.name, args);
+                        
+                        // Set a timeout to warn if native MCP seems stuck
+                        this.nativeMcpTimeout = setTimeout(() => {
+                            this.log('Warning: Native MCP tool call may be stuck or unsupported');
+                            this.onToolResult(message.name, args, { 
+                                warning: 'Native MCP may not be supported. Try setting USE_NATIVE_MCP=false in .env' 
+                            }, false);
+                        }, 15000); // 15 second timeout warning
+                    }
                     break;
                     
                 case 'response.done':
                     this.log('Response complete');
+                    this.isResponseActive = false;
+                    // Clear native MCP timeout if set
+                    if (this.nativeMcpTimeout) {
+                        clearTimeout(this.nativeMcpTimeout);
+                        this.nativeMcpTimeout = null;
+                    }
                     this.onStatusChange('ready', 'Ready');
+                    break;
+                
+                case 'response.cancelled':
+                    this.log('Response was cancelled (interrupted)');
+                    this.isResponseActive = false;
+                    // Clear native MCP timeout if set
+                    if (this.nativeMcpTimeout) {
+                        clearTimeout(this.nativeMcpTimeout);
+                        this.nativeMcpTimeout = null;
+                    }
+                    this.onStatusChange('ready', 'Ready');
+                    break;
+                
+                case 'response.created':
+                    this.log('Response started');
+                    this.isResponseActive = true;
                     break;
                     
                 case 'error':
-                    this.log('Error:', message.error);
-                    this.onError(message.error?.message || 'Unknown error');
+                    // Ignore "no active response" errors from cancellation attempts
+                    const errorMsg = message.error?.message || 'Unknown error';
+                    if (errorMsg.includes('no active response')) {
+                        this.log('Ignoring cancellation error (no active response)');
+                    } else {
+                        this.log('Error:', message.error);
+                        this.onError(errorMsg);
+                    }
                     break;
                     
                 default:
@@ -350,6 +412,15 @@ class RealtimeVoiceClient {
                 source.buffer = audioBuffer;
                 source.connect(this.playbackContext.destination);
                 
+                // Track this source so we can cancel it during interruption
+                this.currentAudioSources.push(source);
+                source.onended = () => {
+                    const index = this.currentAudioSources.indexOf(source);
+                    if (index > -1) {
+                        this.currentAudioSources.splice(index, 1);
+                    }
+                };
+                
                 // If we've fallen behind, catch up
                 const now = this.playbackContext.currentTime;
                 if (nextStartTime < now) {
@@ -374,6 +445,39 @@ class RealtimeVoiceClient {
     }
     
     /**
+     * Cancel the current AI response (for interruption handling)
+     */
+    cancelCurrentResponse() {
+        // 1. Clear the audio queue
+        this.audioQueue = [];
+        
+        // 2. Stop all playing audio sources
+        for (const source of this.currentAudioSources) {
+            try {
+                source.stop();
+            } catch (e) {
+                // Source may have already finished
+            }
+        }
+        this.currentAudioSources = [];
+        this.isPlaying = false;
+        
+        // 3. Only send cancel message if there's an active response
+        if (this.isResponseActive && this.ws && this.ws.readyState === WebSocket.OPEN) {
+            this.log('Cancelling current response...');
+            this.ws.send(JSON.stringify({
+                type: 'response.cancel'
+            }));
+            this.isResponseActive = false;
+            this.log('Sent response.cancel to API');
+        } else {
+            this.log('No active response to cancel, just clearing audio');
+        }
+        
+        this.onAudioEnd();
+    }
+    
+    /**
      * Handle tool calls from the AI
      */
     async handleToolCall(message) {
@@ -385,6 +489,7 @@ class RealtimeVoiceClient {
         this.onToolCall(toolName, args);
         
         let result = {};
+        let success = false;
         
         try {
             // Call the dedicated tool execution endpoint
@@ -400,6 +505,7 @@ class RealtimeVoiceClient {
             if (response.ok) {
                 const data = await response.json();
                 result = data.result || data;
+                success = true;
                 this.log('Tool result:', result);
             } else {
                 const errorData = await response.json();
@@ -409,6 +515,9 @@ class RealtimeVoiceClient {
             this.log('Tool call error:', error);
             result = { error: error.message };
         }
+        
+        // Notify about tool result
+        this.onToolResult(toolName, args, result, success);
         
         // Send tool result back to the API
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
@@ -433,6 +542,9 @@ class RealtimeVoiceClient {
      */
     async startRecording() {
         if (this.isRecording) return;
+        
+        // Reset audio bytes counter for new recording session
+        this.audioBytesSent = 0;
         
         try {
             // Request microphone access
@@ -508,14 +620,25 @@ class RealtimeVoiceClient {
             this.mediaStream = null;
         }
         
-        // Send commit message to signal end of audio input
+        // Only commit if we have enough audio data (at least 100ms)
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-            this.ws.send(JSON.stringify({
-                type: 'input_audio_buffer.commit'
-            }));
+            if (this.audioBytesSent >= this.minAudioBytesForCommit) {
+                this.ws.send(JSON.stringify({
+                    type: 'input_audio_buffer.commit'
+                }));
+                this.onStatusChange('processing', 'Processing...');
+            } else {
+                // Not enough audio - clear the buffer instead
+                this.log(`Audio buffer too small (${this.audioBytesSent} bytes), clearing instead of committing`);
+                this.ws.send(JSON.stringify({
+                    type: 'input_audio_buffer.clear'
+                }));
+                this.onStatusChange('ready', 'Ready');
+            }
         }
         
-        this.onStatusChange('processing', 'Processing...');
+        // Reset bytes counter for next recording
+        this.audioBytesSent = 0;
         this.log('Recording stopped');
     }
     
@@ -524,6 +647,9 @@ class RealtimeVoiceClient {
      */
     sendAudioChunk(pcm16Data) {
         if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
+        
+        // Track bytes sent for commit validation
+        this.audioBytesSent += pcm16Data.byteLength;
         
         // Convert to base64
         const base64Audio = this.arrayBufferToBase64(pcm16Data.buffer);
@@ -650,6 +776,94 @@ class RealtimeVoiceClient {
             }
             await this.startRecording();
         }
+    }
+    
+    /**
+     * Send an image to the conversation
+     * @param {string} imageDataUrl - Base64 data URL of the image (e.g., "data:image/png;base64,...")
+     * @param {string} prompt - Optional text prompt to accompany the image
+     */
+    async sendImage(imageDataUrl, prompt = null) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.log('Cannot send image: WebSocket not connected');
+            this.onError('Not connected to voice service');
+            return false;
+        }
+        
+        this.log('Sending image to conversation');
+        
+        // Create conversation item with image
+        const content = [
+            {
+                type: 'input_image',
+                image_url: imageDataUrl
+            }
+        ];
+        
+        // Add text prompt if provided
+        if (prompt) {
+            content.push({
+                type: 'input_text',
+                text: prompt
+            });
+        }
+        
+        // Send the image as a conversation item
+        this.ws.send(JSON.stringify({
+            type: 'conversation.item.create',
+            item: {
+                type: 'message',
+                role: 'user',
+                content: content
+            }
+        }));
+        
+        // Trigger a response if we included a prompt
+        if (prompt) {
+            this.ws.send(JSON.stringify({
+                type: 'response.create'
+            }));
+        }
+        
+        this.log('Image sent successfully');
+        return true;
+    }
+    
+    /**
+     * Send an image from a File object
+     * @param {File} file - Image file to send
+     * @param {string} prompt - Optional text prompt
+     */
+    async sendImageFile(file, prompt = null) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const result = await this.sendImage(e.target.result, prompt);
+                resolve(result);
+            };
+            reader.onerror = (e) => {
+                this.log('Error reading file:', e);
+                reject(e);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+    
+    /**
+     * Capture image from video element and send
+     * @param {HTMLVideoElement} videoElement - Video element to capture from
+     * @param {string} prompt - Optional text prompt
+     */
+    async captureAndSendImage(videoElement, prompt = null) {
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElement.videoWidth;
+        canvas.height = videoElement.videoHeight;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElement, 0, 0);
+        
+        const imageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        return this.sendImage(imageDataUrl, prompt);
     }
     
     /**

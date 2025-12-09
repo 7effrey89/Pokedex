@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
-import { createServer } from "http";
-import { URL } from "url";
+import express from "express";
 import { z } from "zod";
 import {
   Pokemon,
@@ -450,100 +450,41 @@ I can help with Pokémon queries! Try asking:
   }
 );
 
-// Main function to start the HTTP server
+// Main function to start the MCP server
 async function main() {
-  const port = process.env.PORT ? parseInt(process.env.PORT) : 3001;
-  const transports = new Map<string, SSEServerTransport>();
+  const args = process.argv.slice(2);
+  const useHttp = args.includes('--http');
+  const port = parseInt(args.find(a => a.startsWith('--port='))?.split('=')[1] || '3001');
 
-  const httpServer = createServer(async (req, res) => {
-    const url = new URL(req.url!, `http://${req.headers.host}`);
-    const path = url.pathname;
-    const sessionId = url.searchParams.get("sessionId");
+  if (useHttp) {
+    // HTTP/SSE mode for native MCP
+    const app = express();
+    let sseTransport: SSEServerTransport | null = null;
 
-    // Enable CORS for all requests
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
-    );
-
-    if (req.method === "OPTIONS") {
-      res.writeHead(204);
-      res.end();
-      return;
-    }
-
-    if (path === "/sse") {
-      if (req.method === "GET") {
-        // Handle SSE connection
-        const transport = new SSEServerTransport("/message", res);
-        transports.set(transport.sessionId, transport);
-
-        // Clean up on close
-        transport.onclose = () => {
-          transports.delete(transport.sessionId);
-        };
-
-        await server.connect(transport);
-        console.error(`New SSE connection established: ${transport.sessionId}`);
-      } else {
-        res.writeHead(405).end("Method not allowed");
-      }
-    } else if (path === "/message") {
-      if (req.method === "POST" && sessionId) {
-        // Handle message posting
-        const transport = transports.get(sessionId);
-        if (transport) {
-          // @ts-ignore - handlePostMessage exists on SSEServerTransport
-          await transport.handlePostMessage(req, res);
-        } else {
-          res.writeHead(404).end("Session not found");
-        }
-      } else {
-        res.writeHead(400).end("Bad request");
-      }
-    } else if (path === "/") {
-      // Simple info endpoint
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(
-        JSON.stringify({
-          name: "Pokédex MCP Server",
-          version: "1.0.0",
-          endpoints: {
-            sse: "/sse",
-            message: "/message",
-          },
-          tools: [
-            "get-pokemon",
-            "random-pokemon",
-            "random-pokemon-from-region",
-            "random-pokemon-by-type",
-            "pokemon-query",
-          ],
-          activeConnections: transports.size,
-        })
-      );
-    } else {
-      res.writeHead(404).end("Not found");
-    }
-  });
-
-  httpServer.listen(port, "127.0.0.1", () => {
-    console.error(`Pokédex MCP Server running on HTTP port ${port}`);
-    console.error(`Connect via SSE at: http://127.0.0.1:${port}/sse`);
-  });
-
-  // Graceful shutdown
-  process.on("SIGINT", () => {
-    console.error("Shutting down server...");
-    for (const transport of transports.values()) {
-      transport.close();
-    }
-    httpServer.close(() => {
-      process.exit(0);
+    app.get('/sse', (req, res) => {
+      console.error('SSE connection established');
+      sseTransport = new SSEServerTransport('/messages', res);
+      server.connect(sseTransport);
     });
-  });
+
+    app.post('/messages', (req, res) => {
+      if (sseTransport) {
+        sseTransport.handlePostMessage(req, res);
+      } else {
+        res.status(400).send('No SSE connection');
+      }
+    });
+
+    app.listen(port, () => {
+      console.error(`Pokédex MCP Server running on http://localhost:${port}`);
+      console.error('Connect via SSE at /sse');
+    });
+  } else {
+    // Stdio mode (default)
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+    console.error("Pokédex MCP Server running on stdio");
+  }
 }
 
 main().catch((error) => {

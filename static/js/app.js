@@ -8,6 +8,10 @@ class PokemonChatApp {
         this.tools = [];
         this.pendingToolChanges = {};
         
+        // Chain of thought tracking for current response
+        this.currentToolCalls = [];
+        this.currentToolCallStartTime = null;
+        
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -265,14 +269,18 @@ class PokemonChatApp {
     showTcgCardDetail(card) {
         if (!this.tcgCardModalOverlay || !this.tcgCardModalContent) return;
         
+        // Support both formats: card.images.large (raw API) and card.imageLarge/card.image (formatted)
+        const largeImage = card.images?.large || card.imageLarge || card.images?.small || card.image;
+        const setName = card.set?.name || card.set || 'Unknown Set';
+        
         const cardHTML = `
             <div class="tcg-card-detail">
                 <div class="tcg-card-image">
-                    <img src="${card.images?.large || card.images?.small}" alt="${card.name}">
+                    <img src="${largeImage}" alt="${card.name}">
                 </div>
                 <div class="tcg-card-info">
                     <h2>${card.name}</h2>
-                    <p class="tcg-card-set">${card.set?.name || 'Unknown Set'} - ${card.number || ''}</p>
+                    <p class="tcg-card-set">${setName} - ${card.number || ''}</p>
                     
                     ${card.types ? `
                         <div class="tcg-card-types">
@@ -374,13 +382,32 @@ class PokemonChatApp {
                 if (role === 'user') {
                     this.addMessage('user', text);
                     this.hideWelcomeMessage();
+                    // Clear tool calls for new conversation turn
+                    this.currentToolCalls = [];
                 }
             },
             
             onResponse: (text, isPartial) => {
                 if (!isPartial && text) {
-                    // Full response received
-                    this.addMessage('assistant', text);
+                    // Full response received - extract any pokemon/tcg data from tool results
+                    let pokemonData = null;
+                    let tcgData = null;
+                    
+                    // Check tool results for displayable data
+                    for (const toolCall of this.currentToolCalls) {
+                        if (toolCall.result && toolCall.success) {
+                            // Check for Pokemon data
+                            if (toolCall.result.name && toolCall.result.types && toolCall.result.image) {
+                                pokemonData = toolCall.result;
+                            }
+                            // Check for TCG card data
+                            if (toolCall.result.cards && toolCall.result.cards.length > 0) {
+                                tcgData = toolCall.result;
+                            }
+                        }
+                    }
+                    
+                    this.addMessage('assistant', text, pokemonData, tcgData);
                 }
             },
             
@@ -401,6 +428,65 @@ class PokemonChatApp {
             
             onToolCall: (toolName, args) => {
                 console.log('Tool called:', toolName, args);
+                
+                // Track tool call for chain of thought
+                this.currentToolCallStartTime = Date.now();
+                const toolCallEntry = {
+                    toolName: toolName,
+                    args: args,
+                    result: null,
+                    success: null,
+                    duration: null,
+                    timestamp: new Date().toISOString()
+                };
+                this.currentToolCalls.push(toolCallEntry);
+                
+                // Format tool name for display
+                const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                
+                // Format args for display (show key details)
+                let argsSummary = '';
+                if (args) {
+                    if (args.name) argsSummary = args.name;
+                    else if (args.pokemon) argsSummary = args.pokemon;
+                    else if (args.query) argsSummary = args.query;
+                    else if (args.pokemon_name) argsSummary = args.pokemon_name;
+                }
+                
+                // Show loading indicator (same as gpt-5-chat)
+                this.setLoading(true);
+                
+                // Update status to show what tool is being called
+                this.updateVoiceStatus('processing', `${displayName}${argsSummary ? `: ${argsSummary}` : ''}...`);
+            },
+            
+            onToolResult: (toolName, args, result, success) => {
+                console.log('Tool result:', toolName, success, result);
+                
+                // Update the last tool call entry with result
+                const duration = this.currentToolCallStartTime ? Date.now() - this.currentToolCallStartTime : null;
+                if (this.currentToolCalls.length > 0) {
+                    const lastEntry = this.currentToolCalls[this.currentToolCalls.length - 1];
+                    if (lastEntry.toolName === toolName) {
+                        lastEntry.result = result;
+                        lastEntry.success = success;
+                        lastEntry.duration = duration;
+                    }
+                }
+                
+                // Hide loading indicator (same as gpt-5-chat)
+                this.setLoading(false);
+                
+                // Update status back to listening
+                if (this.isVoiceActive) {
+                    this.updateVoiceStatus('listening', 'Listening...');
+                }
+                
+                // Log result for debugging
+                const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                if (!success) {
+                    console.warn(`Tool ${displayName} failed:`, result.error || 'Unknown error');
+                }
             }
         });
         
@@ -734,6 +820,67 @@ class PokemonChatApp {
         }
     }
     
+    /**
+     * Show a toast notification
+     * @param {string} title - Toast title
+     * @param {string} message - Toast message
+     * @param {string} type - Toast type: 'tool', 'success', 'error', 'info'
+     * @param {number} duration - Duration in ms (0 = no auto-hide)
+     * @returns {HTMLElement} The toast element for manual removal
+     */
+    showToast(title, message, type = 'info', duration = 3000) {
+        // Ensure toast container exists
+        let container = document.querySelector('.toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'toast-container';
+            document.body.appendChild(container);
+        }
+        
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        
+        // Icon based on type
+        const icons = {
+            tool: '<div class="toast-spinner"></div>',
+            success: '<span class="toast-icon">✅</span>',
+            error: '<span class="toast-icon">❌</span>',
+            info: '<span class="toast-icon">ℹ️</span>'
+        };
+        
+        toast.innerHTML = `
+            ${icons[type] || icons.info}
+            <div class="toast-content">
+                <div class="toast-title">${title}</div>
+                ${message ? `<div class="toast-message">${message}</div>` : ''}
+            </div>
+        `;
+        
+        container.appendChild(toast);
+        
+        // Auto-hide after duration (if not 0)
+        if (duration > 0) {
+            setTimeout(() => {
+                this.hideToast(toast);
+            }, duration);
+        }
+        
+        return toast;
+    }
+    
+    /**
+     * Hide a toast notification with animation
+     * @param {HTMLElement} toast - The toast element to hide
+     */
+    hideToast(toast) {
+        if (toast && toast.parentNode) {
+            toast.classList.add('hiding');
+            setTimeout(() => {
+                toast.remove();
+            }, 300); // Match animation duration
+        }
+    }
+    
     addMessage(role, content, pokemonData = null, tcgData = null) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message-bubble ${role}`;
@@ -765,18 +912,109 @@ class PokemonChatApp {
             messageDiv.appendChild(tcgDisplay);
         }
         
+        // Add chain of thought accordion for assistant messages with tool calls
+        if (role === 'assistant' && this.currentToolCalls.length > 0) {
+            const cotAccordion = this.createChainOfThoughtAccordion(this.currentToolCalls);
+            messageDiv.appendChild(cotAccordion);
+            // Clear tool calls for next response
+            this.currentToolCalls = [];
+        }
+        
         this.chatContainer.appendChild(messageDiv);
         this.scrollToBottom();
+    }
+    
+    /**
+     * Create a Chain of Thought accordion showing tool calls and results
+     */
+    createChainOfThoughtAccordion(toolCalls) {
+        const accordion = document.createElement('div');
+        accordion.className = 'chain-of-thought';
+        
+        // Toggle button
+        const toggle = document.createElement('button');
+        toggle.className = 'cot-toggle';
+        toggle.innerHTML = `
+            <span class="cot-toggle-icon">▶</span>
+            <span>🔍 Chain of Thought (${toolCalls.length} tool call${toolCalls.length > 1 ? 's' : ''})</span>
+        `;
+        toggle.addEventListener('click', () => {
+            accordion.classList.toggle('expanded');
+        });
+        accordion.appendChild(toggle);
+        
+        // Content area
+        const content = document.createElement('div');
+        content.className = 'cot-content';
+        
+        toolCalls.forEach((call, index) => {
+            const step = document.createElement('div');
+            step.className = `cot-step ${call.success === true ? 'success' : call.success === false ? 'error' : 'pending'}`;
+            
+            // Step header
+            const header = document.createElement('div');
+            header.className = 'cot-step-header';
+            const icon = call.success === true ? '✅' : call.success === false ? '❌' : '⏳';
+            const displayName = call.toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            header.innerHTML = `<span class="cot-step-icon">${icon}</span> Step ${index + 1}: ${displayName}`;
+            step.appendChild(header);
+            
+            // Parameters
+            if (call.args && Object.keys(call.args).length > 0) {
+                const paramsLabel = document.createElement('div');
+                paramsLabel.className = 'cot-label';
+                paramsLabel.textContent = 'Parameters';
+                step.appendChild(paramsLabel);
+                
+                const params = document.createElement('div');
+                params.className = 'cot-params';
+                params.textContent = JSON.stringify(call.args, null, 2);
+                step.appendChild(params);
+            }
+            
+            // Result
+            if (call.result !== null) {
+                const resultLabel = document.createElement('div');
+                resultLabel.className = 'cot-label';
+                resultLabel.textContent = 'Result';
+                step.appendChild(resultLabel);
+                
+                const result = document.createElement('div');
+                result.className = `cot-result ${call.success ? '' : 'error'}`;
+                
+                // Truncate large results for display
+                let resultText = JSON.stringify(call.result, null, 2);
+                if (resultText.length > 2000) {
+                    resultText = resultText.substring(0, 2000) + '\n... (truncated)';
+                }
+                result.textContent = resultText;
+                step.appendChild(result);
+            }
+            
+            // Duration
+            if (call.duration) {
+                const duration = document.createElement('div');
+                duration.className = 'cot-duration';
+                duration.textContent = `⏱️ ${call.duration}ms`;
+                step.appendChild(duration);
+            }
+            
+            content.appendChild(step);
+        });
+        
+        accordion.appendChild(content);
+        return accordion;
     }
     
     createTcgCardsDisplay(tcgData) {
         const displayDiv = document.createElement('div');
         displayDiv.className = 'tcg-cards-display';
         
-        // Header
+        // Header - support both total_count and count properties
+        const totalCount = tcgData.total_count || tcgData.count || tcgData.cards.length;
         const header = document.createElement('div');
         header.className = 'tcg-cards-header';
-        header.innerHTML = `<span class="tcg-icon">🃏</span> Trading Cards (${tcgData.total_count} found)`;
+        header.innerHTML = `<span class="tcg-icon">🃏</span> Trading Cards (${totalCount} found)`;
         displayDiv.appendChild(header);
         
         // Cards grid
@@ -787,9 +1025,11 @@ class PokemonChatApp {
             const cardDiv = document.createElement('div');
             cardDiv.className = 'tcg-card-preview';
             
-            if (card.images?.small) {
+            // Support both formats: card.images.small (raw API) and card.image (formatted)
+            const imageUrl = card.images?.small || card.image;
+            if (imageUrl) {
                 const img = document.createElement('img');
-                img.src = card.images.small;
+                img.src = imageUrl;
                 img.alt = card.name;
                 img.loading = 'lazy';
                 cardDiv.appendChild(img);
@@ -827,11 +1067,12 @@ class PokemonChatApp {
         const displayDiv = document.createElement('div');
         displayDiv.className = 'pokemon-display';
         
-        // Pokemon image
-        if (pokemonData.image) {
+        // Pokemon image - prefer `image`, fallback to `sprite` or show nothing
+        const imageUrl = pokemonData.image || pokemonData.sprite || pokemonData.imageUrl || null;
+        if (imageUrl) {
             const img = document.createElement('img');
-            img.src = pokemonData.image;
-            img.alt = pokemonData.name;
+            img.src = imageUrl;
+            img.alt = pokemonData.name || 'Pokemon';
             img.loading = 'lazy';
             displayDiv.appendChild(img);
         }
@@ -842,7 +1083,22 @@ class PokemonChatApp {
         
         const nameDiv = document.createElement('div');
         nameDiv.className = 'pokemon-name';
-        nameDiv.textContent = `${pokemonData.name} #${pokemonData.id}`;
+        // Fallback: if name/id missing, use MCP text block if available
+        if (pokemonData.name && pokemonData.id) {
+            nameDiv.textContent = `${pokemonData.name} #${pokemonData.id}`;
+        } else if (pokemonData.mcp_text) {
+            // Extract first header line or show the mcp markdown text trimmed
+            const headerMatch = pokemonData.mcp_text.match(/^#\s*(.+?)\s*(?:\(#(\d+)\))?/m);
+            if (headerMatch) {
+                const n = headerMatch[1].trim();
+                const id = headerMatch[2] ? ` #${headerMatch[2]}` : '';
+                nameDiv.textContent = `${n}${id}`;
+            } else {
+                nameDiv.textContent = pokemonData.mcp_text.split('\n')[0].trim();
+            }
+        } else {
+            nameDiv.textContent = 'Unknown Pokémon';
+        }
         infoDiv.appendChild(nameDiv);
         
         // Types

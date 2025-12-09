@@ -216,6 +216,56 @@ To enable real-time audio responses:
    - [PTCG MCP Server](https://github.com/jlgrimes/ptcg-mcp)
    - [Poke MCP Server](https://github.com/NaveenBandarage/poke-mcp)
 
+### MCP Server Setup
+
+The app uses MCP (Model Context Protocol) servers to fetch Pokemon data. There are two modes:
+
+#### Option 1: Client-Side Tool Handling (Default)
+
+Set `USE_NATIVE_MCP=false` in `.env`. The Flask app handles tool calls via stdio transport. No additional setup needed - MCP servers are spawned automatically.
+
+#### Option 2: Native MCP (HTTP/SSE Mode)
+
+For native MCP support where the Realtime API calls MCP servers directly:
+
+1. **Configure `.env`:**
+   ```
+   USE_NATIVE_MCP=true
+   POKE_MCP_SERVER_URL=http://localhost:3001
+   PTCG_MCP_SERVER_URL=http://localhost:3002
+   ```
+
+2. **Build MCP servers** (first time only):
+   ```bash
+   # Poke MCP
+   cd poke-mcp
+   npm install
+   npm run build
+
+   # PTCG MCP
+   cd ../ptcg-mcp
+   npm install
+   npm run build
+   ```
+
+3. **Start MCP servers in HTTP mode** (open separate terminals):
+   ```bash
+   # Terminal 1 - Poke MCP (port 3001)
+   cd poke-mcp
+   node dist/index.js --http --port=3001
+
+   # Terminal 2 - PTCG MCP (port 3002)
+   cd ptcg-mcp
+   node dist/index.js --http --port=3002
+   ```
+
+4. **Start Flask app** (third terminal):
+   ```bash
+   python app.py
+   ```
+
+**Note:** Native MCP requires the Realtime API to have network access to the MCP server URLs. For local development, both servers must be running before using voice features.
+
 ## Mobile Testing
 
 ### Testing on Mobile Devices

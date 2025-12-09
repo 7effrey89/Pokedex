@@ -114,6 +114,12 @@ class PokemonTools:
                 if entry.get("language", {}).get("name") == "en":
                     info["description"] = entry.get("flavor_text", "").replace("\n", " ").replace("\f", " ")
                     break
+
+        # Trim whitespace/newlines from key string fields
+        for key in ("image", "sprite", "description"):
+            value = info.get(key)
+            if isinstance(value, str):
+                info[key] = value.strip()
         
         return info
     

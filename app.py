@@ -4,17 +4,26 @@ Provides API endpoints for real-time chat with Pokemon lookup capabilities
 """
 import os
 import json
+import logging
 from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 from dotenv import load_dotenv
 from pokemon_tools import PokemonTools
 from pokemon_tcg_tools import PokemonTCGTools
-from mcp_client import search_tcg_cards as mcp_search_cards, get_tcg_card_price as mcp_get_price, format_cards_for_display
+from mcp_client import (
+    search_tcg_cards as mcp_search_cards, 
+    get_tcg_card_price as mcp_get_price, 
+    format_cards_for_display
+)
 from tool_manager import tool_manager
 from azure_openai_chat import get_azure_chat
 from realtime_chat import get_realtime_config, get_session_config, check_realtime_availability, get_available_tools as get_realtime_tools
 import time
 import re
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
@@ -202,30 +211,14 @@ def generate_response(message: str, user_id: str = "default") -> dict:
         try:
             azure_chat = get_azure_chat()
             
-            # Define tool handlers that the LLM can call
+            # Import the unified tool handlers
+            from tool_handlers import execute_tool
+            
+            # Create wrapper functions that call the unified handlers
+            # These wrappers adapt the function signatures expected by azure_chat
             def handle_get_pokemon_info(pokemon_name: str) -> dict:
-                """Handler for get_pokemon_info tool"""
-                use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
-                use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
-                
-                if not use_pokeapi and not use_poke_mcp:
-                    return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI or Poke MCP in Tools settings."}
-                
-                # Use PokeAPI (direct) if enabled
-                if use_pokeapi:
-                    pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
-                    if pokemon_info:
-                        species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-                        return pokemon_tools.format_pokemon_info(pokemon_info, species_info)
-                    return {"error": f"Pokemon '{pokemon_name}' not found"}
-                
-                # Fallback to MCP (would need MCP client implementation)
-                # For now, still use PokeAPI as MCP client not fully implemented
-                pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
-                if pokemon_info:
-                    species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-                    return pokemon_tools.format_pokemon_info(pokemon_info, species_info)
-                return {"error": f"Pokemon '{pokemon_name}' not found"}
+                """Handler for get_pokemon_info tool - delegates to unified handler"""
+                return execute_tool('get_pokemon', {'pokemon_name': pokemon_name})
             
             def handle_search_pokemon_cards(
                 pokemon_name: str = None,
@@ -234,148 +227,30 @@ def generate_response(message: str, user_id: str = "default") -> dict:
                 hp_max: int = None,
                 rarity: str = None
             ) -> dict:
-                """Handler for search_pokemon_cards tool"""
-                use_direct_tcg = tool_manager.is_tool_enabled("pokemon_tcg")
-                use_mcp_tcg = tool_manager.is_tool_enabled("pokemon_tcg_mcp")
-                
-                if not use_direct_tcg and not use_mcp_tcg:
-                    return {"error": "TCG tools are disabled"}
-                
-                # Try MCP first, then direct API
-                if use_mcp_tcg:
-                    try:
-                        result = mcp_search_cards(
-                            name=pokemon_name,
-                            types=card_type,
-                            hp=f"[{hp_min} TO *]" if hp_min else (f"[* TO {hp_max}]" if hp_max else None),
-                            rarity=rarity,
-                            page_size=6
-                        )
-                        mcp_result = format_cards_for_display(result)
-                        if "cards" in mcp_result:
-                            return {
-                                "cards": mcp_result["cards"],
-                                "total_count": mcp_result.get("count", len(mcp_result["cards"])),
-                                "search_query": pokemon_name or card_type or "filtered cards"
-                            }
-                    except Exception as e:
-                        print(f"MCP error: {e}")
-                
-                # Fallback to direct API
-                if use_direct_tcg:
-                    if hp_min or hp_max or card_type:
-                        cards_data = pokemon_tcg_tools.search_cards_advanced(
-                            types=[card_type] if card_type else None,
-                            hp_min=hp_min,
-                            hp_max=hp_max,
-                            page_size=6
-                        )
-                    elif pokemon_name:
-                        cards_data = pokemon_tcg_tools.search_cards(pokemon_name, page_size=6)
-                    else:
-                        return {"error": "Please specify a Pokemon name or filters"}
-                    
-                    if cards_data and cards_data.get("data"):
-                        formatted_cards = pokemon_tcg_tools.format_cards_response(cards_data)
-                        return {
-                            "cards": formatted_cards,
-                            "total_count": cards_data.get("totalCount", 0),
-                            "search_query": pokemon_name or card_type or "filtered cards"
-                        }
-                
-                return {"error": "No cards found", "search_query": pokemon_name or ""}
+                """Handler for search_pokemon_cards tool - delegates to unified handler"""
+                return execute_tool('search_pokemon_cards', {
+                    'pokemon_name': pokemon_name,
+                    'card_type': card_type,
+                    'hp_min': hp_min,
+                    'hp_max': hp_max,
+                    'rarity': rarity
+                })
             
             def handle_get_pokemon_list(limit: int = 10, offset: int = 0) -> dict:
-                """Handler for get_pokemon_list tool"""
-                if not tool_manager.is_tool_enabled("pokeapi"):
-                    return {"error": "PokeAPI tool is disabled"}
-                
-                limit = min(limit, 50)  # Cap at 50
-                pokemon_list = pokemon_tools.get_pokemon_list(limit=limit, offset=offset)
-                return {
-                    "pokemon": [p['name'].title() for p in pokemon_list],
-                    "count": len(pokemon_list)
-                }
+                """Handler for get_pokemon_list tool - delegates to unified handler"""
+                return execute_tool('get_pokemon_list', {'limit': limit, 'offset': offset})
             
             def handle_get_random_pokemon() -> dict:
-                """Handler for get_random_pokemon tool - returns a random Pokemon"""
-                use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
-                use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
-                
-                if not use_pokeapi and not use_poke_mcp:
-                    return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI or Poke MCP in Tools settings."}
-                
-                import random
-                random_id = random.randint(1, 1000)
-                pokemon_data = pokemon_tools.get_pokemon(str(random_id))
-                if pokemon_data:
-                    species_info = pokemon_tools.get_pokemon_species(str(random_id))
-                    return pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-                return {"error": "Failed to get random Pokemon"}
+                """Handler for get_random_pokemon tool - delegates to unified handler"""
+                return execute_tool('get_random_pokemon', {})
             
             def handle_get_random_pokemon_from_region(region: str) -> dict:
-                """Handler for get_random_pokemon_from_region tool"""
-                use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
-                use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
-                
-                if not use_pokeapi and not use_poke_mcp:
-                    return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI or Poke MCP in Tools settings."}
-                
-                import random
-                # Region to Pokemon ID ranges (approximate)
-                region_ranges = {
-                    "kanto": (1, 151),
-                    "johto": (152, 251),
-                    "hoenn": (252, 386),
-                    "sinnoh": (387, 493),
-                    "unova": (494, 649),
-                    "kalos": (650, 721),
-                    "alola": (722, 809),
-                    "galar": (810, 905),
-                    "paldea": (906, 1010)
-                }
-                
-                region_lower = region.lower()
-                if region_lower not in region_ranges:
-                    return {"error": f"Unknown region: {region}. Available: {', '.join(region_ranges.keys())}"}
-                
-                start, end = region_ranges[region_lower]
-                random_id = random.randint(start, end)
-                pokemon_data = pokemon_tools.get_pokemon(str(random_id))
-                if pokemon_data:
-                    species_info = pokemon_tools.get_pokemon_species(str(random_id))
-                    result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-                    result["region"] = region.title()
-                    return result
-                return {"error": f"Failed to get random Pokemon from {region}"}
+                """Handler for get_random_pokemon_from_region tool - delegates to unified handler"""
+                return execute_tool('get_random_pokemon_from_region', {'region': region})
             
             def handle_get_random_pokemon_by_type(pokemon_type: str) -> dict:
-                """Handler for get_random_pokemon_by_type tool"""
-                use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
-                use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
-                
-                if not use_pokeapi and not use_poke_mcp:
-                    return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI or Poke MCP in Tools settings."}
-                
-                import random
-                import requests
-                
-                try:
-                    # Get all Pokemon of this type from PokeAPI
-                    response = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon_type.lower()}", timeout=10)
-                    if response.status_code == 200:
-                        type_data = response.json()
-                        pokemon_list = type_data.get("pokemon", [])
-                        if pokemon_list:
-                            random_pokemon = random.choice(pokemon_list)
-                            pokemon_name = random_pokemon["pokemon"]["name"]
-                            pokemon_data = pokemon_tools.get_pokemon(pokemon_name)
-                            if pokemon_data:
-                                species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-                                return pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-                    return {"error": f"No {pokemon_type} type Pokemon found"}
-                except Exception as e:
-                    return {"error": f"Failed to get random {pokemon_type} Pokemon: {str(e)}"}
+                """Handler for get_random_pokemon_by_type tool - delegates to unified handler"""
+                return execute_tool('get_random_pokemon_by_type', {'pokemon_type': pokemon_type})
             
             tool_handlers = {
                 "get_pokemon_info": handle_get_pokemon_info,
@@ -720,12 +595,17 @@ def get_realtime_connection_config():
         session_config = get_session_config()
         tools = get_realtime_tools()
         
+        # Check if using native MCP (tools handled by API) or function-based (client handles)
+        use_native_mcp = os.getenv('USE_NATIVE_MCP', 'false').lower() == 'true'
+        
         return jsonify({
             "available": True,
             "ws_url": config['ws_url'],
             "api_key": config['api_key'],
             "session_config": session_config,
-            "tools": tools
+            "tools": tools,
+            "use_native_mcp": use_native_mcp,  # If true, API handles tool calls automatically
+            "supports_image_input": True  # gpt-realtime supports image input
         })
         
     except Exception as e:
@@ -753,6 +633,8 @@ def execute_realtime_tool():
     Execute a tool call from the Realtime API.
     This endpoint allows the Realtime voice client to invoke MCP servers and other tools.
     
+    Uses the unified tool_handlers module which is shared with gpt-5-chat.
+    
     Request body:
         {
             "tool_name": "get_pokemon_info",
@@ -762,122 +644,46 @@ def execute_realtime_tool():
     Returns:
         JSON with tool execution result
     """
+    from tool_handlers import execute_tool
+    
     try:
         data = request.get_json()
         tool_name = data.get('tool_name')
         arguments = data.get('arguments', {})
         
+        print(f"\n{'='*60}")
+        print(f"🔧 REALTIME TOOL CALL")
+        print(f"{'='*60}")
+        print(f"📌 Tool: {tool_name}")
+        print(f"📋 Arguments: {arguments}")
+        
         if not tool_name:
+            print(f"❌ Error: tool_name is required")
             return jsonify({"error": "tool_name is required"}), 400
         
-        result = {}
+        # Map realtime tool names to standard names if needed
+        tool_name_map = {
+            'get_pokemon_info': 'get_pokemon',  # Realtime uses get_pokemon_info
+        }
+        standard_tool_name = tool_name_map.get(tool_name, tool_name)
         
-        # Execute the appropriate tool handler
-        if tool_name == 'get_pokemon_info':
-            pokemon_name = arguments.get('pokemon_name', '')
-            use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
-            use_poke_mcp = tool_manager.is_tool_enabled("poke_mcp")
-            
-            if not use_pokeapi and not use_poke_mcp:
-                result = {"error": "Pokemon lookup tools are disabled"}
-            else:
-                pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
-                if pokemon_info:
-                    species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-                    result = pokemon_tools.format_pokemon_info(pokemon_info, species_info)
-                else:
-                    result = {"error": f"Pokemon '{pokemon_name}' not found"}
+        # Use the unified tool handler
+        result = execute_tool(standard_tool_name, arguments)
         
-        elif tool_name == 'get_random_pokemon':
-            import random
-            random_id = random.randint(1, 1000)
-            pokemon_data = pokemon_tools.get_pokemon(str(random_id))
-            if pokemon_data:
-                species_info = pokemon_tools.get_pokemon_species(str(random_id))
-                result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-            else:
-                result = {"error": "Failed to get random Pokemon"}
-        
-        elif tool_name == 'get_random_pokemon_from_region':
-            import random
-            region = arguments.get('region', 'kanto')
-            region_ranges = {
-                "kanto": (1, 151), "johto": (152, 251), "hoenn": (252, 386),
-                "sinnoh": (387, 493), "unova": (494, 649), "kalos": (650, 721),
-                "alola": (722, 809), "galar": (810, 905), "paldea": (906, 1010)
-            }
-            region_lower = region.lower()
-            if region_lower in region_ranges:
-                start, end = region_ranges[region_lower]
-                random_id = random.randint(start, end)
-                pokemon_data = pokemon_tools.get_pokemon(str(random_id))
-                if pokemon_data:
-                    species_info = pokemon_tools.get_pokemon_species(str(random_id))
-                    result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-                    result["region"] = region.title()
-                else:
-                    result = {"error": f"Failed to get random Pokemon from {region}"}
-            else:
-                result = {"error": f"Unknown region: {region}"}
-        
-        elif tool_name == 'get_random_pokemon_by_type':
-            import random
-            import requests
-            pokemon_type = arguments.get('pokemon_type', 'fire')
-            try:
-                response = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon_type.lower()}", timeout=10)
-                if response.status_code == 200:
-                    type_data = response.json()
-                    pokemon_list = type_data.get("pokemon", [])
-                    if pokemon_list:
-                        random_pokemon = random.choice(pokemon_list)
-                        pokemon_name = random_pokemon["pokemon"]["name"]
-                        pokemon_data = pokemon_tools.get_pokemon(pokemon_name)
-                        if pokemon_data:
-                            species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-                            result = pokemon_tools.format_pokemon_info(pokemon_data, species_info)
-                        else:
-                            result = {"error": f"Failed to get {pokemon_type} Pokemon"}
-                    else:
-                        result = {"error": f"No {pokemon_type} type Pokemon found"}
-                else:
-                    result = {"error": f"Invalid type: {pokemon_type}"}
-            except Exception as e:
-                result = {"error": str(e)}
-        
-        elif tool_name == 'search_pokemon_cards':
-            pokemon_name = arguments.get('pokemon_name', '')
-            use_mcp_tcg = tool_manager.is_tool_enabled("pokemon_tcg_mcp")
-            use_direct_tcg = tool_manager.is_tool_enabled("pokemon_tcg")
-            
-            if not use_mcp_tcg and not use_direct_tcg:
-                result = {"error": "TCG tools are disabled"}
-            elif use_mcp_tcg:
-                try:
-                    mcp_result = mcp_search_cards(name=pokemon_name, page_size=6)
-                    formatted = format_cards_for_display(mcp_result)
-                    if "cards" in formatted:
-                        result = {"cards": formatted["cards"], "total_count": formatted.get("count", 0)}
-                    else:
-                        result = {"error": "No cards found"}
-                except Exception as e:
-                    result = {"error": str(e)}
-            elif use_direct_tcg:
-                cards_data = pokemon_tcg_tools.search_cards(pokemon_name, page_size=6)
-                if cards_data and cards_data.get("data"):
-                    result = {
-                        "cards": pokemon_tcg_tools.format_cards_response(cards_data),
-                        "total_count": cards_data.get("totalCount", 0)
-                    }
-                else:
-                    result = {"error": "No cards found"}
-        
+        # Log the result
+        if "error" in result:
+            print(f"❌ Result: ERROR - {result.get('error')}")
         else:
-            result = {"error": f"Unknown tool: {tool_name}"}
+            result_preview = str(result)[:200] + "..." if len(str(result)) > 200 else str(result)
+            print(f"✅ Result: SUCCESS")
+            print(f"📦 Preview: {result_preview}")
+        print(f"{'='*60}\n")
         
         return jsonify({"result": result})
         
     except Exception as e:
+        print(f"💥 EXCEPTION: {str(e)}")
+        print(f"{'='*60}\n")
         return jsonify({"error": str(e)}), 500
 
 

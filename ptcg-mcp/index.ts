@@ -1,5 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+import express from "express";
 import { z } from "zod";
 
 interface Card {
@@ -235,9 +237,39 @@ server.tool(
 
 // Main function to start the server
 async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Pokemon TCG MCP Server running on stdio");
+  const args = process.argv.slice(2);
+  const useHttp = args.includes('--http');
+  const port = parseInt(args.find(a => a.startsWith('--port='))?.split('=')[1] || '3002');
+
+  if (useHttp) {
+    // HTTP/SSE mode for native MCP
+    const app = express();
+    let sseTransport: SSEServerTransport | null = null;
+
+    app.get('/sse', (req, res) => {
+      console.error('SSE connection established');
+      sseTransport = new SSEServerTransport('/messages', res);
+      server.connect(sseTransport);
+    });
+
+    app.post('/messages', (req, res) => {
+      if (sseTransport) {
+        sseTransport.handlePostMessage(req, res);
+      } else {
+        res.status(400).send('No SSE connection');
+      }
+    });
+
+    app.listen(port, () => {
+      console.error(`Pokemon TCG MCP Server running on http://localhost:${port}`);
+      console.error('Connect via SSE at /sse');
+    });
+  } else {
+    // Stdio mode (default)
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+    console.error("Pokemon TCG MCP Server running on stdio");
+  }
 }
 
 main().catch(console.error);
