@@ -247,9 +247,9 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
             logger.info(f"📡 Using poke-mcp for get_pokemon: {pokemon_name}")
             result = get_pokemon_via_mcp(pokemon_name)
             if result and "error" not in result:
-                # If MCP returned structured fields already, return as-is
+                # If MCP returned structured fields already, return as-is (but enrich them)
                 if any(k in result for k in ("name", "id", "image", "sprite")):
-                    return result
+                    return annotate_pokemon_result_with_text(result)
 
                 # If MCP returned a textual 'content' (markdown), try to extract name/id
                 if isinstance(result, dict) and "content" in result:
@@ -265,9 +265,6 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
                         parsed_name = m.group(1).strip()
                         parsed_id = m.group(2)
 
-                        def make_official_artwork_url(pokemon_id: str) -> str:
-                            return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{int(pokemon_id)}.png"
-
                         # If PokeAPI is enabled, fetch structured data to provide image/id fields
                         if use_pokeapi:
                             try:
@@ -278,9 +275,10 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
                                     # preserve original MCP markdown for display
                                     formatted["mcp_text"] = text_content
                                     if not formatted.get("image") and parsed_id:
-                                        formatted["image"] = make_official_artwork_url(parsed_id)
-                                    if not formatted.get("sprite") and parsed_id:
-                                        formatted["sprite"] = formatted["image"].replace("other/official-artwork/", "")
+                                        artwork_url = build_official_artwork_url(parsed_id)
+                                        if artwork_url:
+                                            formatted["image"] = artwork_url
+                                            formatted["sprite"] = artwork_url
                                     return formatted
                             except Exception:
                                 logger.warning("Failed to fetch structured PokeAPI data for MCP response")
@@ -288,8 +286,11 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
                         # Return minimal structured object so frontend can render image/name/id when possible
                         fallback = {"name": parsed_name.title(), "id": int(parsed_id), "mcp_text": text_content}
                         if parsed_id:
-                            fallback["image"] = make_official_artwork_url(parsed_id)
-                            fallback["sprite"] = fallback["image"].replace("other/official-artwork/", "")
+                            artwork_url = build_official_artwork_url(parsed_id)
+                            if artwork_url:
+                                fallback["image"] = artwork_url
+                                fallback["sprite"] = artwork_url
+                        fallback["content"] = [{"type": "text", "text": text_content}]
                         return annotate_pokemon_result_with_text(fallback)
 
                 # Otherwise return the raw MCP result
