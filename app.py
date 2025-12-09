@@ -20,6 +20,7 @@ from azure_openai_chat import get_azure_chat
 from realtime_chat import get_realtime_config, get_session_config, check_realtime_availability, get_available_tools as get_realtime_tools
 import time
 import re
+from typing import Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -38,6 +39,7 @@ pokemon_tcg_tools = PokemonTCGTools()
 # Store conversation history (in-memory only - will be lost on restart)
 # TODO: For production, implement persistent storage (Redis, PostgreSQL, etc.)
 conversations = {}
+card_contexts = {}
 
 
 def detect_pokemon_query(message: str) -> tuple:
@@ -173,7 +175,7 @@ def detect_tcg_query(message: str) -> tuple:
     return False, None
 
 
-def generate_response(message: str, user_id: str = "default") -> dict:
+def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None) -> dict:
     """
     Generate a response to the user message using Azure OpenAI
     
@@ -187,7 +189,21 @@ def generate_response(message: str, user_id: str = "default") -> dict:
     # Initialize conversation history if needed
     if user_id not in conversations:
         conversations[user_id] = []
-    
+    # Initialize card context tracking
+    if user_id not in card_contexts:
+        card_contexts[user_id] = None
+
+    # Add card context as a system message if provided and changed
+    if card_context:
+        normalized_context = card_context.strip()
+        if normalized_context and card_contexts.get(user_id) != normalized_context:
+            conversations[user_id].append({
+                "role": "system",
+                "content": f"Card context: {normalized_context}",
+                "timestamp": time.time()
+            })
+            card_contexts[user_id] = normalized_context
+
     # Add user message to history
     conversations[user_id].append({
         "role": "user",
@@ -478,11 +494,12 @@ def chat():
         data = request.get_json()
         message = data.get('message', '')
         user_id = data.get('user_id', 'default')
+        card_context = data.get('card_context')
         
         if not message:
             return jsonify({"error": "Message is required"}), 400
         
-        response_data = generate_response(message, user_id)
+        response_data = generate_response(message, user_id, card_context)
         return jsonify(response_data)
     
     except Exception as e:
@@ -501,12 +518,13 @@ def chat_stream():
         data = request.get_json()
         message = data.get('message', '')
         user_id = data.get('user_id', 'default')
+        card_context = data.get('card_context')
         
         if not message:
             return jsonify({"error": "Message is required"}), 400
         
         def generate():
-            response_data = generate_response(message, user_id)
+            response_data = generate_response(message, user_id, card_context)
             
             # Stream the response word by word for a typing effect
             words = response_data["message"].split()

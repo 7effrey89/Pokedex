@@ -33,6 +33,7 @@ class PokemonChatApp {
         this.isScanModeActive = false;
         this.shouldSendSnapshotOnNextQuestion = false;
         this.isSendingImage = false;
+        this.currentCardContext = null;
         
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
@@ -462,6 +463,7 @@ class PokemonChatApp {
     
     showTcgCardDetail(card) {
         if (!this.tcgCardModalOverlay || !this.tcgCardModalContent) return;
+        this.setCardContext(card);
         
         // Support both formats: card.images.large (raw API) and card.imageLarge/card.image (formatted)
         const largeImage = card.images?.large || card.imageLarge || card.images?.small || card.image;
@@ -918,7 +920,8 @@ class PokemonChatApp {
                 },
                 body: JSON.stringify({
                     message: message,
-                    user_id: this.userId
+                    user_id: this.userId,
+                    card_context: this.getCardContextPayload()
                 })
             });
             
@@ -1022,7 +1025,8 @@ class PokemonChatApp {
                 },
                 body: JSON.stringify({
                     message: message,
-                    user_id: this.userId
+                    user_id: this.userId,
+                    card_context: this.getCardContextPayload()
                 })
             });
             
@@ -1350,6 +1354,7 @@ class PokemonChatApp {
     }
     
     showPokemonCard(pokemonData) {
+        this.setCardContext(pokemonData);
         // Clear previous content
         this.pokemonCardContent.innerHTML = '';
         
@@ -1431,6 +1436,107 @@ class PokemonChatApp {
     closePokemonCard() {
         this.pokemonCardOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        this.clearCardContext();
+    }
+
+    setCardContext(pokemonData) {
+        const summary = this.buildCardContextSummary(pokemonData);
+        if (!summary) {
+            return;
+        }
+
+        if (this.currentCardContext?.summary === summary) {
+            this.currentCardContext.data = pokemonData;
+            return;
+        }
+
+        this.currentCardContext = {
+            summary: summary,
+            data: pokemonData
+        };
+
+        if (this.useRealtimeApi && this.realtimeVoice?.isConnected) {
+            void this.realtimeVoice.sendContextMessage(summary);
+        }
+    }
+
+    clearCardContext() {
+        this.currentCardContext = null;
+    }
+
+    getCardContextPayload() {
+        return this.currentCardContext?.summary || null;
+    }
+
+    buildCardContextSummary(card) {
+        if (!card) return null;
+
+        const name = card.name || card.title || card.pokemon_name || card.pokemon || 'Unknown card';
+        if (!name) return null;
+
+        const cardId = card.id || card.card_id || card.number || card.dex_id || card.tcgplayerId;
+        const idLabel = cardId ? ( /^[0-9]+$/.test(String(cardId)) ? `#${String(cardId).padStart(3, '0')}` : `ID: ${cardId}` ) : null;
+        const header = [name, idLabel].filter(Boolean).join(' ');
+        const descriptors = [];
+
+        if (Array.isArray(card.types) && card.types.length) {
+            descriptors.push(`Types: ${card.types.join('/')}`);
+        }
+
+        if (card.hp) {
+            descriptors.push(`HP: ${card.hp}`);
+        }
+
+        if (card.rarity) {
+            descriptors.push(`Rarity: ${card.rarity}`);
+        }
+
+        if (Array.isArray(card.abilities) && card.abilities.length) {
+            const abilityNames = card.abilities.map(a => a.name || a).join(', ');
+            descriptors.push(`Abilities: ${abilityNames}`);
+        }
+
+        if (card.stats) {
+            const statPairs = Object.entries(card.stats)
+                .map(([stat, value]) => `${stat.replace(/-/g, ' ')} ${value}`);
+            if (statPairs.length) {
+                descriptors.push(`Stats: ${statPairs.join(', ')}`);
+            }
+        }
+
+        const setName = card.set && (typeof card.set === 'string' ? card.set : card.set.name || card.set.id);
+        if (setName) {
+            descriptors.push(`Set: ${setName}`);
+        }
+
+        const description = card.description || card.flavor_text || card.mcp_text;
+        const normalizedDescription = description ? description.replace(/\s+/g, ' ').trim() : '';
+        if (normalizedDescription) {
+            descriptors.push(`Description: ${normalizedDescription}`);
+        }
+
+        const summaryParts = [`User is viewing the MCP card ${header}.`];
+        if (descriptors.length) {
+            summaryParts.push(descriptors.join(' | '));
+        }
+
+        const cardDetails = {
+            id: cardId || null,
+            name,
+            set: setName || null,
+            rarity: card.rarity || null,
+            hp: card.hp || null,
+            types: card.types || [],
+            artist: card.artist || null
+        };
+        if (Array.isArray(card.attacks) && card.attacks.length) {
+            cardDetails.attacks = card.attacks.map(a => `${a.name || 'Attack'}${a.damage ? ` (${a.damage})` : ''}`);
+        }
+
+        summaryParts.push(`Card data: ${JSON.stringify(cardDetails)}`);
+        summaryParts.push('Source: MCP trading card search results.');
+
+        return summaryParts.join(' ');
     }
     
     hideWelcomeMessage() {

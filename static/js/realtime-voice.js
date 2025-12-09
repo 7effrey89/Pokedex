@@ -716,23 +716,36 @@ class RealtimeVoiceClient {
             this.onError('Not connected');
             return;
         }
-        
+        this.sendConversationItem([{ type: 'input_text', text: text }], { triggerResponse: true });
+    }
+
+    sendContextMessage(text) {
+        if (!text) return;
+        this.sendConversationItem([{ type: 'input_text', text: text }], { triggerResponse: false });
+    }
+
+    sendConversationItem(content, { triggerResponse = true } = {}) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.onError('Not connected to voice service');
+            return false;
+        }
+
         this.ws.send(JSON.stringify({
             type: 'conversation.item.create',
             item: {
                 type: 'message',
                 role: 'user',
-                content: [{
-                    type: 'input_text',
-                    text: text
-                }]
+                content: content
             }
         }));
-        
-        // Request response
-        this.ws.send(JSON.stringify({
-            type: 'response.create'
-        }));
+
+        if (triggerResponse) {
+            this.ws.send(JSON.stringify({
+                type: 'response.create'
+            }));
+        }
+
+        return true;
     }
     
     /**
