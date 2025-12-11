@@ -17,17 +17,22 @@ import re
 # Import shared modules
 import pokemon_tools
 import pokemon_tcg_tools
-from mcp_client import (
-    search_tcg_cards as mcp_search_cards,
-    format_cards_for_display,
-    get_pokemon_via_mcp,
-    get_random_pokemon_via_mcp,
-    get_random_pokemon_from_region_via_mcp,
-    get_random_pokemon_by_type_via_mcp
-)
+# NOTE: MCP client commented out - using direct APIs instead
+# from mcp_client import (
+#     search_tcg_cards as mcp_search_cards,
+#     format_cards_for_display,
+#     get_pokemon_via_mcp,
+#     get_random_pokemon_via_mcp,
+#     get_random_pokemon_from_region_via_mcp,
+#     get_random_pokemon_by_type_via_mcp
+# )
 from tool_manager import tool_manager
 
 logger = logging.getLogger(__name__)
+
+# Instantiate tool classes
+pokemon_api = pokemon_tools.PokemonTools()
+tcg_api = pokemon_tcg_tools.PokemonTCGTools()
 
 
 def build_pokemon_assistant_text(pokemon_info: Dict[str, Any]) -> Optional[str]:
@@ -299,12 +304,12 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
         except Exception as e:
             logger.warning(f"poke-mcp exception: {e}")
     
-    # Fallback to direct PokeAPI
+    # Use direct PokeAPI as primary method
     if use_pokeapi:
-        pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
+        pokemon_info = pokemon_api.get_pokemon(pokemon_name)
         if pokemon_info:
-            species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-            formatted = pokemon_tools.format_pokemon_info(pokemon_info, species_info)
+            species_info = pokemon_api.get_pokemon_species(pokemon_name)
+            formatted = pokemon_api.format_pokemon_info(pokemon_info, species_info)
             return annotate_pokemon_result_with_text(formatted)
     
     return {"error": f"Pokemon '{pokemon_name}' not found"}
@@ -551,24 +556,24 @@ def handle_search_pokemon_cards(
             if not use_direct_tcg:
                 return {"error": str(e)}
     
-    # Fallback to direct Pokemon TCG API
+    # Use direct Pokemon TCG API as primary method
     if use_direct_tcg:
         logger.info("📡 Using direct Pokemon TCG API...")
         try:
             if hp_min or hp_max or card_type:
-                cards_data = pokemon_tcg_tools.search_cards_advanced(
+                cards_data = tcg_api.search_cards_advanced(
                     types=[card_type] if card_type else None,
                     hp_min=hp_min,
                     hp_max=hp_max,
                     page_size=6
                 )
             elif pokemon_name:
-                cards_data = pokemon_tcg_tools.search_cards(pokemon_name, page_size=6)
+                cards_data = tcg_api.search_cards(pokemon_name, page_size=6)
             else:
                 return {"error": "Please specify a Pokemon name or filters"}
             
             if cards_data and cards_data.get("data"):
-                formatted_cards = pokemon_tcg_tools.format_cards_response(cards_data)
+                formatted_cards = tcg_api.format_cards_response(cards_data)
                 return {
                     "cards": formatted_cards,
                     "total_count": cards_data.get("totalCount", 0),
@@ -577,6 +582,8 @@ def handle_search_pokemon_cards(
         except Exception as e:
             logger.warning(f"⚠️ Direct API error: {e}")
             return {"error": str(e)}
+    
+    return {"error": "No TCG search results found"}
     
     return {"error": "No cards found", "search_query": pokemon_name or ""}
 

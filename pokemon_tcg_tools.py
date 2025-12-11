@@ -18,7 +18,7 @@ class PokemonTCGTools:
         self.headers = {
             "Content-Type": "application/json"
         }
-        self.timeout = 30  # Increased timeout
+        self.timeout = 60  # Increased timeout to 60 seconds for slow API
         
         # Optional: Add API key for higher rate limits (free at pokemontcg.io)
         api_key = os.environ.get("POKEMON_TCG_API_KEY", "")
@@ -28,8 +28,8 @@ class PokemonTCGTools:
         # Set up session with retry logic
         self.session = requests.Session()
         retry_strategy = Retry(
-            total=3,
-            backoff_factor=1,
+            total=2,  # Reduced retries since each attempt takes 60s
+            backoff_factor=2,
             status_forcelist=[429, 500, 502, 503, 504],
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
