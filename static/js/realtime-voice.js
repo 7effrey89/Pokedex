@@ -38,7 +38,8 @@ class RealtimeVoiceClient {
         this.onAudioEnd = options.onAudioEnd || (() => {});
         this.onToolCall = options.onToolCall || (() => {});
         this.onToolResult = options.onToolResult || (() => {});
-        
+        this.onSpeechStarted = options.onSpeechStarted || (() => {}); // Face recognition trigger
+
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
         this.inputSampleRate = 16000;
@@ -214,6 +215,8 @@ class RealtimeVoiceClient {
                     this.onStatusChange('listening', 'Listening...');
                     // Interrupt any ongoing AI response
                     this.cancelCurrentResponse();
+                    // Trigger face recognition callback
+                    this.onSpeechStarted();
                     break;
                     
                 case 'input_audio_buffer.speech_stopped':
@@ -842,6 +845,89 @@ class RealtimeVoiceClient {
         return true;
     }
     
+    /**
+     * Update session instructions with user context (e.g., identified user's name)
+     * @param {string} userName - The identified user's name
+     */
+    updateUserContext(userName) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            console.warn('Cannot update user context - WebSocket not connected');
+            return false;
+        }
+
+        console.log(`🎯 Injecting user identity: ${userName}`);
+
+        // Method 1: Update session instructions (always safe to do)
+        if (this.sessionConfig && this.sessionConfig.session) {
+            const baseInstructions = this.sessionConfig.session.instructions || '';
+            const userContextInstruction = `\n\nIMPORTANT: You are speaking with ${userName}. Address them by name naturally in your conversation.`;
+
+            let updatedInstructions;
+            if (baseInstructions.includes('IMPORTANT: You are speaking with')) {
+                updatedInstructions = baseInstructions.replace(
+                    /\n\nIMPORTANT: You are speaking with [^.]+\. Address them by name naturally in your conversation\./,
+                    userContextInstruction
+                );
+            } else {
+                updatedInstructions = baseInstructions + userContextInstruction;
+            }
+
+            this.sessionConfig.session.instructions = updatedInstructions;
+
+            const sessionUpdate = {
+                type: 'session.update',
+                session: {
+                    instructions: updatedInstructions
+                }
+            };
+
+            console.log('📤 Sending session.update with user context');
+            this.ws.send(JSON.stringify(sessionUpdate));
+        }
+
+        // Method 2: Inject as conversation item, but only when no response is active
+        const injectConversationItem = () => {
+            if (this.isResponseActive) {
+                console.log('⏳ Response active, waiting to inject conversation item...');
+                // Wait and retry
+                setTimeout(injectConversationItem, 500);
+                return;
+            }
+
+            const userContextMessage = {
+                type: 'conversation.item.create',
+                item: {
+                    type: 'message',
+                    role: 'system',
+                    content: [
+                        {
+                            type: 'input_text',
+                            text: `The user you are speaking with is named ${userName}. Remember to use their name naturally in conversation.`
+                        }
+                    ]
+                }
+            };
+
+            console.log('📤 Sending conversation.item.create with user identity');
+            this.ws.send(JSON.stringify(userContextMessage));
+
+            // Commit the conversation item
+            setTimeout(() => {
+                if (this.ws && this.ws.readyState === WebSocket.OPEN && !this.isResponseActive) {
+                    const commitMessage = {
+                        type: 'response.create'
+                    };
+                    console.log('📤 Committing user context to conversation');
+                    this.ws.send(JSON.stringify(commitMessage));
+                }
+            }, 100);
+        };
+
+        // Start the injection process
+        injectConversationItem();
+
+        return true;
+    }
     /**
      * Send an image from a File object
      * @param {File} file - Image file to send
