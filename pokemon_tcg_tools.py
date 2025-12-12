@@ -18,11 +18,7 @@ class PokemonTCGTools:
         self.headers = {
             "Content-Type": "application/json"
         }
-<<<<<<< HEAD
-        self.timeout = 30  # Increased timeout
-=======
         self.timeout = 60  # Increased timeout to 60 seconds for slow API
->>>>>>> origin/copilot/add-mobile-chat-demo
         
         # Optional: Add API key for higher rate limits (free at pokemontcg.io)
         api_key = os.environ.get("POKEMON_TCG_API_KEY", "")
@@ -32,13 +28,8 @@ class PokemonTCGTools:
         # Set up session with retry logic
         self.session = requests.Session()
         retry_strategy = Retry(
-<<<<<<< HEAD
-            total=3,
-            backoff_factor=1,
-=======
             total=2,  # Reduced retries since each attempt takes 60s
             backoff_factor=2,
->>>>>>> origin/copilot/add-mobile-chat-demo
             status_forcelist=[429, 500, 502, 503, 504],
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
@@ -168,8 +159,6 @@ class PokemonTCGTools:
             print(f"Error fetching TCG card: {e}")
             return None
     
-<<<<<<< HEAD
-=======
     def get_card_price(self, card_id: str) -> Optional[Dict]:
         """
         Get pricing information for a specific card by ID
@@ -211,7 +200,6 @@ class PokemonTCGTools:
         
         return price_info
     
->>>>>>> origin/copilot/add-mobile-chat-demo
     def get_sets(self, page: int = 1, page_size: int = 50) -> Optional[Dict]:
         """
         Get list of TCG sets

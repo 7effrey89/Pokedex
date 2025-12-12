@@ -146,8 +146,6 @@ class AzureOpenAIChat:
                         "required": ["pokemon_type"]
                     }
                 }
-<<<<<<< HEAD
-=======
             },
             {
                 "type": "function",
@@ -165,7 +163,6 @@ class AzureOpenAIChat:
                         "required": ["card_id"]
                     }
                 }
->>>>>>> origin/copilot/add-mobile-chat-demo
             }
         ]
         

@@ -17,16 +17,6 @@ import re
 # Import shared modules
 import pokemon_tools
 import pokemon_tcg_tools
-<<<<<<< HEAD
-from mcp_client import (
-    search_tcg_cards as mcp_search_cards,
-    format_cards_for_display,
-    get_pokemon_via_mcp,
-    get_random_pokemon_via_mcp,
-    get_random_pokemon_from_region_via_mcp,
-    get_random_pokemon_by_type_via_mcp
-)
-=======
 # NOTE: MCP client commented out - using direct APIs instead
 # from mcp_client import (
 #     search_tcg_cards as mcp_search_cards,
@@ -36,18 +26,14 @@ from mcp_client import (
 #     get_random_pokemon_from_region_via_mcp,
 #     get_random_pokemon_by_type_via_mcp
 # )
->>>>>>> origin/copilot/add-mobile-chat-demo
 from tool_manager import tool_manager
 
 logger = logging.getLogger(__name__)
 
-<<<<<<< HEAD
-=======
 # Instantiate tool classes
 pokemon_api = pokemon_tools.PokemonTools()
 tcg_api = pokemon_tcg_tools.PokemonTCGTools()
 
->>>>>>> origin/copilot/add-mobile-chat-demo
 
 def build_pokemon_assistant_text(pokemon_info: Dict[str, Any]) -> Optional[str]:
     """Generate the markdown-style assistant message for a Pokemon entry."""
@@ -318,21 +304,12 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
         except Exception as e:
             logger.warning(f"poke-mcp exception: {e}")
     
-<<<<<<< HEAD
-    # Fallback to direct PokeAPI
-    if use_pokeapi:
-        pokemon_info = pokemon_tools.get_pokemon(pokemon_name)
-        if pokemon_info:
-            species_info = pokemon_tools.get_pokemon_species(pokemon_name)
-            formatted = pokemon_tools.format_pokemon_info(pokemon_info, species_info)
-=======
     # Use direct PokeAPI as primary method
     if use_pokeapi:
         pokemon_info = pokemon_api.get_pokemon(pokemon_name)
         if pokemon_info:
             species_info = pokemon_api.get_pokemon_species(pokemon_name)
             formatted = pokemon_api.format_pokemon_info(pokemon_info, species_info)
->>>>>>> origin/copilot/add-mobile-chat-demo
             return annotate_pokemon_result_with_text(formatted)
     
     return {"error": f"Pokemon '{pokemon_name}' not found"}
@@ -579,40 +556,24 @@ def handle_search_pokemon_cards(
             if not use_direct_tcg:
                 return {"error": str(e)}
     
-<<<<<<< HEAD
-    # Fallback to direct Pokemon TCG API
-=======
     # Use direct Pokemon TCG API as primary method
->>>>>>> origin/copilot/add-mobile-chat-demo
     if use_direct_tcg:
         logger.info("📡 Using direct Pokemon TCG API...")
         try:
             if hp_min or hp_max or card_type:
-<<<<<<< HEAD
-                cards_data = pokemon_tcg_tools.search_cards_advanced(
-=======
                 cards_data = tcg_api.search_cards_advanced(
->>>>>>> origin/copilot/add-mobile-chat-demo
                     types=[card_type] if card_type else None,
                     hp_min=hp_min,
                     hp_max=hp_max,
                     page_size=6
                 )
             elif pokemon_name:
-<<<<<<< HEAD
-                cards_data = pokemon_tcg_tools.search_cards(pokemon_name, page_size=6)
-=======
                 cards_data = tcg_api.search_cards(pokemon_name, page_size=6)
->>>>>>> origin/copilot/add-mobile-chat-demo
             else:
                 return {"error": "Please specify a Pokemon name or filters"}
             
             if cards_data and cards_data.get("data"):
-<<<<<<< HEAD
-                formatted_cards = pokemon_tcg_tools.format_cards_response(cards_data)
-=======
                 formatted_cards = tcg_api.format_cards_response(cards_data)
->>>>>>> origin/copilot/add-mobile-chat-demo
                 return {
                     "cards": formatted_cards,
                     "total_count": cards_data.get("totalCount", 0),
@@ -622,11 +583,6 @@ def handle_search_pokemon_cards(
             logger.warning(f"⚠️ Direct API error: {e}")
             return {"error": str(e)}
     
-<<<<<<< HEAD
-    return {"error": "No cards found", "search_query": pokemon_name or ""}
-
-
-=======
     return {"error": "No TCG search results found"}
     
     return {"error": "No cards found", "search_query": pokemon_name or ""}
@@ -659,7 +615,6 @@ def handle_get_card_price(card_id: str) -> Dict:
         return {"error": str(e)}
 
 
->>>>>>> origin/copilot/add-mobile-chat-demo
 # ============= Unified Tool Dispatcher =============
 
 def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -709,13 +664,6 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
                 rarity=arguments.get('rarity', None)
             )
         
-<<<<<<< HEAD
-=======
-        elif tool_name == 'get_card_price':
-            card_id = arguments.get('card_id', '')
-            return handle_get_card_price(card_id)
-        
->>>>>>> origin/copilot/add-mobile-chat-demo
         else:
             logger.warning(f"❓ Unknown tool: {tool_name}")
             return {"error": f"Unknown tool: {tool_name}"}
