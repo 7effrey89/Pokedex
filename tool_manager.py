@@ -14,6 +14,7 @@ class ToolCategory(Enum):
     POKEMON_DATA = "pokemon_data"
     TRADING_CARDS = "trading_cards"
     UTILITIES = "utilities"
+    IDENTIFICATION = "identification"
 
 
 @dataclass
@@ -68,6 +69,14 @@ class ToolManager:
             description="Get Pokemon data via MCP server - supports random Pokemon by region/type",
             category=ToolCategory.POKEMON_DATA.value,
             icon="🌍",
+            enabled=False
+        ),
+        "face_identification": Tool(
+            id="face_identification",
+            name="Face Identification",
+            description="Identify users in real-time using facial recognition. Compares captured images against profiles_pic directory.",
+            category=ToolCategory.IDENTIFICATION.value,
+            icon="👤",
             enabled=False
         ),
     }

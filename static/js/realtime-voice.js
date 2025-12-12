@@ -38,6 +38,7 @@ class RealtimeVoiceClient {
         this.onAudioEnd = options.onAudioEnd || (() => {});
         this.onToolCall = options.onToolCall || (() => {});
         this.onToolResult = options.onToolResult || (() => {});
+        this.onSpeechStarted = options.onSpeechStarted || (() => {}); // Face recognition trigger
         
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
@@ -214,6 +215,8 @@ class RealtimeVoiceClient {
                     this.onStatusChange('listening', 'Listening...');
                     // Interrupt any ongoing AI response
                     this.cancelCurrentResponse();
+                    // Trigger face recognition callback
+                    this.onSpeechStarted();
                     break;
                     
                 case 'input_audio_buffer.speech_stopped':

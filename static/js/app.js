@@ -12,6 +12,11 @@ class PokemonChatApp {
         this.currentToolCalls = [];
         this.currentToolCallStartTime = null;
         
+        // Face recognition tracking
+        this.faceRecognitionEnabled = false;
+        this.currentIdentifiedUser = null;
+        this.isFaceIdentifying = false;
+        
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -349,9 +354,115 @@ class PokemonChatApp {
                 const data = await response.json();
                 this.tools = data.tools || [];
                 console.log('Tools loaded:', this.tools);
+                
+                // Check if face identification is enabled
+                this.faceRecognitionEnabled = this.isToolEnabled('face_identification');
+                console.log('Face recognition enabled:', this.faceRecognitionEnabled);
             }
         } catch (error) {
             console.error('Error loading tools:', error);
+        }
+    }
+    
+    isToolEnabled(toolId) {
+        const tool = this.tools.find(t => t.id === toolId);
+        return tool ? tool.enabled : false;
+    }
+    
+    /**
+     * Capture an image from the camera and identify the user via face recognition
+     */
+    async identifyUserFromCamera() {
+        // Only proceed if face recognition is enabled
+        if (!this.faceRecognitionEnabled) {
+            console.log('Face recognition is disabled, skipping identification');
+            return;
+        }
+        
+        // Prevent concurrent identification requests
+        if (this.isFaceIdentifying) {
+            console.log('Face identification already in progress');
+            return;
+        }
+        
+        try {
+            this.isFaceIdentifying = true;
+            
+            // Get user media (camera)
+            const stream = await navigator.mediaDevices.getUserMedia({ 
+                video: { 
+                    facingMode: 'user',  // Use front camera
+                    width: { ideal: 640 },
+                    height: { ideal: 480 }
+                } 
+            });
+            
+            // Create video element
+            const video = document.createElement('video');
+            video.srcObject = stream;
+            video.autoplay = true;
+            
+            // Wait for video to be ready
+            await new Promise((resolve) => {
+                video.onloadedmetadata = () => {
+                    video.play();
+                    resolve();
+                };
+            });
+            
+            // Wait a bit for camera to adjust
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // Capture frame from video
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0);
+            
+            // Convert to base64
+            const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+            
+            // Stop video stream
+            stream.getTracks().forEach(track => track.stop());
+            
+            // Send to backend for identification
+            const response = await fetch('/api/face/identify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    image: base64Image
+                })
+            });
+            
+            const result = await response.json();
+            
+            console.log('Face identification result:', result);
+            
+            // Handle the result
+            if (result.name && result.is_new_user && result.greeting_message) {
+                // New user detected - greet them
+                this.currentIdentifiedUser = result.name;
+                this.addMessage('assistant', result.greeting_message);
+                console.log(`Greeting new user: ${result.name}`);
+            } else if (result.name && !result.is_new_user) {
+                // Same user as before - update tracking but don't greet
+                this.currentIdentifiedUser = result.name;
+                console.log(`Same user detected: ${result.name}, no greeting`);
+            } else if (result.error) {
+                // Error occurred
+                console.log('Face identification error:', result.error);
+            } else {
+                // No face detected or not recognized
+                console.log('No user identified');
+            }
+            
+        } catch (error) {
+            console.error('Error during face identification:', error);
+        } finally {
+            this.isFaceIdentifying = false;
         }
     }
     
@@ -689,6 +800,12 @@ class PokemonChatApp {
                     const displayData = result.pokemon_data || result;
                     this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
                 }
+            },
+            
+            onSpeechStarted: () => {
+                // Trigger face identification when user starts speaking
+                console.log('Speech started - triggering face identification');
+                this.identifyUserFromCamera();
             }
         });
         
