@@ -14,7 +14,7 @@ class ToolCategory(Enum):
     POKEMON_DATA = "pokemon_data"
     TRADING_CARDS = "trading_cards"
     UTILITIES = "utilities"
-
+    IDENTIFICATION = "identification"
 
 @dataclass
 class Tool:
@@ -53,6 +53,14 @@ class ToolManager:
             category=ToolCategory.TRADING_CARDS.value,
             icon="🃏",
             enabled=True
+        ),
+        "face_identification": Tool(
+            id="face_identification",
+            name="Face Identification",
+            description="Identify users in real-time using facial recognition. PRIVACY: Captures images from camera when speaking. Images processed locally on your server. Photos stored in profiles_pic directory. Disable anytime in settings.",
+            category=ToolCategory.IDENTIFICATION.value,
+            icon="👤",
+            enabled=False
         ),
         # NOTE: MCP server tools disabled - using direct APIs instead
         # "pokemon_tcg_mcp": Tool(

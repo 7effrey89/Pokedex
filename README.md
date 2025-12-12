@@ -10,6 +10,7 @@ A real-time, mobile-friendly Pokemon chat assistant that allows users to ask que
 - 📊 **Detailed Information** - Stats, types, abilities, and descriptions
 - 💬 **Natural Language** - Ask questions in plain English
 - 🎤 **Voice Conversation** - Talk to the assistant using voice commands
+- 👤 **Face Recognition** - Real-time user identification during voice conversations (NEW!)
 - 🃏 **Trading Card Game** - Search and view Pokemon TCG cards with images (NEW!)
 - 💡 **Card Context Awareness** - The assistant keeps track of the MCP card you have open and injects that card’s summary into every conversation so follow-ups can reference it directly
 - 🛠️ **Tool Management** - Enable/disable features via settings modal (NEW!)
@@ -33,6 +34,7 @@ The app features a clean, mobile-first design with:
 - **APIs**: 
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
   - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
+- **Face Recognition**: face_recognition library (based on dlib)
 - **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
@@ -110,6 +112,7 @@ Click the **Tools** button in the header to manage available features:
 
 1. **PokeAPI** 🎮 - Pokemon game data (stats, types, abilities)
 2. **Pokemon TCG** 🃏 - Trading card search and display
+3. **Face Identification** 👤 - Real-time user identification (NEW!)
 
 Enable or disable tools based on your needs!
 
@@ -129,6 +132,70 @@ Talk to the assistant using your voice:
 **Supported browsers**: Chrome, Edge, Safari (iOS/macOS)
 
 For detailed setup and Azure OpenAI integration, see [VOICE_SETUP.md](VOICE_SETUP.md)
+
+### Face Recognition (NEW! 👤)
+
+Automatically identify users during voice conversations:
+
+#### Setup
+
+1. **Create profile pictures directory** (already created during installation)
+   ```bash
+   mkdir -p profiles_pic
+   ```
+
+2. **Add profile pictures**
+   - Place photos in the `profiles_pic` directory
+   - Filename (without extension) becomes the person's name
+   - Examples: `John.jpg`, `Alice.png`, `Bob.jpeg`
+   - Supported formats: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`
+
+3. **Enable Face Identification**
+   - Click the **Tools** button in the header
+   - Toggle **Face Identification** to ON
+   - Click **Save Changes**
+
+#### How It Works
+
+1. **When you start speaking** during a voice conversation:
+   - The app captures an image from your camera
+   - Compares it against photos in `profiles_pic`
+   - Identifies who you are based on face matching
+
+2. **Greeting behavior**:
+   - **First time detected**: Greets you by name (e.g., "Hello, John! Nice to see you.")
+   - **Same person continues**: No greeting (avoids repetition)
+   - **New person starts speaking**: Greets the new person
+
+3. **Privacy & Security**:
+   - Photos are stored locally in `profiles_pic` (not committed to git)
+   - Camera access only triggered during voice conversations when feature is enabled
+   - Face comparison happens on your server, not sent to external services
+
+#### Tips for Best Results
+
+- Use clear, well-lit photos with a single face
+- Front-facing photos work best
+- Multiple photos per person (different angles) can improve recognition
+- Keep filenames simple (e.g., `John.jpg` not `John_Smith_Photo_2023.jpg`)
+
+#### Troubleshooting
+
+**No greeting appears:**
+- Check that Face Identification is enabled in Tools
+- Verify profile pictures exist in `profiles_pic` directory
+- Check browser console for error messages
+- Ensure camera permissions are granted
+
+**Wrong person identified:**
+- Add more/better quality photos for accurate matching
+- Ensure good lighting when using voice feature
+- Remove similar-looking photos that might cause confusion
+
+**Face not recognized:**
+- Face might not be in `profiles_pic` - add a photo with your name
+- Photo quality might be poor - use a clear, front-facing photo
+- Camera angle might be bad - position yourself facing the camera
 
 ### Quick Actions
 
