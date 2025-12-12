@@ -373,9 +373,14 @@ def execute_realtime_tool():
         if "error" in result:
             print(f"❌ Result: ERROR - {result.get('error')}")
         else:
-            result_preview = str(result)[:200] + "..." if len(str(result)) > 200 else str(result)
             print(f"✅ Result: SUCCESS")
-            print(f"📦 Preview: {result_preview}")
+            # Log full result with proper formatting
+            import json
+            try:
+                result_json = json.dumps(result, indent=2)
+                print(f"📦 Full Result:\n{result_json}")
+            except:
+                print(f"📦 Full Result: {result}")
         print(f"{'='*60}\n")
         
         return jsonify({"result": result})

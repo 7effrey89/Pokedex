@@ -397,10 +397,15 @@ class PokemonChatApp {
         
         let stream = null;
         let timeoutId = null;
+        let faceIdModal = null;
         
         try {
             this.isFaceIdentifying = true;
             this.lastFaceIdentificationTime = now;
+            
+            // Create face identification modal to show camera preview
+            faceIdModal = this.createFaceIdModal();
+            document.body.appendChild(faceIdModal);
             
             // Set timeout for camera access (10 seconds)
             const timeoutPromise = new Promise((_, reject) => {
@@ -424,8 +429,8 @@ class PokemonChatApp {
                 timeoutId = null;
             }
             
-            // Create video element
-            const video = document.createElement('video');
+            // Show camera preview in modal
+            const video = faceIdModal.querySelector('video');
             video.srcObject = stream;
             video.autoplay = true;
             
@@ -440,6 +445,10 @@ class PokemonChatApp {
             });
             
             await videoReadyPromise;
+            
+            // Update modal status
+            const statusText = faceIdModal.querySelector('.face-id-status');
+            statusText.textContent = 'Identifying...';
             
             // Wait a bit for camera to adjust
             await new Promise(resolve => setTimeout(resolve, 500));
@@ -479,16 +488,29 @@ class PokemonChatApp {
             
             console.log('Face identification result:', result);
             
+            // Update modal with result
+            statusText.textContent = result.name ? `Hello, ${result.name}!` : 'Identifying...';
+            
             // Handle the result
             if (result.name && result.is_new_user && result.greeting_message) {
                 // New user detected - greet them
                 this.currentIdentifiedUser = result.name;
                 this.addMessage('assistant', result.greeting_message);
                 console.log(`Greeting new user: ${result.name}`);
+                
+                // Update realtime voice context with user's name
+                if (this.realtimeVoice && this.realtimeVoice.isConnected) {
+                    this.realtimeVoice.updateUserContext(result.name);
+                }
             } else if (result.name && !result.is_new_user) {
                 // Same user as before - update tracking but don't greet
                 this.currentIdentifiedUser = result.name;
                 console.log(`Same user detected: ${result.name}, no greeting`);
+                
+                // Update realtime voice context with user's name (even if same user)
+                if (this.realtimeVoice && this.realtimeVoice.isConnected) {
+                    this.realtimeVoice.updateUserContext(result.name);
+                }
             } else if (result.error) {
                 // Error occurred
                 console.log('Face identification error:', result.error);
@@ -518,13 +540,42 @@ class PokemonChatApp {
                 });
             }
             
-            // Clear any remaining timeouts
-            if (timeoutId) {
-                clearTimeout(timeoutId);
+            // Remove face ID modal after a brief delay
+            if (faceIdModal) {
+                setTimeout(() => {
+                    faceIdModal.classList.add('fade-out');
+                    setTimeout(() => {
+                        if (faceIdModal.parentNode) {
+                            document.body.removeChild(faceIdModal);
+                        }
+                    }, 300);
+                }, 1500);
             }
             
             this.isFaceIdentifying = false;
         }
+    }
+    
+    /**
+     * Create face identification modal with camera preview
+     */
+    createFaceIdModal() {
+        const modal = document.createElement('div');
+        modal.className = 'face-id-modal';
+        modal.innerHTML = `
+            <div class="face-id-container">
+                <div class="face-id-header">
+                    <span class="face-id-icon">👤</span>
+                    <h3>Face Identification</h3>
+                </div>
+                <div class="face-id-video-container">
+                    <video autoplay playsinline muted></video>
+                    <div class="face-id-overlay"></div>
+                </div>
+                <div class="face-id-status">Accessing camera...</div>
+            </div>
+        `;
+        return modal;
     }
     
     async openToolsModal() {
@@ -744,6 +795,15 @@ class PokemonChatApp {
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);
                 this.updateVoiceStatus(status, message);
+                
+                // Trigger face identification when session becomes ready
+                if (status === 'session_ready' && this.faceRecognitionEnabled) {
+                    console.log('Session ready - attempting proactive face identification');
+                    // Small delay to ensure session is fully initialized
+                    setTimeout(() => {
+                        this.identifyUserFromCamera();
+                    }, 500);
+                }
             },
             
             onTranscript: (text, role) => {
@@ -758,24 +818,36 @@ class PokemonChatApp {
             
             onResponse: (text, isPartial) => {
                 if (!isPartial && text) {
+                    console.log('🎤 AI Response received:', text);
+                    console.log('📊 Current tool calls:', this.currentToolCalls);
+                    
                     // Full response received - extract any pokemon/tcg data from tool results
                     let pokemonData = null;
                     let tcgData = null;
                     
                     // Check tool results for displayable data
                     for (const toolCall of this.currentToolCalls) {
+                        console.log('🔍 Checking tool call:', toolCall.toolName, toolCall.success, toolCall.result);
+                        
                         if (toolCall.result && toolCall.success) {
-                            // Check for Pokemon data
+                            // Check for Pokemon data (from get_pokemon or similar)
                             if (toolCall.result.name && toolCall.result.types && toolCall.result.image) {
                                 pokemonData = toolCall.result;
+                                console.log('✅ Found Pokemon data:', pokemonData);
                             }
-                            // Check for TCG card data
-                            if (toolCall.result.cards && toolCall.result.cards.length > 0) {
-                                tcgData = toolCall.result;
+                            // Check for TCG card data (from search_pokemon_cards)
+                            if (toolCall.result.cards && Array.isArray(toolCall.result.cards) && toolCall.result.cards.length > 0) {
+                                tcgData = {
+                                    cards: toolCall.result.cards,
+                                    total_count: toolCall.result.total_count || toolCall.result.cards.length,
+                                    search_query: toolCall.result.search_query
+                                };
+                                console.log('✅ Found TCG data:', tcgData);
                             }
                         }
                     }
                     
+                    console.log('📦 Final data for message - Pokemon:', pokemonData, 'TCG:', tcgData);
                     this.addMessage('assistant', text, pokemonData, tcgData);
                 }
             },
@@ -822,6 +894,9 @@ class PokemonChatApp {
                     else if (args.pokemon_name) argsSummary = args.pokemon_name;
                 }
                 
+                // Show tool call as a message bubble
+                this.addToolCallMessage(toolName, args, 'calling');
+                
                 // Show loading indicator (same as gpt-5-chat)
                 this.setLoading(true);
                 
@@ -843,6 +918,9 @@ class PokemonChatApp {
                     }
                 }
                 
+                // Update tool call message bubble with result
+                this.addToolCallMessage(toolName, args, success ? 'success' : 'error', result, duration);
+                
                 // Hide loading indicator (same as gpt-5-chat)
                 this.setLoading(false);
                 
@@ -857,10 +935,8 @@ class PokemonChatApp {
                     console.warn(`Tool ${displayName} failed:`, result.error || 'Unknown error');
                 }
                 
-                if (success && result && result.assistant_text) {
-                    const displayData = result.pokemon_data || result;
-                    this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
-                }
+                // Note: We don't render the result here - wait for AI's response in onResponse callback
+                // The onResponse callback will extract pokemon_data and tcg_data from currentToolCalls
             },
             
             onSpeechStarted: () => {
@@ -1343,7 +1419,110 @@ class PokemonChatApp {
         }
     }
     
+    /**
+     * Add a tool call message bubble to the chat
+     * @param {string} toolName - Name of the tool being called
+     * @param {object} args - Arguments passed to the tool
+     * @param {string} status - Status: 'calling', 'success', 'error'
+     * @param {object} result - Tool result (optional, for success/error)
+     * @param {number} duration - Execution time in ms (optional)
+     */
+    addToolCallMessage(toolName, args, status, result = null, duration = null) {
+        // Find existing tool call message to update, or create new one
+        const existingId = `tool-call-${toolName}-${Date.now()}`;
+        let messageDiv = document.getElementById(existingId);
+        
+        if (!messageDiv) {
+            // Create new tool call message
+            messageDiv = document.createElement('div');
+            messageDiv.id = existingId;
+            messageDiv.className = `message-bubble tool-call ${status}`;
+            
+            const icon = status === 'calling' ? '🔧' : status === 'success' ? '✅' : '❌';
+            const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'tool-call-header';
+            headerDiv.innerHTML = `<strong>${icon} ${displayName}</strong>`;
+            messageDiv.appendChild(headerDiv);
+            
+            // Arguments section
+            if (args && Object.keys(args).length > 0) {
+                const argsDiv = document.createElement('div');
+                argsDiv.className = 'tool-call-section';
+                argsDiv.innerHTML = `
+                    <div class=\"tool-call-label\">📋 Input:</div>
+                    <pre class=\"tool-call-json\">${JSON.stringify(args, null, 2)}</pre>
+                `;
+                messageDiv.appendChild(argsDiv);
+            }
+            
+            // Result section (added when result arrives)
+            if (result) {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'tool-call-section';
+                resultDiv.innerHTML = `
+                    <div class=\"tool-call-label\">📦 Response:</div>
+                    <pre class=\"tool-call-json\">${JSON.stringify(result, null, 2)}</pre>
+                `;
+                messageDiv.appendChild(resultDiv);
+            }
+            
+            // Duration
+            if (duration) {
+                const durationDiv = document.createElement('div');
+                durationDiv.className = 'tool-call-duration';
+                durationDiv.textContent = `⏱️ ${duration}ms`;
+                messageDiv.appendChild(durationDiv);
+            }
+            
+            // Timestamp
+            const timestamp = document.createElement('div');
+            timestamp.className = 'message-timestamp';
+            timestamp.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            messageDiv.appendChild(timestamp);
+            
+            this.chatContainer.appendChild(messageDiv);
+        } else {
+            // Update existing message with result
+            messageDiv.className = `message-bubble tool-call ${status}`;
+            
+            const icon = status === 'success' ? '✅' : '❌';
+            const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            const headerDiv = messageDiv.querySelector('.tool-call-header');
+            if (headerDiv) {
+                headerDiv.innerHTML = `<strong>${icon} ${displayName}</strong>`;
+            }
+            
+            // Add result if not already present
+            if (result && !messageDiv.querySelector('.tool-call-section:last-of-type')) {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'tool-call-section';
+                resultDiv.innerHTML = `
+                    <div class=\"tool-call-label\">📦 Response:</div>
+                    <pre class=\"tool-call-json\">${JSON.stringify(result, null, 2)}</pre>
+                `;
+                messageDiv.insertBefore(resultDiv, messageDiv.querySelector('.message-timestamp'));
+            }
+            
+            // Add duration
+            if (duration && !messageDiv.querySelector('.tool-call-duration')) {
+                const durationDiv = document.createElement('div');
+                durationDiv.className = 'tool-call-duration';
+                durationDiv.textContent = `⏱️ ${duration}ms`;
+                messageDiv.insertBefore(durationDiv, messageDiv.querySelector('.message-timestamp'));
+            }
+        }
+        
+        this.scrollToBottom();
+    }
+    
     addMessage(role, content, pokemonData = null, tcgData = null) {
+        console.log('💬 Adding message - Role:', role, 'Pokemon:', !!pokemonData, 'TCG:', !!tcgData);
+        if (tcgData) {
+            console.log('🃏 TCG Data details:', tcgData);
+        }
+        
         const messageDiv = document.createElement('div');
         messageDiv.className = `message-bubble ${role}`;
         
@@ -1364,6 +1543,7 @@ class PokemonChatApp {
         
         // Add pokemon display if data is provided
         if (pokemonData && role === 'assistant') {
+            console.log('🎨 Creating Pokemon display');
             const pokemonDisplay = this.createPokemonDisplay(pokemonData);
             messageDiv.appendChild(pokemonDisplay);
             this.setCardContext(pokemonData);
@@ -1371,6 +1551,7 @@ class PokemonChatApp {
         
         // Add TCG cards display if data is provided
         if (tcgData && tcgData.cards && role === 'assistant') {
+            console.log('🎨 Creating TCG cards display with', tcgData.cards.length, 'cards');
             const tcgDisplay = this.createTcgCardsDisplay(tcgData);
             messageDiv.appendChild(tcgDisplay);
         }
@@ -1445,11 +1626,8 @@ class PokemonChatApp {
                 const result = document.createElement('div');
                 result.className = `cot-result ${call.success ? '' : 'error'}`;
                 
-                // Truncate large results for display
+                // Show full result with scrollable view
                 let resultText = JSON.stringify(call.result, null, 2);
-                if (resultText.length > 2000) {
-                    resultText = resultText.substring(0, 2000) + '\n... (truncated)';
-                }
                 result.textContent = resultText;
                 step.appendChild(result);
             }
