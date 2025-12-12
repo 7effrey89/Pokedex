@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Pokemon Chat Assistant</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="pokedex-lights">
+                <div class="power-light"></div>
+                <div class="indicator-lights">
+                    <div class="indicator-light red"></div>
+                    <div class="indicator-light yellow"></div>
+                    <div class="indicator-light green"></div>
+                </div>
+            </div>
+            <div class="header-content">
+                <div class="logo">
+                    <span class="pokeball-icon">⚾</span>
+                    <h1>POKEDEX</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="toolsButton" class="tools-button" aria-label="Manage tools" title="Manage tools">
+                        <svg class="tools-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="tools-text">Tools</span>
+                    </button>
+                    <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
+                        <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="voice-text">Voice</span>
+                    </button>
+                    <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="camera-text">Scan</span>
+                    </button>
+                    <div class="status-indicator" id="statusIndicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <!-- Welcome Message -->
+            <div class="welcome-message">
+                <div class="welcome-icon">👋</div>
+                <h2>Welcome to Pokemon Chat!</h2>
+                <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
+                <div class="example-queries">
+                    <span class="example-chip">Tell me about Pikachu</span>
+                    <span class="example-chip">Show me Charizard</span>
+                    <span class="example-chip">Show me Pikachu cards</span>
+                    <span class="example-chip">Surprise me with a random Pokemon</span>
+                    <span class="example-chip">Random Pokemon from Kanto</span>
+                    <span class="example-chip">Random Fire type Pokemon</span>
+                </div>
+            </div>
+
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- Pokemon Card Display -->
+        <div class="pokemon-card-overlay" id="pokemonCardOverlay">
+            <div class="pokemon-card">
+                <button class="close-card" id="closeCard">&times;</button>
+                <div class="pokemon-card-content" id="pokemonCardContent">
+                    <!-- Pokemon details will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea 
+                    id="messageInput" 
+                    class="message-input" 
+                    placeholder="Ask about a Pokemon..."
+                    rows="1"
+                ></textarea>
+                <button id="sendButton" class="send-button" aria-label="Send message">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-action-btn" data-action="help">
+                    <span>❓</span> Help
+                </button>
+                <button class="quick-action-btn" data-action="random">
+                    <span>🎲</span> Random
+                </button>
+                <button class="quick-action-btn" data-action="popular">
+                    <span>⭐</span> Popular
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <span>Thinking...</span>
+        </div>
+
+        <!-- Tools Management Modal -->
+        <div class="tools-modal-overlay" id="toolsModalOverlay">
+            <div class="tools-modal">
+                <div class="tools-modal-header">
+                    <h2>🛠️ Manage Tools</h2>
+                    <button class="tools-modal-close" id="toolsModalClose">&times;</button>
+                </div>
+                <div class="tools-modal-content" id="toolsModalContent">
+                    <!-- Tools will be dynamically loaded here -->
+                    <div class="tools-loading">Loading tools...</div>
+                </div>
+                <div class="tools-modal-footer">
+                    <button class="tools-reset-btn" id="toolsResetBtn">Reset to Defaults</button>
+                    <button class="tools-save-btn" id="toolsSaveBtn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TCG Card Detail Modal -->
+        <div class="tcg-card-modal-overlay" id="tcgCardModalOverlay">
+            <div class="tcg-card-modal">
+                <button class="tcg-card-modal-close" id="tcgCardModalClose">&times;</button>
+                <div class="tcg-card-modal-content" id="tcgCardModalContent">
+                    <!-- TCG card details will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Camera Scanner Modal -->
+        <div class="camera-modal-overlay" id="cameraModalOverlay">
+            <div class="camera-modal">
+                <div class="camera-modal-header">
+                    <div>
+                        <h2>Image Scanner</h2>
+                        <p class="camera-modal-subtitle">Share a card or poster and get real-time insights.</p>
+                    </div>
+                    <button class="camera-modal-close" id="cameraModalClose" aria-label="Close camera scanner">&times;</button>
+                </div>
+                <div class="camera-modal-body">
+                    <video id="cameraPreview" autoplay playsinline muted></video>
+                    <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
+                </div>
+                <div class="camera-modal-actions">
+                    <p class="camera-modal-note">Scanning runs the moment this window opens and pauses as soon as you close it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
