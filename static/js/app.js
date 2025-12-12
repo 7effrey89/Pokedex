@@ -16,6 +16,8 @@ class PokemonChatApp {
         this.faceRecognitionEnabled = false;
         this.currentIdentifiedUser = null;
         this.isFaceIdentifying = false;
+        this.lastFaceIdentificationTime = 0;
+        this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
@@ -385,11 +387,28 @@ class PokemonChatApp {
             return;
         }
         
+        // Rate limiting: Check cooldown period
+        const now = Date.now();
+        if (now - this.lastFaceIdentificationTime < this.faceIdentificationCooldown) {
+            const remainingCooldown = Math.ceil((this.faceIdentificationCooldown - (now - this.lastFaceIdentificationTime)) / 1000);
+            console.log(`Face identification on cooldown (${remainingCooldown}s remaining)`);
+            return;
+        }
+        
+        let stream = null;
+        let timeoutId = null;
+        
         try {
             this.isFaceIdentifying = true;
+            this.lastFaceIdentificationTime = now;
             
-            // Get user media (camera)
-            const stream = await navigator.mediaDevices.getUserMedia({ 
+            // Set timeout for camera access (10 seconds)
+            const timeoutPromise = new Promise((_, reject) => {
+                timeoutId = setTimeout(() => reject(new Error('Camera access timeout')), 10000);
+            });
+            
+            // Get user media (camera) with timeout
+            const streamPromise = navigator.mediaDevices.getUserMedia({ 
                 video: { 
                     facingMode: 'user',  // Use front camera
                     width: { ideal: 640 },
@@ -397,18 +416,30 @@ class PokemonChatApp {
                 } 
             });
             
+            stream = await Promise.race([streamPromise, timeoutPromise]);
+            
+            // Clear timeout if successful
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+            
             // Create video element
             const video = document.createElement('video');
             video.srcObject = stream;
             video.autoplay = true;
             
-            // Wait for video to be ready
-            await new Promise((resolve) => {
+            // Wait for video to be ready with timeout
+            const videoReadyPromise = new Promise((resolve, reject) => {
+                const videoTimeout = setTimeout(() => reject(new Error('Video load timeout')), 5000);
                 video.onloadedmetadata = () => {
+                    clearTimeout(videoTimeout);
                     video.play();
                     resolve();
                 };
             });
+            
+            await videoReadyPromise;
             
             // Wait a bit for camera to adjust
             await new Promise(resolve => setTimeout(resolve, 500));
@@ -420,13 +451,14 @@ class PokemonChatApp {
             const ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0);
             
-            // Convert to base64
-            const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+            // Convert to base64 with reduced quality (0.6 is sufficient for face recognition)
+            const base64Image = canvas.toDataURL('image/jpeg', 0.6);
             
-            // Stop video stream
-            stream.getTracks().forEach(track => track.stop());
+            // Send to backend for identification with timeout
+            const identifyTimeout = setTimeout(() => {
+                throw new Error('Face identification API timeout');
+            }, 15000);
             
-            // Send to backend for identification
             const response = await fetch('/api/face/identify', {
                 method: 'POST',
                 headers: {
@@ -436,6 +468,12 @@ class PokemonChatApp {
                     image: base64Image
                 })
             });
+            
+            clearTimeout(identifyTimeout);
+            
+            if (!response.ok) {
+                throw new Error(`API error: ${response.status} ${response.statusText}`);
+            }
             
             const result = await response.json();
             
@@ -460,8 +498,31 @@ class PokemonChatApp {
             }
             
         } catch (error) {
-            console.error('Error during face identification:', error);
+            console.error('Error during face identification:', error.message || error);
+            
+            // Handle specific error cases
+            if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+                console.log('Camera permission denied by user');
+            } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+                console.log('No camera found on device');
+            } else if (error.message && error.message.includes('timeout')) {
+                console.log('Camera access or processing timed out');
+            }
+            
         } finally {
+            // Clean up: Stop all video streams
+            if (stream) {
+                stream.getTracks().forEach(track => {
+                    track.stop();
+                    console.log('Camera track stopped');
+                });
+            }
+            
+            // Clear any remaining timeouts
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            
             this.isFaceIdentifying = false;
         }
     }
