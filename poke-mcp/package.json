@@ -1,0 +1,22 @@
+{
+  "name": "poke-mcp",
+  "version": "1.0.0",
+  "description": "Pokemon MCP Server - Provides Pokemon information through PokeAPI",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  }
+}
