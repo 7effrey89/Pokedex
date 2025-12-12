@@ -588,6 +588,33 @@ def handle_search_pokemon_cards(
     return {"error": "No cards found", "search_query": pokemon_name or ""}
 
 
+def handle_get_card_price(card_id: str) -> Dict:
+    """
+    Get price information for a Pokemon TCG card by ID
+    
+    Args:
+        card_id: Card ID in format 'set-number' (e.g., 'sv3-25')
+        
+    Returns:
+        Dict containing card pricing info from TCGPlayer and Cardmarket
+    """
+    logger.info(f"🎴 Getting price for card: {card_id}")
+    
+    try:
+        price_info = tcg_api.get_card_price(card_id)
+        
+        if price_info:
+            return {
+                "card": price_info,
+                "card_id": card_id
+            }
+        else:
+            return {"error": f"Card not found: {card_id}"}
+    except Exception as e:
+        logger.warning(f"⚠️ Error fetching card price: {e}")
+        return {"error": str(e)}
+
+
 # ============= Unified Tool Dispatcher =============
 
 def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -636,6 +663,10 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
                 hp_max=arguments.get('hp_max', None),
                 rarity=arguments.get('rarity', None)
             )
+        
+        elif tool_name == 'get_card_price':
+            card_id = arguments.get('card_id', '')
+            return handle_get_card_price(card_id)
         
         else:
             logger.warning(f"❓ Unknown tool: {tool_name}")

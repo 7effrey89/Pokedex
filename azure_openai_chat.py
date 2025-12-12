@@ -146,6 +146,23 @@ class AzureOpenAIChat:
                         "required": ["pokemon_type"]
                     }
                 }
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "get_card_price",
+                    "description": "Get pricing information for a specific Pokemon TCG card by ID. Card ID format is 'set-number' (e.g., 'sv3-25'). Returns TCGPlayer and Cardmarket prices.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "card_id": {
+                                "type": "string",
+                                "description": "Card ID in format 'set-number' (e.g., 'sv3-25', 'base1-4')"
+                            }
+                        },
+                        "required": ["card_id"]
+                    }
+                }
             }
         ]
         

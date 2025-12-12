@@ -159,6 +159,47 @@ class PokemonTCGTools:
             print(f"Error fetching TCG card: {e}")
             return None
     
+    def get_card_price(self, card_id: str) -> Optional[Dict]:
+        """
+        Get pricing information for a specific card by ID
+        
+        Args:
+            card_id: Card ID in format 'set-number' (e.g., 'sv3-25')
+            
+        Returns:
+            Dict containing card info with pricing from TCGPlayer and Cardmarket
+        """
+        card_data = self.get_card(card_id)
+        if not card_data or 'data' not in card_data:
+            return None
+        
+        card = card_data['data']
+        
+        # Extract pricing information
+        tcgplayer_prices = card.get('tcgplayer', {}).get('prices', {})
+        cardmarket_prices = card.get('cardmarket', {}).get('prices', {})
+        
+        price_info = {
+            "id": card.get("id"),
+            "name": card.get("name"),
+            "set": card.get("set", {}).get("name"),
+            "number": card.get("number"),
+            "rarity": card.get("rarity"),
+            "image": card.get("images", {}).get("small"),
+            "tcgplayer": {
+                "url": card.get('tcgplayer', {}).get('url'),
+                "updated": card.get('tcgplayer', {}).get('updatedAt'),
+                "prices": tcgplayer_prices
+            },
+            "cardmarket": {
+                "url": card.get('cardmarket', {}).get('url'),
+                "updated": card.get('cardmarket', {}).get('updatedAt'),
+                "prices": cardmarket_prices
+            }
+        }
+        
+        return price_info
+    
     def get_sets(self, page: int = 1, page_size: int = 50) -> Optional[Dict]:
         """
         Get list of TCG sets
