@@ -14,7 +14,10 @@ class ToolCategory(Enum):
     POKEMON_DATA = "pokemon_data"
     TRADING_CARDS = "trading_cards"
     UTILITIES = "utilities"
+<<<<<<< HEAD
     IDENTIFICATION = "identification"
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 
 
 @dataclass
@@ -55,6 +58,7 @@ class ToolManager:
             icon="🃏",
             enabled=True
         ),
+<<<<<<< HEAD
         "pokemon_tcg_mcp": Tool(
             id="pokemon_tcg_mcp",
             name="Pokemon TCG (MCP)",
@@ -79,6 +83,25 @@ class ToolManager:
             icon="👤",
             enabled=False
         ),
+=======
+        # NOTE: MCP server tools disabled - using direct APIs instead
+        # "pokemon_tcg_mcp": Tool(
+        #     id="pokemon_tcg_mcp",
+        #     name="Pokemon TCG (MCP)",
+        #     description="Search Pokemon TCG cards via the MCP server - provides structured tool-based access",
+        #     category=ToolCategory.TRADING_CARDS.value,
+        #     icon="🔌",
+        #     enabled=False
+        # ),
+        # "poke_mcp": Tool(
+        #     id="poke_mcp",
+        #     name="Poke MCP (MCP)",
+        #     description="Get Pokemon data via MCP server - supports random Pokemon by region/type",
+        #     category=ToolCategory.POKEMON_DATA.value,
+        #     icon="🌍",
+        #     enabled=False
+        # ),
+>>>>>>> origin/copilot/add-mobile-chat-demo
     }
     
     def __init__(self, config_path: str = None):

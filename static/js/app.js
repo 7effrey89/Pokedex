@@ -12,6 +12,7 @@ class PokemonChatApp {
         this.currentToolCalls = [];
         this.currentToolCallStartTime = null;
         
+<<<<<<< HEAD
         // Face recognition tracking
         this.faceRecognitionEnabled = false;
         this.currentIdentifiedUser = null;
@@ -19,6 +20,8 @@ class PokemonChatApp {
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -356,16 +359,20 @@ class PokemonChatApp {
                 const data = await response.json();
                 this.tools = data.tools || [];
                 console.log('Tools loaded:', this.tools);
+<<<<<<< HEAD
                 
                 // Check if face identification is enabled
                 this.faceRecognitionEnabled = this.isToolEnabled('face_identification');
                 console.log('Face recognition enabled:', this.faceRecognitionEnabled);
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
             }
         } catch (error) {
             console.error('Error loading tools:', error);
         }
     }
     
+<<<<<<< HEAD
     isToolEnabled(toolId) {
         const tool = this.tools.find(t => t.id === toolId);
         return tool ? tool.enabled : false;
@@ -527,6 +534,8 @@ class PokemonChatApp {
         }
     }
     
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
     async openToolsModal() {
         if (!this.toolsModalOverlay) return;
         
@@ -861,12 +870,15 @@ class PokemonChatApp {
                     const displayData = result.pokemon_data || result;
                     this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
                 }
+<<<<<<< HEAD
             },
             
             onSpeechStarted: () => {
                 // Trigger face identification when user starts speaking
                 console.log('Speech started - triggering face identification');
                 this.identifyUserFromCamera();
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
             }
         });
         

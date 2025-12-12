@@ -18,7 +18,11 @@ class PokemonTCGTools:
         self.headers = {
             "Content-Type": "application/json"
         }
+<<<<<<< HEAD
         self.timeout = 30  # Increased timeout
+=======
+        self.timeout = 60  # Increased timeout to 60 seconds for slow API
+>>>>>>> origin/copilot/add-mobile-chat-demo
         
         # Optional: Add API key for higher rate limits (free at pokemontcg.io)
         api_key = os.environ.get("POKEMON_TCG_API_KEY", "")
@@ -28,8 +32,13 @@ class PokemonTCGTools:
         # Set up session with retry logic
         self.session = requests.Session()
         retry_strategy = Retry(
+<<<<<<< HEAD
             total=3,
             backoff_factor=1,
+=======
+            total=2,  # Reduced retries since each attempt takes 60s
+            backoff_factor=2,
+>>>>>>> origin/copilot/add-mobile-chat-demo
             status_forcelist=[429, 500, 502, 503, 504],
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
@@ -159,6 +168,50 @@ class PokemonTCGTools:
             print(f"Error fetching TCG card: {e}")
             return None
     
+<<<<<<< HEAD
+=======
+    def get_card_price(self, card_id: str) -> Optional[Dict]:
+        """
+        Get pricing information for a specific card by ID
+        
+        Args:
+            card_id: Card ID in format 'set-number' (e.g., 'sv3-25')
+            
+        Returns:
+            Dict containing card info with pricing from TCGPlayer and Cardmarket
+        """
+        card_data = self.get_card(card_id)
+        if not card_data or 'data' not in card_data:
+            return None
+        
+        card = card_data['data']
+        
+        # Extract pricing information
+        tcgplayer_prices = card.get('tcgplayer', {}).get('prices', {})
+        cardmarket_prices = card.get('cardmarket', {}).get('prices', {})
+        
+        price_info = {
+            "id": card.get("id"),
+            "name": card.get("name"),
+            "set": card.get("set", {}).get("name"),
+            "number": card.get("number"),
+            "rarity": card.get("rarity"),
+            "image": card.get("images", {}).get("small"),
+            "tcgplayer": {
+                "url": card.get('tcgplayer', {}).get('url'),
+                "updated": card.get('tcgplayer', {}).get('updatedAt'),
+                "prices": tcgplayer_prices
+            },
+            "cardmarket": {
+                "url": card.get('cardmarket', {}).get('url'),
+                "updated": card.get('cardmarket', {}).get('updatedAt'),
+                "prices": cardmarket_prices
+            }
+        }
+        
+        return price_info
+    
+>>>>>>> origin/copilot/add-mobile-chat-demo
     def get_sets(self, page: int = 1, page_size: int = 50) -> Optional[Dict]:
         """
         Get list of TCG sets

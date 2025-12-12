@@ -8,8 +8,14 @@ import logging
 from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 from dotenv import load_dotenv
+<<<<<<< HEAD
 from pokemon_tools import PokemonTools
 from pokemon_tcg_tools import PokemonTCGTools
+=======
+# NOTE: Direct API tools commented out - using MCP servers via tool_handlers instead
+# from pokemon_tools import PokemonTools
+# from pokemon_tcg_tools import PokemonTCGTools
+>>>>>>> origin/copilot/add-mobile-chat-demo
 from mcp_client import (
     search_tcg_cards as mcp_search_cards, 
     get_tcg_card_price as mcp_get_price, 
@@ -32,9 +38,14 @@ load_dotenv()
 app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
+<<<<<<< HEAD
 # Initialize Pokemon tools
 pokemon_tools = PokemonTools()
 pokemon_tcg_tools = PokemonTCGTools()
+=======
+# NOTE: Direct API tools commented out - using MCP servers via tool_handlers instead
+# Initialize Pokemon tools
+>>>>>>> origin/copilot/add-mobile-chat-demo
 
 # Store conversation history (in-memory only - will be lost on restart)
 # TODO: For production, implement persistent storage (Redis, PostgreSQL, etc.)
@@ -42,6 +53,7 @@ conversations = {}
 card_contexts = {}
 
 
+<<<<<<< HEAD
 def detect_pokemon_query(message: str) -> tuple:
     """
     Detect if the message is asking about a Pokemon
@@ -175,6 +187,8 @@ def detect_tcg_query(message: str) -> tuple:
     return False, None
 
 
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None, context_only: bool = False) -> dict:
     """
     Generate a response to the user message using Azure OpenAI
@@ -293,6 +307,7 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
             response_data["tcg_data"] = result.get("tcg_data")
             
         except Exception as e:
+<<<<<<< HEAD
             print(f"Azure OpenAI error: {e}")
             # Fall back to rule-based response
             response_data["message"] = f"I'm having trouble connecting to my AI brain. Error: {str(e)}"
@@ -471,6 +486,15 @@ def generate_rule_based_response(message: str, user_id: str = "default") -> dict
                 response_data["message"] = "Pokemon list is not available. Please enable the PokeAPI tool in settings."
         else:
             response_data["message"] = "I'm a Pokemon expert! Ask me about any Pokemon and I'll show you their stats, abilities, and images. Try asking 'Tell me about Pikachu' or 'Show me Pikachu cards'!"
+=======
+            logger.error(f"Azure OpenAI error: {e}")
+            response_data["message"] = f"I'm having trouble connecting to my AI brain. Error: {str(e)}"
+    else:
+        # OpenAI/Azure connection is required
+        error_msg = "OpenAI connection is required. Please configure AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY environment variables."
+        logger.error(error_msg)
+        response_data["message"] = error_msg
+>>>>>>> origin/copilot/add-mobile-chat-demo
     
     # Add response to history
     conversations[user_id].append({
@@ -551,6 +575,7 @@ def chat_stream():
         return jsonify({"error": str(e)}), 500
 
 
+<<<<<<< HEAD
 @app.route('/api/pokemon/<name_or_id>', methods=['GET'])
 def get_pokemon(name_or_id):
     """
@@ -574,6 +599,8 @@ def get_pokemon(name_or_id):
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 
 
 @app.route('/api/history/<user_id>', methods=['GET'])
@@ -859,6 +886,7 @@ def reset_tools():
     })
 
 
+<<<<<<< HEAD
 # ============= Face Identification API Endpoints =============
 
 @app.route('/api/face/identify', methods=['POST'])
@@ -1080,6 +1108,10 @@ def get_tcg_sets():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+=======
+# ============= TCG API Endpoints =============
+
+>>>>>>> origin/copilot/add-mobile-chat-demo
 
 if __name__ == '__main__':
     # Create templates and static directories if they don't exist
@@ -1087,7 +1119,10 @@ if __name__ == '__main__':
     os.makedirs('static', exist_ok=True)
     os.makedirs('static/css', exist_ok=True)
     os.makedirs('static/js', exist_ok=True)
+<<<<<<< HEAD
     os.makedirs('profiles_pic', exist_ok=True)
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
     
     # Run the app
     port = int(os.environ.get('PORT', 5000))

@@ -10,7 +10,10 @@ A real-time, mobile-friendly Pokemon chat assistant that allows users to ask que
 - 📊 **Detailed Information** - Stats, types, abilities, and descriptions
 - 💬 **Natural Language** - Ask questions in plain English
 - 🎤 **Voice Conversation** - Talk to the assistant using voice commands
+<<<<<<< HEAD
 - 👤 **Face Recognition** - Real-time user identification during voice conversations (NEW!)
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 - 🃏 **Trading Card Game** - Search and view Pokemon TCG cards with images (NEW!)
 - 💡 **Card Context Awareness** - The assistant keeps track of the MCP card you have open and injects that card’s summary into every conversation so follow-ups can reference it directly
 - 🛠️ **Tool Management** - Enable/disable features via settings modal (NEW!)
@@ -34,7 +37,10 @@ The app features a clean, mobile-first design with:
 - **APIs**: 
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
   - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
+<<<<<<< HEAD
 - **Face Recognition**: face_recognition library (based on dlib)
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 - **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
@@ -112,7 +118,10 @@ Click the **Tools** button in the header to manage available features:
 
 1. **PokeAPI** 🎮 - Pokemon game data (stats, types, abilities)
 2. **Pokemon TCG** 🃏 - Trading card search and display
+<<<<<<< HEAD
 3. **Face Identification** 👤 - Real-time user identification (NEW!)
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 
 Enable or disable tools based on your needs!
 
@@ -133,6 +142,7 @@ Talk to the assistant using your voice:
 
 For detailed setup and Azure OpenAI integration, see [VOICE_SETUP.md](VOICE_SETUP.md)
 
+<<<<<<< HEAD
 ### Face Recognition (NEW! 👤)
 
 Automatically identify users during voice conversations:
@@ -197,6 +207,8 @@ Automatically identify users during voice conversations:
 - Photo quality might be poor - use a clear, front-facing photo
 - Camera angle might be bad - position yourself facing the camera
 
+=======
+>>>>>>> origin/copilot/add-mobile-chat-demo
 ### Quick Actions
 
 Use the quick action buttons for common tasks:
