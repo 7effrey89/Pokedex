@@ -61,62 +61,137 @@
             </div>
         </header>
 
-        <!-- Chat Container -->
-        <div class="chat-container" id="chatContainer">
-            <!-- Welcome Message -->
-            <div class="welcome-message">
-                <div class="welcome-icon">👋</div>
-                <h2>Welcome to Pokemon Chat!</h2>
-                <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
-                <div class="example-queries">
-                    <span class="example-chip">Tell me about Pikachu</span>
-                    <span class="example-chip">Show me Charizard</span>
-                    <span class="example-chip">Show me Pikachu cards</span>
-                    <span class="example-chip">Surprise me with a random Pokemon</span>
-                    <span class="example-chip">Random Pokemon from Kanto</span>
-                    <span class="example-chip">Random Fire type Pokemon</span>
+        <!-- Main Canvas/Viewport -->
+        <div class="main-canvas" id="mainCanvas">
+            <!-- Forward Navigation Button -->
+            <button class="forward-btn" id="forwardBtn" style="display: none;" aria-label="Go forward">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <!-- Pokemon Grid View (Default) -->
+            <div class="pokemon-grid-view" id="pokemonGridView">
+                <div class="grid-container">
+                    <div class="list-wrapper" id="pokemonList">
+                        <!-- Pokemon cards will be dynamically loaded here -->
+                    </div>
+                </div>
+                <div id="notFoundMessage" class="not-found-message" style="display: none;">Pokemon not found</div>
+            </div>
+
+            <!-- Pokemon Detail View -->
+            <div class="pokemon-detail-view" id="pokemonDetailView" style="display: none;">
+                <div class="detail-header">
+                    <button class="back-btn" id="backToGridBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <div class="pokemon-name-wrap">
+                        <h1 class="pokemon-name"></h1>
+                        <p class="pokemon-id"></p>
+                    </div>
+                </div>
+                
+                <div class="pokemon-image-section">
+                    <img class="pokemon-main-image" src="" alt="Pokemon" />
+                </div>
+                
+                <div class="pokemon-info-card">
+                    <div class="pokemon-types"></div>
+                    
+                    <h3 class="section-title">About</h3>
+                    <div class="pokemon-basic-info">
+                        <div class="info-item">
+                            <div class="info-value">
+                                <span class="pokemon-weight"></span>
+                            </div>
+                            <p class="info-label">Weight</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-value">
+                                <span class="pokemon-height"></span>
+                            </div>
+                            <p class="info-label">Height</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-value pokemon-abilities"></div>
+                            <p class="info-label">Abilities</p>
+                        </div>
+                    </div>
+                    
+                    <p class="pokemon-description"></p>
+                    
+                    <h3 class="section-title">Base Stats</h3>
+                    <div class="pokemon-stats"></div>
                 </div>
             </div>
 
-            <!-- Messages will be dynamically added here -->
+            <!-- TCG Cards View -->
+            <div class="tcg-cards-view" id="tcgCardsView" style="display: none;">
+                <!-- TCG cards grid will be dynamically populated here -->
+            </div>
         </div>
 
-        <!-- Pokemon Card Display -->
-        <div class="pokemon-card-overlay" id="pokemonCardOverlay">
-            <div class="pokemon-card">
-                <button class="close-card" id="closeCard">&times;</button>
-                <div class="pokemon-card-content" id="pokemonCardContent">
-                    <!-- Pokemon details will be dynamically added here -->
+        <!-- Chat Sidebar (Hidden by default) -->
+        <div class="chat-sidebar" id="chatSidebar">
+            <button class="chat-toggle-btn" id="chatToggleBtn" aria-label="Toggle chat">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="chat-sidebar-content">
+                <div class="chat-sidebar-header">
+                    <h3>Chat Assistant</h3>
+                    <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
                 </div>
-            </div>
-        </div>
+                <div class="chat-container" id="chatContainer">
+                    <!-- Welcome Message -->
+                    <div class="welcome-message">
+                        <div class="welcome-icon">👋</div>
+                        <h2>Welcome to Pokemon Chat!</h2>
+                        <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
+                        <div class="example-queries">
+                            <span class="example-chip">Tell me about Pikachu</span>
+                            <span class="example-chip">Show me Charizard</span>
+                            <span class="example-chip">Show me Pikachu cards</span>
+                            <span class="example-chip">Surprise me with a random Pokemon</span>
+                        </div>
+                    </div>
 
-        <!-- Input Area -->
-        <div class="input-container">
-            <div class="input-wrapper">
-                <textarea 
-                    id="messageInput" 
-                    class="message-input" 
-                    placeholder="Ask about a Pokemon..."
-                    rows="1"
-                ></textarea>
-                <button id="sendButton" class="send-button" aria-label="Send message">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="quick-actions">
-                <button class="quick-action-btn" data-action="help">
-                    <span>❓</span> Help
-                </button>
-                <button class="quick-action-btn" data-action="random">
-                    <span>🎲</span> Random
-                </button>
-                <button class="quick-action-btn" data-action="popular">
-                    <span>⭐</span> Popular
-                </button>
+                    <!-- Messages will be dynamically added here -->
+                </div>
+
+                <!-- Input Area (inside sidebar) -->
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            class="message-input" 
+                            placeholder="Ask about a Pokemon..."
+                            rows="1"
+                        ></textarea>
+                        <button id="sendButton" class="send-button" aria-label="Send message">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" data-action="help">
+                            <span>❓</span> Help
+                        </button>
+                        <button class="quick-action-btn" data-action="random">
+                            <span>🎲</span> Random
+                        </button>
+                        <button class="quick-action-btn" data-action="popular">
+                            <span>⭐</span> Popular
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 

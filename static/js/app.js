@@ -55,6 +55,25 @@ class PokemonChatApp {
         this.tcgCardModalContent = document.getElementById('tcgCardModalContent');
         this.tcgCardModalClose = document.getElementById('tcgCardModalClose');
         
+        // New layout elements
+        this.chatSidebar = document.getElementById('chatSidebar');
+        this.chatToggleBtn = document.getElementById('chatToggleBtn');
+        this.chatCloseBtn = document.getElementById('chatCloseBtn');
+        this.mainCanvas = document.getElementById('mainCanvas');
+        this.pokemonGridView = document.getElementById('pokemonGridView');
+        this.pokemonList = document.getElementById('pokemonList');
+        this.pokemonDetailView = document.getElementById('pokemonDetailView');
+        this.tcgCardsView = document.getElementById('tcgCardsView');
+        
+        // Pokemon data
+        this.allPokemons = [];
+        this.MAX_POKEMON = 151; // Kanto region
+        
+        // View history for navigation
+        this.viewHistory = ['grid']; // Start at grid view
+        this.currentViewIndex = 0;
+        this.currentTcgData = null; // Store last TCG data for forward navigation
+        
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
         this.synthesis = window.speechSynthesis;
@@ -69,8 +88,10 @@ class PokemonChatApp {
         this.initializeEventListeners();
         this.initializeToolsModal();
         this.initializeCameraControls();
+        this.initializeChatSidebar();
         this.adjustTextareaHeight();
         this.loadTools();
+        this.loadPokemonGrid();
     }
     
     generateUserId() {
@@ -84,18 +105,22 @@ class PokemonChatApp {
     
     initializeEventListeners() {
         // Send button click
-        this.sendButton.addEventListener('click', () => this.sendMessage());
+        if (this.sendButton) {
+            this.sendButton.addEventListener('click', () => this.sendMessage());
+        }
         
         // Enter key to send (Shift+Enter for new line)
-        this.messageInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                this.sendMessage();
-            }
-        });
-        
-        // Auto-resize textarea
-        this.messageInput.addEventListener('input', () => this.adjustTextareaHeight());
+        if (this.messageInput) {
+            this.messageInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.sendMessage();
+                }
+            });
+            
+            // Auto-resize textarea
+            this.messageInput.addEventListener('input', () => this.adjustTextareaHeight());
+        }
         
         // Quick action buttons
         document.querySelectorAll('.quick-action-btn').forEach(btn => {
@@ -108,21 +133,29 @@ class PokemonChatApp {
         // Example chips
         document.querySelectorAll('.example-chip').forEach(chip => {
             chip.addEventListener('click', () => {
-                this.messageInput.value = chip.textContent;
-                this.sendMessage();
+                if (this.messageInput) {
+                    this.messageInput.value = chip.textContent;
+                    this.sendMessage();
+                }
             });
         });
         
-        // Close pokemon card
-        this.closeCardBtn.addEventListener('click', () => this.closePokemonCard());
-        this.pokemonCardOverlay.addEventListener('click', (e) => {
-            if (e.target === this.pokemonCardOverlay) {
-                this.closePokemonCard();
-            }
-        });
+        // Close pokemon card (old overlay - now hidden)
+        if (this.closeCardBtn) {
+            this.closeCardBtn.addEventListener('click', () => this.closePokemonCard());
+        }
+        if (this.pokemonCardOverlay) {
+            this.pokemonCardOverlay.addEventListener('click', (e) => {
+                if (e.target === this.pokemonCardOverlay) {
+                    this.closePokemonCard();
+                }
+            });
+        }
         
         // Voice button
-        this.voiceButton.addEventListener('click', () => this.toggleVoiceConversation());
+        if (this.voiceButton) {
+            this.voiceButton.addEventListener('click', () => this.toggleVoiceConversation());
+        }
     }
     
     initializeToolsModal() {
@@ -168,7 +201,572 @@ class PokemonChatApp {
         }
     }
 
-    initializeCameraControls() {
+    initializeChatSidebar() {
+        // Chat toggle button
+        if (this.chatToggleBtn) {
+            this.chatToggleBtn.addEventListener('click', () => this.toggleChatSidebar());
+        }
+        
+        // Chat close button
+        if (this.chatCloseBtn) {
+            this.chatCloseBtn.addEventListener('click', () => this.closeChatSidebar());
+        }
+        
+        // Back to grid button
+        const backToGridBtn = document.getElementById('backToGridBtn');
+        if (backToGridBtn) {
+            backToGridBtn.addEventListener('click', () => this.showPokemonGrid());
+        }
+        
+        // Back to grid from TCG view button
+        const backToGridFromTcgBtn = document.getElementById('backToGridFromTcg');
+        if (backToGridFromTcgBtn) {
+            backToGridFromTcgBtn.addEventListener('click', () => this.showPokemonGrid());
+        }
+        
+        // Forward button for navigation
+        const forwardBtn = document.getElementById('forwardBtn');
+        if (forwardBtn) {
+            forwardBtn.addEventListener('click', () => this.navigateForward());
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        if (this.chatSidebar) {
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 900 && 
+                    this.chatSidebar.classList.contains('open') &&
+                    !this.chatSidebar.contains(e.target) &&
+                    !this.chatToggleBtn.contains(e.target)) {
+                    this.closeChatSidebar();
+                }
+            });
+        }
+    }
+
+    toggleChatSidebar() {
+        if (this.chatSidebar) {
+            this.chatSidebar.classList.toggle('open');
+        }
+    }
+
+    openChatSidebar() {
+        if (this.chatSidebar) {
+            this.chatSidebar.classList.add('open');
+        }
+    }
+
+    closeChatSidebar() {
+        if (this.chatSidebar) {
+            this.chatSidebar.classList.remove('open');
+        }
+    }
+
+    async loadPokemonGrid() {
+        try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${this.MAX_POKEMON}`);
+            const data = await response.json();
+            this.allPokemons = data.results;
+            this.displayPokemons(this.allPokemons);
+        } catch (error) {
+            console.error('Error loading Pokemon grid:', error);
+        }
+    }
+
+    displayPokemons(pokemons) {
+        if (!this.pokemonList) return;
+        
+        this.pokemonList.innerHTML = '';
+
+        pokemons.forEach((pokemon) => {
+            const pokemonID = pokemon.url.split("/")[6];
+            const listItem = document.createElement("div");
+            listItem.className = "list-item";
+            listItem.innerHTML = `
+                <div class="number-wrap">
+                    <p class="caption-fonts">#${pokemonID.padStart(3, '0')}</p>
+                </div>
+                <div class="img-wrap">
+                    <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" 
+                         alt="${pokemon.name}" 
+                         loading="lazy" />
+                </div>
+                <div class="name-wrap">
+                    <p class="body3-fonts">${pokemon.name}</p>
+                </div>
+            `;
+
+            listItem.addEventListener("click", () => {
+                this.showPokemonDetail(pokemonID, pokemon.name);
+            });
+
+            this.pokemonList.appendChild(listItem);
+        });
+    }
+
+    async showPokemonDetail(id, name) {
+        console.log(`Showing details for Pokemon: ${name} (ID: ${id})`);
+        this.loadPokemonData(id);
+    }
+
+    async loadPokemonData(id) {
+        try {
+            const [pokemonResponse, speciesResponse] = await Promise.all([
+                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
+                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+            ]);
+
+            const pokemon = await pokemonResponse.json();
+            const species = await speciesResponse.json();
+
+            this.displayPokemonDetails(pokemon, species);
+        } catch (error) {
+            console.error('Error loading Pokemon data:', error);
+        }
+    }
+
+    displayPokemonDetails(pokemon, species) {
+        // Defensive checks
+        if (!this.pokemonDetailView || !this.pokemonGridView) {
+            console.error('Pokemon detail view or grid view not found');
+            return;
+        }
+        
+        if (!pokemon || !pokemon.types || !pokemon.types[0]) {
+            console.error('Invalid pokemon data:', pokemon);
+            return;
+        }
+        
+        // Hide grid, show detail view
+        this.pokemonGridView.style.display = 'none';
+        this.pokemonDetailView.style.display = 'block';
+        
+        // Add to history
+        const viewKey = `pokemon-${pokemon.id}`;
+        if (this.viewHistory[this.currentViewIndex] !== viewKey) {
+            this.currentViewIndex++;
+            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
+            this.viewHistory.push(viewKey);
+        }
+
+        // Set background color based on primary type
+        const primaryType = pokemon.types[0].type.name;
+        this.pokemonDetailView.className = 'pokemon-detail-view';
+        this.pokemonDetailView.classList.add(`bg-${primaryType}`);
+
+        // Update name and ID
+        const nameEl = this.pokemonDetailView.querySelector('.pokemon-name');
+        const idEl = this.pokemonDetailView.querySelector('.pokemon-id');
+        nameEl.textContent = pokemon.name;
+        idEl.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
+
+        // Update image with proper null checks
+        const imageEl = this.pokemonDetailView.querySelector('.pokemon-main-image');
+        const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
+                        pokemon.sprites?.front_default || 
+                        '';
+        if (imageUrl) {
+            imageEl.src = imageUrl;
+            imageEl.alt = pokemon.name;
+        }
+
+        // Update types
+        const typesEl = this.pokemonDetailView.querySelector('.pokemon-types');
+        typesEl.innerHTML = pokemon.types.map(typeInfo => 
+            `<div class="type-badge type-${typeInfo.type.name}">${typeInfo.type.name}</div>`
+        ).join('');
+
+        // Update weight and height
+        const weightEl = this.pokemonDetailView.querySelector('.pokemon-weight');
+        const heightEl = this.pokemonDetailView.querySelector('.pokemon-height');
+        weightEl.textContent = `${(pokemon.weight / 10).toFixed(1)} kg`;
+        heightEl.textContent = `${(pokemon.height / 10).toFixed(1)} m`;
+
+        // Update abilities
+        const abilitiesEl = this.pokemonDetailView.querySelector('.pokemon-abilities');
+        abilitiesEl.innerHTML = pokemon.abilities.map(abilityInfo => 
+            `<span>${abilityInfo.ability.name.replace('-', ' ')}</span>`
+        ).join('');
+
+        // Update description
+        const descEl = this.pokemonDetailView.querySelector('.pokemon-description');
+        const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
+        if (flavorText) {
+            descEl.textContent = flavorText.flavor_text.replace(/\f/g, ' ');
+        } else {
+            descEl.textContent = 'No description available.';
+        }
+
+        // Update stats
+        const statsEl = this.pokemonDetailView.querySelector('.pokemon-stats');
+        const statNames = {
+            'hp': 'HP',
+            'attack': 'ATK',
+            'defense': 'DEF',
+            'special-attack': 'SATK',
+            'special-defense': 'SDEF',
+            'speed': 'SPD'
+        };
+        
+        statsEl.innerHTML = pokemon.stats.map(statInfo => {
+            const statName = statInfo.stat.name;
+            const statValue = statInfo.base_stat;
+            const percentage = Math.min((statValue / 255) * 100, 100);
+            
+            return `
+                <div class="stat-row">
+                    <div class="stat-name">${statNames[statName] || statName}</div>
+                    <div class="stat-value">${statValue}</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar stat-${statName}" style="width: ${percentage}%"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Scroll to top of detail view
+        this.pokemonDetailView.scrollTop = 0;
+        this.updateNavigationButtons();
+    }
+    
+    async loadPokemonDataWithoutHistory(id) {
+        try {
+            const [pokemonResponse, speciesResponse] = await Promise.all([
+                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
+                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+            ]);
+
+            const pokemon = await pokemonResponse.json();
+            const species = await speciesResponse.json();
+
+            // Defensive checks
+            if (!this.pokemonDetailView || !this.pokemonGridView) {
+                console.error('Pokemon detail view or grid view not found');
+                return;
+            }
+            
+            if (!pokemon || !pokemon.types || !pokemon.types[0]) {
+                console.error('Invalid pokemon data:', pokemon);
+                return;
+            }
+
+            // Hide grid, show detail view (without adding to history)
+            this.pokemonGridView.style.display = 'none';
+            this.pokemonDetailView.style.display = 'block';
+            
+            // Update the display using existing logic from displayPokemonDetails
+            const primaryType = pokemon.types[0].type.name;
+            this.pokemonDetailView.className = 'pokemon-detail-view';
+            this.pokemonDetailView.classList.add(`bg-${primaryType}`);
+
+            const nameEl = this.pokemonDetailView.querySelector('.pokemon-name');
+            const idEl = this.pokemonDetailView.querySelector('.pokemon-id');
+            nameEl.textContent = pokemon.name;
+            idEl.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
+
+            const imageEl = this.pokemonDetailView.querySelector('.pokemon-main-image');
+            const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
+                            pokemon.sprites?.front_default || 
+                            '';
+            if (imageUrl) {
+                imageEl.src = imageUrl;
+                imageEl.alt = pokemon.name;
+            }
+
+            const typesEl = this.pokemonDetailView.querySelector('.pokemon-types');
+            typesEl.innerHTML = pokemon.types.map(typeInfo => 
+                `<div class="type-badge type-${typeInfo.type.name}">${typeInfo.type.name}</div>`
+            ).join('');
+
+            const weightEl = this.pokemonDetailView.querySelector('.pokemon-weight');
+            const heightEl = this.pokemonDetailView.querySelector('.pokemon-height');
+            weightEl.textContent = `${(pokemon.weight / 10).toFixed(1)} kg`;
+            heightEl.textContent = `${(pokemon.height / 10).toFixed(1)} m`;
+
+            const abilitiesEl = this.pokemonDetailView.querySelector('.pokemon-abilities');
+            abilitiesEl.innerHTML = pokemon.abilities.map(abilityInfo => 
+                `<span>${abilityInfo.ability.name.replace('-', ' ')}</span>`
+            ).join('');
+
+            const descEl = this.pokemonDetailView.querySelector('.pokemon-description');
+            const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
+            if (flavorText) {
+                descEl.textContent = flavorText.flavor_text.replace(/\f/g, ' ');
+            } else {
+                descEl.textContent = 'No description available.';
+            }
+
+            const statsEl = this.pokemonDetailView.querySelector('.pokemon-stats');
+            const statNames = {
+                'hp': 'HP',
+                'attack': 'ATK',
+                'defense': 'DEF',
+                'special-attack': 'SATK',
+                'special-defense': 'SDEF',
+                'speed': 'SPD'
+            };
+            
+            statsEl.innerHTML = pokemon.stats.map(statInfo => {
+                const statName = statInfo.stat.name;
+                const statValue = statInfo.base_stat;
+                const percentage = Math.min((statValue / 255) * 100, 100);
+                
+                return `
+                    <div class="stat-row">
+                        <div class="stat-name">${statNames[statName] || statName}</div>
+                        <div class="stat-value">${statValue}</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar stat-${statName}" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            this.pokemonDetailView.scrollTop = 0;
+            this.updateNavigationButtons();
+        } catch (error) {
+            console.error('Error loading Pokemon data:', error);
+        }
+    }
+
+    showPokemonGrid() {
+        this.pokemonDetailView.style.display = 'none';
+        this.tcgCardsView.style.display = 'none';
+        this.pokemonGridView.style.display = 'block';
+        
+        // Add to history if not already there
+        if (this.viewHistory[this.currentViewIndex] !== 'grid') {
+            this.currentViewIndex++;
+            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
+            this.viewHistory.push('grid');
+        }
+        this.updateNavigationButtons();
+    }
+    
+    navigateForward() {
+        if (this.currentViewIndex < this.viewHistory.length - 1) {
+            this.currentViewIndex++;
+            const view = this.viewHistory[this.currentViewIndex];
+            
+            if (view === 'grid') {
+                this.showPokemonGridWithoutHistory();
+            } else if (view === 'tcg' && this.currentTcgData) {
+                this.displayTcgCardsInCanvasWithoutHistory(this.currentTcgData);
+            } else if (view.startsWith('pokemon-')) {
+                const pokemonId = parseInt(view.split('-')[1]);
+                this.loadPokemonDataWithoutHistory(pokemonId);
+            }
+            this.updateNavigationButtons();
+        }
+    }
+    
+    showPokemonGridWithoutHistory() {
+        this.pokemonDetailView.style.display = 'none';
+        this.tcgCardsView.style.display = 'none';
+        this.pokemonGridView.style.display = 'block';
+        this.updateNavigationButtons();
+    }
+    
+    updateNavigationButtons() {
+        const forwardBtn = document.getElementById('forwardBtn');
+        if (forwardBtn) {
+            if (this.currentViewIndex < this.viewHistory.length - 1) {
+                forwardBtn.style.display = 'flex';
+            } else {
+                forwardBtn.style.display = 'none';
+            }
+        }
+    }
+
+    displayTcgCardsInCanvas(tcgData) {
+        console.log('🃏 displayTcgCardsInCanvas called with:', tcgData);
+        
+        if (!tcgData || !tcgData.cards || !Array.isArray(tcgData.cards) || tcgData.cards.length === 0) {
+            console.error('❌ Invalid TCG data:', tcgData);
+            return;
+        }
+        
+        console.log('✅ Valid TCG data with', tcgData.cards.length, 'cards');
+        
+        // Store for forward navigation
+        this.currentTcgData = tcgData;
+        
+        // Add to history
+        if (this.viewHistory[this.currentViewIndex] !== 'tcg') {
+            this.currentViewIndex++;
+            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
+            this.viewHistory.push('tcg');
+        }
+        
+        // Hide other views
+        this.pokemonGridView.style.display = 'none';
+        this.pokemonDetailView.style.display = 'none';
+        
+        // Show TCG cards view
+        this.tcgCardsView.style.display = 'block';
+        
+        // Clear existing content
+        this.tcgCardsView.innerHTML = '';
+        
+        // Create header with back button
+        const header = document.createElement('div');
+        header.className = 'tcg-canvas-header';
+        header.innerHTML = `
+            <button class="back-btn" id="backToGridFromTcg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Back</span>
+            </button>
+            <div class="tcg-canvas-title">
+                <h1>🃏 Trading Card Gallery</h1>
+                <p>${tcgData.total_count || tcgData.count || tcgData.cards.length} cards found</p>
+            </div>
+        `;
+        this.tcgCardsView.appendChild(header);
+        
+        // Re-attach back button event listener
+        const backBtn = header.querySelector('#backToGridFromTcg');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                console.log('🔙 Back button clicked');
+                this.showPokemonGrid();
+            });
+        }
+        
+        // Create cards grid
+        const cardsGrid = document.createElement('div');
+        cardsGrid.className = 'tcg-canvas-grid';
+        
+        console.log('🎴 Creating card elements...');
+        tcgData.cards.forEach((card, index) => {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'tcg-canvas-card';
+            
+            // Card image - support multiple formats
+            const imageUrl = card.images?.small || card.images?.large || card.image || card.imageUrl;
+            console.log(`Card ${index + 1} (${card.name}):`, imageUrl ? 'Has image' : 'NO IMAGE', imageUrl);
+            
+            if (imageUrl) {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = card.name || 'Pokemon Card';
+                img.loading = 'lazy';
+                img.onerror = () => {
+                    console.error('Failed to load image:', imageUrl);
+                    img.style.display = 'none';
+                };
+                cardDiv.appendChild(img);
+            } else {
+                // Fallback if no image
+                const placeholder = document.createElement('div');
+                placeholder.className = 'tcg-card-placeholder';
+                placeholder.textContent = card.name || 'Card';
+                cardDiv.appendChild(placeholder);
+            }
+            
+            // Card info overlay
+            const cardInfo = document.createElement('div');
+            cardInfo.className = 'tcg-canvas-card-info';
+            cardInfo.innerHTML = `
+                <div class="tcg-canvas-card-name">${card.name || 'Unknown Card'}</div>
+                <div class="tcg-canvas-card-set">${card.set?.name || card.setName || 'Unknown Set'}</div>
+            `;
+            cardDiv.appendChild(cardInfo);
+            
+            // Click to show full card details
+            cardDiv.addEventListener('click', () => {
+                this.showTcgCardDetail(card);
+            });
+            
+            cardsGrid.appendChild(cardDiv);
+        });
+        
+        console.log('✅ Created', cardsGrid.children.length, 'card elements');
+        this.tcgCardsView.appendChild(cardsGrid);
+        
+        // Scroll to top
+        this.tcgCardsView.scrollTop = 0;
+        console.log('✅ TCG cards view updated and displayed');
+        this.updateNavigationButtons();
+    }
+    
+    displayTcgCardsInCanvasWithoutHistory(tcgData) {
+        console.log('🃏 displayTcgCardsInCanvasWithoutHistory called');
+        
+        if (!tcgData || !tcgData.cards || !Array.isArray(tcgData.cards) || tcgData.cards.length === 0) {
+            return;
+        }
+        
+        // Hide other views
+        this.pokemonGridView.style.display = 'none';
+        this.pokemonDetailView.style.display = 'none';
+        this.tcgCardsView.style.display = 'block';
+        
+        // Clear existing content
+        this.tcgCardsView.innerHTML = '';
+        
+        // Create header with back button
+        const header = document.createElement('div');
+        header.className = 'tcg-canvas-header';
+        header.innerHTML = `
+            <button class="back-btn" id="backToGridFromTcg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Back</span>
+            </button>
+            <div class="tcg-canvas-title">
+                <h1>🃏 Trading Card Gallery</h1>
+                <p>${tcgData.total_count || tcgData.count || tcgData.cards.length} cards found</p>
+            </div>
+        `;
+        this.tcgCardsView.appendChild(header);
+        
+        const backBtn = header.querySelector('#backToGridFromTcg');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                this.showPokemonGrid();
+            });
+        }
+        
+        const cardsGrid = document.createElement('div');
+        cardsGrid.className = 'tcg-canvas-grid';
+        
+        tcgData.cards.forEach((card, index) => {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'tcg-canvas-card';
+            
+            const imageUrl = card.images?.small || card.images?.large || card.image || card.imageUrl;
+            
+            if (imageUrl) {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = card.name || 'Pokemon Card';
+                img.loading = 'lazy';
+                cardDiv.appendChild(img);
+            }
+            
+            const cardInfo = document.createElement('div');
+            cardInfo.className = 'tcg-canvas-card-info';
+            cardInfo.innerHTML = `
+                <div class="tcg-canvas-card-name">${card.name || 'Unknown Card'}</div>
+                <div class="tcg-canvas-card-set">${card.set?.name || card.setName || 'Unknown Set'}</div>
+            `;
+            cardDiv.appendChild(cardInfo);
+            
+            cardDiv.addEventListener('click', () => {
+                this.showTcgCardDetail(card);
+            });
+            
+            cardsGrid.appendChild(cardDiv);
+        });
+        
+        this.tcgCardsView.appendChild(cardsGrid);
+        this.tcgCardsView.scrollTop = 0;
+        this.updateNavigationButtons();
+    }
+
+    async initializeCameraControls() {
         if (this.cameraButton) {
             this.cameraButton.addEventListener('click', () => this.openCameraModal());
         }
@@ -853,20 +1451,60 @@ class PokemonChatApp {
                     let pokemonData = null;
                     let tcgData = null;
                     
+                    console.log('🔍 Processing response, checking tool calls:', this.currentToolCalls.length);
+                    
                     // Check tool results for displayable data
                     for (const toolCall of this.currentToolCalls) {
                         if (toolCall.result && toolCall.success) {
-                            // Check for Pokemon data
-                            if (toolCall.result.name && toolCall.result.types && toolCall.result.image) {
+                            console.log('✅ Tool call result:', toolCall.toolName, toolCall.result);
+                            
+                            // Check for Pokemon data and auto-display
+                            if (toolCall.result.name && toolCall.result.types) {
                                 pokemonData = toolCall.result;
+                                console.log('🎮 Pokemon data found:', pokemonData.name, 'Full data:', toolCall.result);
+                                
+                                // Auto-display Pokemon detail if we have an ID or name
+                                const pokemonId = toolCall.result.id || toolCall.result.pokemon_id;
+                                const pokemonName = toolCall.result.name;
+                                
+                                if (pokemonId) {
+                                    console.log('🎯 Auto-displaying Pokemon by ID:', pokemonId, pokemonName);
+                                    this.loadPokemonData(pokemonId);
+                                } else if (pokemonName) {
+                                    // Try to find Pokemon by name from our loaded list
+                                    console.log('🔍 Searching for Pokemon by name:', pokemonName);
+                                    const foundPokemon = this.allPokemons.find(p => 
+                                        p.name.toLowerCase() === pokemonName.toLowerCase()
+                                    );
+                                    if (foundPokemon) {
+                                        const idFromUrl = foundPokemon.url.split('/').filter(Boolean).pop();
+                                        console.log('🎯 Auto-displaying Pokemon by name:', pokemonName, 'ID:', idFromUrl);
+                                        this.loadPokemonData(parseInt(idFromUrl));
+                                    } else {
+                                        console.log('⚠️ Pokemon not found in loaded list:', pokemonName);
+                                    }
+                                }
                             }
-                            // Check for TCG card data
-                            if (toolCall.result.cards && toolCall.result.cards.length > 0) {
+                            
+                            // Check for TCG card data - support multiple formats
+                            if (toolCall.result.cards && Array.isArray(toolCall.result.cards) && toolCall.result.cards.length > 0) {
                                 tcgData = toolCall.result;
+                                console.log('🃏 TCG data found:', tcgData.cards.length, 'cards');
+                            }
+                            // Check if result itself is an array of cards
+                            else if (Array.isArray(toolCall.result) && toolCall.result.length > 0 && toolCall.result[0].name) {
+                                tcgData = { cards: toolCall.result, count: toolCall.result.length, total_count: toolCall.result.length };
+                                console.log('🃏 TCG data found (array format):', tcgData.cards.length, 'cards');
+                            }
+                            // Check if there's a data property containing cards
+                            else if (toolCall.result.data && Array.isArray(toolCall.result.data) && toolCall.result.data.length > 0) {
+                                tcgData = { cards: toolCall.result.data, count: toolCall.result.data.length, total_count: toolCall.result.totalCount || toolCall.result.data.length };
+                                console.log('🃏 TCG data found (data property):', tcgData.cards.length, 'cards');
                             }
                         }
                     }
                     
+                    console.log('📤 Adding message with Pokemon:', !!pokemonData, 'TCG:', !!tcgData);
                     this.addMessage('assistant', text, pokemonData, tcgData);
                 }
             },
@@ -948,12 +1586,31 @@ class PokemonChatApp {
                     console.warn(`Tool ${displayName} failed:`, result.error || 'Unknown error');
                 }
                 
-                if (success && result && result.assistant_text) {
-                    const displayData = result.pokemon_data || result;
-                    this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
+                // Check if tool result contains TCG cards that should be displayed immediately
+                if (success && result) {
+                    // Check for TCG card data in various formats
+                    let tcgData = null;
+                    if (result.cards && Array.isArray(result.cards) && result.cards.length > 0) {
+                        tcgData = result;
+                        console.log('🃏 TCG cards detected in tool result, displaying in canvas:', tcgData.cards.length, 'cards');
+                        this.displayTcgCardsInCanvas(tcgData);
+                    } else if (Array.isArray(result) && result.length > 0 && result[0].name) {
+                        tcgData = { cards: result, count: result.length, total_count: result.length };
+                        console.log('🃏 TCG cards detected (array), displaying in canvas:', tcgData.cards.length, 'cards');
+                        this.displayTcgCardsInCanvas(tcgData);
+                    } else if (result.data && Array.isArray(result.data) && result.data.length > 0) {
+                        tcgData = { cards: result.data, count: result.data.length, total_count: result.totalCount || result.data.length };
+                        console.log('🃏 TCG cards detected (data property), displaying in canvas:', tcgData.cards.length, 'cards');
+                        this.displayTcgCardsInCanvas(tcgData);
+                    }
+                    
+                    // Handle legacy assistant_text format
+                    if (result.assistant_text) {
+                        const displayData = result.pokemon_data || result;
+                        this.addMessage('assistant', result.assistant_text, displayData, result.tcg_data);
+                    }
                 }
-                // Note: We don't render the result here - wait for AI's response in onResponse callback
-                // The onResponse callback will extract pokemon_data and tcg_data from currentToolCalls
+                // Note: Tool results are also checked in onResponse callback for display
             },
 
             onSpeechStarted: () => {
@@ -1328,6 +1985,9 @@ class PokemonChatApp {
         const message = this.messageInput.value.trim();
         if (!message || this.isLoading) return;
         
+        // Open chat sidebar if not already open
+        this.openChatSidebar();
+        
         // Clear input and hide welcome message
         this.messageInput.value = '';
         this.adjustTextareaHeight();
@@ -1449,88 +2109,131 @@ class PokemonChatApp {
         let messageDiv = document.getElementById(existingId);
 
         if (!messageDiv) {
-            // Create new tool call message
+            // Create new tool call bubble
             messageDiv = document.createElement('div');
             messageDiv.id = existingId;
-            messageDiv.className = `message-bubble tool-call ${status}`;
+            messageDiv.className = `tool-call-bubble ${status}`;
 
             const icon = status === 'calling' ? '🔧' : status === 'success' ? '✅' : '❌';
             const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
+            // Header
             const headerDiv = document.createElement('div');
             headerDiv.className = 'tool-call-header';
-            headerDiv.innerHTML = `<strong>${icon} ${displayName}</strong>`;
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'tool-call-name';
+            nameSpan.textContent = `${icon} ${displayName}`;
+            headerDiv.appendChild(nameSpan);
+            
+            if (duration) {
+                const durationSpan = document.createElement('span');
+                durationSpan.className = 'tool-call-duration';
+                durationSpan.innerHTML = `⏱️ ${(duration / 1000).toFixed(2)}s`;
+                headerDiv.appendChild(durationSpan);
+            }
             messageDiv.appendChild(headerDiv);
 
-            // Arguments section
+            // Arguments section (summary + collapsible JSON)
             if (args && Object.keys(args).length > 0) {
                 const argsDiv = document.createElement('div');
-                argsDiv.className = 'tool-call-section';
-                argsDiv.innerHTML = `
-                    <div class=\"tool-call-label\">📋 Input:</div>
-                    <pre class=\"tool-call-json\">${JSON.stringify(args, null, 2)}</pre>
-                `;
+                argsDiv.className = 'tool-call-args';
+                
+                // Summary view
+                const argsSummary = Object.entries(args)
+                    .map(([key, value]) => `${key}: ${typeof value === 'string' ? value : JSON.stringify(value)}`)
+                    .join(', ');
+                argsDiv.innerHTML = `<strong>Arguments:</strong> ${argsSummary}`;
+                
+                // Collapsible JSON toggle
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'tool-call-json-toggle';
+                toggleBtn.textContent = 'Show JSON';
+                toggleBtn.onclick = () => {
+                    const jsonDiv = argsDiv.querySelector('.tool-call-json');
+                    jsonDiv.classList.toggle('expanded');
+                    toggleBtn.textContent = jsonDiv.classList.contains('expanded') ? 'Hide JSON' : 'Show JSON';
+                };
+                argsDiv.appendChild(toggleBtn);
+                
+                // JSON view (hidden by default)
+                const jsonDiv = document.createElement('div');
+                jsonDiv.className = 'tool-call-json';
+                jsonDiv.innerHTML = `<pre>${JSON.stringify(args, null, 2)}</pre>`;
+                argsDiv.appendChild(jsonDiv);
+                
                 messageDiv.appendChild(argsDiv);
             }
 
             // Result section (added when result arrives)
             if (result) {
-                const resultDiv = document.createElement('div');
-                resultDiv.className = 'tool-call-section';
-                resultDiv.innerHTML = `
-                    <div class=\"tool-call-label\">📦 Response:</div>
-                    <pre class=\"tool-call-json\">${JSON.stringify(result, null, 2)}</pre>
-                `;
-                messageDiv.appendChild(resultDiv);
+                this.addToolCallResult(messageDiv, result);
             }
-
-            // Duration
-            if (duration) {
-                const durationDiv = document.createElement('div');
-                durationDiv.className = 'tool-call-duration';
-                durationDiv.textContent = `⏱️ ${duration}ms`;
-                messageDiv.appendChild(durationDiv);
-            }
-
-            // Timestamp
-            const timestamp = document.createElement('div');
-            timestamp.className = 'message-timestamp';
-            timestamp.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            messageDiv.appendChild(timestamp);
 
             this.chatContainer.appendChild(messageDiv);
         } else {
             // Update existing message with result
-            messageDiv.className = `message-bubble tool-call ${status}`;
+            messageDiv.className = `tool-call-bubble ${status}`;
 
             const icon = status === 'success' ? '✅' : '❌';
             const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-            const headerDiv = messageDiv.querySelector('.tool-call-header');
-            if (headerDiv) {
-                headerDiv.innerHTML = `<strong>${icon} ${displayName}</strong>`;
+            const nameSpan = messageDiv.querySelector('.tool-call-name');
+            if (nameSpan) {
+                nameSpan.textContent = `${icon} ${displayName}`;
+            }
+
+            // Update duration
+            if (duration) {
+                const durationSpan = messageDiv.querySelector('.tool-call-duration');
+                if (durationSpan) {
+                    durationSpan.innerHTML = `⏱️ ${(duration / 1000).toFixed(2)}s`;
+                } else {
+                    const headerDiv = messageDiv.querySelector('.tool-call-header');
+                    if (headerDiv) {
+                        const newDurationSpan = document.createElement('span');
+                        newDurationSpan.className = 'tool-call-duration';
+                        newDurationSpan.innerHTML = `⏱️ ${(duration / 1000).toFixed(2)}s`;
+                        headerDiv.appendChild(newDurationSpan);
+                    }
+                }
             }
 
             // Add result if not already present
-            if (result && !messageDiv.querySelector('.tool-call-section:last-of-type')) {
-                const resultDiv = document.createElement('div');
-                resultDiv.className = 'tool-call-section';
-                resultDiv.innerHTML = `
-                    <div class=\"tool-call-label\">📦 Response:</div>
-                    <pre class=\"tool-call-json\">${JSON.stringify(result, null, 2)}</pre>
-                `;
-                messageDiv.insertBefore(resultDiv, messageDiv.querySelector('.message-timestamp'));
-            }
-
-            // Add duration
-            if (duration && !messageDiv.querySelector('.tool-call-duration')) {
-                const durationDiv = document.createElement('div');
-                durationDiv.className = 'tool-call-duration';
-                durationDiv.textContent = `⏱️ ${duration}ms`;
-                messageDiv.insertBefore(durationDiv, messageDiv.querySelector('.message-timestamp'));
+            if (result && !messageDiv.querySelector('.tool-call-response')) {
+                this.addToolCallResult(messageDiv, result);
             }
         }
 
         this.scrollToBottom();
+    }
+
+    addToolCallResult(messageDiv, result) {
+        const responseDiv = document.createElement('div');
+        responseDiv.className = 'tool-call-response';
+        
+        // Summary
+        const summary = typeof result === 'object' && result !== null 
+            ? `Received ${Object.keys(result).length} properties`
+            : 'Response received';
+        responseDiv.innerHTML = `<strong>Response:</strong> ${summary}`;
+        
+        // Collapsible JSON toggle
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'tool-call-json-toggle';
+        toggleBtn.textContent = 'Show Response JSON';
+        toggleBtn.onclick = () => {
+            const jsonDiv = responseDiv.querySelector('.tool-call-json');
+            jsonDiv.classList.toggle('expanded');
+            toggleBtn.textContent = jsonDiv.classList.contains('expanded') ? 'Hide Response JSON' : 'Show Response JSON';
+        };
+        responseDiv.appendChild(toggleBtn);
+        
+        // JSON view (hidden by default)
+        const jsonDiv = document.createElement('div');
+        jsonDiv.className = 'tool-call-json';
+        jsonDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+        responseDiv.appendChild(jsonDiv);
+        
+        messageDiv.appendChild(responseDiv);
     }
 
     addMessage(role, content, pokemonData = null, tcgData = null) {
@@ -1565,8 +2268,14 @@ class PokemonChatApp {
         
         // Add TCG cards display if data is provided
         if (tcgData && tcgData.cards && role === 'assistant') {
-            const tcgDisplay = this.createTcgCardsDisplay(tcgData);
-            messageDiv.appendChild(tcgDisplay);
+            // Display cards in the main canvas
+            this.displayTcgCardsInCanvas(tcgData);
+            
+            // Also add a small preview in the chat
+            const tcgPreview = document.createElement('div');
+            tcgPreview.className = 'tcg-chat-preview';
+            tcgPreview.innerHTML = `<span class="tcg-icon">🃏</span> ${tcgData.cards.length} trading cards displayed in canvas`;
+            messageDiv.appendChild(tcgPreview);
         }
         
         // Add chain of thought accordion for assistant messages with tool calls
