@@ -4,7 +4,7 @@ Provides functions to fetch Pokemon data from PokeAPI
 """
 import requests
 from typing import Dict, Optional, List
-from mock_pokemon_data import MOCK_POKEMON_DATA, MOCK_SPECIES_DATA, MOCK_POKEMON_LIST
+from src.utils.mock_pokemon_data import MOCK_POKEMON_DATA, MOCK_SPECIES_DATA, MOCK_POKEMON_LIST
 
 class PokemonTools:
     """Tools for looking up Pokemon information"""

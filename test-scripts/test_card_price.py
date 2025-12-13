@@ -1,8 +1,11 @@
 """
 Test script for the get_card_price feature
 """
-from pokemon_tcg_tools import PokemonTCGTools
-from tool_handlers import handle_get_card_price
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.api.pokemon_tcg_api import PokemonTCGTools
+from src.tools.tool_handlers import handle_get_card_price
 
 def test_get_card_price():
     """Test the get_card_price functionality"""

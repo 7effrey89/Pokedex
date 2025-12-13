@@ -9,14 +9,14 @@ from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 from dotenv import load_dotenv
 # NOTE: Direct API tools commented out - using MCP servers via tool_handlers instead
-# from pokemon_tools import PokemonTools
-# from pokemon_tcg_tools import PokemonTCGTools
-from mcp_client import (
+# from src.api.pokemon_api import PokemonTools
+# from src.api.pokemon_tcg_api import PokemonTCGTools
+from src.tools.mcp_client import (
     search_tcg_cards as mcp_search_cards, 
     get_tcg_card_price as mcp_get_price, 
     format_cards_for_display
 )
-from tool_manager import tool_manager
+from src.tools.tool_manager import tool_manager
 from azure_openai_chat import get_azure_chat
 from realtime_chat import get_realtime_config, get_session_config, check_realtime_availability, get_available_tools as get_realtime_tools
 import time
@@ -103,7 +103,7 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
             azure_chat = get_azure_chat()
             
             # Import the unified tool handlers
-            from tool_handlers import execute_tool
+            from src.tools.tool_handlers import execute_tool
             
             # Create wrapper functions that call the unified handlers
             # These wrappers adapt the function signatures expected by azure_chat
@@ -343,7 +343,7 @@ def execute_realtime_tool():
     Returns:
         JSON with tool execution result
     """
-    from tool_handlers import execute_tool
+    from src.tools.tool_handlers import execute_tool
     
     try:
         data = request.get_json()
@@ -390,7 +390,7 @@ def execute_realtime_tool():
 def random_pokemon_tool():
     """Return a random Pokemon result via the shared tool handlers."""
     try:
-        from tool_handlers import execute_tool
+        from src.tools.tool_handlers import execute_tool
         result = execute_tool('get_random_pokemon', {})
         return jsonify({"result": result})
     except Exception as e:
@@ -561,7 +561,7 @@ def identify_face():
         base64_image = data['image']
 
         # Import face recognition service
-        from face_recognition_service import get_face_recognition_service
+        from src.services.face_recognition_service import get_face_recognition_service
 
         face_service = get_face_recognition_service()
         result = face_service.identify_face_from_base64(base64_image)
@@ -590,7 +590,7 @@ def get_face_recognition_status():
                 "message": "Face identification is disabled"
             })
 
-        from face_recognition_service import get_face_recognition_service
+        from src.services.face_recognition_service import get_face_recognition_service
 
         face_service = get_face_recognition_service()
         status = face_service.get_status()
@@ -617,7 +617,7 @@ def reload_face_profiles():
                 "error": "Face identification is disabled"
             }), 403
 
-        from face_recognition_service import get_face_recognition_service
+        from src.services.face_recognition_service import get_face_recognition_service
 
         face_service = get_face_recognition_service()
         face_service.reload_profiles()
@@ -647,7 +647,7 @@ def reset_current_user():
                 "error": "Face identification is disabled"
             }), 403
 
-        from face_recognition_service import get_face_recognition_service
+        from src.services.face_recognition_service import get_face_recognition_service
 
         face_service = get_face_recognition_service()
         face_service.reset_current_user()
