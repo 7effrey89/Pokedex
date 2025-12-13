@@ -386,6 +386,12 @@ class PokemonChatApp {
             console.log('Face identification already in progress');
             return;
         }
+        
+        // Don't interrupt if realtime voice is actively responding
+        if (this.realtimeVoice && this.realtimeVoice.isResponseActive) {
+            console.log('Face identification skipped - voice response in progress');
+            return;
+        }
 
         // Rate limiting: Check cooldown period
         const now = Date.now();
@@ -665,6 +671,11 @@ class PokemonChatApp {
             if (response.ok) {
                 const data = await response.json();
                 this.tools = data.tools || [];
+                
+                // Update face recognition enabled state
+                this.faceRecognitionEnabled = this.isToolEnabled('face_identification');
+                console.log('Face recognition enabled:', this.faceRecognitionEnabled);
+                
                 this.closeToolsModal();
                 this.addMessage('assistant', '✅ Tool settings updated successfully!');
             } else {
@@ -683,6 +694,11 @@ class PokemonChatApp {
             if (response.ok) {
                 const data = await response.json();
                 this.tools = data.tools || [];
+                
+                // Update face recognition enabled state
+                this.faceRecognitionEnabled = this.isToolEnabled('face_identification');
+                console.log('Face recognition enabled:', this.faceRecognitionEnabled);
+                
                 this.renderToolsModal();
                 this.pendingToolChanges = {};
             }
@@ -811,12 +827,12 @@ class PokemonChatApp {
                 this.updateVoiceStatus(status, message);
 
                 // Trigger face identification when session becomes ready
+                // Use a longer delay to avoid interrupting user's initial interaction
                 if (status === 'session_ready' && this.faceRecognitionEnabled) {
-                    console.log('Session ready - attempting proactive face identification');
-                    // Small delay to ensure session is fully initialized
+                    console.log('Session ready - scheduling face identification (2s delay)');
                     setTimeout(() => {
                         this.identifyUserFromCamera();
-                    }, 500);
+                    }, 2000);
                 }
             },
             
