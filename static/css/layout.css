@@ -1,0 +1,9 @@
+/* Main Canvas/Viewport - Central Area */
+.main-canvas {
+    flex: 1;
+    background: var(--background-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 0;
+}

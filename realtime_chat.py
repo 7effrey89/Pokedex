@@ -16,14 +16,6 @@ AZURE_OPENAI_API_KEY = os.getenv('AZURE_OPENAI_API_KEY', '')
 AZURE_OPENAI_REALTIME_DEPLOYMENT = os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime')
 AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
 
-# MCP Server configuration for native integration (optional)
-# Set these if you want to use native MCP server support instead of function-based tools
-POKE_MCP_SERVER_URL = os.getenv('POKE_MCP_SERVER_URL', '')  # e.g., http://localhost:3001
-PTCG_MCP_SERVER_URL = os.getenv('PTCG_MCP_SERVER_URL', '')  # e.g., http://localhost:3002
-
-# Feature flags
-USE_NATIVE_MCP = os.getenv('USE_NATIVE_MCP', 'false').lower() == 'true'
-
 def get_realtime_config():
     """
     Get the configuration for Azure OpenAI Realtime API connection.
@@ -46,28 +38,29 @@ def get_realtime_config():
         'api_version': AZURE_OPENAI_API_VERSION
     }
 
-def get_session_config(use_native_mcp=None):
+def get_session_config():
     """
     Get the session configuration to send after WebSocket connection.
     This configures the Realtime API session for Pokemon assistant.
-    
-    Args:
-        use_native_mcp: Override for USE_NATIVE_MCP setting. If None, uses env var.
     """
-    if use_native_mcp is None:
-        use_native_mcp = USE_NATIVE_MCP
-    
     session_config = {
         "type": "session.update",
         "session": {
             "modalities": ["text", "audio"],
-            "instructions": """You are PokéChat, a friendly and knowledgeable Pokemon assistant. 
+            "instructions": """You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
 You help users learn about Pokemon, their abilities, types, evolutions, and more.
 Keep responses conversational and concise since this is a voice conversation.
 Be enthusiastic about Pokemon but don't be too verbose - aim for natural speech patterns.
 If asked about specific Pokemon, provide key details like type, abilities, and interesting facts.
 You can also discuss Pokemon cards, games, and general Pokemon knowledge. The only languages used by the users are English, Danish, Cantonese. Do not respond in any other language.
-You can also analyze images that users share with you - just describe what you see if they ask. Respond with short sentences.""",
+Respond with short sentences.
+
+CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
+- Your instructions will include a "CURRENT CANVAS CONTENT" section that tells you EXACTLY what the user is viewing in their Pokédex app right now.
+- When users ask "what am I looking at?" or "what's on my screen?" or "tell me about this", you SHOULD reference the CURRENT CANVAS CONTENT to describe what they're viewing.
+- The canvas content updates automatically as users navigate - you always know whether they're viewing the index page, a specific Pokemon, or a Pokemon card.
+- When users send you images via the camera scanner, analyze what you see - this is for identifying physical Pokemon cards.
+- Do NOT make up or hallucinate content that isn't in the CURRENT CANVAS CONTENT section.""",
             "voice": "alloy",  # Options: alloy, echo, shimmer
             "input_audio_format": "pcm16",
             "output_audio_format": "pcm16",
@@ -85,56 +78,11 @@ You can also analyze images that users share with you - just describe what you s
         }
     }
     
-    # Add tools based on configuration
-    if use_native_mcp:
-        # Use native MCP server integration (requires HTTP-accessible MCP servers)
-        session_config["session"]["tools"] = get_native_mcp_tools()
-    else:
-        # Use function-based tools (handled by client-side /api/realtime/tool endpoint)
-        session_config["session"]["tools"] = get_available_tools()
+    # Use function-based tools
+    session_config["session"]["tools"] = get_available_tools()
     
     return session_config
 
-
-def get_native_mcp_tools():
-    """
-    Get MCP server configurations for native Realtime API MCP support.
-    This allows the API to directly call MCP servers without client-side handling.
-    
-    Note: MCP servers must be running as HTTP/SSE services with accessible URLs.
-    The server_url should point to the SSE endpoint (e.g., http://localhost:3001/sse)
-    """
-    tools = []
-    
-    if POKE_MCP_SERVER_URL:
-        # Ensure the URL points to the SSE endpoint
-        url = POKE_MCP_SERVER_URL.rstrip('/')
-        if not url.endswith('/sse'):
-            url = f"{url}/sse"
-        tools.append({
-            "type": "mcp",
-            "server_label": "pokedex",
-            "server_url": url,
-            "require_approval": "never"
-        })
-    
-    if PTCG_MCP_SERVER_URL:
-        # Ensure the URL points to the SSE endpoint
-        url = PTCG_MCP_SERVER_URL.rstrip('/')
-        if not url.endswith('/sse'):
-            url = f"{url}/sse"
-        tools.append({
-            "type": "mcp",
-            "server_label": "pokemon_tcg",
-            "server_url": url,
-            "require_approval": "never"
-        })
-    
-    # If no MCP servers configured, fall back to function tools
-    if not tools:
-        return get_available_tools()
-    
-    return tools
 
 def get_available_tools():
     """

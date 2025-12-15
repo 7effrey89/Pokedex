@@ -10,6 +10,9 @@ from src.tools.tool_handlers import handle_get_card_price
 def test_get_card_price():
     """Test the get_card_price functionality"""
     
+    # Store all results for JSON output
+    all_results = {}
+    
     # Test 1: Direct API call
     print("Test 1: Direct API call to PokemonTCGTools.get_card_price()")
     print("-" * 60)
@@ -20,6 +23,7 @@ def test_get_card_price():
     print(f"Fetching price for card: {card_id}")
     
     result = tcg_api.get_card_price(card_id)
+    all_results['test1_direct_api'] = result
     
     if result:
         print(f"✅ Success!")
@@ -54,6 +58,7 @@ def test_get_card_price():
     print("-" * 60)
     
     handler_result = handle_get_card_price(card_id)
+    all_results['test2_tool_handler'] = handler_result
     
     if "error" in handler_result:
         print(f"❌ Error: {handler_result['error']}")
@@ -72,11 +77,22 @@ def test_get_card_price():
     print("-" * 60)
     
     invalid_result = handle_get_card_price("invalid-999")
+    all_results['test3_invalid_card'] = invalid_result
     
     if "error" in invalid_result:
         print(f"✅ Correctly handled invalid card: {invalid_result['error']}")
     else:
         print(f"❌ Should have returned an error for invalid card")
+    
+    # Save all results to JSON file
+    output_file = os.path.join(os.path.dirname(__file__), "test_card_price_response.json")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        import json
+        json.dump(all_results, f, indent=2, ensure_ascii=False)
+    
+    print(f"\nFull test results saved to: {output_file}")
+    
+    return all_results
 
 if __name__ == "__main__":
     print("=" * 60)

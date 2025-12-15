@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 # Test the Pokemon TCG API - Search for Pikachu cards
 API = "https://api.pokemontcg.io/v2/cards"
@@ -10,7 +11,7 @@ print(f"URL: {API}")
 print(f"Query: {PARAMS['q']}")
 print("-" * 60)
 
-resp = requests.get(API, params=PARAMS, timeout=30)
+resp = requests.get(API, params=PARAMS, timeout=60)
 resp.raise_for_status()
 
 data = resp.json()
@@ -29,7 +30,7 @@ for i, card in enumerate(data.get('data', []), 1):
     print()
 
 # Save full response to file
-output_file = "tcg_cards_response.json"
+output_file = os.path.join(os.path.dirname(__file__), "fetch_tcg_cards_response.json")
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 

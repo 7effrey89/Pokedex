@@ -7,7 +7,17 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Pokemon Chat Assistant</title>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Modular CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokemon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tcg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,11 +40,13 @@
                     <h1>POKEDEX</h1>
                 </div>
                 <div class="header-actions">
-                    <button id="toolsButton" class="tools-button" aria-label="Manage tools" title="Manage tools">
+                    <button id="toolsButton" class="tools-button" aria-label="Manage settings" title="Manage settings">
                         <svg class="tools-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <span class="tools-text">Tools</span>
+                        <span class="tools-text">Settings</span>
                     </button>
                     <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
                         <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -63,12 +75,6 @@
 
         <!-- Main Canvas/Viewport -->
         <div class="main-canvas" id="mainCanvas">
-            <!-- Forward Navigation Button -->
-            <button class="forward-btn" id="forwardBtn" style="display: none;" aria-label="Go forward">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
             
             <!-- Pokemon Grid View (Default) -->
             <div class="pokemon-grid-view" id="pokemonGridView">
@@ -83,12 +89,6 @@
             <!-- Pokemon Detail View -->
             <div class="pokemon-detail-view" id="pokemonDetailView" style="display: none;">
                 <div class="detail-header">
-                    <button class="back-btn" id="backToGridBtn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Back</span>
-                    </button>
                     <div class="pokemon-name-wrap">
                         <h1 class="pokemon-name"></h1>
                         <p class="pokemon-id"></p>
@@ -126,12 +126,27 @@
                     
                     <h3 class="section-title">Base Stats</h3>
                     <div class="pokemon-stats"></div>
+                    
+                    <div class="pokemon-actions">
+                        <button class="view-cards-btn" id="viewCardsBtn" aria-label="View Trading Cards">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>View Trading Cards</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- TCG Cards View -->
             <div class="tcg-cards-view" id="tcgCardsView" style="display: none;">
                 <!-- TCG cards grid will be dynamically populated here -->
+            </div>
+
+            <!-- TCG Card Detail View -->
+            <div class="tcg-card-detail-view" id="tcgCardDetailView" style="display: none;">
+                <!-- TCG card detail will be dynamically populated here -->
             </div>
         </div>
 
@@ -195,26 +210,180 @@
             </div>
         </div>
 
+        <!-- Footer Actions Bar -->
+        <footer class="pokedex-footer">
+            <div class="footer-actions">
+                <button class="footer-btn" id="helpBtn" aria-label="Help">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                    </svg>
+                    <span>Help</span>
+                </button>
+                
+                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Random</span>
+                </button>
+                
+                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+                
+                <button class="footer-btn" id="backBtnFooter" aria-label="Back">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back</span>
+                </button>
+                
+                <button class="footer-btn" id="forwardBtnFooter" aria-label="Forward">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Forward</span>
+                </button>
+            </div>
+        </footer>
+
         <!-- Loading Indicator -->
         <div class="loading-indicator" id="loadingIndicator">
             <div class="loading-spinner"></div>
             <span>Thinking...</span>
         </div>
 
+        <!-- Help Modal -->
+        <div class="help-modal-overlay" id="helpModalOverlay">
+            <div class="help-modal">
+                <div class="help-modal-header">
+                    <h2>🎮 Pokedex Commands</h2>
+                    <button class="help-modal-close" id="helpModalClose">&times;</button>
+                </div>
+                <div class="help-modal-content">
+                    <div class="help-section">
+                        <h3>🔍 Pokemon Information</h3>
+                        <ul>
+                            <li><strong>"Tell me about Pikachu"</strong> - Get detailed Pokemon information</li>
+                            <li><strong>"Show me Charizard"</strong> - Display Pokemon stats and abilities</li>
+                            <li><strong>"What type is Bulbasaur?"</strong> - Get specific Pokemon details</li>
+                            <li><strong>"Random Pokemon"</strong> - Discover a random Pokemon</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🃏 Trading Card Game</h3>
+                        <ul>
+                            <li><strong>"Show me Pikachu cards"</strong> - Browse TCG cards for a Pokemon</li>
+                            <li><strong>"Find rare Charizard cards"</strong> - Search for specific rarities</li>
+                            <li><strong>"Show cards from Base Set"</strong> - Filter by set</li>
+                            <li><strong>Click any card</strong> - View detailed card info and prices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🎤 Voice Commands</h3>
+                        <ul>
+                            <li><strong>"Back"</strong> - Navigate to previous view</li>
+                            <li><strong>"Forward"</strong> - Navigate to next view</li>
+                            <li><strong>"Home"</strong> - Return to Pokemon grid</li>
+                            <li>Use the Voice button to start/stop voice chat</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🎯 Quick Tips</h3>
+                        <ul>
+                            <li>Click the chat icon to toggle the chat sidebar</li>
+                            <li>Use the grid to browse all 151 Kanto Pokemon</li>
+                            <li>Click any Pokemon card to see detailed stats</li>
+                            <li>TCG card modals show market prices from TCGPlayer and Cardmarket</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Tools Management Modal -->
         <div class="tools-modal-overlay" id="toolsModalOverlay">
             <div class="tools-modal">
                 <div class="tools-modal-header">
-                    <h2>🛠️ Manage Tools</h2>
+                    <h2>⚙️ Settings</h2>
                     <button class="tools-modal-close" id="toolsModalClose">&times;</button>
                 </div>
                 <div class="tools-modal-content" id="toolsModalContent">
-                    <!-- Tools will be dynamically loaded here -->
-                    <div class="tools-loading">Loading tools...</div>
+                    <!-- Cache Settings Section -->
+                    <div class="settings-section">
+                        <h3>💾 Cache Settings</h3>
+                        <div class="cache-stats" id="cacheStats">
+                            <div class="stat-item">
+                                <span class="stat-label">Cache Status:</span>
+                                <span class="stat-value" id="cacheStatus">Loading...</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cached Items:</span>
+                                <span class="stat-value" id="cacheFiles">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cache Size:</span>
+                                <span class="stat-value" id="cacheSize">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="cacheToggle" class="control-label">
+                                    <span>Enable Cache</span>
+                                    <small>Store API responses for faster loading</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="cacheToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="control-row">
+                                <label for="cacheExpiry" class="control-label">
+                                    <span>Cache Expiry: <strong id="cacheExpiryValue">7</strong> days</span>
+                                    <small>Cached data will refresh after this time</small>
+                                </label>
+                                <input type="range" id="cacheExpiry" min="1" max="90" value="7" class="cache-slider">
+                                <div class="slider-labels">
+                                    <span>1 day</span>
+                                    <span>90 days</span>
+                                </div>
+                            </div>
+                            
+                            <button class="cache-clear-btn" id="cacheClearBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Clear All Cache
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools Section -->
+                    <div class="settings-section">
+                        <h3>🛠️ API Tools</h3>
+                        <div id="toolsList">
+                            <div class="tools-loading">Loading tools...</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tools-modal-footer">
-                    <button class="tools-reset-btn" id="toolsResetBtn">Reset to Defaults</button>
-                    <button class="tools-save-btn" id="toolsSaveBtn">Save Changes</button>
+                    <button class="tools-reset-btn" id="toolsResetBtn">Reset Tools to Defaults</button>
+                    <button class="tools-save-btn" id="toolsSaveBtn">Save Tool Changes</button>
                 </div>
             </div>
         </div>
@@ -250,6 +419,13 @@
         </div>
     </div>
 
+    <!-- Load view modules first -->
+    <script src="{{ url_for('static', filename='js/views/PokemonGridView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/PokemonDetailView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/TcgCardsGalleryView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/TcgCardDetailView.js') }}"></script>
+    
+    <!-- Then load core application -->
     <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>

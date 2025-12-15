@@ -42,6 +42,12 @@ class PokemonChatApp {
         this.isSendingImage = false;
         this.currentCardContext = null;
         
+        // Canvas context tracking
+        this.currentCanvasState = {
+            type: 'grid', // 'grid', 'pokemon', 'tcg-gallery', 'tcg-detail'
+            data: null
+        };
+        
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
         this.toolsModalOverlay = document.getElementById('toolsModalOverlay');
@@ -64,15 +70,26 @@ class PokemonChatApp {
         this.pokemonList = document.getElementById('pokemonList');
         this.pokemonDetailView = document.getElementById('pokemonDetailView');
         this.tcgCardsView = document.getElementById('tcgCardsView');
+        this.tcgCardDetailView = document.getElementById('tcgCardDetailView');
+        
+        // Initialize view classes
+        this.gridView = new PokemonGridView(this);
+        this.detailView = new PokemonDetailView(this);
+        this.tcgGallery = new TcgCardsGalleryView(this);
+        this.tcgDetail = new TcgCardDetailView(this);
         
         // Pokemon data
         this.allPokemons = [];
         this.MAX_POKEMON = 151; // Kanto region
+        this.currentPokemonName = null; // Store current Pokemon name for card searches
         
         // View history for navigation
         this.viewHistory = ['grid']; // Start at grid view
         this.currentViewIndex = 0;
         this.currentTcgData = null; // Store last TCG data for forward navigation
+        
+        // Cache configuration
+        this.cacheConfig = null;
         
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
@@ -91,7 +108,7 @@ class PokemonChatApp {
         this.initializeChatSidebar();
         this.adjustTextareaHeight();
         this.loadTools();
-        this.loadPokemonGrid();
+        this.gridView.show(); // Use gridView instead of loadPokemonGrid
     }
     
     generateUserId() {
@@ -212,22 +229,56 @@ class PokemonChatApp {
             this.chatCloseBtn.addEventListener('click', () => this.closeChatSidebar());
         }
         
-        // Back to grid button
-        const backToGridBtn = document.getElementById('backToGridBtn');
-        if (backToGridBtn) {
-            backToGridBtn.addEventListener('click', () => this.showPokemonGrid());
+        // View Cards button in Pokemon detail
+        const viewCardsBtn = document.getElementById('viewCardsBtn');
+        if (viewCardsBtn) {
+            viewCardsBtn.addEventListener('click', () => this.viewPokemonCards());
         }
         
         // Back to grid from TCG view button
         const backToGridFromTcgBtn = document.getElementById('backToGridFromTcg');
         if (backToGridFromTcgBtn) {
-            backToGridFromTcgBtn.addEventListener('click', () => this.showPokemonGrid());
+            backToGridFromTcgBtn.addEventListener('click', () => this.gridView.show());
         }
         
-        // Forward button for navigation
-        const forwardBtn = document.getElementById('forwardBtn');
-        if (forwardBtn) {
-            forwardBtn.addEventListener('click', () => this.navigateForward());
+        // Footer buttons
+        const helpBtn = document.getElementById('helpBtn');
+        if (helpBtn) {
+            helpBtn.addEventListener('click', () => this.showHelpModal());
+        }
+        
+        const randomPokemonBtn = document.getElementById('randomPokemonBtn');
+        if (randomPokemonBtn) {
+            randomPokemonBtn.addEventListener('click', () => this.getRandomPokemon());
+        }
+        
+        const toolsBtnFooter = document.getElementById('toolsBtnFooter');
+        if (toolsBtnFooter) {
+            toolsBtnFooter.addEventListener('click', () => this.openToolsModal());
+        }
+        
+        const backBtnFooter = document.getElementById('backBtnFooter');
+        if (backBtnFooter) {
+            backBtnFooter.addEventListener('click', () => this.navigateBack());
+        }
+        
+        const forwardBtnFooter = document.getElementById('forwardBtnFooter');
+        if (forwardBtnFooter) {
+            forwardBtnFooter.addEventListener('click', () => this.navigateForward());
+        }
+        
+        // Help modal
+        const helpModalOverlay = document.getElementById('helpModalOverlay');
+        const helpModalClose = document.getElementById('helpModalClose');
+        if (helpModalClose) {
+            helpModalClose.addEventListener('click', () => this.closeHelpModal());
+        }
+        if (helpModalOverlay) {
+            helpModalOverlay.addEventListener('click', (e) => {
+                if (e.target === helpModalOverlay) {
+                    this.closeHelpModal();
+                }
+            });
         }
         
         // Close sidebar when clicking outside on mobile
@@ -261,322 +312,149 @@ class PokemonChatApp {
         }
     }
 
+    // Delegate to PokemonGridView
     async loadPokemonGrid() {
-        try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${this.MAX_POKEMON}`);
-            const data = await response.json();
-            this.allPokemons = data.results;
-            this.displayPokemons(this.allPokemons);
-        } catch (error) {
-            console.error('Error loading Pokemon grid:', error);
-        }
+        await this.gridView.loadPokemonGrid();
     }
 
     displayPokemons(pokemons) {
-        if (!this.pokemonList) return;
-        
-        this.pokemonList.innerHTML = '';
-
-        pokemons.forEach((pokemon) => {
-            const pokemonID = pokemon.url.split("/")[6];
-            const listItem = document.createElement("div");
-            listItem.className = "list-item";
-            listItem.innerHTML = `
-                <div class="number-wrap">
-                    <p class="caption-fonts">#${pokemonID.padStart(3, '0')}</p>
-                </div>
-                <div class="img-wrap">
-                    <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" 
-                         alt="${pokemon.name}" 
-                         loading="lazy" />
-                </div>
-                <div class="name-wrap">
-                    <p class="body3-fonts">${pokemon.name}</p>
-                </div>
-            `;
-
-            listItem.addEventListener("click", () => {
-                this.showPokemonDetail(pokemonID, pokemon.name);
-            });
-
-            this.pokemonList.appendChild(listItem);
-        });
+        this.gridView.renderPokemonGrid(pokemons);
     }
 
     async showPokemonDetail(id, name) {
         console.log(`Showing details for Pokemon: ${name} (ID: ${id})`);
-        this.loadPokemonData(id);
+        await this.detailView.loadPokemon(id);
     }
-
-    async loadPokemonData(id) {
-        try {
-            const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
-            ]);
-
-            const pokemon = await pokemonResponse.json();
-            const species = await speciesResponse.json();
-
-            this.displayPokemonDetails(pokemon, species);
-        } catch (error) {
-            console.error('Error loading Pokemon data:', error);
-        }
-    }
-
-    displayPokemonDetails(pokemon, species) {
-        // Defensive checks
-        if (!this.pokemonDetailView || !this.pokemonGridView) {
-            console.error('Pokemon detail view or grid view not found');
+    
+    /**
+     * Public API: Show a Pokemon in the canvas by ID or name
+     * Can be called from tool results, grid clicks, or external integrations
+     */
+    async showPokemonInCanvas(pokemonIdOrName) {
+        console.log('🎯 showPokemonInCanvas called with:', pokemonIdOrName);
+        
+        // If it's a number or numeric string, treat as ID
+        const pokemonId = parseInt(pokemonIdOrName);
+        if (!isNaN(pokemonId) && pokemonId > 0) {
+            console.log('📍 Loading Pokemon by ID:', pokemonId);
+            await this.detailView.loadPokemon(pokemonId);
             return;
         }
         
-        if (!pokemon || !pokemon.types || !pokemon.types[0]) {
-            console.error('Invalid pokemon data:', pokemon);
-            return;
-        }
+        // Otherwise, treat as name and look it up
+        const pokemonName = String(pokemonIdOrName).toLowerCase();
+        console.log('🔍 Searching for Pokemon by name:', pokemonName);
         
-        // Hide grid, show detail view
-        this.pokemonGridView.style.display = 'none';
-        this.pokemonDetailView.style.display = 'block';
+        // Try to find in our loaded list first
+        const foundPokemon = this.allPokemons.find(p => 
+            p.name.toLowerCase() === pokemonName
+        );
         
-        // Add to history
-        const viewKey = `pokemon-${pokemon.id}`;
-        if (this.viewHistory[this.currentViewIndex] !== viewKey) {
-            this.currentViewIndex++;
-            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
-            this.viewHistory.push(viewKey);
-        }
-
-        // Set background color based on primary type
-        const primaryType = pokemon.types[0].type.name;
-        this.pokemonDetailView.className = 'pokemon-detail-view';
-        this.pokemonDetailView.classList.add(`bg-${primaryType}`);
-
-        // Update name and ID
-        const nameEl = this.pokemonDetailView.querySelector('.pokemon-name');
-        const idEl = this.pokemonDetailView.querySelector('.pokemon-id');
-        nameEl.textContent = pokemon.name;
-        idEl.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
-
-        // Update image with proper null checks
-        const imageEl = this.pokemonDetailView.querySelector('.pokemon-main-image');
-        const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
-                        pokemon.sprites?.front_default || 
-                        '';
-        if (imageUrl) {
-            imageEl.src = imageUrl;
-            imageEl.alt = pokemon.name;
-        }
-
-        // Update types
-        const typesEl = this.pokemonDetailView.querySelector('.pokemon-types');
-        typesEl.innerHTML = pokemon.types.map(typeInfo => 
-            `<div class="type-badge type-${typeInfo.type.name}">${typeInfo.type.name}</div>`
-        ).join('');
-
-        // Update weight and height
-        const weightEl = this.pokemonDetailView.querySelector('.pokemon-weight');
-        const heightEl = this.pokemonDetailView.querySelector('.pokemon-height');
-        weightEl.textContent = `${(pokemon.weight / 10).toFixed(1)} kg`;
-        heightEl.textContent = `${(pokemon.height / 10).toFixed(1)} m`;
-
-        // Update abilities
-        const abilitiesEl = this.pokemonDetailView.querySelector('.pokemon-abilities');
-        abilitiesEl.innerHTML = pokemon.abilities.map(abilityInfo => 
-            `<span>${abilityInfo.ability.name.replace('-', ' ')}</span>`
-        ).join('');
-
-        // Update description
-        const descEl = this.pokemonDetailView.querySelector('.pokemon-description');
-        const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
-        if (flavorText) {
-            descEl.textContent = flavorText.flavor_text.replace(/\f/g, ' ');
+        if (foundPokemon) {
+            const idFromUrl = foundPokemon.url.split('/').filter(Boolean).pop();
+            console.log('✅ Found Pokemon in list:', pokemonName, 'ID:', idFromUrl);
+            await this.detailView.loadPokemon(parseInt(idFromUrl));
         } else {
-            descEl.textContent = 'No description available.';
-        }
-
-        // Update stats
-        const statsEl = this.pokemonDetailView.querySelector('.pokemon-stats');
-        const statNames = {
-            'hp': 'HP',
-            'attack': 'ATK',
-            'defense': 'DEF',
-            'special-attack': 'SATK',
-            'special-defense': 'SDEF',
-            'speed': 'SPD'
-        };
-        
-        statsEl.innerHTML = pokemon.stats.map(statInfo => {
-            const statName = statInfo.stat.name;
-            const statValue = statInfo.base_stat;
-            const percentage = Math.min((statValue / 255) * 100, 100);
-            
-            return `
-                <div class="stat-row">
-                    <div class="stat-name">${statNames[statName] || statName}</div>
-                    <div class="stat-value">${statValue}</div>
-                    <div class="stat-bar-container">
-                        <div class="stat-bar stat-${statName}" style="width: ${percentage}%"></div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-
-        // Scroll to top of detail view
-        this.pokemonDetailView.scrollTop = 0;
-        this.updateNavigationButtons();
-    }
-    
-    async loadPokemonDataWithoutHistory(id) {
-        try {
-            const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
-            ]);
-
-            const pokemon = await pokemonResponse.json();
-            const species = await speciesResponse.json();
-
-            // Defensive checks
-            if (!this.pokemonDetailView || !this.pokemonGridView) {
-                console.error('Pokemon detail view or grid view not found');
-                return;
-            }
-            
-            if (!pokemon || !pokemon.types || !pokemon.types[0]) {
-                console.error('Invalid pokemon data:', pokemon);
-                return;
-            }
-
-            // Hide grid, show detail view (without adding to history)
-            this.pokemonGridView.style.display = 'none';
-            this.pokemonDetailView.style.display = 'block';
-            
-            // Update the display using existing logic from displayPokemonDetails
-            const primaryType = pokemon.types[0].type.name;
-            this.pokemonDetailView.className = 'pokemon-detail-view';
-            this.pokemonDetailView.classList.add(`bg-${primaryType}`);
-
-            const nameEl = this.pokemonDetailView.querySelector('.pokemon-name');
-            const idEl = this.pokemonDetailView.querySelector('.pokemon-id');
-            nameEl.textContent = pokemon.name;
-            idEl.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
-
-            const imageEl = this.pokemonDetailView.querySelector('.pokemon-main-image');
-            const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
-                            pokemon.sprites?.front_default || 
-                            '';
-            if (imageUrl) {
-                imageEl.src = imageUrl;
-                imageEl.alt = pokemon.name;
-            }
-
-            const typesEl = this.pokemonDetailView.querySelector('.pokemon-types');
-            typesEl.innerHTML = pokemon.types.map(typeInfo => 
-                `<div class="type-badge type-${typeInfo.type.name}">${typeInfo.type.name}</div>`
-            ).join('');
-
-            const weightEl = this.pokemonDetailView.querySelector('.pokemon-weight');
-            const heightEl = this.pokemonDetailView.querySelector('.pokemon-height');
-            weightEl.textContent = `${(pokemon.weight / 10).toFixed(1)} kg`;
-            heightEl.textContent = `${(pokemon.height / 10).toFixed(1)} m`;
-
-            const abilitiesEl = this.pokemonDetailView.querySelector('.pokemon-abilities');
-            abilitiesEl.innerHTML = pokemon.abilities.map(abilityInfo => 
-                `<span>${abilityInfo.ability.name.replace('-', ' ')}</span>`
-            ).join('');
-
-            const descEl = this.pokemonDetailView.querySelector('.pokemon-description');
-            const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
-            if (flavorText) {
-                descEl.textContent = flavorText.flavor_text.replace(/\f/g, ' ');
-            } else {
-                descEl.textContent = 'No description available.';
-            }
-
-            const statsEl = this.pokemonDetailView.querySelector('.pokemon-stats');
-            const statNames = {
-                'hp': 'HP',
-                'attack': 'ATK',
-                'defense': 'DEF',
-                'special-attack': 'SATK',
-                'special-defense': 'SDEF',
-                'speed': 'SPD'
-            };
-            
-            statsEl.innerHTML = pokemon.stats.map(statInfo => {
-                const statName = statInfo.stat.name;
-                const statValue = statInfo.base_stat;
-                const percentage = Math.min((statValue / 255) * 100, 100);
+            // Fallback: try direct API call with name
+            console.log('🌐 Attempting direct API call for:', pokemonName);
+            try {
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
                 
-                return `
-                    <div class="stat-row">
-                        <div class="stat-name">${statNames[statName] || statName}</div>
-                        <div class="stat-value">${statValue}</div>
-                        <div class="stat-bar-container">
-                            <div class="stat-bar stat-${statName}" style="width: ${percentage}%"></div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            this.pokemonDetailView.scrollTop = 0;
-            this.updateNavigationButtons();
-        } catch (error) {
-            console.error('Error loading Pokemon data:', error);
+                if (response.ok) {
+                    const pokemon = await response.json();
+                    console.log('✅ Loaded Pokemon from API:', pokemon.name);
+                    await this.detailView.loadPokemon(pokemon.id);
+                } else {
+                    console.error('❌ Pokemon not found:', pokemonName);
+                }
+            } catch (error) {
+                console.error('❌ Error loading Pokemon:', pokemonName, error);
+            }
         }
     }
 
-    showPokemonGrid() {
-        this.pokemonDetailView.style.display = 'none';
-        this.tcgCardsView.style.display = 'none';
-        this.pokemonGridView.style.display = 'block';
-        
-        // Add to history if not already there
-        if (this.viewHistory[this.currentViewIndex] !== 'grid') {
-            this.currentViewIndex++;
-            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
-            this.viewHistory.push('grid');
-        }
-        this.updateNavigationButtons();
+    // Deprecated: kept for backwards compatibility, delegates to detailView
+    async loadPokemonData(id) {
+        await this.detailView.loadPokemon(id);
+    }
+
+    // Deprecated: kept for backwards compatibility, delegates to detailView
+    displayPokemonDetails(pokemon, species) {
+        this.detailView.display(pokemon, species);
     }
     
-    navigateForward() {
+    // Deprecated: kept for backwards compatibility, delegates to detailView
+    async loadPokemonDataWithoutHistory(id) {
+        await this.detailView.loadPokemonWithoutHistory(id);
+    }
+
+    // Delegate to gridView
+    showPokemonGrid() {
+        this.gridView.show();
+    }
+    
+    /**
+     * Public API: Show the Pokemon grid/index page in canvas
+     * Displays all Pokemon from the Kanto region
+     */
+    showPokemonIndexInCanvas() {
+        console.log('📋 showPokemonIndexInCanvas called - displaying all Pokemon');
+        this.gridView.show();
+    }
+    
+    async navigateForward() {
         if (this.currentViewIndex < this.viewHistory.length - 1) {
             this.currentViewIndex++;
             const view = this.viewHistory[this.currentViewIndex];
             
             if (view === 'grid') {
-                this.showPokemonGridWithoutHistory();
-            } else if (view === 'tcg' && this.currentTcgData) {
-                this.displayTcgCardsInCanvasWithoutHistory(this.currentTcgData);
+                this.gridView.showWithoutHistory();
+            } else if (view === 'tcg') {
+                if (this.currentTcgData) {
+                    this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+                }
+            } else if (view.startsWith('tcg-detail-')) {
+                // For TCG detail, find and show the specific card
+                const cardId = view.replace('tcg-detail-', '');
+                if (this.currentTcgData && this.currentTcgData.cards) {
+                    const card = this.currentTcgData.cards.find(c => c.id === cardId);
+                    if (card) {
+                        await this.tcgDetail.showWithoutHistory(card);
+                    } else {
+                        console.log('Card not found in current TCG data:', cardId);
+                    }
+                } else {
+                    console.log('No TCG data available for navigation');
+                }
             } else if (view.startsWith('pokemon-')) {
                 const pokemonId = parseInt(view.split('-')[1]);
-                this.loadPokemonDataWithoutHistory(pokemonId);
+                this.detailView.loadPokemonWithoutHistory(pokemonId);
             }
             this.updateNavigationButtons();
         }
     }
     
-    showPokemonGridWithoutHistory() {
-        this.pokemonDetailView.style.display = 'none';
-        this.tcgCardsView.style.display = 'none';
-        this.pokemonGridView.style.display = 'block';
-        this.updateNavigationButtons();
-    }
-    
     updateNavigationButtons() {
-        const forwardBtn = document.getElementById('forwardBtn');
+        const backBtn = document.getElementById('backBtnFooter');
+        const forwardBtn = document.getElementById('forwardBtnFooter');
+        
+        if (backBtn) {
+            backBtn.disabled = this.currentViewIndex === 0;
+            backBtn.style.opacity = this.currentViewIndex === 0 ? '0.5' : '1';
+        }
+        
         if (forwardBtn) {
-            if (this.currentViewIndex < this.viewHistory.length - 1) {
-                forwardBtn.style.display = 'flex';
-            } else {
-                forwardBtn.style.display = 'none';
-            }
+            forwardBtn.disabled = this.currentViewIndex >= this.viewHistory.length - 1;
+            forwardBtn.style.opacity = this.currentViewIndex >= this.viewHistory.length - 1 ? '0.5' : '1';
         }
     }
+    
+    // Deprecated: delegates to gridView
+    showPokemonGridWithoutHistory() {
+        this.gridView.showWithoutHistory();
+    }
 
+    // Delegate to tcgGallery view
     displayTcgCardsInCanvas(tcgData) {
         console.log('🃏 displayTcgCardsInCanvas called with:', tcgData);
         
@@ -590,106 +468,11 @@ class PokemonChatApp {
         // Store for forward navigation
         this.currentTcgData = tcgData;
         
-        // Add to history
-        if (this.viewHistory[this.currentViewIndex] !== 'tcg') {
-            this.currentViewIndex++;
-            this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
-            this.viewHistory.push('tcg');
-        }
-        
-        // Hide other views
-        this.pokemonGridView.style.display = 'none';
-        this.pokemonDetailView.style.display = 'none';
-        
-        // Show TCG cards view
-        this.tcgCardsView.style.display = 'block';
-        
-        // Clear existing content
-        this.tcgCardsView.innerHTML = '';
-        
-        // Create header with back button
-        const header = document.createElement('div');
-        header.className = 'tcg-canvas-header';
-        header.innerHTML = `
-            <button class="back-btn" id="backToGridFromTcg">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Back</span>
-            </button>
-            <div class="tcg-canvas-title">
-                <h1>🃏 Trading Card Gallery</h1>
-                <p>${tcgData.total_count || tcgData.count || tcgData.cards.length} cards found</p>
-            </div>
-        `;
-        this.tcgCardsView.appendChild(header);
-        
-        // Re-attach back button event listener
-        const backBtn = header.querySelector('#backToGridFromTcg');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                console.log('🔙 Back button clicked');
-                this.showPokemonGrid();
-            });
-        }
-        
-        // Create cards grid
-        const cardsGrid = document.createElement('div');
-        cardsGrid.className = 'tcg-canvas-grid';
-        
-        console.log('🎴 Creating card elements...');
-        tcgData.cards.forEach((card, index) => {
-            const cardDiv = document.createElement('div');
-            cardDiv.className = 'tcg-canvas-card';
-            
-            // Card image - support multiple formats
-            const imageUrl = card.images?.small || card.images?.large || card.image || card.imageUrl;
-            console.log(`Card ${index + 1} (${card.name}):`, imageUrl ? 'Has image' : 'NO IMAGE', imageUrl);
-            
-            if (imageUrl) {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = card.name || 'Pokemon Card';
-                img.loading = 'lazy';
-                img.onerror = () => {
-                    console.error('Failed to load image:', imageUrl);
-                    img.style.display = 'none';
-                };
-                cardDiv.appendChild(img);
-            } else {
-                // Fallback if no image
-                const placeholder = document.createElement('div');
-                placeholder.className = 'tcg-card-placeholder';
-                placeholder.textContent = card.name || 'Card';
-                cardDiv.appendChild(placeholder);
-            }
-            
-            // Card info overlay
-            const cardInfo = document.createElement('div');
-            cardInfo.className = 'tcg-canvas-card-info';
-            cardInfo.innerHTML = `
-                <div class="tcg-canvas-card-name">${card.name || 'Unknown Card'}</div>
-                <div class="tcg-canvas-card-set">${card.set?.name || card.setName || 'Unknown Set'}</div>
-            `;
-            cardDiv.appendChild(cardInfo);
-            
-            // Click to show full card details
-            cardDiv.addEventListener('click', () => {
-                this.showTcgCardDetail(card);
-            });
-            
-            cardsGrid.appendChild(cardDiv);
-        });
-        
-        console.log('✅ Created', cardsGrid.children.length, 'card elements');
-        this.tcgCardsView.appendChild(cardsGrid);
-        
-        // Scroll to top
-        this.tcgCardsView.scrollTop = 0;
-        console.log('✅ TCG cards view updated and displayed');
-        this.updateNavigationButtons();
+        // Delegate to view class
+        this.tcgGallery.display(tcgData);
     }
     
+    // Delegate to tcgGallery view
     displayTcgCardsInCanvasWithoutHistory(tcgData) {
         console.log('🃏 displayTcgCardsInCanvasWithoutHistory called');
         
@@ -697,73 +480,7 @@ class PokemonChatApp {
             return;
         }
         
-        // Hide other views
-        this.pokemonGridView.style.display = 'none';
-        this.pokemonDetailView.style.display = 'none';
-        this.tcgCardsView.style.display = 'block';
-        
-        // Clear existing content
-        this.tcgCardsView.innerHTML = '';
-        
-        // Create header with back button
-        const header = document.createElement('div');
-        header.className = 'tcg-canvas-header';
-        header.innerHTML = `
-            <button class="back-btn" id="backToGridFromTcg">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Back</span>
-            </button>
-            <div class="tcg-canvas-title">
-                <h1>🃏 Trading Card Gallery</h1>
-                <p>${tcgData.total_count || tcgData.count || tcgData.cards.length} cards found</p>
-            </div>
-        `;
-        this.tcgCardsView.appendChild(header);
-        
-        const backBtn = header.querySelector('#backToGridFromTcg');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                this.showPokemonGrid();
-            });
-        }
-        
-        const cardsGrid = document.createElement('div');
-        cardsGrid.className = 'tcg-canvas-grid';
-        
-        tcgData.cards.forEach((card, index) => {
-            const cardDiv = document.createElement('div');
-            cardDiv.className = 'tcg-canvas-card';
-            
-            const imageUrl = card.images?.small || card.images?.large || card.image || card.imageUrl;
-            
-            if (imageUrl) {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = card.name || 'Pokemon Card';
-                img.loading = 'lazy';
-                cardDiv.appendChild(img);
-            }
-            
-            const cardInfo = document.createElement('div');
-            cardInfo.className = 'tcg-canvas-card-info';
-            cardInfo.innerHTML = `
-                <div class="tcg-canvas-card-name">${card.name || 'Unknown Card'}</div>
-                <div class="tcg-canvas-card-set">${card.set?.name || card.setName || 'Unknown Set'}</div>
-            `;
-            cardDiv.appendChild(cardInfo);
-            
-            cardDiv.addEventListener('click', () => {
-                this.showTcgCardDetail(card);
-            });
-            
-            cardsGrid.appendChild(cardDiv);
-        });
-        
-        this.tcgCardsView.appendChild(cardsGrid);
-        this.tcgCardsView.scrollTop = 0;
-        this.updateNavigationButtons();
+        this.tcgGallery.displayWithoutHistory(tcgData);
     }
 
     async initializeCameraControls() {
@@ -1203,16 +920,154 @@ class PokemonChatApp {
         document.body.style.overflow = 'hidden';
         this.pendingToolChanges = {};
         
-        // Load and render tools
-        await this.loadTools();
+        // Load cache config and tools
+        await Promise.all([
+            this.loadCacheConfig(),
+            this.loadTools()
+        ]);
         this.renderToolsModal();
+        this.setupCacheControls();
+    }
+    
+    async loadCacheConfig() {
+        try {
+            const response = await fetch('/api/cache/config');
+            if (response.ok) {
+                this.cacheConfig = await response.json();
+            }
+        } catch (error) {
+            console.error('Error loading cache config:', error);
+        }
+    }
+    
+    setupCacheControls() {
+        // Cache toggle
+        const cacheToggle = document.getElementById('cacheToggle');
+        if (cacheToggle) {
+            cacheToggle.checked = this.cacheConfig?.enabled ?? true;
+            cacheToggle.addEventListener('change', async (e) => {
+                await this.updateCacheEnabled(e.target.checked);
+            });
+        }
+        
+        // Cache expiry slider
+        const cacheExpiry = document.getElementById('cacheExpiry');
+        const cacheExpiryValue = document.getElementById('cacheExpiryValue');
+        if (cacheExpiry && cacheExpiryValue) {
+            cacheExpiry.value = this.cacheConfig?.expiry_days ?? 7;
+            cacheExpiryValue.textContent = cacheExpiry.value;
+            
+            // Update slider background
+            const updateSliderBg = () => {
+                const percent = ((cacheExpiry.value - 1) / (90 - 1)) * 100;
+                cacheExpiry.style.background = `linear-gradient(to right, var(--pokedex-red) 0%, var(--pokedex-red) ${percent}%, #e0e0e0 ${percent}%, #e0e0e0 100%)`;
+            };
+            updateSliderBg();
+            
+            cacheExpiry.addEventListener('input', (e) => {
+                cacheExpiryValue.textContent = e.target.value;
+                updateSliderBg();
+            });
+            
+            cacheExpiry.addEventListener('change', async (e) => {
+                await this.updateCacheExpiry(parseInt(e.target.value));
+            });
+        }
+        
+        // Clear cache button
+        const cacheClearBtn = document.getElementById('cacheClearBtn');
+        if (cacheClearBtn) {
+            cacheClearBtn.addEventListener('click', () => this.clearCache());
+        }
+        
+        // Update cache stats
+        this.updateCacheStats();
+    }
+    
+    updateCacheStats() {
+        if (!this.cacheConfig) return;
+        
+        const cacheStatus = document.getElementById('cacheStatus');
+        const cacheFiles = document.getElementById('cacheFiles');
+        const cacheSize = document.getElementById('cacheSize');
+        
+        if (cacheStatus) {
+            cacheStatus.textContent = this.cacheConfig.enabled ? '✅ Enabled' : '❌ Disabled';
+            cacheStatus.style.color = this.cacheConfig.enabled ? '#28a745' : '#dc3545';
+        }
+        if (cacheFiles) {
+            cacheFiles.textContent = this.cacheConfig.total_files ?? 0;
+        }
+        if (cacheSize) {
+            cacheSize.textContent = `${this.cacheConfig.total_size_mb ?? 0} MB`;
+        }
+    }
+    
+    async updateCacheEnabled(enabled) {
+        try {
+            const response = await fetch('/api/cache/enable', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ enabled })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                this.cacheConfig = { ...this.cacheConfig, ...data.config };
+                this.updateCacheStats();
+                console.log('✅ Cache', enabled ? 'enabled' : 'disabled');
+            }
+        } catch (error) {
+            console.error('Error updating cache:', error);
+        }
+    }
+    
+    async updateCacheExpiry(days) {
+        try {
+            const response = await fetch('/api/cache/expiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ days })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                this.cacheConfig = { ...this.cacheConfig, ...data.config };
+                console.log(`✅ Cache expiry set to ${days} days`);
+            }
+        } catch (error) {
+            console.error('Error updating cache expiry:', error);
+        }
+    }
+    
+    async clearCache() {
+        if (!confirm('Are you sure you want to clear all cached data? This will make the next API calls slower until data is cached again.')) {
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/cache/clear', {
+                method: 'POST'
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                this.cacheConfig = { ...this.cacheConfig, ...data.stats };
+                this.updateCacheStats();
+                alert(`✅ ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error clearing cache:', error);
+            alert('❌ Error clearing cache');
+        }
     }
     
     renderToolsModal() {
-        if (!this.toolsModalContent) return;
+        const toolsList = document.getElementById('toolsList');
+        if (!toolsList) return;
         
         if (this.tools.length === 0) {
-            this.toolsModalContent.innerHTML = '<div class="tools-empty">No tools available</div>';
+            toolsList.innerHTML = '<div class="tools-empty">No tools available</div>';
             return;
         }
         
@@ -1235,7 +1090,7 @@ class PokemonChatApp {
             </div>
         `).join('');
         
-        this.toolsModalContent.innerHTML = toolsHTML;
+        toolsList.innerHTML = toolsHTML;
         
         // Add event listeners to checkboxes
         this.toolsModalContent.querySelectorAll('.tool-checkbox').forEach(checkbox => {
@@ -1312,78 +1167,142 @@ class PokemonChatApp {
         }
     }
     
-    showTcgCardDetail(card) {
-        if (!this.tcgCardModalOverlay || !this.tcgCardModalContent) return;
-        this.setCardContext(card);
+    // Help Modal Methods
+    showHelpModal() {
+        const helpModalOverlay = document.getElementById('helpModalOverlay');
+        if (helpModalOverlay) {
+            helpModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    closeHelpModal() {
+        const helpModalOverlay = document.getElementById('helpModalOverlay');
+        if (helpModalOverlay) {
+            helpModalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Random Pokemon
+    async getRandomPokemon() {
+        try {
+            console.log('🎲 Getting random Pokemon...');
+            this.setLoading(true);
+            
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'get_random_pokemon',
+                    arguments: {}
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to get random Pokemon');
+            }
+            
+            const data = await response.json();
+            console.log('✅ Random Pokemon response:', data);
+            
+            this.setLoading(false);
+            
+            if (data.result) {
+                const pokemon = data.result;
+                // Show in canvas
+                if (pokemon.id) {
+                    this.showPokemonInCanvas(pokemon.id);
+                } else if (pokemon.name) {
+                    this.showPokemonInCanvas(pokemon.name);
+                }
+                
+                // Add to chat
+                this.addAssistantMessage(`Here's a random Pokemon: ${pokemon.name}! 🎲`);
+            }
+        } catch (error) {
+            console.error('Error getting random Pokemon:', error);
+            this.setLoading(false);
+            this.addAssistantMessage('Sorry, I had trouble getting a random Pokemon. Please try again.');
+        }
+    }
+    
+    // Navigation Methods
+    async navigateBack() {
+        if (this.currentViewIndex > 0) {
+            this.currentViewIndex--;
+            const view = this.viewHistory[this.currentViewIndex];
+            
+            if (view === 'grid') {
+                this.gridView.showWithoutHistory();
+            } else if (view === 'tcg' && this.currentTcgData) {
+                this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+            } else if (view.startsWith('tcg-detail-')) {
+                // For TCG detail, find and show the specific card
+                const cardId = view.replace('tcg-detail-', '');
+                if (this.currentTcgData && this.currentTcgData.cards) {
+                    const card = this.currentTcgData.cards.find(c => c.id === cardId);
+                    if (card) {
+                        await this.tcgDetail.showWithoutHistory(card);
+                    } else {
+                        console.log('Card not found in current TCG data:', cardId);
+                    }
+                } else {
+                    console.log('No TCG data available for navigation');
+                }
+            } else if (view.startsWith('pokemon-')) {
+                const pokemonId = parseInt(view.split('-')[1]);
+                this.detailView.loadPokemonWithoutHistory(pokemonId);
+            }
+            this.updateNavigationButtons();
+        }
+    }
+    
+    // View Pokemon Cards
+    async viewPokemonCards() {
+        if (!this.currentPokemonName) {
+            console.error('No Pokemon selected');
+            return;
+        }
         
-        // Support both formats: card.images.large (raw API) and card.imageLarge/card.image (formatted)
-        const largeImage = card.images?.large || card.imageLarge || card.images?.small || card.image;
-        const setName = card.set?.name || card.set || 'Unknown Set';
-        
-        const cardHTML = `
-            <div class="tcg-card-detail">
-                <div class="tcg-card-image">
-                    <img src="${largeImage}" alt="${card.name}">
-                </div>
-                <div class="tcg-card-info">
-                    <h2>${card.name}</h2>
-                    <p class="tcg-card-set">${setName} - ${card.number || ''}</p>
-                    
-                    ${card.types ? `
-                        <div class="tcg-card-types">
-                            ${card.types.map(t => `<span class="type-badge type-${t.toLowerCase()}">${t}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    
-                    ${card.hp ? `<p class="tcg-card-hp">HP: ${card.hp}</p>` : ''}
-                    
-                    ${card.subtypes?.length ? `
-                        <p class="tcg-card-subtypes">Subtypes: ${card.subtypes.join(', ')}</p>
-                    ` : ''}
-                    
-                    ${card.abilities?.length ? `
-                        <div class="tcg-card-abilities">
-                            <h3>Abilities</h3>
-                            ${card.abilities.map(a => `
-                                <div class="tcg-ability">
-                                    <strong>${a.name}</strong>: ${a.text}
-                                </div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                    
-                    ${card.attacks?.length ? `
-                        <div class="tcg-card-attacks">
-                            <h3>Attacks</h3>
-                            ${card.attacks.map(a => `
-                                <div class="tcg-attack">
-                                    <strong>${a.name}</strong> ${a.damage ? `- ${a.damage}` : ''}
-                                    ${a.text ? `<p>${a.text}</p>` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                    
-                    ${card.rarity ? `<p class="tcg-card-rarity">Rarity: ${card.rarity}</p>` : ''}
-                    ${card.artist ? `<p class="tcg-card-artist">Artist: ${card.artist}</p>` : ''}
-                    
-                    ${card.legalities ? `
-                        <div class="tcg-card-legalities">
-                            <h3>Format Legality</h3>
-                            <div class="legality-badges">
-                                ${Object.entries(card.legalities).map(([format, status]) => `
-                                    <span class="legality-badge ${status.toLowerCase()}">${format}: ${status}</span>
-                                `).join('')}
-                            </div>
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
-        `;
-        
-        this.tcgCardModalContent.innerHTML = cardHTML;
-        this.tcgCardModalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        try {
+            console.log('🃏 Searching cards for:', this.currentPokemonName);
+            this.setLoading(true);
+            
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_pokemon_cards',
+                    arguments: { pokemon_name: this.currentPokemonName }
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to search cards');
+            }
+            
+            const data = await response.json();
+            console.log('✅ Cards response:', data);
+            
+            this.setLoading(false);
+            
+            if (data.result && data.result.cards && data.result.cards.length > 0) {
+                // Display cards in canvas
+                this.displayTcgCardsInCanvas(data.result);
+            } else {
+                this.addMessage('assistant', `No trading cards found for ${this.currentPokemonName}.`);
+            }
+        } catch (error) {
+            console.error('Error searching cards:', error);
+            this.setLoading(false);
+            this.addMessage('assistant', 'Sorry, I had trouble searching for cards. Please try again.');
+        }
+    }
+    
+    // Delegate to tcgDetail view
+    async showTcgCardDetail(card) {
+        await this.tcgDetail.show(card);
     }
 
     /**
@@ -1436,6 +1355,37 @@ class PokemonChatApp {
             
             onTranscript: (text, role) => {
                 if (role === 'user') {
+                    // Check for navigation voice commands before processing normally
+                    const lowerText = text.toLowerCase().trim();
+                    
+                    // Voice command: Go back / Navigate back / Back
+                    if (lowerText.match(/^(go back|navigate back|back|previous)$/)) {
+                        console.log('🔙 Voice command: Go back');
+                        this.showPokemonGrid();
+                        this.addMessage('user', text);
+                        this.addMessage('assistant', 'Going back to the Pokemon grid.');
+                        return;
+                    }
+                    
+                    // Voice command: Go forward / Navigate forward / Forward
+                    if (lowerText.match(/^(go forward|navigate forward|forward|next)$/)) {
+                        console.log('⏭️ Voice command: Go forward');
+                        this.navigateForward();
+                        this.addMessage('user', text);
+                        this.addMessage('assistant', 'Moving forward in history.');
+                        return;
+                    }
+                    
+                    // Voice command: Show index / Show all Pokemon / Go home
+                    if (lowerText.match(/^(show index|show all pokemon|go home|home|index)$/)) {
+                        console.log('🏠 Voice command: Show index');
+                        this.showPokemonIndexInCanvas();
+                        this.addMessage('user', text);
+                        this.addMessage('assistant', 'Showing all Pokemon in the index.');
+                        return;
+                    }
+                    
+                    // Normal processing for other messages
                     this.addMessage('user', text);
                     this.hideWelcomeMessage();
                         void this.maybeSendScanSnapshotForQuestion();
@@ -1463,26 +1413,14 @@ class PokemonChatApp {
                                 pokemonData = toolCall.result;
                                 console.log('🎮 Pokemon data found:', pokemonData.name, 'Full data:', toolCall.result);
                                 
-                                // Auto-display Pokemon detail if we have an ID or name
+                                // Auto-display Pokemon using the public API
                                 const pokemonId = toolCall.result.id || toolCall.result.pokemon_id;
                                 const pokemonName = toolCall.result.name;
+                                const identifier = pokemonId || pokemonName;
                                 
-                                if (pokemonId) {
-                                    console.log('🎯 Auto-displaying Pokemon by ID:', pokemonId, pokemonName);
-                                    this.loadPokemonData(pokemonId);
-                                } else if (pokemonName) {
-                                    // Try to find Pokemon by name from our loaded list
-                                    console.log('🔍 Searching for Pokemon by name:', pokemonName);
-                                    const foundPokemon = this.allPokemons.find(p => 
-                                        p.name.toLowerCase() === pokemonName.toLowerCase()
-                                    );
-                                    if (foundPokemon) {
-                                        const idFromUrl = foundPokemon.url.split('/').filter(Boolean).pop();
-                                        console.log('🎯 Auto-displaying Pokemon by name:', pokemonName, 'ID:', idFromUrl);
-                                        this.loadPokemonData(parseInt(idFromUrl));
-                                    } else {
-                                        console.log('⚠️ Pokemon not found in loaded list:', pokemonName);
-                                    }
+                                if (identifier) {
+                                    console.log('🎯 Auto-displaying Pokemon:', identifier);
+                                    this.showPokemonInCanvas(identifier);
                                 }
                             }
                             
@@ -1586,8 +1524,15 @@ class PokemonChatApp {
                     console.warn(`Tool ${displayName} failed:`, result.error || 'Unknown error');
                 }
                 
-                // Check if tool result contains TCG cards that should be displayed immediately
+                // Check if tool result contains data that should be displayed immediately
                 if (success && result) {
+                    // Check for Pokemon data and auto-display
+                    if (result.name && result.types && (result.id || result.pokemon_id)) {
+                        const identifier = result.id || result.pokemon_id || result.name;
+                        console.log('🎮 Pokemon detected in tool result, displaying in canvas:', result.name, 'ID:', identifier);
+                        this.showPokemonInCanvas(identifier);
+                    }
+                    
                     // Check for TCG card data in various formats
                     let tcgData = null;
                     if (result.cards && Array.isArray(result.cards) && result.cards.length > 0) {
@@ -1791,6 +1736,10 @@ class PokemonChatApp {
 
         if (!this.realtimeVoice.isConnected) {
             await this.realtimeVoice.connect();
+            
+            // Set the current view context when connection is established
+            console.log('🎯 Setting initial canvas context after connection');
+            this.syncCurrentViewContext();
         }
 
         if (!this.realtimeVoice.isRecording) {
@@ -2595,12 +2544,201 @@ class PokemonChatApp {
         };
 
         if (this.useRealtimeApi && this.realtimeVoice?.isConnected) {
-            void this.realtimeVoice.sendContextMessage(summary);
+            console.log('🎯 Setting card context in system prompt');
+            void this.realtimeVoice.updateCanvasContext(summary);
+        }
+    }
+
+    setPokemonContext(pokemon, species) {
+        const summary = this.buildPokemonContextSummary(pokemon, species);
+        if (!summary) {
+            return;
+        }
+
+        if (this.currentCardContext?.summary === summary) {
+            this.currentCardContext.data = { pokemon, species };
+            return;
+        }
+
+        this.currentCardContext = {
+            summary: summary,
+            data: { pokemon, species }
+        };
+
+        console.log('🎯 Setting Pokemon context:', pokemon.name);
+        if (this.useRealtimeApi && this.realtimeVoice?.isConnected) {
+            void this.realtimeVoice.updateCanvasContext(summary);
+        }
+    }
+
+    buildPokemonContextSummary(pokemon, species) {
+        if (!pokemon) return null;
+
+        const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+        const id = pokemon.id;
+        const header = `${name} #${String(id).padStart(3, '0')}`;
+        const descriptors = [];
+
+        // Types
+        if (pokemon.types && pokemon.types.length) {
+            const typeNames = pokemon.types.map(t => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1));
+            descriptors.push(`Type${pokemon.types.length > 1 ? 's' : ''}: ${typeNames.join('/')}`);
+        }
+
+        // Height and Weight
+        if (pokemon.height) {
+            descriptors.push(`Height: ${(pokemon.height / 10).toFixed(1)}m`);
+        }
+        if (pokemon.weight) {
+            descriptors.push(`Weight: ${(pokemon.weight / 10).toFixed(1)}kg`);
+        }
+
+        // Abilities
+        if (pokemon.abilities && pokemon.abilities.length) {
+            const abilityNames = pokemon.abilities.map(a => 
+                a.ability.name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+            );
+            descriptors.push(`Abilities: ${abilityNames.join(', ')}`);
+        }
+
+        // Stats
+        if (pokemon.stats && pokemon.stats.length) {
+            const statSummary = pokemon.stats.map(s => {
+                const statName = s.stat.name.split('-').map(word => word.toUpperCase()).join('');
+                return `${statName}:${s.base_stat}`;
+            }).join(' ');
+            descriptors.push(`Base Stats: ${statSummary}`);
+        }
+
+        // Description from species
+        if (species && species.flavor_text_entries) {
+            const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
+            if (flavorText) {
+                const description = flavorText.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim();
+                descriptors.push(`Description: ${description}`);
+            }
+        }
+
+        const summaryParts = [`User is viewing the Pokemon ${header}.`];
+        if (descriptors.length) {
+            summaryParts.push(descriptors.join(' | '));
+        }
+
+        return summaryParts.join(' ');
+    }
+
+    /**
+     * Centralized canvas state management - automatically updates GPT context
+     * @param {string} type - Type of content: 'grid', 'pokemon', 'tcg-gallery', 'tcg-detail'
+     * @param {Object} data - Associated data for the view
+     */
+    updateCanvasState(type, data, addToHistory = true) {
+        this.currentCanvasState = { type, data };
+        
+        // Automatically manage navigation history
+        if (addToHistory) {
+            const viewKey = this.buildViewKey(type, data);
+            
+            // Only add to history if it's different from current
+            if (this.viewHistory[this.currentViewIndex] !== viewKey) {
+                this.currentViewIndex++;
+                this.viewHistory = this.viewHistory.slice(0, this.currentViewIndex);
+                this.viewHistory.push(viewKey);
+                console.log(`📚 History updated: [${this.viewHistory.join(' → ')}] (index: ${this.currentViewIndex})`);
+            }
+            
+            // Update navigation buttons
+            this.updateNavigationButtons();
+        }
+        
+        // Generate context description based on canvas state
+        const contextDescription = this.buildCanvasContextDescription();
+        
+        // Update realtime voice context
+        if (this.realtimeVoice && this.realtimeVoice.isConnected) {
+            console.log(`🎯 Canvas state changed to: ${type}`);
+            this.realtimeVoice.updateCanvasContext(contextDescription);
+        }
+        
+        // Also update legacy context variables for backward compatibility
+        if (type === 'pokemon' && data) {
+            this.currentPokemonContext = data;
+            this.currentCardContext = null;
+        } else if (type === 'tcg-detail' && data) {
+            this.currentCardContext = { summary: contextDescription, data: data };
+            this.currentPokemonContext = null;
+        } else {
+            this.currentCardContext = null;
+            this.currentPokemonContext = null;
+        }
+    }
+    
+    /**
+     * Build a unique view key for history tracking
+     */
+    buildViewKey(type, data) {
+        switch (type) {
+            case 'grid':
+                return 'grid';
+            case 'pokemon':
+                return data?.pokemon?.id ? `pokemon-${data.pokemon.id}` : 'pokemon';
+            case 'tcg-gallery':
+                return 'tcg';
+            case 'tcg-detail':
+                return data?.id ? `tcg-detail-${data.id}` : 'tcg-detail';
+            default:
+                return type;
+        }
+    }
+    
+    /**
+     * Build context description based on current canvas state
+     */
+    buildCanvasContextDescription() {
+        const { type, data } = this.currentCanvasState;
+        
+        switch (type) {
+            case 'grid':
+                return "User is currently viewing the Pokemon index page (grid view) showing all Pokemon. They can select any Pokemon to view details, or ask about specific Pokemon.";
+            
+            case 'pokemon':
+                if (!data || !data.pokemon) return null;
+                return this.buildPokemonContextSummary(data.pokemon, data.species);
+            
+            case 'tcg-gallery':
+                if (!data || !data.pokemon_name) return null;
+                const cardCount = data.total_count || (data.cards ? data.cards.length : 0);
+                return `User is viewing a gallery of ${cardCount} Pokemon TCG trading cards for ${data.pokemon_name}. They can click any card to see details and pricing information.`;
+            
+            case 'tcg-detail':
+                if (!data) return null;
+                return this.buildCardContextSummary(data);
+            
+            default:
+                return null;
         }
     }
 
     clearCardContext() {
-        this.currentCardContext = null;
+        this.updateCanvasState('grid', null);
+    }
+
+    syncCurrentViewContext() {
+        // Determine which view is currently active and sync with current canvas state
+        if (!this.realtimeVoice || !this.realtimeVoice.isConnected) {
+            return;
+        }
+
+        const gridVisible = this.pokemonGridView && this.pokemonGridView.style.display !== 'none';
+        const detailVisible = this.pokemonDetailView && this.pokemonDetailView.style.display !== 'none';
+        const tcgVisible = this.tcgCardsView && this.tcgCardsView.style.display !== 'none';
+
+        // Re-apply the current canvas state
+        const contextDescription = this.buildCanvasContextDescription();
+        if (contextDescription) {
+            console.log('🎯 Syncing canvas context:', this.currentCanvasState.type);
+            this.realtimeVoice.updateCanvasContext(contextDescription);
+        }
     }
 
     getCardContextPayload() {

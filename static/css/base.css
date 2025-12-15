@@ -1,0 +1,56 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Classic Pokedex Colors */
+    --pokedex-red: #DC0A2D;
+    --pokedex-red-dark: #A80820;
+    --pokedex-red-darker: #8B0000;
+    --pokedex-blue: #2B72B8;
+    --pokedex-blue-light: #3D8FD8;
+    --pokedex-screen: #9FC5E8;
+    --pokedex-screen-dark: #7BA3C7;
+    --pokedex-yellow: #FFCB05;
+    --pokedex-black: #1A1A1A;
+    --pokedex-gray: #4A4A4A;
+    --pokedex-light-gray: #D3D3D3;
+    
+    /* App Colors */
+    --primary-color: var(--pokedex-red);
+    --primary-dark: var(--pokedex-red-dark);
+    --secondary-color: var(--pokedex-blue);
+    --background-color: var(--pokedex-screen);
+    --chat-bg: #E8F4FA;
+    --user-bubble: var(--pokedex-red);
+    --assistant-bubble: #FFFFFF;
+    --text-primary: var(--pokedex-black);
+    --text-secondary: var(--pokedex-gray);
+    --border-color: #A0A0A0;
+    --shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --voice-active-bg: var(--pokedex-yellow);
+    --voice-active-border: #E5B800;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #2A2A2A;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* App Container */
+.app-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--pokedex-screen);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
