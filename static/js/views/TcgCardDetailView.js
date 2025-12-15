@@ -66,15 +66,21 @@ class TcgCardDetailView {
                 </div>
                 <div class="tcg-card-info">
                     <h2>${card.name}</h2>
-                    <p class="tcg-card-set">${setName} - ${card.number || ''}</p>
                     
-                    ${this.buildTypesHTML(card)}
-                    ${this.buildHPHTML(card)}
-                    ${this.buildSubtypesHTML(card)}
+                    ${this.buildSubtypeHeaderHTML(card)}
+                    ${this.buildEvolvesFromHTML(card)}
+                    ${this.buildHPTypesHTML(card)}
                     ${this.buildAbilitiesHTML(card)}
                     ${this.buildAttacksHTML(card)}
-                    ${this.buildRarityHTML(card)}
-                    ${this.buildArtistHTML(card)}
+                    ${this.buildWeaknessResistanceRetreatHTML(card)}
+                    ${this.buildRulesHTML(card)}
+                    
+                    <div class="tcg-card-metadata">
+                        ${this.buildSetInfoHTML(card)}
+                        ${this.buildArtistHTML(card)}
+                        ${this.buildRegulationMarkHTML(card)}
+                    </div>
+                    
                     ${this.buildLegalitiesHTML(card)}
                     
                     <div class="tcg-card-prices">
@@ -86,23 +92,51 @@ class TcgCardDetailView {
         
         this.detailView.innerHTML = cardHTML;
         this.detailView.scrollTop = 0;
+        
+        // Attach event listener to evolves from link
+        this.attachEvolvesFromListener();
     }
 
-    buildTypesHTML(card) {
-        if (!card.types) return '';
+    attachEvolvesFromListener() {
+        const evolvesLink = this.detailView.querySelector('.tcg-evolves-link');
+        if (evolvesLink) {
+            evolvesLink.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const pokemonName = e.target.dataset.pokemon;
+                if (pokemonName) {
+                    await this.app.searchPokemon(pokemonName);
+                }
+            });
+        }
+    }
+
+    buildSubtypeHeaderHTML(card) {
+        if (!card.subtypes?.length) return '';
         return `
-            <div class="tcg-card-types">
-                ${card.types.map(t => `<span class="type-badge type-${t.toLowerCase()}">${t}</span>`).join('')}
+            <div class="tcg-card-subtype-header">
+                <h3>${card.subtypes.join(' ')}</h3>
             </div>
         `;
     }
 
-    buildHPHTML(card) {
-        return card.hp ? `<p class="tcg-card-hp">HP: ${card.hp}</p>` : '';
+    buildEvolvesFromHTML(card) {
+        if (!card.evolvesFrom) return '';
+        return `
+            <div class="tcg-card-evolves">
+                <strong>Evolves From:</strong>
+                <a href="#" class="tcg-evolves-link" data-pokemon="${card.evolvesFrom}">${card.evolvesFrom}</a>
+            </div>
+        `;
     }
 
-    buildSubtypesHTML(card) {
-        return card.subtypes?.length ? `<p class="tcg-card-subtypes">Subtypes: ${card.subtypes.join(', ')}</p>` : '';
+    buildHPTypesHTML(card) {
+        if (!card.hp && !card.types?.length) return '';
+        return `
+            <div class="tcg-card-hp-types">
+                ${card.hp ? `<span class="tcg-hp">HP${card.hp}</span>` : ''}
+                ${card.types ? card.types.map(t => this.getTypeIcon(t)).join('') : ''}
+            </div>
+        `;
     }
 
     buildAbilitiesHTML(card) {
@@ -123,23 +157,104 @@ class TcgCardDetailView {
         if (!card.attacks?.length) return '';
         return `
             <div class="tcg-card-attacks">
-                <h3>Attacks</h3>
                 ${card.attacks.map(a => `
                     <div class="tcg-attack">
-                        <strong>${a.name}</strong> ${a.damage ? `- ${a.damage}` : ''}
-                        ${a.text ? `<p>${a.text}</p>` : ''}
+                        <div class="tcg-attack-header">
+                            <div class="tcg-attack-cost">
+                                ${this.buildAttackCostHTML(a.cost)}
+                            </div>
+                            <div class="tcg-attack-name-damage">
+                                <strong>${a.name}</strong>
+                                ${a.damage ? `<span class="tcg-attack-damage">${a.damage}</span>` : ''}
+                            </div>
+                        </div>
+                        ${a.text ? `<p class="tcg-attack-text">${a.text}</p>` : ''}
                     </div>
                 `).join('')}
             </div>
         `;
     }
 
-    buildRarityHTML(card) {
-        return card.rarity ? `<p class="tcg-card-rarity">Rarity: ${card.rarity}</p>` : '';
+    buildAttackCostHTML(cost) {
+        if (!cost?.length) return '';
+        return cost.map(type => this.getTypeIcon(type)).join('');
+    }
+
+    buildWeaknessResistanceRetreatHTML(card) {
+        const hasWeakness = card.weaknesses?.length;
+        const hasResistance = card.resistances?.length;
+        const hasRetreat = card.retreatCost?.length;
+        
+        if (!hasWeakness && !hasResistance && !hasRetreat) return '';
+        
+        return `
+            <div class="tcg-card-wr-retreat">
+                ${hasWeakness ? `
+                    <div class="tcg-wr-section">
+                        <h4>Weakness</h4>
+                        <div class="tcg-wr-values">
+                            ${card.weaknesses.map(w => `
+                                ${this.getTypeIcon(w.type)}<span class="tcg-multiplier">${w.value}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${hasResistance ? `
+                    <div class="tcg-wr-section">
+                        <h4>Resistance</h4>
+                        <div class="tcg-wr-values">
+                            ${card.resistances.map(r => `
+                                ${this.getTypeIcon(r.type)}<span class="tcg-multiplier">${r.value}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${hasRetreat ? `
+                    <div class="tcg-wr-section">
+                        <h4>Retreat Cost</h4>
+                        <div class="tcg-retreat-cost">
+                            ${card.retreatCost.map(() => this.getTypeIcon('Colorless')).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    buildRulesHTML(card) {
+        if (!card.rules?.length) return '';
+        return `
+            <div class="tcg-card-rules">
+                ${card.rules.map(rule => `<p>${rule}</p>`).join('')}
+            </div>
+        `;
+    }
+
+    buildSetInfoHTML(card) {
+        const setName = card.set?.name || card.set || 'Unknown Set';
+        const setLogo = card.set?.images?.logo;
+        return `
+            <div class="tcg-card-set-info">
+                <strong>${setName}</strong>
+                <span class="tcg-card-number">${card.number}/${card.set?.total || '?'}</span>
+                ${card.rarity ? `<span class="tcg-rarity-badge">${card.rarity}</span>` : ''}
+                ${setLogo ? `<img src="${setLogo}" alt="${setName}" class="tcg-set-logo">` : ''}
+            </div>
+        `;
     }
 
     buildArtistHTML(card) {
-        return card.artist ? `<p class="tcg-card-artist">Artist: ${card.artist}</p>` : '';
+        return card.artist ? `
+            <p class="tcg-card-artist"><strong>Illustrator:</strong> ${card.artist}</p>
+        ` : '';
+    }
+
+    buildRegulationMarkHTML(card) {
+        return card.regulationMark ? `
+            <p class="tcg-regulation-mark">Regulation Mark: ${card.regulationMark}</p>
+        ` : '';
     }
 
     buildLegalitiesHTML(card) {
@@ -154,6 +269,25 @@ class TcgCardDetailView {
                 </div>
             </div>
         `;
+    }
+
+    getTypeIcon(type) {
+        const typeIcons = {
+            'Grass': 'grass_280.png',
+            'Fire': 'fire_280.png',
+            'Water': 'water_280.png',
+            'Lightning': 'lightning_280.png',
+            'Psychic': 'psychic_280.png',
+            'Fighting': 'fighting_280.png',
+            'Darkness': 'darkness_280.png',
+            'Metal': 'metal_280.png',
+            'Dragon': 'dragon_280.png',
+            'Fairy': 'fairy_280.png',
+            'Colorless': 'colorless_280.png'
+        };
+        const iconFile = typeIcons[type] || 'colorless_280.png';
+        const iconPath = `/static/images/energy/${iconFile}`;
+        return `<img src="${iconPath}" alt="${type}" class="energy-icon type-${type?.toLowerCase() || 'colorless'}" title="${type}">`;
     }
 
     buildPricesHTML(card) {

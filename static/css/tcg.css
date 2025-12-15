@@ -21,15 +21,19 @@
 }
 
 .tcg-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
 }
 
 .tcg-card-preview {
     cursor: pointer;
     transition: transform 0.2s;
     text-align: center;
+    flex: 0 0 auto;
+    width: calc(16.666% - 2rem * 5 / 6);
+    box-sizing: border-box;
 }
 
 .tcg-card-preview:hover {
@@ -38,8 +42,11 @@
 
 .tcg-card-preview img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: block;
 }
 
 .tcg-card-name {
@@ -142,6 +149,50 @@
     font-size: 1.75rem;
 }
 
+.tcg-card-subtype-header h3 {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+}
+
+.tcg-card-evolves {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: var(--chat-bg);
+    border-radius: 8px;
+}
+
+.tcg-card-evolves strong {
+    color: var(--text-primary);
+    margin-right: 0.5rem;
+}
+
+.tcg-evolves-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tcg-evolves-link:hover {
+    text-decoration: underline;
+}
+
+.tcg-card-hp-types {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tcg-hp {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
 .tcg-card-set {
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -178,9 +229,48 @@
 .tcg-ability,
 .tcg-attack {
     background: var(--chat-bg);
-    padding: 0.75rem;
+    padding: 1rem;
     border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.tcg-attack-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     margin-bottom: 0.5rem;
+}
+
+.tcg-attack-cost {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.tcg-attack-name-damage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.tcg-attack-name-damage strong {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.tcg-attack-damage {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: auto;
+}
+
+.tcg-attack-text {
+    margin: 0.5rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .tcg-ability strong,
@@ -192,6 +282,73 @@
     margin: 0.5rem 0 0;
     color: var(--text-secondary);
     font-size: 0.875rem;
+}
+
+/* Energy Symbol Icons */
+.energy-icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    object-fit: contain;
+    background: transparent;
+    border: none;
+}
+
+/* Type Icons (legacy emoji support) */
+.type-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 1rem;
+    background: var(--chat-bg);
+    border: 2px solid var(--border-color);
+}
+
+.type-icon.type-grass { background: #78C850; border-color: #5ca935; }
+.type-icon.type-fire { background: #F08030; border-color: #dd6610; }
+.type-icon.type-water { background: #6890F0; border-color: #4870d0; }
+.type-icon.type-lightning { background: #F8D030; border-color: #d8b010; }
+.type-icon.type-psychic { background: #F85888; border-color: #d83868; }
+.type-icon.type-fighting { background: #C03028; border-color: #a01008; }
+.type-icon.type-darkness { background: #705848; border-color: #503828; }
+.type-icon.type-metal { background: #B8B8D0; border-color: #9898b0; }
+.type-icon.type-dragon { background: #7038F8; border-color: #5018d8; }
+.type-icon.type-fairy { background: #EE99AC; border-color: #ce798c; }
+.type-icon.type-colorless { background: #A8A878; border-color: #888858; }
+
+/* Weakness/Resistance/Retreat */
+.tcg-card-wr-retreat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--chat-bg);
+    border-radius: 8px;
+}
+
+.tcg-wr-section h4 {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.tcg-wr-values,
+.tcg-retreat-cost {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tcg-multiplier {
+    font-weight: bold;
+    color: var(--text-primary);
+    font-size: 1.1rem;
 }
 
 .legality-badges {
@@ -221,6 +378,115 @@
 .legality-badge.unlimited {
     background: #fff3cd;
     color: #856404;
+}
+
+/* Card Rules */
+.tcg-card-rules {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+}
+
+.tcg-card-rules p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #856404;
+    font-style: italic;
+}
+
+/* Card Metadata Section */
+.tcg-card-metadata {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--chat-bg);
+    border-radius: 8px;
+}
+
+.tcg-card-set-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tcg-card-set-info strong {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.tcg-card-number {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.tcg-rarity-badge {
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tcg-set-logo {
+    height: 24px;
+    width: auto;
+    margin-left: auto;
+}
+
+.tcg-card-artist {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.tcg-regulation-mark {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Card Action Buttons */
+.tcg-card-actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tcg-action-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.tcg-action-btn {
+    background: #ff6b6b;
+    color: white;
+}
+
+.tcg-action-btn:hover {
+    background: #ee5a52;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.tcg-action-btn.tcg-action-secondary {
+    background: #667eea;
+}
+
+.tcg-action-btn.tcg-action-secondary:hover {
+    background: #5568d3;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* TCG Card Prices Section */
@@ -347,6 +613,7 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
     padding: 1rem 0;
+    width: 100%;
 }
 
 .tcg-canvas-card {
