@@ -495,7 +495,53 @@ class RealtimeVoiceClient {
         let success = false;
         
         try {
-            // Call the dedicated tool execution endpoint
+            // Handle frontend-only tools (UI actions)
+            if (toolName === 'show_tcg_card_by_index') {
+                const cardIndex = args.card_index;
+                const pokemonName = args.pokemon_name;
+                if (window.showTcgCardByIndex) {
+                    const cardResult = window.showTcgCardByIndex(cardIndex, pokemonName);
+                    if (cardResult.success) {
+                        result = { 
+                            success: true, 
+                            message: `Showing TCG card #${cardIndex}${pokemonName ? ` for ${pokemonName}` : ''}`,
+                            card: cardResult.card,
+                            pokemon_name: pokemonName
+                        };
+                        success = true;
+                    } else {
+                        result = { error: cardResult.error };
+                        success = false;
+                    }
+                } else {
+                    result = { error: 'TCG card gallery not currently displayed' };
+                    success = false;
+                }
+                
+                this.log('Frontend tool result:', result);
+                this.onToolResult(toolName, args, result, success);
+                
+                // Send tool result back to the API
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'conversation.item.create',
+                        item: {
+                            type: 'function_call_output',
+                            call_id: callId,
+                            output: JSON.stringify(result)
+                        }
+                    }));
+                    
+                    // Request the model to continue
+                    this.ws.send(JSON.stringify({
+                        type: 'response.create'
+                    }));
+                }
+                
+                return; // Exit early for frontend-only tools
+            }
+            
+            // Call the dedicated tool execution endpoint for backend tools
             const response = await fetch('/api/realtime/tool', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

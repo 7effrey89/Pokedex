@@ -19,6 +19,14 @@ class TcgCardDetailView {
         this.app.tcgCardsView.style.display = 'none';
         this.detailView.style.display = 'block';
         
+        // Mark TCG card detail as viewed for current Pokemon
+        if (this.app.currentPokemonName) {
+            const pokemonId = this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id;
+            if (pokemonId) {
+                this.app.markPokemonViewed(pokemonId, 'tcg-detail');
+            }
+        }
+        
         // Update canvas state - automatic context injection and history management!
         this.app.updateCanvasState('tcg-detail', card);
         

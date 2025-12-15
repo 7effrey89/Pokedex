@@ -89,3 +89,36 @@ def clear_cache():
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@cache_bp.route('/invalidate', methods=['POST'])
+def invalidate_cache():
+    """Invalidate specific cache entry by tool name and parameters"""
+    from src.services.cache_service import get_cache_service
+    
+    try:
+        data = request.get_json()
+        tool = data.get('tool')
+        params = data.get('params', {})
+        
+        if not tool:
+            return jsonify({"error": "tool name is required"}), 400
+        
+        cache_service = get_cache_service()
+        
+        # Delete specific cache entry
+        deleted = cache_service.delete(tool, params)
+        
+        logger.info(f"🗑️ Cache invalidation for tool: {tool}, params: {params} - Deleted: {deleted}")
+        
+        return jsonify({
+            "message": f"Cache invalidated for {tool}",
+            "tool": tool,
+            "params": params,
+            "deleted": deleted,
+            "stats": cache_service.get_stats()
+        })
+    
+    except Exception as e:
+        logger.error(f"Error invalidating cache: {e}")
+        return jsonify({"error": str(e)}), 500

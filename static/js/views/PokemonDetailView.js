@@ -76,6 +76,9 @@ class PokemonDetailView {
         
         // Store current Pokemon name for card searches
         this.app.currentPokemonName = pokemon.name;
+        
+        // Mark Pokemon as viewed
+        this.app.markPokemonViewed(pokemon.id, 'detail');
 
         // Update canvas state with Pokemon data (automatically adds to history)
         this.app.updateCanvasState('pokemon', { pokemon, species });

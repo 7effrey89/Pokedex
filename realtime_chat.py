@@ -160,6 +160,25 @@ def get_available_tools():
                 },
                 "required": ["pokemon_name"]
             }
+        },
+        {
+            "type": "function",
+            "name": "show_tcg_card_by_index",
+            "description": "Show a specific TCG card by its number in the current gallery. Only works when TCG cards are already displayed. Use this when user says 'show card 5' or 'open the first card'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "card_index": {
+                        "type": "integer",
+                        "description": "The card number to show (1-based index, e.g., 1 for first card, 2 for second card)"
+                    },
+                    "pokemon_name": {
+                        "type": "string",
+                        "description": "The name of the Pokemon whose cards are being viewed (optional, for context)"
+                    }
+                },
+                "required": ["card_index"]
+            }
         }
     ]
 

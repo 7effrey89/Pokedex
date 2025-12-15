@@ -16,6 +16,31 @@
     align-items: flex-start;
 }
 
+/* Generation Separator */
+.generation-separator {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+}
+
+.generation-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.generation-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .list-item {
     border-radius: 8px;
     box-shadow: var(--drop-shadow);
@@ -35,7 +60,7 @@
 
 .list-item .number-wrap {
     min-height: 16px;
-    text-align: right;
+    text-align: left;
     padding: 0 8px;
     color: var(--grayscale-medium);
     font-size: 0.75rem;
@@ -85,8 +110,18 @@
 .detail-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 2rem;
     margin-bottom: 2rem;
+}
+
+.pokemon-name-wrap {
+    flex: 1;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .back-btn {
@@ -276,8 +311,20 @@
     border-top: 2px solid #e0e0e0;
 }
 
-.view-cards-btn {
+.action-button-group {
+    position: relative;
+    display: flex;
     width: 100%;
+}
+
+.action-button-group:hover .view-cards-btn,
+.action-button-group:hover .action-dropdown-btn {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(43, 114, 184, 0.4);
+}
+
+.view-cards-btn {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,7 +333,7 @@
     background: linear-gradient(135deg, var(--pokedex-blue) 0%, var(--pokedex-blue-light) 100%);
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 12px 0 0 12px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -294,13 +341,23 @@
     box-shadow: 0 4px 12px rgba(43, 114, 184, 0.3);
 }
 
-.view-cards-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(43, 114, 184, 0.4);
-}
-
 .view-cards-btn:active {
     transform: translateY(0);
+}
+
+.action-dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.875rem;
+    background: linear-gradient(135deg, var(--pokedex-blue) 0%, var(--pokedex-blue-light) 100%);
+    color: white;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(43, 114, 184, 0.3);
 }
 
 .view-cards-btn svg {

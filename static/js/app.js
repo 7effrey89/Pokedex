@@ -19,6 +19,9 @@ class PokemonChatApp {
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         
+        // Pokemon viewing status tracking (stored in cookies)
+        this.viewingStatus = this.loadViewingStatus();
+        
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -80,8 +83,21 @@ class PokemonChatApp {
         
         // Pokemon data
         this.allPokemons = [];
-        this.MAX_POKEMON = 151; // Kanto region
+        this.MAX_POKEMON = 1025; // All Pokemon up to Gen 9
         this.currentPokemonName = null; // Store current Pokemon name for card searches
+        
+        // Pokemon generations for separators
+        this.generations = [
+            { name: 'Generation I (Kanto)', start: 1, end: 151 },
+            { name: 'Generation II (Johto)', start: 152, end: 251 },
+            { name: 'Generation III (Hoenn)', start: 252, end: 386 },
+            { name: 'Generation IV (Sinnoh)', start: 387, end: 493 },
+            { name: 'Generation V (Unova)', start: 494, end: 649 },
+            { name: 'Generation VI (Kalos)', start: 650, end: 721 },
+            { name: 'Generation VII (Alola)', start: 722, end: 809 },
+            { name: 'Generation VIII (Galar)', start: 810, end: 905 },
+            { name: 'Generation IX (Paldea)', start: 906, end: 1025 }
+        ];
         
         // View history for navigation
         this.viewHistory = ['grid']; // Start at grid view
@@ -118,6 +134,84 @@ class PokemonChatApp {
         const newId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
         localStorage.setItem('pokemon_chat_user_id', newId);
         return newId;
+    }
+    
+    // Viewing Status Tracking (Cookie-based)
+    loadViewingStatus() {
+        try {
+            const cookie = document.cookie.split('; ').find(row => row.startsWith('pokemonViewingStatus='));
+            if (cookie) {
+                const value = cookie.split('=')[1];
+                return JSON.parse(decodeURIComponent(value));
+            }
+        } catch (e) {
+            console.error('Error loading viewing status:', e);
+        }
+        return {};
+    }
+    
+    saveViewingStatus() {
+        try {
+            const value = encodeURIComponent(JSON.stringify(this.viewingStatus));
+            // Set cookie for 1 year
+            const expires = new Date();
+            expires.setFullYear(expires.getFullYear() + 1);
+            document.cookie = `pokemonViewingStatus=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+        } catch (e) {
+            console.error('Error saving viewing status:', e);
+        }
+    }
+    
+    clearViewingStatus() {
+        this.viewingStatus = {};
+        document.cookie = 'pokemonViewingStatus=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        // Re-render grid to remove badges
+        this.gridView.renderPokemonGrid();
+    }
+    
+    markPokemonViewed(pokemonId, level = 'detail') {
+        // level: 'detail' (pokeball), 'tcg-gallery' (greatball), 'tcg-detail' (ultraball)
+        const currentLevel = this.viewingStatus[pokemonId] || 'none';
+        const levels = { 'none': 0, 'detail': 1, 'tcg-gallery': 2, 'tcg-detail': 3 };
+        
+        if (levels[level] > levels[currentLevel]) {
+            this.viewingStatus[pokemonId] = level;
+            this.saveViewingStatus();
+        }
+    }
+    
+    getViewingBadge(pokemonId) {
+        const status = this.viewingStatus[pokemonId];
+        if (!status) return null;
+        
+        const badges = {
+            'detail': '⚪', // Pokeball
+            'tcg-gallery': '🔵', // Great Ball (blue)
+            'tcg-detail': '🟡' // Ultra Ball (yellow/gold)
+        };
+        return badges[status] || null;
+    }
+    
+    async forceRefreshCurrentPokemon() {
+        const pokemonNameEl = this.pokemonDetailView.querySelector('.pokemon-name');
+        if (!pokemonNameEl) return;
+        
+        const pokemonName = pokemonNameEl.textContent.toLowerCase();
+        console.log('🔄 Force refreshing Pokemon:', pokemonName);
+        
+        // Clear cache for this Pokemon
+        try {
+            await fetch(`/api/cache/clear?tool=get_pokemon&params=${encodeURIComponent(JSON.stringify({ pokemon_name: pokemonName }))}`, {
+                method: 'POST'
+            });
+            console.log('✅ Cache cleared, reloading...');
+            
+            // Reload the Pokemon detail
+            await this.detailView.loadPokemon(pokemonName);
+        } catch (error) {
+            console.error('❌ Error force refreshing:', error);
+            alert('Failed to refresh Pokemon data');
+        }
     }
     
     initializeEventListeners() {
@@ -267,6 +361,69 @@ class PokemonChatApp {
             forwardBtnFooter.addEventListener('click', () => this.navigateForward());
         }
         
+        // Pokemon detail dropdown menu
+        const pokemonDetailMenuBtn = document.getElementById('pokemonDetailMenuBtn');
+        const pokemonDetailDropdown = document.getElementById('pokemonDetailDropdown');
+        const forceRefreshPokemon = document.getElementById('forceRefreshPokemon');
+        
+        if (pokemonDetailMenuBtn && pokemonDetailDropdown) {
+            pokemonDetailMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pokemonDetailDropdown.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!pokemonDetailMenuBtn.contains(e.target) && !pokemonDetailDropdown.contains(e.target)) {
+                    pokemonDetailDropdown.classList.remove('active');
+                }
+            });
+        }
+        
+        if (forceRefreshPokemon) {
+            forceRefreshPokemon.addEventListener('click', async () => {
+                if (pokemonDetailDropdown) pokemonDetailDropdown.classList.remove('active');
+                await this.forceRefreshCurrentPokemon();
+            });
+        }
+        
+        // View cards dropdown menu
+        const viewCardsDropdownBtn = document.getElementById('viewCardsDropdownBtn');
+        const viewCardsDropdown = document.getElementById('viewCardsDropdown');
+        const forceRefreshCards = document.getElementById('forceRefreshCards');
+        
+        if (viewCardsDropdownBtn && viewCardsDropdown) {
+            viewCardsDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                viewCardsDropdown.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!viewCardsDropdownBtn.contains(e.target) && !viewCardsDropdown.contains(e.target)) {
+                    viewCardsDropdown.classList.remove('active');
+                }
+            });
+        }
+        
+        if (forceRefreshCards) {
+            forceRefreshCards.addEventListener('click', async () => {
+                if (viewCardsDropdown) viewCardsDropdown.classList.remove('active');
+                await this.forceRefreshTcgCards();
+            });
+        }
+        
+        // Clear viewing history button
+        const clearViewingHistoryBtn = document.getElementById('clearViewingHistoryBtn');
+        if (clearViewingHistoryBtn) {
+            clearViewingHistoryBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear your viewing history? This will remove all badges from the Pokemon grid.')) {
+                    this.clearViewingStatus();
+                    alert('Viewing history cleared!');
+                }
+            });
+        }
+        
         // Help modal
         const helpModalOverlay = document.getElementById('helpModalOverlay');
         const helpModalClose = document.getElementById('helpModalClose');
@@ -373,6 +530,54 @@ class PokemonChatApp {
         }
     }
 
+    /**
+     * Public API: Show a TCG card by its index in the current gallery
+     * Used by GPT realtime to show cards by number (e.g., "show card 5")
+     * @param {number} cardIndex - 1-based card number
+     * @param {string} pokemonName - Optional Pokemon name for context/validation
+     */
+    showTcgCardByIndex(cardIndex, pokemonName = null) {
+        console.log('🃏 showTcgCardByIndex called with:', { cardIndex, pokemonName });
+        
+        if (!this.currentTcgCards || !Array.isArray(this.currentTcgCards)) {
+            console.error('❌ No TCG cards loaded in gallery');
+            return { error: 'No TCG cards are currently loaded. Please search for cards first.' };
+        }
+        
+        // Convert to 0-based index
+        const index = parseInt(cardIndex) - 1;
+        
+        if (isNaN(index) || index < 0 || index >= this.currentTcgCards.length) {
+            console.error('❌ Invalid card index:', cardIndex);
+            return { error: `Invalid card number. Please choose between 1 and ${this.currentTcgCards.length}.` };
+        }
+        
+        const card = this.currentTcgCards[index];
+        
+        // Optional: Validate pokemon name matches (case-insensitive)
+        if (pokemonName && card.name) {
+            const cardPokemonName = card.name.split(' ')[0].toLowerCase();
+            const requestedName = pokemonName.toLowerCase();
+            if (!cardPokemonName.includes(requestedName) && !requestedName.includes(cardPokemonName)) {
+                console.warn('⚠️ Pokemon name mismatch:', { requested: pokemonName, card: card.name });
+                return { 
+                    error: `Card #${cardIndex} is "${card.name}", not ${pokemonName}. The gallery may have changed.`,
+                    suggestion: `Try searching for ${pokemonName} cards first.`
+                };
+            }
+        }
+        
+        console.log('✅ Showing card:', card.name);
+        this.tcgDetail.show(card);
+        
+        return { 
+            success: true, 
+            card: card.name,
+            pokemon_name: pokemonName,
+            card_index: cardIndex
+        };
+    }
+    
     // Deprecated: kept for backwards compatibility, delegates to detailView
     async loadPokemonData(id) {
         await this.detailView.loadPokemon(id);
@@ -1869,6 +2074,185 @@ class PokemonChatApp {
         this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 120) + 'px';
     }
     
+    // ====================
+    // Viewing Status Tracking
+    // ====================
+    
+    loadViewingStatus() {
+        try {
+            const stored = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('pokemon_viewing_status='));
+            
+            if (stored) {
+                const value = stored.split('=')[1];
+                return JSON.parse(decodeURIComponent(value));
+            }
+        } catch (e) {
+            console.error('Error loading viewing status:', e);
+        }
+        return {};
+    }
+    
+    saveViewingStatus() {
+        try {
+            const value = encodeURIComponent(JSON.stringify(this.viewingStatus));
+            // Store for 365 days
+            const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = `pokemon_viewing_status=${value}; expires=${expires}; path=/; SameSite=Lax`;
+        } catch (e) {
+            console.error('Error saving viewing status:', e);
+        }
+    }
+    
+    markPokemonViewed(pokemonId, viewType) {
+        // viewType: 'detail', 'tcg-gallery', 'tcg-detail'
+        const id = String(pokemonId);
+        
+        if (!this.viewingStatus[id]) {
+            this.viewingStatus[id] = { detail: false, tcgGallery: false, tcgDetail: false, cardsViewed: 0 };
+        }
+        
+        if (viewType === 'detail') {
+            this.viewingStatus[id].detail = true;
+        } else if (viewType === 'tcg-gallery') {
+            this.viewingStatus[id].tcgGallery = true;
+        } else if (viewType === 'tcg-detail') {
+            this.viewingStatus[id].tcgDetail = true;
+            // Increment card view count
+            this.viewingStatus[id].cardsViewed = (this.viewingStatus[id].cardsViewed || 0) + 1;
+        }
+        
+        this.saveViewingStatus();
+        
+        // Re-render the grid to update badges
+        if (this.allPokemons.length > 0) {
+            this.gridView.renderPokemonGrid();
+        }
+    }
+    
+    getViewingBadge(pokemonId) {
+        const status = this.viewingStatus[String(pokemonId)];
+        if (!status) return null;
+        
+        // Priority: masterball (2+ cards) > ultraball (1 card) > greatball (gallery) > pokeball (detail)
+        const cardsViewed = status.cardsViewed || 0;
+        
+        if (cardsViewed >= 2) return '<img src="/static/images/pokeballs/masterball.png" alt="Master Ball">'; // Master Ball - viewed 2+ cards
+        if (status.tcgDetail) return '<img src="/static/images/pokeballs/ultraball.png" alt="Ultra Ball">'; // Ultra Ball - viewed 1 card
+        if (status.tcgGallery) return '<img src="/static/images/pokeballs/greatball.png" alt="Great Ball">'; // Great Ball - viewed TCG gallery
+        if (status.detail) return '<img src="/static/images/pokeballs/pokeball.png" alt="Pokeball">'; // Pokeball - viewed Pokemon detail
+        
+        return null;
+    }
+    
+    clearViewingStatus() {
+        this.viewingStatus = {};
+        this.saveViewingStatus();
+        
+        // Re-render grid to remove badges
+        if (this.allPokemons.length > 0) {
+            this.gridView.renderPokemonGrid();
+        }
+    }
+    
+    // ====================
+    // Force Refresh Pokemon
+    // ====================
+    
+    async forceRefreshCurrentPokemon() {
+        if (!this.currentPokemonName) {
+            console.error('No current Pokemon to refresh');
+            return;
+        }
+        
+        console.log('🔄 Force refreshing Pokemon:', this.currentPokemonName);
+        
+        // Show loading
+        if (this.loadingIndicator) {
+            this.loadingIndicator.classList.add('active');
+        }
+        
+        try {
+            // Clear cache for this Pokemon
+            const response = await fetch('/api/cache/invalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool: 'get_pokemon',
+                    params: { pokemon_name: this.currentPokemonName.toLowerCase() }
+                })
+            });
+            
+            if (response.ok) {
+                console.log('✅ Cache cleared, reloading Pokemon...');
+                
+                // Find Pokemon ID
+                const pokemon = this.allPokemons.find(p => p.name === this.currentPokemonName);
+                if (pokemon) {
+                    await this.detailView.loadPokemon(pokemon.id);
+                }
+            } else {
+                console.error('Failed to clear cache');
+            }
+        } catch (error) {
+            console.error('Error force refreshing:', error);
+        } finally {
+            if (this.loadingIndicator) {
+                this.loadingIndicator.classList.remove('active');
+            }
+        }
+    }
+    
+    async forceRefreshTcgCards() {
+        if (!this.currentPokemonName) {
+            console.error('No current Pokemon to refresh cards for');
+            return;
+        }
+        
+        console.log('🔄 Force refreshing TCG cards for:', this.currentPokemonName);
+        
+        // Show loading
+        if (this.loadingIndicator) {
+            this.loadingIndicator.classList.add('active');
+        }
+        
+        try {
+            // Clear cache for TCG cards
+            console.log('🗑️ Calling cache invalidation API...');
+            const response = await fetch('/api/cache/invalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool: 'search_pokemon_cards',
+                    params: { pokemon_name: this.currentPokemonName.toLowerCase() }
+                })
+            });
+            
+            if (response.ok) {
+                const result = await response.json();
+                console.log('✅ TCG cache invalidation response:', result);
+                
+                if (result.deleted) {
+                    console.log('✅ Cache file deleted successfully, reloading cards...');
+                } else {
+                    console.warn('⚠️ No cache file was deleted - it may not have existed');
+                }
+                
+                // Reload cards
+                await this.viewPokemonCards();
+            } else {
+                console.error('Failed to clear TCG cache, status:', response.status);
+            }
+        } catch (error) {
+            console.error('Error force refreshing TCG cards:', error);
+        } finally {
+            if (this.loadingIndicator) {
+                this.loadingIndicator.classList.remove('active');
+            }
+        }
+    }
+    
     async handleQuickAction(action) {
         if (action === 'random') {
             await this.triggerRandomQuickAction();
@@ -2843,6 +3227,14 @@ class PokemonChatApp {
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     window.pokemonChatApp = new PokemonChatApp();
+    
+    // Expose functions for realtime API to call
+    window.showTcgCardByIndex = (cardIndex, pokemonName = null) => {
+        if (window.pokemonChatApp) {
+            return window.pokemonChatApp.showTcgCardByIndex(cardIndex, pokemonName);
+        }
+        return { error: 'App not initialized' };
+    };
     
     // Add some helpful console messages
     console.log('%c🎮 Pokemon Chat App Started! ', 'background: #EE6B2F; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;');

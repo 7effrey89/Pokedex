@@ -70,22 +70,52 @@ class PokemonGridView {
 
         this.pokemonList.innerHTML = '';
         
+        let currentGen = 0;
+        
         this.app.allPokemons.forEach(pokemon => {
+            // Check if we need to add a generation separator
+            const genIndex = this.app.generations.findIndex(gen => 
+                pokemon.id >= gen.start && pokemon.id <= gen.end
+            );
+            
+            if (genIndex !== -1 && genIndex !== currentGen) {
+                currentGen = genIndex;
+                const separator = this.createGenerationSeparator(this.app.generations[genIndex]);
+                this.pokemonList.appendChild(separator);
+            }
+            
             const card = this.createPokemonCard(pokemon);
             this.pokemonList.appendChild(card);
         });
+    }
+    
+    createGenerationSeparator(generation) {
+        const separator = document.createElement('div');
+        separator.className = 'generation-separator';
+        separator.innerHTML = `
+            <div class="generation-line"></div>
+            <div class="generation-label">${generation.name}</div>
+            <div class="generation-line"></div>
+        `;
+        return separator;
     }
 
     createPokemonCard(pokemon) {
         const card = document.createElement('div');
         card.className = 'list-item';
         card.onclick = () => this.app.detailView.loadPokemon(pokemon.id);
+        card.style.position = 'relative';
 
         const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
                         pokemon.sprites?.front_default || 
                         '';
+        
+        // Get viewing badge
+        const badge = this.app.getViewingBadge(pokemon.id);
+        const badgeHtml = badge ? `<div class="viewing-status-badge">${badge}</div>` : '';
 
         card.innerHTML = `
+            ${badgeHtml}
             <div class="number-wrap">#${String(pokemon.id).padStart(3, '0')}</div>
             <div class="img-wrap">
                 <img src="${imageUrl}" alt="${pokemon.name}" loading="lazy">

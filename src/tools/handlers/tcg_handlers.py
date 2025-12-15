@@ -8,6 +8,7 @@ Handles all Pokemon Trading Card Game operations:
 
 from typing import Dict, Any, Optional
 import logging
+import os
 
 from src.api import pokemon_tcg_api
 from src.tools.tool_manager import tool_manager
@@ -18,6 +19,9 @@ logger = logging.getLogger(__name__)
 # Instantiate API client
 tcg_api_client = pokemon_tcg_api.PokemonTCGTools()
 cache_service = get_cache_service()
+
+# Get page size from environment or use default
+TCG_PAGE_SIZE = int(os.getenv('TCG_PAGE_SIZE', '250'))
 
 
 def handle_search_pokemon_cards(
@@ -55,7 +59,7 @@ def handle_search_pokemon_cards(
         logger.info(f"🎯 Returning cached TCG card search for: {pokemon_name}")
         return cached_response
     
-    logger.info(f"🃏 Searching for TCG cards: name='{pokemon_name}', type={card_type}, hp_min={hp_min}, hp_max={hp_max}, rarity={rarity}")
+    logger.info(f"🃏 NOT IN CACHE - Fetching from API: name='{pokemon_name}', type={card_type}, hp_min={hp_min}, hp_max={hp_max}, rarity={rarity}")
     
     use_direct_tcg = tool_manager.is_tool_enabled("pokemon_tcg")
     
@@ -70,10 +74,10 @@ def handle_search_pokemon_cards(
                 types=[card_type] if card_type else None,
                 hp_min=hp_min,
                 hp_max=hp_max,
-                page_size=6
+                page_size=TCG_PAGE_SIZE
             )
         elif pokemon_name:
-            cards_data = tcg_api_client.search_cards(pokemon_name, page_size=6)
+            cards_data = tcg_api_client.search_cards(pokemon_name, page_size=TCG_PAGE_SIZE)
         else:
             return {"error": "Please specify a Pokemon name or filters"}
         

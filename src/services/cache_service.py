@@ -91,8 +91,11 @@ class CacheService:
         Returns:
             Cache key (hash)
         """
+        # Remove None values to normalize cache keys
+        normalized_params = {k: v for k, v in params.items() if v is not None}
+        
         # Create a stable string representation
-        key_data = f"{endpoint}:{json.dumps(params, sort_keys=True)}"
+        key_data = f"{endpoint}:{json.dumps(normalized_params, sort_keys=True)}"
         # Hash it for a clean filename
         return hashlib.md5(key_data.encode()).hexdigest()
     
@@ -195,6 +198,35 @@ class CacheService:
             logger.error(f"Error clearing cache: {e}")
         
         return count
+    
+    def delete(self, endpoint: str, params: Dict[str, Any] = None) -> bool:
+        """
+        Delete a specific cache entry
+        
+        Args:
+            endpoint: API endpoint
+            params: Request parameters
+            
+        Returns:
+            True if cache entry was deleted, False otherwise
+        """
+        if params is None:
+            params = {}
+        
+        cache_key = self._get_cache_key(endpoint, params)
+        cache_path = self._get_cache_path(cache_key)
+        
+        if cache_path.exists():
+            try:
+                cache_path.unlink()
+                logger.info(f"Deleted cache for {endpoint} with params {params}")
+                return True
+            except Exception as e:
+                logger.error(f"Error deleting cache: {e}")
+                return False
+        
+        logger.info(f"No cache found for {endpoint} with params {params}")
+        return False
     
     def get_stats(self) -> Dict[str, Any]:
         """

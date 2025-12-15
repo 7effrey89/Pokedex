@@ -67,6 +67,9 @@ class TcgCardsGalleryView {
         // Clear existing content
         this.galleryView.innerHTML = '';
         
+        // Store cards array for indexed access
+        this.app.currentTcgCards = tcgData.cards;
+        
         // Create header without back button
         const header = document.createElement('div');
         header.className = 'tcg-canvas-header';
@@ -82,24 +85,34 @@ class TcgCardsGalleryView {
         const cardsGrid = document.createElement('div');
         cardsGrid.className = 'tcg-cards-grid';
         
-        tcgData.cards.forEach(card => {
-            const cardDiv = this.createCardElement(card);
+        tcgData.cards.forEach((card, index) => {
+            const cardDiv = this.createCardElement(card, index);
             cardsGrid.appendChild(cardDiv);
         });
         
         console.log('✅ Created', cardsGrid.children.length, 'card elements');
         this.galleryView.appendChild(cardsGrid);
+        
+        // Mark TCG gallery as viewed for current Pokemon
+        if (this.app.currentPokemonName) {
+            const pokemonId = this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id;
+            if (pokemonId) {
+                this.app.markPokemonViewed(pokemonId, 'tcg-gallery');
+            }
+        }
     }
 
-    createCardElement(card) {
+    createCardElement(card, index) {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'tcg-card-item';
+        cardDiv.style.position = 'relative';
         
         const imageUrl = card.images?.small || card.imageSmall || card.images?.large || card.image;
         const cardName = card.name || 'Unknown';
         const setInfo = card.set?.name || card.set || '';
         
         cardDiv.innerHTML = `
+            <div class="card-index-badge">#${index + 1}</div>
             <img src="${imageUrl}" alt="${cardName}" loading="lazy">
             <div class="tcg-card-info">
                 <h3>${cardName}</h3>
