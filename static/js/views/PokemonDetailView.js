@@ -376,10 +376,25 @@ class PokemonDetailView {
             'speed': 'Speed'
         };
         
+        // Stat color mapping
+        const statColors = {
+            'hp': '#90EE90',
+            'attack': '#FFD700',
+            'defense': '#FF8C00',
+            'special-attack': '#87CEEB',
+            'special-defense': '#9370DB',
+            'speed': '#FF69B4'
+        };
+        
+        let totalStats = 0;
+        
         pokemon.stats.forEach(stat => {
             const statName = stat.stat.name;
             const statValue = stat.base_stat;
             const displayName = statNames[statName] || statName;
+            const color = statColors[statName] || '#90EE90';
+            
+            totalStats += statValue;
             
             const statRow = document.createElement('div');
             statRow.className = 'stat-row';
@@ -390,12 +405,22 @@ class PokemonDetailView {
                 <div class="stat-name">${displayName}</div>
                 <div class="stat-value">${statValue}</div>
                 <div class="stat-bar-container">
-                    <div class="stat-bar" style="width: ${percentage}%; background: linear-gradient(to right, #ff6b6b, #4ecdc4);"></div>
+                    <div class="stat-bar" style="width: ${percentage}%; background: ${color};"></div>
                 </div>
             `;
             
             statsContainer.appendChild(statRow);
         });
+        
+        // Add total stats row
+        const totalRow = document.createElement('div');
+        totalRow.className = 'stat-row stat-total';
+        totalRow.innerHTML = `
+            <div class="stat-name">Total</div>
+            <div class="stat-value">${totalStats}</div>
+            <div class="stat-bar-container" style="visibility: hidden;"></div>
+        `;
+        statsContainer.appendChild(totalRow);
     }
 
     async updateEvolutionChain(evolutionChain, currentPokemonName) {
@@ -451,7 +476,6 @@ class PokemonDetailView {
         
         return evolutions.map((evo, index) => {
             const isCurrent = evo.name === currentName;
-            const evolutionDetails = evo.details ? this.formatEvolutionDetails(evo.details) : '';
             
             // Build type badges HTML
             const typeBadges = evo.types ? evo.types.map(type => 
@@ -470,7 +494,11 @@ class PokemonDetailView {
                 </div>
             `;
             
+            // Show arrow with NEXT evolution's details (not current one's)
             if (index < evolutions.length - 1) {
+                const nextEvo = evolutions[index + 1];
+                const evolutionDetails = nextEvo.details ? this.formatEvolutionDetails(nextEvo.details) : '';
+                
                 html += `
                     <div class="evolution-arrow">
                         <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

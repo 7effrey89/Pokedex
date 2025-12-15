@@ -547,7 +547,7 @@
 .pokemon-stats {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .stat-row {
@@ -560,29 +560,71 @@
     min-width: 80px;
     font-weight: 600;
     color: #666;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 0.85rem;
 }
 
 .stat-value {
     min-width: 40px;
-    font-weight: 600;
+    font-weight: 700;
     color: #333;
     text-align: right;
 }
 
 .stat-bar-container {
     flex: 1;
-    height: 8px;
-    background: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
+    height: 16px;
+    background: #f5f5f5;
+    border-radius: 3px;
+    overflow: visible;
+    position: relative;
+}
+
+.stat-bar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0px,
+        transparent calc(10% - 1px),
+        rgba(0, 0, 0, 0.06) calc(10% - 1px),
+        rgba(0, 0, 0, 0.06) 10%
+    );
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 3px;
 }
 
 .stat-bar {
     height: 100%;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: width 0.5s ease;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.stat-total {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.stat-total .stat-name {
+    font-weight: 700;
+    color: #333;
+}
+
+.stat-total .stat-value {
+    font-size: 1.1rem;
+    color: #333;
 }
 
 /* Pokemon Actions */
