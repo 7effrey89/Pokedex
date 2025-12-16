@@ -1,252 +1,66 @@
-# Pokemon TCG Cache Download Script
+# Pokemon TCG Cache Pipeline
 
-This script downloads Pokemon TCG API responses for all Pokemon (001-1025) and stores them in a format compatible with the CacheService.
+Two scripts keep offline TCG data in sync with the format this app expects:
 
-## Features
+| Step | Script | Purpose | Output |
+| --- | --- | --- | --- |
+| 01 | `scripts/01-download_tcg_cache.py` | Bulk download every Pokémon’s raw TCG response directly from the public API. | Raw JSON snapshots in `tcg-cache/` plus `data/pokemon_list.json`. |
+| 02 | `scripts/02-normalize_tcg_cache.py` | Reformat those raw files so they exactly match the CacheService schema. | Canonical files in `cache/` (or in-place when requested). |
 
-- Fetches TCG card data for each Pokemon from the Pokemon TCG API
-- Uses the same cache key algorithm as CacheService (MD5 hash of endpoint + params)
-- Stores responses in CacheService-compatible JSON format
-- Includes resilient retry logic with exponential backoff and multi-pass requeueing
-- Supports optional API key for higher rate limits
-- Allows downloading specific ranges or limiting the number of Pokemon
-- Maintains a Pokemon list resource for easy extension
-- **Resume capability**: Automatically skips already-cached Pokemon, so you can safely restart if interrupted
-- **Parallel downloads**: Support for multi-threaded downloads to speed up the process (1-10 threads)
-- **Persistent retries**: Failed Pokemon are automatically retried in later passes until they succeed or exhaust `--max-retries`
+## Step 01 – Download raw caches
 
-## Usage
+`scripts/01-download_tcg_cache.py` pulls API responses and stores them verbatim under `tcg-cache/` using deterministic filenames (`tcg-<dex>-<slug>.json`). Highlights:
 
-### Basic Usage
+- Resumable by default (`--skip-existing` is on) so reruns only fetch missing Pokémon.
+- Supports ranges (`--start`, `--end`, `--limit`), parallelism (`--parallel 1-10`), and multi-pass retries (`--max-retries`).
+- Accepts `POKEMON_TCG_API_KEY` via `.env` or environment variable for higher rate limits.
 
-Download TCG data for all Pokemon (1-1025):
+Quick commands:
 
 ```bash
-python scripts/download_tcg_cache.py
+# Full dataset (1-1025) with resume mode
+python scripts/01-download_tcg_cache.py
+
+# First 10 Pokémon only (useful for testing)
+python scripts/01-download_tcg_cache.py --limit 10
+
+# Parallelized Kanto run with aggressive retry budget
+python scripts/01-download_tcg_cache.py --start 1 --end 151 --parallel 5 --max-retries 8
 ```
 
-### Test with Limited Pokemon
+Outputs:
 
-Download TCG data for only the first 5 Pokemon:
+1. `tcg-cache/` containing raw API payloads (cached forever so you keep an archive).
+2. `data/pokemon_list.json` with the full dex listing (auto-fetched the first time).
+
+## Step 02 – Normalize for the app
+
+`scripts/02-normalize_tcg_cache.py` consumes any raw file (legacy, downloader, download-manager, etc.) and emits the exact structure the app’s CacheService expects.
+
+- Default behavior: write normalized copies into `cache/` while leaving `tcg-cache/` untouched.
+- Use `--in-place` if you truly want to rewrite the originals.
+- Automatically renames files to `tcg-<dex>-<slug>.json` when the dex number is known (disable with `--no-rename`).
+- Works on individual files, folders, or the entire `tcg-cache/` directory; `--dry-run` + `--verbose` shows the plan.
+
+Quick commands:
 
 ```bash
-python scripts/download_tcg_cache.py --limit 5
+# Preview the normalization plan for the entire archive
+python scripts/02-normalize_tcg_cache.py tcg-cache --dry-run --verbose
+
+# Normalize everything and copy into cache/
+python scripts/02-normalize_tcg_cache.py tcg-cache --verbose
+
+# Normalize a single file but keep it in tcg-cache/
+python scripts/02-normalize_tcg_cache.py tcg-cache/tcg-002-ivysaur.json --in-place --verbose
 ```
 
-### Download Specific Range
+Outputs land in `cache/` (unless `--in-place`), so the app can immediately pick them up via `CacheService` while your raw archive remains safely stored in `tcg-cache/`.
 
-Download TCG data for Pokemon 1-151 (Generation 1):
+## FAQ
 
-```bash
-python scripts/download_tcg_cache.py --start 1 --end 151
-```
+- **Do I need both steps every time?** Only when you want fresh data. Run Step 01 to pull new cards; Step 02 whenever you need normalized copies in `cache/`.
+- **Where do I set the TCG API key?** Add `POKEMON_TCG_API_KEY=...` to `.env` or export it in your shell before running Step 01.
+- **Can I normalize third-party files?** Yes—pass any path(s) to Step 02; it detects names, rebuilds params, and outputs the canonical schema.
 
-Download TCG data for Pokemon 152-251 (Generation 2):
-
-```bash
-python scripts/download_tcg_cache.py --start 152 --end 251
-```
-
-### Custom Delay
-
-Add a 2-second delay between requests (be nice to the API):
-
-```bash
-python scripts/download_tcg_cache.py --delay 2.0
-```
-
-### Resume After Interruption
-
-The script automatically tracks which Pokemon have been cached. If you need to stop and restart:
-
-```bash
-# Start downloading all Pokemon
-python scripts/download_tcg_cache.py
-
-# Script gets interrupted... (Ctrl+C or network issue)
-
-# Resume - it will skip already-cached Pokemon
-python scripts/download_tcg_cache.py
-```
-
-By default, the script skips Pokemon that already have cache files. To force re-downloading:
-
-```bash
-python scripts/download_tcg_cache.py --no-skip-existing
-```
-
-### Parallel Downloads (Faster Processing)
-
-Use multiple threads to download Pokemon in parallel. This significantly speeds up the download process:
-
-```bash
-# Use 5 parallel threads for faster downloads
-python scripts/download_tcg_cache.py --parallel 5
-
-# Combine with other options
-python scripts/download_tcg_cache.py --start 1 --end 151 --parallel 3
-```
-
-**Important notes about parallel mode:**
-- Maximum 10 threads allowed to avoid overwhelming the API
-- The `--delay` setting is ignored in parallel mode (threads fetch independently)
-- With an API key, you can safely use more threads
-- Without an API key, consider using 2-3 threads to respect rate limits
-
-### Persistent Retry Passes
-
-Every run now keeps track of any Pokemon that fail (due to temporary network hiccups, API flakiness, etc.) and retries them in additional passes until all succeed or the retry budget is exhausted.
-
-```bash
-# Allow up to 8 retry passes for stubborn Pokemon
-python scripts/download_tcg_cache.py --parallel 4 --max-retries 8
-```
-
-What to expect:
-
-- Progress logs show both the pass number and the position, e.g. `[2.4/7]` means “pass 2, item 4 of 7”.
-- Each new pass reports how many Pokemon remain pending.
-- When retries are exhausted, the summary lists the few Pokemon that still failed so you can re-run them specifically (`--start` / `--end` or `--limit`).
-
-## Options
-
-- `--start NUM` - Start from Pokemon number NUM (default: 1)
-- `--end NUM` - End at Pokemon number NUM (default: 1025)
-- `--limit NUM` - Limit to NUM Pokemon (useful for testing)
-- `--delay SEC` - Delay between requests in seconds (default: 1.0, ignored in parallel mode)
-- `--skip-existing` - Skip already-cached Pokemon (default: enabled)
-- `--no-skip-existing` - Force re-download even if cached
-- `--parallel N` - Number of parallel download threads (default: 1, max: 10)
-- `--max-retries N` - Number of retry passes for failed Pokemon (default: 5)
-
-## API Key (Optional)
-
-For higher rate limits, you can set the `POKEMON_TCG_API_KEY` in your `.env` file or as an environment variable:
-
-**Option 1: Using .env file (recommended)**
-
-Add to your `.env` file:
-```
-POKEMON_TCG_API_KEY=your-api-key-here
-```
-
-The script will automatically load this from the .env file.
-
-**Option 2: Using environment variable**
-
-```bash
-export POKEMON_TCG_API_KEY="your-api-key-here"
-python scripts/download_tcg_cache.py
-```
-
-Get a free API key at: https://pokemontcg.io/
-
-## Output
-
-The script creates:
-
-1. **tcg-cache/** directory containing cache files
-2. **data/pokemon_list.json** - List of all Pokemon with numbers and names
-
-### Cache File Format
-
-Each cache file is named: `tcg-{number}-{name}.json`
-
-Example: `tcg-025-pikachu.json`
-
-### Cache File Structure
-
-Each file contains:
-
-```json
-{
-  "endpoint": "https://api.pokemontcg.io/v2/cards",
-  "params": {
-    "q": "name:pikachu"
-  },
-  "cache_key": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
-  "cached_at": 1702684800.123456,
-  "response": {
-    "data": [...],
-    "page": 1,
-    "pageSize": 250,
-    "count": 123,
-    "totalCount": 123
-  }
-}
-```
-
-This structure matches CacheService's format and can be imported into the main cache directory if needed.
-
-## Pokemon List
-
-The script maintains a `data/pokemon_list.json` file containing all Pokemon with their numbers and names. This file is:
-
-- **Automatically fetched from PokeAPI on first run** - The script will download the complete, accurate list of all 1025 Pokemon names from PokeAPI
-- **Cached locally for subsequent runs** - After the first successful fetch, the list is saved and reused
-- **Includes placeholder names for Pokemon 152+** in the initial version - These will be replaced with actual names (like "chikorita", "cyndaquil", etc.) when the script runs with internet access
-- **Easily extensible** for future Pokemon additions
-
-**Important:** The initial `pokemon_list.json` contains accurate names for Pokemon 1-151 (Generation 1) and placeholders for 152-1025. When you run the script for the first time with internet access, it will automatically fetch and save the complete list with all real Pokemon names from PokeAPI, ensuring TCG searches work correctly.
-
-## Integration with CacheService
-
-The cache files are designed to be compatible with CacheService. To import them:
-
-1. The `cache_key` field matches CacheService's MD5 hash algorithm and is stored inside each JSON file
-2. The file structure includes all required fields: `endpoint`, `params`, `cached_at`, `response`
-3. Files already use descriptive names like `tcg-001-bulbasaur.json`, so you can move or copy them straight into the `cache/` directory if desired
-
-### Normalizing & Copying into `cache/`
-
-Use `scripts/normalize_tcg_cache.py` when you want to migrate previously-downloaded responses (including old timestamped files) into the main `cache/` folder:
-
-```bash
-# Preview the plan without writing files
-python scripts/normalize_tcg_cache.py tcg-cache --dest-dir cache --dry-run --verbose
-
-# Perform the copy after reviewing the plan
-python scripts/normalize_tcg_cache.py tcg-cache --dest-dir cache --verbose
-```
-
-What this does:
-- Rewrites each JSON payload so it exactly matches the CacheService schema (adds `cache_key`, normalizes `params`, ensures `response.data` is present).
-- Copies the normalized file into `cache/` using the deterministic filename (e.g., `cache/tcg-025-pikachu.json`).
-- Leaves the originals in `tcg-cache/` untouched, so you can rerun downloads or keep historical timestamped snapshots if needed.
-
-Tips:
-- Supply explicit files or subdirectories if you only want to migrate a subset (e.g., `tcg-cache/kanto`).
-- Add `--no-rename` if you just want to normalize the JSON in place without creating copies.
-- Combine with `--pokemon-list data/pokemon_list.json` when running outside the project root.
-
-## Examples
-
-### Download first 10 Pokemon for testing:
-
-```bash
-python scripts/download_tcg_cache.py --limit 10
-```
-
-Output:
-```
-ℹ No API key set (using lower rate limits)
-  Set POKEMON_TCG_API_KEY environment variable for higher limits
-
-Fetching Pokemon list (1-1025) from PokeAPI...
-✓ Fetched 1025 Pokemon
-✓ Saved Pokemon list to: data/pokemon_list.json
-
-Processing 10 Pokemon (#1 to #10)
-Output directory: tcg-cache
-
-[1/10] #001 Bulbasaur ... ✓ 85 cards - saved to tcg-001-bulbasaur.json
-[2/10] #002 Ivysaur ... ✓ 32 cards - saved to tcg-002-ivysaur.json
-...
-```
-
-## Notes
-
-- The script is rate-limit friendly with a default 1-second delay between requests
-- Failed requests are retried automatically (up to 3 times with exponential backoff)
-- The Pokemon list is cached locally to avoid repeated PokeAPI calls
-- Each run overwrites the deterministic filename for a Pokémon so reruns always refresh the latest data
+That’s it: archive everything in `tcg-cache/`, feed the app via `cache/`, and rerun either script whenever you need updated data.
