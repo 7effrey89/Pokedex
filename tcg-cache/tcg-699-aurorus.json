@@ -1,0 +1,376 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:aurorus"
+  },
+  "cache_key": "ba0a2ace80bbf49a28f126f7b6b6edb2",
+  "cached_at": 1765894501.970535,
+  "response": {
+    "data": [
+      {
+        "id": "sm6-28",
+        "name": "Aurorus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Amaura",
+        "attacks": [
+          {
+            "name": "Frost Wall",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Evolution Pokémon."
+          },
+          {
+            "name": "Blizzard Burn",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": "This Pokémon can't attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Suwama Chiaki",
+        "rarity": "Rare Holo",
+        "flavorText": "Using its diamond-shaped crystals, it can instantly create a wall of ice to block an opponent's attack.",
+        "nationalPokedexNumbers": [
+          699
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/28.png",
+          "large": "https://images.pokemontcg.io/sm6/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 6.99,
+              "mid": 9.27,
+              "high": 12.18,
+              "market": 8.76,
+              "directLow": 9.29
+            },
+            "holofoil": {
+              "low": 7.5,
+              "mid": 9.0,
+              "high": 19.99,
+              "market": 8.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.48,
+            "lowPrice": 14.9,
+            "trendPrice": 23.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 18.59,
+            "reverseHoloLow": 24.45,
+            "reverseHoloTrend": 19.26,
+            "lowPriceExPlus": 17.99,
+            "avg1": 34.99,
+            "avg7": 21.48,
+            "avg30": 18.23,
+            "reverseHoloAvg1": 18.5,
+            "reverseHoloAvg7": 18.44,
+            "reverseHoloAvg30": 14.11
+          }
+        }
+      },
+      {
+        "id": "xy3-26",
+        "name": "Aurorus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Amaura",
+        "abilities": [
+          {
+            "name": "Ice Shield",
+            "text": "Any damage done by an opponent's attack to each of your Water Pokémon that has any Water Energy attached to it is reduced by 20 (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Icy Wind",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "The diamond-shaped crystals on its body expel air as cold as -240 degrees Fahrenheit, surrounding its enemies and encasing them in ice.",
+        "nationalPokedexNumbers": [
+          699
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/26.png",
+          "large": "https://images.pokemontcg.io/xy3/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 6.79,
+              "mid": 7.88,
+              "high": 10.49,
+              "market": 7.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 8.22,
+              "mid": 11.99,
+              "high": 4234.58,
+              "market": 8.37,
+              "directLow": 11.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.64,
+            "lowPrice": 11.9,
+            "trendPrice": 15.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.25,
+            "reverseHoloLow": 12.0,
+            "reverseHoloTrend": 23.63,
+            "lowPriceExPlus": 14.0,
+            "avg1": 12.95,
+            "avg7": 15.2,
+            "avg30": 13.8,
+            "reverseHoloAvg1": 13.25,
+            "reverseHoloAvg7": 19.56,
+            "reverseHoloAvg30": 13.01
+          }
+        }
+      },
+      {
+        "id": "xyp-XY102",
+        "name": "Aurorus-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Frozen Charm",
+            "text": "Each of your Pokémon that has any Water Energy attached to it can't be Paralyzed. (If any of those Pokémon are Paralyzed, remove that Special Condition.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crystal Breath",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": "This Pokémon can't attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY102",
+        "artist": "Toyste Beach",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          699
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY102.png",
+          "large": "https://images.pokemontcg.io/xyp/XY102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 22.0,
+              "mid": 30.73,
+              "high": 33.8,
+              "market": 15.59,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY102",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 21.0,
+            "lowPrice": 5.99,
+            "trendPrice": 22.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.77,
+            "lowPriceExPlus": 12.0,
+            "avg1": 10.0,
+            "avg7": 21.75,
+            "avg30": 21.01,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 4.38,
+            "reverseHoloAvg30": 3.56
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 3,
+    "totalCount": 3
+  }
+}

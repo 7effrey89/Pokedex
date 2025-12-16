@@ -1,0 +1,6027 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:tyranitar"
+  },
+  "cache_key": "72ba59b6936222e8f7b69ae92dfaa4be",
+  "cached_at": 1765906765.583889,
+  "response": {
+    "data": [
+      {
+        "id": "neo4-11",
+        "name": "Dark Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "47",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Dark Pupitar",
+        "attacks": [
+          {
+            "name": "Mountain Smasher",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "Flip a number of coins equal to the number of Fighting Energy cards attached to Dark Tyranitar. This attack does 20 damage times the number of heads. Then, for each heads, discard the top card from your opponent's deck."
+          },
+          {
+            "name": "Fling Away",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "If your opponent has any Benched Pokémon, this attack does 30 damage instead of 50 and choose 1 of those Benched Pokémon. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "Its power is such that not even mountains can stand in its way.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/11.png",
+          "large": "https://images.pokemontcg.io/neo4/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 350.0,
+              "mid": 422.5,
+              "high": 494.99,
+              "market": 399.99,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 150.0,
+              "mid": 183.31,
+              "high": 250.0,
+              "market": 250.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 90.4,
+            "lowPrice": 20.0,
+            "trendPrice": 86.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 79.95,
+            "lowPriceExPlus": 95.0,
+            "avg1": 60.0,
+            "avg7": 115.12,
+            "avg30": 76.78,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 102.41,
+            "reverseHoloAvg30": 62.37
+          }
+        }
+      },
+      {
+        "id": "ex11-16",
+        "name": "Tyranitar δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Fire",
+          "Metal"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "This Pokémon is both Fire Metal type."
+        ],
+        "abilities": [
+          {
+            "name": "Crush Draw",
+            "text": "Once during your turn (before your attack), you may reveal the top card of your deck. If that card is a basic Energy card, attach it to 1 of your Pokémon. If not, put the card back on top of your deck. This power can't be used if Tyranitar is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Delta Crush",
+            "cost": [
+              "Fire",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "You may discard an Energy card attached to Tyranitar. If you do, this attack does 50 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/16.png",
+          "large": "https://images.pokemontcg.io/ex11/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 52.25,
+              "mid": 82.5,
+              "high": 109.0,
+              "market": 120.0,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 196.09,
+              "mid": 197.53,
+              "high": 255.0,
+              "market": 255.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 15.21,
+            "lowPrice": 3.99,
+            "trendPrice": 15.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 37.99,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 56.75,
+            "lowPriceExPlus": 25.0,
+            "avg1": 3.0,
+            "avg7": 13.42,
+            "avg30": 30.52,
+            "reverseHoloAvg1": 32.5,
+            "reverseHoloAvg7": 56.11,
+            "reverseHoloAvg30": 35.9
+          }
+        }
+      },
+      {
+        "id": "pop1-17",
+        "name": "Tyranitar ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Scratch",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Critical Crush",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Discard 2 Basic Energy cards attached to Tyranitar ex or this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          },
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pop1",
+          "name": "POP Series 1",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop1/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Hisao Nakamura",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop1/17.png",
+          "large": "https://images.pokemontcg.io/pop1/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 59.99,
+              "mid": 90.56,
+              "high": 200.0,
+              "market": 96.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.62,
+            "lowPrice": 1.0,
+            "trendPrice": 7.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.21,
+            "lowPriceExPlus": 18.0,
+            "avg1": 2.99,
+            "avg7": 9.74,
+            "avg30": 15.34,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 8.29,
+            "reverseHoloAvg30": 7.95
+          }
+        }
+      },
+      {
+        "id": "ex7-19",
+        "name": "Dark Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Dark Pupitar",
+        "attacks": [
+          {
+            "name": "Grind",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each Energy attached to Dark Tyranitar."
+          },
+          {
+            "name": "Spinning Tail",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Bite Off",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "70+",
+            "text": "If the Defending Pokémon is Pokémon-ex, this attack does 70 damage plus 50 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Nakaoka",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/19.png",
+          "large": "https://images.pokemontcg.io/ex7/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 30.23,
+              "mid": 39.99,
+              "high": 89.99,
+              "market": 29.72,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 95.0,
+              "mid": 234.0,
+              "high": 275.0,
+              "market": 250.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.38,
+            "lowPrice": 1.0,
+            "trendPrice": 11.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 20.0,
+            "reverseHoloTrend": 47.89,
+            "lowPriceExPlus": 10.0,
+            "avg1": 11.0,
+            "avg7": 9.06,
+            "avg30": 11.31,
+            "reverseHoloAvg1": 35.0,
+            "reverseHoloAvg7": 51.15,
+            "reverseHoloAvg30": 58.81
+          }
+        }
+      },
+      {
+        "id": "ex7-20",
+        "name": "Dark Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting",
+          "Darkness"
+        ],
+        "evolvesFrom": "Dark Pupitar",
+        "rules": [
+          "This Pokémon is both Fighting Darkness type."
+        ],
+        "abilities": [
+          {
+            "name": "Sand Damage",
+            "text": "As long as Dark Tyranitar is your Active Pokémon, put 1 damage counter on each of your opponent's Benched Basic Pokémon between turns. You can't use more than 1 Sand Damage Poké-Body between turns.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Second Strike",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If the Defending Pokémon already has at least 2 damage counters on it, this attack does 50 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Kyoko Koizumi",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/20.png",
+          "large": "https://images.pokemontcg.io/ex7/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 11.53,
+              "mid": 17.4,
+              "high": 39.95,
+              "market": 15.65,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 175.0,
+              "mid": 212.5,
+              "high": 250.0,
+              "market": 137.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.53,
+            "lowPrice": 0.99,
+            "trendPrice": 13.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 45.98,
+            "reverseHoloLow": 13.81,
+            "reverseHoloTrend": 61.73,
+            "lowPriceExPlus": 8.0,
+            "avg1": 4.5,
+            "avg7": 7.88,
+            "avg30": 10.79,
+            "reverseHoloAvg1": 75.0,
+            "reverseHoloAvg7": 82.27,
+            "reverseHoloAvg30": 61.72
+          }
+        }
+      },
+      {
+        "id": "neo2-12",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "54",
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          },
+          {
+            "name": "Trample",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "For each Benched Pokémon in play (yours and your opponent's), flip a coin. If heads, this attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "Its body can't be harmed by any sort of attack, so it is very eager to make challenges against enemies.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/12.png",
+          "large": "https://images.pokemontcg.io/neo2/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 350.0,
+              "mid": 399.99,
+              "high": 400.98,
+              "market": 400.98,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 90.83,
+              "mid": 135.23,
+              "high": 300.0,
+              "market": 135.23,
+              "directLow": 153.55
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 68.49,
+            "lowPrice": 9.99,
+            "trendPrice": 48.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 62.57,
+            "lowPriceExPlus": 47.49,
+            "avg1": 10.0,
+            "avg7": 48.65,
+            "avg30": 92.66,
+            "reverseHoloAvg1": 50.0,
+            "reverseHoloAvg7": 33.14,
+            "reverseHoloAvg30": 44.21
+          }
+        }
+      },
+      {
+        "id": "dp2-17",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "57",
+        "hp": "140",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Payback",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If your opponent has only 1 Prize card left, this attack does 40 damage plus 40 more damage and discard the top 3 cards from your opponent's deck."
+          },
+          {
+            "name": "Ground Burn",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80+",
+            "text": "Each player discards the top card of his or her deck. This attack does 80 damage plus 20 more damage for each Energy card discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "flavorText": "If it rampages, it knocks down mountains and buries rivers. Maps must be redrawn afterward.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/17.png",
+          "large": "https://images.pokemontcg.io/dp2/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.0,
+              "mid": 17.63,
+              "high": 49.99,
+              "market": 25.51,
+              "directLow": 14.82
+            },
+            "reverseHolofoil": {
+              "low": 11.04,
+              "mid": 15.05,
+              "high": 32.95,
+              "market": 20.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.67,
+            "lowPrice": 0.5,
+            "trendPrice": 9.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.69,
+            "reverseHoloLow": 0.75,
+            "reverseHoloTrend": 52.21,
+            "lowPriceExPlus": 2.95,
+            "avg1": 7.0,
+            "avg7": 9.86,
+            "avg30": 5.42,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 11.36,
+            "reverseHoloAvg30": 48.56
+          }
+        }
+      },
+      {
+        "id": "ecard2-H28",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Destructive Roar",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, discard 1 Energy card attached to 1 of your opponent's Pokémon."
+          },
+          {
+            "name": "Tail Slap",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Gigacrush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "60",
+            "text": "Each player discards the top 3 cards from his or her deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "H28",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/H28.png",
+          "large": "https://images.pokemontcg.io/ecard2/H28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-H28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 500.0,
+              "mid": 500.0,
+              "high": 500.0,
+              "market": 615.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-H28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 103.3,
+            "lowPrice": 53.99,
+            "trendPrice": 153.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 61.06,
+            "lowPriceExPlus": 199.0,
+            "avg1": 120.0,
+            "avg7": 186.98,
+            "avg30": 211.08,
+            "reverseHoloAvg1": 119.99,
+            "reverseHoloAvg7": 56.39,
+            "reverseHoloAvg30": 47.94
+          }
+        }
+      },
+      {
+        "id": "hgss2-26",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Tail Crush",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 20 more damage."
+          },
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Discard an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "Extremely strong, it can change the landscape. It has an insolent nature that makes it not care about others.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/26.png",
+          "large": "https://images.pokemontcg.io/hgss2/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.63,
+              "mid": 3.45,
+              "high": 7.39,
+              "market": 5.0,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.06,
+              "mid": 15.0,
+              "high": 34.99,
+              "market": 20.25,
+              "directLow": 34.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.9,
+            "lowPrice": 0.1,
+            "trendPrice": 1.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.54,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.48,
+            "lowPriceExPlus": 0.75,
+            "avg1": 1.5,
+            "avg7": 2.57,
+            "avg30": 1.91,
+            "reverseHoloAvg1": 1.24,
+            "reverseHoloAvg7": 1.59,
+            "reverseHoloAvg30": 3.38
+          }
+        }
+      },
+      {
+        "id": "ecard1-29",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Dark Aura",
+            "text": "All Energy attached to Tyranitar is Darkness Energy instead of its usual type.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Stamp",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 50 damage plus 10 more damage and does 10 damage to each of your opponent's Benched Pokémon, if any. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/29.png",
+          "large": "https://images.pokemontcg.io/ecard1/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 320.0,
+              "mid": 449.99,
+              "high": 449.99,
+              "market": 340.61,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 158.99,
+              "mid": 179.74,
+              "high": 249.95,
+              "market": 139.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 35.44,
+            "lowPrice": 9.5,
+            "trendPrice": 44.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 99.0,
+            "reverseHoloLow": 9.9,
+            "reverseHoloTrend": 43.35,
+            "lowPriceExPlus": 40.0,
+            "avg1": 38.0,
+            "avg7": 36.81,
+            "avg30": 72.48,
+            "reverseHoloAvg1": 99.0,
+            "reverseHoloAvg7": 34.78,
+            "reverseHoloAvg30": 38.05
+          }
+        }
+      },
+      {
+        "id": "dp7-30",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "61",
+        "hp": "140",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Darkness Drive",
+            "text": "After your opponent's Pokémon uses a Poké-Power, you may search your discard pile for a basic Darkness Energy card and attach it to Tyranitar.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Grind",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the amount of Energy attached to Tyranitar."
+          },
+          {
+            "name": "Spinning Tail",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/30.png",
+          "large": "https://images.pokemontcg.io/dp7/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.31,
+              "mid": 3.4,
+              "high": 19.5,
+              "market": 6.75,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 20.0,
+              "mid": 27.99,
+              "high": 49.98,
+              "market": 35.17,
+              "directLow": 29.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.42,
+            "lowPrice": 0.05,
+            "trendPrice": 1.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.8,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 3.09,
+            "lowPriceExPlus": 0.45,
+            "avg1": 2.0,
+            "avg7": 1.77,
+            "avg30": 1.73,
+            "reverseHoloAvg1": 1.4,
+            "reverseHoloAvg7": 1.94,
+            "reverseHoloAvg30": 2.94
+          }
+        }
+      },
+      {
+        "id": "neo2-31",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "54",
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          },
+          {
+            "name": "Trample",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "For each Benched Pokémon in play (yours and your opponent's), flip a coin. If heads, this attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Rare",
+        "flavorText": "Its body can't be harmed by any sort of attack, so it is very eager to make challenges against enemies.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/31.png",
+          "large": "https://images.pokemontcg.io/neo2/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 33.59,
+              "mid": 74.0,
+              "high": 115.0,
+              "market": 50.04,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 11.67,
+              "mid": 13.11,
+              "high": 18.0,
+              "market": 15.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.24,
+            "lowPrice": 0.7,
+            "trendPrice": 7.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.22,
+            "lowPriceExPlus": 9.97,
+            "avg1": 15.0,
+            "avg7": 9.66,
+            "avg30": 9.65,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 11.82,
+            "reverseHoloAvg30": 17.52
+          }
+        }
+      },
+      {
+        "id": "xy7-42",
+        "name": "Tyranitar-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesTo": [
+          "M Tyranitar-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Break Ground",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "This attack does 10 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/42.png",
+          "large": "https://images.pokemontcg.io/xy7/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 5.33,
+              "high": 18.99,
+              "market": 5.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.43,
+            "lowPrice": 1.0,
+            "trendPrice": 4.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.21,
+            "lowPriceExPlus": 3.5,
+            "avg1": 4.97,
+            "avg7": 4.62,
+            "avg30": 5.27,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 4.72,
+            "reverseHoloAvg30": 4.66
+          }
+        }
+      },
+      {
+        "id": "xy7-43",
+        "name": "M Tyranitar-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "240",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Tyranitar-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "ancientTrait": {
+          "name": "θ Double",
+          "text": "This Pokémon may have up to 2 Pokémon Tool cards attached to it."
+        },
+        "attacks": [
+          {
+            "name": "Destroyer King",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "110+",
+            "text": "This attack does 60 more damage for each damage counter on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/43.png",
+          "large": "https://images.pokemontcg.io/xy7/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.5,
+              "mid": 24.99,
+              "high": 98.97,
+              "market": 29.62,
+              "directLow": 49.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.27,
+            "lowPrice": 4.0,
+            "trendPrice": 17.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.15,
+            "lowPriceExPlus": 10.0,
+            "avg1": 29.88,
+            "avg7": 15.74,
+            "avg30": 16.18,
+            "reverseHoloAvg1": 6.89,
+            "reverseHoloAvg7": 7.23,
+            "reverseHoloAvg30": 5.82
+          }
+        }
+      },
+      {
+        "id": "xy10-56",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Raging Roar",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon, you may attach 1 Darkness Energy from your discard pile to this Pokémon for each Prize card your opponent has taken.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Mountain",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "150+",
+            "text": "Discard the top 2 cards of your deck. This attack does 50 more damage for each Supporter card discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare Holo",
+        "flavorText": "If it rampages, it knocks down mountains and buries rivers. Maps must be redrawn afterward.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/56.png",
+          "large": "https://images.pokemontcg.io/xy10/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.12,
+              "mid": 0.59,
+              "high": 5.0,
+              "market": 0.61,
+              "directLow": 0.4
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 1.12,
+              "high": 9.75,
+              "market": 1.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.32,
+            "lowPrice": 0.05,
+            "trendPrice": 1.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.41,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 1.56,
+            "lowPriceExPlus": 0.44,
+            "avg1": 0.5,
+            "avg7": 0.91,
+            "avg30": 1.16,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 1.33,
+            "reverseHoloAvg30": 1.52
+          }
+        }
+      },
+      {
+        "id": "ecard2-40",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Destructive Roar",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, discard 1 Energy card attached to 1 of your opponent's Pokémon."
+          },
+          {
+            "name": "Tail Slap",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Gigacrush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "60",
+            "text": "Each player discards the top 3 cards from his or her deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/40.png",
+          "large": "https://images.pokemontcg.io/ecard2/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 119.95,
+              "mid": 130.25,
+              "high": 250.0,
+              "market": 285.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 142.5,
+              "mid": 156.25,
+              "high": 169.99,
+              "market": 149.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.6,
+            "lowPrice": 5.0,
+            "trendPrice": 26.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 10.0,
+            "reverseHoloTrend": 39.57,
+            "lowPriceExPlus": 22.0,
+            "avg1": 20.0,
+            "avg7": 26.26,
+            "avg30": 24.9,
+            "reverseHoloAvg1": 16.5,
+            "reverseHoloAvg7": 44.64,
+            "reverseHoloAvg30": 30.21
+          }
+        }
+      },
+      {
+        "id": "ecard1-66",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Dark Aura",
+            "text": "All Energy attached to Tyranitar is Darkness Energy instead of its usual type.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Stamp",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 50 damage plus 10 more damage and does 10 damage to each of your opponent's Benched Pokémon, if any. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/66.png",
+          "large": "https://images.pokemontcg.io/ecard1/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 26.99,
+              "mid": 31.91,
+              "high": 60.0,
+              "market": 35.07,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 38.99,
+              "mid": 52.5,
+              "high": 222.58,
+              "market": 72.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.81,
+            "lowPrice": 1.49,
+            "trendPrice": 10.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 23.0,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 27.1,
+            "lowPriceExPlus": 4.9,
+            "avg1": 2.0,
+            "avg7": 11.74,
+            "avg30": 10.84,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 9.11,
+            "reverseHoloAvg30": 23.87
+          }
+        }
+      },
+      {
+        "id": "xy7-81",
+        "name": "Tyranitar Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Tyranitar-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/81.png",
+          "large": "https://images.pokemontcg.io/xy7/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 1.99,
+              "market": 0.17,
+              "directLow": 0.13
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.39,
+              "high": 4.99,
+              "market": 0.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.14,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.5,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.17,
+            "avg7": 0.15,
+            "avg30": 0.14,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.65,
+            "reverseHoloAvg30": 0.86
+          }
+        }
+      },
+      {
+        "id": "sm9-85",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Spinning Tail",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Bite Off",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130+",
+            "text": "If your opponent's Active Pokémon is a Pokémon-GX or a Pokémon-EX, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "85",
+        "artist": "Hasuno",
+        "rarity": "Rare Holo",
+        "flavorText": "If it rampages, it knocks down mountains and buries rivers. Maps must be redrawn afterward.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/85.png",
+          "large": "https://images.pokemontcg.io/sm9/85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.75,
+              "high": 5.58,
+              "market": 3.03,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.76,
+              "high": 5.0,
+              "market": 1.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-85",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.39,
+            "lowPrice": 1.0,
+            "trendPrice": 2.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.45,
+            "reverseHoloTrend": 2.91,
+            "lowPriceExPlus": 1.0,
+            "avg1": 4.0,
+            "avg7": 2.44,
+            "avg30": 2.43,
+            "reverseHoloAvg1": 3.44,
+            "reverseHoloAvg7": 3.18,
+            "reverseHoloAvg30": 3.18
+          }
+        }
+      },
+      {
+        "id": "sm7-87",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "Flip 2 coins. This attack does 60 damage for each heads."
+          },
+          {
+            "name": "Trample",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "For each Benched Pokémon (both yours and your opponent's), flip a coin. If heads, this attack does 60 damage to that Pokémon. This attack's damage isn't affected by Weakness or Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "If it rampages, it knocks down mountains and buries rivers. Maps must be redrawn afterward.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/87.png",
+          "large": "https://images.pokemontcg.io/sm7/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.45,
+              "mid": 7.51,
+              "high": 11.75,
+              "market": 5.18,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.07,
+              "mid": 9.79,
+              "high": 89.99,
+              "market": 5.05,
+              "directLow": 9.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.4,
+            "lowPrice": 0.49,
+            "trendPrice": 3.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.48,
+            "reverseHoloLow": 0.49,
+            "reverseHoloTrend": 3.61,
+            "lowPriceExPlus": 0.9,
+            "avg1": 2.3,
+            "avg7": 2.85,
+            "avg30": 2.85,
+            "reverseHoloAvg1": 3.48,
+            "reverseHoloAvg7": 2.87,
+            "reverseHoloAvg30": 3.25
+          }
+        }
+      },
+      {
+        "id": "hgss2-88",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Prime"
+        ],
+        "hp": "160",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Darkness Howl",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each Pokémon in play (both yours and your opponent's) (excluding any Darkness Pokémon). (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Power Claw",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "This attack's damage isn't affected by Poké-Powers, Poké-Bodies, or any other effects on the Defending Pokémon."
+          },
+          {
+            "name": "Megaton Tail",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard the top 3 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "Wataru Kawahara",
+        "rarity": "Rare Prime",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/88.png",
+          "large": "https://images.pokemontcg.io/hgss2/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 87.0,
+              "mid": 99.99,
+              "high": 143.75,
+              "market": 112.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 19.18,
+            "lowPrice": 2.5,
+            "trendPrice": 41.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.44,
+            "lowPriceExPlus": 15.0,
+            "avg1": 40.0,
+            "avg7": 24.53,
+            "avg30": 22.41,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 6.95,
+            "reverseHoloAvg30": 7.37
+          }
+        }
+      },
+      {
+        "id": "xy7-91",
+        "name": "Tyranitar-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesTo": [
+          "M Tyranitar-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Break Ground",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "This attack does 10 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/91.png",
+          "large": "https://images.pokemontcg.io/xy7/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 58.0,
+              "mid": 99.44,
+              "high": 299.99,
+              "market": 102.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 46.0,
+            "lowPrice": 15.0,
+            "trendPrice": 50.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.26,
+            "lowPriceExPlus": 69.97,
+            "avg1": 75.0,
+            "avg7": 55.23,
+            "avg30": 43.07,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 23.12,
+            "reverseHoloAvg30": 16.91
+          }
+        }
+      },
+      {
+        "id": "xy7-92",
+        "name": "M Tyranitar-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "240",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Tyranitar-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "ancientTrait": {
+          "name": "θ Double",
+          "text": "This Pokémon may have up to 2 Pokémon Tool cards attached to it."
+        },
+        "attacks": [
+          {
+            "name": "Destroyer King",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "110+",
+            "text": "This attack does 60 more damage for each damage counter on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/92.png",
+          "large": "https://images.pokemontcg.io/xy7/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 83.0,
+              "mid": 120.13,
+              "high": 239.0,
+              "market": 127.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 73.99,
+            "lowPrice": 24.99,
+            "trendPrice": 71.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.63,
+            "lowPriceExPlus": 68.33,
+            "avg1": 38.0,
+            "avg7": 68.85,
+            "avg30": 57.79,
+            "reverseHoloAvg1": 32.0,
+            "reverseHoloAvg7": 14.38,
+            "reverseHoloAvg30": 12.41
+          }
+        }
+      },
+      {
+        "id": "swsh3-88",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Bedrock Breaker",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard a Stadium in play."
+          },
+          {
+            "name": "Mountain Swing",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "250",
+            "text": "Discard the top 5 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "nagimiso",
+        "rarity": "Rare Holo",
+        "flavorText": "Its body can't be harmed by any sort of attack, so it is very eager to make challenges against enemies.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/88.png",
+          "large": "https://images.pokemontcg.io/swsh3/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.28,
+              "high": 6.0,
+              "market": 0.28,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.19,
+              "mid": 0.57,
+              "high": 1.76,
+              "market": 0.57,
+              "directLow": 0.54
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.73,
+            "lowPrice": 0.05,
+            "trendPrice": 0.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.98,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.34,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.62,
+            "avg7": 0.62,
+            "avg30": 0.63,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.01,
+            "reverseHoloAvg30": 1.24
+          }
+        }
+      },
+      {
+        "id": "ex10-111",
+        "name": "Tyranitar ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "160",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Shatter",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Discard any Stadium card in play."
+          },
+          {
+            "name": "Derail",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Discard a Special Energy card, if any, attached to the Defending Pokémon."
+          },
+          {
+            "name": "Mix-Up",
+            "cost": [
+              "Fighting",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Your opponent discards the top card of his or her deck."
+          },
+          {
+            "name": "Losing Control",
+            "cost": [
+              "Fighting",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard the top 3 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          },
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "111",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/111.png",
+          "large": "https://images.pokemontcg.io/ex10/111_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-111",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 118.0,
+              "mid": 219.96,
+              "high": 219.97,
+              "market": 200.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-111",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 58.75,
+            "lowPrice": 14.0,
+            "trendPrice": 107.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 54.75,
+            "lowPriceExPlus": 90.0,
+            "avg1": 75.0,
+            "avg7": 104.49,
+            "avg30": 103.14,
+            "reverseHoloAvg1": 75.0,
+            "reverseHoloAvg7": 46.25,
+            "reverseHoloAvg30": 39.65
+          }
+        }
+      },
+      {
+        "id": "ex15-99",
+        "name": "Tyranitar ex δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Electromark",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put a Shock-wave marker on 1 of your opponent's Pokémon."
+          },
+          {
+            "name": "Hyper Claws",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70+",
+            "text": "If the Defending Pokémon is a Stage 2 Evolved Pokémon, this attack does 70 damage plus 20 more damage."
+          },
+          {
+            "name": "Shock-wave",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon that has any Shock-wave markers on it. That Pokémon is Knocked Out."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "Yusuke Shimada",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/99.png",
+          "large": "https://images.pokemontcg.io/ex15/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 189.98,
+              "mid": 269.99,
+              "high": 351.47,
+              "market": 170.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 47.75,
+            "lowPrice": 13.0,
+            "trendPrice": 78.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 32.29,
+            "lowPriceExPlus": 56.0,
+            "avg1": 48.99,
+            "avg7": 92.28,
+            "avg30": 65.15,
+            "reverseHoloAvg1": 50.0,
+            "reverseHoloAvg7": 32.02,
+            "reverseHoloAvg30": 29.33
+          }
+        }
+      },
+      {
+        "id": "neo4-113",
+        "name": "Shining Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "41",
+        "hp": "80",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "You can't have more than 1 Shining Tyranitar in your deck."
+        ],
+        "attacks": [
+          {
+            "name": "Mountain Crush",
+            "cost": [
+              "Darkness",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin until you get tails. For each heads, your opponent discards the top card from his or her deck."
+          },
+          {
+            "name": "Destructive Fire",
+            "cost": [
+              "Darkness",
+              "Fire",
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "Flip a coin for each Fire Energy card attached to Shining Tyranitar. For each heads, discard a Fire Energy card attached to Shining Tyranitar or this attack does nothing. Then, for each heads, choose an Energy card attached to the Defending Pokémon and discard it. If it has fewer Energy cards than that, remove all of them."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "113",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Shining",
+        "flavorText": "It is so powerful, it can knock down a mountain with hust one arm.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/113.png",
+          "large": "https://images.pokemontcg.io/neo4/113_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-113",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 4249.99,
+              "mid": 4249.99,
+              "high": 4249.99,
+              "market": 700.0,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 475.0,
+              "mid": 550.0,
+              "high": 700.0,
+              "market": 669.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-113",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 335.49,
+            "lowPrice": 200.0,
+            "trendPrice": 585.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 274.75,
+            "lowPriceExPlus": 275.0,
+            "avg1": 2100.0,
+            "avg7": 531.55,
+            "avg30": 379.47,
+            "reverseHoloAvg1": 125.0,
+            "reverseHoloAvg7": 325.67,
+            "reverseHoloAvg30": 197.15
+          }
+        }
+      },
+      {
+        "id": "sm8-121",
+        "name": "Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Lost Out",
+            "text": "If your opponent's Pokémon is Knocked Out by damage from this Pokémon's attacks, put that Pokémon and all cards attached to it in the Lost Zone instead of the discard pile.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dusty Ruckus",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This attack does 30 damage to each of your opponent's Benched Basic Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Lay the Smackdown-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "220",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "121",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/121.png",
+          "large": "https://images.pokemontcg.io/sm8/121_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-121",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.41,
+              "mid": 7.82,
+              "high": 12.44,
+              "market": 7.37,
+              "directLow": 12.44
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-121",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 7.65,
+            "lowPrice": 2.49,
+            "trendPrice": 6.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.95,
+            "lowPriceExPlus": 2.79,
+            "avg1": 15.0,
+            "avg7": 9.57,
+            "avg30": 6.67,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 4.77,
+            "reverseHoloAvg30": 4.06
+          }
+        }
+      },
+      {
+        "id": "sm11-126",
+        "name": "Mega Sableye & Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Greedy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "210",
+            "text": "If your opponent's Pokémon-GX or Pokémon-EX is Knocked Out by damage from this attack, take 1 more Prize card."
+          },
+          {
+            "name": "Gigafall-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "250",
+            "text": "If this Pokémon has at least 5 extra Energy attached to it (in addition to this attack's cost), discard the top 15 cards of your opponent's deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "126",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          248,
+          302
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/126.png",
+          "large": "https://images.pokemontcg.io/sm11/126_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-126",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.5,
+              "mid": 38.17,
+              "high": 99.0,
+              "market": 34.7,
+              "directLow": 64.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-126",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 20.26,
+            "lowPrice": 2.99,
+            "trendPrice": 19.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.91,
+            "lowPriceExPlus": 7.99,
+            "avg1": 27.33,
+            "avg7": 22.44,
+            "avg30": 21.9,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 6.4,
+            "reverseHoloAvg30": 5.22
+          }
+        }
+      },
+      {
+        "id": "xyp-XY130",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Raging Roar",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon, you may attach 1 Darkness Energy from your discard pile to this Pokémon for each Prize card your opponent has taken.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Mountain",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "150+",
+            "text": "Discard the top 2 cards of your deck. This attack does 50 more damage for each Supporter card discard in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY130",
+        "artist": "Satoshi Shirai",
+        "rarity": "Promo",
+        "flavorText": "If it rampages, it knocks down mountains and buries rivers. Maps must be redrawn afterward.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY130.png",
+          "large": "https://images.pokemontcg.io/xyp/XY130_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY130",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.0,
+              "mid": 34.99,
+              "high": 40.0,
+              "market": 29.53,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY130",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 33.33,
+            "lowPrice": 24.99,
+            "trendPrice": 33.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.88,
+            "lowPriceExPlus": 24.99,
+            "avg1": 40.0,
+            "avg7": 31.57,
+            "avg30": 30.15,
+            "reverseHoloAvg1": 14.95,
+            "reverseHoloAvg7": 8.11,
+            "reverseHoloAvg30": 6.11
+          }
+        }
+      },
+      {
+        "id": "sm8-203",
+        "name": "Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Lost Out",
+            "text": "If your opponent's Pokémon is Knocked Out by damage from this Pokémon's attacks, put that Pokémon and all cards attached to it in the Lost Zone instead of the discard pile.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dusty Ruckus",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This attack does 30 damage to each of your opponent's Benched Basic Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Lay the Smackdown-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "220",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "203",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/203.png",
+          "large": "https://images.pokemontcg.io/sm8/203_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-203",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.0,
+              "mid": 34.99,
+              "high": 72.75,
+              "market": 27.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-203",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 15.83,
+            "lowPrice": 4.9,
+            "trendPrice": 15.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.57,
+            "lowPriceExPlus": 11.99,
+            "avg1": 14.0,
+            "avg7": 13.55,
+            "avg30": 14.51,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 12.3,
+            "reverseHoloAvg30": 9.44
+          }
+        }
+      },
+      {
+        "id": "sm8-223",
+        "name": "Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Lost Out",
+            "text": "If your opponent's Pokémon is Knocked Out by damage from this Pokémon's attacks, put that Pokémon and all cards attached to it in the Lost Zone instead of the discard pile.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dusty Ruckus",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This attack does 30 damage to each of your opponent's Benched Basic Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Lay the Smackdown-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "220",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "223",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/223.png",
+          "large": "https://images.pokemontcg.io/sm8/223_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-223",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 94.29,
+              "mid": 105.5,
+              "high": 200.0,
+              "market": 96.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-223",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 6.39,
+            "lowPrice": 15.0,
+            "trendPrice": 39.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 36.58,
+            "lowPriceExPlus": 35.0,
+            "avg1": 6.39,
+            "avg7": 35.04,
+            "avg30": 42.45,
+            "reverseHoloAvg1": 70.0,
+            "reverseHoloAvg7": 34.42,
+            "reverseHoloAvg30": 23.37
+          }
+        }
+      },
+      {
+        "id": "sm11-225",
+        "name": "Mega Sableye & Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Greedy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "210",
+            "text": "If your opponent's Pokémon-GX or Pokémon-EX is Knocked Out by damage from this attack, take 1 more Prize card."
+          },
+          {
+            "name": "Gigafall-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "250",
+            "text": "If this Pokémon has at least 5 extra Energy attached to it (in addition to this attack's cost), discard the top 15 cards of your opponent's deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "225",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248,
+          302
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/225.png",
+          "large": "https://images.pokemontcg.io/sm11/225_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-225",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 42.49,
+              "mid": 49.29,
+              "high": 69.69,
+              "market": 45.41,
+              "directLow": 59.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-225",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 19.5,
+            "lowPrice": 5.45,
+            "trendPrice": 35.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.38,
+            "lowPriceExPlus": 10.0,
+            "avg1": 13.0,
+            "avg7": 28.68,
+            "avg30": 25.43,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 8.69,
+            "reverseHoloAvg30": 8.13
+          }
+        }
+      },
+      {
+        "id": "sm11-226",
+        "name": "Mega Sableye & Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Greedy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "210",
+            "text": "If your opponent's Pokémon-GX or Pokémon-EX is Knocked Out by damage from this attack, take 1 more Prize card."
+          },
+          {
+            "name": "Gigafall-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "250",
+            "text": "If this Pokémon has at least 5 extra Energy attached to it (in addition to this attack's cost), discard the top 15 cards of your opponent's deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "226",
+        "artist": "chibi",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248,
+          302
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/226.png",
+          "large": "https://images.pokemontcg.io/sm11/226_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-226",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 289.99,
+              "mid": 349.84,
+              "high": 439.98,
+              "market": 326.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-226",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 228.21,
+            "lowPrice": 19.5,
+            "trendPrice": 220.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.32,
+            "lowPriceExPlus": 50.0,
+            "avg1": 60.0,
+            "avg7": 228.21,
+            "avg30": 165.0,
+            "reverseHoloAvg1": 19.99,
+            "reverseHoloAvg7": 20.09,
+            "reverseHoloAvg30": 22.8
+          }
+        }
+      },
+      {
+        "id": "sm11-245",
+        "name": "Mega Sableye & Tyranitar-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Greedy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "210",
+            "text": "If your opponent's Pokémon-GX or Pokémon-EX is Knocked Out by damage from this attack, take 1 more Prize card."
+          },
+          {
+            "name": "Gigafall-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "250",
+            "text": "If this Pokémon has at least 5 extra Energy attached to it (in addition to this attack's cost), discard the top 15 cards of your opponent's deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "245",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          248,
+          302
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/245.png",
+          "large": "https://images.pokemontcg.io/sm11/245_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-245",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 71.39,
+              "mid": 85.0,
+              "high": 199.99,
+              "market": 75.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-245",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 29.49,
+            "lowPrice": 13.88,
+            "trendPrice": 47.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 25.23,
+            "lowPriceExPlus": 17.85,
+            "avg1": 51.99,
+            "avg7": 39.11,
+            "avg30": 40.62,
+            "reverseHoloAvg1": 25.0,
+            "reverseHoloAvg7": 25.99,
+            "reverseHoloAvg30": 18.05
+          }
+        }
+      },
+      {
+        "id": "swsh5-97",
+        "name": "Tyranitar V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "230",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Cragalanche",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard the top 2 cards of your opponent's deck."
+          },
+          {
+            "name": "Single Strike Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Discard the top 4 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "97",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/97.png",
+          "large": "https://images.pokemontcg.io/swsh5/97_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-97",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.22,
+              "mid": 0.99,
+              "high": 7.99,
+              "market": 0.74,
+              "directLow": 0.51
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-97",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.05,
+            "lowPrice": 0.48,
+            "trendPrice": 0.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.81,
+            "lowPriceExPlus": 0.48,
+            "avg1": 0.95,
+            "avg7": 0.83,
+            "avg30": 1.1,
+            "reverseHoloAvg1": 3.15,
+            "reverseHoloAvg7": 3.0,
+            "reverseHoloAvg30": 2.98
+          }
+        }
+      },
+      {
+        "id": "swsh5-154",
+        "name": "Tyranitar V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "230",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Cragalanche",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard the top 2 cards of your opponent's deck."
+          },
+          {
+            "name": "Single Strike Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Discard the top 4 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "154",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/154.png",
+          "large": "https://images.pokemontcg.io/swsh5/154_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-154",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.16,
+              "mid": 8.1,
+              "high": 45.0,
+              "market": 7.68,
+              "directLow": 10.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-154",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 7.58,
+            "lowPrice": 5.0,
+            "trendPrice": 7.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.4,
+            "lowPriceExPlus": 5.5,
+            "avg1": 6.98,
+            "avg7": 7.11,
+            "avg30": 7.9,
+            "reverseHoloAvg1": 26.9,
+            "reverseHoloAvg7": 27.43,
+            "reverseHoloAvg30": 27.4
+          }
+        }
+      },
+      {
+        "id": "swsh5-155",
+        "name": "Tyranitar V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "230",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Cragalanche",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard the top 2 cards of your opponent's deck."
+          },
+          {
+            "name": "Single Strike Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Discard the top 4 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "155",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/155.png",
+          "large": "https://images.pokemontcg.io/swsh5/155_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-155",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 180.0,
+              "mid": 225.99,
+              "high": 1000.0,
+              "market": 206.67,
+              "directLow": 216.69
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-155",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 148.33,
+            "lowPrice": 60.0,
+            "trendPrice": 126.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 107.27,
+            "lowPriceExPlus": 84.99,
+            "avg1": 109.0,
+            "avg7": 132.54,
+            "avg30": 143.06,
+            "reverseHoloAvg1": 84.5,
+            "reverseHoloAvg7": 104.63,
+            "reverseHoloAvg30": 106.38
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH109",
+        "name": "Tyranitar V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "230",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Cragalanche",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard the top 2 cards of your opponent's deck."
+          },
+          {
+            "name": "Single Strike Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Discard the top 4 cards of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH109",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH109.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH109_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH109",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.81,
+              "high": 7.0,
+              "market": 0.64,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH109",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 1.18,
+            "lowPrice": 0.35,
+            "trendPrice": 0.97,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.18,
+            "avg7": 1.01,
+            "avg30": 1.18,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh8-158",
+        "name": "Tyranitar V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Land Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "158",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/158.png",
+          "large": "https://images.pokemontcg.io/swsh8/158_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-158",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.99,
+              "high": 5.95,
+              "market": 0.74,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-158",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.14,
+            "lowPrice": 0.35,
+            "trendPrice": 1.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.78,
+            "avg7": 1.27,
+            "avg30": 1.17,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pgo-43",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "name": "Raging Crash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10×",
+            "text": "This attack does 10 damage for each damage counter on all of your Benched Pokémon."
+          },
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "Nisota Niso",
+        "rarity": "Rare Holo",
+        "flavorText": "Its body can't be harmed by any sort of attack, so it is very eager to make challenges against enemies.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/43.png",
+          "large": "https://images.pokemontcg.io/pgo/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.28,
+              "high": 200.0,
+              "market": 0.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.39,
+              "high": 25.0,
+              "market": 0.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.2,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.42,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.49,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.23,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 1.2,
+            "reverseHoloAvg7": 0.45,
+            "reverseHoloAvg30": 0.38
+          }
+        }
+      },
+      {
+        "id": "sv2-135",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "cost": [
+              "Darkness"
+            ],
+            "name": "Rout",
+            "damage": "30+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon.",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "name": "Dread Mountain",
+            "damage": "230",
+            "text": "Discard the top 4 cards of your deck.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "135",
+        "artist": "hncl",
+        "rarity": "Rare",
+        "flavorText": "Extremely strong, it can change the landscape. It is so insolent that it doesn't care about others.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/135.png",
+          "large": "https://images.pokemontcg.io/sv2/135_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-135",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.22,
+              "high": 2.95,
+              "market": 0.19,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.18,
+              "high": 100.0,
+              "market": 0.16,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-135",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.24,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.16,
+            "avg7": 0.13,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "sv2-222",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "attacks": [
+          {
+            "cost": [
+              "Darkness"
+            ],
+            "name": "Rout",
+            "damage": "30+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon.",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "name": "Dread Mountain",
+            "damage": "230",
+            "text": "Discard the top 4 cards of your deck.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "222",
+        "artist": "Nurikabe",
+        "rarity": "Illustration Rare",
+        "flavorText": "Extremely strong, it can change the landscape. It is so insolent that it doesn't care about others.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/222.png",
+          "large": "https://images.pokemontcg.io/sv2/222_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-222",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 44.59,
+              "mid": 59.91,
+              "high": 149.99,
+              "market": 51.46,
+              "directLow": 54.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-222",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 44.53,
+            "lowPrice": 10.0,
+            "trendPrice": 49.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 15.0,
+            "avg1": 25.0,
+            "avg7": 49.56,
+            "avg30": 47.97,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3-66",
+        "name": "Tyranitar ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex",
+          "Tera"
+        ],
+        "hp": "340",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards.",
+          "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's)."
+        ],
+        "attacks": [
+          {
+            "name": "Mountain Hurl",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "120",
+            "text": "Discard the top 2 cards of your deck."
+          },
+          {
+            "name": "Lightning Rampage",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150+",
+            "text": "If your Benched Pokémon have any damage counters on them, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "5ban Graphics",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/66.png",
+          "large": "https://images.pokemontcg.io/sv3/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 1.0,
+              "high": 33.0,
+              "market": 0.96,
+              "directLow": 1.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-66",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.29,
+            "lowPrice": 0.38,
+            "trendPrice": 1.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.38,
+            "avg1": 1.5,
+            "avg7": 1.27,
+            "avg30": 1.24,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3-211",
+        "name": "Tyranitar ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex",
+          "Tera"
+        ],
+        "hp": "340",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards.",
+          "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's)."
+        ],
+        "attacks": [
+          {
+            "name": "Mountain Hurl",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "120",
+            "text": "Discard the top 2 cards of your deck."
+          },
+          {
+            "name": "Lightning Rampage",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150+",
+            "text": "If your Benched Pokémon have any damage counters on them, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "211",
+        "artist": "5ban Graphics",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/211.png",
+          "large": "https://images.pokemontcg.io/sv3/211_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-211",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.21,
+              "mid": 5.25,
+              "high": 69.95,
+              "market": 4.68,
+              "directLow": 4.68
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-211",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.87,
+            "lowPrice": 0.49,
+            "trendPrice": 2.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.95,
+            "avg1": 2.18,
+            "avg7": 3.05,
+            "avg30": 2.83,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-64",
+        "name": "Tyranitar ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Grind",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each Energy attached to this Pokémon."
+          },
+          {
+            "name": "Tyrannical Crush",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Discard a random card from your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "64",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/64.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.8,
+              "high": 999.0,
+              "market": 0.54,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "sv9-95",
+        "name": "Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Pupitar",
+        "abilities": [
+          {
+            "name": "Daunting Gaze",
+            "text": "As long as this Pokémon is in the Active Spot, your opponent can't play any Item cards from their hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cracking Stomp",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150",
+            "text": "Discard the top 2 cards of your opponent's deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Rare",
+        "flavorText": "Extremely strong, it can change the landscape. It is so insolent that it doesn't care about others.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/95.png",
+          "large": "https://images.pokemontcg.io/sv9/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 500.19,
+              "market": 0.11,
+              "directLow": 0.1
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.43,
+              "high": 25.0,
+              "market": 0.29,
+              "directLow": 0.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.35,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.32,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.34,
+            "reverseHoloAvg30": 0.34
+          }
+        }
+      },
+      {
+        "id": "sv10-96",
+        "name": "Team Rocket's Tyranitar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Team Rocket's Pupitar",
+        "abilities": [
+          {
+            "name": "Sand Stream",
+            "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 2 damage counters on each of your opponent's Basic Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Demolition Tackle",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "Ryuta Fuse",
+        "rarity": "Rare",
+        "flavorText": "Extremely strong, it can change the landscape. It is so insolent that it doesn't care about others.",
+        "nationalPokedexNumbers": [
+          248
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/96.png",
+          "large": "https://images.pokemontcg.io/sv10/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.42,
+              "high": 20.0,
+              "market": 0.4,
+              "directLow": 0.37
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.22,
+              "high": 15.0,
+              "market": 0.21,
+              "directLow": 0.4
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.31,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.25,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.06,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.34,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 48,
+    "totalCount": 48
+  }
+}

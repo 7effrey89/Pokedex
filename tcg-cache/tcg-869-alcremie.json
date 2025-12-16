@@ -1,0 +1,1501 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:alcremie"
+  },
+  "cache_key": "f1d1bf4819f698590f7f82b348856989",
+  "cached_at": 1765915051.866463,
+  "response": {
+    "data": [
+      {
+        "id": "swsh35-22",
+        "name": "Alcremie V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Sugary Sprinkles",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal 30 damage from each of your Benched Pokémon."
+          },
+          {
+            "name": "Sweet Splash",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "If the Defending Pokémon is a Basic Pokémon, it can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/22.png",
+          "large": "https://images.pokemontcg.io/swsh35/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.7,
+              "mid": 1.56,
+              "high": 8.99,
+              "market": 1.45,
+              "directLow": 1.43
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.2,
+            "lowPrice": 0.49,
+            "trendPrice": 1.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.44,
+            "lowPriceExPlus": 0.49,
+            "avg1": 1.59,
+            "avg7": 1.46,
+            "avg30": 1.19,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 1.38,
+            "reverseHoloAvg30": 1.43
+          }
+        }
+      },
+      {
+        "id": "swsh35-23",
+        "name": "Alcremie VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Alcremie V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Adornment",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Pokémon, search your deck for a Psychic Energy card and attach it to that Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "G-Max Whisk",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Discard any amount of Energy from your Pokémon. This attack does 60 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/23.png",
+          "large": "https://images.pokemontcg.io/swsh35/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.48,
+              "mid": 5.25,
+              "high": 23.49,
+              "market": 5.16,
+              "directLow": 5.52
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.41,
+            "lowPrice": 0.9,
+            "trendPrice": 3.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.05,
+            "lowPriceExPlus": 1.49,
+            "avg1": 3.75,
+            "avg7": 3.65,
+            "avg30": 3.39,
+            "reverseHoloAvg1": 3.98,
+            "reverseHoloAvg7": 3.81,
+            "reverseHoloAvg30": 5.16
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH058",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "attacks": [
+          {
+            "name": "Decorate",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of basic Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Draining Kiss",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH058",
+        "artist": "sui",
+        "rarity": "Promo",
+        "flavorText": "When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH058.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH058_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH058",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.21,
+              "mid": 6.28,
+              "high": 19.99,
+              "market": 5.32,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH058",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.57,
+            "lowPrice": 0.29,
+            "trendPrice": 1.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.17,
+            "lowPriceExPlus": 0.49,
+            "avg1": 0.65,
+            "avg7": 0.82,
+            "avg30": 1.16,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.32,
+            "reverseHoloAvg30": 1.43
+          }
+        }
+      },
+      {
+        "id": "swsh4-81",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "abilities": [
+          {
+            "name": "Sharing Sweets",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may have each player draw a card.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wonder Shine",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/81.png",
+          "large": "https://images.pokemontcg.io/swsh4/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.21,
+              "high": 19.98,
+              "market": 0.21,
+              "directLow": 0.2
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.38,
+              "high": 999.99,
+              "market": 0.38,
+              "directLow": 0.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.24,
+            "lowPrice": 0.02,
+            "trendPrice": 0.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.07,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.65,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.21,
+            "avg30": 0.22,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.85,
+            "reverseHoloAvg30": 0.67
+          }
+        }
+      },
+      {
+        "id": "swsh2-87",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "attacks": [
+          {
+            "name": "Decorate",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of basic Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Draining Kiss",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Mizue",
+        "rarity": "Rare",
+        "flavorText": "When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/87.png",
+          "large": "https://images.pokemontcg.io/swsh2/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.34,
+              "mid": 0.71,
+              "high": 29.97,
+              "market": 0.63,
+              "directLow": 29.97
+            },
+            "normal": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 4.0,
+              "market": 0.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.34,
+            "lowPrice": 0.02,
+            "trendPrice": 0.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.61,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.64,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.3,
+            "avg7": 0.44,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 0.34,
+            "reverseHoloAvg7": 0.6,
+            "reverseHoloAvg30": 0.64
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV058",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "attacks": [
+          {
+            "name": "Decorate",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of basic Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Draining Kiss",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV058",
+        "artist": "MAHOU",
+        "rarity": "Rare Shiny",
+        "flavorText": "When it trusts a Trainer, it will treat them to berries it's decorated with cream.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV058.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV058_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV058",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.99,
+              "mid": 4.1,
+              "high": 29.97,
+              "market": 4.2,
+              "directLow": 6.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV058",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.96,
+            "lowPrice": 0.99,
+            "trendPrice": 2.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.62,
+            "lowPriceExPlus": 2.29,
+            "avg1": 2.74,
+            "avg7": 2.81,
+            "avg30": 3.16,
+            "reverseHoloAvg1": 6.75,
+            "reverseHoloAvg7": 6.93,
+            "reverseHoloAvg30": 7.19
+          }
+        }
+      },
+      {
+        "id": "swsh45-64",
+        "name": "Alcremie V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Sugary Sprinkles",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal 30 damage from each of your Benched Pokémon."
+          },
+          {
+            "name": "Sweet Splash",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "If the Defending Pokémon is a Basic Pokémon, it can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/64.png",
+          "large": "https://images.pokemontcg.io/swsh45/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.17,
+              "mid": 3.77,
+              "high": 19.98,
+              "market": 3.67,
+              "directLow": 5.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.6,
+            "lowPrice": 1.69,
+            "trendPrice": 2.7,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.14,
+            "lowPriceExPlus": 1.69,
+            "avg1": 2.83,
+            "avg7": 2.6,
+            "avg30": 2.56,
+            "reverseHoloAvg1": 7.49,
+            "reverseHoloAvg7": 5.73,
+            "reverseHoloAvg30": 6.02
+          }
+        }
+      },
+      {
+        "id": "swsh45-73",
+        "name": "Alcremie VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Alcremie V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Adornment",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Pokémon, search your deck for a Psychic Energy card and attach it to that Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "G-Max Whisk",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Discard any amount of Energy from your Pokémon. This attack does 60 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/73.png",
+          "large": "https://images.pokemontcg.io/swsh45/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.0,
+              "mid": 6.0,
+              "high": 20.0,
+              "market": 5.26,
+              "directLow": 5.8
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.52,
+            "lowPrice": 1.0,
+            "trendPrice": 2.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.73,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.33,
+            "avg7": 2.44,
+            "avg30": 2.47,
+            "reverseHoloAvg1": 4.1,
+            "reverseHoloAvg7": 4.02,
+            "reverseHoloAvg30": 4.37
+          }
+        }
+      },
+      {
+        "id": "swsh9-71",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "abilities": [
+          {
+            "name": "Additional Order",
+            "text": "As long as this Pokémon is in the Active Spot, your turn does not end when you use Café Master.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rainbow Flavor",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 40 more damage for each type of basic Energy attached to all of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "sowsow",
+        "rarity": "Rare",
+        "flavorText": "When Alcremie is content, the cream it secretes from its hands becomes sweeter and richer.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/71.png",
+          "large": "https://images.pokemontcg.io/swsh9/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.21,
+              "high": 10.0,
+              "market": 0.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.22,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.24,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.1,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.53,
+            "reverseHoloAvg7": 0.36,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "swsh9tg-TG08",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "abilities": [
+          {
+            "name": "Additional Order",
+            "text": "As long as this Pokémon is in the Active Spot, your turn does not end when you use Café Master.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rainbow Flavor",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 40 more damage for each type of basic Energy attached to all of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9tg",
+          "name": "Brilliant Stars Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9tg/logo.png"
+          }
+        },
+        "number": "TG08",
+        "artist": "OKACHEKE",
+        "rarity": "Trainer Gallery Rare Holo",
+        "flavorText": "When Alcremie is content, the cream it secretes from its hands becomes sweeter and richer.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9tg/TG08.png",
+          "large": "https://images.pokemontcg.io/swsh9tg/TG08_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9tg-TG08",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.59,
+              "mid": 2.29,
+              "high": 999.99,
+              "market": 2.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9tg-TG08",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.56,
+            "lowPrice": 0.3,
+            "trendPrice": 1.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.3,
+            "avg1": 1.02,
+            "avg7": 1.38,
+            "avg30": 1.54,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv7-65",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "attacks": [
+          {
+            "name": "Colorful Confection",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 5 Pokémon that are the same type as any Basic Energy attached to this Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Magical Shot",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "65",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/65.png",
+          "large": "https://images.pokemontcg.io/sv7/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 10.0,
+              "market": 0.18,
+              "directLow": 0.15
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 20.0,
+              "market": 0.21,
+              "directLow": 0.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.14,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.07,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.12,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "sv9-75",
+        "name": "Alcremie ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "250",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Confectionary Gift",
+            "text": "Once during your turn, you may heal 30 damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Whipped Shot",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "75",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/75.png",
+          "large": "https://images.pokemontcg.io/sv9/75_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-75",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.24,
+              "mid": 0.75,
+              "high": 65.0,
+              "market": 0.53,
+              "directLow": 0.5
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-75",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.59,
+            "lowPrice": 0.1,
+            "trendPrice": 0.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.42,
+            "avg7": 0.55,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "me2-44",
+        "name": "Alcremie",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Milcery",
+        "attacks": [
+          {
+            "name": "Sweet Circle",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "44",
+        "artist": "Narumi Sato",
+        "rarity": "Uncommon",
+        "flavorText": "Desserts that Alcremie have decorated with their cream have a rich, sweet flavor and bring happiness to all who eat them.",
+        "nationalPokedexNumbers": [
+          869
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/44.png",
+          "large": "https://images.pokemontcg.io/me2/44_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.08,
+              "high": 999.0,
+              "market": 0.04,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.08,
+              "directLow": 0.08
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 13,
+    "totalCount": 13
+  }
+}

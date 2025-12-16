@@ -7,12 +7,13 @@ This script downloads Pokemon TCG API responses for all Pokemon (001-1025) and s
 - Fetches TCG card data for each Pokemon from the Pokemon TCG API
 - Uses the same cache key algorithm as CacheService (MD5 hash of endpoint + params)
 - Stores responses in CacheService-compatible JSON format
-- Includes retry logic for failed requests
+- Includes resilient retry logic with exponential backoff and multi-pass requeueing
 - Supports optional API key for higher rate limits
 - Allows downloading specific ranges or limiting the number of Pokemon
 - Maintains a Pokemon list resource for easy extension
 - **Resume capability**: Automatically skips already-cached Pokemon, so you can safely restart if interrupted
 - **Parallel downloads**: Support for multi-threaded downloads to speed up the process (1-10 threads)
+- **Persistent retries**: Failed Pokemon are automatically retried in later passes until they succeed or exhaust `--max-retries`
 
 ## Usage
 
@@ -92,6 +93,21 @@ python scripts/download_tcg_cache.py --start 1 --end 151 --parallel 3
 - With an API key, you can safely use more threads
 - Without an API key, consider using 2-3 threads to respect rate limits
 
+### Persistent Retry Passes
+
+Every run now keeps track of any Pokemon that fail (due to temporary network hiccups, API flakiness, etc.) and retries them in additional passes until all succeed or the retry budget is exhausted.
+
+```bash
+# Allow up to 8 retry passes for stubborn Pokemon
+python scripts/download_tcg_cache.py --parallel 4 --max-retries 8
+```
+
+What to expect:
+
+- Progress logs show both the pass number and the position, e.g. `[2.4/7]` means “pass 2, item 4 of 7”.
+- Each new pass reports how many Pokemon remain pending.
+- When retries are exhausted, the summary lists the few Pokemon that still failed so you can re-run them specifically (`--start` / `--end` or `--limit`).
+
 ## Options
 
 - `--start NUM` - Start from Pokemon number NUM (default: 1)
@@ -101,6 +117,7 @@ python scripts/download_tcg_cache.py --start 1 --end 151 --parallel 3
 - `--skip-existing` - Skip already-cached Pokemon (default: enabled)
 - `--no-skip-existing` - Force re-download even if cached
 - `--parallel N` - Number of parallel download threads (default: 1, max: 10)
+- `--max-retries N` - Number of retry passes for failed Pokemon (default: 5)
 
 ## API Key (Optional)
 
@@ -133,9 +150,9 @@ The script creates:
 
 ### Cache File Format
 
-Each cache file is named: `tcg-{number}-{name}-{timestamp}.json`
+Each cache file is named: `tcg-{number}-{name}.json`
 
-Example: `tcg-025-pikachu-202412160045.json`
+Example: `tcg-025-pikachu.json`
 
 ### Cache File Structure
 
@@ -176,9 +193,31 @@ The script maintains a `data/pokemon_list.json` file containing all Pokemon with
 
 The cache files are designed to be compatible with CacheService. To import them:
 
-1. The `cache_key` field matches CacheService's MD5 hash algorithm
+1. The `cache_key` field matches CacheService's MD5 hash algorithm and is stored inside each JSON file
 2. The file structure includes all required fields: `endpoint`, `params`, `cached_at`, `response`
-3. Files can be renamed to `{cache_key}.json` and moved to the `cache/` directory if needed
+3. Files already use descriptive names like `tcg-001-bulbasaur.json`, so you can move or copy them straight into the `cache/` directory if desired
+
+### Normalizing & Copying into `cache/`
+
+Use `scripts/normalize_tcg_cache.py` when you want to migrate previously-downloaded responses (including old timestamped files) into the main `cache/` folder:
+
+```bash
+# Preview the plan without writing files
+python scripts/normalize_tcg_cache.py tcg-cache --dest-dir cache --dry-run --verbose
+
+# Perform the copy after reviewing the plan
+python scripts/normalize_tcg_cache.py tcg-cache --dest-dir cache --verbose
+```
+
+What this does:
+- Rewrites each JSON payload so it exactly matches the CacheService schema (adds `cache_key`, normalizes `params`, ensures `response.data` is present).
+- Copies the normalized file into `cache/` using the deterministic filename (e.g., `cache/tcg-025-pikachu.json`).
+- Leaves the originals in `tcg-cache/` untouched, so you can rerun downloads or keep historical timestamped snapshots if needed.
+
+Tips:
+- Supply explicit files or subdirectories if you only want to migrate a subset (e.g., `tcg-cache/kanto`).
+- Add `--no-rename` if you just want to normalize the JSON in place without creating copies.
+- Combine with `--pokemon-list data/pokemon_list.json` when running outside the project root.
 
 ## Examples
 
@@ -200,8 +239,8 @@ Fetching Pokemon list (1-1025) from PokeAPI...
 Processing 10 Pokemon (#1 to #10)
 Output directory: tcg-cache
 
-[1/10] #001 Bulbasaur ... ✓ 85 cards - saved to tcg-001-bulbasaur-202412160045.json
-[2/10] #002 Ivysaur ... ✓ 32 cards - saved to tcg-002-ivysaur-202412160046.json
+[1/10] #001 Bulbasaur ... ✓ 85 cards - saved to tcg-001-bulbasaur.json
+[2/10] #002 Ivysaur ... ✓ 32 cards - saved to tcg-002-ivysaur.json
 ...
 ```
 
@@ -210,4 +249,4 @@ Output directory: tcg-cache
 - The script is rate-limit friendly with a default 1-second delay between requests
 - Failed requests are retried automatically (up to 3 times with exponential backoff)
 - The Pokemon list is cached locally to avoid repeated PokeAPI calls
-- Each run creates new timestamped files (no overwriting)
+- Each run overwrites the deterministic filename for a Pokémon so reruns always refresh the latest data

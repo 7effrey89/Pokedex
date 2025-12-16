@@ -1,0 +1,863 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:carracosta"
+  },
+  "cache_key": "603af7a73d6a2b05f770ffd62aa64dfa",
+  "cached_at": 1765915848.967434,
+  "response": {
+    "data": [
+      {
+        "id": "bw10-28",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "attacks": [
+          {
+            "name": "Fossil Clutch",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "You may discard an Item card that has Fossil in its name from your hand. If you do, this attack does 50 more damage."
+          },
+          {
+            "name": "Waterfall",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "It could knock out a foe with a slap from one of its developed front appendages and chew it up, shell or bones and all.",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/28.png",
+          "large": "https://images.pokemontcg.io/bw10/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.99,
+              "high": 2.22,
+              "market": 1.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.25,
+              "mid": 1.5,
+              "high": 3.36,
+              "market": 2.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.21,
+            "lowPrice": 0.2,
+            "trendPrice": 1.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.95,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.85,
+            "lowPriceExPlus": 0.25,
+            "avg1": 0.69,
+            "avg7": 1.14,
+            "avg30": 1.04,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.32,
+            "reverseHoloAvg30": 2.28
+          }
+        }
+      },
+      {
+        "id": "bw3-26",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "abilities": [
+          {
+            "name": "Solid Rock",
+            "text": "If any damage is done to this Pokémon by attacks, flip a coin. If heads, reduce that damage by 50 (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crunch",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Discard an Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw3",
+          "name": "Noble Victories",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NVI",
+          "releaseDate": "2011/11/16",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw3/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw3/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "match",
+        "rarity": "Rare",
+        "flavorText": "They can live both in the ocean and on land. A slap from one of them is enough to open a hole in the bottom of a tanker.",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw3/26.png",
+          "large": "https://images.pokemontcg.io/bw3/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.13,
+              "mid": 3.53,
+              "high": 8.98,
+              "market": 3.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.12,
+              "mid": 5.0,
+              "high": 9.3,
+              "market": 5.72,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.3,
+            "lowPrice": 0.25,
+            "trendPrice": 2.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.23,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.5,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.3,
+            "avg7": 1.89,
+            "avg30": 1.98,
+            "reverseHoloAvg1": 1.3,
+            "reverseHoloAvg7": 2.67,
+            "reverseHoloAvg30": 2.33
+          }
+        }
+      },
+      {
+        "id": "sm11-45",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "abilities": [
+          {
+            "name": "Ancient Custom",
+            "text": "Pokémon Tool cards attached to your opponent's Pokémon have no effect.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Aqua Impact",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "This attack does 20 more damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "Its jaws are terrifyingly powerful. It could eat Omastar and Omanyte whole and not be bothered in the slightest by their shells.",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/45.png",
+          "large": "https://images.pokemontcg.io/sm11/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 1.66,
+              "market": 0.81,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.09,
+              "mid": 0.25,
+              "high": 2.02,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.07,
+            "reverseHoloTrend": 0.67,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.16,
+            "avg7": 0.15,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.72,
+            "reverseHoloAvg30": 0.61
+          }
+        }
+      },
+      {
+        "id": "smp-SM239",
+        "name": "Carracosta-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "High Density Armor",
+            "text": "If this Pokémon has full HP, it takes 90 less damage from your opponent's attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ground Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Stone Age-GX",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put any number of Pokémon that evolve from Unidentified Fossil from your discard pile onto your Bench. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM239",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM239.png",
+          "large": "https://images.pokemontcg.io/smp/SM239_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM239",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.85,
+              "mid": 1.33,
+              "high": 9.95,
+              "market": 1.25,
+              "directLow": 1.46
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM239",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.2,
+            "lowPrice": 0.5,
+            "trendPrice": 2.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.49,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.49,
+            "avg7": 2.13,
+            "avg30": 1.71,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 1.25,
+            "reverseHoloAvg30": 2.05
+          }
+        }
+      },
+      {
+        "id": "sv7-38",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "abilities": [
+          {
+            "name": "Primal Knowledge",
+            "text": "Attacks used by your Pokémon do 30 more damage to your opponent's Active Evolution Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Tidal Wave",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "38",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/38.png",
+          "large": "https://images.pokemontcg.io/sv7/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.18,
+              "high": 1.53,
+              "market": 0.13,
+              "directLow": 0.12
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.14,
+              "high": 19.98,
+              "market": 0.05,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.1,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.06,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.11,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-23",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "abilities": [
+          {
+            "name": "Mighty Shell",
+            "text": "Prevent all damage from and effects of attacks done to this Pokémon by your opponent's Pokémon that have any Special Energy attached.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Big Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Gemi",
+        "rarity": "Rare",
+        "flavorText": "They can live both in the ocean and on land. A slap from one of them is enough to open a hole in the bottom of a tanker.",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/23.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.2,
+              "high": 3.95,
+              "market": 0.12,
+              "directLow": 0.07
+            },
+            "holofoil": {
+              "low": 0.02,
+              "mid": 0.13,
+              "high": 2.95,
+              "market": 0.09,
+              "directLow": 0.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.06,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.44,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-107",
+        "name": "Carracosta",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Tirtouga",
+        "abilities": [
+          {
+            "name": "Mighty Shell",
+            "text": "Prevent all damage from and effects of attacks done to this Pokémon by your opponent's Pokémon that have any Special Energy attached.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Big Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "107",
+        "artist": "Takeshi Nakamura",
+        "rarity": "Illustration Rare",
+        "flavorText": "They can live both in the ocean and on land. A slap from one of them is enough to open a hole in the bottom of a tanker.",
+        "nationalPokedexNumbers": [
+          565
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/107.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.14,
+              "mid": 8.01,
+              "high": 34.95,
+              "market": 7.1,
+              "directLow": 7.75
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-107",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 6.26,
+            "lowPrice": 3.98,
+            "trendPrice": 6.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.0,
+            "avg1": 8.14,
+            "avg7": 6.21,
+            "avg30": 6.28,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 7,
+    "totalCount": 7
+  }
+}

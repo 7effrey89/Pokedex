@@ -1,0 +1,4404 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:ampharos"
+  },
+  "cache_key": "626446d1ac7c534be8e387f60089359d",
+  "cached_at": 1765912959.561794,
+  "response": {
+    "data": [
+      {
+        "id": "pl1-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "57",
+        "hp": "130",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Damage Bind",
+            "text": "Each Pokémon that has any damage counters on it (both yours and your opponent's) can't use any Poké-Powers.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Gigavolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 damage plus 30 more damage. If tails, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Reflect Energy",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Move an Energy card attached to Ampharos to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/1.png",
+          "large": "https://images.pokemontcg.io/pl1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.0,
+              "mid": 25.51,
+              "high": 34.97,
+              "market": 24.59,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.75,
+              "mid": 13.98,
+              "high": 24.99,
+              "market": 9.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.96,
+            "lowPrice": 0.85,
+            "trendPrice": 3.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 8.78,
+            "lowPriceExPlus": 3.5,
+            "avg1": 4.99,
+            "avg7": 3.29,
+            "avg30": 5.2,
+            "reverseHoloAvg1": 7.99,
+            "reverseHoloAvg7": 8.92,
+            "reverseHoloAvg30": 4.8
+          }
+        }
+      },
+      {
+        "id": "dp3-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "130",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Jamming",
+            "text": "After your opponent plays a Supporter card from his or her hand, put 1 damage counter on each of your opponent's Pokémon. You can't use more than 1 Jamming Poké-Body each turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cluster Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "You may discard all Lightning Energy attached to Ampharos. If you do, this attack does 20 damage to each of your opponent's Benched Pokémon that has any Energy cards attached to it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "The tip of its tail shines brightly. In the olden days, people sent signals using the tail's light.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/1.png",
+          "large": "https://images.pokemontcg.io/dp3/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.02,
+              "mid": 15.67,
+              "high": 39.99,
+              "market": 23.69,
+              "directLow": 39.99
+            },
+            "reverseHolofoil": {
+              "low": 5.35,
+              "mid": 18.06,
+              "high": 21.76,
+              "market": 21.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.37,
+            "lowPrice": 0.2,
+            "trendPrice": 2.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.42,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 3.33,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.74,
+            "avg7": 2.12,
+            "avg30": 2.49,
+            "reverseHoloAvg1": 2.08,
+            "reverseHoloAvg7": 3.58,
+            "reverseHoloAvg30": 3.02
+          }
+        }
+      },
+      {
+        "id": "ecard2-H1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Reflect Energy",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "If you have any Benched Pokémon and if there are any basic Energy cards attached to Ampharos, take 1 of those Energy cards and attach it to 1 of those Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "H1",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/H1.png",
+          "large": "https://images.pokemontcg.io/ecard2/H1_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-H1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 60.63,
+            "lowPrice": 11.5,
+            "trendPrice": 47.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.11,
+            "lowPriceExPlus": 39.9,
+            "avg1": 100.0,
+            "avg7": 43.71,
+            "avg30": 41.56,
+            "reverseHoloAvg1": 39.99,
+            "reverseHoloAvg7": 18.13,
+            "reverseHoloAvg30": 18.1
+          }
+        }
+      },
+      {
+        "id": "ex7-2",
+        "name": "Dark Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Lightning",
+          "Darkness"
+        ],
+        "evolvesFrom": "Dark Flaaffy",
+        "rules": [
+          "This Pokémon is both Lightning Darkness type."
+        ],
+        "abilities": [
+          {
+            "name": "Darkest Impulse",
+            "text": "As long as Dark Ampharos is in play, whenever your opponent plays an Evolution card from his or her hand to evolve 1 of his or her Pokémon, put 2 damage counters on that Pokémon. You can't use more than 1 Darkest Impulse Poké-Body each turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ram",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Shock Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard all Lightning Energy attached to Dark Ampharos."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Emi Miwa",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/2.png",
+          "large": "https://images.pokemontcg.io/ex7/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 58.99,
+              "mid": 99.0,
+              "high": 123.42,
+              "market": 84.57,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 39.99,
+              "mid": 68.99,
+              "high": 126.0,
+              "market": 70.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 33.95,
+            "lowPrice": 7.0,
+            "trendPrice": 25.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.0,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 34.68,
+            "lowPriceExPlus": 37.95,
+            "avg1": 22.9,
+            "avg7": 20.24,
+            "avg30": 21.96,
+            "reverseHoloAvg1": 16.79,
+            "reverseHoloAvg7": 28.46,
+            "reverseHoloAvg30": 30.23
+          }
+        }
+      },
+      {
+        "id": "pop7-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "130",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Jamming",
+            "text": "After your opponent plays a Supporter card from his or her hand, put 1 damage counter on each of your opponent's Pokémon. You can't use more than 1 Jamming Poké-Body each turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cluster Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "You may discard all Lightning Energy attached to Ampharos. If you do, this attack does 20 damage to each of your opponent's Benched Pokémon that has any Energy cards attached to it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pop7",
+          "name": "POP Series 7",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2008/03/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop7/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop7/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "The tip of its tail shines brightly. In the olden days, people sent signals using the tail's light.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop7/1.png",
+          "large": "https://images.pokemontcg.io/pop7/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop7-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 6.49,
+              "mid": 6.95,
+              "high": 12.0,
+              "market": 6.44,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 7.0,
+              "mid": 9.0,
+              "high": 12.47,
+              "market": 9.96,
+              "directLow": 9.07
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop7-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.62,
+            "lowPrice": 1.55,
+            "trendPrice": 10.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.07,
+            "lowPriceExPlus": 6.0,
+            "avg1": 8.99,
+            "avg7": 10.39,
+            "avg30": 7.55,
+            "reverseHoloAvg1": 2.25,
+            "reverseHoloAvg7": 2.52,
+            "reverseHoloAvg30": 2.96
+          }
+        }
+      },
+      {
+        "id": "neo4-1",
+        "name": "Dark Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "36",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Dark Flaaffy",
+        "abilities": [
+          {
+            "name": "Conductivity",
+            "text": "Whenever your opponent attaches an Energy card from his or her hand to a Pokémon, this power does 10 damage to that Pokémon. (Don't apply Weakness and Resistance.) This power stops working if you have more than 1 Dark Ampharos in play or while Dark Ampharos is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shock Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Discard all Lightning Energy cards attached to Dark Ampharos or this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "Its brightly lit tail can be seen for miles in the dark, even by ships on the sea.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/1.png",
+          "large": "https://images.pokemontcg.io/neo4/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 100.0,
+              "mid": 149.98,
+              "high": 269.99,
+              "market": 239.98,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 60.0,
+              "mid": 66.25,
+              "high": 97.49,
+              "market": 83.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 40.99,
+            "lowPrice": 10.0,
+            "trendPrice": 31.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.79,
+            "lowPriceExPlus": 29.0,
+            "avg1": 12.0,
+            "avg7": 28.86,
+            "avg30": 46.04,
+            "reverseHoloAvg1": 6.8,
+            "reverseHoloAvg7": 16.67,
+            "reverseHoloAvg30": 21.07
+          }
+        }
+      },
+      {
+        "id": "neo3-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "46",
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Attract Current",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip 3 coins. For each heads, you may search your deck for a Lightning Energy card and attach it to 1 of your Lightning Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Gigavolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 20 more damage. If tails, this attack does 40 damage and the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Toshinao Aoki",
+        "rarity": "Rare Holo",
+        "flavorText": "The bright light on its tail can be seen far away. It has been treasured since ancient times as a beacon.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/1.png",
+          "large": "https://images.pokemontcg.io/neo3/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 67.75,
+              "mid": 106.48,
+              "high": 182.83,
+              "market": 159.99,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 46.0,
+              "mid": 70.31,
+              "high": 104.5,
+              "market": 71.62,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 52.39,
+            "lowPrice": 3.9,
+            "trendPrice": 58.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.0,
+            "lowPriceExPlus": 23.0,
+            "avg1": 24.0,
+            "avg7": 36.25,
+            "avg30": 32.52,
+            "reverseHoloAvg1": 24.19,
+            "reverseHoloAvg7": 18.31,
+            "reverseHoloAvg30": 14.84
+          }
+        }
+      },
+      {
+        "id": "ex10-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Energy Connect",
+            "text": "As often as you like during your turn (before your attack), you may move a basic Energy card attached to 1 of your Benched Pokémon to your Active Pokémon. This power can't be used if Ampharos is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Miraculous Thunder",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "You may discard all Lightning Energy attached to Ampharos. If you do, the Defending Pokémon is now Burned and Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/1.png",
+          "large": "https://images.pokemontcg.io/ex10/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 56.62,
+              "mid": 59.31,
+              "high": 129.99,
+              "market": 44.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 65.67,
+              "mid": 83.33,
+              "high": 150.0,
+              "market": 29.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.62,
+            "lowPrice": 3.0,
+            "trendPrice": 8.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 22.99,
+            "reverseHoloLow": 3.51,
+            "reverseHoloTrend": 16.21,
+            "lowPriceExPlus": 7.49,
+            "avg1": 8.0,
+            "avg7": 9.81,
+            "avg30": 8.26,
+            "reverseHoloAvg1": 50.0,
+            "reverseHoloAvg7": 16.56,
+            "reverseHoloAvg30": 15.07
+          }
+        }
+      },
+      {
+        "id": "neo1-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Gigaspark",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed and this attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo1",
+          "name": "Neo Genesis",
+          "series": "Neo",
+          "printedTotal": 111,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N1",
+          "releaseDate": "2000/12/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo1/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo1/1.png",
+          "large": "https://images.pokemontcg.io/neo1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 53.17,
+              "mid": 67.41,
+              "high": 150.0,
+              "market": 56.95,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 15.0,
+              "mid": 19.51,
+              "high": 29.0,
+              "market": 22.91,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.43,
+            "lowPrice": 3.0,
+            "trendPrice": 11.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.37,
+            "lowPriceExPlus": 9.0,
+            "avg1": 35.0,
+            "avg7": 21.32,
+            "avg30": 19.55,
+            "reverseHoloAvg1": 7.57,
+            "reverseHoloAvg7": 7.43,
+            "reverseHoloAvg30": 9.64
+          }
+        }
+      },
+      {
+        "id": "ecard1-2",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Energy Connect",
+            "text": "As often as you like during your turn (before your attack), you may take a basic Energy card attached to 1 of your Benched Pokémon and attach it to your Active Pokémon. This power can't be used if Ampharos is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lightning Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "You may discard all Lightning Energy cards attached to Ampharos. If you do, this attack's base damage is 80 instead of 40."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/2.png",
+          "large": "https://images.pokemontcg.io/ecard1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 60.0,
+              "mid": 69.95,
+              "high": 100.0,
+              "market": 139.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 28.0,
+              "mid": 29.56,
+              "high": 159.62,
+              "market": 42.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.5,
+            "lowPrice": 4.0,
+            "trendPrice": 30.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.7,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 12.16,
+            "lowPriceExPlus": 14.89,
+            "avg1": 4.99,
+            "avg7": 28.59,
+            "avg30": 27.11,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 8.28,
+            "reverseHoloAvg30": 11.79
+          }
+        }
+      },
+      {
+        "id": "ex15-1",
+        "name": "Ampharos δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Holon Veil",
+            "text": "Treat each Basic Pokémon and Evolution card in your deck, in your discard pile, in your hand, and in play as a Pokémon that has δ on its card.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Delta Circle",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each Pokémon you have in play that has δ on its card."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/1.png",
+          "large": "https://images.pokemontcg.io/ex15/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 34.95,
+              "mid": 43.6,
+              "high": 49.99,
+              "market": 28.58,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.5,
+              "mid": 24.73,
+              "high": 34.95,
+              "market": 26.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.0,
+            "lowPrice": 1.95,
+            "trendPrice": 10.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.32,
+            "reverseHoloLow": 2.99,
+            "reverseHoloTrend": 11.47,
+            "lowPriceExPlus": 7.0,
+            "avg1": 6.0,
+            "avg7": 10.85,
+            "avg30": 8.26,
+            "reverseHoloAvg1": 5.95,
+            "reverseHoloAvg7": 13.99,
+            "reverseHoloAvg30": 12.4
+          }
+        }
+      },
+      {
+        "id": "hgss1-14",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Acceleration Bolt",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Search your deck for up to 2 basic Energy cards and attach them to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Thunder",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Flip a coin. If tails, Ampharos does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss1",
+          "name": "HeartGold & SoulSilver",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss1/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss1/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss1/14.png",
+          "large": "https://images.pokemontcg.io/hgss1/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.99,
+              "mid": 4.0,
+              "high": 19.99,
+              "market": 3.73,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 9.0,
+              "mid": 10.93,
+              "high": 16.91,
+              "market": 10.41,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.36,
+            "lowPrice": 0.1,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.36,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 5.22,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.5,
+            "avg7": 1.47,
+            "avg30": 1.38,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 3.62,
+            "reverseHoloAvg30": 4.78
+          }
+        }
+      },
+      {
+        "id": "col1-23",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Acceleration Bolt",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Search your deck for up to 2 basic Energy cards and attach them to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Thunder",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Flip a coin. If tails, Ampharos does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/23.png",
+          "large": "https://images.pokemontcg.io/col1/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.66,
+              "mid": 1.16,
+              "high": 2.47,
+              "market": 1.63,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.67,
+              "mid": 11.28,
+              "high": 20.0,
+              "market": 10.67,
+              "directLow": 9.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.91,
+            "lowPrice": 0.05,
+            "trendPrice": 1.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 5.3,
+            "lowPriceExPlus": 0.4,
+            "avg1": 5.0,
+            "avg7": 1.59,
+            "avg30": 1.46,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 4.13,
+            "reverseHoloAvg30": 5.23
+          }
+        }
+      },
+      {
+        "id": "xy7-27",
+        "name": "Ampharos-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesTo": [
+          "M Ampharos-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Rod",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 4 cards of your deck and attach as many Lightning Energy cards you find there as you like to this Pokémon. Shuffle the other cards back into your deck."
+          },
+          {
+            "name": "Sparkling Tail",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, or any other effects on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "27",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/27.png",
+          "large": "https://images.pokemontcg.io/xy7/27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.25,
+              "mid": 2.99,
+              "high": 6.0,
+              "market": 2.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.78,
+            "lowPrice": 1.99,
+            "trendPrice": 4.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.51,
+            "lowPriceExPlus": 3.0,
+            "avg1": 3.49,
+            "avg7": 3.69,
+            "avg30": 4.64,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 4.67,
+            "reverseHoloAvg30": 3.8
+          }
+        }
+      },
+      {
+        "id": "xy7-28",
+        "name": "M Ampharos-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Ampharos-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Exavolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "You may do 50 more damage and leave your opponent's Active Pokémon Paralyzed. If you do, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/28.png",
+          "large": "https://images.pokemontcg.io/xy7/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.7,
+              "mid": 19.75,
+              "high": 32.03,
+              "market": 19.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 15.61,
+            "lowPrice": 3.0,
+            "trendPrice": 17.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.29,
+            "lowPriceExPlus": 16.99,
+            "avg1": 37.99,
+            "avg7": 15.61,
+            "avg30": 19.38,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 5.02,
+            "reverseHoloAvg30": 5.59
+          }
+        }
+      },
+      {
+        "id": "ecard2-1",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Reflect Energy",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "If you have any Benched Pokémon and if there are any basic Energy cards attached to Ampharos, take 1 of those Energy cards and attach it to 1 of those Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/1.png",
+          "large": "https://images.pokemontcg.io/ecard2/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 20.0,
+              "mid": 25.19,
+              "high": 35.0,
+              "market": 23.7,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 34.65,
+              "mid": 37.6,
+              "high": 40.0,
+              "market": 38.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.49,
+            "lowPrice": 1.5,
+            "trendPrice": 9.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.99,
+            "reverseHoloLow": 3.69,
+            "reverseHoloTrend": 9.42,
+            "lowPriceExPlus": 6.0,
+            "avg1": 1.0,
+            "avg7": 8.56,
+            "avg30": 9.02,
+            "reverseHoloAvg1": 11.99,
+            "reverseHoloAvg7": 8.4,
+            "reverseHoloAvg30": 8.5
+          }
+        }
+      },
+      {
+        "id": "bw6-40",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Electromagnetic Wall",
+            "text": "As long as this Pokémon is your Active Pokémon, whenever your opponent attaches an Energy from his or her hand to 1 of his or her Pokémon, put 3 damage counters on that Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electrobullet",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "flavorText": "The tip of its tail shines brightly. In the olden days, people sent signals using the tail's light.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/40.png",
+          "large": "https://images.pokemontcg.io/bw6/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.12,
+              "mid": 3.05,
+              "high": 7.98,
+              "market": 3.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 4.01,
+              "high": 6.49,
+              "market": 4.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.55,
+            "lowPrice": 0.35,
+            "trendPrice": 3.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.64,
+            "reverseHoloLow": 0.35,
+            "reverseHoloTrend": 3.15,
+            "lowPriceExPlus": 0.99,
+            "avg1": 0.5,
+            "avg7": 3.69,
+            "avg30": 3.28,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.32,
+            "reverseHoloAvg30": 3.27
+          }
+        }
+      },
+      {
+        "id": "xy11-40",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Shocking Light",
+            "text": "Once during your turn (before your attack), you may put 3 damage counters on 1 of your opponent's Pokémon-EX.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Gigavolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "Flip a coin. If heads, this attack does 40 more damage. If tails, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Kanako Eo",
+        "rarity": "Rare Holo",
+        "flavorText": "The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/40.png",
+          "large": "https://images.pokemontcg.io/xy11/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.59,
+              "high": 2.25,
+              "market": 0.56,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.36,
+              "mid": 0.9,
+              "high": 5.98,
+              "market": 0.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.72,
+            "lowPrice": 0.05,
+            "trendPrice": 1.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.52,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.74,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.18,
+            "avg7": 1.26,
+            "avg30": 0.92,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 1.3,
+            "reverseHoloAvg30": 1.51
+          }
+        }
+      },
+      {
+        "id": "sm9-43",
+        "name": "Ampharos-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Recharge",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Put all Electropower cards from your discard pile into your hand."
+          },
+          {
+            "name": "Impact Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150",
+            "text": "Discard all Lightning Energy from this Pokémon."
+          },
+          {
+            "name": "Electrical-GX",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 7 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/43.png",
+          "large": "https://images.pokemontcg.io/sm9/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 4.39,
+              "high": 19.99,
+              "market": 4.28,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.79,
+            "lowPrice": 1.0,
+            "trendPrice": 3.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.03,
+            "lowPriceExPlus": 1.95,
+            "avg1": 5.9,
+            "avg7": 4.42,
+            "avg30": 4.55,
+            "reverseHoloAvg1": 3.4,
+            "reverseHoloAvg7": 2.8,
+            "reverseHoloAvg30": 3.29
+          }
+        }
+      },
+      {
+        "id": "ecard1-34",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Energy Connect",
+            "text": "As often as you like during your turn (before your attack), you may take a basic Energy card attached to 1 of your Benched Pokémon and attach it to your Active Pokémon. This power can't be used if Ampharos is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lightning Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "You may discard all Lightning Energy cards attached to Ampharos. If you do, this attack's base damage is 80 instead of 40."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/34.png",
+          "large": "https://images.pokemontcg.io/ecard1/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 7.54,
+              "mid": 9.88,
+              "high": 30.0,
+              "market": 11.64,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.66,
+              "mid": 17.34,
+              "high": 20.01,
+              "market": 21.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.95,
+            "lowPrice": 0.8,
+            "trendPrice": 4.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.83,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 6.9,
+            "lowPriceExPlus": 1.7,
+            "avg1": 3.0,
+            "avg7": 3.01,
+            "avg30": 5.06,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 7.75,
+            "reverseHoloAvg30": 8.28
+          }
+        }
+      },
+      {
+        "id": "swsh4-49",
+        "name": "Ampharos V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dazzle Blast",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Damaging Spark",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack also does 30 damage to each of your opponent's Benched Pokémon that has any damage counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Ryuta Fuse",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/49.png",
+          "large": "https://images.pokemontcg.io/swsh4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.39,
+              "mid": 1.0,
+              "high": 11.21,
+              "market": 0.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.25,
+            "lowPrice": 0.25,
+            "trendPrice": 1.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.73,
+            "lowPriceExPlus": 0.8,
+            "avg1": 1.11,
+            "avg7": 1.34,
+            "avg30": 1.26,
+            "reverseHoloAvg1": 2.24,
+            "reverseHoloAvg7": 1.79,
+            "reverseHoloAvg30": 1.88
+          }
+        }
+      },
+      {
+        "id": "swsh3-57",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Dazzle Blast",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Electric Ball",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "57",
+        "artist": "kodama",
+        "rarity": "Rare",
+        "flavorText": "Its tail shines bright and strong. It has been prized since long ago as a beacon for sailors.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/57.png",
+          "large": "https://images.pokemontcg.io/swsh3/57_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 5.1,
+              "market": 0.24,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.45,
+              "high": 2.0,
+              "market": 0.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.23,
+            "lowPrice": 0.02,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.52,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 0.49,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.23,
+            "avg7": 0.17,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 0.52,
+            "reverseHoloAvg30": 0.65
+          }
+        }
+      },
+      {
+        "id": "xy7-70",
+        "name": "Ampharos Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Ampharos-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "70",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/70.png",
+          "large": "https://images.pokemontcg.io/xy7/70_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.11,
+              "mid": 0.45,
+              "high": 10.0,
+              "market": 0.5,
+              "directLow": 0.29
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-70",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.5,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.54,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.2,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 0.89,
+            "reverseHoloAvg7": 0.64,
+            "reverseHoloAvg30": 0.49
+          }
+        }
+      },
+      {
+        "id": "bwp-BW67",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Random Spark",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Electricannon",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "You may discard all Lightning Energy attached to this Pokémon. If you do, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW67",
+        "artist": "Naoki Saito",
+        "rarity": "Promo",
+        "flavorText": "The tip of its tail shines brightly. In the olden days, people sent signals using the tail's light.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW67.png",
+          "large": "https://images.pokemontcg.io/bwp/BW67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.12,
+              "mid": 4.0,
+              "high": 16.0,
+              "market": 13.97,
+              "directLow": 4.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.75,
+            "lowPrice": 3.25,
+            "trendPrice": 6.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.94,
+            "lowPriceExPlus": 4.4,
+            "avg1": 5.0,
+            "avg7": 6.92,
+            "avg30": 6.83,
+            "reverseHoloAvg1": 4.49,
+            "reverseHoloAvg7": 3.93,
+            "reverseHoloAvg30": 3.37
+          }
+        }
+      },
+      {
+        "id": "sm8-78",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Unseen Flash",
+            "text": "Once during your turn (before your attack), you may put 2 Lightning Energy cards from your hand in the Lost Zone. If you do, your opponent's Active Pokémon is now Paralyzed.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Split Bomb",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "This attack does 50 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "78",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare Holo",
+        "flavorText": "The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/78.png",
+          "large": "https://images.pokemontcg.io/sm8/78_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-78",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.06,
+              "high": 7.0,
+              "market": 1.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.85,
+              "mid": 1.06,
+              "high": 1.77,
+              "market": 1.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-78",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.08,
+            "lowPrice": 0.15,
+            "trendPrice": 1.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.64,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.88,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.5,
+            "avg7": 0.95,
+            "avg30": 0.99,
+            "reverseHoloAvg1": 1.57,
+            "reverseHoloAvg7": 1.93,
+            "reverseHoloAvg30": 1.59
+          }
+        }
+      },
+      {
+        "id": "xy7-87",
+        "name": "Ampharos-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesTo": [
+          "M Ampharos-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Rod",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 4 cards of your deck and attach as many Lightning Energy cards you find there as you like to this Pokémon. Shuffle the other cards back into your deck."
+          },
+          {
+            "name": "Sparkling Tail",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, or any other effects on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/87.png",
+          "large": "https://images.pokemontcg.io/xy7/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.95,
+              "mid": 31.11,
+              "high": 64.99,
+              "market": 30.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 23.41,
+            "lowPrice": 10.0,
+            "trendPrice": 25.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.16,
+            "lowPriceExPlus": 34.99,
+            "avg1": 19.9,
+            "avg7": 23.89,
+            "avg30": 24.51,
+            "reverseHoloAvg1": 14.95,
+            "reverseHoloAvg7": 14.32,
+            "reverseHoloAvg30": 10.51
+          }
+        }
+      },
+      {
+        "id": "xy7-88",
+        "name": "M Ampharos-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Ampharos-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Exavolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "You may do 50 more damage and leave your opponent's Active Pokémon Paralyzed. If you do, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/88.png",
+          "large": "https://images.pokemontcg.io/xy7/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 54.93,
+              "mid": 74.54,
+              "high": 120.96,
+              "market": 76.9,
+              "directLow": 70.71
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 52.47,
+            "lowPrice": 49.99,
+            "trendPrice": 76.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.97,
+            "lowPriceExPlus": 55.0,
+            "avg1": 39.95,
+            "avg7": 74.12,
+            "avg30": 85.35,
+            "reverseHoloAvg1": 35.0,
+            "reverseHoloAvg7": 15.8,
+            "reverseHoloAvg30": 11.58
+          }
+        }
+      },
+      {
+        "id": "ex3-89",
+        "name": "Ampharos ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Conductivity",
+            "text": "As long as Ampharos ex is in play, whenever your opponent attaches an Energy card to his or her Pokémon from hand, put 1 damage counter on that Pokémon. You can't put more than 1 damage counter even if there is more than 1 Ampharos ex in play.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Gigavolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 30 more damage. If tails, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/89.png",
+          "large": "https://images.pokemontcg.io/ex3/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 52.1,
+              "mid": 76.63,
+              "high": 101.38,
+              "market": 102.03,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 45.4,
+            "lowPrice": 9.97,
+            "trendPrice": 41.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.68,
+            "lowPriceExPlus": 34.0,
+            "avg1": 34.99,
+            "avg7": 37.89,
+            "avg30": 35.11,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 11.79,
+            "reverseHoloAvg30": 15.01
+          }
+        }
+      },
+      {
+        "id": "hgss1-105",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Prime"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "abilities": [
+          {
+            "name": "Conductivity",
+            "text": "Whenever your opponent attaches an Energy card from his or her hand to 1 of his or her Pokémon, put 1 damage counter on that Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lightning Crush",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 40 more damage. If tails, discard an Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss1",
+          "name": "HeartGold & SoulSilver",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss1/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss1/logo.png"
+          }
+        },
+        "number": "105",
+        "artist": "Kent Kanetsuna",
+        "rarity": "Rare Prime",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss1/105.png",
+          "large": "https://images.pokemontcg.io/hgss1/105_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss1-105",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 23.0,
+              "mid": 30.31,
+              "high": 500.0,
+              "market": 44.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss1-105",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 9.05,
+            "lowPrice": 1.0,
+            "trendPrice": 8.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.48,
+            "lowPriceExPlus": 4.0,
+            "avg1": 4.44,
+            "avg7": 6.23,
+            "avg30": 8.41,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 5.86,
+            "reverseHoloAvg30": 4.82
+          }
+        }
+      },
+      {
+        "id": "sm9-163",
+        "name": "Ampharos-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Recharge",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Put all Electropower cards from your discard pile into your hand."
+          },
+          {
+            "name": "Impact Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150",
+            "text": "Discard all Lightning Energy from this Pokémon."
+          },
+          {
+            "name": "Electrical-GX",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 7 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "163",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/163.png",
+          "large": "https://images.pokemontcg.io/sm9/163_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-163",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.28,
+              "mid": 20.92,
+              "high": 44.3,
+              "market": 21.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-163",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.79,
+            "lowPrice": 5.49,
+            "trendPrice": 17.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.28,
+            "lowPriceExPlus": 6.89,
+            "avg1": 6.8,
+            "avg7": 16.58,
+            "avg30": 15.25,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 8.16,
+            "reverseHoloAvg30": 8.4
+          }
+        }
+      },
+      {
+        "id": "sm9-185",
+        "name": "Ampharos-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Recharge",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Put all Electropower cards from your discard pile into your hand."
+          },
+          {
+            "name": "Impact Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "150",
+            "text": "Discard all Lightning Energy from this Pokémon."
+          },
+          {
+            "name": "Electrical-GX",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 7 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "185",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/185.png",
+          "large": "https://images.pokemontcg.io/sm9/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 32.0,
+              "mid": 39.94,
+              "high": 199.99,
+              "market": 40.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 25.0,
+            "lowPrice": 9.68,
+            "trendPrice": 26.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 20.66,
+            "lowPriceExPlus": 13.9,
+            "avg1": 31.5,
+            "avg7": 24.92,
+            "avg30": 22.63,
+            "reverseHoloAvg1": 29.94,
+            "reverseHoloAvg7": 18.4,
+            "reverseHoloAvg30": 15.4
+          }
+        }
+      },
+      {
+        "id": "swsh4-171",
+        "name": "Ampharos V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dazzle Blast",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Damaging Spark",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack also does 30 damage to each of your opponent's Benched Pokémon that has any damage counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "171",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/171.png",
+          "large": "https://images.pokemontcg.io/swsh4/171_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-171",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.49,
+              "mid": 4.76,
+              "high": 24.95,
+              "market": 4.77,
+              "directLow": 4.54
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-171",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 5.29,
+            "lowPrice": 2.5,
+            "trendPrice": 5.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.77,
+            "lowPriceExPlus": 4.0,
+            "avg1": 6.99,
+            "avg7": 5.07,
+            "avg30": 5.23,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 17.81,
+            "reverseHoloAvg30": 16.62
+          }
+        }
+      },
+      {
+        "id": "swsh6-49",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Thunder Shock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Searchlight Tail",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "Your opponent reveals their hand. If you find any Energy cards there, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Megumi Mizutani",
+        "rarity": "Rare",
+        "flavorText": "Its tail shines bright and strong. It has been prized since long ago as a beacon for sailors.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/49.png",
+          "large": "https://images.pokemontcg.io/swsh6/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.13,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.14,
+            "avg7": 0.14,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.26
+          }
+        }
+      },
+      {
+        "id": "swsh7-56",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Thunder Shock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Electron Crush",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100+",
+            "text": "You may discard 3 Lightning Energy from this Pokémon. If you do, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Saya Tsuruta",
+        "rarity": "Rare",
+        "flavorText": "Its tail shines bright and strong. It has been prized since long ago as a beacon for sailors.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/56.png",
+          "large": "https://images.pokemontcg.io/swsh7/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 49.0,
+              "market": 0.21,
+              "directLow": 0.14
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 500.13,
+              "market": 0.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.3,
+            "avg7": 0.18,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.13,
+            "reverseHoloAvg7": 0.24,
+            "reverseHoloAvg30": 0.25
+          }
+        }
+      },
+      {
+        "id": "svp-16",
+        "name": "Ampharos ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "330",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Electro Ball",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Thunderstrike Tail",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "140+",
+            "text": "You may discard 2 Energy from this Pokémon to have this attack do 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Black Star Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 215,
+          "total": 196,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SV",
+          "releaseDate": "2023/01/01",
+          "updatedAt": "2024/11/09 13:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/16.png",
+          "large": "https://images.pokemontcg.io/svp/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.3,
+              "mid": 5.05,
+              "high": 9.99,
+              "market": 4.79,
+              "directLow": 4.32
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.05,
+            "lowPrice": 1.99,
+            "trendPrice": 5.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.99,
+            "avg1": 6.99,
+            "avg7": 5.4,
+            "avg30": 5.16,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "svp-109",
+        "name": "Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Flaaffy",
+        "attacks": [
+          {
+            "name": "Electric Ball",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Black Star Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 215,
+          "total": 196,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SV",
+          "releaseDate": "2023/01/01",
+          "updatedAt": "2024/11/09 13:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "GIDORA",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/109.png",
+          "large": "https://images.pokemontcg.io/svp/109_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-109",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 1.53,
+            "lowPrice": 0.75,
+            "trendPrice": 1.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.75,
+            "avg1": 1.47,
+            "avg7": 1.48,
+            "avg30": 1.45,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv10-74",
+        "name": "Team Rocket's Ampharos",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Team Rocket's Flaaffy",
+        "abilities": [
+          {
+            "name": "Darkest Impulse",
+            "text": "Whenever your opponent plays a Pokémon from their hand to evolve 1 of their Pokémon, put 4 damage counters on that Pokémon. The effect of Darkest Impulse doesn't stack.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "140",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "74",
+        "artist": "Shiburingaru",
+        "rarity": "Uncommon",
+        "flavorText": "The bright light on its tail can be seen far away. It has been treasured since ancient times as a beacon.",
+        "nationalPokedexNumbers": [
+          181
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/74.png",
+          "large": "https://images.pokemontcg.io/sv10/74_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-74",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.35,
+              "high": 20.0,
+              "market": 0.28,
+              "directLow": 0.08
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 20.0,
+              "market": 0.05,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-74",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.22,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 37,
+    "totalCount": 37
+  }
+}

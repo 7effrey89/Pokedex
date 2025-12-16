@@ -1,0 +1,4604 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:jolteon"
+  },
+  "cache_key": "00bbd59871246e6abfb4aa048f84c605",
+  "cached_at": 1765912785.164617,
+  "response": {
+    "data": [
+      {
+        "id": "pop3-3",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "pop3",
+          "name": "POP Series 3",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2006/04/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop3/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop3/3.png",
+          "large": "https://images.pokemontcg.io/pop3/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 6.0,
+              "mid": 7.25,
+              "high": 17.85,
+              "market": 17.88,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 11.94,
+              "mid": 14.69,
+              "high": 50.0,
+              "market": 13.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.63,
+            "lowPrice": 3.25,
+            "trendPrice": 15.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.0,
+            "reverseHoloLow": 19.95,
+            "reverseHoloTrend": 2.18,
+            "lowPriceExPlus": 9.99,
+            "avg1": 12.95,
+            "avg7": 12.8,
+            "avg30": 12.88,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 9.11,
+            "reverseHoloAvg30": 13.02
+          }
+        }
+      },
+      {
+        "id": "ex11-7",
+        "name": "Jolteon δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning",
+          "Metal"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "This Pokémon is both Lightning Metal type."
+        ],
+        "attacks": [
+          {
+            "name": "Delta Search",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Search your deck for a Holon Energy card and attach it to Jolteon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Return Spark",
+            "cost": [
+              "Lightning",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "You may return an Energy card attached to Jolteon to your hand. If you do, this attack does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/7.png",
+          "large": "https://images.pokemontcg.io/ex11/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 68.23,
+              "mid": 79.61,
+              "high": 249.99,
+              "market": 81.61,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 79.99,
+              "mid": 80.98,
+              "high": 84.0,
+              "market": 150.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 57.13,
+            "lowPrice": 9.0,
+            "trendPrice": 54.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 48.33,
+            "reverseHoloLow": 10.0,
+            "reverseHoloTrend": 46.12,
+            "lowPriceExPlus": 35.0,
+            "avg1": 60.0,
+            "avg7": 41.32,
+            "avg30": 44.03,
+            "reverseHoloAvg1": 19.98,
+            "reverseHoloAvg7": 34.99,
+            "reverseHoloAvg30": 36.25
+          }
+        }
+      },
+      {
+        "id": "ex10-8",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Attract Current",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, search your deck for a Lightning Energy card and attach it to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Multi Pulse",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "If Jolteon has 3 of more different types of basic Energy cards attached to it, this attack does 40 damage plus 20 more damage and the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/8.png",
+          "large": "https://images.pokemontcg.io/ex10/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 55.72,
+              "mid": 59.99,
+              "high": 99.99,
+              "market": 43.66,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 285.0,
+              "mid": 292.84,
+              "high": 300.67,
+              "market": 47.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 25.56,
+            "lowPrice": 4.0,
+            "trendPrice": 24.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 30.5,
+            "reverseHoloLow": 5.2,
+            "reverseHoloTrend": 32.81,
+            "lowPriceExPlus": 9.5,
+            "avg1": 4.0,
+            "avg7": 20.38,
+            "avg30": 16.07,
+            "reverseHoloAvg1": 39.0,
+            "reverseHoloAvg7": 32.86,
+            "reverseHoloAvg30": 23.29
+          }
+        }
+      },
+      {
+        "id": "base2-4",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "29",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "It accumulates negative ions from the atmosphere to blast out 10,000-volt lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/4.png",
+          "large": "https://images.pokemontcg.io/base2/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 125.0,
+              "mid": 179.99,
+              "high": 299.99,
+              "market": 159.62,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 38.99,
+              "mid": 70.79,
+              "high": 105.0,
+              "market": 79.05,
+              "directLow": 93.55
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 34.89,
+            "lowPrice": 8.0,
+            "trendPrice": 38.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 18.72,
+            "lowPriceExPlus": 28.4,
+            "avg1": 31.0,
+            "avg7": 40.14,
+            "avg30": 36.97,
+            "reverseHoloAvg1": 10.83,
+            "reverseHoloAvg7": 18.81,
+            "reverseHoloAvg30": 19.33
+          }
+        }
+      },
+      {
+        "id": "ex2-6",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Double Kick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          },
+          {
+            "name": "Lightning Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "You may discard all Lightning Energy cards attached to Jolteon. If you do, this attack's base damage is 70 instead of 40."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex2",
+          "name": "Sandstorm",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SS",
+          "releaseDate": "2003/09/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex2/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex2/6.png",
+          "large": "https://images.pokemontcg.io/ex2/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 44.97,
+              "mid": 52.62,
+              "high": 59.99,
+              "market": 62.25,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 45.96,
+              "mid": 67.5,
+              "high": 189.99,
+              "market": 44.06,
+              "directLow": 49.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex2-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 15.0,
+            "lowPrice": 5.0,
+            "trendPrice": 34.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 46.74,
+            "lowPriceExPlus": 18.0,
+            "avg1": 65.0,
+            "avg7": 38.44,
+            "avg30": 33.12,
+            "reverseHoloAvg1": 13.9,
+            "reverseHoloAvg7": 40.54,
+            "reverseHoloAvg30": 27.28
+          }
+        }
+      },
+      {
+        "id": "base6-14",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "29",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Pin Missle",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "It accumulates negative ions from the atmosphere to blast out 10,000-volt lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/14.png",
+          "large": "https://images.pokemontcg.io/base6/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 47.99,
+              "mid": 58.61,
+              "high": 69.99,
+              "market": 63.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 199.85,
+              "mid": 200.0,
+              "high": 300.0,
+              "market": 154.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 67.19,
+            "lowPrice": 6.9,
+            "trendPrice": 42.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 59.99,
+            "reverseHoloTrend": 142.82,
+            "lowPriceExPlus": 17.0,
+            "avg1": 6.98,
+            "avg7": 54.14,
+            "avg30": 27.19,
+            "reverseHoloAvg1": 155.0,
+            "reverseHoloAvg7": 151.06,
+            "reverseHoloAvg30": 89.48
+          }
+        }
+      },
+      {
+        "id": "ecard3-H12",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Self-healing",
+            "text": "Whenever you attach a Lightning Energy card from your hand to Jolteon, remove all Special Conditions affecting Jolteon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Thunderspark",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "This attack does 10 damage to each Benched Pokémon with at least 1 Energy card attached to it (yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "H12",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/H12.png",
+          "large": "https://images.pokemontcg.io/ecard3/H12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-H12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 179.95,
+              "mid": 179.95,
+              "high": 179.95,
+              "market": 199.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-H12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 63.33,
+            "lowPrice": 19.5,
+            "trendPrice": 221.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 47.39,
+            "lowPriceExPlus": 94.98,
+            "avg1": 100.0,
+            "avg7": 317.84,
+            "avg30": 126.45,
+            "reverseHoloAvg1": 60.0,
+            "reverseHoloAvg7": 49.89,
+            "reverseHoloAvg30": 50.42
+          }
+        }
+      },
+      {
+        "id": "sm115-23",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Electromagnetic Wall",
+            "text": "As long as this Pokémon is your Active Pokémon, whenever your opponent attaches an Energy card from their hand to 1 of their Pokémon, put 2 damage counters on that Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Thunderbolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90",
+            "text": "Discard all Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "sm115",
+          "name": "Hidden Fates",
+          "series": "Sun & Moon",
+          "printedTotal": 68,
+          "total": 69,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "HIF",
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm115/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm115/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "Its lungs contain an organ that creates electricity. The crackling sound of electricity can be heard when it exhales.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm115/23.png",
+          "large": "https://images.pokemontcg.io/sm115/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm115-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.18,
+              "mid": 0.37,
+              "high": 1.95,
+              "market": 0.34,
+              "directLow": 0.26
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.8,
+              "high": 2.99,
+              "market": 0.85,
+              "directLow": 0.77
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm115-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.36,
+            "lowPrice": 0.02,
+            "trendPrice": 0.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.37,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.23,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.2,
+            "avg7": 0.29,
+            "avg30": 0.36,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 1.1,
+            "reverseHoloAvg30": 1.2
+          }
+        }
+      },
+      {
+        "id": "xy7-26",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Electric Effect",
+            "text": "Each of your Stage 1 Pokémon in play is now a Lightning Pokémon in addition to its existing types.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Blast",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Discard an Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Rare Holo",
+        "flavorText": "It accumulates negative ions in the atmosphere to blast out 10,000-volt lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/26.png",
+          "large": "https://images.pokemontcg.io/xy7/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.51,
+              "high": 8.24,
+              "market": 3.09,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 3.93,
+              "high": 19.96,
+              "market": 3.88,
+              "directLow": 5.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.92,
+            "lowPrice": 1.0,
+            "trendPrice": 2.94,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.14,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 5.15,
+            "lowPriceExPlus": 1.2,
+            "avg1": 1.95,
+            "avg7": 2.9,
+            "avg30": 3.53,
+            "reverseHoloAvg1": 6.9,
+            "reverseHoloAvg7": 4.86,
+            "reverseHoloAvg30": 4.47
+          }
+        }
+      },
+      {
+        "id": "gym2-28",
+        "name": "Lt. Surge's Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "32",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Lt. Surge's Eevee",
+        "attacks": [
+          {
+            "name": "High Voltage",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, your opponent can't play Trainer cards during his or her next turn."
+          },
+          {
+            "name": "Thunder Flare",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 damage times the number of damage counters on Lt. Surge's Jolteon, then flip a coin. If tails, Lt. Surge's Jolteon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/28.png",
+          "large": "https://images.pokemontcg.io/gym2/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 30.0,
+              "mid": 43.05,
+              "high": 62.39,
+              "market": 43.53,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 11.76,
+              "mid": 16.32,
+              "high": 30.0,
+              "market": 17.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.33,
+            "lowPrice": 3.0,
+            "trendPrice": 14.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.5,
+            "lowPriceExPlus": 12.5,
+            "avg1": 15.0,
+            "avg7": 16.7,
+            "avg30": 13.79,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.5,
+            "reverseHoloAvg30": 1.5
+          }
+        }
+      },
+      {
+        "id": "base2-20",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "29",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "It accumulates negative ions from the atmosphere to blast out 10,000-volt lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/20.png",
+          "large": "https://images.pokemontcg.io/base2/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 21.0,
+              "mid": 25.47,
+              "high": 9999.0,
+              "market": 25.87,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 5.75,
+              "mid": 9.99,
+              "high": 9999.0,
+              "market": 14.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.21,
+            "lowPrice": 0.5,
+            "trendPrice": 8.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.37,
+            "lowPriceExPlus": 9.0,
+            "avg1": 10.0,
+            "avg7": 7.52,
+            "avg30": 12.85,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 11.06,
+            "reverseHoloAvg30": 22.86
+          }
+        }
+      },
+      {
+        "id": "dp5-23",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "39",
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Thunder Fang",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Lightning Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "You may discard 2 Energy attached to Jolteon. If you do, this attack's base damage is 90 instead of 50."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "It controls 10,000-volt power and can raise all the furs on its body as if it were sharp needles.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/23.png",
+          "large": "https://images.pokemontcg.io/dp5/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.99,
+              "mid": 4.63,
+              "high": 30.0,
+              "market": 4.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 24.65,
+              "mid": 29.99,
+              "high": 33.97,
+              "market": 17.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.5,
+            "lowPrice": 0.03,
+            "trendPrice": 1.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 18.0,
+            "reverseHoloLow": 1.49,
+            "reverseHoloTrend": 10.42,
+            "lowPriceExPlus": 1.0,
+            "avg1": 3.99,
+            "avg7": 1.89,
+            "avg30": 1.55,
+            "reverseHoloAvg1": 18.0,
+            "reverseHoloAvg7": 6.07,
+            "reverseHoloAvg30": 7.58
+          }
+        }
+      },
+      {
+        "id": "pl2-26",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "43",
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Undevelop",
+            "text": "Once during your turn (before your attack), you may devolve Jolteon and put Jolteon into your hand. This power can't be used if Jolteon is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 30 more damage."
+          },
+          {
+            "name": "Evolving Thunder",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "If Jolteon evolved from Eevee during this turn, this attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/26.png",
+          "large": "https://images.pokemontcg.io/pl2/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.29,
+              "mid": 4.77,
+              "high": 10.16,
+              "market": 9.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 22.36,
+              "mid": 24.75,
+              "high": 38.32,
+              "market": 34.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.91,
+            "lowPrice": 0.55,
+            "trendPrice": 4.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.04,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 8.09,
+            "lowPriceExPlus": 4.0,
+            "avg1": 2.89,
+            "avg7": 5.54,
+            "avg30": 5.28,
+            "reverseHoloAvg1": 3.65,
+            "reverseHoloAvg7": 9.8,
+            "reverseHoloAvg30": 7.19
+          }
+        }
+      },
+      {
+        "id": "hgss3-28",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Agility",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to Jolteon during your opponent's next turn."
+          },
+          {
+            "name": "Mach Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "It concentrates the weak electric charges emitted by its cells and launches wicked lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/28.png",
+          "large": "https://images.pokemontcg.io/hgss3/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.81,
+              "mid": 3.75,
+              "high": 7.25,
+              "market": 4.16,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.34,
+              "mid": 24.8,
+              "high": 36.48,
+              "market": 24.38,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.34,
+            "lowPrice": 0.09,
+            "trendPrice": 1.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 19.99,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 11.77,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.98,
+            "avg7": 1.49,
+            "avg30": 1.56,
+            "reverseHoloAvg1": 19.99,
+            "reverseHoloAvg7": 7.96,
+            "reverseHoloAvg30": 10.69
+          }
+        }
+      },
+      {
+        "id": "bw9-34",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          },
+          {
+            "name": "Electri-Defuse",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "If the Defending Pokémon is a Pokémon-EX, that Pokémon can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw9",
+          "name": "Plasma Freeze",
+          "series": "Black & White",
+          "printedTotal": 116,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLF",
+          "releaseDate": "2013/05/08",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw9/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw9/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "flavorText": "By storing electricity in its body, it can shoot its bristlelike fur like a barrage of missiles.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw9/34.png",
+          "large": "https://images.pokemontcg.io/bw9/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw9-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.71,
+              "mid": 2.5,
+              "high": 8.75,
+              "market": 2.46,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.99,
+              "mid": 26.58,
+              "high": 50.0,
+              "market": 31.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw9-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.27,
+            "lowPrice": 0.1,
+            "trendPrice": 1.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 15.89,
+            "lowPriceExPlus": 0.45,
+            "avg1": 1.98,
+            "avg7": 1.36,
+            "avg30": 1.95,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 15.87,
+            "reverseHoloAvg30": 13.62
+          }
+        }
+      },
+      {
+        "id": "g1-28",
+        "name": "Jolteon-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Swift",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, or any other effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Flash Ray",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Naoki Saito",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/28.png",
+          "large": "https://images.pokemontcg.io/g1/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 13.99,
+              "mid": 20.5,
+              "high": 4320.99,
+              "market": 21.08,
+              "directLow": 15.33
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.78,
+            "lowPrice": 6.84,
+            "trendPrice": 13.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.7,
+            "lowPriceExPlus": 9.99,
+            "avg1": 7.0,
+            "avg7": 17.25,
+            "avg30": 16.94,
+            "reverseHoloAvg1": 4.99,
+            "reverseHoloAvg7": 8.92,
+            "reverseHoloAvg30": 10.11
+          }
+        }
+      },
+      {
+        "id": "g1-28a",
+        "name": "Jolteon-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Swift",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, or any other effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Flash Ray",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "28a",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/28a.png",
+          "large": "https://images.pokemontcg.io/g1/28a_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-28a",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 41.76,
+            "lowPrice": 10.0,
+            "trendPrice": 42.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 17.47,
+            "lowPriceExPlus": 27.88,
+            "avg1": 39.95,
+            "avg7": 41.8,
+            "avg30": 35.14,
+            "reverseHoloAvg1": 19.5,
+            "reverseHoloAvg7": 15.24,
+            "reverseHoloAvg30": 11.06
+          }
+        }
+      },
+      {
+        "id": "base5-38",
+        "name": "Dark Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "23",
+        "hp": "50",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Lightning Flash",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing."
+          },
+          {
+            "name": "Thunder Attack",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed. If tails, Dark Jolteon does 10 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "A dangerous Pokémon when angered. It likes to playfully shock people with the electricity it stores within its body.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/38.png",
+          "large": "https://images.pokemontcg.io/base5/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 9.86,
+              "mid": 17.15,
+              "high": 40.0,
+              "market": 17.15,
+              "directLow": 11.45
+            },
+            "unlimited": {
+              "low": 2.5,
+              "mid": 5.0,
+              "high": 25.0,
+              "market": 7.26,
+              "directLow": 10.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.99,
+            "lowPrice": 0.75,
+            "trendPrice": 18.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.0,
+            "lowPriceExPlus": 4.6,
+            "avg1": 4.48,
+            "avg7": 13.05,
+            "avg30": 10.14,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.75,
+            "reverseHoloAvg30": 0.75
+          }
+        }
+      },
+      {
+        "id": "bw5-37",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Electrigun",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "You may discard a Lightning Energy attached to this Pokémon. If you do, this attack does 40 more damage."
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 4 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Uncommon",
+        "flavorText": "If agitated, it uses electricity to straighten out its fur and launch it in small bunches.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/37.png",
+          "large": "https://images.pokemontcg.io/bw5/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.0,
+              "mid": 3.14,
+              "high": 7.8,
+              "market": 3.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.66,
+              "mid": 15.56,
+              "high": 27.27,
+              "market": 20.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 64.99,
+            "lowPrice": 64.9,
+            "trendPrice": 86.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 171.59,
+            "lowPriceExPlus": 64.9,
+            "avg1": 64.99,
+            "avg7": 86.86,
+            "avg30": 63.02,
+            "reverseHoloAvg1": 49.99,
+            "reverseHoloAvg7": 34.54,
+            "reverseHoloAvg30": 34.54
+          }
+        }
+      },
+      {
+        "id": "col1-45",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Agility",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to Jolteon during your opponent's next turn."
+          },
+          {
+            "name": "Mach Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "It concentrates the weak electric charges emitted by its cells and launches wicked lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/45.png",
+          "large": "https://images.pokemontcg.io/col1/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.11,
+              "mid": 1.79,
+              "high": 7.47,
+              "market": 1.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.55,
+              "mid": 19.98,
+              "high": 31.38,
+              "market": 20.92,
+              "directLow": 19.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.56,
+            "lowPrice": 0.02,
+            "trendPrice": 2.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.95,
+            "reverseHoloLow": 1.1,
+            "reverseHoloTrend": 10.09,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.29,
+            "avg7": 3.04,
+            "avg30": 2.32,
+            "reverseHoloAvg1": 13.99,
+            "reverseHoloAvg7": 11.58,
+            "reverseHoloAvg30": 10.79
+          }
+        }
+      },
+      {
+        "id": "ecard3-13",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Self-healing",
+            "text": "Whenever you attach a Lightning Energy card from your hand to Jolteon, remove all Special Conditions affecting Jolteon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Thunderspark",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "This attack does 10 damage to each Benched Pokémon with at least 1 Energy card attached to it (yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/13.png",
+          "large": "https://images.pokemontcg.io/ecard3/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 32.34,
+              "mid": 39.99,
+              "high": 50.19,
+              "market": 33.44,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 49.98,
+              "mid": 49.98,
+              "high": 49.98,
+              "market": 30.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.22,
+            "lowPrice": 1.5,
+            "trendPrice": 10.73,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 7.49,
+            "reverseHoloTrend": 22.92,
+            "lowPriceExPlus": 5.0,
+            "avg1": 24.95,
+            "avg7": 9.26,
+            "avg30": 10.09,
+            "reverseHoloAvg1": 45.0,
+            "reverseHoloAvg7": 34.35,
+            "reverseHoloAvg30": 27.59
+          }
+        }
+      },
+      {
+        "id": "neo4-48",
+        "name": "Light Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "31",
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Pulse Guard",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "During your opponent's next turn, whenever 30 or more damage is done to Light Jolteon (after applying Weakness and Resistance), prevent that damage. (Any other effects of attacks still happen.)"
+          },
+          {
+            "name": "Thunder Needle",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 3 coins. This attack does 20 damage times the number of heads. If you get 2 or more heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Naoyo Kimura",
+        "rarity": "Uncommon",
+        "flavorText": "It can collect the ambient electrical energy in its cells and expel it in massive bursts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/48.png",
+          "large": "https://images.pokemontcg.io/neo4/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 85.0,
+              "mid": 119.5,
+              "high": 165.0,
+              "market": 122.38,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 45.0,
+              "mid": 59.09,
+              "high": 149.99,
+              "market": 54.1,
+              "directLow": 99.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 25.49,
+            "lowPrice": 4.5,
+            "trendPrice": 27.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.0,
+            "lowPriceExPlus": 10.0,
+            "avg1": 15.99,
+            "avg7": 18.72,
+            "avg30": 24.11,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 12.0,
+            "reverseHoloAvg30": 12.0
+          }
+        }
+      },
+      {
+        "id": "swsh4-47",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Thunderous Awakening",
+            "text": "If this Pokémon has a Memory Capsule attached, Water Pokémon in play (both yours and your opponent's) have no Abilities.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electric Ball",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "47",
+        "artist": "Mizue",
+        "rarity": "Rare",
+        "flavorText": "If it is angered or startled, the fur all over its body bristles like sharp needles that pierce foes.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/47.png",
+          "large": "https://images.pokemontcg.io/swsh4/47_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.35,
+              "high": 4.97,
+              "market": 0.35,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.12,
+              "mid": 0.55,
+              "high": 999.99,
+              "market": 0.61,
+              "directLow": 0.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.55,
+            "lowPrice": 0.02,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.81,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.59,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.39,
+            "avg7": 0.4,
+            "avg30": 0.79,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 0.93,
+            "reverseHoloAvg30": 0.99
+          }
+        }
+      },
+      {
+        "id": "sm12-70",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Speed Cheer",
+            "text": "The attacks of your Pokémon-GX in play that evolve from Eevee cost Colorless less. You can't apply more than 1 Speed Cheer Ability at a time.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "70",
+        "artist": "Uta",
+        "rarity": "Uncommon",
+        "flavorText": "Its lungs contain an organ that creates electricity. The crackling sound of electricity can be heard when it exhales.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/70.png",
+          "large": "https://images.pokemontcg.io/sm12/70_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.46,
+              "high": 10.0,
+              "market": 0.38,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.95,
+              "mid": 1.85,
+              "high": 25.0,
+              "market": 1.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-70",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.34,
+            "lowPrice": 0.05,
+            "trendPrice": 0.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.86,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 5.76,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.14,
+            "avg7": 0.37,
+            "avg30": 0.36,
+            "reverseHoloAvg1": 1.94,
+            "reverseHoloAvg7": 5.75,
+            "reverseHoloAvg30": 4.45
+          }
+        }
+      },
+      {
+        "id": "bwp-BW91",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Electrigun",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "You may discard a Lightning Energy attached to this Pokémon. If you do, this attack does 40 more damage."
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 4 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW91",
+        "artist": "The Pokémon Company Art Team",
+        "rarity": "Promo",
+        "flavorText": "If agitated, it uses electricity to straighten out its fur and launch it in small bunches.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW91.png",
+          "large": "https://images.pokemontcg.io/bwp/BW91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 31.53,
+              "mid": 44.5,
+              "high": 249.99,
+              "market": 46.17,
+              "directLow": 39.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 24.74,
+            "lowPrice": 3.95,
+            "trendPrice": 34.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.73,
+            "lowPriceExPlus": 5.0,
+            "avg1": 31.99,
+            "avg7": 29.77,
+            "avg30": 20.22,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 6.13,
+            "reverseHoloAvg30": 5.04
+          }
+        }
+      },
+      {
+        "id": "ex16-101",
+        "name": "Jolteon ★",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Star"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "You can't have more than 1 Pokémon Star in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Yellow Ray",
+            "text": "Once during your turn, when you put Jolteon Star from your hand onto your Bench, you may put 1 damage counter on each Active Pokémon (both yours and your opponent's).",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Agility",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, prevent all effects of an attack, including damage, done to Jolteon Star during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo Star",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/101.png",
+          "large": "https://images.pokemontcg.io/ex16/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 899.99,
+              "mid": 1449.97,
+              "high": 1999.95,
+              "market": 967.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 293.75,
+            "lowPrice": 100.0,
+            "trendPrice": 916.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 9000.0,
+            "reverseHoloTrend": 170.94,
+            "lowPriceExPlus": 150.0,
+            "avg1": 400.0,
+            "avg7": 830.0,
+            "avg30": 587.37,
+            "reverseHoloAvg1": 200.0,
+            "reverseHoloAvg7": 148.28,
+            "reverseHoloAvg30": 130.85
+          }
+        }
+      },
+      {
+        "id": "ex11-109",
+        "name": "Jolteon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Evolutionary Thunder",
+            "text": "Once during your turn, when you play Jolteon ex from your hand to evolve 1 of your Pokémon, you may put 1 damage counter on each of your opponent's Pokémon.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Second Bite",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each damage counter on the Defending Pokémon."
+          },
+          {
+            "name": "Thunder Blast",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard a Lightning Energy card attached to Jolteon ex."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/109.png",
+          "large": "https://images.pokemontcg.io/ex11/109_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-109",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 129.99,
+              "mid": 139.98,
+              "high": 199.5,
+              "market": 199.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-109",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 39.92,
+            "lowPrice": 12.0,
+            "trendPrice": 54.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 64.28,
+            "lowPriceExPlus": 18.0,
+            "avg1": 39.99,
+            "avg7": 46.77,
+            "avg30": 52.58,
+            "reverseHoloAvg1": 57.95,
+            "reverseHoloAvg7": 42.78,
+            "reverseHoloAvg30": 40.75
+          }
+        }
+      },
+      {
+        "id": "smp-SM173",
+        "name": "Jolteon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Electrobullet",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Swift Run-GX",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "110",
+            "text": "Prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM173",
+        "artist": "PLANETA Otani",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM173.png",
+          "large": "https://images.pokemontcg.io/smp/SM173_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM173",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.59,
+              "mid": 9.0,
+              "high": 9999.0,
+              "market": 8.91,
+              "directLow": 9.31
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM173",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 6.29,
+            "lowPrice": 2.0,
+            "trendPrice": 5.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.85,
+            "lowPriceExPlus": 4.0,
+            "avg1": 5.85,
+            "avg7": 6.5,
+            "avg30": 6.65,
+            "reverseHoloAvg1": 8.48,
+            "reverseHoloAvg7": 7.09,
+            "reverseHoloAvg30": 6.25
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH094",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Energize",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach a Lightning Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Thunder",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH094",
+        "artist": "Yuu Nishida",
+        "rarity": "Promo",
+        "flavorText": "If it is angered or startled, the fur all over its body bristles like sharp needles that pierce foes.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH094.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH094_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH094",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 2.99,
+              "high": 14.99,
+              "market": 2.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH094",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.15,
+            "lowPrice": 1.3,
+            "trendPrice": 3.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.54,
+            "lowPriceExPlus": 1.4,
+            "avg1": 3.9,
+            "avg7": 3.37,
+            "avg30": 3.25,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 2.0,
+            "reverseHoloAvg30": 2.28
+          }
+        }
+      },
+      {
+        "id": "swsh7-51",
+        "name": "Jolteon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "300",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Jolteon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Max Thunder Rumble",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "This attack also does 100 damage to 1 of your opponent's Benched Pokémon that has any damage counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/51.png",
+          "large": "https://images.pokemontcg.io/swsh7/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.48,
+              "mid": 7.2,
+              "high": 100.0,
+              "market": 6.45,
+              "directLow": 8.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.49,
+            "lowPrice": 1.99,
+            "trendPrice": 5.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.0,
+            "avg1": 5.0,
+            "avg7": 5.36,
+            "avg30": 5.45,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-177",
+        "name": "Jolteon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Spear",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "Flip 4 coins. This attack does 60 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "177",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/177.png",
+          "large": "https://images.pokemontcg.io/swsh7/177_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-177",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.24,
+              "mid": 22.26,
+              "high": 42.69,
+              "market": 21.58,
+              "directLow": 15.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-177",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 18.6,
+            "lowPrice": 7.0,
+            "trendPrice": 19.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 12.9,
+            "avg1": 15.0,
+            "avg7": 19.3,
+            "avg30": 20.39,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH151",
+        "name": "Jolteon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Spear",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "Flip 4 coins. This attack does 60 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH151",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH151.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH151_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH151",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.15,
+              "mid": 2.95,
+              "high": 9999.0,
+              "market": 2.49,
+              "directLow": 3.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH151",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.64,
+            "lowPrice": 1.7,
+            "trendPrice": 2.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.7,
+            "avg1": 3.47,
+            "avg7": 2.71,
+            "avg30": 2.68,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH183",
+        "name": "Jolteon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Spear",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "Flip 4 coins. This attack does 60 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH183",
+        "artist": "nagimiso",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH183.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH183_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH183",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 45.0,
+              "mid": 58.0,
+              "high": 131.32,
+              "market": 52.68,
+              "directLow": 48.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH183",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 49.44,
+            "lowPrice": 30.0,
+            "trendPrice": 48.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 39.0,
+            "avg1": 64.97,
+            "avg7": 48.75,
+            "avg30": 50.84,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH184",
+        "name": "Jolteon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "300",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Jolteon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Max Thunder Rumble",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "This attack also does 100 damage to 1 of your opponent's Benched Pokémon that has any damage counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH184",
+        "artist": "Hasuno",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH184.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH184_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH184",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 51.99,
+              "mid": 65.04,
+              "high": 9999.0,
+              "market": 59.33,
+              "directLow": 64.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH184",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 89.74,
+            "lowPrice": 36.0,
+            "trendPrice": 78.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 43.95,
+            "avg1": 50.0,
+            "avg7": 62.08,
+            "avg30": 78.85,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh9tg-TG04",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Thunderous Awakening",
+            "text": "If this Pokémon has a Memory Capsule attached, Water Pokémon in play (both yours and your opponent's) have no Abilities.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electric Ball",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9tg",
+          "name": "Brilliant Stars Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9tg/logo.png"
+          }
+        },
+        "number": "TG04",
+        "artist": "DOM",
+        "rarity": "Trainer Gallery Rare Holo",
+        "flavorText": "If it is angered or startled, the fur all over its body bristles like sharp needles that pierce foes.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9tg/TG04.png",
+          "large": "https://images.pokemontcg.io/swsh9tg/TG04_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9tg-TG04",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.01,
+              "mid": 11.0,
+              "high": 79.99,
+              "market": 9.94,
+              "directLow": 11.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9tg-TG04",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.11,
+            "lowPrice": 1.96,
+            "trendPrice": 6.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.55,
+            "avg1": 3.62,
+            "avg7": 7.26,
+            "avg30": 7.02,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-135",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Linear Attack",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Fighting Lightning",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex or Pokémon V, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "135",
+        "artist": "sui",
+        "rarity": "Rare",
+        "flavorText": "It concentrates the weak electric charges emitted by its cells and launches wicked lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/135.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/135_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-135",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 1.5,
+              "high": 9.99,
+              "market": 1.35,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 10.0,
+              "market": 0.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-135",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.22,
+            "lowPrice": 0.02,
+            "trendPrice": 0.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.7,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.85,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.35,
+            "avg7": 0.31,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 1.65,
+            "reverseHoloAvg7": 1.68,
+            "reverseHoloAvg30": 1.73
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-30",
+        "name": "Jolteon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Flashing Spear",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "You may discard up to 2 Basic Energy from your Benched Pokémon. This attack does 90 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Dravite",
+            "cost": [
+              "Fire",
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "280",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "30",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/30.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.25,
+              "high": 9999.0,
+              "market": 1.92,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-29",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Linear Attack",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Fighting Lightning",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex or Pokémon V, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "29",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/29.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.12
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.24,
+              "directLow": 0.15
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-153",
+        "name": "Jolteon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Flashing Spear",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "You may discard up to 2 Basic Energy from your Benched Pokémon. This attack does 90 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Dravite",
+            "cost": [
+              "Fire",
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "280",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "153",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/153.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/153_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-153",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 133.68,
+              "mid": 165.0,
+              "high": 999.0,
+              "market": 153.39,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "svp-169",
+        "name": "Jolteon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Linear Attack",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Fighting Lightning",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex or Pokémon V, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 150,
+          "total": 148,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2022/11/01",
+          "updatedAt": "2023/07/20 22:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "169",
+        "artist": "Nisota Niso",
+        "rarity": "Promo",
+        "flavorText": "It concentrates the weak electric charges emitted by its cells and launches wicked lightning bolts.",
+        "nationalPokedexNumbers": [
+          135
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/169.png",
+          "large": "https://images.pokemontcg.io/svp/169_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-169",
+          "updatedAt": "2025/10/29",
+          "prices": {
+            "holofoil": {
+              "low": 0.29,
+              "mid": 0.99,
+              "high": 999.0,
+              "market": 0.84,
+              "directLow": 0.88
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-169",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.44,
+            "lowPrice": 0.1,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.53,
+            "avg7": 0.48,
+            "avg30": 0.51,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 40,
+    "totalCount": 40
+  }
+}

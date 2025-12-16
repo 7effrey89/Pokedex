@@ -3,12 +3,12 @@ Cache Service for API responses
 Stores API responses with expiration times to improve performance
 """
 import json
-import os
 import time
 import hashlib
-from typing import Optional, Dict, Any
-from pathlib import Path
 import logging
+import re
+from pathlib import Path
+from typing import Optional, Dict, Any
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +25,8 @@ class CacheService:
         """
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(exist_ok=True)
+        self.project_root = Path(__file__).resolve().parents[2]
+        self._pokedex_index = self._load_pokedex_index()
         
         # Config file for cache settings
         self.config_file = self.cache_dir / "cache_config.json"
@@ -98,9 +100,13 @@ class CacheService:
         key_data = f"{endpoint}:{json.dumps(normalized_params, sort_keys=True)}"
         # Hash it for a clean filename
         return hashlib.md5(key_data.encode()).hexdigest()
-    
-    def _get_cache_path(self, cache_key: str) -> Path:
-        """Get the file path for a cache key"""
+
+    def _get_cache_path(self, endpoint: str, params: Dict[str, Any], cache_key: str) -> Path:
+        """Resolve the descriptive cache filename for this entry"""
+        descriptor = self._build_descriptor(endpoint, params)
+        if descriptor:
+            safe_name = descriptor[:120]
+            return self.cache_dir / f"{safe_name}.json"
         return self.cache_dir / f"{cache_key}.json"
     
     def get(self, endpoint: str, params: Dict[str, Any] = None) -> Optional[Dict[str, Any]]:
@@ -121,13 +127,18 @@ class CacheService:
             params = {}
         
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(cache_key)
+        cache_path = self._get_cache_path(endpoint, params, cache_key)
+        candidate_paths = [cache_path]
+        legacy_path = self.cache_dir / f"{cache_key}.json"
+        if legacy_path != cache_path:
+            candidate_paths.append(legacy_path)
         
-        if not cache_path.exists():
+        target_path = next((p for p in candidate_paths if p.exists()), None)
+        if not target_path:
             return None
         
         try:
-            with open(cache_path, 'r') as f:
+            with target_path.open('r', encoding='utf-8') as f:
                 cached_data = json.load(f)
             
             # Check if expired
@@ -136,7 +147,7 @@ class CacheService:
             
             if time.time() - cached_time > expiry_seconds:
                 logger.info(f"Cache expired for {endpoint}")
-                cache_path.unlink()  # Delete expired cache
+                target_path.unlink()
                 return None
             
             logger.info(f"Cache hit for {endpoint}")
@@ -162,18 +173,26 @@ class CacheService:
             params = {}
         
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(cache_key)
+        cache_path = self._get_cache_path(endpoint, params, cache_key)
         
         try:
             cached_data = {
                 "endpoint": endpoint,
                 "params": params,
+                "cache_key": cache_key,
                 "response": response,
                 "cached_at": time.time()
             }
             
-            with open(cache_path, 'w') as f:
-                json.dump(cached_data, f, indent=2)
+            with cache_path.open('w', encoding='utf-8') as f:
+                json.dump(cached_data, f, indent=2, ensure_ascii=False)
+
+            legacy_path = self.cache_dir / f"{cache_key}.json"
+            if legacy_path.exists() and legacy_path != cache_path:
+                try:
+                    legacy_path.unlink()
+                except Exception:
+                    logger.debug("Unable to remove legacy cache file for %s", endpoint)
             
             logger.info(f"Cached response for {endpoint}")
         
@@ -214,16 +233,17 @@ class CacheService:
             params = {}
         
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(cache_key)
-        
-        if cache_path.exists():
-            try:
-                cache_path.unlink()
-                logger.info(f"Deleted cache for {endpoint} with params {params}")
-                return True
-            except Exception as e:
-                logger.error(f"Error deleting cache: {e}")
-                return False
+        cache_path = self._get_cache_path(endpoint, params, cache_key)
+        legacy_path = self.cache_dir / f"{cache_key}.json"
+        for path in (cache_path, legacy_path):
+            if path.exists():
+                try:
+                    path.unlink()
+                    logger.info(f"Deleted cache for {endpoint} with params {params}")
+                    return True
+                except Exception as e:
+                    logger.error(f"Error deleting cache: {e}")
+                    return False
         
         logger.info(f"No cache found for {endpoint} with params {params}")
         return False
@@ -244,6 +264,98 @@ class CacheService:
             "total_files": len(cache_files),
             "total_size_mb": round(total_size / (1024 * 1024), 2)
         }
+
+    def _load_pokedex_index(self) -> Dict[str, int]:
+        """Load Pokemon name to dex number mapping for descriptive filenames"""
+        data_file = self.project_root / "data" / "pokemon_list.json"
+        if not data_file.exists():
+            return {}
+        try:
+            with data_file.open('r', encoding='utf-8') as handle:
+                entries = json.load(handle)
+        except Exception:
+            return {}
+        mapping = {}
+        for entry in entries:
+            name = str(entry.get("name", "")).strip().lower()
+            number = entry.get("number")
+            if name and isinstance(number, int):
+                mapping[name] = number
+        return mapping
+
+    def _slugify(self, value: str) -> str:
+        if not value:
+            return ""
+        slug = re.sub(r"[^a-z0-9]+", "-", value.lower())
+        slug = re.sub(r"-+", "-", slug).strip('-')
+        return slug
+
+    def _build_descriptor(self, endpoint: str, params: Dict[str, Any]) -> Optional[str]:
+        builder_map = {
+            "get_pokemon": self._describe_pokemon_lookup,
+            "search_pokemon_cards": self._describe_tcg_search,
+            "get_card_price": self._describe_card_price,
+        }
+        builder = builder_map.get(endpoint)
+        descriptor = builder(params) if builder else None
+        if descriptor:
+            return descriptor
+        fallback = self._describe_generic(endpoint, params)
+        return fallback
+
+    def _describe_pokemon_lookup(self, params: Dict[str, Any]) -> Optional[str]:
+        name = params.get("pokemon_name")
+        slug = self._slugify(str(name)) if name else ""
+        if not slug:
+            return None
+        number = self._pokedex_index.get(slug)
+        if isinstance(number, int):
+            return f"pokeapi-{number:03d}-{slug}"
+        return f"pokeapi-{slug}"
+
+    def _describe_tcg_search(self, params: Dict[str, Any]) -> Optional[str]:
+        name = params.get("pokemon_name")
+        filters = []
+        if name:
+            slug = self._slugify(str(name))
+            number = self._pokedex_index.get(slug)
+            head = f"tcg-{number:03d}-{slug}" if isinstance(number, int) else f"tcg-{slug}"
+        else:
+            fallback = params.get("card_type") or params.get("rarity") or "cards"
+            head = f"tcg-{self._slugify(str(fallback)) or 'cards'}"
+        for key in ("card_type", "rarity"):
+            value = params.get(key)
+            if value:
+                filters.append(self._slugify(str(value)))
+        if params.get("hp_min") is not None:
+            filters.append(f"hpmin-{params['hp_min']}")
+        if params.get("hp_max") is not None:
+            filters.append(f"hpmax-{params['hp_max']}")
+        suffix = "-".join(filter(None, filters))
+        return f"{head}-{suffix}" if suffix else head
+
+    def _describe_card_price(self, params: Dict[str, Any]) -> Optional[str]:
+        card_id = params.get("card_id")
+        if not card_id:
+            return "tcg-price"
+        return f"tcg-price-{self._slugify(str(card_id))}"
+
+    def _describe_generic(self, endpoint: str, params: Dict[str, Any]) -> Optional[str]:
+        base = self._slugify(endpoint) or "cache"
+        if not params:
+            return base
+        parts = []
+        for key in sorted(params.keys()):
+            value = params[key]
+            if value is None:
+                continue
+            key_slug = self._slugify(str(key))
+            value_slug = self._slugify(str(value))
+            if key_slug and value_slug:
+                parts.append(f"{key_slug}-{value_slug}")
+        if parts:
+            return f"{base}-{'-'.join(parts)}"
+        return base
 
 
 # Global cache service instance

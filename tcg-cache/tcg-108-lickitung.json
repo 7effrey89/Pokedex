@@ -1,0 +1,2525 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:lickitung"
+  },
+  "cache_key": "c078e8e5448c3c3847b290a3bf01814a",
+  "cached_at": 1765900583.756104,
+  "response": {
+    "data": [
+      {
+        "id": "si1-16",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lick Wounds",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, choose 1 Pokémon (yours or your opponent's) with damage counters on it and remove 2 damage counters from it (1 if it only has 1)."
+          },
+          {
+            "name": "Tongue Stretch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, choose 1 of your opponent's Pokémon. This attack does 20 damage to that Pokémon. Don't apply Weakness and Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "si1",
+          "name": "Southern Islands",
+          "series": "Other",
+          "printedTotal": 18,
+          "total": 18,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2001/07/31",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/si1/symbol.png",
+            "logo": "https://images.pokemontcg.io/si1/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Naoyo Kimura",
+        "flavorText": "This Pokémon uses its six-foot tongue as if it were a hand. The origin of its anaesthetic properties is still a mystery.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/si1/16.png",
+          "large": "https://images.pokemontcg.io/si1/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/si1-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 19.27,
+              "mid": 33.0,
+              "high": 80.0,
+              "market": 23.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/si1-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.95,
+            "lowPrice": 10.99,
+            "trendPrice": 21.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.0,
+            "lowPriceExPlus": 15.0,
+            "avg1": 20.0,
+            "avg7": 19.59,
+            "avg30": 17.66,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 7.0,
+            "reverseHoloAvg30": 7.0
+          }
+        }
+      },
+      {
+        "id": "det1-16",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Continuous Lick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip a coin until you get tails. This attack does 20 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "det1",
+          "name": "Detective Pikachu",
+          "series": "Sun & Moon",
+          "printedTotal": 18,
+          "total": 18,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DET",
+          "releaseDate": "2019/04/05",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/det1/symbol.png",
+            "logo": "https://images.pokemontcg.io/det1/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "MPC Film",
+        "rarity": "Common",
+        "flavorText": "It checks out whatever's around it by licking everything. If you don't clean off a spot where it's licked you, you'll break out in a rash!",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/det1/16.png",
+          "large": "https://images.pokemontcg.io/det1/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/det1-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.03,
+              "mid": 0.29,
+              "high": 19.98,
+              "market": 0.31,
+              "directLow": 0.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/det1-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.61,
+            "reverseHoloLow": 0.17,
+            "reverseHoloTrend": 0.74,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.24,
+            "avg7": 0.13,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.86,
+            "reverseHoloAvg30": 0.49
+          }
+        }
+      },
+      {
+        "id": "ex15-19",
+        "name": "Lickitung δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lap Up",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 2 cards."
+          },
+          {
+            "name": "Delta Mind",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 1 damage counter on 1 of your opponent's Pokémon. If that Pokémon has δ on its card, put 3 damage counters instead."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/19.png",
+          "large": "https://images.pokemontcg.io/ex15/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.9,
+              "mid": 1.43,
+              "high": 3.5,
+              "market": 1.66,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 13.0,
+              "mid": 29.99,
+              "high": 31.0,
+              "market": 14.68,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.03,
+            "lowPrice": 0.15,
+            "trendPrice": 0.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.74,
+            "reverseHoloLow": 1.2,
+            "reverseHoloTrend": 8.96,
+            "lowPriceExPlus": 0.75,
+            "avg1": 0.8,
+            "avg7": 1.0,
+            "avg30": 1.08,
+            "reverseHoloAvg1": 6.49,
+            "reverseHoloAvg7": 7.83,
+            "reverseHoloAvg30": 7.09
+          }
+        }
+      },
+      {
+        "id": "ex6-37",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lick",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Tongue Whip",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 20 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/37.png",
+          "large": "https://images.pokemontcg.io/ex6/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.8,
+              "mid": 4.85,
+              "high": 9.5,
+              "market": 4.02,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.09,
+              "mid": 18.99,
+              "high": 24.9,
+              "market": 22.71,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.83,
+            "lowPrice": 0.39,
+            "trendPrice": 2.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.06,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 8.97,
+            "lowPriceExPlus": 0.8,
+            "avg1": 2.7,
+            "avg7": 2.86,
+            "avg30": 2.39,
+            "reverseHoloAvg1": 13.93,
+            "reverseHoloAvg7": 8.37,
+            "reverseHoloAvg30": 8.6
+          }
+        }
+      },
+      {
+        "id": "gym1-41",
+        "name": "Brock's Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "24",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Slap",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "gym1",
+          "name": "Gym Heroes",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G1",
+          "releaseDate": "2000/08/14",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym1/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym1/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym1/41.png",
+          "large": "https://images.pokemontcg.io/gym1/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 2.67,
+              "mid": 4.28,
+              "high": 10.85,
+              "market": 4.81,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 0.59,
+              "mid": 1.69,
+              "high": 3.16,
+              "market": 2.07,
+              "directLow": 2.28
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.97,
+            "lowPrice": 0.2,
+            "trendPrice": 2.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.99,
+            "avg1": 1.57,
+            "avg7": 2.29,
+            "avg30": 2.69,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "dp5-39",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "23",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lap Up",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card."
+          },
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "Instead of hands, it uses its tongue, which is twice its height. Its sticky saliva grips anything.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/39.png",
+          "large": "https://images.pokemontcg.io/dp5/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.55,
+              "high": 5.0,
+              "market": 0.64,
+              "directLow": 0.4
+            },
+            "reverseHolofoil": {
+              "low": 1.12,
+              "mid": 1.58,
+              "high": 1.97,
+              "market": 1.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.14,
+            "lowPrice": 0.02,
+            "trendPrice": 0.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.88,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.48,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.5,
+            "avg7": 0.17,
+            "avg30": 0.22,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 1.58,
+            "reverseHoloAvg30": 1.4
+          }
+        }
+      },
+      {
+        "id": "base2-38",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "10",
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Wrap",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Its tongue can be extended like a chameleon's. It leaves a stinging sensation when it licks enemies.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/38.png",
+          "large": "https://images.pokemontcg.io/base2/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 2.25,
+              "mid": 7.0,
+              "high": 19.99,
+              "market": 3.76,
+              "directLow": 3.68
+            },
+            "unlimited": {
+              "low": 0.2,
+              "mid": 0.75,
+              "high": 4.99,
+              "market": 1.15,
+              "directLow": 0.44
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.8,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.67,
+            "avg7": 0.71,
+            "avg30": 0.97,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 0.6,
+            "reverseHoloAvg30": 0.6
+          }
+        }
+      },
+      {
+        "id": "base4-48",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "10",
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Wrap",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Its tongue can be extended like a chameleon's. It leaves a stinging sensation when it licks enemies.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/48.png",
+          "large": "https://images.pokemontcg.io/base4/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 1.01,
+              "high": 19.99,
+              "market": 2.15,
+              "directLow": 1.55
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.29,
+            "lowPrice": 0.1,
+            "trendPrice": 1.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.95,
+            "avg7": 1.92,
+            "avg30": 1.61,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "hgss4-66",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Beat",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Tongue Whip",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Benched Pokémon. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "Atsuko Nishida",
+        "rarity": "Common",
+        "flavorText": "Its long tongue, slathered with a gooey saliva, sticks to anything, so it is very useful.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/66.png",
+          "large": "https://images.pokemontcg.io/hgss4/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.12,
+              "mid": 0.3,
+              "high": 1.49,
+              "market": 0.3,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.62,
+              "mid": 2.12,
+              "high": 5.0,
+              "market": 1.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.21,
+            "lowPrice": 0.02,
+            "trendPrice": 0.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.77,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.4,
+            "avg7": 0.28,
+            "avg30": 0.21,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.85,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "pl1-80",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "30",
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Stretch Tongue",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. This attack's damage isn't affected by Weakness or Resistance."
+          },
+          {
+            "name": "Knock Off",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Choose 1 card from your opponent's hand without looking and discard it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Yuka Morii",
+        "rarity": "Common",
+        "flavorText": "When it extends its over-six-foot-long tongue, its tail quivers. There is a possibility they are connected.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/80.png",
+          "large": "https://images.pokemontcg.io/pl1/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.0,
+              "mid": 2.07,
+              "high": 6.65,
+              "market": 3.14,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 17.0,
+              "mid": 17.0,
+              "high": 21.99,
+              "market": 5.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.38,
+            "lowPrice": 0.02,
+            "trendPrice": 0.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.85,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 3.43,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.04,
+            "avg7": 0.25,
+            "avg30": 0.43,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 4.33,
+            "reverseHoloAvg30": 1.67
+          }
+        }
+      },
+      {
+        "id": "dp3-91",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "27",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lick",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Stomp",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Ken Sugimori",
+        "rarity": "Common",
+        "flavorText": "Instead of hands, it uses its tongue, which is twice its height. Its sticky saliva grips anything.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/91.png",
+          "large": "https://images.pokemontcg.io/dp3/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.28,
+              "high": 0.99,
+              "market": 0.29,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.33,
+              "mid": 1.08,
+              "high": 7.0,
+              "market": 0.94,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.75,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 1.56,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.14,
+            "avg7": 0.22,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 1.33,
+            "reverseHoloAvg30": 0.92
+          }
+        }
+      },
+      {
+        "id": "xy3-78",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lunge",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "78",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Common",
+        "flavorText": "Its long tongue, slathered with a gooey saliva, sticks to anything, so it is very useful.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/78.png",
+          "large": "https://images.pokemontcg.io/xy3/78_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-78",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.21,
+              "high": 4.0,
+              "market": 0.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.5,
+              "high": 2.49,
+              "market": 0.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-78",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.72,
+            "reverseHoloLow": 0.14,
+            "reverseHoloTrend": 0.47,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.11,
+            "avg7": 0.13,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.35
+          }
+        }
+      },
+      {
+        "id": "sm5-102",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lap Up",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Draw 3 cards."
+          },
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50×",
+            "text": "Flip 2 coins. This attack does 50 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "Mizue",
+        "rarity": "Common",
+        "flavorText": "Its tongue is twice the length of its body. It can be moved like an arm for grabbing food and attacking.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/102.png",
+          "large": "https://images.pokemontcg.io/sm5/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 1.99,
+              "market": 0.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.45,
+              "high": 1.75,
+              "market": 0.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-102",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.42,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.36,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.07,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.45,
+            "reverseHoloAvg7": 0.37,
+            "reverseHoloAvg30": 0.37
+          }
+        }
+      },
+      {
+        "id": "ecard2-90",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Long Tongue",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon in play. This attack does 10 damage to that Pokémon. Don't apply Weakness and Resistance."
+          },
+          {
+            "name": "Body Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Yuka Morii",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/90.png",
+          "large": "https://images.pokemontcg.io/ecard2/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 11.97,
+              "mid": 13.86,
+              "high": 30.0,
+              "market": 13.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-90",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 3.28,
+            "lowPrice": 0.54,
+            "trendPrice": 3.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.7,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 8.93,
+            "lowPriceExPlus": 1.35,
+            "avg1": 2.5,
+            "avg7": 3.1,
+            "avg30": 2.88,
+            "reverseHoloAvg1": 3.4,
+            "reverseHoloAvg7": 8.03,
+            "reverseHoloAvg30": 5.48
+          }
+        }
+      },
+      {
+        "id": "sm10-152",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Lick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "152",
+        "artist": "Yukiko Baba",
+        "rarity": "Common",
+        "flavorText": "It checks out whatever's around it by licking everything. If you don't clean off a spot where it's licked you, you'll break out in a rash!",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/152.png",
+          "large": "https://images.pokemontcg.io/sm10/152_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-152",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.12,
+              "mid": 0.32,
+              "high": 1.49,
+              "market": 0.3,
+              "directLow": 0.32
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 10.0,
+              "market": 0.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-152",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.07,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.29,
+            "reverseHoloAvg7": 0.35,
+            "reverseHoloAvg30": 0.31
+          }
+        }
+      },
+      {
+        "id": "sm11-161",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Heavy Draw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card for each of your Pokémon in play that has a Retreat Cost of exactly 4."
+          },
+          {
+            "name": "Tongue Slap",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "161",
+        "artist": "tetsuya koizumi",
+        "rarity": "Common",
+        "flavorText": "It checks out whatever's around it by licking everything. If you don't clean off a spot where it's licked you, you'll break out in a rash!",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/161.png",
+          "large": "https://images.pokemontcg.io/sm11/161_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-161",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.14,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.39,
+              "high": 2.26,
+              "market": 0.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-161",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.36,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.37,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.34,
+            "reverseHoloAvg30": 0.29
+          }
+        }
+      },
+      {
+        "id": "swsh5-113",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Slap",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "113",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Common",
+        "flavorText": "It licks filth clean with its tongue. Whatever it licks always stinks afterward, so whether it's really clean is…questionable.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/113.png",
+          "large": "https://images.pokemontcg.io/swsh5/113_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-113",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.24,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": 0.2
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.15,
+              "market": 0.09,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-113",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.13,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "swsh11-138",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Drool",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "138",
+        "artist": "KIYOTAKA OSHIYAMA",
+        "rarity": "Common",
+        "flavorText": "If this Pokémon's sticky saliva gets on you and you don't clean it off, an intense itch will set in. The itch won't go away, either.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/138.png",
+          "large": "https://images.pokemontcg.io/swsh11/138_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-138",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 2.0,
+              "market": 0.22,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-138",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.29,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.04,
+            "avg30": 0.02,
+            "reverseHoloAvg1": 0.32,
+            "reverseHoloAvg7": 0.28,
+            "reverseHoloAvg30": 0.2
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-108",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue-Tied",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "During your opponent's next turn, the Defending Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "108",
+        "artist": "Saya Tsuruta",
+        "rarity": "Common",
+        "flavorText": "Bug Pokémon are Lickitung's main food source. This Pokémon paralyzes its prey with a lick from its long tongue, then swallows the prey whole.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/108.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/108_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-108",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 40.0,
+              "market": 0.14,
+              "directLow": 0.13
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.14,
+              "market": 0.05,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-108",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.27,
+            "reverseHoloAvg7": 0.16,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "sv5-124",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Pull",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent reveals their hand. Put up to 2 Basic Pokémon you find there onto your opponent's Bench."
+          },
+          {
+            "name": "Strength",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "124",
+        "artist": "nisimono",
+        "rarity": "Common",
+        "flavorText": "If this Pokémon's sticky saliva gets on you and you don't clean it off, an intense itch will set in. The itch won't go away, either.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/124.png",
+          "large": "https://images.pokemontcg.io/sv5/124_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-124",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.01,
+              "market": 0.04,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 40.0,
+              "market": 0.11,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-124",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.04,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "sv5-180",
+        "name": "Lickitung",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesTo": [
+          "Lickilicky"
+        ],
+        "attacks": [
+          {
+            "name": "Tongue Pull",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent reveals their hand. Put up to 2 Basic Pokémon you find there onto your opponent's Bench."
+          },
+          {
+            "name": "Strength",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "180",
+        "artist": "Orca",
+        "rarity": "Illustration Rare",
+        "flavorText": "If this Pokémon's sticky saliva gets on you and you don't clean it off, an intense itch will set in. The itch won't go away, either.",
+        "nationalPokedexNumbers": [
+          108
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/180.png",
+          "large": "https://images.pokemontcg.io/sv5/180_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-180",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.7,
+              "mid": 12.92,
+              "high": 50.0,
+              "market": 12.91,
+              "directLow": 19.69
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-180",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 8.87,
+            "lowPrice": 3.9,
+            "trendPrice": 8.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.3,
+            "avg1": 8.0,
+            "avg7": 8.63,
+            "avg30": 8.6,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 21,
+    "totalCount": 21
+  }
+}

@@ -31,6 +31,7 @@ import sys
 import time
 import hashlib
 import argparse
+import re
 import requests
 from datetime import datetime
 from pathlib import Path
@@ -57,6 +58,17 @@ DATA_DIR = PROJECT_DIR / "data"
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
 TCG_API_BASE_URL = "https://api.pokemontcg.io/v2"
 TCG_API_ENDPOINT = f"{TCG_API_BASE_URL}/cards"
+
+
+def slugify(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower())
+    slug = re.sub(r"-+", "-", slug).strip('-')
+    return slug
+
+
+def build_cache_filename(pokemon_number: int, pokemon_name: str) -> str:
+    slug = slugify(pokemon_name)
+    return f"tcg-{pokemon_number:03d}-{slug}.json"
 
 
 def get_cache_key(endpoint: str, params: Dict[str, Any]) -> str:
@@ -214,11 +226,8 @@ def is_pokemon_cached(pokemon_number: int, pokemon_name: str) -> bool:
     if not TCG_CACHE_DIR.exists():
         return False
     
-    # Look for any file matching the pattern: tcg-{number}-{name}-*.json
-    pattern = f"tcg-{pokemon_number:03d}-{pokemon_name}-*.json"
-    matching_files = list(TCG_CACHE_DIR.glob(pattern))
-    
-    return len(matching_files) > 0
+    filename = build_cache_filename(pokemon_number, pokemon_name)
+    return (TCG_CACHE_DIR / filename).exists()
 
 
 def process_single_pokemon(
@@ -289,13 +298,12 @@ def save_tcg_cache(pokemon_number: int, pokemon_name: str,
     # Generate cache key using CacheService algorithm
     cache_key = get_cache_key(endpoint, params)
     
-    # Create timestamp for filename and cached_at field
-    timestamp = datetime.now()
-    timestamp_str = timestamp.strftime("%Y%m%d%H%M")
-    cached_at = timestamp.timestamp()
+    # Create timestamp for cached_at field
+    timestamp = datetime.now().timestamp()
+    cached_at = timestamp
     
-    # Build filename: tcg-<number>-<name>-<timestamp>.json
-    filename = f"tcg-{pokemon_number:03d}-{pokemon_name}-{timestamp_str}.json"
+    # Build filename without timestamp for deterministic rewrites
+    filename = build_cache_filename(pokemon_number, pokemon_name)
     filepath = TCG_CACHE_DIR / filename
     
     # Build cache data structure (same as CacheService)
@@ -347,6 +355,10 @@ def main():
         '--parallel', type=int, default=1, metavar='N',
         help='Number of parallel download threads (default: 1, max: 10)'
     )
+    parser.add_argument(
+        '--max-retries', type=int, default=5,
+        help='Number of retry passes for failed Pokemon (default: 5)'
+    )
     
     args = parser.parse_args()
     
@@ -387,12 +399,13 @@ def main():
     print(f"Processing {len(pokemon_subset)} Pokemon (#{args.start} to #{min(args.end, start_idx + len(pokemon_subset))})")
     print(f"Output directory: {TCG_CACHE_DIR}")
     if args.skip_existing:
-        print(f"Resume mode: Skipping already-cached Pokemon")
+        print("Resume mode: Skipping already-cached Pokemon")
     else:
-        print(f"Force mode: Re-downloading all Pokemon")
+        print("Force mode: Re-downloading all Pokemon")
     if args.parallel > 1:
         print(f"Parallel mode: Using {args.parallel} threads")
         print(f"Note: Delay setting is ignored in parallel mode")
+    print(f"Max retry passes: {max(1, args.max_retries)}")
     print()
     
     # Statistics
@@ -401,89 +414,86 @@ def main():
     skipped_count = 0
     cards_found_count = 0
     
-    # Process Pokemon - parallel or sequential
-    if args.parallel > 1:
-        # Parallel processing with ThreadPoolExecutor
-        print_lock = threading.Lock()
+    remaining_pokemon = list(pokemon_subset)
+    attempt = 1
+    max_attempts = max(1, args.max_retries)
+    exhausted_pokemon: list[Dict[str, Any]] = []
+
+    while remaining_pokemon and attempt <= max_attempts:
+        current_total = len(remaining_pokemon)
+        if attempt > 1:
+            print()
+            print(f"Retry pass {attempt} ({current_total} Pokemon pending)")
+        next_remaining: list[Dict[str, Any]] = []
         
-        with ThreadPoolExecutor(max_workers=args.parallel) as executor:
-            # Submit all tasks
-            future_to_pokemon = {
-                executor.submit(
-                    process_single_pokemon,
-                    pokemon,
-                    session,
-                    api_key,
-                    args.skip_existing,
-                    print_lock
-                ): pokemon for pokemon in pokemon_subset
-            }
+        if args.parallel > 1:
+            print_lock = threading.Lock()
             
-            # Process completed tasks as they finish
-            completed = 0
-            for future in as_completed(future_to_pokemon):
-                pokemon = future_to_pokemon[future]
-                completed += 1
-                
-                try:
-                    status, number, card_count, error = future.result()
-                    
-                    with print_lock:
-                        print(f"[{completed}/{len(pokemon_subset)}] #{number:03d} {pokemon['name'].title()}", end=" ... ")
-                        
-                        if status == 'skipped':
-                            print("⊙ Already cached (skipping)")
-                            skipped_count += 1
-                        elif status == 'success':
-                            cards_found_count += card_count
-                            print(f"✓ {card_count} cards")
-                            success_count += 1
-                        else:
-                            print("✗ Failed")
-                            error_count += 1
-                            
-                except Exception as e:
-                    with print_lock:
-                        print(f"[{completed}/{len(pokemon_subset)}] #{pokemon['number']:03d} {pokemon['name'].title()} ... ✗ Exception: {e}")
+            with ThreadPoolExecutor(max_workers=args.parallel) as executor:
+                future_to_pokemon = {
+                    executor.submit(
+                        process_single_pokemon,
+                        pokemon,
+                        session,
+                        api_key,
+                        args.skip_existing,
+                        print_lock
+                    ): pokemon for pokemon in remaining_pokemon
+                }
+                completed = 0
+                for future in as_completed(future_to_pokemon):
+                    pokemon = future_to_pokemon[future]
+                    completed += 1
+                    try:
+                        status, number, card_count, error = future.result()
+                        with print_lock:
+                            print(f"[{attempt}.{completed}/{current_total}] #{number:03d} {pokemon['name'].title()}", end=" ... ")
+                            if status == 'skipped':
+                                print("⊙ Already cached (skipping)")
+                                skipped_count += 1
+                            elif status == 'success':
+                                cards_found_count += card_count
+                                print(f"✓ {card_count} cards")
+                                success_count += 1
+                            else:
+                                print("✗ Failed")
+                                error_count += 1
+                                next_remaining.append(pokemon)
+                    except Exception as e:
+                        with print_lock:
+                            print(f"[{attempt}.{completed}/{current_total}] #{pokemon['number']:03d} {pokemon['name'].title()} ... ✗ Exception: {e}")
                         error_count += 1
-    else:
-        # Sequential processing (original behavior)
-        for idx, pokemon in enumerate(pokemon_subset, start=1):
-            number = pokemon['number']
-            name = pokemon['name']
-            
-            print(f"[{idx}/{len(pokemon_subset)}] #{number:03d} {name.title()}", end=" ... ")
-            
-            # Check if already cached
-            if args.skip_existing and is_pokemon_cached(number, name):
-                print("⊙ Already cached (skipping)")
-                skipped_count += 1
-                continue
-            
-            # Fetch TCG data
-            params = {"q": f"name:{name}"}
-            tcg_data = fetch_tcg_data(session, name, api_key)
-            
-            if tcg_data:
-                # Save to cache
-                filepath = save_tcg_cache(
-                    number, name, tcg_data,
-                    TCG_API_ENDPOINT, params
-                )
-                
-                # Count cards found
-                card_count = len(tcg_data.get('data', []))
-                cards_found_count += card_count
-                
-                print(f"✓ {card_count} cards - saved to {filepath.name}")
-                success_count += 1
-            else:
-                print("✗ Failed")
-                error_count += 1
-            
-            # Delay between requests (be nice to the API)
-            if idx < len(pokemon_subset):
-                time.sleep(args.delay)
+                        next_remaining.append(pokemon)
+        else:
+            for idx, pokemon in enumerate(remaining_pokemon, start=1):
+                number = pokemon['number']
+                name = pokemon['name']
+                print(f"[{attempt}.{idx}/{current_total}] #{number:03d} {name.title()}", end=" ... ")
+                if args.skip_existing and is_pokemon_cached(number, name):
+                    print("⊙ Already cached (skipping)")
+                    skipped_count += 1
+                    continue
+                params = {"q": f"name:{name}"}
+                tcg_data = fetch_tcg_data(session, name, api_key)
+                if tcg_data:
+                    filepath = save_tcg_cache(
+                        number, name, tcg_data,
+                        TCG_API_ENDPOINT, params
+                    )
+                    card_count = len(tcg_data.get('data', []))
+                    cards_found_count += card_count
+                    print(f"✓ {card_count} cards - saved to {filepath.name}")
+                    success_count += 1
+                else:
+                    print("✗ Failed")
+                    error_count += 1
+                    next_remaining.append(pokemon)
+                if idx < current_total:
+                    time.sleep(args.delay)
+        remaining_pokemon = next_remaining
+        attempt += 1
+
+    exhausted_pokemon = remaining_pokemon
     
     # Summary
     print()
@@ -492,6 +502,10 @@ def main():
     print(f"  Success:  {success_count}")
     print(f"  Skipped:  {skipped_count}")
     print(f"  Errors:   {error_count}")
+    if exhausted_pokemon:
+        print(f"  Retries exhausted for {len(exhausted_pokemon)} Pokemon:")
+        for pokemon in exhausted_pokemon:
+            print(f"    - #{pokemon['number']:03d} {pokemon['name'].title()}")
     print(f"  Total cards found: {cards_found_count}")
     print(f"  Cache directory: {TCG_CACHE_DIR}")
     print("=" * 60)

@@ -1,0 +1,2506 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:hoopa"
+  },
+  "cache_key": "a5e7ee75c1697aeb17f29e5e3c996241",
+  "cached_at": 1765894615.46261,
+  "response": {
+    "data": [
+      {
+        "id": "xy7-36",
+        "name": "Hoopa-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scoundrel Ring",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may search your deck for up to 3 Pokémon-EX (except for Hoopa-EX), reveal them, and put them into your hand. Shuffle your deck afterward.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Fury",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard 2 Energy attached to this Pokémon. This attack does 100 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "36",
+        "artist": "Ryota Murayama",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/36.png",
+          "large": "https://images.pokemontcg.io/xy7/36_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.99,
+              "mid": 4.05,
+              "high": 19.99,
+              "market": 4.2,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 0.0,
+            "trendPrice": 0.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.0,
+            "avg1": 0.0,
+            "avg7": 0.0,
+            "avg30": 0.0,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "xy11-51",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Punch",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Portal Strike",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon can't use Portal Strike during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Yoshinobu Saito",
+        "rarity": "Rare",
+        "flavorText": "It is said to be able to seize anything it desires with its six rings and six huge arms. With its power sealed, it is transformed into a much smaller form.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/51.png",
+          "large": "https://images.pokemontcg.io/xy11/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.4,
+              "high": 4.0,
+              "market": 0.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.16,
+              "mid": 0.49,
+              "high": 5.0,
+              "market": 0.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.54,
+            "lowPrice": 0.03,
+            "trendPrice": 0.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.45,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.88,
+            "lowPriceExPlus": 0.05,
+            "avg1": 1.99,
+            "avg7": 0.67,
+            "avg30": 0.64,
+            "reverseHoloAvg1": 0.45,
+            "reverseHoloAvg7": 0.46,
+            "reverseHoloAvg30": 0.9
+          }
+        }
+      },
+      {
+        "id": "sm6-54",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Ring",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Item cards, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Psy Bolt",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "Aya Kusube",
+        "rarity": "Uncommon",
+        "flavorText": "It gathers things it likes and passes them through its loop to teleport them to a secret place.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/54.png",
+          "large": "https://images.pokemontcg.io/sm6/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.23,
+              "mid": 0.4,
+              "high": 2.95,
+              "market": 0.47,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.46,
+              "mid": 1.48,
+              "high": 4.99,
+              "market": 2.38,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.58,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 0.8,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.34,
+            "avg7": 0.3,
+            "avg30": 0.21,
+            "reverseHoloAvg1": 0.71,
+            "reverseHoloAvg7": 0.57,
+            "reverseHoloAvg30": 0.63
+          }
+        }
+      },
+      {
+        "id": "sm35-55",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "abilities": [
+          {
+            "name": "Scoundrel Guard",
+            "text": "Prevent all effects of attacks, including damage, done to this Pokémon by your opponent's Pokémon-GX or Pokémon-EX.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "55",
+        "artist": "TOKIYA",
+        "rarity": "Rare Holo",
+        "flavorText": "In its true form, it possess a huge amount of power. Legends of its avarice tell how it once carried off an entire castle to gain the treasure hidden within.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/55.png",
+          "large": "https://images.pokemontcg.io/sm35/55_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.31,
+              "high": 4.09,
+              "market": 0.29,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.8,
+              "high": 3.0,
+              "market": 0.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.28,
+            "lowPrice": 0.05,
+            "trendPrice": 0.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.22,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 1.41,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.08,
+            "avg7": 0.25,
+            "avg30": 0.26,
+            "reverseHoloAvg1": 0.25,
+            "reverseHoloAvg7": 0.99,
+            "reverseHoloAvg30": 0.9
+          }
+        }
+      },
+      {
+        "id": "xyp-XY71",
+        "name": "Hoopa-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scoundrel Ring",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may search your deck for up to 3 Pokémon-EX (except for Hoopa-EX), reveal them, and put them into your hand. Shuffle your deck afterward.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Fury",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard 2 Energy attached to this Pokémon. This attack does 100 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY71",
+        "artist": "Eske Yoshinob",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY71.png",
+          "large": "https://images.pokemontcg.io/xyp/XY71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.5,
+              "high": 23.0,
+              "market": 2.28,
+              "directLow": 4.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY71",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 4.75,
+            "lowPrice": 0.5,
+            "trendPrice": 3.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.67,
+            "lowPriceExPlus": 1.95,
+            "avg1": 3.0,
+            "avg7": 4.94,
+            "avg30": 3.81,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 1.66,
+            "reverseHoloAvg30": 2.08
+          }
+        }
+      },
+      {
+        "id": "xy7-89",
+        "name": "Hoopa-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scoundrel Ring",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may search your deck for up to 3 Pokémon-EX (except for Hoopa-EX), reveal them, and put them into your hand. Shuffle your deck afterward.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Fury",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard 2 Energy attached to this Pokémon. This attack does 100 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/89.png",
+          "large": "https://images.pokemontcg.io/xy7/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.99,
+              "mid": 41.04,
+              "high": 95.49,
+              "market": 40.38,
+              "directLow": 32.71
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 24.71,
+            "lowPrice": 7.45,
+            "trendPrice": 22.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.31,
+            "lowPriceExPlus": 14.0,
+            "avg1": 12.0,
+            "avg7": 25.66,
+            "avg30": 20.88,
+            "reverseHoloAvg1": 9.0,
+            "reverseHoloAvg7": 10.28,
+            "reverseHoloAvg30": 9.61
+          }
+        }
+      },
+      {
+        "id": "xyp-XY85",
+        "name": "Hoopa-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Ring",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Item cards, reveal them, and put them into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Wonder Trick",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "Your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY85",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY85.png",
+          "large": "https://images.pokemontcg.io/xyp/XY85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.52,
+              "mid": 14.3,
+              "high": 21.59,
+              "market": 13.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY85",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 6.33,
+            "lowPrice": 3.49,
+            "trendPrice": 6.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.12,
+            "lowPriceExPlus": 5.0,
+            "avg1": 12.25,
+            "avg7": 7.82,
+            "avg30": 7.03,
+            "reverseHoloAvg1": 2.22,
+            "reverseHoloAvg7": 2.99,
+            "reverseHoloAvg30": 3.08
+          }
+        }
+      },
+      {
+        "id": "sm9-96",
+        "name": "Hoopa-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rogue Ring",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Dark Strike",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "This Pokémon can't use Dark Strike during your next turn."
+          },
+          {
+            "name": "Devilish Hands-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon-GX or Pokémon-EX 6 times. (You can choose the same Pokémon more than once.) For each time you chose a Pokémon, do 30 damage to it. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/96.png",
+          "large": "https://images.pokemontcg.io/sm9/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 2.97,
+              "high": 7.0,
+              "market": 2.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.94,
+            "lowPrice": 0.5,
+            "trendPrice": 2.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.31,
+            "lowPriceExPlus": 0.95,
+            "avg1": 3.5,
+            "avg7": 2.61,
+            "avg30": 2.88,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 3.73,
+            "reverseHoloAvg30": 3.17
+          }
+        }
+      },
+      {
+        "id": "xyp-XY90",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Summoning Draw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If Pikachu is on your Bench, draw 3 cards."
+          },
+          {
+            "name": "Double Spin",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY90",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Promo",
+        "flavorText": "It gathers things it likes and pushes them through its loop to teleport them to a secret place.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY90.png",
+          "large": "https://images.pokemontcg.io/xyp/XY90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.82,
+              "mid": 1.03,
+              "high": 3.67,
+              "market": 1.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.33,
+            "lowPrice": 1.0,
+            "trendPrice": 1.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.06,
+            "lowPriceExPlus": 2.0,
+            "avg1": 4.0,
+            "avg7": 2.48,
+            "avg30": 1.74,
+            "reverseHoloAvg1": 2.7,
+            "reverseHoloAvg7": 2.4,
+            "reverseHoloAvg30": 3.16
+          }
+        }
+      },
+      {
+        "id": "swsh3-111",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Assault Gate",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "90",
+            "text": "If this Pokémon didn't move from the Bench to the Active Spot this turn, this attack does nothing. This attack's damage isn't affected by Weakness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "111",
+        "artist": "so-taro",
+        "rarity": "Rare Holo",
+        "flavorText": "It gathers things it likes and passes them through its loop to teleport them to a secret place.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/111.png",
+          "large": "https://images.pokemontcg.io/swsh3/111_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-111",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.13,
+              "mid": 0.29,
+              "high": 3.75,
+              "market": 0.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.19,
+              "mid": 0.33,
+              "high": 2.0,
+              "market": 0.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-111",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.02,
+            "trendPrice": 0.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.58,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.68,
+            "avg30": 0.5,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 0.72,
+            "reverseHoloAvg30": 0.7
+          }
+        }
+      },
+      {
+        "id": "sm11-140",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Evil Admonition",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "This attack does 20 more damage for each of your opponent's Pokémon that has an Ability."
+          },
+          {
+            "name": "Mind Shock",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This attack's damage isn't affected by Weakness or Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "140",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "This troublemaker sends anything and everything to faraway places using its loop, which can warp space.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/140.png",
+          "large": "https://images.pokemontcg.io/sm11/140_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-140",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.49,
+              "high": 4.95,
+              "market": 0.44,
+              "directLow": 0.39
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.6,
+              "high": 3.95,
+              "market": 0.59,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-140",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.62,
+            "lowPrice": 0.1,
+            "trendPrice": 0.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.78,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 1.12,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.5,
+            "avg7": 0.63,
+            "avg30": 0.49,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.21,
+            "reverseHoloAvg30": 0.95
+          }
+        }
+      },
+      {
+        "id": "xyp-XY147",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Hyperspace Punch",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Portal Strike",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon can't use Portal Strike during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY147",
+        "artist": "Yoshinobu Saito",
+        "rarity": "Promo",
+        "flavorText": "It is said to be able to seize anything it desires with its six rings and six huge arms. With its power sealed, it is transformed into a much smaller form.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY147.png",
+          "large": "https://images.pokemontcg.io/xyp/XY147_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY147",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 12.45,
+              "high": 144.78,
+              "market": 9.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY147",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 24.0,
+            "lowPrice": 11.99,
+            "trendPrice": 26.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.18,
+            "lowPriceExPlus": 11.99,
+            "avg1": 23.99,
+            "avg7": 26.12,
+            "avg30": 14.63,
+            "reverseHoloAvg1": 4.89,
+            "reverseHoloAvg7": 6.19,
+            "reverseHoloAvg30": 6.49
+          }
+        }
+      },
+      {
+        "id": "sm9-166",
+        "name": "Hoopa-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rogue Ring",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Dark Strike",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "This Pokémon can't use Dark Strike during your next turn."
+          },
+          {
+            "name": "Devilish Hands-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon-GX or Pokémon-EX 6 times. (You can choose the same Pokémon more than once.) For each time you chose a Pokémon, do 30 damage to it. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "166",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/166.png",
+          "large": "https://images.pokemontcg.io/sm9/166_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-166",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 7.6,
+              "high": 14.6,
+              "market": 7.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-166",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 5.83,
+            "lowPrice": 2.7,
+            "trendPrice": 8.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.36,
+            "lowPriceExPlus": 2.7,
+            "avg1": 10.0,
+            "avg7": 8.49,
+            "avg30": 7.07,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 8.92,
+            "reverseHoloAvg30": 7.54
+          }
+        }
+      },
+      {
+        "id": "sm9-187",
+        "name": "Hoopa-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rogue Ring",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Dark Strike",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "This Pokémon can't use Dark Strike during your next turn."
+          },
+          {
+            "name": "Devilish Hands-GX",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon-GX or Pokémon-EX 6 times. (You can choose the same Pokémon more than once.) For each time you chose a Pokémon, do 30 damage to it. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "187",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/187.png",
+          "large": "https://images.pokemontcg.io/sm9/187_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-187",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.69,
+              "mid": 19.64,
+              "high": 29.19,
+              "market": 20.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-187",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 23.95,
+            "lowPrice": 6.11,
+            "trendPrice": 18.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.05,
+            "lowPriceExPlus": 10.0,
+            "avg1": 28.0,
+            "avg7": 18.25,
+            "avg30": 15.75,
+            "reverseHoloAvg1": 17.0,
+            "reverseHoloAvg7": 14.29,
+            "reverseHoloAvg30": 12.13
+          }
+        }
+      },
+      {
+        "id": "swsh8-253",
+        "name": "Hoopa V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Fusion Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Two-Faced",
+            "text": "As long as this Pokémon is in play, it is Psychic and Darkness type.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Impact",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Put 3 damage counters on 1 of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "253",
+        "artist": "takuyoa",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/253.png",
+          "large": "https://images.pokemontcg.io/swsh8/253_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-253",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.92,
+              "high": 29.99,
+              "market": 1.71,
+              "directLow": 2.37
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-253",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.29,
+            "lowPrice": 1.0,
+            "trendPrice": 2.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.25,
+            "avg7": 2.43,
+            "avg30": 2.22,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH176",
+        "name": "Hoopa V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Fusion Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Two-Faced",
+            "text": "As long as this Pokémon is in play, it is Psychic and Darkness type.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Impact",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Put 3 damage counters on 1 of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH176",
+        "artist": "takuyoa",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH176.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH176_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH176",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.99,
+              "high": 9.0,
+              "market": 0.9,
+              "directLow": 1.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH176",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.78,
+            "lowPrice": 0.14,
+            "trendPrice": 0.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.79,
+            "avg7": 1.0,
+            "avg30": 0.78,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-122",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Hand of Djinn",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Darkness Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "Tyrannical Hole",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "122",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Rare",
+        "flavorText": "It gathers things it likes and passes them through its loop to teleport them to a secret place.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/122.png",
+          "large": "https://images.pokemontcg.io/swsh11/122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.21,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.15,
+              "high": 30.0,
+              "market": 0.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-122",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.07,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.22,
+            "reverseHoloAvg30": 0.21
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-83",
+        "name": "Hoopa",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Assault Gate",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "90",
+            "text": "If this Pokémon didn't move from the Bench to the Active Spot this turn, this attack does nothing. This attack's damage isn't affected by Weakness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Souichirou Gunjima",
+        "rarity": "Rare Holo",
+        "flavorText": "It gathers things it likes and passes them through its loop to teleport them to a secret place.",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/83.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.32,
+              "high": 999.0,
+              "market": 0.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.72,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.59,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.3,
+            "avg7": 0.25,
+            "avg30": 0.25,
+            "reverseHoloAvg1": 0.33,
+            "reverseHoloAvg7": 0.61,
+            "reverseHoloAvg30": 0.71
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5gg-GG53",
+        "name": "Hoopa V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Fusion Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Two-Faced",
+            "text": "As long as this Pokémon is in play, it is Psychic and Darkness type.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Impact",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Put 3 damage counters on 1 of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5gg",
+          "name": "Crown Zenith Galarian Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 70,
+          "total": 70,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5gg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5gg/logo.png"
+          }
+        },
+        "number": "GG53",
+        "artist": "OKACHEKE",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5gg/GG53.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5gg/GG53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5gg-GG53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.68,
+              "mid": 9.0,
+              "high": 50.0,
+              "market": 8.03,
+              "directLow": 7.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5gg-GG53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.42,
+            "lowPrice": 5.0,
+            "trendPrice": 9.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 5.0,
+            "avg1": 7.0,
+            "avg7": 9.25,
+            "avg30": 9.26,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4-98",
+        "name": "Hoopa ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Tera",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Bandit's Fist",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "During your next turn, this Pokémon can't use Bandit's Fist."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "5ban Graphics",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/98.png",
+          "large": "https://images.pokemontcg.io/sv4/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.49,
+              "mid": 0.98,
+              "high": 50.0,
+              "market": 0.7,
+              "directLow": 0.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.3,
+            "trendPrice": 0.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.78,
+            "avg7": 0.92,
+            "avg30": 0.91,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4-226",
+        "name": "Hoopa ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Tera",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Bandit's Fist",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "During your next turn, this Pokémon can't use Bandit's Fist."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "226",
+        "artist": "5ban Graphics",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          720
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/226.png",
+          "large": "https://images.pokemontcg.io/sv4/226_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-226",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 2.9,
+              "high": 70.0,
+              "market": 2.9,
+              "directLow": 2.9
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-226",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.09,
+            "lowPrice": 1.5,
+            "trendPrice": 3.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.76,
+            "avg7": 3.01,
+            "avg30": 3.08,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 21,
+    "totalCount": 21
+  }
+}

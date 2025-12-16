@@ -1,0 +1,4449 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:espeon"
+  },
+  "cache_key": "8a53ae32af6eb7187d5b9050466e5d9e",
+  "cached_at": 1765913090.512231,
+  "response": {
+    "data": [
+      {
+        "id": "ex11-4",
+        "name": "Espeon δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic",
+          "Metal"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "This Pokémon is both Psychic Metal type."
+        ],
+        "abilities": [
+          {
+            "name": "Delta Heal",
+            "text": "Once during your turn (before your attack), you may remove 1 damage counter from each of your Pokémon that has δ on its card. You can't use more than 1 Delta Heal Poké-Power each turn. This power can't be used if Espeon is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psyshock",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/4.png",
+          "large": "https://images.pokemontcg.io/ex11/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 119.7,
+              "mid": 166.39,
+              "high": 379.99,
+              "market": 135.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 80.0,
+              "mid": 159.98,
+              "high": 177.65,
+              "market": 189.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 49.43,
+            "lowPrice": 15.0,
+            "trendPrice": 39.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 46.35,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 89.68,
+            "lowPriceExPlus": 37.0,
+            "avg1": 29.99,
+            "avg7": 34.57,
+            "avg30": 41.12,
+            "reverseHoloAvg1": 100.0,
+            "reverseHoloAvg7": 56.19,
+            "reverseHoloAvg30": 68.62
+          }
+        }
+      },
+      {
+        "id": "neo4-4",
+        "name": "Dark Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "32",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Gouge",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 10 more damage; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Psysplash",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Does 10 damage to each of your opponent's Pokémon for each Energy card attached to that Pokémon. Don't apply Weakness and Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "flavorText": "The tips of its split tail quiver whenever it uses its psychic abilities to read its opponent's next move.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/4.png",
+          "large": "https://images.pokemontcg.io/neo4/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 539.99,
+              "mid": 539.99,
+              "high": 539.99,
+              "market": 425.0,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 199.0,
+              "mid": 250.0,
+              "high": 436.24,
+              "market": 299.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 87.67,
+            "lowPrice": 69.0,
+            "trendPrice": 51.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 31.98,
+            "lowPriceExPlus": 110.0,
+            "avg1": 99.99,
+            "avg7": 93.37,
+            "avg30": 111.51,
+            "reverseHoloAvg1": 70.0,
+            "reverseHoloAvg7": 48.67,
+            "reverseHoloAvg30": 44.9
+          }
+        }
+      },
+      {
+        "id": "col1-4",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Solar Suggestion",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Move up to 4 damage counters from any of your Pokémon to any of your opponent's Pokémon in any way you like."
+          },
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "It uses the fine hair that covers its body to sense air currents and predict its enemy's actions.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/4.png",
+          "large": "https://images.pokemontcg.io/col1/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 23.0,
+              "mid": 26.0,
+              "high": 150.0,
+              "market": 28.75,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 10.98,
+              "mid": 16.49,
+              "high": 39.99,
+              "market": 28.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 48.38,
+            "lowPrice": 3.99,
+            "trendPrice": 27.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 25.5,
+            "lowPriceExPlus": 9.95,
+            "avg1": 3.5,
+            "avg7": 39.06,
+            "avg30": 22.55,
+            "reverseHoloAvg1": 19.0,
+            "reverseHoloAvg7": 20.95,
+            "reverseHoloAvg30": 19.81
+          }
+        }
+      },
+      {
+        "id": "ecard2-H9",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Energy Return",
+            "text": "As often as you like during your turn (before your attack), choose an Energy card attached to 1 of your Pokémon and return it to your hand. This power can't be used if Espeon is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Damage Blast",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Flip a number of coins equal to the number of damage counters on the Defending Pokémon. This attack does 30 damage plus 10 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "H9",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/H9.png",
+          "large": "https://images.pokemontcg.io/ecard2/H9_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-H9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 193.5,
+            "lowPrice": 64.99,
+            "trendPrice": 222.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 33.62,
+            "lowPriceExPlus": 204.99,
+            "avg1": 270.0,
+            "avg7": 161.0,
+            "avg30": 134.9,
+            "reverseHoloAvg1": 25.0,
+            "reverseHoloAvg7": 39.21,
+            "reverseHoloAvg30": 38.87
+          }
+        }
+      },
+      {
+        "id": "hgss3-2",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Solar Suggestion",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Move up to 4 damage counters from any of your Pokémon to any of your opponent's Pokémon in any way you like."
+          },
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "It uses the fine hair that covers its body to sense air currents and predict its enemy's actions.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/2.png",
+          "large": "https://images.pokemontcg.io/hgss3/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 26.19,
+              "mid": 32.96,
+              "high": 59.95,
+              "market": 32.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 20.0,
+              "mid": 29.9,
+              "high": 41.0,
+              "market": 26.94,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.89,
+            "lowPrice": 0.2,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.68,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 9.35,
+            "lowPriceExPlus": 1.55,
+            "avg1": 13.73,
+            "avg7": 8.6,
+            "avg30": 19.18,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 9.43,
+            "reverseHoloAvg30": 7.57
+          }
+        }
+      },
+      {
+        "id": "neo2-1",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "41",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "flavorText": "It uses the fine hair that covers its body to sense air currents and predict its enemy's actions.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/1.png",
+          "large": "https://images.pokemontcg.io/neo2/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 377.96,
+              "mid": 388.98,
+              "high": 399.99,
+              "market": 379.97,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 149.31,
+              "mid": 208.95,
+              "high": 500.0,
+              "market": 217.49,
+              "directLow": 179.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 83.28,
+            "lowPrice": 23.0,
+            "trendPrice": 87.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 35.99,
+            "lowPriceExPlus": 75.99,
+            "avg1": 27.5,
+            "avg7": 86.93,
+            "avg30": 90.3,
+            "reverseHoloAvg1": 19.99,
+            "reverseHoloAvg7": 33.84,
+            "reverseHoloAvg30": 43.63
+          }
+        }
+      },
+      {
+        "id": "pop5-16",
+        "name": "Espeon ★",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Star"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "You can't have more than 1 Pokémon Star in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Purple Ray",
+            "text": "Once during your turn, when you put Espeon Star from your hand onto your Bench, you may use this power. Each Active Pokémon (both yours and your opponent's) is now Confused.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Boom",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pop5",
+          "name": "POP Series 5",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2007/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop5/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop5/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop5/16.png",
+          "large": "https://images.pokemontcg.io/pop5/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop5-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3000.0,
+              "mid": 29000.0,
+              "high": 55000.0,
+              "market": null,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop5-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8000.0,
+            "lowPrice": 4499.99,
+            "trendPrice": 3559.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 6500.0,
+            "avg1": 8000.0,
+            "avg7": 3774.88,
+            "avg30": 1785.47,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pl2-18",
+        "name": "Espeon E4",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "55",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Hypnosis",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Psywave",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/18.png",
+          "large": "https://images.pokemontcg.io/pl2/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 8.0,
+              "mid": 10.51,
+              "high": 19.99,
+              "market": 8.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 15.49,
+              "mid": 29.04,
+              "high": 39.99,
+              "market": 21.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.86,
+            "lowPrice": 1.2,
+            "trendPrice": 6.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.0,
+            "reverseHoloLow": 2.7,
+            "reverseHoloTrend": 15.2,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.99,
+            "avg7": 5.83,
+            "avg30": 4.77,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 13.78,
+            "reverseHoloAvg30": 11.65
+          }
+        }
+      },
+      {
+        "id": "ex2-16",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20+",
+            "text": "Does 20 more damage plus 10 more damage for each Energy attached to all of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex2",
+          "name": "Sandstorm",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SS",
+          "releaseDate": "2003/09/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex2/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex2/16.png",
+          "large": "https://images.pokemontcg.io/ex2/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 8.99,
+              "mid": 10.86,
+              "high": 29.61,
+              "market": 10.69,
+              "directLow": 15.94
+            },
+            "reverseHolofoil": {
+              "low": 71.11,
+              "mid": 82.49,
+              "high": 84.98,
+              "market": 49.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.52,
+            "lowPrice": 0.5,
+            "trendPrice": 3.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 4.5,
+            "reverseHoloTrend": 21.34,
+            "lowPriceExPlus": 2.99,
+            "avg1": 2.5,
+            "avg7": 6.22,
+            "avg30": 9.24,
+            "reverseHoloAvg1": 11.0,
+            "reverseHoloAvg7": 14.28,
+            "reverseHoloAvg30": 13.7
+          }
+        }
+      },
+      {
+        "id": "dp5-18",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "44",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Sunlight Veil",
+            "text": "Each of your Pokémon that evolves from Eevee gets +20 HP. You can't use more than 1 Sunlight Veil Poké-Body each turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morning Sun",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "You may move an Energy card attached to Espeon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "Its fur has the look and feel of velvet. The orb on its forehead glows when it uses psycho-power.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/18.png",
+          "large": "https://images.pokemontcg.io/dp5/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.0,
+              "mid": 7.96,
+              "high": 30.0,
+              "market": 9.45,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.5,
+              "mid": 22.48,
+              "high": 22.48,
+              "market": 16.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.8,
+            "lowPrice": 0.15,
+            "trendPrice": 2.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 17.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 8.68,
+            "lowPriceExPlus": 1.97,
+            "avg1": 2.5,
+            "avg7": 2.75,
+            "avg30": 2.63,
+            "reverseHoloAvg1": 14.99,
+            "reverseHoloAvg7": 8.98,
+            "reverseHoloAvg30": 10.04
+          }
+        }
+      },
+      {
+        "id": "neo2-20",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "38",
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "By reading air currents, it can predict things such as the weather or its foe's next move.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/20.png",
+          "large": "https://images.pokemontcg.io/neo2/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 42.0,
+              "mid": 76.99,
+              "high": 88.3,
+              "market": 62.7,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 10.95,
+              "mid": 15.0,
+              "high": 35.98,
+              "market": 16.94,
+              "directLow": 15.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.19,
+            "lowPrice": 1.0,
+            "trendPrice": 10.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.17,
+            "lowPriceExPlus": 5.0,
+            "avg1": 4.99,
+            "avg7": 8.94,
+            "avg30": 8.67,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 4.85,
+            "reverseHoloAvg30": 4.83
+          }
+        }
+      },
+      {
+        "id": "ecard2-11",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Energy Return",
+            "text": "As often as you like during your turn (before your attack), choose an Energy card attached to 1 of your Pokémon and return it to your hand. This power can't be used if Espeon is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Damage Blast",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Flip a number of coins equal to the number of damage counters on the Defending Pokémon. This attack does 30 damage plus 10 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/11.png",
+          "large": "https://images.pokemontcg.io/ecard2/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 80.42,
+              "mid": 87.78,
+              "high": 300.0,
+              "market": 84.3,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 129.99,
+              "mid": 159.99,
+              "high": 160.19,
+              "market": 129.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 56.82,
+            "lowPrice": 9.0,
+            "trendPrice": 45.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 36.0,
+            "reverseHoloLow": 18.55,
+            "reverseHoloTrend": 42.54,
+            "lowPriceExPlus": 19.5,
+            "avg1": 12.99,
+            "avg7": 50.55,
+            "avg30": 25.9,
+            "reverseHoloAvg1": 45.0,
+            "reverseHoloAvg7": 48.57,
+            "reverseHoloAvg30": 31.46
+          }
+        }
+      },
+      {
+        "id": "smp-SM35",
+        "name": "Espeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage times the number of Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Divide-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM35",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM35.png",
+          "large": "https://images.pokemontcg.io/smp/SM35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.99,
+              "mid": 18.22,
+              "high": 9999.0,
+              "market": 18.9,
+              "directLow": 21.74
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.83,
+            "lowPrice": 9.99,
+            "trendPrice": 17.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.23,
+            "lowPriceExPlus": 14.0,
+            "avg1": 15.0,
+            "avg7": 18.0,
+            "avg30": 16.43,
+            "reverseHoloAvg1": 14.98,
+            "reverseHoloAvg7": 16.25,
+            "reverseHoloAvg30": 12.35
+          }
+        }
+      },
+      {
+        "id": "bw9-48",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Psy Alert",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Draw cards until you have 6 cards in your hand."
+          },
+          {
+            "name": "Shadow Ball",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 40 damage to 1 of your opponent's Pokémon. Also apply Weakness and Resistance for Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw9",
+          "name": "Plasma Freeze",
+          "series": "Black & White",
+          "printedTotal": 116,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLF",
+          "releaseDate": "2013/05/08",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw9/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw9/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "flavorText": "Its fur is so sensitive, it can feel minute shifts in the air and predict the weather…and its foes' thoughts.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw9/48.png",
+          "large": "https://images.pokemontcg.io/bw9/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw9-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.91,
+              "mid": 3.27,
+              "high": 6.27,
+              "market": 4.28,
+              "directLow": 3.33
+            },
+            "reverseHolofoil": {
+              "low": 33.95,
+              "mid": 48.65,
+              "high": 50.0,
+              "market": 30.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw9-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.73,
+            "lowPrice": 0.02,
+            "trendPrice": 1.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 29.98,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 14.62,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.82,
+            "avg7": 1.51,
+            "avg30": 1.92,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 14.09,
+            "reverseHoloAvg30": 14.51
+          }
+        }
+      },
+      {
+        "id": "bw5-48",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Solar Revelation",
+            "text": "Prevent all effects of your opponent's attacks, except damage, done to each of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psy Report",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent reveals his or her hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Mizue",
+        "rarity": "Rare",
+        "flavorText": "Its fur is so sensitive, it can sense minute shifts in the air and predict the weather.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/48.png",
+          "large": "https://images.pokemontcg.io/bw5/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 7.99,
+              "mid": 9.99,
+              "high": 34.99,
+              "market": 7.64,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.19,
+              "mid": 10.6,
+              "high": 12.0,
+              "market": 17.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.13,
+            "lowPrice": 0.25,
+            "trendPrice": 1.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 220.65,
+            "lowPriceExPlus": 1.0,
+            "avg1": 0.99,
+            "avg7": 1.07,
+            "avg30": 3.04,
+            "reverseHoloAvg1": 6.9,
+            "reverseHoloAvg7": 295.54,
+            "reverseHoloAvg30": 75.79
+          }
+        }
+      },
+      {
+        "id": "xy9-52",
+        "name": "Espeon-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Miraculous Shine",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Devolve each of your opponent's evolved Pokémon and put the highest Stage Evolution card on it into your opponent's hand."
+          },
+          {
+            "name": "Psyshock",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/52.png",
+          "large": "https://images.pokemontcg.io/xy9/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.99,
+              "mid": 17.27,
+              "high": 35.0,
+              "market": 16.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 42.5,
+            "lowPrice": 14.99,
+            "trendPrice": 31.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.0,
+            "lowPriceExPlus": 112.0,
+            "avg1": 42.5,
+            "avg7": 29.43,
+            "avg30": 12.12,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 3.23,
+            "reverseHoloAvg30": 3.23
+          }
+        }
+      },
+      {
+        "id": "sm1-61",
+        "name": "Espeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage times the amount of Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Divide-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/61.png",
+          "large": "https://images.pokemontcg.io/sm1/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.29,
+              "mid": 6.34,
+              "high": 16.69,
+              "market": 6.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.93,
+            "lowPrice": 0.99,
+            "trendPrice": 8.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.08,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 5.67,
+            "avg30": 7.23,
+            "reverseHoloAvg1": 2.96,
+            "reverseHoloAvg7": 4.73,
+            "reverseHoloAvg30": 4.88
+          }
+        }
+      },
+      {
+        "id": "sma-SV60",
+        "name": "Espeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage times the number of Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Divide-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sma",
+          "name": "Hidden Fates Shiny Vault",
+          "series": "Sun & Moon",
+          "printedTotal": 94,
+          "total": 94,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sma/symbol.png",
+            "logo": "https://images.pokemontcg.io/sma/logo.png"
+          }
+        },
+        "number": "SV60",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Shiny GX",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sma/SV60.png",
+          "large": "https://images.pokemontcg.io/sma/SV60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sma-SV60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 94.0,
+              "mid": 110.0,
+              "high": 500.0,
+              "market": 108.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sma-SV60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 74.32,
+            "lowPrice": 49.98,
+            "trendPrice": 67.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 97.98,
+            "lowPriceExPlus": 67.9,
+            "avg1": 84.0,
+            "avg7": 71.11,
+            "avg30": 90.28,
+            "reverseHoloAvg1": 92.99,
+            "reverseHoloAvg7": 91.0,
+            "reverseHoloAvg30": 98.42
+          }
+        }
+      },
+      {
+        "id": "sm11-72",
+        "name": "Espeon & Deoxys-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "260",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Club",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each of your Benched Psychic Pokémon."
+          },
+          {
+            "name": "Cross Division-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. If this Pokémon has at least 3 extra Energy attached to it (in addition to this attack's cost), put 20 damage counters on them instead. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          196,
+          386
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/72.png",
+          "large": "https://images.pokemontcg.io/sm11/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.0,
+              "mid": 36.8,
+              "high": 293.7,
+              "market": 36.73,
+              "directLow": 34.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 0.0,
+            "trendPrice": 14.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.0,
+            "lowPriceExPlus": 0.0,
+            "avg1": 13.0,
+            "avg7": 14.0,
+            "avg30": 11.22,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 6.75,
+            "reverseHoloAvg30": 6.75
+          }
+        }
+      },
+      {
+        "id": "hgss3-81",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Prime"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Evolution Memories",
+            "text": "Espeon can use the attacks of all Pokémon you have in play that evolve from Eevee as its own. (You still need the necessary Energy to use each attack.)",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Ray",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Remove 1 damage counter from each of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "Hideaki Hakozaki",
+        "rarity": "Rare Prime",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/81.png",
+          "large": "https://images.pokemontcg.io/hgss3/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 129.99,
+              "mid": 239.0,
+              "high": 243.0,
+              "market": 133.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 42.99,
+            "lowPrice": 7.0,
+            "trendPrice": 56.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 10.0,
+            "reverseHoloTrend": 26.64,
+            "lowPriceExPlus": 17.0,
+            "avg1": 30.0,
+            "avg7": 90.87,
+            "avg30": 47.17,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 33.92,
+            "reverseHoloAvg30": 17.37
+          }
+        }
+      },
+      {
+        "id": "sm8-89",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Allure",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 3 cards."
+          },
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "This attack does 20 more damage times the amount of Energy attached to all of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Ryota Murayama",
+        "rarity": "Rare",
+        "flavorText": "It unleashes psychic power from the orb on its forehead. When its power is exhausted, the orb grows dull and dark.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/89.png",
+          "large": "https://images.pokemontcg.io/sm8/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.3,
+              "mid": 2.5,
+              "high": 9.99,
+              "market": 2.62,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.87,
+              "mid": 7.9,
+              "high": 12.0,
+              "market": 7.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.51,
+            "lowPrice": 0.5,
+            "trendPrice": 1.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 10.99,
+            "reverseHoloTrend": 7.44,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.24,
+            "avg7": 1.4,
+            "avg30": 1.44,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 8.74,
+            "reverseHoloAvg30": 6.41
+          }
+        }
+      },
+      {
+        "id": "bwp-BW92",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Solar Revelation",
+            "text": "Prevent all effects of your opponent's attacks, except damage, done to each of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psy Report",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent reveals his or her hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW92",
+        "artist": "The Pokémon Company Art Team",
+        "rarity": "Promo",
+        "flavorText": "Its fur is so sensitive, it can sense minute shifts in the air and predict the weather.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW92.png",
+          "large": "https://images.pokemontcg.io/bwp/BW92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 36.56,
+              "mid": 46.37,
+              "high": 99.99,
+              "market": 45.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 15.76,
+            "lowPrice": 1.99,
+            "trendPrice": 21.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.89,
+            "lowPriceExPlus": 7.0,
+            "avg1": 9.0,
+            "avg7": 14.03,
+            "avg30": 13.15,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 3.81,
+            "reverseHoloAvg30": 6.23
+          }
+        }
+      },
+      {
+        "id": "ex10-102",
+        "name": "Espeon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Devo Flash",
+            "text": "Once during your turn, when you play Espeon ex from your hand to evolve 1 of your Pokémon, you may choose 1 Evolved Pokémon on your opponent's Bench, remove the highest Stage Evolution card from that Pokémon, and put it back into his or her hand.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Snap Tail",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Psyloop",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "Does 60 damage plus 30 more damage for each Trainer card your opponent has in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/102.png",
+          "large": "https://images.pokemontcg.io/ex10/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 318.0,
+              "mid": 433.5,
+              "high": 549.0,
+              "market": 514.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-102",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 130.0,
+            "lowPrice": 40.0,
+            "trendPrice": 155.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 83.33,
+            "lowPriceExPlus": 75.0,
+            "avg1": 185.0,
+            "avg7": 178.13,
+            "avg30": 176.89,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 67.86,
+            "reverseHoloAvg30": 67.86
+          }
+        }
+      },
+      {
+        "id": "xy9-117",
+        "name": "Espeon-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Miraculous Shine",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Devolve each of your opponent's evolved Pokémon and put the highest Stage Evolution card on it into your opponent's hand."
+          },
+          {
+            "name": "Psyshock",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/117.png",
+          "large": "https://images.pokemontcg.io/xy9/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 45.0,
+              "mid": 72.28,
+              "high": 149.95,
+              "market": 74.57,
+              "directLow": 49.54
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-117",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 52.4,
+            "lowPrice": 14.99,
+            "trendPrice": 44.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.1,
+            "lowPriceExPlus": 34.99,
+            "avg1": 29.99,
+            "avg7": 48.44,
+            "avg30": 53.08,
+            "reverseHoloAvg1": 22.0,
+            "reverseHoloAvg7": 18.0,
+            "reverseHoloAvg30": 19.05
+          }
+        }
+      },
+      {
+        "id": "sm1-140",
+        "name": "Espeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage times the amount of Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Divide-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "140",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/140.png",
+          "large": "https://images.pokemontcg.io/sm1/140_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-140",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.71,
+              "mid": 23.4,
+              "high": 59.69,
+              "market": 22.29,
+              "directLow": 22.07
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-140",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 17.11,
+            "lowPrice": 6.0,
+            "trendPrice": 8.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.42,
+            "lowPriceExPlus": 10.0,
+            "avg1": 8.08,
+            "avg7": 16.57,
+            "avg30": 22.92,
+            "reverseHoloAvg1": 17.75,
+            "reverseHoloAvg7": 19.55,
+            "reverseHoloAvg30": 14.22
+          }
+        }
+      },
+      {
+        "id": "sm1-152",
+        "name": "Espeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psybeam",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage times the number of Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Divide-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "152",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/152.png",
+          "large": "https://images.pokemontcg.io/sm1/152_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-152",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 37.74,
+              "mid": 42.21,
+              "high": 169.95,
+              "market": 39.21,
+              "directLow": 54.9
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-152",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 28.95,
+            "lowPrice": 5.5,
+            "trendPrice": 26.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 46.83,
+            "lowPriceExPlus": 19.9,
+            "avg1": 30.0,
+            "avg7": 24.85,
+            "avg30": 27.48,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 37.64,
+            "reverseHoloAvg30": 32.76
+          }
+        }
+      },
+      {
+        "id": "smp-SM240",
+        "name": "Espeon & Deoxys-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "260",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Club",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each of your Benched Psychic Pokémon."
+          },
+          {
+            "name": "Cross Division-GX",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 10 damage counters on your opponent's Pokémon in any way you like. If this Pokémon has at least 3 extra Energy attached to it (in addition to this attack's cost), put 20 damage counters on them instead. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM240",
+        "artist": "Hasuno",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          196,
+          386
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM240.png",
+          "large": "https://images.pokemontcg.io/smp/SM240_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM240",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 65.88,
+              "mid": 98.69,
+              "high": 265.83,
+              "market": 90.19,
+              "directLow": 79.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM240",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 90.41,
+            "lowPrice": 29.99,
+            "trendPrice": 81.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.64,
+            "lowPriceExPlus": 50.0,
+            "avg1": 48.0,
+            "avg7": 67.9,
+            "avg30": 89.41,
+            "reverseHoloAvg1": 12.25,
+            "reverseHoloAvg7": 15.63,
+            "reverseHoloAvg30": 18.48
+          }
+        }
+      },
+      {
+        "id": "swsh7-64",
+        "name": "Espeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Shot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon V. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/64.png",
+          "large": "https://images.pokemontcg.io/swsh7/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.38,
+              "high": 49.99,
+              "market": 2.33,
+              "directLow": 4.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.25,
+            "lowPrice": 0.5,
+            "trendPrice": 2.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 3.0,
+            "avg7": 2.6,
+            "avg30": 2.32,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-65",
+        "name": "Espeon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Espeon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solar Revelation",
+            "text": "Prevent all effects of attacks from your opponent's Pokémon done to all of your Pokémon that have Energy attached.(Existing effects are not removed. Damage is not an effect.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Max Mindstorm",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Energy attached to all of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/65.png",
+          "large": "https://images.pokemontcg.io/swsh7/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.0,
+              "mid": 11.26,
+              "high": 500.0,
+              "market": 10.17,
+              "directLow": 12.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.46,
+            "lowPrice": 4.0,
+            "trendPrice": 8.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 5.2,
+            "avg1": 9.9,
+            "avg7": 9.11,
+            "avg30": 8.42,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-180",
+        "name": "Espeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Shot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon V. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "180",
+        "artist": "sowsow",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/180.png",
+          "large": "https://images.pokemontcg.io/swsh7/180_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-180",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 159.99,
+              "mid": 200.3,
+              "high": 277.65,
+              "market": 172.29,
+              "directLow": 208.69
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-180",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 150.58,
+            "lowPrice": 74.95,
+            "trendPrice": 144.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 90.0,
+            "avg1": 107.5,
+            "avg7": 166.27,
+            "avg30": 133.38,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-179",
+        "name": "Espeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Shot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon V. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "179",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/179.png",
+          "large": "https://images.pokemontcg.io/swsh7/179_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-179",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 17.99,
+              "mid": 23.02,
+              "high": 42.69,
+              "market": 21.98,
+              "directLow": 23.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-179",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 23.63,
+            "lowPrice": 9.0,
+            "trendPrice": 26.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 10.0,
+            "avg1": 15.0,
+            "avg7": 20.4,
+            "avg30": 21.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh8-270",
+        "name": "Espeon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Espeon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solar Revelation",
+            "text": "Prevent all effects of attacks from your opponent's Pokémon done to all of your Pokémon that have Energy attached.(Existing effects are not removed. Damage is not an effect.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Max Mindstorm",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Energy attached to all of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "270",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/270.png",
+          "large": "https://images.pokemontcg.io/swsh8/270_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-270",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 240.0,
+              "mid": 316.28,
+              "high": 649.99,
+              "market": 314.94,
+              "directLow": 344.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-270",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 252.13,
+            "lowPrice": 89.99,
+            "trendPrice": 230.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 179.94,
+            "avg1": 259.99,
+            "avg7": 197.78,
+            "avg30": 279.57,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH174",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Psy Bolt",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 40 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH174",
+        "artist": "Tika Matsuno",
+        "rarity": "Promo",
+        "flavorText": "It unleashes psychic power from the orb on its forehead. When its power is exhausted, the orb grows dull and dark.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH174.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH174_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH174",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.99,
+              "mid": 9.02,
+              "high": 29.97,
+              "market": 7.9,
+              "directLow": 9.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH174",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 5.07,
+            "lowPrice": 1.0,
+            "trendPrice": 4.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.7,
+            "avg7": 5.84,
+            "avg30": 5.42,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH201",
+        "name": "Espeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Shot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon V. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH201",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH201.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH201_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH201",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.98,
+              "mid": 1.75,
+              "high": 9999.0,
+              "market": 1.48,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH201",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.07,
+            "lowPrice": 0.75,
+            "trendPrice": 2.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.75,
+            "avg1": 2.03,
+            "avg7": 2.35,
+            "avg30": 2.04,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3-86",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Psychic Assault",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30+",
+            "text": "This attack does 10 more damage for each damage counter on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "86",
+        "artist": "Cona Nitanda",
+        "rarity": "Uncommon",
+        "flavorText": "The tip of its forked tail quivers when it is predicting its opponent's next move.",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/86.png",
+          "large": "https://images.pokemontcg.io/sv3/86_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-86",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 500.17,
+              "market": 0.17,
+              "directLow": 0.1
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.65,
+              "high": 4.0,
+              "market": 0.62,
+              "directLow": 0.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-86",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.99,
+            "lowPrice": 17.0,
+            "trendPrice": 22.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 23.0,
+            "avg1": 23.0,
+            "avg7": 20.09,
+            "avg30": 13.99,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-33",
+        "name": "Espeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Psychic Assault",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30+",
+            "text": "This attack does 10 more damage for each damage counter on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "33",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/33.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.3,
+              "high": 999.0,
+              "market": 0.28,
+              "directLow": 0.08
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.33,
+              "directLow": 0.08
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-34",
+        "name": "Espeon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "270",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psych Out",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Discard a random card from your opponent's hand."
+          },
+          {
+            "name": "Amazez",
+            "cost": [
+              "Grass",
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Devolve each of your opponent's evolved Pokémon by shuffling the highest Stage Evolution card on it into your opponent's deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "34",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/34.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.13,
+              "high": 999.0,
+              "market": 1.77,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-155",
+        "name": "Espeon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "270",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Psych Out",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Discard a random card from your opponent's hand."
+          },
+          {
+            "name": "Amazez",
+            "cost": [
+              "Grass",
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Devolve each of your opponent's evolved Pokémon by shuffling the highest Stage Evolution card on it into your opponent's deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "155",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          196
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/155.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/155_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-155",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 198.0,
+              "mid": 214.27,
+              "high": 999.0,
+              "market": 201.84,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 38,
+    "totalCount": 38
+  }
+}

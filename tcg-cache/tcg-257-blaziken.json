@@ -1,0 +1,3830 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:blaziken"
+  },
+  "cache_key": "eecc1dcca61b14a6f286512f68459abc",
+  "cached_at": 1765901559.588626,
+  "response": {
+    "data": [
+      {
+        "id": "pl3-2",
+        "name": "Blaziken FB",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "50",
+        "hp": "80",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Luring Flame",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Switch the Defending Pokémon with 1 of your opponent's Benched Pokémon. The new Defending Pokémon is now Burned."
+          },
+          {
+            "name": "Vapor Kick",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If your opponent has any Water Pokémon in play, this attack does 30 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Motofumi Fujiwara",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/2.png",
+          "large": "https://images.pokemontcg.io/pl3/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.98,
+              "mid": 16.0,
+              "high": 25.0,
+              "market": 15.43,
+              "directLow": 13.14
+            },
+            "reverseHolofoil": {
+              "low": 12.42,
+              "mid": 14.62,
+              "high": 38.99,
+              "market": 13.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.43,
+            "lowPrice": 1.5,
+            "trendPrice": 5.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.51,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 5.29,
+            "lowPriceExPlus": 5.0,
+            "avg1": 1.99,
+            "avg7": 6.76,
+            "avg30": 8.25,
+            "reverseHoloAvg1": 4.1,
+            "reverseHoloAvg7": 4.01,
+            "reverseHoloAvg30": 5.37
+          }
+        }
+      },
+      {
+        "id": "ex9-1",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Blaze",
+            "text": "As long as Blaziken's remaining HP is 40 or less, Blaziken does 40 more damage to the Defending Pokémon (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Searing Flame",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "The Defending Pokémon is now Burned."
+          },
+          {
+            "name": "Damage Burn",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If the Defending Pokémon already has any damage counters on it, this attack does 50 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex9",
+          "name": "Emerald",
+          "series": "EX",
+          "printedTotal": 106,
+          "total": 107,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EM",
+          "releaseDate": "2005/05/01",
+          "updatedAt": "2020/02/08 09:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex9/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex9/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Midori Harada",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex9/1.png",
+          "large": "https://images.pokemontcg.io/ex9/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 29.0,
+              "mid": 39.98,
+              "high": 79.99,
+              "market": 15.38,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 50.0,
+              "mid": 60.17,
+              "high": 78.95,
+              "market": 44.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 99.99,
+              "mid": 99.99,
+              "high": 99.99,
+              "market": 74.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.2,
+            "lowPrice": 0.09,
+            "trendPrice": 4.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 31.93,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 35.95,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.5,
+            "avg7": 4.55,
+            "avg30": 4.0,
+            "reverseHoloAvg1": 46.0,
+            "reverseHoloAvg7": 27.51,
+            "reverseHoloAvg30": 31.48
+          }
+        }
+      },
+      {
+        "id": "pl1-3",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "59",
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Fire Breath",
+            "text": "Once during your turn (before your attack), you may choose 1 of the Defending Pokémon. That Pokémon is now Burned. This power can't be used if Blaziken is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Fire Spin",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "Discard 2 Energy attached to Blaziken."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/3.png",
+          "large": "https://images.pokemontcg.io/pl1/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.87,
+              "mid": 16.01,
+              "high": 29.99,
+              "market": 14.6,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.95,
+              "mid": 13.28,
+              "high": 17.5,
+              "market": 12.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.12,
+            "lowPrice": 0.45,
+            "trendPrice": 9.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.87,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 5.07,
+            "lowPriceExPlus": 3.0,
+            "avg1": 6.99,
+            "avg7": 9.78,
+            "avg30": 8.24,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.21,
+            "reverseHoloAvg30": 4.38
+          }
+        }
+      },
+      {
+        "id": "dp4-1",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "56",
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Fire Dance",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Search your discard pile for a Fire Energy card and attach it to 1 of your Pokémon."
+          },
+          {
+            "name": "Flame Kick",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard 2 Fire Energy attached to Blaziken. This attack does 80 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "Flames spout from its wrists, enveloping its knuckles. Its punches scorch its foes.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/1.png",
+          "large": "https://images.pokemontcg.io/dp4/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.0,
+              "mid": 16.47,
+              "high": 29.99,
+              "market": 16.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.92,
+              "mid": 12.92,
+              "high": 15.0,
+              "market": 11.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.49,
+            "lowPrice": 0.99,
+            "trendPrice": 4.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.95,
+            "reverseHoloTrend": 2.88,
+            "lowPriceExPlus": 2.95,
+            "avg1": 1.22,
+            "avg7": 6.35,
+            "avg30": 4.96,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 4.81,
+            "reverseHoloAvg30": 4.81
+          }
+        }
+      },
+      {
+        "id": "pop1-1",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Fire Punch",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Double Kick",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50×",
+            "text": "Flip 2 coins. This attack does 50 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pop1",
+          "name": "POP Series 1",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Katsura Tabata",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop1/1.png",
+          "large": "https://images.pokemontcg.io/pop1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.65,
+              "mid": 11.5,
+              "high": 17.5,
+              "market": 9.14,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 6.52,
+              "mid": 9.35,
+              "high": 12.6,
+              "market": 9.91,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 18.45,
+            "lowPrice": 2.99,
+            "trendPrice": 15.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.77,
+            "lowPriceExPlus": 10.0,
+            "avg1": 12.95,
+            "avg7": 8.11,
+            "avg30": 17.93,
+            "reverseHoloAvg1": 6.95,
+            "reverseHoloAvg7": 12.95,
+            "reverseHoloAvg30": 8.02
+          }
+        }
+      },
+      {
+        "id": "sm75-6",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Firestarter",
+            "text": "Once during your turn (before your attack), you may attach a Fire Energy card from your discard pile to 1 of your Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fire Stream",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Discard a Fire Energy from this Pokémon. This attack does 20 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "When facing a tough foe, it looses flames from its wrists. Its powerful legs let it jump clear over buildings.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/6.png",
+          "large": "https://images.pokemontcg.io/sm75/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 5.82,
+              "mid": 8.14,
+              "high": 12.54,
+              "market": 7.71,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.85,
+              "mid": 1.45,
+              "high": 8.95,
+              "market": 1.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.54,
+            "lowPrice": 0.2,
+            "trendPrice": 1.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 10.5,
+            "reverseHoloLow": 1.2,
+            "reverseHoloTrend": 9.73,
+            "lowPriceExPlus": 0.25,
+            "avg1": 2.95,
+            "avg7": 1.52,
+            "avg30": 1.47,
+            "reverseHoloAvg1": 11.01,
+            "reverseHoloAvg7": 8.5,
+            "reverseHoloAvg30": 5.02
+          }
+        }
+      },
+      {
+        "id": "ex1-3",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Firestarter",
+            "text": "Once during your turn (before your attack), you may attach a Fire Energy card from your discard pile to 1 of your Benched Pokémon. This power can't be used if Blaziken is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fire Stream",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Discard a Fire Energy card attached to Blaziken. If you do, this attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex1",
+          "name": "Ruby & Sapphire",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 109,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RS",
+          "releaseDate": "2003/07/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex1/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex1/3.png",
+          "large": "https://images.pokemontcg.io/ex1/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex1-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 31.99,
+              "mid": 59.65,
+              "high": 103.99,
+              "market": 64.81,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 90.0,
+              "mid": 107.84,
+              "high": 120.0,
+              "market": 30.13,
+              "directLow": 115.68
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex1-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.14,
+            "lowPrice": 2.0,
+            "trendPrice": 11.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 27.08,
+            "reverseHoloLow": 3.78,
+            "reverseHoloTrend": 20.29,
+            "lowPriceExPlus": 7.99,
+            "avg1": 16.0,
+            "avg7": 14.0,
+            "avg30": 16.98,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 19.81,
+            "reverseHoloAvg30": 15.7
+          }
+        }
+      },
+      {
+        "id": "ex16-5",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Firestarter",
+            "text": "Once during your turn (before your attack), you may attach a Fire Energy card from your discard pile to 1 of your Benched Pokémon. This power can't be used if Blaziken is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fire Stream",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Discard a Fire Energy card attached to Blaziken. This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/5.png",
+          "large": "https://images.pokemontcg.io/ex16/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.0,
+              "mid": 18.0,
+              "high": 39.99,
+              "market": 17.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.99,
+              "mid": 23.35,
+              "high": 23.86,
+              "market": 59.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.64,
+            "lowPrice": 1.0,
+            "trendPrice": 11.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.78,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 11.57,
+            "lowPriceExPlus": 7.95,
+            "avg1": 7.8,
+            "avg7": 12.49,
+            "avg30": 8.86,
+            "reverseHoloAvg1": 7.5,
+            "reverseHoloAvg7": 10.43,
+            "reverseHoloAvg30": 11.44
+          }
+        }
+      },
+      {
+        "id": "bw5-17",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Blaze Kick",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage. If tails, the Defending Pokémon is now Burned."
+          },
+          {
+            "name": "Flamethrower",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Discard an Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "TOKIYA",
+        "rarity": "Rare Holo",
+        "flavorText": "Flames spout from its wrists, enveloping its knuckles. Its punches scorch it foes.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/17.png",
+          "large": "https://images.pokemontcg.io/bw5/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 6.08,
+              "high": 17.5,
+              "market": 7.69,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.35,
+              "mid": 8.66,
+              "high": 15.92,
+              "market": 8.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.55,
+            "lowPrice": 0.55,
+            "trendPrice": 4.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.55,
+            "reverseHoloTrend": 6.61,
+            "lowPriceExPlus": 1.45,
+            "avg1": 4.99,
+            "avg7": 3.7,
+            "avg30": 4.1,
+            "reverseHoloAvg1": 8.25,
+            "reverseHoloAvg7": 4.52,
+            "reverseHoloAvg30": 3.81
+          }
+        }
+      },
+      {
+        "id": "ex13-20",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Combustion",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Blaze Kick",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 20 more damage. If tails, the Defending Pokémon is now Burned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex13",
+          "name": "Holon Phantoms",
+          "series": "EX",
+          "printedTotal": 110,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HP",
+          "releaseDate": "2006/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex13/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex13/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Hiromichi Sugiyama",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex13/20.png",
+          "large": "https://images.pokemontcg.io/ex13/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex13-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.25,
+              "mid": 2.72,
+              "high": 7.95,
+              "market": 2.95,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 40.99,
+              "mid": 59.85,
+              "high": 80.14,
+              "market": 34.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex13-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.59,
+            "lowPrice": 0.1,
+            "trendPrice": 3.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.0,
+            "reverseHoloLow": 4.5,
+            "reverseHoloTrend": 22.95,
+            "lowPriceExPlus": 0.9,
+            "avg1": 2.5,
+            "avg7": 3.1,
+            "avg30": 1.98,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 28.69,
+            "reverseHoloAvg30": 17.51
+          }
+        }
+      },
+      {
+        "id": "ex1-15",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon can't retreat until the end of your opponent's next turn."
+          },
+          {
+            "name": "Flamethrower",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Discard a Fire Energy card attached to Blaziken."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex1",
+          "name": "Ruby & Sapphire",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 109,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RS",
+          "releaseDate": "2003/07/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex1/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex1/15.png",
+          "large": "https://images.pokemontcg.io/ex1/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.9,
+              "mid": 1.5,
+              "high": 5.0,
+              "market": 1.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 21.0,
+              "mid": 25.67,
+              "high": 79.99,
+              "market": 25.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.33,
+            "lowPrice": 0.05,
+            "trendPrice": 1.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.49,
+            "reverseHoloTrend": 6.4,
+            "lowPriceExPlus": 0.45,
+            "avg1": 0.5,
+            "avg7": 0.89,
+            "avg30": 1.28,
+            "reverseHoloAvg1": 9.9,
+            "reverseHoloAvg7": 5.13,
+            "reverseHoloAvg30": 4.12
+          }
+        }
+      },
+      {
+        "id": "xy3-14",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Burning Shot",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 Energy attached to this Pokémon. This attack does 150 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "PLANETA",
+        "rarity": "Rare Holo",
+        "flavorText": "It can clear a 30-story building in a leap. Its fiery punches scorch its foes.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/14.png",
+          "large": "https://images.pokemontcg.io/xy3/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.2,
+              "high": 3.57,
+              "market": 2.47,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.85,
+              "mid": 4.28,
+              "high": 9.99,
+              "market": 4.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 16.17,
+            "lowPrice": 6.0,
+            "trendPrice": 17.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.61,
+            "lowPriceExPlus": 9.9,
+            "avg1": 11.99,
+            "avg7": 11.44,
+            "avg30": 14.79,
+            "reverseHoloAvg1": 4.49,
+            "reverseHoloAvg7": 3.29,
+            "reverseHoloAvg30": 2.88
+          }
+        }
+      },
+      {
+        "id": "xy5-28",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Spreading Flames",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach 3 Fire Energy cards from your discard pile to your Pokémon in any way you like."
+          },
+          {
+            "name": "Heat Blow",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "Discard an Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "When facing a tough foe, it looses flames from its wrists. Its powerful legs let it jump clear over buildings.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/28.png",
+          "large": "https://images.pokemontcg.io/xy5/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.44,
+              "mid": 2.77,
+              "high": 4.91,
+              "market": 3.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.08,
+              "mid": 4.44,
+              "high": 5.0,
+              "market": 2.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.94,
+            "lowPrice": 1.98,
+            "trendPrice": 3.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.95,
+            "reverseHoloLow": 2.7,
+            "reverseHoloTrend": 6.63,
+            "lowPriceExPlus": 2.69,
+            "avg1": 1.0,
+            "avg7": 3.37,
+            "avg30": 4.18,
+            "reverseHoloAvg1": 3.95,
+            "reverseHoloAvg7": 5.92,
+            "reverseHoloAvg30": 5.87
+          }
+        }
+      },
+      {
+        "id": "swsh3-24",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "abilities": [
+          {
+            "name": "Double Type",
+            "text": "As long as this Pokémon is in play, it is Fire and Fighting type.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Turbo Drive",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Attach a basic Energy card from your discard pile to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Ryuta Fuse",
+        "rarity": "Rare Holo",
+        "flavorText": "When facing a tough foe, it looses flames from its wrists. Its powerful legs let it jump clear over buildings.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/24.png",
+          "large": "https://images.pokemontcg.io/swsh3/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.22,
+              "mid": 0.52,
+              "high": 2.0,
+              "market": 0.52,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.35,
+              "mid": 0.75,
+              "high": 1.99,
+              "market": 0.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.72,
+            "lowPrice": 0.08,
+            "trendPrice": 0.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.94,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.99,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.26,
+            "avg7": 0.48,
+            "avg30": 0.64,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.88,
+            "reverseHoloAvg30": 1.04
+          }
+        }
+      },
+      {
+        "id": "sm7-28",
+        "name": "Blaziken-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Slash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Explosive Kick",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "210",
+            "text": "Discard 2 Fire Energy from this Pokémon."
+          },
+          {
+            "name": "Blaze Out-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 2 Energy from your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/28.png",
+          "large": "https://images.pokemontcg.io/sm7/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.52,
+              "mid": 10.0,
+              "high": 19.75,
+              "market": 8.97,
+              "directLow": 6.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.95,
+            "lowPrice": 2.7,
+            "trendPrice": 5.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.49,
+            "lowPriceExPlus": 3.52,
+            "avg1": 7.41,
+            "avg7": 4.85,
+            "avg30": 4.78,
+            "reverseHoloAvg1": 4.6,
+            "reverseHoloAvg7": 4.77,
+            "reverseHoloAvg30": 4.2
+          }
+        }
+      },
+      {
+        "id": "xyp-XY54",
+        "name": "Blaziken-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Fire"
+        ],
+        "evolvesTo": [
+          "M Blaziken-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Fist of Focus",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Attach an Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Flare Storm",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100+",
+            "text": "Flip a coin for each Fire Energy attached to this Pokémon. This attack does 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY54",
+        "artist": "Eske Yoshinob",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY54.png",
+          "large": "https://images.pokemontcg.io/xyp/XY54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 4.99,
+              "high": 26.85,
+              "market": 7.36,
+              "directLow": 8.46
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.91,
+            "lowPrice": 0.8,
+            "trendPrice": 5.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.96,
+            "lowPriceExPlus": 2.5,
+            "avg1": 4.44,
+            "avg7": 4.25,
+            "avg30": 4.4,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 2.92,
+            "reverseHoloAvg30": 2.82
+          }
+        }
+      },
+      {
+        "id": "ex4-89",
+        "name": "Blaziken ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Blaze Kick",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 damage plus 20 more damage. If tails, this attack does 30 damage and the Defending Pokémon is now Burned."
+          },
+          {
+            "name": "Volcanic Ash",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 Fire Energy attached to Blaziken ex and then choose 1 of your opponent's Pokémon. This attack does 100 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          },
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/89.png",
+          "large": "https://images.pokemontcg.io/ex4/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 89.0,
+              "mid": 92.5,
+              "high": 199.99,
+              "market": 158.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 35.4,
+            "lowPrice": 7.0,
+            "trendPrice": 32.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 18.88,
+            "lowPriceExPlus": 33.0,
+            "avg1": 20.0,
+            "avg7": 29.12,
+            "avg30": 45.0,
+            "reverseHoloAvg1": 18.5,
+            "reverseHoloAvg7": 13.73,
+            "reverseHoloAvg30": 17.73
+          }
+        }
+      },
+      {
+        "id": "ex14-90",
+        "name": "Blaziken ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Drag Off",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Before doing damage, you may choose 1 of your opponent's Benched Pokémon and switch it with 1 of the Defending Pokémon. Your opponent chooses the Defending Pokémon to switch."
+          },
+          {
+            "name": "Burn Away",
+            "cost": [
+              "Fire",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Before doing damage, count the remaining HP of the Defending Pokémon. If that Pokémon is Knocked Out by this attack, Blaziken ex does damage to itself equal to the attack's damage minus the remaining HP of the Defending Pokémon. This attack's damage isn't by Weakness, Resistance, Poké-Powers, Poké-Bodies, or any other effects on that Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/90.png",
+          "large": "https://images.pokemontcg.io/ex14/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 59.99,
+              "mid": 73.0,
+              "high": 135.33,
+              "market": 110.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 29.83,
+            "lowPrice": 12.0,
+            "trendPrice": 18.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.22,
+            "lowPriceExPlus": 60.0,
+            "avg1": 21.98,
+            "avg7": 27.71,
+            "avg30": 38.16,
+            "reverseHoloAvg1": 26.24,
+            "reverseHoloAvg7": 18.03,
+            "reverseHoloAvg30": 16.33
+          }
+        }
+      },
+      {
+        "id": "xyp-XY86",
+        "name": "M Blaziken-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Moonsault Blaze",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "During your next turn, this Pokémon's Moonsault Blaze attack does 100 more damage (before applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY86",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY86.png",
+          "large": "https://images.pokemontcg.io/xyp/XY86_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY86",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.02,
+              "mid": 70.0,
+              "high": 134.48,
+              "market": 72.88,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY86",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 28.45,
+            "lowPrice": 5.0,
+            "trendPrice": 31.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 20.94,
+            "lowPriceExPlus": 42.0,
+            "avg1": 24.95,
+            "avg7": 31.12,
+            "avg30": 39.13,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 21.27,
+            "reverseHoloAvg30": 18.19
+          }
+        }
+      },
+      {
+        "id": "pl3-142",
+        "name": "Blaziken FB LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up",
+          "SP"
+        ],
+        "level": "X",
+        "hp": "110",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken FB",
+        "rules": [
+          "Put this card onto your Active Blaziken FB. Blaziken FB LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Burning Spirit",
+            "text": "Any damage done by attacks to a Burned Pokémon (both yours and your opponent's) is increased by 40 (after applying Weakness and Resistance). No more than 40 damage can be added by all Burning Spirit Poké-Bodies.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jet Shoot",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80",
+            "text": "During your opponent's next turn, any damage done to Blaziken FB by attacks is increased by 40 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/142.png",
+          "large": "https://images.pokemontcg.io/pl3/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 45.99,
+              "mid": 77.99,
+              "high": 129.04,
+              "market": 66.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 24.56,
+            "lowPrice": 5.0,
+            "trendPrice": 27.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 20.0,
+            "reverseHoloTrend": 10.66,
+            "lowPriceExPlus": 39.9,
+            "avg1": 20.0,
+            "avg7": 30.4,
+            "avg30": 29.14,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 9.19,
+            "reverseHoloAvg30": 10.52
+          }
+        }
+      },
+      {
+        "id": "sm7-153",
+        "name": "Blaziken-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Slash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Explosive Kick",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "210",
+            "text": "Discard 2 Fire Energy from this Pokémon."
+          },
+          {
+            "name": "Blaze Out-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 2 Energy from your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "153",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/153.png",
+          "large": "https://images.pokemontcg.io/sm7/153_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-153",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 34.5,
+              "mid": 39.22,
+              "high": 75.0,
+              "market": 38.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-153",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 10.5,
+            "lowPrice": 3.99,
+            "trendPrice": 21.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.07,
+            "lowPriceExPlus": 11.0,
+            "avg1": 6.0,
+            "avg7": 14.66,
+            "avg30": 21.27,
+            "reverseHoloAvg1": 7.95,
+            "reverseHoloAvg7": 10.1,
+            "reverseHoloAvg30": 10.28
+          }
+        }
+      },
+      {
+        "id": "sm7-170",
+        "name": "Blaziken-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Slash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Explosive Kick",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "210",
+            "text": "Discard 2 Fire Energy from this Pokémon."
+          },
+          {
+            "name": "Blaze Out-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 2 Energy from your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "170",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/170.png",
+          "large": "https://images.pokemontcg.io/sm7/170_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-170",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 57.0,
+              "mid": 64.99,
+              "high": 99.99,
+              "market": 62.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-170",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 22.77,
+            "lowPrice": 8.0,
+            "trendPrice": 25.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.95,
+            "lowPriceExPlus": 15.48,
+            "avg1": 25.99,
+            "avg7": 21.98,
+            "avg30": 31.85,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 23.83,
+            "reverseHoloAvg30": 16.91
+          }
+        }
+      },
+      {
+        "id": "swsh6-20",
+        "name": "Blaziken V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Rapid Strike"
+        ],
+        "hp": "210",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "High Jump Kick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Fire Spin",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "210",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/20.png",
+          "large": "https://images.pokemontcg.io/swsh6/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.65,
+              "mid": 1.16,
+              "high": 999.0,
+              "market": 1.06,
+              "directLow": 1.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.17,
+            "lowPrice": 0.29,
+            "trendPrice": 1.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 0.37,
+            "lowPriceExPlus": 0.64,
+            "avg1": 0.85,
+            "avg7": 1.08,
+            "avg30": 1.17,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.07,
+            "reverseHoloAvg30": 1.37
+          }
+        }
+      },
+      {
+        "id": "swsh6-21",
+        "name": "Blaziken VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX",
+          "Rapid Strike"
+        ],
+        "hp": "320",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Max Blaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Choose up to 2 of your Benched Rapid Strike Pokémon and attach an Energy card from your discard pile to each of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/21.png",
+          "large": "https://images.pokemontcg.io/swsh6/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.22,
+              "mid": 3.9,
+              "high": 999.0,
+              "market": 3.63,
+              "directLow": 4.56
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.83,
+            "lowPrice": 1.0,
+            "trendPrice": 3.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.83,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 2.95,
+            "lowPriceExPlus": 1.75,
+            "avg1": 1.75,
+            "avg7": 2.88,
+            "avg30": 2.8,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 3.31,
+            "reverseHoloAvg30": 2.85
+          }
+        }
+      },
+      {
+        "id": "swsh6-161",
+        "name": "Blaziken V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Rapid Strike"
+        ],
+        "hp": "210",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "High Jump Kick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Fire Spin",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "210",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "161",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/161.png",
+          "large": "https://images.pokemontcg.io/swsh6/161_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-161",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.77,
+              "mid": 9.99,
+              "high": 999.0,
+              "market": 9.0,
+              "directLow": 9.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-161",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 7.58,
+            "lowPrice": 3.0,
+            "trendPrice": 6.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.59,
+            "avg1": 3.18,
+            "avg7": 7.37,
+            "avg30": 6.92,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-200",
+        "name": "Blaziken VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX",
+          "Rapid Strike"
+        ],
+        "hp": "320",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Max Blaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Choose up to 2 of your Benched Rapid Strike Pokémon and attach an Energy card from your discard pile to each of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "200",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/200.png",
+          "large": "https://images.pokemontcg.io/swsh6/200_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-200",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 21.88,
+              "mid": 29.1,
+              "high": 999.0,
+              "market": 24.15,
+              "directLow": 29.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-200",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 19.58,
+            "lowPrice": 11.0,
+            "trendPrice": 19.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 12.5,
+            "avg1": 18.0,
+            "avg7": 20.17,
+            "avg30": 20.93,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-201",
+        "name": "Blaziken VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX",
+          "Rapid Strike"
+        ],
+        "hp": "320",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Max Blaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Choose up to 2 of your Benched Rapid Strike Pokémon and attach an Energy card from your discard pile to each of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "201",
+        "artist": "Shigenori Negishi",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/201.png",
+          "large": "https://images.pokemontcg.io/swsh6/201_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-201",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 337.0,
+              "mid": 373.11,
+              "high": 1000.0,
+              "market": 371.01,
+              "directLow": 359.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-201",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 344.1,
+            "lowPrice": 143.99,
+            "trendPrice": 344.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 145.99,
+            "avg1": 280.0,
+            "avg7": 356.71,
+            "avg30": 315.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12tg-TG14",
+        "name": "Blaziken V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Rapid Strike"
+        ],
+        "hp": "210",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "High Jump Kick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Fire Spin",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "210",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12tg",
+          "name": "Silver Tempest Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/11/11 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12tg/logo.png"
+          }
+        },
+        "number": "TG14",
+        "artist": "nagimiso",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12tg/TG14.png",
+          "large": "https://images.pokemontcg.io/swsh12tg/TG14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12tg-TG14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.0,
+              "mid": 26.0,
+              "high": 85.0,
+              "market": 24.34,
+              "directLow": 22.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12tg-TG14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 18.93,
+            "lowPrice": 9.28,
+            "trendPrice": 25.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 11.0,
+            "avg1": 14.5,
+            "avg7": 29.34,
+            "avg30": 21.53,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12tg-TG15",
+        "name": "Blaziken VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX",
+          "Rapid Strike"
+        ],
+        "hp": "320",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Blaziken V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Clutch",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Max Blaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Choose up to 2 of your Benched Rapid Strike Pokémon and attach an Energy card from your discard pile to each of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12tg",
+          "name": "Silver Tempest Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/11/11 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12tg/logo.png"
+          }
+        },
+        "number": "TG15",
+        "artist": "KIYOTAKA OSHIYAMA",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12tg/TG15.png",
+          "large": "https://images.pokemontcg.io/swsh12tg/TG15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12tg-TG15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.99,
+              "mid": 29.15,
+              "high": 79.95,
+              "market": 27.55,
+              "directLow": 27.6
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12tg-TG15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.52,
+            "lowPrice": 7.9,
+            "trendPrice": 14.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 13.0,
+            "avg1": 14.0,
+            "avg7": 14.97,
+            "avg30": 17.18,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-24",
+        "name": "Blaziken ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "320",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Seething Spirit",
+            "text": "Once during your turn, you may attach a Basic Energy card from your discard pile to 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Smolder-sault",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "200",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "takuyoa",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/24.png",
+          "large": "https://images.pokemontcg.io/sv9/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.38,
+              "mid": 1.0,
+              "high": 65.0,
+              "market": 0.8,
+              "directLow": 0.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.02,
+            "lowPrice": 0.35,
+            "trendPrice": 1.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 1.03,
+            "avg7": 1.07,
+            "avg30": 0.97,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv10-42",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Heat Blast",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Inferno Kick Flurry",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard 2 Energy from this Pokémon. This attack also does 120 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Kazumasa Yasukuni",
+        "rarity": "Rare",
+        "flavorText": "When facing a tough foe, it looses flames from its wrists. Its powerful legs let it jump clear over buildings.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/42.png",
+          "large": "https://images.pokemontcg.io/sv10/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.34,
+              "high": 20.0,
+              "market": 0.33,
+              "directLow": 0.32
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.18,
+              "high": 20.0,
+              "market": 0.14,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.24,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.25,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.25,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "sv10-192",
+        "name": "Blaziken",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Combusken",
+        "attacks": [
+          {
+            "name": "Heat Blast",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Inferno Kick Flurry",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard 2 Energy from this Pokémon. This attack also does 120 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "192",
+        "artist": "kodama",
+        "rarity": "Illustration Rare",
+        "flavorText": "When facing a tough foe, it looses flames from its wrists. Its powerful legs let it jump clear over buildings.",
+        "nationalPokedexNumbers": [
+          257
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/192.png",
+          "large": "https://images.pokemontcg.io/sv10/192_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-192",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 10.41,
+              "high": 9999.0,
+              "market": 9.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-192",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 11.42,
+            "lowPrice": 7.9,
+            "trendPrice": 10.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 7.9,
+            "avg1": 9.78,
+            "avg7": 10.81,
+            "avg30": 11.43,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 32,
+    "totalCount": 32
+  }
+}

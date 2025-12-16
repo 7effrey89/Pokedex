@@ -632,6 +632,23 @@
     color: var(--text-primary);
 }
 
+.camera-switch-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.camera-switch-icon {
+    font-size: 1rem;
+}
+
+.camera-switch-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
 .camera-modal-note {
     font-size: 0.8rem;
     color: var(--text-secondary);

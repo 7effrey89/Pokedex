@@ -1,0 +1,3469 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:alakazam"
+  },
+  "cache_key": "b31cf3e2cca0ad744dcb3245513e39f8",
+  "cached_at": 1765899856.658845,
+  "response": {
+    "data": [
+      {
+        "id": "base4-1",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Damage Swap",
+            "text": "As often as you like during your turn (before your attack), you may move 1 damage counter from 1 of your Pokémon to another as long as you don't Knock Out that Pokémon. This power can't be used if Alakazam is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "Its brain can outperform a supercomputer. Its intelligence quotient is said to be 5000.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/1.png",
+          "large": "https://images.pokemontcg.io/base4/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 22.0,
+              "mid": 29.84,
+              "high": 99.99,
+              "market": 43.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 26.86,
+            "lowPrice": 5.0,
+            "trendPrice": 28.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.63,
+            "lowPriceExPlus": 25.0,
+            "avg1": 9.0,
+            "avg7": 22.88,
+            "avg30": 26.23,
+            "reverseHoloAvg1": 19.95,
+            "reverseHoloAvg7": 22.81,
+            "reverseHoloAvg30": 21.3
+          }
+        }
+      },
+      {
+        "id": "base5-1",
+        "name": "Dark Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "30",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Dark Kadabra",
+        "attacks": [
+          {
+            "name": "Teleport Blast",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "You may switch Dark Alakazam with 1 of your Benched Pokémon. (Do the damage before switching the Pokémon.)"
+          },
+          {
+            "name": "Mind Shock",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "Almost as if it were being controlled by something else, it never changes expressions, even in the middle of battle.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/1.png",
+          "large": "https://images.pokemontcg.io/base5/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 109.94,
+              "mid": 126.51,
+              "high": 179.99,
+              "market": 132.11,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 30.0,
+              "mid": 54.99,
+              "high": 79.99,
+              "market": 54.58,
+              "directLow": 43.96
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 44.38,
+            "lowPrice": 13.99,
+            "trendPrice": 33.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 33.85,
+            "lowPriceExPlus": 35.0,
+            "avg1": 43.99,
+            "avg7": 37.96,
+            "avg30": 53.35,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 21.03,
+            "reverseHoloAvg30": 33.72
+          }
+        }
+      },
+      {
+        "id": "base1-1",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Damage Swap",
+            "text": "As often as you like during your turn (before your attack), you may move 1 damage counter from 1 of your Pokémon to another as long as you don't Knock Out that Pokémon. This power can't be used if Alakazam is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base1",
+          "name": "Base",
+          "series": "Base",
+          "printedTotal": 102,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BS",
+          "releaseDate": "1999/01/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+            "logo": "https://images.pokemontcg.io/base1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "Its brain can outperform a supercomputer. Its intelligence quotient is said to be 5000.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base1/1.png",
+          "large": "https://images.pokemontcg.io/base1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 26.0,
+              "mid": 40.0,
+              "high": 242.05,
+              "market": 49.81,
+              "directLow": null
+            },
+            "1stEditionHolofoil": {
+              "low": 999.0,
+              "mid": 999.0,
+              "high": 999.0,
+              "market": null,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 107.5,
+            "lowPrice": 39.95,
+            "trendPrice": 67.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 292.0,
+            "avg1": 149.99,
+            "avg7": 99.63,
+            "avg30": 168.91,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "base6-1",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Damage Swap",
+            "text": "As often as you like during your turn (before your attack), you may move 1 damage counter from 1 of your Pokémon to another as long as you don't Knock Out that Pokémon. This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "Its brain can outperform a supercomputer. Its intelligence quotient is said to be 5000.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/1.png",
+          "large": "https://images.pokemontcg.io/base6/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 42.06,
+              "mid": 49.99,
+              "high": 79.97,
+              "market": 59.72,
+              "directLow": 27.46
+            },
+            "reverseHolofoil": {
+              "low": 225.99,
+              "mid": 265.0,
+              "high": 500.0,
+              "market": 250.0,
+              "directLow": 449.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 20.28,
+            "lowPrice": 9.99,
+            "trendPrice": 28.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 225.0,
+            "reverseHoloLow": 55.0,
+            "reverseHoloTrend": 118.93,
+            "lowPriceExPlus": 30.0,
+            "avg1": 42.0,
+            "avg7": 24.88,
+            "avg30": 25.67,
+            "reverseHoloAvg1": 115.0,
+            "reverseHoloAvg7": 146.86,
+            "reverseHoloAvg30": 95.79
+          }
+        }
+      },
+      {
+        "id": "ecard3-H1",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Energy Jump",
+            "text": "Once during your turn (before your attack), you may move an Energy card from 1 of your Pokémon to another of your Pokémon. This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "This attack does 30 damage plus 10 more damage for each Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "H1",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/H1.png",
+          "large": "https://images.pokemontcg.io/ecard3/H1_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-H1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 259.99,
+            "lowPrice": 75.0,
+            "trendPrice": 228.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 50.03,
+            "lowPriceExPlus": 135.0,
+            "avg1": 350.0,
+            "avg7": 207.71,
+            "avg30": 165.7,
+            "reverseHoloAvg1": 29.99,
+            "reverseHoloAvg7": 45.42,
+            "reverseHoloAvg30": 43.64
+          }
+        }
+      },
+      {
+        "id": "dp2-2",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "47",
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Power Cancel",
+            "text": "Once during your opponent's turn, when your opponent's Pokémon uses any Poké-Power, you may discard 2 cards from your hand and prevent all effects of that Poké-Power. (This counts as that Pokémon using its Poké-Power.) This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Guard",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "During your opponent's next turn, any damage done to Alakazam by attacks from your opponent's Stage 2 Evolved Pokémon is reduced by 30 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "Its superb memory lets it recall everything it has experienced from birth. Its IQ exceeds 5,000.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/2.png",
+          "large": "https://images.pokemontcg.io/dp2/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.99,
+              "mid": 29.99,
+              "high": 149.99,
+              "market": 33.33,
+              "directLow": 23.38
+            },
+            "reverseHolofoil": {
+              "low": 9.55,
+              "mid": 15.0,
+              "high": 24.99,
+              "market": 21.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.08,
+            "lowPrice": 1.5,
+            "trendPrice": 53.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.33,
+            "reverseHoloLow": 1.99,
+            "reverseHoloTrend": 8.15,
+            "lowPriceExPlus": 3.5,
+            "avg1": 9.99,
+            "avg7": 14.89,
+            "avg30": 39.81,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 11.42,
+            "reverseHoloAvg30": 8.97
+          }
+        }
+      },
+      {
+        "id": "ecard1-1",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Psymimic",
+            "text": "Once during your turn, instead of Alakazam's normal attack, you may choose 1 of your opponent's Pokémon's attacks. Alakazam copies that attack including its Energy costs and anything else required in order to use that attack, such as discarding Energy cards. (No matter what type that Pokémon is, Alakazam's type is still Psychic.) This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Syncroblast",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "If Alakazam and the Defending Pokémon don't have the same number of Energy cards attached to them, this attack's base damage is 20 instead of 80."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/1.png",
+          "large": "https://images.pokemontcg.io/ecard1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 190.0,
+              "mid": 221.49,
+              "high": 280.0,
+              "market": 221.49,
+              "directLow": 221.49
+            },
+            "reverseHolofoil": {
+              "low": 82.99,
+              "mid": 107.42,
+              "high": 250.0,
+              "market": 88.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 20.0,
+            "lowPrice": 8.91,
+            "trendPrice": 39.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 18.95,
+            "reverseHoloTrend": 62.76,
+            "lowPriceExPlus": 49.9,
+            "avg1": 20.0,
+            "avg7": 20.76,
+            "avg30": 29.84,
+            "reverseHoloAvg1": 29.95,
+            "reverseHoloAvg7": 44.12,
+            "reverseHoloAvg30": 33.12
+          }
+        }
+      },
+      {
+        "id": "gym2-16",
+        "name": "Sabrina's Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "44",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Sabrina's Kadabra",
+        "abilities": [
+          {
+            "name": "Psylink",
+            "text": "Sabrina's Alakazam always has a copy of every attack your Psychic Pokémon in play have (including their Energy costs and anything else required in order to use those attacks, such as discarding Energy cards). This power can't be used if Sabrina's Alakazam is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mega Burn",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "You can't use this attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/16.png",
+          "large": "https://images.pokemontcg.io/gym2/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 99.99,
+              "mid": 118.83,
+              "high": 149.74,
+              "market": 271.37,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 35.01,
+              "mid": 49.04,
+              "high": 79.98,
+              "market": 51.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 36.27,
+            "lowPrice": 6.99,
+            "trendPrice": 34.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 25.64,
+            "lowPriceExPlus": 42.0,
+            "avg1": 30.0,
+            "avg7": 35.77,
+            "avg30": 36.16,
+            "reverseHoloAvg1": 16.0,
+            "reverseHoloAvg7": 20.4,
+            "reverseHoloAvg30": 23.94
+          }
+        }
+      },
+      {
+        "id": "base5-18",
+        "name": "Dark Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "30",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Dark Kadabra",
+        "attacks": [
+          {
+            "name": "Teleport Blast",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "You may switch Dark Alakazam with 1 of your Benched Pokémon. (Do the damage before switching the Pokémon.)"
+          },
+          {
+            "name": "Mind Shock",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "flavorText": "Almost as if it were being controlled by something else, it never changes expressions, even in the middle of battle.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/18.png",
+          "large": "https://images.pokemontcg.io/base5/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 14.5,
+              "mid": 24.74,
+              "high": 35.0,
+              "market": 25.07,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 8.0,
+              "mid": 10.53,
+              "high": 39.99,
+              "market": 12.93,
+              "directLow": 39.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 12.49,
+            "lowPrice": 1.99,
+            "trendPrice": 15.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.37,
+            "lowPriceExPlus": 9.0,
+            "avg1": 6.5,
+            "avg7": 16.66,
+            "avg30": 12.83,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 13.61,
+            "reverseHoloAvg30": 7.27
+          }
+        }
+      },
+      {
+        "id": "xy10-25",
+        "name": "Alakazam-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "M Alakazam-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Kinesis",
+            "text": "When you play M Alakazam-EX from your hand to evolve this Pokémon, before it evolves, you may put 2 damage counters on your opponent's Active Pokémon and 3 damage counters on 1 of your opponent's Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Suppression",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 3 damage counters on each of your opponent's Pokémon that has any Energy attached to it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "PLANETA",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/25.png",
+          "large": "https://images.pokemontcg.io/xy10/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 5.0,
+              "high": 9.99,
+              "market": 5.18,
+              "directLow": 7.37
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.18,
+            "lowPrice": 1.8,
+            "trendPrice": 5.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.19,
+            "lowPriceExPlus": 4.1,
+            "avg1": 6.23,
+            "avg7": 6.27,
+            "avg30": 5.81,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 5.88,
+            "reverseHoloAvg30": 4.83
+          }
+        }
+      },
+      {
+        "id": "xy10-26",
+        "name": "M Alakazam-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "210",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Alakazam-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Force",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each damage counter on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/26.png",
+          "large": "https://images.pokemontcg.io/xy10/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 13.67,
+              "mid": 20.01,
+              "high": 54.99,
+              "market": 20.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.73,
+            "lowPrice": 7.98,
+            "trendPrice": 12.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.21,
+            "lowPriceExPlus": 15.0,
+            "avg1": 20.0,
+            "avg7": 11.61,
+            "avg30": 17.62,
+            "reverseHoloAvg1": 7.9,
+            "reverseHoloAvg7": 5.82,
+            "reverseHoloAvg30": 5.72
+          }
+        }
+      },
+      {
+        "id": "ecard3-2",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Energy Jump",
+            "text": "Once during your turn (before your attack), you may move an Energy card from 1 of your Pokémon to another of your Pokémon. This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "This attack does 30 damage plus 10 more damage for each Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/2.png",
+          "large": "https://images.pokemontcg.io/ecard3/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 39.99,
+              "mid": 62.5,
+              "high": 106.68,
+              "market": 93.96,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 116.1,
+              "mid": 129.99,
+              "high": 249.99,
+              "market": 172.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 20.24,
+            "lowPrice": 2.36,
+            "trendPrice": 17.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 37.5,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 46.88,
+            "lowPriceExPlus": 15.0,
+            "avg1": 21.99,
+            "avg7": 19.83,
+            "avg30": 15.19,
+            "reverseHoloAvg1": 60.0,
+            "reverseHoloAvg7": 49.78,
+            "reverseHoloAvg30": 37.01
+          }
+        }
+      },
+      {
+        "id": "ecard1-33",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Psymimic",
+            "text": "Once during your turn, instead of Alakazam's normal attack, you may choose 1 of your opponent's Pokémon's attacks. Alakazam copies that attack including its Energy costs and anything else required in order to use that attack, such as discarding Energy cards. (No matter what type that Pokémon is, Alakazam's type is still Psychic.) This power can't be used if Alakazam is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Syncroblast",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "If Alakazam and the Defending Pokémon don't have the same number of Energy cards attached to them, this attack's base damage is 20 instead of 80."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "33",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/33.png",
+          "large": "https://images.pokemontcg.io/ecard1/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.5,
+              "mid": 7.66,
+              "high": 38.99,
+              "market": 10.33,
+              "directLow": 3.99
+            },
+            "reverseHolofoil": {
+              "low": 44.94,
+              "mid": 55.0,
+              "high": 58.88,
+              "market": 71.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.0,
+            "lowPrice": 0.25,
+            "trendPrice": 5.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 43.33,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 20.98,
+            "lowPriceExPlus": 3.9,
+            "avg1": 1.99,
+            "avg7": 4.65,
+            "avg30": 5.46,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 16.6,
+            "reverseHoloAvg30": 11.8
+          }
+        }
+      },
+      {
+        "id": "pl2-38",
+        "name": "Alakazam E4",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "56",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Recover",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard a Psychic Energy attached to Alakazam E4 and remove 4 damage counters from Alakazam E4."
+          },
+          {
+            "name": "Mysterious Beam",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, discard an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/38.png",
+          "large": "https://images.pokemontcg.io/pl2/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.25,
+              "mid": 2.01,
+              "high": 3.99,
+              "market": 2.15,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.85,
+              "mid": 7.5,
+              "high": 15.11,
+              "market": 12.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.64,
+            "lowPrice": 0.1,
+            "trendPrice": 1.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.99,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 2.62,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.0,
+            "avg7": 1.29,
+            "avg30": 1.47,
+            "reverseHoloAvg1": 1.97,
+            "reverseHoloAvg7": 2.72,
+            "reverseHoloAvg30": 2.4
+          }
+        }
+      },
+      {
+        "id": "xy10-90",
+        "name": "Alakazam Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Alakazam-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/90.png",
+          "large": "https://images.pokemontcg.io/xy10/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.22,
+              "high": 1.49,
+              "market": 0.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.49,
+              "high": 8.0,
+              "market": 0.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.69,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 0.53,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.13,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.52,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "pl2-103",
+        "name": "Alakazam E4 LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up",
+          "SP"
+        ],
+        "level": "X",
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Alakazam E4",
+        "rules": [
+          "Put this card onto your Active Alakazam E4. Alakazam E4 LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Damage Switch",
+            "text": "As often as you like during your turn (before your attack), you may move 1 damage counter from 1 of your Pokémon SP to another of your Pokémon SP. This power can't be used if Alakazam E4 is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mind Shock",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "This attack's damage isn't affected by Weakness or Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/103.png",
+          "large": "https://images.pokemontcg.io/pl2/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 77.61,
+              "mid": 84.34,
+              "high": 99.99,
+              "market": 105.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-103",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 59.0,
+            "lowPrice": 14.99,
+            "trendPrice": 43.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 78.9,
+            "reverseHoloTrend": 23.03,
+            "lowPriceExPlus": 44.0,
+            "avg1": 2.0,
+            "avg7": 36.28,
+            "avg30": 36.13,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 18.28,
+            "reverseHoloAvg30": 15.45
+          }
+        }
+      },
+      {
+        "id": "ex14-99",
+        "name": "Alakazam ★",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Star"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "You can't have more than 1 Pokémon Star in your deck."
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Select",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put any 1 card from your discard pile into your hand."
+          },
+          {
+            "name": "Skill Copy",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard a Basic Pokémon or Evolution card from your hand. Choose 1 of that card's attacks. Skill Copy copies this attack. This attack does nothing if Alakazam Star doesn't have the Energy necessary to use that attack. (You must still do anything else required for that attack.) Alakazam Star performs that attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo Star",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/99.png",
+          "large": "https://images.pokemontcg.io/ex14/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1499.99,
+              "mid": 2000.0,
+              "high": 2696.96,
+              "market": 1000.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 672.22,
+            "lowPrice": 290.0,
+            "trendPrice": 632.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 250.52,
+            "lowPriceExPlus": 899.0,
+            "avg1": 300.0,
+            "avg7": 877.97,
+            "avg30": 610.56,
+            "reverseHoloAvg1": 140.0,
+            "reverseHoloAvg7": 225.0,
+            "reverseHoloAvg30": 155.22
+          }
+        }
+      },
+      {
+        "id": "xy10-117",
+        "name": "Alakazam-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "M Alakazam-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Kinesis",
+            "text": "When you play M Alakazam-EX from your hand to evolve this Pokémon, before it evolves, you may put 2 damage counters on your opponent's Active Pokémon and 3 damage counters on 1 of your opponent's Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Suppression",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 3 damage counters on each of your opponent's Pokémon that has any Energy attached to it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/117.png",
+          "large": "https://images.pokemontcg.io/xy10/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.5,
+              "mid": 23.0,
+              "high": 75.0,
+              "market": 24.97,
+              "directLow": 28.53
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-117",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 31.25,
+            "lowPrice": 4.89,
+            "trendPrice": 23.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.92,
+            "lowPriceExPlus": 23.9,
+            "avg1": 28.86,
+            "avg7": 26.91,
+            "avg30": 41.89,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 11.3,
+            "reverseHoloAvg30": 8.23
+          }
+        }
+      },
+      {
+        "id": "xy10-118",
+        "name": "M Alakazam-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "210",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Alakazam-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Force",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each damage counter on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "118",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/118.png",
+          "large": "https://images.pokemontcg.io/xy10/118_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-118",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 56.0,
+              "mid": 87.75,
+              "high": 174.03,
+              "market": 92.68,
+              "directLow": 59.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-118",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 51.99,
+            "lowPrice": 15.0,
+            "trendPrice": 57.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.05,
+            "lowPriceExPlus": 51.56,
+            "avg1": 80.0,
+            "avg7": 59.57,
+            "avg30": 54.86,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 14.49,
+            "reverseHoloAvg30": 12.83
+          }
+        }
+      },
+      {
+        "id": "xy10-125",
+        "name": "Alakazam-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "M Alakazam-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Kinesis",
+            "text": "When you play M Alakazam-EX from your hand to evolve this Pokémon, before it evolves, you may put 2 damage counters on your opponent's Active Pokémon and 3 damage counters on 1 of your opponent's Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Suppression",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 3 damage counters on each of your opponent's Pokémon that has any Energy attached to it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "125",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/125.png",
+          "large": "https://images.pokemontcg.io/xy10/125_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-125",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 62.35,
+              "mid": 115.0,
+              "high": 299.0,
+              "market": 120.8,
+              "directLow": 149.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-125",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 87.63,
+            "lowPrice": 34.95,
+            "trendPrice": 87.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 25.71,
+            "lowPriceExPlus": 72.0,
+            "avg1": 28.99,
+            "avg7": 127.88,
+            "avg30": 101.9,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 23.0,
+            "reverseHoloAvg30": 19.49
+          }
+        }
+      },
+      {
+        "id": "swsh4-172",
+        "name": "Alakazam V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Spoon",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 3 damage counters on your opponent's Pokémon in any way you like."
+          },
+          {
+            "name": "Mind Ruler",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each card in your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "172",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/172.png",
+          "large": "https://images.pokemontcg.io/swsh4/172_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-172",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.47,
+              "mid": 3.42,
+              "high": 19.99,
+              "market": 3.3,
+              "directLow": 2.73
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-172",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.6,
+            "lowPrice": 1.5,
+            "trendPrice": 2.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.54,
+            "lowPriceExPlus": 1.5,
+            "avg1": 5.03,
+            "avg7": 3.31,
+            "avg30": 3.84,
+            "reverseHoloAvg1": 6.45,
+            "reverseHoloAvg7": 8.04,
+            "reverseHoloAvg30": 9.36
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH083",
+        "name": "Alakazam V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Zen Spoon",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 3 damage counters on your opponent's Pokémon in any way you like."
+          },
+          {
+            "name": "Mind Ruler",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each card in your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH083",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH083.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH083_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH083",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.41,
+              "mid": 1.43,
+              "high": 59.99,
+              "market": 1.48,
+              "directLow": 1.74
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH083",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.73,
+            "lowPrice": 0.25,
+            "trendPrice": 4.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.61,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.29,
+            "avg7": 7.75,
+            "avg30": 2.19,
+            "reverseHoloAvg1": 2.73,
+            "reverseHoloAvg7": 1.51,
+            "reverseHoloAvg30": 1.94
+          }
+        }
+      },
+      {
+        "id": "swsh12-59",
+        "name": "Radiant Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Radiant"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Radiant Pokémon Rule: You can't have more than 1 Radiant Pokémon in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Painful Spoons",
+            "text": "Once during your turn, you may move up to 2 damage counters from 1 of your opponent's Pokémon to another of their Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mind Ruler",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each card in your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "59",
+        "artist": "Akira Komayama",
+        "rarity": "Radiant Rare",
+        "flavorText": "It has an incredibly high level of intelligence. Some say that Alakazam remembers everything that ever happens to it, from birth till death.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/59.png",
+          "large": "https://images.pokemontcg.io/swsh12/59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 1.08,
+              "high": 12.0,
+              "market": 1.1,
+              "directLow": 1.65
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.11,
+            "lowPrice": 0.25,
+            "trendPrice": 1.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.38,
+            "avg7": 0.96,
+            "avg30": 1.1,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-65",
+        "name": "Alakazam ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Dimensional Hand",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "This attack can be used even if this Pokémon is on the Bench."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/65.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.46,
+              "mid": 1.27,
+              "high": 11.85,
+              "market": 1.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-65",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.73,
+            "lowPrice": 0.29,
+            "trendPrice": 1.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.3,
+            "avg1": 1.43,
+            "avg7": 1.69,
+            "avg30": 1.71,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-188",
+        "name": "Alakazam ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Dimensional Hand",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "This attack can be used even if this Pokémon is on the Bench."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "188",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/188.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/188_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-188",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 7.99,
+              "high": 100.0,
+              "market": 7.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-188",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 11.87,
+            "lowPrice": 8.23,
+            "trendPrice": 12.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.0,
+            "avg1": 13.08,
+            "avg7": 13.02,
+            "avg30": 11.86,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-201",
+        "name": "Alakazam ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Dimensional Hand",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "This attack can be used even if this Pokémon is on the Bench."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "201",
+        "artist": "Shinya Komatsu",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/201.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/201_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-201",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 40.0,
+              "mid": 49.24,
+              "high": 130.0,
+              "market": 44.64,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-201",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 55.08,
+            "lowPrice": 33.9,
+            "trendPrice": 53.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 41.0,
+            "avg1": 48.0,
+            "avg7": 52.51,
+            "avg30": 54.42,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "svp-50",
+        "name": "Alakazam ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Dimensional Hand",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "This attack can be used even if this Pokémon is on the Bench."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Black Star Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 215,
+          "total": 196,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SV",
+          "releaseDate": "2023/01/01",
+          "updatedAt": "2024/11/09 13:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/50.png",
+          "large": "https://images.pokemontcg.io/svp/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.35,
+              "mid": 0.99,
+              "high": 100.0,
+              "market": 0.74,
+              "directLow": 0.78
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.75,
+            "lowPrice": 0.05,
+            "trendPrice": 0.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.91,
+            "avg7": 0.74,
+            "avg30": 0.78,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-215",
+        "name": "Alakazam ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Dimensional Hand",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "This attack can be used even if this Pokémon is on the Bench."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "215",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Shiny Ultra Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/215.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/215_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-215",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.29,
+              "mid": 3.78,
+              "high": 75.0,
+              "market": 3.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-215",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.87,
+            "lowPrice": 0.99,
+            "trendPrice": 2.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.5,
+            "avg7": 2.35,
+            "avg30": 2.4,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv6-82",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "attacks": [
+          {
+            "name": "Strange Hacking",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused. You may move any number of damage counters from your opponent's Pokémon to their other Pokémon in any way you like."
+          },
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "This attack does 50 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "82",
+        "artist": "Masako Tomii",
+        "rarity": "Rare",
+        "flavorText": "It has an incredibly high level of intelligence. Some say that Alakazam remembers everything that ever happens to it, from birth till death.",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/82.png",
+          "large": "https://images.pokemontcg.io/sv6/82_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-82",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 999.0,
+              "market": 0.19,
+              "directLow": 0.08
+            },
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.23,
+              "directLow": 0.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-82",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.22,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.12,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "me1-56",
+        "name": "Alakazam",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Kadabra",
+        "abilities": [
+          {
+            "name": "Psychic Draw",
+            "text": "Once during your turn, when you play this Pokémon from your hand to evolve 1 of your Pokémon, you may use this Ability. Draw 3 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Powerful Hand",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Place 2 damage counters on your opponent's Active Pokémon for each card in your hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "56",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          65
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/56.png",
+          "large": "https://images.pokemontcg.io/me1/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.27
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.24,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 30,
+    "totalCount": 30
+  }
+}

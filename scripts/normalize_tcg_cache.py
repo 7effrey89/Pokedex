@@ -5,10 +5,10 @@ This utility converts legacy cache files (produced by the old CacheService
 mock) into the same structure written by `scripts/download_tcg_cache.py`.
 It can:
   * rewrite the JSON payload so `response.data` holds the cards list
-  * ensure `endpoint`, `params`, `cache_key`, and `cached_at` fields match
-    the live cache schema
-  * rename cache files to the canonical `tcg-<dex>-<name>-<timestamp>.json`
-    pattern so future download runs can resume cleanly
+    * ensure `endpoint`, `params`, `cache_key`, and `cached_at` fields match
+        the live cache schema
+    * rename cache files to the canonical `tcg-<dex>-<name>.json`
+        pattern (and optionally copy them into the main cache directory)
 
 Typical usage:
     python scripts/normalize_tcg_cache.py                 # normalize entire cache
@@ -21,8 +21,8 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -30,7 +30,7 @@ DEFAULT_ENDPOINT = "https://api.pokemontcg.io/v2/cards"
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE_DIR = PROJECT_DIR / "tcg-cache"
 DEFAULT_POKEMON_LIST = PROJECT_DIR / "data" / "pokemon_list.json"
-FILENAME_RE = re.compile(r"^tcg-(\d{3})-([a-z0-9-]+)-(\d{12})\.json$", re.IGNORECASE)
+FILENAME_RE = re.compile(r"^tcg-(\d{3})-([a-z0-9-]+)(?:-(\d{12}))?\.json$", re.IGNORECASE)
 NAME_IN_QUERY_RE = re.compile(r"name:([a-z0-9-]+)", re.IGNORECASE)
 
 
@@ -80,6 +80,11 @@ def parse_args() -> argparse.Namespace:
         "--verbose",
         action="store_true",
         help="Print details for every processed file",
+    )
+    parser.add_argument(
+        "--dest-dir",
+        default=None,
+        help="Optional directory to move renamed files into (e.g., main cache dir)",
     )
     return parser.parse_args()
 
@@ -186,6 +191,7 @@ def normalize_file(
     dry_run: bool,
     pokedex_map: Dict[str, int],
     verbose: bool,
+    target_dir: Optional[Path],
 ) -> NormalizeResult:
     try:
         with path.open("r", encoding="utf-8") as handle:
@@ -246,28 +252,33 @@ def normalize_file(
 
     new_path = path
     renamed = False
-    if rename:
+    if rename and target_dir:
         dex_number = extract_dex_number(pokemon_name, path, pokedex_map)
+        candidate = None
         if dex_number is not None:
-            timestamp_str = datetime.fromtimestamp(cached_at).strftime("%Y%m%d%H%M")
-            candidate = f"tcg-{dex_number:03d}-{pokemon_name}-{timestamp_str}.json"
-            candidate_path = path.with_name(candidate)
-            if candidate_path != path:
-                if candidate_path.exists() and candidate_path != path:
-                    if verbose:
-                        print(f"⚠️  Target filename already exists: {candidate_path.name}")
-                else:
-                    renamed = True
-                    if dry_run:
-                        if verbose:
-                            print(f"Would rename {path.name} -> {candidate}")
-                    else:
-                        path.rename(candidate_path)
-                        new_path = candidate_path
-                        if verbose:
-                            print(f"↪ Renamed to {candidate}")
+            candidate = f"tcg-{dex_number:03d}-{pokemon_name}.json"
         elif verbose:
             print(f"⚠️  Skipping rename for {path.name} (no dex number)")
+        if candidate:
+            target_parent = target_dir if target_dir else path.parent
+            candidate_path = target_parent / candidate
+            if candidate_path != path:
+                renamed = True
+                if dry_run:
+                    if verbose:
+                        action = "copy" if target_dir else "rename"
+                        print(f"Would {action} {path.name} -> {candidate_path}")
+                    new_path = candidate_path
+                else:
+                    target_parent.mkdir(parents=True, exist_ok=True)
+                    if candidate_path.exists():
+                        candidate_path.unlink()
+                    shutil.copy2(path, candidate_path)
+                    new_path = candidate_path
+                    if verbose:
+                        print(f"↪ Copied to {candidate_path}")
+    elif rename and verbose:
+        print(f"ℹ️ Rename requested but no destination directory provided — leaving {path.name} in place")
 
     return NormalizeResult(path, new_path, normalized, renamed, False)
 
@@ -275,6 +286,9 @@ def normalize_file(
 def main() -> None:
     args = parse_args()
     pokedex_map = load_pokedex_map(Path(args.pokemon_list))
+    dest_dir = Path(args.dest_dir).resolve() if args.dest_dir else None
+    if dest_dir and not args.dry_run:
+        dest_dir.mkdir(parents=True, exist_ok=True)
     stats = {
         "processed": 0,
         "normalized": 0,
@@ -289,6 +303,7 @@ def main() -> None:
             dry_run=args.dry_run,
             pokedex_map=pokedex_map,
             verbose=args.verbose or args.dry_run,
+            target_dir=dest_dir,
         )
         if result.skipped:
             stats["skipped"] += 1

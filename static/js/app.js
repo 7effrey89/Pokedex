@@ -39,6 +39,9 @@ class PokemonChatApp {
         this.cameraModalClose = document.getElementById('cameraModalClose');
         this.cameraPreview = document.getElementById('cameraPreview');
         this.cameraStatusText = document.getElementById('cameraStatusText');
+        this.cameraSwitchButton = document.getElementById('cameraSwitchButton');
+        this.cameraSwitchText = document.getElementById('cameraSwitchText');
+        this.cameraFacingMode = 'environment';
         this.cameraStream = null;
         this.isScanModeActive = false;
         this.shouldSendSnapshotOnNextQuestion = false;
@@ -705,6 +708,46 @@ class PokemonChatApp {
             this.cameraModalClose.addEventListener('click', () => this.closeCameraModal());
         }
 
+        if (this.cameraSwitchButton) {
+            this.cameraSwitchButton.addEventListener('click', () => this.toggleCameraFacingMode());
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                this.setCameraSwitchEnabled(false);
+            }
+        }
+    }
+
+    getCameraFacingDescription(mode = this.cameraFacingMode) {
+        return mode === 'environment' ? 'rear' : 'front';
+    }
+
+    updateCameraSwitchButton() {
+        if (!this.cameraSwitchText) return;
+        const nextMode = this.cameraFacingMode === 'environment' ? 'Front' : 'Rear';
+        this.cameraSwitchText.textContent = `Use ${nextMode} Camera`;
+        if (this.cameraSwitchButton) {
+            this.cameraSwitchButton.setAttribute('aria-label', `Switch to ${nextMode.toLowerCase()} camera`);
+        }
+    }
+
+    setCameraSwitchEnabled(isEnabled) {
+        if (!this.cameraSwitchButton) return;
+        this.cameraSwitchButton.disabled = !isEnabled;
+    }
+
+    async toggleCameraFacingMode() {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            return;
+        }
+
+        this.cameraFacingMode = this.cameraFacingMode === 'environment' ? 'user' : 'environment';
+        this.updateCameraSwitchButton();
+        this.updateCameraStatus(`Switching to ${this.getCameraFacingDescription()} camera...`);
+        await this.restartCameraPreview();
+    }
+
+    async restartCameraPreview() {
+        this.stopCameraStream();
+        await this.startCameraPreview();
     }
 
     async openCameraModal() {
@@ -712,6 +755,7 @@ class PokemonChatApp {
         this.cameraModalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        this.updateCameraSwitchButton();
         await this.startCameraPreview();
         await this.startCameraScanningSession();
     }
@@ -771,21 +815,36 @@ class PokemonChatApp {
 
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
             this.updateCameraStatus('Camera access is not supported on this device.');
+            this.setCameraSwitchEnabled(false);
             return;
         }
 
         try {
+            const videoConstraints = {
+                facingMode: this.cameraFacingMode === 'environment' ? { ideal: 'environment' } : { ideal: 'user' }
+            };
+
             this.cameraStream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: 'environment' },
+                video: videoConstraints,
                 audio: false
             });
 
             this.cameraPreview.srcObject = this.cameraStream;
             await this.cameraPreview.play().catch(() => {});
-            this.updateCameraStatus('Camera ready. Capture or scan when you are ready.');
+            const label = this.getCameraFacingDescription();
+            this.updateCameraStatus(`Camera ready (${label} camera). Capture or scan when you are ready.`);
+            this.setCameraSwitchEnabled(true);
         } catch (error) {
             console.error('Camera preview failed:', error);
+            if (this.cameraFacingMode === 'environment') {
+                console.warn('Rear camera unavailable, falling back to front camera.');
+                this.cameraFacingMode = 'user';
+                this.updateCameraSwitchButton();
+                await this.startCameraPreview();
+                return;
+            }
             this.updateCameraStatus('Camera access denied or unavailable.');
+            this.setCameraSwitchEnabled(false);
             this.stopCameraStream();
         }
     }

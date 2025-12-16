@@ -1,0 +1,3353 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:wigglytuff"
+  },
+  "cache_key": "681f872449f6fa74d401c280988bacb9",
+  "cached_at": 1765894873.444787,
+  "response": {
+    "data": [
+      {
+        "id": "ex14-13",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "name": "Fluffy Fur",
+            "text": "If Wigglytuff is your Active Pokémon and is damaged by an opponent's attack (even if Wigglytuff is Knocked Out), the Attacking Pokémon is now Asleep.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Collect",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 3 cards."
+          },
+          {
+            "name": "Pester",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If the Defending Pokémon is affected by a Special Condition, this attack does 30 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/13.png",
+          "large": "https://images.pokemontcg.io/ex14/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.93,
+              "mid": 16.6,
+              "high": 27.99,
+              "market": 11.86,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 17.0,
+              "mid": 19.85,
+              "high": 25.92,
+              "market": 16.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.15,
+            "lowPrice": 1.5,
+            "trendPrice": 6.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.67,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 12.41,
+            "lowPriceExPlus": 2.99,
+            "avg1": 12.5,
+            "avg7": 6.67,
+            "avg30": 7.22,
+            "reverseHoloAvg1": 21.0,
+            "reverseHoloAvg7": 10.44,
+            "reverseHoloAvg30": 8.27
+          }
+        }
+      },
+      {
+        "id": "base4-19",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Lullaby",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Do the Wave",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/19.png",
+          "large": "https://images.pokemontcg.io/base4/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 9.97,
+              "high": 22.49,
+              "market": 11.38,
+              "directLow": 14.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.68,
+            "lowPrice": 2.0,
+            "trendPrice": 11.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.23,
+            "lowPriceExPlus": 5.9,
+            "avg1": 7.0,
+            "avg7": 11.87,
+            "avg30": 10.69,
+            "reverseHoloAvg1": 12.99,
+            "reverseHoloAvg7": 9.04,
+            "reverseHoloAvg30": 7.42
+          }
+        }
+      },
+      {
+        "id": "base2-16",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Lullaby",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Do the Wave",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/16.png",
+          "large": "https://images.pokemontcg.io/base2/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 21.8,
+              "mid": 47.91,
+              "high": 90.0,
+              "market": 73.17,
+              "directLow": 44.0
+            },
+            "unlimitedHolofoil": {
+              "low": 14.49,
+              "mid": 20.0,
+              "high": 55.19,
+              "market": 28.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 23.57,
+            "lowPrice": 3.5,
+            "trendPrice": 12.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.79,
+            "lowPriceExPlus": 20.0,
+            "avg1": 11.73,
+            "avg7": 13.09,
+            "avg30": 26.34,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 16.33,
+            "reverseHoloAvg30": 15.88
+          }
+        }
+      },
+      {
+        "id": "dp4-32",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "46",
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "name": "Good Night Melody",
+            "text": "Once during your turn (before your attack), you may use this power. Each Active Pokémon (both yours and your opponent's) is now Asleep. This power can't be used if Wigglytuff is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ballon Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If Igglybuff is anywhere under Wigglytuff, this attack does 40 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Its fine fur feels sublime to the touch. It can expand its body by inhaling air.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/32.png",
+          "large": "https://images.pokemontcg.io/dp4/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.89,
+              "mid": 1.84,
+              "high": 5.0,
+              "market": 1.84,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.56,
+              "mid": 4.72,
+              "high": 6.82,
+              "market": 4.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.26,
+            "lowPrice": 0.2,
+            "trendPrice": 2.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.98,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.48,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.19,
+            "avg7": 2.0,
+            "avg30": 1.17,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.66,
+            "reverseHoloAvg30": 1.52
+          }
+        }
+      },
+      {
+        "id": "sm115-42",
+        "name": "Wigglytuff-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rolling Rush",
+            "cost": [
+              "Fairy",
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Flip a coin until you get tails. This attack does 30 more damage for each heads."
+          },
+          {
+            "name": "Lovely Star-GX",
+            "cost": [
+              "Fairy",
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Heal all damage from this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm115",
+          "name": "Hidden Fates",
+          "series": "Sun & Moon",
+          "printedTotal": 68,
+          "total": 69,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "HIF",
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm115/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm115/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm115/42.png",
+          "large": "https://images.pokemontcg.io/sm115/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm115-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.75,
+              "mid": 2.75,
+              "high": 20.0,
+              "market": 2.46,
+              "directLow": 3.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm115-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.76,
+            "lowPrice": 0.5,
+            "trendPrice": 1.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.21,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.48,
+            "avg7": 2.01,
+            "avg30": 1.72,
+            "reverseHoloAvg1": 1.16,
+            "reverseHoloAvg7": 1.23,
+            "reverseHoloAvg30": 1.31
+          }
+        }
+      },
+      {
+        "id": "neo4-40",
+        "name": "Dark Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "24",
+        "hp": "60",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Dark Song",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Asleep. If tails, the Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Slap Awake",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20+",
+            "text": "If the Defending Pokémon is Asleep or Confused, this attack does 20 damage plus 20 more damage. Then, the Defending Pokémon is no longer Asleep or Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon has soft, fine hair. When angered, it increases in size and has been known to charge those it considers a threat.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/40.png",
+          "large": "https://images.pokemontcg.io/neo4/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 15.0,
+              "mid": 15.33,
+              "high": 21.99,
+              "market": 10.06,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 2.45,
+              "mid": 4.81,
+              "high": 12.99,
+              "market": 4.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.09,
+            "lowPrice": 0.99,
+            "trendPrice": 5.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.98,
+            "avg1": 2.99,
+            "avg7": 7.37,
+            "avg30": 5.03,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "base2-32",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Lullaby",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Do the Wave",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/32.png",
+          "large": "https://images.pokemontcg.io/base2/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 6.99,
+              "mid": 8.07,
+              "high": 27.99,
+              "market": 18.57,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 1.15,
+              "mid": 4.0,
+              "high": 6.75,
+              "market": 5.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.33,
+            "lowPrice": 0.95,
+            "trendPrice": 7.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.02,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.82,
+            "avg7": 7.47,
+            "avg30": 6.3,
+            "reverseHoloAvg1": 3.2,
+            "reverseHoloAvg7": 5.69,
+            "reverseHoloAvg30": 14.02
+          }
+        }
+      },
+      {
+        "id": "hgss1-56",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Double Slap",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          },
+          {
+            "name": "Expand",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "During your opponent's next turn, any damage done to Wigglytuff by attacks is reduced by 10 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss1",
+          "name": "HeartGold & SoulSilver",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss1/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss1/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Atsuko Nishida",
+        "rarity": "Uncommon",
+        "flavorText": "It has a very fine fur. Take care not to make it angry, or it may inflate steadily and hit with a Body Slam.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss1/56.png",
+          "large": "https://images.pokemontcg.io/hgss1/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss1-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.28,
+              "mid": 0.51,
+              "high": 0.91,
+              "market": 0.62,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 1.99,
+              "high": 5.67,
+              "market": 2.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss1-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.64,
+            "lowPrice": 0.02,
+            "trendPrice": 0.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.18,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 2.91,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.1,
+            "avg7": 1.06,
+            "avg30": 0.6,
+            "reverseHoloAvg1": 2.25,
+            "reverseHoloAvg7": 3.17,
+            "reverseHoloAvg30": 1.76
+          }
+        }
+      },
+      {
+        "id": "neo4-54",
+        "name": "Light Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "33",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Evolution Song",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent may choose 1 of his or her Pokémon and search his or her deck for a card that evolves from that Pokémon. Your opponent attaches that card to that Pokémon. This counts as evolving that Pokémon. Either way, you may do the same, and then each player who searched shuffles his or her deck."
+          },
+          {
+            "name": "Body Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "Naoyo Kimura",
+        "rarity": "Uncommon",
+        "flavorText": "If two of them brush against each other, they will not be able to separate themselves, as they enjoy touching each other's soft fur too much.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/54.png",
+          "large": "https://images.pokemontcg.io/neo4/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 24.99,
+              "mid": 34.5,
+              "high": 44.99,
+              "market": 16.68,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 3.0,
+              "mid": 5.39,
+              "high": 7.08,
+              "market": 7.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.1,
+            "lowPrice": 0.25,
+            "trendPrice": 4.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.0,
+            "lowPriceExPlus": 2.99,
+            "avg1": 6.82,
+            "avg7": 5.42,
+            "avg30": 5.1,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.93,
+            "reverseHoloAvg30": 0.93
+          }
+        }
+      },
+      {
+        "id": "ex6-52",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "name": "Assistance",
+            "text": "Once during your turn (before your attack), if Wigglytuff is on your Bench, you may choose 1 of your Active Pokémon and remove 1 Special Condition from it.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Expand",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, any damage done to Wigglytuff by attacks is reduced by 10 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/52.png",
+          "large": "https://images.pokemontcg.io/ex6/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.55,
+              "mid": 2.0,
+              "high": 2.89,
+              "market": 1.55,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 13.17,
+              "mid": 16.43,
+              "high": 29.99,
+              "market": 14.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.59,
+            "lowPrice": 0.2,
+            "trendPrice": 1.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.95,
+            "reverseHoloLow": 1.99,
+            "reverseHoloTrend": 11.9,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.28,
+            "avg7": 1.35,
+            "avg30": 1.68,
+            "reverseHoloAvg1": 9.95,
+            "reverseHoloAvg7": 6.06,
+            "reverseHoloAvg30": 12.31
+          }
+        }
+      },
+      {
+        "id": "ecard3-34",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "name": "Good Neighbor",
+            "text": "Once during your turn (before your attack), if Wigglytuff is on your bench, you may flip a coin. If heads, each player removes up to 2 damage counters from his or her Active Pokémon. This power can't be used if you have already used another Wigglytuff's Good Neighbor Poké-Power this turn.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Do the Wave",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10×",
+            "text": "Flip a coin. If heads, this attack does 10 damage times the number of Pokémon you have in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Hizuki Misono",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/34.png",
+          "large": "https://images.pokemontcg.io/ecard3/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 35.0,
+              "mid": 37.73,
+              "high": 39.99,
+              "market": 20.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.94,
+            "lowPrice": 1.0,
+            "trendPrice": 12.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.99,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 11.49,
+            "lowPriceExPlus": 3.99,
+            "avg1": 4.9,
+            "avg7": 3.81,
+            "avg30": 9.88,
+            "reverseHoloAvg1": 7.99,
+            "reverseHoloAvg7": 10.25,
+            "reverseHoloAvg30": 9.58
+          }
+        }
+      },
+      {
+        "id": "xy10-66",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Expand",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 30 (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Double Slap",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60×",
+            "text": "Flip 2 coins. This attack does 60 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "Mizue",
+        "rarity": "Uncommon",
+        "flavorText": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/66.png",
+          "large": "https://images.pokemontcg.io/xy10/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.19,
+              "mid": 0.32,
+              "high": 5.15,
+              "market": 0.35,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.42,
+              "mid": 1.04,
+              "high": 9.5,
+              "market": 1.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.21,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.75,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 1.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.17,
+            "avg30": 0.25,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.37,
+            "reverseHoloAvg30": 1.06
+          }
+        }
+      },
+      {
+        "id": "swsh3-68",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Sleep Pulse",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Double Smash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90×",
+            "text": "Flip 2 coins. This attack does 90 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "Lee HyunJung",
+        "rarity": "Rare",
+        "flavorText": "When it gets angry, it inhales with all its might, and its body gradually inflates. Sometimes they can grow 20 times larger!",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/68.png",
+          "large": "https://images.pokemontcg.io/swsh3/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.06,
+              "mid": 0.23,
+              "high": 2.0,
+              "market": 0.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.49,
+              "high": 2.0,
+              "market": 0.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-68",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.46,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 0.49,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.14,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.46,
+            "reverseHoloAvg30": 0.63
+          }
+        }
+      },
+      {
+        "id": "bw4-79",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Round",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of your Pokémon that have the Round attack."
+          },
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw4",
+          "name": "Next Destinies",
+          "series": "Black & White",
+          "printedTotal": 99,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NXD",
+          "releaseDate": "2012/02/08",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw4/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw4/logo.png"
+          }
+        },
+        "number": "79",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare",
+        "flavorText": "Its fine fur feels sublime to the touch. It can expand its body by inhaling air.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw4/79.png",
+          "large": "https://images.pokemontcg.io/bw4/79_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw4-79",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.49,
+              "mid": 1.13,
+              "high": 2.49,
+              "market": 1.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.27,
+              "mid": 2.9,
+              "high": 5.99,
+              "market": 1.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw4-79",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.6,
+            "lowPrice": 0.2,
+            "trendPrice": 1.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.95,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.01,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.3,
+            "avg7": 1.79,
+            "avg30": 1.37,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.11,
+            "reverseHoloAvg30": 1.09
+          }
+        }
+      },
+      {
+        "id": "sm4-72",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Punishing Slap",
+            "cost": [
+              "Fairy",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If any of your opponent's Pokémon have any Darkness Energy attached to them, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "0313",
+        "rarity": "Rare",
+        "flavorText": "It sheds its fine fur when the seasons change. The fur is gathered and spun into a luxurious yarn.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/72.png",
+          "large": "https://images.pokemontcg.io/sm4/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.28,
+              "mid": 0.58,
+              "high": 3.95,
+              "market": 0.58,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.09,
+              "high": 7.99,
+              "market": 1.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.1,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.66,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 0.71,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.5,
+            "avg7": 0.28,
+            "avg30": 0.34,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.74,
+            "reverseHoloAvg30": 0.67
+          }
+        }
+      },
+      {
+        "id": "xy1-89",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Gather Energy",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a basic Energy card and attach it to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Hocus Pinkus",
+            "cost": [
+              "Fairy",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "The Defending Pokémon can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Mizue",
+        "rarity": "Rare",
+        "flavorText": "Their fur feels so good that if two of them snuggle together, they won't want to be separated.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/89.png",
+          "large": "https://images.pokemontcg.io/xy1/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.47,
+              "mid": 0.8,
+              "high": 2.37,
+              "market": 0.94,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.24,
+              "high": 19.99,
+              "market": 2.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.85,
+            "lowPrice": 0.02,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.9,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 2.27,
+            "lowPriceExPlus": 0.39,
+            "avg1": 1.0,
+            "avg7": 1.11,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 2.9,
+            "reverseHoloAvg7": 2.31,
+            "reverseHoloAvg30": 1.94
+          }
+        }
+      },
+      {
+        "id": "xy1-90",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Balloon Barrage",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage times the amount of Energy attached to this Pokémon."
+          },
+          {
+            "name": "Double-Edge",
+            "cost": [
+              "Fairy",
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "This Pokémon does 10 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Their fur feels so good that if two of them snuggle together, they won't want to be separated.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/90.png",
+          "large": "https://images.pokemontcg.io/xy1/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.65,
+              "high": 1.44,
+              "market": 1.33,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.31,
+              "mid": 3.14,
+              "high": 4.06,
+              "market": 3.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.0,
+            "lowPrice": 0.1,
+            "trendPrice": 0.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.88,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 2.15,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.75,
+            "avg7": 0.94,
+            "avg30": 1.0,
+            "reverseHoloAvg1": 2.49,
+            "reverseHoloAvg7": 2.05,
+            "reverseHoloAvg30": 1.64
+          }
+        }
+      },
+      {
+        "id": "ex5-101",
+        "name": "Wigglytuff ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Sleepy Song",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Each Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Do the Wave",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/101.png",
+          "large": "https://images.pokemontcg.io/ex5/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.98,
+              "mid": 58.11,
+              "high": 67.99,
+              "market": 41.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 37.59,
+            "lowPrice": 6.0,
+            "trendPrice": 21.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.99,
+            "lowPriceExPlus": 17.85,
+            "avg1": 29.95,
+            "avg7": 32.68,
+            "avg30": 26.02,
+            "reverseHoloAvg1": 11.25,
+            "reverseHoloAvg7": 7.99,
+            "reverseHoloAvg30": 11.44
+          }
+        }
+      },
+      {
+        "id": "sm8-134",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Expand",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Charmed Slap",
+            "cost": [
+              "Fairy",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70+",
+            "text": "If this Pokémon has a Pokémon Tool card that has \"Fairy Charm\" in its name attached to it, this attack does 70 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "134",
+        "artist": "nagimiso",
+        "rarity": "Rare",
+        "flavorText": "As it inhales, it expands…and expands…and expands. Wigglytuff compete to see which one can inflate itself the most.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/134.png",
+          "large": "https://images.pokemontcg.io/sm8/134_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-134",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.48,
+              "high": 5.0,
+              "market": 0.95,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.18,
+              "mid": 0.49,
+              "high": 2.0,
+              "market": 0.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-134",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.49,
+            "lowPrice": 0.15,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.15,
+            "reverseHoloLow": 0.36,
+            "reverseHoloTrend": 1.36,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.95,
+            "avg7": 0.53,
+            "avg30": 0.51,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 1.43,
+            "reverseHoloAvg30": 1.3
+          }
+        }
+      },
+      {
+        "id": "sm10-135",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Orb Polish",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 3 Energy cards from your discard pile into your hand."
+          },
+          {
+            "name": "Sleepy Ball",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "135",
+        "artist": "miki kudo",
+        "rarity": "Rare",
+        "flavorText": "Thanks to its bouncy body and fine fur, this Pokémon is sought after. Holding one in your arms while you sleep feels great.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/135.png",
+          "large": "https://images.pokemontcg.io/sm10/135_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-135",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.58,
+              "mid": 1.83,
+              "high": 19.99,
+              "market": 1.84,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 2.23,
+              "mid": 10.83,
+              "high": 19.95,
+              "market": 2.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-135",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.61,
+            "lowPrice": 0.1,
+            "trendPrice": 0.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.99,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 3.63,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.94,
+            "avg7": 0.49,
+            "avg30": 0.56,
+            "reverseHoloAvg1": 0.25,
+            "reverseHoloAvg7": 3.82,
+            "reverseHoloAvg30": 2.61
+          }
+        }
+      },
+      {
+        "id": "swsh8-111",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Find Treasure",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Hyper Voice",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "111",
+        "artist": "Asako Ito",
+        "rarity": "Uncommon",
+        "flavorText": "When it gets angry, it inhales with all its might, and its body gradually inflates. Sometimes they can grow 20 times larger!",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/111.png",
+          "large": "https://images.pokemontcg.io/swsh8/111_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-111",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.17,
+              "mid": 0.46,
+              "high": 1.63,
+              "market": 0.46,
+              "directLow": 0.44
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": 0.17
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-111",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.29,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.16,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.35,
+            "reverseHoloAvg30": 0.28
+          }
+        }
+      },
+      {
+        "id": "sv2-84",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Balloon Therapy",
+            "text": "Once during your turn, you may attach a Therapeutic Energy card from your hand to 1 of your Pokémon."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Magical Shot",
+            "damage": "100",
+            "text": "",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "84",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "It has a very fine fur. Take care not to make it angry, or it may inflate steadily and hit with a body slam.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/84.png",
+          "large": "https://images.pokemontcg.io/sv2/84_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-84",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.02,
+              "mid": 0.17,
+              "high": 2.0,
+              "market": 0.16,
+              "directLow": 0.09
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.23,
+              "high": 2.0,
+              "market": 0.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-84",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.21,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.11,
+            "avg7": 0.06,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.28,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-40",
+        "name": "Wigglytuff ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "250",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Expanding Body",
+            "text": "If this Pokémon has any Special Energy attached, it gets +100 HP.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Friend Tackle",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If you played a Supporter card from your hand during this turn, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Saki Hayashiro",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/40.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.31,
+              "mid": 0.99,
+              "high": 25.0,
+              "market": 0.8,
+              "directLow": 0.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.21,
+            "lowPrice": 0.2,
+            "trendPrice": 1.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.02,
+            "avg7": 1.18,
+            "avg30": 1.21,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-187",
+        "name": "Wigglytuff ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "250",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Expanding Body",
+            "text": "If this Pokémon has any Special Energy attached, it gets +100 HP.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Friend Tackle",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If you played a Supporter card from your hand during this turn, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "187",
+        "artist": "Saki Hayashiro",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/187.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/187_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-187",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.44,
+              "mid": 5.76,
+              "high": 504.58,
+              "market": 4.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-187",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 9.26,
+            "lowPrice": 6.0,
+            "trendPrice": 9.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 6.5,
+            "avg1": 10.1,
+            "avg7": 8.92,
+            "avg30": 9.32,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-147",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "abilities": [
+          {
+            "name": "Balloon Therapy",
+            "text": "Once during your turn, you may attach a Therapeutic Energy card from your hand to 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Magical Shot",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "147",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Shiny Rare",
+        "flavorText": "It has a very fine fur. Take care not to make it angry, or it may inflate steadily and hit with a body slam.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/147.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/147_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-147",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.76,
+              "mid": 2.67,
+              "high": 9.69,
+              "market": 2.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-147",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.93,
+            "lowPrice": 1.0,
+            "trendPrice": 2.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.85,
+            "avg1": 3.58,
+            "avg7": 3.1,
+            "avg30": 2.98,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-222",
+        "name": "Wigglytuff ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "250",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Expanding Body",
+            "text": "If this Pokémon has any Special Energy attached, it gets +100 HP.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Friend Tackle",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If you played a Supporter card from your hand during this turn, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "222",
+        "artist": "Saki Hayashiro",
+        "rarity": "Shiny Ultra Rare",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/222.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/222_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-222",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.94,
+              "mid": 1.62,
+              "high": 50.0,
+              "market": 1.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-222",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.34,
+            "lowPrice": 0.5,
+            "trendPrice": 1.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.17,
+            "avg7": 1.22,
+            "avg30": 1.31,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "me2-77",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Round",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each of your Pokémon in play that has the Round attack."
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "En Morikura",
+        "rarity": "Uncommon",
+        "flavorText": "It has a very fine fur. Take care not to make it angry, or it may inflate steadily and hit with a body slam.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/77.png",
+          "large": "https://images.pokemontcg.io/me2/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.08,
+              "high": 999.0,
+              "market": 0.03,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.09,
+              "directLow": 0.08
+            }
+          }
+        }
+      },
+      {
+        "id": "me2-105",
+        "name": "Wigglytuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Jigglypuff",
+        "attacks": [
+          {
+            "name": "Round",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each of your Pokémon in play that has the Round attack."
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "105",
+        "artist": "REND",
+        "rarity": "Illustration Rare",
+        "flavorText": "It has a very fine fur. Take care not to make it angry, or it may inflate steadily and hit with a body slam.",
+        "nationalPokedexNumbers": [
+          40
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/105.png",
+          "large": "https://images.pokemontcg.io/me2/105_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-105",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.2,
+              "mid": 6.5,
+              "high": 999.0,
+              "market": 4.69,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 28,
+    "totalCount": 28
+  }
+}

@@ -1,0 +1,956 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:chesnaught"
+  },
+  "cache_key": "d27b23ce2d0719a20d4cbab98c362374",
+  "cached_at": 1765908097.16589,
+  "response": {
+    "data": [
+      {
+        "id": "xy0-5",
+        "name": "Chesnaught",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Quilladin",
+        "attacks": [
+          {
+            "name": "Needle Arm",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Tumbling Attack",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80+",
+            "text": "Flip a coin. If heads, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy0",
+          "name": "Kalos Starter Set",
+          "series": "XY",
+          "printedTotal": 39,
+          "total": 39,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "KSS",
+          "releaseDate": "2013/11/08",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy0/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy0/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "5ban Graphics",
+        "flavorText": "Its Tackle is forceful enough to flip a 50-ton tank. It shields its allies from danger with its own body.",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy0/5.png",
+          "large": "https://images.pokemontcg.io/xy0/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy0-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.64,
+              "mid": 1.23,
+              "high": 6.75,
+              "market": 1.47,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.8,
+              "mid": 2.25,
+              "high": 4.37,
+              "market": 2.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy0-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.56,
+            "lowPrice": 0.05,
+            "trendPrice": 1.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.9,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 2.72,
+            "lowPriceExPlus": 1.8,
+            "avg1": 1.99,
+            "avg7": 1.94,
+            "avg30": 1.88,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 3.3,
+            "reverseHoloAvg30": 2.12
+          }
+        }
+      },
+      {
+        "id": "xy1-14",
+        "name": "Chesnaught",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Quilladin",
+        "abilities": [
+          {
+            "name": "Spiky Shield",
+            "text": "If this Pokémon is your Active Pokémon and is damaged by an opponent's attack (even if this Pokémon is Knocked Out), put 3 damage counters on the Attacking Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Touchdown",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 20 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo",
+        "flavorText": "Its Tackle is forceful enough to flip a 50-ton tank. It shields its allies from danger with its own body.",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/14.png",
+          "large": "https://images.pokemontcg.io/xy1/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.75,
+              "mid": 2.09,
+              "high": 4.99,
+              "market": 2.12,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.86,
+              "mid": 2.32,
+              "high": 4.49,
+              "market": 2.41,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.36,
+            "lowPrice": 0.3,
+            "trendPrice": 2.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.99,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 3.37,
+            "lowPriceExPlus": 1.75,
+            "avg1": 0.7,
+            "avg7": 3.13,
+            "avg30": 1.84,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 3.51,
+            "reverseHoloAvg30": 3.04
+          }
+        }
+      },
+      {
+        "id": "xy8-11",
+        "name": "Chesnaught",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Quilladin",
+        "attacks": [
+          {
+            "name": "Spike Lariat",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 60 more damage."
+          },
+          {
+            "name": "Adamantine Press",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "When it takes a defensive posture with its fists guarding its face, it could withstand a bomb blast.",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/11.png",
+          "large": "https://images.pokemontcg.io/xy8/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.26,
+              "high": 6.5,
+              "market": 1.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.0,
+              "high": 3.97,
+              "market": 2.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.3,
+            "lowPrice": 0.8,
+            "trendPrice": 2.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.35,
+            "reverseHoloLow": 0.89,
+            "reverseHoloTrend": 3.66,
+            "lowPriceExPlus": 0.8,
+            "avg1": 0.9,
+            "avg7": 2.76,
+            "avg30": 2.89,
+            "reverseHoloAvg1": 1.6,
+            "reverseHoloAvg7": 2.45,
+            "reverseHoloAvg30": 3.98
+          }
+        }
+      },
+      {
+        "id": "xy8-12",
+        "name": "Chesnaught BREAK",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "BREAK"
+        ],
+        "hp": "190",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Chesnaught",
+        "rules": [
+          "BREAK Evolution Rule: Chesnaught BREAK retains the attacks, Abilities, Weakness, Resistance, and Retreat Cost of its previous Evolution."
+        ],
+        "attacks": [
+          {
+            "name": "Tough Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": "This Pokémon does 30 damage to itself. This attack does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "5ban Graphics",
+        "rarity": "Rare BREAK",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/12.png",
+          "large": "https://images.pokemontcg.io/xy8/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.17,
+              "mid": 2.69,
+              "high": 14.52,
+              "market": 2.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.78,
+            "lowPrice": 1.0,
+            "trendPrice": 2.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 3.69,
+            "lowPriceExPlus": 1.5,
+            "avg1": 5.0,
+            "avg7": 2.43,
+            "avg30": 2.75,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 3.49,
+            "reverseHoloAvg30": 2.31
+          }
+        }
+      },
+      {
+        "id": "xyp-XY18",
+        "name": "Chesnaught-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pin Missile",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 4 coins. This attack does 40 damage times the number of heads."
+          },
+          {
+            "name": "Wild Tackle",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "This Pokémon does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY18",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY18.png",
+          "large": "https://images.pokemontcg.io/xyp/XY18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.91,
+              "mid": 3.65,
+              "high": 15.71,
+              "market": 4.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.64,
+            "lowPrice": 0.98,
+            "trendPrice": 5.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.55,
+            "lowPriceExPlus": 1.95,
+            "avg1": 6.0,
+            "avg7": 4.7,
+            "avg30": 4.23,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 2.33,
+            "reverseHoloAvg30": 2.31
+          }
+        }
+      },
+      {
+        "id": "xyp-XY68",
+        "name": "Chesnaught",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Quilladin",
+        "attacks": [
+          {
+            "name": "Spike Lariat",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 60 more damage."
+          },
+          {
+            "name": "Adamantine Press",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY68",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "flavorText": "When it takes a defensive posture with its fists guarding its face, it could withstand a bomb blast.",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY68.png",
+          "large": "https://images.pokemontcg.io/xyp/XY68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 4.72,
+              "high": 9.99,
+              "market": 4.91,
+              "directLow": 6.9
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.45,
+            "lowPrice": 1.0,
+            "trendPrice": 4.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.89,
+            "lowPriceExPlus": 4.49,
+            "avg1": 4.45,
+            "avg7": 4.41,
+            "avg30": 3.85,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 2.71,
+            "reverseHoloAvg30": 2.92
+          }
+        }
+      },
+      {
+        "id": "swsh12-15",
+        "name": "Chesnaught V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Needle Line",
+            "text": "If your Active Chesnaught V is damaged by an attack from your opponent's Pokémon (even if it is Knocked Out), put 3 damage counters on the Attacking Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Touchdown",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "N-DESIGN Inc.",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/15.png",
+          "large": "https://images.pokemontcg.io/swsh12/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.22,
+              "mid": 0.99,
+              "high": 50.0,
+              "market": 0.69,
+              "directLow": 0.69
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.89,
+            "lowPrice": 0.1,
+            "trendPrice": 0.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.65,
+            "avg7": 0.6,
+            "avg30": 0.88,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12-171",
+        "name": "Chesnaught V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Needle Line",
+            "text": "If your Active Chesnaught V is damaged by an attack from your opponent's Pokémon (even if it is Knocked Out), put 3 damage counters on the Attacking Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Touchdown",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "171",
+        "artist": "N-DESIGN Inc.",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          652
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/171.png",
+          "large": "https://images.pokemontcg.io/swsh12/171_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-171",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.08,
+              "mid": 1.65,
+              "high": 20.0,
+              "market": 1.51,
+              "directLow": 1.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-171",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.39,
+            "lowPrice": 0.99,
+            "trendPrice": 2.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.66,
+            "avg7": 2.7,
+            "avg30": 2.38,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}
