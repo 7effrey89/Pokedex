@@ -6,14 +6,20 @@ This script fetches TCG card data for each Pokemon and stores the responses
 in the tcg-cache directory. Each response is saved with the same structure
 used by CacheService to enable easy migration or import.
 
+The script supports resume functionality - if interrupted, you can restart it
+and it will skip Pokemon that have already been cached (unless --no-skip-existing
+is specified).
+
 Usage:
     python scripts/download_tcg_cache.py [--start NUM] [--end NUM] [--limit NUM]
 
 Options:
-    --start NUM     Start from Pokemon number NUM (default: 1)
-    --end NUM       End at Pokemon number NUM (default: 1025)
-    --limit NUM     Limit to NUM Pokemon (useful for testing)
-    --delay SEC     Delay between requests in seconds (default: 1)
+    --start NUM             Start from Pokemon number NUM (default: 1)
+    --end NUM               End at Pokemon number NUM (default: 1025)
+    --limit NUM             Limit to NUM Pokemon (useful for testing)
+    --delay SEC             Delay between requests in seconds (default: 1)
+    --skip-existing         Skip already-cached Pokemon (default, enables resume)
+    --no-skip-existing      Re-download all Pokemon even if cached
 """
 
 import json
@@ -185,6 +191,27 @@ def fetch_tcg_data(session: requests.Session, pokemon_name: str,
         return None
 
 
+def is_pokemon_cached(pokemon_number: int, pokemon_name: str) -> bool:
+    """
+    Check if a Pokemon has already been cached
+    
+    Args:
+        pokemon_number: Pokemon national dex number
+        pokemon_name: Pokemon name
+        
+    Returns:
+        True if cache file exists for this Pokemon
+    """
+    if not TCG_CACHE_DIR.exists():
+        return False
+    
+    # Look for any file matching the pattern: tcg-{number}-{name}-*.json
+    pattern = f"tcg-{pokemon_number:03d}-{pokemon_name}-*.json"
+    matching_files = list(TCG_CACHE_DIR.glob(pattern))
+    
+    return len(matching_files) > 0
+
+
 def save_tcg_cache(pokemon_number: int, pokemon_name: str, 
                    response_data: Dict, endpoint: str, params: Dict) -> Path:
     """
@@ -252,6 +279,14 @@ def main():
         '--delay', type=float, default=1.0,
         help='Delay between requests in seconds (default: 1.0)'
     )
+    parser.add_argument(
+        '--skip-existing', dest='skip_existing', action='store_true', default=True,
+        help='Skip Pokemon that have already been cached (default: True)'
+    )
+    parser.add_argument(
+        '--no-skip-existing', dest='skip_existing', action='store_false',
+        help='Re-download all Pokemon even if already cached'
+    )
     
     args = parser.parse_args()
     
@@ -284,11 +319,16 @@ def main():
     print()
     print(f"Processing {len(pokemon_subset)} Pokemon (#{args.start} to #{min(args.end, start_idx + len(pokemon_subset))})")
     print(f"Output directory: {TCG_CACHE_DIR}")
+    if args.skip_existing:
+        print(f"Resume mode: Skipping already-cached Pokemon")
+    else:
+        print(f"Force mode: Re-downloading all Pokemon")
     print()
     
     # Statistics
     success_count = 0
     error_count = 0
+    skipped_count = 0
     cards_found_count = 0
     
     # Process each Pokemon
@@ -297,6 +337,12 @@ def main():
         name = pokemon['name']
         
         print(f"[{idx}/{len(pokemon_subset)}] #{number:03d} {name.title()}", end=" ... ")
+        
+        # Check if already cached
+        if args.skip_existing and is_pokemon_cached(number, name):
+            print("⊙ Already cached (skipping)")
+            skipped_count += 1
+            continue
         
         # Fetch TCG data
         params = {"q": f"name:{name}"}
@@ -327,8 +373,9 @@ def main():
     print()
     print("=" * 60)
     print(f"Download Complete!")
-    print(f"  Success: {success_count}")
-    print(f"  Errors:  {error_count}")
+    print(f"  Success:  {success_count}")
+    print(f"  Skipped:  {skipped_count}")
+    print(f"  Errors:   {error_count}")
     print(f"  Total cards found: {cards_found_count}")
     print(f"  Cache directory: {TCG_CACHE_DIR}")
     print("=" * 60)

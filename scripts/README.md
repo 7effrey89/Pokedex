@@ -11,6 +11,7 @@ This script downloads Pokemon TCG API responses for all Pokemon (001-1025) and s
 - Supports optional API key for higher rate limits
 - Allows downloading specific ranges or limiting the number of Pokemon
 - Maintains a Pokemon list resource for easy extension
+- **Resume capability**: Automatically skips already-cached Pokemon, so you can safely restart if interrupted
 
 ## Usage
 
@@ -52,12 +53,34 @@ Add a 2-second delay between requests (be nice to the API):
 python scripts/download_tcg_cache.py --delay 2.0
 ```
 
+### Resume After Interruption
+
+The script automatically tracks which Pokemon have been cached. If you need to stop and restart:
+
+```bash
+# Start downloading all Pokemon
+python scripts/download_tcg_cache.py
+
+# Script gets interrupted... (Ctrl+C or network issue)
+
+# Resume - it will skip already-cached Pokemon
+python scripts/download_tcg_cache.py
+```
+
+By default, the script skips Pokemon that already have cache files. To force re-downloading:
+
+```bash
+python scripts/download_tcg_cache.py --no-skip-existing
+```
+
 ## Options
 
 - `--start NUM` - Start from Pokemon number NUM (default: 1)
 - `--end NUM` - End at Pokemon number NUM (default: 1025)
 - `--limit NUM` - Limit to NUM Pokemon (useful for testing)
 - `--delay SEC` - Delay between requests in seconds (default: 1.0)
+- `--skip-existing` - Skip already-cached Pokemon (default: enabled)
+- `--no-skip-existing` - Force re-download even if cached
 
 ## API Key (Optional)
 
