@@ -5,6 +5,75 @@ class PokemonDetailView {
     constructor(app) {
         this.app = app;
         this.detailView = document.getElementById('pokemonDetailView');
+        this.setupNavigationArrows();
+    }
+
+    setupNavigationArrows() {
+        const prevBtn = document.getElementById('pokemonNavPrev');
+        const nextBtn = document.getElementById('pokemonNavNext');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.navigateToPreviousPokemon());
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.navigateToNextPokemon());
+        }
+    }
+
+    updateNavigationPreviews(currentId) {
+        const prevBtn = document.getElementById('pokemonNavPrev');
+        const nextBtn = document.getElementById('pokemonNavNext');
+        
+        // Update previous Pokemon preview
+        if (prevBtn && currentId > 1) {
+            const prevPokemon = this.app.allPokemons.find(p => p.id === currentId - 1);
+            if (prevPokemon) {
+                prevBtn.style.display = 'block';
+                const img = prevBtn.querySelector('.nav-preview-image');
+                const name = prevBtn.querySelector('.nav-preview-name');
+                const number = prevBtn.querySelector('.nav-preview-number');
+                img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${prevPokemon.id}.png`;
+                name.textContent = prevPokemon.name;
+                number.textContent = `#${String(prevPokemon.id).padStart(3, '0')}`;
+            }
+        } else if (prevBtn) {
+            prevBtn.style.display = 'none';
+        }
+        
+        // Update next Pokemon preview
+        if (nextBtn && currentId < this.app.allPokemons.length) {
+            const nextPokemon = this.app.allPokemons.find(p => p.id === currentId + 1);
+            if (nextPokemon) {
+                nextBtn.style.display = 'block';
+                const img = nextBtn.querySelector('.nav-preview-image');
+                const name = nextBtn.querySelector('.nav-preview-name');
+                const number = nextBtn.querySelector('.nav-preview-number');
+                img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${nextPokemon.id}.png`;
+                name.textContent = nextPokemon.name;
+                number.textContent = `#${String(nextPokemon.id).padStart(3, '0')}`;
+            }
+        } else if (nextBtn) {
+            nextBtn.style.display = 'none';
+        }
+    }
+
+    async navigateToPreviousPokemon() {
+        const currentId = this.app.currentPokemonName ? 
+            this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id : null;
+        
+        if (currentId && currentId > 1) {
+            await this.loadPokemon(currentId - 1);
+        }
+    }
+
+    async navigateToNextPokemon() {
+        const currentId = this.app.currentPokemonName ? 
+            this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id : null;
+        
+        if (currentId && currentId < this.app.allPokemons.length) {
+            await this.loadPokemon(currentId + 1);
+        }
     }
 
     async loadPokemon(id) {
@@ -98,6 +167,9 @@ class PokemonDetailView {
         this.app.updateCanvasState('pokemon', { pokemon, species, evolutionChain });
 
         this.updateDisplay(pokemon, species, evolutionChain);
+        
+        // Update navigation previews
+        this.updateNavigationPreviews(pokemon.id);
     }
 
     updateDisplay(pokemon, species, evolutionChain = null) {

@@ -88,6 +88,26 @@
 
             <!-- Pokemon Detail View -->
             <div class="pokemon-detail-view" id="pokemonDetailView" style="display: none;">
+                <!-- Previous Pokemon Preview -->
+                <div class="pokemon-nav-preview pokemon-nav-prev" id="pokemonNavPrev" style="display: none;">
+                    <img class="nav-preview-image" src="" alt="Previous Pokemon">
+                    <p class="nav-preview-name"></p>
+                    <p class="nav-preview-number"></p>
+                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <!-- Next Pokemon Preview -->
+                <div class="pokemon-nav-preview pokemon-nav-next" id="pokemonNavNext" style="display: none;">
+                    <img class="nav-preview-image" src="" alt="Next Pokemon">
+                    <p class="nav-preview-name"></p>
+                    <p class="nav-preview-number"></p>
+                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
                 <div class="detail-header">
                     <div class="pokemon-name-wrap">
                         <h1 class="pokemon-name"></h1>
@@ -116,6 +136,7 @@
                 </div>
                 
                 <div class="pokemon-image-section">
+                    <img class="pokedex-decoration" src="/static/images/pokedex.svg" alt="">
                     <img class="pokemon-main-image" src="" alt="Pokemon" />
                 </div>
                 
@@ -126,12 +147,14 @@
                     <div class="pokemon-basic-info">
                         <div class="info-item">
                             <div class="info-value">
+                                <img src="/static/images/weight.svg" alt="Weight" class="info-icon">
                                 <span class="pokemon-weight"></span>
                             </div>
                             <p class="info-label">Weight</p>
                         </div>
                         <div class="info-item">
                             <div class="info-value">
+                                <img src="/static/images/height.svg" alt="Height" class="info-icon">
                                 <span class="pokemon-height"></span>
                             </div>
                             <p class="info-label">Height</p>
@@ -150,10 +173,7 @@
                     <div class="pokemon-actions">
                         <div class="action-button-group">
                             <button class="view-cards-btn" id="viewCardsBtn" aria-label="View Trading Cards">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
+                                <img src="/static/images/tcg-icon.png" alt="TCG" class="tcg-btn-icon">
                                 <span>View Trading Cards</span>
                             </button>
                             <button class="action-dropdown-btn" id="viewCardsDropdownBtn" aria-label="More options">
