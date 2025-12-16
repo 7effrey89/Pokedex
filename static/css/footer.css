@@ -1,0 +1,78 @@
+/* Pokedex Footer */
+.pokedex-footer {
+    background: linear-gradient(180deg, var(--pokedex-red-dark) 0%, var(--pokedex-red-darker) 100%);
+    border-top: 3px solid var(--pokedex-black);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 50;
+    flex-shrink: 0;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.footer-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footer-btn:active {
+    transform: translateY(0);
+}
+
+.footer-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+
+.footer-btn span {
+    font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .footer-actions {
+        gap: 0.25rem;
+    }
+    
+    .footer-btn {
+        min-width: 60px;
+        padding: 0.5rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .footer-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .footer-btn span {
+        font-size: 0.65rem;
+    }
+}

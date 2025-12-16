@@ -7,7 +7,17 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Pokemon Chat Assistant</title>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Modular CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokemon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tcg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,11 +40,13 @@
                     <h1>POKEDEX</h1>
                 </div>
                 <div class="header-actions">
-                    <button id="toolsButton" class="tools-button" aria-label="Manage tools" title="Manage tools">
+                    <button id="toolsButton" class="tools-button" aria-label="Manage settings" title="Manage settings">
                         <svg class="tools-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <span class="tools-text">Tools</span>
+                        <span class="tools-text">Settings</span>
                     </button>
                     <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
                         <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -61,85 +73,410 @@
             </div>
         </header>
 
-        <!-- Chat Container -->
-        <div class="chat-container" id="chatContainer">
-            <!-- Welcome Message -->
-            <div class="welcome-message">
-                <div class="welcome-icon">👋</div>
-                <h2>Welcome to Pokemon Chat!</h2>
-                <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
-                <div class="example-queries">
-                    <span class="example-chip">Tell me about Pikachu</span>
-                    <span class="example-chip">Show me Charizard</span>
-                    <span class="example-chip">Show me Pikachu cards</span>
-                    <span class="example-chip">Surprise me with a random Pokemon</span>
-                    <span class="example-chip">Random Pokemon from Kanto</span>
-                    <span class="example-chip">Random Fire type Pokemon</span>
+        <!-- Main Canvas/Viewport -->
+        <div class="main-canvas" id="mainCanvas">
+            
+            <!-- Pokemon Grid View (Default) -->
+            <div class="pokemon-grid-view" id="pokemonGridView">
+                <div class="grid-container">
+                    <div class="list-wrapper" id="pokemonList">
+                        <!-- Pokemon cards will be dynamically loaded here -->
+                    </div>
                 </div>
+                <div id="notFoundMessage" class="not-found-message" style="display: none;">Pokemon not found</div>
             </div>
 
-            <!-- Messages will be dynamically added here -->
-        </div>
-
-        <!-- Pokemon Card Display -->
-        <div class="pokemon-card-overlay" id="pokemonCardOverlay">
-            <div class="pokemon-card">
-                <button class="close-card" id="closeCard">&times;</button>
-                <div class="pokemon-card-content" id="pokemonCardContent">
-                    <!-- Pokemon details will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Input Area -->
-        <div class="input-container">
-            <div class="input-wrapper">
-                <textarea 
-                    id="messageInput" 
-                    class="message-input" 
-                    placeholder="Ask about a Pokemon..."
-                    rows="1"
-                ></textarea>
-                <button id="sendButton" class="send-button" aria-label="Send message">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Pokemon Detail View -->
+            <div class="pokemon-detail-view" id="pokemonDetailView" style="display: none;">
+                <!-- Previous Pokemon Preview -->
+                <div class="pokemon-nav-preview pokemon-nav-prev" id="pokemonNavPrev" style="display: none;">
+                    <img class="nav-preview-image" src="" alt="Previous Pokemon">
+                    <p class="nav-preview-name"></p>
+                    <p class="nav-preview-number"></p>
+                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </button>
+                </div>
+                
+                <!-- Next Pokemon Preview -->
+                <div class="pokemon-nav-preview pokemon-nav-next" id="pokemonNavNext" style="display: none;">
+                    <img class="nav-preview-image" src="" alt="Next Pokemon">
+                    <p class="nav-preview-name"></p>
+                    <p class="nav-preview-number"></p>
+                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="detail-header">
+                    <div class="pokemon-name-wrap">
+                        <h1 class="pokemon-name"></h1>
+                        <p class="pokemon-id"></p>
+                    </div>
+                    <div class="detail-actions">
+                        <div class="dropdown-menu-container">
+                            <button class="dropdown-toggle-btn" id="pokemonDetailMenuBtn" aria-label="More options">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                                    <circle cx="12" cy="5" r="1" fill="currentColor"/>
+                                    <circle cx="12" cy="19" r="1" fill="currentColor"/>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="pokemonDetailDropdown">
+                                <button class="dropdown-menu-item" id="forceRefreshPokemon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M23 4v6h-6M1 20v-6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>Force Refresh from API</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pokemon-image-section">
+                    <img class="pokedex-decoration" src="/static/images/pokedex.svg" alt="">
+                    <img class="pokemon-main-image" src="" alt="Pokemon" />
+                </div>
+                
+                <div class="pokemon-info-card">
+                    <div class="pokemon-types"></div>
+                    
+                    <h3 class="section-title">About</h3>
+                    <div class="pokemon-basic-info">
+                        <div class="info-item">
+                            <div class="info-value">
+                                <img src="/static/images/weight.svg" alt="Weight" class="info-icon">
+                                <span class="pokemon-weight"></span>
+                            </div>
+                            <p class="info-label">Weight</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-value">
+                                <img src="/static/images/height.svg" alt="Height" class="info-icon">
+                                <span class="pokemon-height"></span>
+                            </div>
+                            <p class="info-label">Height</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-value pokemon-abilities"></div>
+                            <p class="info-label">Abilities</p>
+                        </div>
+                    </div>
+                    
+                    <p class="pokemon-description"></p>
+                    
+                    <h3 class="section-title">Base Stats</h3>
+                    <div class="pokemon-stats"></div>
+                    
+                    <div class="pokemon-actions">
+                        <div class="action-button-group">
+                            <button class="view-cards-btn" id="viewCardsBtn" aria-label="View Trading Cards">
+                                <img src="/static/images/tcg-icon.png" alt="TCG" class="tcg-btn-icon">
+                                <span>View Trading Cards</span>
+                            </button>
+                            <button class="action-dropdown-btn" id="viewCardsDropdownBtn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="viewCardsDropdown">
+                                <button class="dropdown-menu-item" id="forceRefreshCards">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M23 4v6h-6M1 20v-6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>Force Refresh Cards</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="quick-actions">
-                <button class="quick-action-btn" data-action="help">
-                    <span>❓</span> Help
-                </button>
-                <button class="quick-action-btn" data-action="random">
-                    <span>🎲</span> Random
-                </button>
-                <button class="quick-action-btn" data-action="popular">
-                    <span>⭐</span> Popular
-                </button>
+
+            <!-- TCG Cards View -->
+            <div class="tcg-cards-view" id="tcgCardsView" style="display: none;">
+                <!-- TCG cards grid will be dynamically populated here -->
+            </div>
+
+            <!-- TCG Card Detail View -->
+            <div class="tcg-card-detail-view" id="tcgCardDetailView" style="display: none;">
+                <!-- TCG card detail will be dynamically populated here -->
             </div>
         </div>
+
+        <!-- Chat Sidebar (Hidden by default) -->
+        <div class="chat-sidebar" id="chatSidebar">
+            <button class="chat-toggle-btn" id="chatToggleBtn" aria-label="Toggle chat">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="chat-sidebar-content">
+                <div class="chat-sidebar-header">
+                    <h3>Chat Assistant</h3>
+                    <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
+                </div>
+                <div class="chat-container" id="chatContainer">
+                    <!-- Welcome Message -->
+                    <div class="welcome-message">
+                        <div class="welcome-icon">👋</div>
+                        <h2>Welcome to Pokemon Chat!</h2>
+                        <p>Ask me about any Pokemon and I'll provide detailed information with images!</p>
+                        <div class="example-queries">
+                            <span class="example-chip">Tell me about Pikachu</span>
+                            <span class="example-chip">Show me Charizard</span>
+                            <span class="example-chip">Show me Pikachu cards</span>
+                            <span class="example-chip">Surprise me with a random Pokemon</span>
+                        </div>
+                    </div>
+
+                    <!-- Messages will be dynamically added here -->
+                </div>
+
+                <!-- Input Area (inside sidebar) -->
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            class="message-input" 
+                            placeholder="Ask about a Pokemon..."
+                            rows="1"
+                        ></textarea>
+                        <button id="sendButton" class="send-button" aria-label="Send message">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" data-action="help">
+                            <span>❓</span> Help
+                        </button>
+                        <button class="quick-action-btn" data-action="random">
+                            <span>🎲</span> Random
+                        </button>
+                        <button class="quick-action-btn" data-action="popular">
+                            <span>⭐</span> Popular
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Actions Bar -->
+        <footer class="pokedex-footer">
+            <div class="footer-actions">
+                <button class="footer-btn" id="helpBtn" aria-label="Help">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                    </svg>
+                    <span>Help</span>
+                </button>
+                
+                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Random</span>
+                </button>
+                
+                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+                
+                <button class="footer-btn" id="backBtnFooter" aria-label="Back">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back</span>
+                </button>
+                
+                <button class="footer-btn" id="forwardBtnFooter" aria-label="Forward">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Forward</span>
+                </button>
+            </div>
+        </footer>
 
         <!-- Loading Indicator -->
         <div class="loading-indicator" id="loadingIndicator">
-            <div class="loading-spinner"></div>
+            <img src="{{ url_for('static', filename='images/rotomdex.gif') }}" alt="Loading" class="loading-rotom">
             <span>Thinking...</span>
+        </div>
+
+        <!-- Help Modal -->
+        <div class="help-modal-overlay" id="helpModalOverlay">
+            <div class="help-modal">
+                <div class="help-modal-header">
+                    <h2>🎮 Pokedex Commands</h2>
+                    <button class="help-modal-close" id="helpModalClose">&times;</button>
+                </div>
+                <div class="help-modal-content">
+                    <div class="help-section">
+                        <h3>🔍 Pokemon Information</h3>
+                        <ul>
+                            <li><strong>"Tell me about Pikachu"</strong> - Get detailed Pokemon information</li>
+                            <li><strong>"Show me Charizard"</strong> - Display Pokemon stats and abilities</li>
+                            <li><strong>"What type is Bulbasaur?"</strong> - Get specific Pokemon details</li>
+                            <li><strong>"Random Pokemon"</strong> - Discover a random Pokemon</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🃏 Trading Card Game</h3>
+                        <ul>
+                            <li><strong>"Show me Pikachu cards"</strong> - Browse TCG cards for a Pokemon</li>
+                            <li><strong>"Find rare Charizard cards"</strong> - Search for specific rarities</li>
+                            <li><strong>"Show cards from Base Set"</strong> - Filter by set</li>
+                            <li><strong>Click any card</strong> - View detailed card info and prices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🎤 Voice Commands</h3>
+                        <ul>
+                            <li><strong>"Back"</strong> - Navigate to previous view</li>
+                            <li><strong>"Forward"</strong> - Navigate to next view</li>
+                            <li><strong>"Home"</strong> - Return to Pokemon grid</li>
+                            <li>Use the Voice button to start/stop voice chat</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3>🎯 Quick Tips</h3>
+                        <ul>
+                            <li>Click the chat icon to toggle the chat sidebar</li>
+                            <li>Use the grid to browse all 151 Kanto Pokemon</li>
+                            <li>Click any Pokemon card to see detailed stats</li>
+                            <li>TCG card modals show market prices from TCGPlayer and Cardmarket</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tools Management Modal -->
         <div class="tools-modal-overlay" id="toolsModalOverlay">
             <div class="tools-modal">
                 <div class="tools-modal-header">
-                    <h2>🛠️ Manage Tools</h2>
+                    <h2>⚙️ Settings</h2>
                     <button class="tools-modal-close" id="toolsModalClose">&times;</button>
                 </div>
                 <div class="tools-modal-content" id="toolsModalContent">
-                    <!-- Tools will be dynamically loaded here -->
-                    <div class="tools-loading">Loading tools...</div>
+                    <!-- Cache Settings Section -->
+                    <div class="settings-section">
+                        <h3>💾 Cache Settings</h3>
+                        <div class="cache-stats" id="cacheStats">
+                            <div class="stat-item">
+                                <span class="stat-label">Cache Status:</span>
+                                <span class="stat-value" id="cacheStatus">Loading...</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cached Items:</span>
+                                <span class="stat-value" id="cacheFiles">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cache Size:</span>
+                                <span class="stat-value" id="cacheSize">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="cacheToggle" class="control-label">
+                                    <span>Enable Cache</span>
+                                    <small>Store API responses for faster loading</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="cacheToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="control-row">
+                                <label for="cacheExpiry" class="control-label">
+                                    <span>Cache Expiry: <strong id="cacheExpiryValue">7</strong> days</span>
+                                    <small>Cached data will refresh after this time</small>
+                                </label>
+                                <input type="range" id="cacheExpiry" min="1" max="90" value="7" class="cache-slider">
+                                <div class="slider-labels">
+                                    <span>1 day</span>
+                                    <span>90 days</span>
+                                </div>
+                            </div>
+                            
+                            <button class="cache-clear-btn" id="cacheClearBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Clear All Cache
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Viewing History Section -->
+                    <div class="settings-section">
+                        <h3>👁️ Viewing History</h3>
+                        <p class="section-description">
+                            Track which Pokemon you've viewed. Badge icons appear on the Pokemon grid cards:
+                        </p>
+                        <div class="viewing-history-legend">
+                            <div class="legend-item">
+                                <img src="{{ url_for('static', filename='images/pokeballs/pokeball.png') }}" alt="Pokeball" class="legend-icon">
+                                <span>Pokeball = Viewed Pokemon details</span>
+                            </div>
+                            <div class="legend-item">
+                                <img src="{{ url_for('static', filename='images/pokeballs/greatball.png') }}" alt="Great Ball" class="legend-icon">
+                                <span>Great Ball = Viewed TCG card gallery</span>
+                            </div>
+                            <div class="legend-item">
+                                <img src="{{ url_for('static', filename='images/pokeballs/ultraball.png') }}" alt="Ultra Ball" class="legend-icon">
+                                <span>Ultra Ball = Viewed 1 TCG card</span>
+                            </div>
+                            <div class="legend-item">
+                                <img src="{{ url_for('static', filename='images/pokeballs/masterball.png') }}" alt="Master Ball" class="legend-icon">
+                                <span>Master Ball = Viewed 2+ TCG cards</span>
+                            </div>
+                        </div>
+                        <div class="cache-controls">
+                            <button class="cache-clear-btn" id="clearViewingHistoryBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Clear Viewing History
+                            </button>
+                            <small style="color: var(--text-secondary); margin-top: 0.5rem; display: block;">
+                                This data is stored in browser cookies and only visible to you.
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools Section -->
+                    <div class="settings-section">
+                        <h3>🛠️ API Tools</h3>
+                        <div id="toolsList">
+                            <div class="tools-loading">Loading tools...</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tools-modal-footer">
-                    <button class="tools-reset-btn" id="toolsResetBtn">Reset to Defaults</button>
-                    <button class="tools-save-btn" id="toolsSaveBtn">Save Changes</button>
+                    <button class="tools-reset-btn" id="toolsResetBtn">Reset Tools to Defaults</button>
+                    <button class="tools-save-btn" id="toolsSaveBtn">Save Tool Changes</button>
                 </div>
             </div>
         </div>
@@ -175,6 +512,13 @@
         </div>
     </div>
 
+    <!-- Load view modules first -->
+    <script src="{{ url_for('static', filename='js/views/PokemonGridView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/PokemonDetailView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/TcgCardsGalleryView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/TcgCardDetailView.js') }}"></script>
+    
+    <!-- Then load core application -->
     <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>

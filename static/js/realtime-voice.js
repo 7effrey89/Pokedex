@@ -495,7 +495,53 @@ class RealtimeVoiceClient {
         let success = false;
         
         try {
-            // Call the dedicated tool execution endpoint
+            // Handle frontend-only tools (UI actions)
+            if (toolName === 'show_tcg_card_by_index') {
+                const cardIndex = args.card_index;
+                const pokemonName = args.pokemon_name;
+                if (window.showTcgCardByIndex) {
+                    const cardResult = window.showTcgCardByIndex(cardIndex, pokemonName);
+                    if (cardResult.success) {
+                        result = { 
+                            success: true, 
+                            message: `Showing TCG card #${cardIndex}${pokemonName ? ` for ${pokemonName}` : ''}`,
+                            card: cardResult.card,
+                            pokemon_name: pokemonName
+                        };
+                        success = true;
+                    } else {
+                        result = { error: cardResult.error };
+                        success = false;
+                    }
+                } else {
+                    result = { error: 'TCG card gallery not currently displayed' };
+                    success = false;
+                }
+                
+                this.log('Frontend tool result:', result);
+                this.onToolResult(toolName, args, result, success);
+                
+                // Send tool result back to the API
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'conversation.item.create',
+                        item: {
+                            type: 'function_call_output',
+                            call_id: callId,
+                            output: JSON.stringify(result)
+                        }
+                    }));
+                    
+                    // Request the model to continue
+                    this.ws.send(JSON.stringify({
+                        type: 'response.create'
+                    }));
+                }
+                
+                return; // Exit early for frontend-only tools
+            }
+            
+            // Call the dedicated tool execution endpoint for backend tools
             const response = await fetch('/api/realtime/tool', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -928,6 +974,53 @@ class RealtimeVoiceClient {
 
         return true;
     }
+
+    /**
+     * Update session instructions with canvas context (Pokemon or card currently displayed)
+     * @param {string} canvasContext - Description of what's displayed in the canvas
+     */
+    updateCanvasContext(canvasContext) {
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            console.warn('Cannot update canvas context - WebSocket not connected');
+            return false;
+        }
+
+        console.log(`🎯 Injecting canvas context into system prompt`);
+
+        if (this.sessionConfig && this.sessionConfig.session) {
+            const baseInstructions = this.sessionConfig.session.instructions || '';
+            
+            // Remove old canvas context if it exists
+            let cleanedInstructions = baseInstructions.replace(
+                /\n\nCURRENT CANVAS CONTENT:[\s\S]*?(?=\n\n[A-Z]|$)/,
+                ''
+            ).trim();
+
+            // Add new canvas context if provided
+            let updatedInstructions;
+            if (canvasContext) {
+                const canvasContextInstruction = `\n\nCURRENT CANVAS CONTENT: ${canvasContext}. When the user asks about "this Pokemon", "this card", "it", or similar references, they are referring to what's currently displayed in the canvas.`;
+                updatedInstructions = cleanedInstructions + canvasContextInstruction;
+            } else {
+                updatedInstructions = cleanedInstructions;
+            }
+
+            this.sessionConfig.session.instructions = updatedInstructions;
+
+            const sessionUpdate = {
+                type: 'session.update',
+                session: {
+                    instructions: updatedInstructions
+                }
+            };
+
+            console.log('📤 Sending session.update with canvas context');
+            this.ws.send(JSON.stringify(sessionUpdate));
+        }
+
+        return true;
+    }
+
     /**
      * Send an image from a File object
      * @param {File} file - Image file to send
