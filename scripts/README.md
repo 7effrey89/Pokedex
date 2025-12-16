@@ -84,7 +84,18 @@ python scripts/download_tcg_cache.py --no-skip-existing
 
 ## API Key (Optional)
 
-For higher rate limits, you can set the `POKEMON_TCG_API_KEY` environment variable:
+For higher rate limits, you can set the `POKEMON_TCG_API_KEY` in your `.env` file or as an environment variable:
+
+**Option 1: Using .env file (recommended)**
+
+Add to your `.env` file:
+```
+POKEMON_TCG_API_KEY=your-api-key-here
+```
+
+The script will automatically load this from the .env file.
+
+**Option 2: Using environment variable**
 
 ```bash
 export POKEMON_TCG_API_KEY="your-api-key-here"
