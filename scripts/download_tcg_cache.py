@@ -92,6 +92,10 @@ def fetch_pokemon_list(session: requests.Session, limit: int = 1025) -> list:
     """
     Fetch Pokemon list from PokeAPI
     
+    This function attempts to fetch the complete Pokemon list from PokeAPI.
+    On first run with internet access, it will download all 1025 Pokemon names
+    and save them to data/pokemon_list.json, replacing any placeholder names.
+    
     Args:
         session: Requests session
         limit: Number of Pokemon to fetch (default: 1025)
@@ -182,7 +186,7 @@ def fetch_tcg_data(session: requests.Session, pokemon_name: str,
 
 
 def save_tcg_cache(pokemon_number: int, pokemon_name: str, 
-                   response_data: Dict, endpoint: str, params: Dict):
+                   response_data: Dict, endpoint: str, params: Dict) -> Path:
     """
     Save TCG response to cache file with CacheService-compatible structure
     
@@ -192,6 +196,9 @@ def save_tcg_cache(pokemon_number: int, pokemon_name: str,
         response_data: API response data
         endpoint: API endpoint URL
         params: Request parameters
+        
+    Returns:
+        Path to the saved cache file
     """
     # Ensure cache directory exists
     TCG_CACHE_DIR.mkdir(exist_ok=True)

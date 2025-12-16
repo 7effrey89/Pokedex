@@ -111,9 +111,12 @@ This structure matches CacheService's format and can be imported into the main c
 
 The script maintains a `data/pokemon_list.json` file containing all Pokemon with their numbers and names. This file is:
 
-- Automatically fetched from PokeAPI on first run
-- Cached locally for subsequent runs
-- Easily extensible for future Pokemon additions
+- **Automatically fetched from PokeAPI on first run** - The script will download the complete, accurate list of all 1025 Pokemon names from PokeAPI
+- **Cached locally for subsequent runs** - After the first successful fetch, the list is saved and reused
+- **Includes placeholder names for Pokemon 152+** in the initial version - These will be replaced with actual names (like "chikorita", "cyndaquil", etc.) when the script runs with internet access
+- **Easily extensible** for future Pokemon additions
+
+**Important:** The initial `pokemon_list.json` contains accurate names for Pokemon 1-151 (Generation 1) and placeholders for 152-1025. When you run the script for the first time with internet access, it will automatically fetch and save the complete list with all real Pokemon names from PokeAPI, ensuring TCG searches work correctly.
 
 ## Integration with CacheService
 
