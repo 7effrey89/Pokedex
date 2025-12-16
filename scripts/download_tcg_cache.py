@@ -10,6 +10,8 @@ The script supports resume functionality - if interrupted, you can restart it
 and it will skip Pokemon that have already been cached (unless --no-skip-existing
 is specified).
 
+Parallel downloads are supported for faster processing using multiple threads.
+
 Usage:
     python scripts/download_tcg_cache.py [--start NUM] [--end NUM] [--limit NUM]
 
@@ -20,6 +22,7 @@ Options:
     --delay SEC             Delay between requests in seconds (default: 1)
     --skip-existing         Skip already-cached Pokemon (default, enables resume)
     --no-skip-existing      Re-download all Pokemon even if cached
+    --parallel N            Number of parallel download threads (default: 1, max: 10)
 """
 
 import json
@@ -31,9 +34,15 @@ import argparse
 import requests
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Tuple
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -212,6 +221,53 @@ def is_pokemon_cached(pokemon_number: int, pokemon_name: str) -> bool:
     return len(matching_files) > 0
 
 
+def process_single_pokemon(
+    pokemon: Dict[str, Any],
+    session: requests.Session,
+    api_key: Optional[str],
+    skip_existing: bool,
+    print_lock: Optional[threading.Lock] = None
+) -> Tuple[str, int, int, int]:
+    """
+    Process a single Pokemon download
+    
+    Args:
+        pokemon: Pokemon dict with 'number' and 'name'
+        session: Requests session
+        api_key: Optional API key
+        skip_existing: Whether to skip already-cached Pokemon
+        print_lock: Optional lock for thread-safe printing
+        
+    Returns:
+        Tuple of (status, number, card_count, 0 or 1 for error)
+        status: 'success', 'skipped', or 'error'
+    """
+    number = pokemon['number']
+    name = pokemon['name']
+    
+    # Check if already cached
+    if skip_existing and is_pokemon_cached(number, name):
+        return ('skipped', number, 0, 0)
+    
+    # Fetch TCG data
+    params = {"q": f"name:{name}"}
+    tcg_data = fetch_tcg_data(session, name, api_key)
+    
+    if tcg_data:
+        # Save to cache
+        filepath = save_tcg_cache(
+            number, name, tcg_data,
+            TCG_API_ENDPOINT, params
+        )
+        
+        # Count cards found
+        card_count = len(tcg_data.get('data', []))
+        
+        return ('success', number, card_count, 0)
+    else:
+        return ('error', number, 0, 1)
+
+
 def save_tcg_cache(pokemon_number: int, pokemon_name: str, 
                    response_data: Dict, endpoint: str, params: Dict) -> Path:
     """
@@ -287,8 +343,19 @@ def main():
         '--no-skip-existing', dest='skip_existing', action='store_false',
         help='Re-download all Pokemon even if already cached'
     )
+    parser.add_argument(
+        '--parallel', type=int, default=1, metavar='N',
+        help='Number of parallel download threads (default: 1, max: 10)'
+    )
     
     args = parser.parse_args()
+    
+    # Validate parallel argument
+    if args.parallel < 1:
+        args.parallel = 1
+    if args.parallel > 10:
+        print("⚠ Warning: Limiting parallel threads to 10 to avoid overwhelming the API")
+        args.parallel = 10
     
     # Setup
     session = setup_session()
@@ -323,6 +390,9 @@ def main():
         print(f"Resume mode: Skipping already-cached Pokemon")
     else:
         print(f"Force mode: Re-downloading all Pokemon")
+    if args.parallel > 1:
+        print(f"Parallel mode: Using {args.parallel} threads")
+        print(f"Note: Delay setting is ignored in parallel mode")
     print()
     
     # Statistics
@@ -331,43 +401,89 @@ def main():
     skipped_count = 0
     cards_found_count = 0
     
-    # Process each Pokemon
-    for idx, pokemon in enumerate(pokemon_subset, start=1):
-        number = pokemon['number']
-        name = pokemon['name']
+    # Process Pokemon - parallel or sequential
+    if args.parallel > 1:
+        # Parallel processing with ThreadPoolExecutor
+        print_lock = threading.Lock()
         
-        print(f"[{idx}/{len(pokemon_subset)}] #{number:03d} {name.title()}", end=" ... ")
-        
-        # Check if already cached
-        if args.skip_existing and is_pokemon_cached(number, name):
-            print("⊙ Already cached (skipping)")
-            skipped_count += 1
-            continue
-        
-        # Fetch TCG data
-        params = {"q": f"name:{name}"}
-        tcg_data = fetch_tcg_data(session, name, api_key)
-        
-        if tcg_data:
-            # Save to cache
-            filepath = save_tcg_cache(
-                number, name, tcg_data,
-                TCG_API_ENDPOINT, params
-            )
+        with ThreadPoolExecutor(max_workers=args.parallel) as executor:
+            # Submit all tasks
+            future_to_pokemon = {
+                executor.submit(
+                    process_single_pokemon,
+                    pokemon,
+                    session,
+                    api_key,
+                    args.skip_existing,
+                    print_lock
+                ): pokemon for pokemon in pokemon_subset
+            }
             
-            # Count cards found
-            card_count = len(tcg_data.get('data', []))
-            cards_found_count += card_count
+            # Process completed tasks as they finish
+            completed = 0
+            for future in as_completed(future_to_pokemon):
+                pokemon = future_to_pokemon[future]
+                completed += 1
+                
+                try:
+                    status, number, card_count, error = future.result()
+                    
+                    with print_lock:
+                        print(f"[{completed}/{len(pokemon_subset)}] #{number:03d} {pokemon['name'].title()}", end=" ... ")
+                        
+                        if status == 'skipped':
+                            print("⊙ Already cached (skipping)")
+                            skipped_count += 1
+                        elif status == 'success':
+                            cards_found_count += card_count
+                            print(f"✓ {card_count} cards")
+                            success_count += 1
+                        else:
+                            print("✗ Failed")
+                            error_count += 1
+                            
+                except Exception as e:
+                    with print_lock:
+                        print(f"[{completed}/{len(pokemon_subset)}] #{pokemon['number']:03d} {pokemon['name'].title()} ... ✗ Exception: {e}")
+                        error_count += 1
+    else:
+        # Sequential processing (original behavior)
+        for idx, pokemon in enumerate(pokemon_subset, start=1):
+            number = pokemon['number']
+            name = pokemon['name']
             
-            print(f"✓ {card_count} cards - saved to {filepath.name}")
-            success_count += 1
-        else:
-            print("✗ Failed")
-            error_count += 1
-        
-        # Delay between requests (be nice to the API)
-        if idx < len(pokemon_subset):
-            time.sleep(args.delay)
+            print(f"[{idx}/{len(pokemon_subset)}] #{number:03d} {name.title()}", end=" ... ")
+            
+            # Check if already cached
+            if args.skip_existing and is_pokemon_cached(number, name):
+                print("⊙ Already cached (skipping)")
+                skipped_count += 1
+                continue
+            
+            # Fetch TCG data
+            params = {"q": f"name:{name}"}
+            tcg_data = fetch_tcg_data(session, name, api_key)
+            
+            if tcg_data:
+                # Save to cache
+                filepath = save_tcg_cache(
+                    number, name, tcg_data,
+                    TCG_API_ENDPOINT, params
+                )
+                
+                # Count cards found
+                card_count = len(tcg_data.get('data', []))
+                cards_found_count += card_count
+                
+                print(f"✓ {card_count} cards - saved to {filepath.name}")
+                success_count += 1
+            else:
+                print("✗ Failed")
+                error_count += 1
+            
+            # Delay between requests (be nice to the API)
+            if idx < len(pokemon_subset):
+                time.sleep(args.delay)
     
     # Summary
     print()

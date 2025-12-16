@@ -12,6 +12,7 @@ This script downloads Pokemon TCG API responses for all Pokemon (001-1025) and s
 - Allows downloading specific ranges or limiting the number of Pokemon
 - Maintains a Pokemon list resource for easy extension
 - **Resume capability**: Automatically skips already-cached Pokemon, so you can safely restart if interrupted
+- **Parallel downloads**: Support for multi-threaded downloads to speed up the process (1-10 threads)
 
 ## Usage
 
@@ -73,18 +74,48 @@ By default, the script skips Pokemon that already have cache files. To force re-
 python scripts/download_tcg_cache.py --no-skip-existing
 ```
 
+### Parallel Downloads (Faster Processing)
+
+Use multiple threads to download Pokemon in parallel. This significantly speeds up the download process:
+
+```bash
+# Use 5 parallel threads for faster downloads
+python scripts/download_tcg_cache.py --parallel 5
+
+# Combine with other options
+python scripts/download_tcg_cache.py --start 1 --end 151 --parallel 3
+```
+
+**Important notes about parallel mode:**
+- Maximum 10 threads allowed to avoid overwhelming the API
+- The `--delay` setting is ignored in parallel mode (threads fetch independently)
+- With an API key, you can safely use more threads
+- Without an API key, consider using 2-3 threads to respect rate limits
+
 ## Options
 
 - `--start NUM` - Start from Pokemon number NUM (default: 1)
 - `--end NUM` - End at Pokemon number NUM (default: 1025)
 - `--limit NUM` - Limit to NUM Pokemon (useful for testing)
-- `--delay SEC` - Delay between requests in seconds (default: 1.0)
+- `--delay SEC` - Delay between requests in seconds (default: 1.0, ignored in parallel mode)
 - `--skip-existing` - Skip already-cached Pokemon (default: enabled)
 - `--no-skip-existing` - Force re-download even if cached
+- `--parallel N` - Number of parallel download threads (default: 1, max: 10)
 
 ## API Key (Optional)
 
-For higher rate limits, you can set the `POKEMON_TCG_API_KEY` environment variable:
+For higher rate limits, you can set the `POKEMON_TCG_API_KEY` in your `.env` file or as an environment variable:
+
+**Option 1: Using .env file (recommended)**
+
+Add to your `.env` file:
+```
+POKEMON_TCG_API_KEY=your-api-key-here
+```
+
+The script will automatically load this from the .env file.
+
+**Option 2: Using environment variable**
 
 ```bash
 export POKEMON_TCG_API_KEY="your-api-key-here"
