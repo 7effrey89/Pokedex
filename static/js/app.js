@@ -36,6 +36,7 @@ class PokemonChatApp {
         this.statusText = document.querySelector('.status-text');
         this.activeLoadingCount = 0;
         this.fetchInterceptorInstalled = false;
+        this.initializeHeaderLights();
         
         // Camera scanner elements
         this.cameraButton = document.getElementById('cameraButton');
@@ -477,6 +478,22 @@ class PokemonChatApp {
                     this.closeChatSidebar();
                 }
             });
+        }
+    }
+
+    initializeHeaderLights() {
+        this.powerLightElement = document.querySelector('.power-light');
+        this.indicatorLights = Array.from(document.querySelectorAll('.indicator-light'));
+        this.powerLightLevel = 0;
+        this.powerLightTargetLevel = 0;
+        this.powerLightAnimationFrame = null;
+        this.indicatorPulseTimeout = null;
+        this.indicatorFlashTimeouts = [];
+        this.indicatorLoadingActive = false;
+        this.powerLightVoiceActive = false;
+
+        if (this.powerLightElement) {
+            this.powerLightElement.style.setProperty('--power-light-level', '0');
         }
     }
 
@@ -2232,6 +2249,11 @@ class PokemonChatApp {
                 if (this.isVoiceActive) {
                     this.updateVoiceStatus('listening', 'Listening...');
                 }
+                this.handleRealtimePlaybackLevel(0);
+            },
+
+            onPlaybackLevel: (level) => {
+                this.handleRealtimePlaybackLevel(level);
             },
             
             onToolCall: (toolName, args) => {
@@ -2369,6 +2391,9 @@ class PokemonChatApp {
                 this.voiceButton?.classList.remove('active');
             }
         }
+
+        const activeStatuses = new Set(['recording', 'listening', 'speaking', 'processing']);
+        this.setPowerLightVoiceMode(this.isVoiceActive || activeStatuses.has(status));
     }
 
     initializeVoiceRecognition() {
@@ -2484,6 +2509,7 @@ class PokemonChatApp {
         
         this.isVoiceActive = true;
         this.voiceButton.classList.add('active');
+        this.setPowerLightVoiceMode(true);
         this.hideWelcomeMessage();
         
         // Add a system message
@@ -2522,6 +2548,7 @@ class PokemonChatApp {
         if (becameActive) {
             this.isVoiceActive = true;
             this.voiceButton?.classList.add('active');
+            this.setPowerLightVoiceMode(true);
             this.hideWelcomeMessage();
         }
 
@@ -2534,6 +2561,7 @@ class PokemonChatApp {
     stopVoiceConversation() {
         this.isVoiceActive = false;
         this.voiceButton.classList.remove('active');
+        this.setPowerLightVoiceMode(false);
         this.statusText.textContent = 'Online';
         const voiceText = this.voiceButton.querySelector('.voice-text');
         if (voiceText) voiceText.textContent = 'Voice';
@@ -3837,8 +3865,118 @@ class PokemonChatApp {
         }
         if (this.activeLoadingCount > 0) {
             this.loadingIndicator.classList.add('active');
+            this.startIndicatorLoadingEffects();
         } else {
             this.loadingIndicator.classList.remove('active');
+            this.stopIndicatorLoadingEffects();
+        }
+    }
+
+    handleRealtimePlaybackLevel(level) {
+        if (!this.powerLightElement) {
+            return;
+        }
+        const clamped = Math.max(0, Math.min(1, Number(level) || 0));
+        const amplified = Math.max(0, Math.min(1, Math.pow(clamped, 0.6)));
+        this.powerLightTargetLevel = amplified;
+
+        if (!this.powerLightAnimationFrame) {
+            this.powerLightAnimationFrame = requestAnimationFrame(() => this.animatePowerLightGlow());
+        }
+    }
+
+    animatePowerLightGlow() {
+        if (!this.powerLightElement) {
+            this.powerLightAnimationFrame = null;
+            return;
+        }
+
+        const smoothing = 0.35;
+        this.powerLightLevel += (this.powerLightTargetLevel - this.powerLightLevel) * smoothing;
+        this.powerLightElement.style.setProperty('--power-light-level', this.powerLightLevel.toFixed(3));
+
+        const shouldContinue = this.powerLightTargetLevel > 0.01 || this.powerLightLevel > 0.01;
+        if (!shouldContinue) {
+            this.powerLightLevel = 0;
+            this.powerLightElement.style.setProperty('--power-light-level', '0');
+            this.powerLightAnimationFrame = null;
+            return;
+        }
+
+        this.powerLightAnimationFrame = requestAnimationFrame(() => this.animatePowerLightGlow());
+    }
+
+    setPowerLightVoiceMode(isActive) {
+        if (!this.powerLightElement) {
+            return;
+        }
+        const normalized = Boolean(isActive);
+        if (this.powerLightVoiceActive === normalized) {
+            return;
+        }
+        this.powerLightVoiceActive = normalized;
+        this.powerLightElement.classList.toggle('voice-active', normalized);
+    }
+
+    startIndicatorLoadingEffects() {
+        if (!this.indicatorLights || this.indicatorLights.length === 0 || this.indicatorLoadingActive) {
+            return;
+        }
+        this.indicatorLoadingActive = true;
+        this.scheduleIndicatorPulse();
+    }
+
+    scheduleIndicatorPulse() {
+        if (!this.indicatorLoadingActive) {
+            return;
+        }
+
+        this.flashIndicatorLights();
+        const delay = 130 + Math.random() * 220;
+        this.indicatorPulseTimeout = setTimeout(() => this.scheduleIndicatorPulse(), delay);
+    }
+
+    flashIndicatorLights() {
+        if (!this.indicatorLights || this.indicatorLights.length === 0) {
+            return;
+        }
+
+        this.indicatorLights.forEach(light => light.classList.remove('flash'));
+        const activeCount = Math.max(1, Math.floor(Math.random() * this.indicatorLights.length));
+        const shuffled = [...this.indicatorLights].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, activeCount);
+
+        selected.forEach(light => {
+            const brightness = 0.35 + Math.random() * 0.65;
+            light.style.setProperty('--indicator-brightness', brightness.toFixed(2));
+            light.classList.add('flash');
+            const timeoutId = setTimeout(() => {
+                light.classList.remove('flash');
+                const idx = this.indicatorFlashTimeouts.indexOf(timeoutId);
+                if (idx > -1) {
+                    this.indicatorFlashTimeouts.splice(idx, 1);
+                }
+            }, 120 + Math.random() * 180);
+            this.indicatorFlashTimeouts.push(timeoutId);
+        });
+    }
+
+    stopIndicatorLoadingEffects() {
+        if (this.indicatorPulseTimeout) {
+            clearTimeout(this.indicatorPulseTimeout);
+            this.indicatorPulseTimeout = null;
+        }
+        if (this.indicatorFlashTimeouts && this.indicatorFlashTimeouts.length > 0) {
+            this.indicatorFlashTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+            this.indicatorFlashTimeouts = [];
+        }
+        this.indicatorLoadingActive = false;
+
+        if (this.indicatorLights) {
+            this.indicatorLights.forEach(light => {
+                light.classList.remove('flash');
+                light.style.removeProperty('--indicator-brightness');
+            });
         }
     }
     

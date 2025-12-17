@@ -39,6 +39,7 @@ class RealtimeVoiceClient {
         this.onToolCall = options.onToolCall || (() => {});
         this.onToolResult = options.onToolResult || (() => {});
         this.onSpeechStarted = options.onSpeechStarted || (() => {}); // Face recognition trigger
+        this.onPlaybackLevel = options.onPlaybackLevel || (() => {});
 
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
@@ -470,6 +471,19 @@ class RealtimeVoiceClient {
                     }
                     offset += chunk.length;
                 }
+
+                // Estimate playback energy for visualizers
+                let rms = 0;
+                if (totalSamples > 0) {
+                    let sumSquares = 0;
+                    for (let i = 0; i < totalSamples; i++) {
+                        const sample = combinedArray[i];
+                        sumSquares += sample * sample;
+                    }
+                    rms = Math.sqrt(sumSquares / totalSamples);
+                }
+                const normalizedEnergy = Math.min(1, rms * 4);
+                this.onPlaybackLevel(normalizedEnergy);
                 
                 // Create audio buffer
                 const audioBuffer = this.playbackContext.createBuffer(1, totalSamples, this.sampleRate);
@@ -506,6 +520,7 @@ class RealtimeVoiceClient {
             }
             
             this.isPlaying = false;
+            this.onPlaybackLevel(0);
             this.onAudioEnd();
         };
         
@@ -519,6 +534,7 @@ class RealtimeVoiceClient {
         // 1. Clear the audio queue
         this.audioQueue = [];
         
+        this.onPlaybackLevel(0);
         // 2. Stop all playing audio sources
         for (const source of this.currentAudioSources) {
             try {
