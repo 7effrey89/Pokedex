@@ -26,48 +26,42 @@
     <div class="app-container">
         <!-- Header -->
         <header class="app-header">
-            <div class="pokedex-lights">
-                <div class="power-light"></div>
-                <div class="indicator-lights">
-                    <div class="indicator-light red"></div>
-                    <div class="indicator-light yellow"></div>
-                    <div class="indicator-light green"></div>
-                </div>
-            </div>
             <div class="header-content">
-                <div class="logo">
-                    <span class="pokeball-icon">⚾</span>
-                    <h1>POKEDEX</h1>
+                <div class="pokedex-lights">
+                    <div class="power-light"></div>
+                    <div class="indicator-lights">
+                        <div class="indicator-light red"></div>
+                        <div class="indicator-light yellow"></div>
+                        <div class="indicator-light green"></div>
+                    </div>
                 </div>
-                <div class="header-actions">
-                    <button id="toolsButton" class="tools-button" aria-label="Manage settings" title="Manage settings">
-                        <svg class="tools-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
-                            <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span class="tools-text">Settings</span>
-                    </button>
-                    <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
-                        <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span class="voice-text">Voice</span>
-                    </button>
-                    <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span class="camera-text">Scan</span>
-                    </button>
-                    <div class="status-indicator" id="statusIndicator">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Online</span>
+                <div class="header-spacer"></div>
+                <div class="header-controls">
+                    <div class="logo" aria-label="Pokedex brand">
+                        <h1>POKEDEX</h1>
+                    </div>
+                    <div class="header-actions" aria-label="Voice and scan controls">
+                        <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
+                            <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="voice-text">Voice</span>
+                        </button>
+                        <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="camera-text">Scan</span>
+                        </button>
+                        <div class="status-indicator" id="statusIndicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Online</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,34 +263,6 @@
         <!-- Footer Actions Bar -->
         <footer class="pokedex-footer">
             <div class="footer-actions">
-                <button class="footer-btn" id="helpBtn" aria-label="Help">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
-                    </svg>
-                    <span>Help</span>
-                </button>
-                
-                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Random</span>
-                </button>
-                
-                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
-                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Settings</span>
-                </button>
-                
                 <button class="footer-btn" id="backBtnFooter" aria-label="Back">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -309,6 +275,34 @@
                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>Forward</span>
+                </button>
+
+                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Random</span>
+                </button>
+
+                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+
+                <button class="footer-btn" id="helpBtn" aria-label="Help">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                    </svg>
+                    <span>Help</span>
                 </button>
             </div>
         </footer>
@@ -506,6 +500,40 @@
                                     <input type="checkbox" id="faceIdOverlayToggle" checked>
                                     <span class="toggle-slider"></span>
                                 </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voice Settings Section -->
+                    <div class="settings-section">
+                        <h3>🎙️ Voice Settings</h3>
+                        <p class="section-description">
+                            Choose which Azure voice the assistant should use during real-time conversations. Changes apply immediately if voice chat is connected.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="voiceActorSelect" class="control-label">
+                                    <span>Voice Actor</span>
+                                    <small>Select the speaking style you prefer</small>
+                                </label>
+                                <div class="control-input">
+                                    <select id="voiceActorSelect" class="settings-select">
+                                        <option value="alloy">Alloy — Neutral guide (M)</option>
+                                        <option value="ash">Ash — Warm storyteller (F)</option>
+                                        <option value="ballad">Ballad — Dramatic narrator (M)</option>
+                                        <option value="cedar">Cedar — Calm mentor (F)</option>
+                                        <option value="coral">Coral — Energetic coach (F)</option>
+                                        <option value="echo">Echo — Crisp announcer (M)</option>
+                                        <option value="ember">Ember — Radiant performer (F)</option>
+                                        <option value="marin">Marin — Gentle companion (F)</option>
+                                        <option value="luna">Luna — Dreamy storyteller (F)</option>
+                                        <option value="pearl">Pearl — Polished presenter (F)</option>
+                                        <option value="sage">Sage — Deep announcer (M)</option>
+                                        <option value="shimmer">Shimmer — Playful host (F)</option>
+                                        <option value="sol">Sol — Bold hero (M)</option>
+                                        <option value="verse">Verse — Soft narrator (F)</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>

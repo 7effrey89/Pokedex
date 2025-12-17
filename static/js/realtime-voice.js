@@ -43,6 +43,7 @@ class RealtimeVoiceClient {
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
         this.inputSampleRate = 16000;
+        this.preferredVoice = options.preferredVoice || 'alloy';
         
         // Debug mode
         this.debug = options.debug || false;
@@ -165,12 +166,13 @@ class RealtimeVoiceClient {
     sendSessionConfig() {
         if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
         
-        const config = this.sessionConfig || {
+        const sourceConfig = this.sessionConfig ? JSON.parse(JSON.stringify(this.sessionConfig)) : null;
+        const config = sourceConfig || {
             type: "session.update",
             session: {
                 modalities: ["text", "audio"],
                 instructions: "You are PokéChat, a friendly Pokemon assistant. Keep responses conversational and concise.",
-                voice: "alloy",
+                voice: this.preferredVoice || "alloy",
                 input_audio_format: "pcm16",
                 output_audio_format: "pcm16",
                 turn_detection: {
@@ -182,14 +184,77 @@ class RealtimeVoiceClient {
             }
         };
         
+        config.session = config.session || {};
+        config.session.voice = this.preferredVoice || config.session.voice || 'alloy';
+
         // Add tools if available
         if (this.tools.length > 0) {
             config.session.tools = this.tools;
             config.session.tool_choice = "auto";
         }
         
+        this.sessionConfig = config;
         this.log('Sending session config:', config);
         this.ws.send(JSON.stringify(config));
+    }
+
+    setVoicePreference(voice) {
+        if (!voice) {
+            return;
+        }
+        this.preferredVoice = voice;
+        if (this.sessionConfig?.session) {
+            this.sessionConfig.session.voice = voice;
+        }
+
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            const payload = {
+                type: 'session.update',
+                session: { voice }
+            };
+            try {
+                this.ws.send(JSON.stringify(payload));
+                this.log('Voice updated to', voice);
+                this.sendSessionConfig();
+            } catch (error) {
+                this.log('Error sending voice update:', error);
+            }
+        }
+    }
+
+    async playVoicePreview(voiceName) {
+        const targetVoice = voiceName || this.preferredVoice || 'alloy';
+        this.setVoicePreference(targetVoice);
+
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.log('Cannot play voice preview - WebSocket not connected');
+            return false;
+        }
+
+        const displayName = targetVoice.charAt(0).toUpperCase() + targetVoice.slice(1);
+        const prompt = `Say only: Hi! This is the ${displayName} voice.`;
+
+        try {
+            this.ws.send(JSON.stringify({
+                type: 'conversation.item.create',
+                item: {
+                    type: 'message',
+                    role: 'user',
+                    content: [
+                        {
+                            type: 'input_text',
+                            text: prompt
+                        }
+                    ]
+                }
+            }));
+
+            this.ws.send(JSON.stringify({ type: 'response.create' }));
+            return true;
+        } catch (error) {
+            this.log('Voice preview error:', error);
+            return false;
+        }
     }
     
     /**
@@ -920,10 +985,14 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
+            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
+            this.sessionConfig.session.voice = voiceSetting;
+
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
-                    instructions: updatedInstructions
+                    instructions: updatedInstructions,
+                    voice: voiceSetting
                 }
             };
 
@@ -1007,10 +1076,14 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
+            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
+            this.sessionConfig.session.voice = voiceSetting;
+
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
-                    instructions: updatedInstructions
+                    instructions: updatedInstructions,
+                    voice: voiceSetting
                 }
             };
 

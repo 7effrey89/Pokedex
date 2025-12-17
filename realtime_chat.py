@@ -61,7 +61,7 @@ CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
 - The canvas content updates automatically as users navigate - you always know whether they're viewing the index page, a specific Pokemon, or a Pokemon card.
 - When users send you images via the camera scanner, analyze what you see - this is for identifying physical Pokemon cards.
 - Do NOT make up or hallucinate content that isn't in the CURRENT CANVAS CONTENT section.""",
-            "voice": "alloy",  # Options: alloy, echo, shimmer
+            "voice": "alloy",  # Options: alloy, ash, ballad, cedar, coral, echo, ember, luna, marin, pearl, sage, shimmer, sol, verse
             "input_audio_format": "pcm16",
             "output_audio_format": "pcm16",
             "input_audio_transcription": {

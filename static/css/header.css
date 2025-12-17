@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 .power-light {
@@ -68,18 +68,27 @@
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.header-spacer {
+    flex: 1;
+}
+
+.header-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.pokeball-icon {
-    font-size: 1.5rem;
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .logo h1 {
@@ -92,7 +101,9 @@
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .voice-button {

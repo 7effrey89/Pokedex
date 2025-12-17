@@ -19,6 +19,7 @@ class PokemonChatApp {
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
+        this.voicePreference = this.loadVoiceActorPreference();
         
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -117,11 +118,15 @@ class PokemonChatApp {
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
         this.synthesis = window.speechSynthesis;
+        this.availableSpeechVoices = [];
+        this.initializeSpeechVoices();
         
         // Azure OpenAI Realtime Voice client
         this.realtimeVoice = null;
         this.useRealtimeApi = false; // Will be set to true if available
         this.realtimeVoiceSessionAnnounced = false;
+        this.voicePreviewPending = false;
+        this.restartingRealtimeVoice = null;
         
         this.installFetchInterceptor();
         this.initializeVoice();
@@ -988,6 +993,89 @@ class PokemonChatApp {
         return this.faceIdOverlayEnabled !== false;
     }
 
+    loadVoiceActorPreference() {
+        try {
+            return localStorage.getItem('voiceActorPreference') || 'alloy';
+        } catch (error) {
+            console.warn('Unable to read voice preference, defaulting to Alloy', error);
+            return 'alloy';
+        }
+    }
+
+    saveVoiceActorPreference(voice) {
+        const normalized = voice || 'alloy';
+        this.voicePreference = normalized;
+        try {
+            localStorage.setItem('voiceActorPreference', normalized);
+        } catch (error) {
+            console.warn('Unable to persist voice preference', error);
+        }
+        this.applyVoicePreference();
+    }
+
+    applyVoicePreference() {
+        if (this.realtimeVoice && typeof this.realtimeVoice.setVoicePreference === 'function') {
+            this.realtimeVoice.setVoicePreference(this.voicePreference);
+        }
+    }
+
+    initializeSpeechVoices() {
+        if (!this.synthesis) {
+            return;
+        }
+
+        const updateVoices = () => {
+            this.availableSpeechVoices = this.synthesis.getVoices() || [];
+        };
+
+        updateVoices();
+
+        if (typeof this.synthesis.onvoiceschanged !== 'undefined') {
+            this.synthesis.onvoiceschanged = updateVoices;
+        }
+    }
+
+    getSpeechVoiceProfile(preference = this.voicePreference) {
+        const defaults = { voice: null, rate: 1, pitch: 1 };
+        if (!this.synthesis) {
+            return defaults;
+        }
+
+        const voices = (this.availableSpeechVoices && this.availableSpeechVoices.length > 0)
+            ? this.availableSpeechVoices
+            : this.synthesis.getVoices();
+
+        if (!voices || voices.length === 0) {
+            return defaults;
+        }
+
+        const profiles = {
+            alloy: { tokens: ['guy', 'david', 'mark', 'daniel', 'ryan'], rate: 1.0, pitch: 1.0 },
+            ash: { tokens: ['aria', 'zira', 'ash', 'female'], rate: 1.0, pitch: 1.05 },
+            ballad: { tokens: ['guy', 'brian', 'mark', 'male'], rate: 0.96, pitch: 0.95 },
+            cedar: { tokens: ['jenny', 'linda', 'female'], rate: 0.97, pitch: 1.0 },
+            coral: { tokens: ['ava', 'allison', 'bright', 'female'], rate: 1.05, pitch: 1.08 },
+            echo: { tokens: ['guy', 'davis', 'roger', 'male'], rate: 1.02, pitch: 0.98 },
+            ember: { tokens: ['aria', 'zira', 'jessa', 'susan', 'female'], rate: 0.98, pitch: 1.08 },
+            marin: { tokens: ['emma', 'serena', 'sofia', 'female'], rate: 0.95, pitch: 1.02 },
+            luna: { tokens: ['luna', 'sofia', 'midnight', 'female'], rate: 0.96, pitch: 1.12 },
+            pearl: { tokens: ['pearl', 'clara', 'olivia', 'female'], rate: 0.99, pitch: 0.97 },
+            sage: { tokens: ['george', 'brian', 'roger', 'bass', 'baritone'], rate: 0.9, pitch: 0.85 },
+            shimmer: { tokens: ['jenny', 'ava', 'bright', 'youth'], rate: 1.08, pitch: 1.15 },
+            sol: { tokens: ['ava', 'allison', 'hero', 'male'], rate: 1.1, pitch: 1.05 },
+            verse: { tokens: ['emma', 'serena', 'eva', 'olivia', 'neural'], rate: 0.94, pitch: 0.92 }
+        };
+
+        const profile = profiles[preference] || profiles.alloy;
+        const match = voices.find((voice) => profile.tokens.some((token) => voice.name.toLowerCase().includes(token)));
+
+        return {
+            voice: match || voices[0],
+            rate: profile.rate,
+            pitch: profile.pitch
+        };
+    }
+
     /**
      * Capture an image from the camera and identify the user via face recognition
      */
@@ -1252,6 +1340,7 @@ class PokemonChatApp {
         this.renderToolsModal();
         this.setupCacheControls();
         this.setupFaceIdentificationControls();
+        this.setupVoiceControls();
     }
     
     async loadCacheConfig() {
@@ -1344,6 +1433,128 @@ class PokemonChatApp {
         });
 
         overlayToggle.dataset.listenerAttached = 'true';
+    }
+
+    setupVoiceControls() {
+        const voiceSelect = document.getElementById('voiceActorSelect');
+        if (!voiceSelect) {
+            return;
+        }
+
+        const currentPreference = this.voicePreference || 'alloy';
+        const optionExists = Array.from(voiceSelect.options).some(option => option.value === currentPreference);
+        voiceSelect.value = optionExists ? currentPreference : voiceSelect.options[0]?.value;
+
+        if (voiceSelect.dataset.listenerAttached === 'true') {
+            return;
+        }
+
+        voiceSelect.addEventListener('change', async (event) => {
+            const nextVoice = event.target.value || 'alloy';
+            const resumeVoice = this.isVoiceActive;
+            this.saveVoiceActorPreference(nextVoice);
+            console.log(`Voice preference set to ${nextVoice}`);
+
+            if (this.useRealtimeApi) {
+                await this.restartRealtimeVoiceClient({ resumeVoice, voiceName: nextVoice });
+            }
+        });
+
+        voiceSelect.dataset.listenerAttached = 'true';
+    }
+
+    async ensureRealtimeVoiceConnection() {
+        if (!this.useRealtimeApi || !this.realtimeVoice) {
+            throw new Error('Realtime voice is not available');
+        }
+
+        if (!this.realtimeVoice.isConnected) {
+            await this.realtimeVoice.connect();
+            this.syncCurrentViewContext();
+        }
+    }
+
+    async previewVoiceChange(voiceName) {
+        if (!voiceName || !this.useRealtimeApi || !this.realtimeVoice) {
+            return;
+        }
+
+        const displayName = voiceName.charAt(0).toUpperCase() + voiceName.slice(1);
+
+        try {
+            await this.ensureRealtimeVoiceConnection();
+
+            if (this.realtimeVoice.isResponseActive) {
+                this.realtimeVoice.cancelCurrentResponse();
+            }
+
+            this.voicePreviewPending = true;
+            const started = await this.realtimeVoice.playVoicePreview(voiceName);
+            if (!started) {
+                this.voicePreviewPending = false;
+                return;
+            }
+
+            this.showToast('Voice Settings', `${displayName} voice selected. Preview playing...`, 'info', 2000);
+        } catch (error) {
+            this.voicePreviewPending = false;
+            console.error('Voice preview failed:', error);
+            this.showToast('Voice Settings', 'Unable to play the voice preview right now.', 'error', 4000);
+        }
+    }
+
+    async restartRealtimeVoiceClient({ resumeVoice = false, voiceName = this.voicePreference } = {}) {
+        if (!this.useRealtimeApi) {
+            return;
+        }
+
+        if (this.restartingRealtimeVoice) {
+            await this.restartingRealtimeVoice;
+            return;
+        }
+
+        const shouldResumeVoice = resumeVoice && this.isVoiceActive;
+        const displayName = voiceName ? voiceName.charAt(0).toUpperCase() + voiceName.slice(1) : 'Alloy';
+
+        const restartRoutine = (async () => {
+            if (this.realtimeVoice) {
+                try { this.realtimeVoice.cancelCurrentResponse(); } catch (error) { console.warn('Unable to cancel response before restart', error); }
+                try { this.realtimeVoice.stopRecording(); } catch (error) { console.warn('Unable to stop recording before restart', error); }
+                try { this.realtimeVoice.disconnect(); } catch (error) { console.warn('Unable to disconnect realtime voice before restart', error); }
+            }
+
+            this.initializeRealtimeVoice();
+
+            if (!shouldResumeVoice) {
+                try {
+                    await this.previewVoiceChange(voiceName);
+                } catch (error) {
+                    console.warn('Voice preview failed during restart', error);
+                }
+            } else {
+                try {
+                    await this.ensureRealtimeVoiceConnection();
+                    this.showToast('Voice Settings', `${displayName} voice applied.`, 'success', 2000);
+                } catch (error) {
+                    console.warn('Unable to reconnect realtime voice before resuming:', error);
+                }
+            }
+
+            if (shouldResumeVoice) {
+                try {
+                    await this.activateRealtimeConversation({ announce: false });
+                } catch (error) {
+                    console.error('Failed to resume realtime conversation after voice change:', error);
+                    this.showToast('Voice Settings', 'Voice session restarted, tap Voice to resume listening.', 'info', 5000);
+                    this.isVoiceActive = false;
+                    this.voiceButton?.classList.remove('active');
+                }
+            }
+        })();
+
+        this.restartingRealtimeVoice = restartRoutine;
+        await restartRoutine;
+        this.restartingRealtimeVoice = null;
     }
     
     updateCacheStats() {
@@ -1891,6 +2102,7 @@ class PokemonChatApp {
     initializeRealtimeVoice() {
         this.realtimeVoice = new RealtimeVoiceClient({
             debug: true,
+            preferredVoice: this.voicePreference,
             
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);
@@ -1948,6 +2160,13 @@ class PokemonChatApp {
             },
             
             onResponse: (text, isPartial) => {
+                if (this.voicePreviewPending) {
+                    if (!isPartial) {
+                        this.voicePreviewPending = false;
+                    }
+                    return;
+                }
+
                 if (!isPartial && text) {
                     
                     // Full response received - extract any pokemon/tcg data from tool results
@@ -2406,8 +2625,12 @@ class PokemonChatApp {
             .substring(0, MAX_SPEECH_LENGTH);
         
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.rate = 1.0;
-        utterance.pitch = 1.0;
+        const profile = this.getSpeechVoiceProfile();
+        if (profile.voice) {
+            utterance.voice = profile.voice;
+        }
+        utterance.rate = profile.rate;
+        utterance.pitch = profile.pitch;
         utterance.volume = 1.0;
         
         utterance.onend = () => {
