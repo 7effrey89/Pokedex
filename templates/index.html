@@ -287,22 +287,20 @@
                     />
                 </button>
 
-                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
-                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Settings</span>
+                <button class="footer-btn footer-btn-icon-only" id="toolsBtnFooter" aria-label="Settings" data-tooltip="Settings">
+                    <img
+                        src="{{ url_for('static', filename='images/setting.png') }}"
+                        alt="Settings icon"
+                        class="footer-setting-icon"
+                    />
                 </button>
 
-                <button class="footer-btn" id="helpBtn" aria-label="Help">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
-                    </svg>
-                    <span>Help</span>
+                <button class="footer-btn footer-btn-icon-only" id="helpBtn" aria-label="Help" data-tooltip="Help">
+                    <img
+                        src="{{ url_for('static', filename='images/slowbro.png') }}"
+                        alt="Help icon"
+                        class="footer-help-icon"
+                    />
                 </button>
             </div>
         </footer>

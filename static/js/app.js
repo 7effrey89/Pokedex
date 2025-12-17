@@ -681,13 +681,17 @@ class PokemonChatApp {
         const forwardBtn = document.getElementById('forwardBtnFooter');
         
         if (backBtn) {
-            backBtn.disabled = this.currentViewIndex === 0;
-            backBtn.style.opacity = this.currentViewIndex === 0 ? '0.5' : '1';
+            const canGoBack = this.currentViewIndex > 0;
+            backBtn.disabled = !canGoBack;
+            backBtn.style.opacity = canGoBack ? '1' : '0.4';
+            backBtn.classList.toggle('footer-btn-active', canGoBack);
         }
         
         if (forwardBtn) {
-            forwardBtn.disabled = this.currentViewIndex >= this.viewHistory.length - 1;
-            forwardBtn.style.opacity = this.currentViewIndex >= this.viewHistory.length - 1 ? '0.5' : '1';
+            const canGoForward = this.currentViewIndex < this.viewHistory.length - 1;
+            forwardBtn.disabled = !canGoForward;
+            forwardBtn.style.opacity = canGoForward ? '1' : '0.4';
+            forwardBtn.classList.toggle('footer-btn-active', canGoForward);
         }
     }
     
