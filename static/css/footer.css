@@ -63,7 +63,8 @@
     font-size: 0.75rem;
 }
 
-.footer-btn-icon-only {
+.footer-btn-icon-only,
+.footer-btn-image-only {
     padding: 0.5rem;
     background: transparent;
     border: none;
@@ -72,18 +73,21 @@
     position: relative;
 }
 
-.footer-btn-icon-only:hover {
+.footer-btn-icon-only:hover,
+.footer-btn-image-only:hover {
     background: transparent;
     border: none;
     transform: scale(1.05);
     box-shadow: none;
 }
 
-.footer-btn-icon-only:active {
+.footer-btn-icon-only:active,
+.footer-btn-image-only:active {
     transform: scale(0.98);
 }
 
-.footer-btn-icon-only[data-tooltip]::after {
+.footer-btn-icon-only[data-tooltip]::after,
+.footer-btn-image-only[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: calc(100% + 0.4rem);
@@ -101,9 +105,19 @@
 }
 
 .footer-btn-icon-only[data-tooltip]:hover::after,
-.footer-btn-icon-only[data-tooltip]:focus-visible::after {
+.footer-btn-icon-only[data-tooltip]:focus-visible::after,
+.footer-btn-image-only[data-tooltip]:hover::after,
+.footer-btn-image-only[data-tooltip]:focus-visible::after {
     opacity: 1;
     transform: translate(-50%, 0);
+}
+
+.footer-random-img {
+    width: 70px;
+    max-width: 100px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
 }
 
 .footer-btn-icon-only .footer-btn-icon {
@@ -141,12 +155,17 @@
         font-size: 0.65rem;
     }
 
-    .footer-btn-icon-only {
+    .footer-btn-icon-only,
+    .footer-btn-image-only {
         padding: 0.35rem;
     }
     
     .footer-btn-icon-only .footer-btn-icon {
         width: 36px;
         height: 36px;
+    }
+
+    .footer-random-img {
+        width: 75px;
     }
 }

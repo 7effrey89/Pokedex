@@ -279,14 +279,12 @@
                     />
                 </button>
 
-                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Random</span>
+                <button class="footer-btn footer-btn-image-only" id="randomPokemonBtn" aria-label="Random Pokemon" data-tooltip="Random">
+                    <img
+                        src="{{ url_for('static', filename='images/guess-that-pokmon2.png') }}"
+                        alt="Who's that Pokémon graphic"
+                        class="footer-random-img"
+                    />
                 </button>
 
                 <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
