@@ -38,6 +38,10 @@ class CacheService:
             "pokeapi_type",
             "pokeapi_evolution_chain",
         }
+        self._tcg_cache_keys = {
+            "search_pokemon_cards",
+            "get_card_price",
+        }
     
     def _load_config(self) -> Dict[str, Any]:
         """Load cache configuration"""
@@ -45,6 +49,7 @@ class CacheService:
             "enabled": True,
             "expiry_days": 7,
             "pokeapi_cache_enabled": True,
+            "tcg_cache_enabled": True,
         }
         
         if self.config_file.exists():
@@ -99,6 +104,12 @@ class CacheService:
         self._save_config()
         logger.info("PokeAPI cache %s", "enabled" if enabled else "disabled")
 
+    def set_tcg_cache_enabled(self, enabled: bool):
+        """Enable or disable caching for Pokemon TCG API requests"""
+        self.config["tcg_cache_enabled"] = enabled
+        self._save_config()
+        logger.info("TCG cache %s", "enabled" if enabled else "disabled")
+
     def should_use_pokeapi_cache(self) -> bool:
         """Check if the cache should be used for PokeAPI requests"""
         return bool(self.config.get("enabled", True) and self.config.get("pokeapi_cache_enabled", True))
@@ -108,6 +119,8 @@ class CacheService:
         if not self.config.get("enabled", True):
             return False
         if endpoint in self._pokeapi_cache_keys and not self.config.get("pokeapi_cache_enabled", True):
+            return False
+        if endpoint in self._tcg_cache_keys and not self.config.get("tcg_cache_enabled", True):
             return False
         return True
     

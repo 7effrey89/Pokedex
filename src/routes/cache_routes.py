@@ -73,6 +73,30 @@ def set_pokeapi_cache_enabled():
         return jsonify({"error": str(e)}), 500
 
 
+@cache_bp.route('/tcg', methods=['POST'])
+def set_tcg_cache_enabled():
+    """Enable or disable caching for Pokemon TCG API requests"""
+    from src.services.cache_service import get_cache_service
+
+    try:
+        data = request.get_json() or {}
+        enabled = data.get('enabled')
+
+        if enabled is None:
+            return jsonify({"error": "enabled field is required"}), 400
+
+        cache_service = get_cache_service()
+        cache_service.set_tcg_cache_enabled(enabled)
+
+        return jsonify({
+            "message": f"TCG cache {'enabled' if enabled else 'disabled'}",
+            "config": cache_service.get_config()
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @cache_bp.route('/expiry', methods=['POST'])
 def set_cache_expiry():
     """Set cache expiry time in days"""

@@ -32,6 +32,8 @@ class PokemonChatApp {
         this.closeCardBtn = document.getElementById('closeCard');
         this.voiceButton = document.getElementById('voiceButton');
         this.statusText = document.querySelector('.status-text');
+        this.activeLoadingCount = 0;
+        this.fetchInterceptorInstalled = false;
         
         // Camera scanner elements
         this.cameraButton = document.getElementById('cameraButton');
@@ -120,6 +122,7 @@ class PokemonChatApp {
         this.useRealtimeApi = false; // Will be set to true if available
         this.realtimeVoiceSessionAnnounced = false;
         
+        this.installFetchInterceptor();
         this.initializeVoice();
         
         this.initializeEventListeners();
@@ -1218,7 +1221,10 @@ class PokemonChatApp {
         if (cacheToggle) {
             cacheToggle.checked = this.cacheConfig?.enabled ?? true;
             cacheToggle.addEventListener('change', async (e) => {
-                await this.updateCacheEnabled(e.target.checked);
+                const enabled = Boolean(e.target.checked);
+                this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
+                this.applyCacheDependencies(enabled);
+                await this.updateCacheEnabled(enabled);
             });
         }
 
@@ -1231,11 +1237,22 @@ class PokemonChatApp {
                 await this.updatePokeapiCacheEnabled(e.target.checked);
             });
         }
+
+        // TCG cache toggle
+        const tcgCacheToggle = document.getElementById('tcgCacheToggle');
+        if (tcgCacheToggle) {
+            tcgCacheToggle.checked = this.cacheConfig?.tcg_cache_enabled ?? true;
+            tcgCacheToggle.disabled = true;
+            tcgCacheToggle.dataset.forceDisabled = tcgCacheToggle.dataset.forceDisabled || 'true';
+            const row = tcgCacheToggle.closest('.control-row');
+            if (row) {
+                row.classList.add('disabled');
+            }
+        }
         
         // Cache expiry slider
         const cacheExpiry = document.getElementById('cacheExpiry');
-        const cacheExpiryValue = document.getElementById('cacheExpiryValue');
-        if (cacheExpiry && cacheExpiryValue) {
+        if (cacheExpiry) {
             this.updateCacheExpiryUI(this.cacheConfig?.expiry_days ?? Number(cacheExpiry.value));
 
             cacheExpiry.addEventListener('input', (e) => {
@@ -1255,6 +1272,7 @@ class PokemonChatApp {
         
         // Update cache stats
         this.updateCacheStats();
+        this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
     }
     
     updateCacheStats() {
@@ -1277,16 +1295,62 @@ class PokemonChatApp {
 
         this.updateCacheExpiryUI(this.cacheConfig?.expiry_days);
         this.syncCacheControlAvailability();
+        this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
     }
 
     syncCacheControlAvailability() {
         const pokeapiCacheToggle = document.getElementById('pokeapiCacheToggle');
-        if (pokeapiCacheToggle) {
-            const globalEnabled = this.cacheConfig?.enabled ?? true;
-            pokeapiCacheToggle.disabled = !globalEnabled;
-            if (typeof this.cacheConfig?.pokeapi_cache_enabled !== 'undefined') {
-                pokeapiCacheToggle.checked = this.cacheConfig.pokeapi_cache_enabled;
+        const tcgCacheToggle = document.getElementById('tcgCacheToggle');
+        const toggles = [
+            { element: pokeapiCacheToggle, key: 'pokeapi_cache_enabled' },
+            { element: tcgCacheToggle, key: 'tcg_cache_enabled' }
+        ];
+        const globalEnabled = this.cacheConfig?.enabled ?? true;
+        toggles.forEach(({ element, key }) => {
+            if (!element) return;
+            const forceDisabled = element.dataset.forceDisabled === 'true';
+            element.disabled = forceDisabled || !globalEnabled;
+            if (typeof this.cacheConfig?.[key] !== 'undefined') {
+                element.checked = this.cacheConfig[key];
             }
+            const row = element.closest('.control-row');
+            if (row) {
+                row.classList.toggle('disabled', element.disabled);
+            }
+        });
+    }
+
+    applyCacheDependencies(isEnabled) {
+        const dependentToggles = [
+            document.getElementById('pokeapiCacheToggle'),
+            document.getElementById('tcgCacheToggle')
+        ];
+
+        dependentToggles.forEach((toggle) => {
+            if (!toggle) {
+                return;
+            }
+            const forceDisabled = toggle.dataset.forceDisabled === 'true';
+            toggle.disabled = forceDisabled || !isEnabled;
+            const row = toggle.closest('.control-row');
+            if (row) {
+                row.classList.toggle('disabled', toggle.disabled);
+            }
+        });
+
+        const cacheExpiryInput = document.getElementById('cacheExpiry');
+        if (cacheExpiryInput) {
+            cacheExpiryInput.disabled = !isEnabled;
+            const row = cacheExpiryInput.closest('.control-row');
+            if (row) {
+                row.classList.toggle('disabled', !isEnabled);
+            }
+        }
+
+        const cacheClearBtn = document.getElementById('cacheClearBtn');
+        if (cacheClearBtn) {
+            cacheClearBtn.disabled = !isEnabled;
+            cacheClearBtn.classList.toggle('disabled', !isEnabled);
         }
     }
 
@@ -1300,15 +1364,24 @@ class PokemonChatApp {
 
     updateCacheExpiryUI(value) {
         const cacheExpiry = document.getElementById('cacheExpiry');
-        const cacheExpiryValue = document.getElementById('cacheExpiryValue');
-        if (!cacheExpiry || !cacheExpiryValue) {
+        const cacheExpiryTitle = document.getElementById('cacheExpiryTitle');
+        const cacheExpiryDescription = document.getElementById('cacheExpiryDescription');
+        if (!cacheExpiry) {
             return;
         }
         const sliderMin = Number(cacheExpiry.min ?? 0);
         const sliderMax = Number(cacheExpiry.max ?? 90);
         const numericValue = value === undefined || value === null ? Number(cacheExpiry.value) : Number(value);
         cacheExpiry.value = numericValue;
-        cacheExpiryValue.textContent = this.formatCacheExpiryLabel(numericValue);
+        const titleText = this.formatCacheExpiryLabel(numericValue);
+        if (cacheExpiryTitle) {
+            cacheExpiryTitle.textContent = `Cache Expiry: ${titleText}`;
+        }
+        if (cacheExpiryDescription) {
+            cacheExpiryDescription.textContent = numericValue <= 0
+                ? 'Cache never expires until you clear it'
+                : 'Cached data will refresh after this time';
+        }
         const range = sliderMax - sliderMin || 1;
         const percentRaw = ((numericValue - sliderMin) / range) * 100;
         const percent = Math.min(100, Math.max(0, percentRaw));
@@ -1383,6 +1456,7 @@ class PokemonChatApp {
                 const data = await response.json();
                 this.cacheConfig = { ...this.cacheConfig, ...data.config };
                 this.updateCacheStats();
+                this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
                 console.log('✅ Cache', enabled ? 'enabled' : 'disabled');
             }
         } catch (error) {
@@ -1406,6 +1480,25 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error updating PokeAPI cache:', error);
+        }
+    }
+
+    async updateTcgCacheEnabled(enabled) {
+        try {
+            const response = await fetch('/api/cache/tcg', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ enabled })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                this.cacheConfig = { ...this.cacheConfig, ...data.config };
+                this.updateCacheStats();
+                console.log('✅ TCG cache', enabled ? 'enabled' : 'disabled');
+            }
+        } catch (error) {
+            console.error('Error updating TCG cache:', error);
         }
     }
     
@@ -2352,11 +2445,6 @@ class PokemonChatApp {
         
         console.log('🔄 Force refreshing Pokemon:', this.currentPokemonName);
         
-        // Show loading
-        if (this.loadingIndicator) {
-            this.loadingIndicator.classList.add('active');
-        }
-        
         try {
             // Clear cache for this Pokemon
             const response = await fetch('/api/cache/invalidate', {
@@ -2381,10 +2469,6 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error force refreshing:', error);
-        } finally {
-            if (this.loadingIndicator) {
-                this.loadingIndicator.classList.remove('active');
-            }
         }
     }
     
@@ -2395,11 +2479,6 @@ class PokemonChatApp {
         }
         
         console.log('🔄 Force refreshing TCG cards for:', this.currentPokemonName);
-        
-        // Show loading
-        if (this.loadingIndicator) {
-            this.loadingIndicator.classList.add('active');
-        }
         
         try {
             // Clear cache for TCG cards
@@ -2430,10 +2509,6 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error force refreshing TCG cards:', error);
-        } finally {
-            if (this.loadingIndicator) {
-                this.loadingIndicator.classList.remove('active');
-            }
         }
     }
     
@@ -3383,6 +3458,95 @@ class PokemonChatApp {
 
         return summaryParts.join(' ');
     }
+
+    installFetchInterceptor() {
+        if (this.fetchInterceptorInstalled || typeof window === 'undefined' || typeof window.fetch !== 'function') {
+            return;
+        }
+
+        const originalFetch = window.fetch.bind(window);
+        window.fetch = async (...args) => {
+            const shouldTrack = this.shouldTrackLoadingRequest(args[0]);
+            if (shouldTrack) {
+                this.beginGlobalLoading();
+            }
+
+            try {
+                return await originalFetch(...args);
+            } finally {
+                if (shouldTrack) {
+                    this.endGlobalLoading();
+                }
+            }
+        };
+
+        this.fetchInterceptorInstalled = true;
+    }
+
+    shouldTrackLoadingRequest(resource) {
+        if (!resource) {
+            return false;
+        }
+
+        const url = this.extractRequestUrl(resource);
+        if (!url) {
+            return false;
+        }
+
+        try {
+            const parsed = new URL(url, window.location.origin);
+            if (parsed.protocol === 'data:') {
+                return false;
+            }
+
+            const pathname = parsed.pathname || '';
+            const hostname = parsed.hostname || '';
+            if (pathname.startsWith('/static/')) {
+                return false;
+            }
+
+            const includesApiSegment = pathname.startsWith('/api/') || pathname.includes('/api/');
+            const knownHosts = ['pokeapi.co', 'pokemontcg', 'pokemon-tcg', 'tcgplayer', 'cardmarket'];
+            const matchesKnownHost = knownHosts.some(host => hostname.includes(host));
+            return includesApiSegment || matchesKnownHost;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    extractRequestUrl(resource) {
+        if (typeof resource === 'string') {
+            return resource;
+        }
+        if (resource instanceof URL) {
+            return resource.toString();
+        }
+        if (resource && typeof resource.url === 'string') {
+            return resource.url;
+        }
+        return null;
+    }
+
+    beginGlobalLoading() {
+        this.activeLoadingCount += 1;
+        this.updateLoadingIndicator();
+    }
+
+    endGlobalLoading() {
+        this.activeLoadingCount = Math.max(0, this.activeLoadingCount - 1);
+        this.updateLoadingIndicator();
+    }
+
+    updateLoadingIndicator() {
+        if (!this.loadingIndicator) {
+            return;
+        }
+        if (this.activeLoadingCount > 0) {
+            this.loadingIndicator.classList.add('active');
+        } else {
+            this.loadingIndicator.classList.remove('active');
+        }
+    }
     
     hideWelcomeMessage() {
         const welcomeMessage = this.chatContainer.querySelector('.welcome-message');
@@ -3392,14 +3556,19 @@ class PokemonChatApp {
     }
     
     setLoading(loading) {
+        const previousState = this.isLoading;
         this.isLoading = loading;
-        this.sendButton.disabled = loading;
-        this.messageInput.disabled = loading;
-        
-        if (loading) {
-            this.loadingIndicator.classList.add('active');
-        } else {
-            this.loadingIndicator.classList.remove('active');
+        if (this.sendButton) {
+            this.sendButton.disabled = loading;
+        }
+        if (this.messageInput) {
+            this.messageInput.disabled = loading;
+        }
+
+        if (loading && !previousState) {
+            this.beginGlobalLoading();
+        } else if (!loading && previousState) {
+            this.endGlobalLoading();
         }
     }
     
