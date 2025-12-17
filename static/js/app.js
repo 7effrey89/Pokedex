@@ -18,6 +18,7 @@ class PokemonChatApp {
         this.isFaceIdentifying = false;
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
+        this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -961,6 +962,32 @@ class PokemonChatApp {
         return tool ? tool.enabled : false;
     }
 
+    loadFaceIdOverlayPreference() {
+        try {
+            const stored = localStorage.getItem('faceIdOverlayEnabled');
+            if (stored === null) {
+                return true;
+            }
+            return stored === 'true';
+        } catch (error) {
+            console.warn('Unable to read face overlay preference, defaulting to enabled', error);
+            return true;
+        }
+    }
+
+    saveFaceIdOverlayPreference(enabled) {
+        this.faceIdOverlayEnabled = Boolean(enabled);
+        try {
+            localStorage.setItem('faceIdOverlayEnabled', String(this.faceIdOverlayEnabled));
+        } catch (error) {
+            console.warn('Unable to persist face overlay preference', error);
+        }
+    }
+
+    shouldShowFaceIdOverlay() {
+        return this.faceIdOverlayEnabled !== false;
+    }
+
     /**
      * Capture an image from the camera and identify the user via face recognition
      */
@@ -994,14 +1021,23 @@ class PokemonChatApp {
         let stream = null;
         let timeoutId = null;
         let faceIdModal = null;
+        let statusText = null;
+        let videoElement = null;
+        const showOverlay = this.shouldShowFaceIdOverlay();
 
         try {
             this.isFaceIdentifying = true;
             this.lastFaceIdentificationTime = now;
 
-            // Create face identification modal to show camera preview
-            faceIdModal = this.createFaceIdModal();
-            document.body.appendChild(faceIdModal);
+            if (showOverlay) {
+                // Create face identification modal to show camera preview
+                faceIdModal = this.createFaceIdModal();
+                document.body.appendChild(faceIdModal);
+                videoElement = faceIdModal.querySelector('video');
+                statusText = faceIdModal.querySelector('.face-id-status');
+            } else {
+                videoElement = this.createFaceIdVideoElement();
+            }
 
             // Set timeout for camera access (10 seconds)
             const timeoutPromise = new Promise((_, reject) => {
@@ -1026,7 +1062,7 @@ class PokemonChatApp {
             }
 
             // Show camera preview in modal
-            const video = faceIdModal.querySelector('video');
+            const video = videoElement;
             video.srcObject = stream;
             video.autoplay = true;
 
@@ -1043,8 +1079,9 @@ class PokemonChatApp {
             await videoReadyPromise;
 
             // Update modal status
-            const statusText = faceIdModal.querySelector('.face-id-status');
-            statusText.textContent = 'Identifying...';
+            if (statusText) {
+                statusText.textContent = 'Identifying...';
+            }
 
             // Wait a bit for camera to adjust
             await new Promise(resolve => setTimeout(resolve, 500));
@@ -1085,7 +1122,9 @@ class PokemonChatApp {
             console.log('Face identification result:', result);
 
             // Update modal with result
-            statusText.textContent = result.name ? `Hello, ${result.name}!` : 'Identifying...';
+            if (statusText) {
+                statusText.textContent = result.name ? `Hello, ${result.name}!` : 'Identifying...';
+            }
 
             // Handle the result
             if (result.name && result.is_new_user && result.greeting_message) {
@@ -1188,6 +1227,16 @@ class PokemonChatApp {
         return modal;
     }
 
+    createFaceIdVideoElement() {
+        const video = document.createElement('video');
+        video.autoplay = true;
+        video.playsInline = true;
+        video.muted = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('muted', '');
+        return video;
+    }
+
     async openToolsModal() {
         if (!this.toolsModalOverlay) return;
         
@@ -1202,6 +1251,7 @@ class PokemonChatApp {
         ]);
         this.renderToolsModal();
         this.setupCacheControls();
+        this.setupFaceIdentificationControls();
     }
     
     async loadCacheConfig() {
@@ -1273,6 +1323,27 @@ class PokemonChatApp {
         // Update cache stats
         this.updateCacheStats();
         this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
+    }
+
+    setupFaceIdentificationControls() {
+        const overlayToggle = document.getElementById('faceIdOverlayToggle');
+        if (!overlayToggle) {
+            return;
+        }
+
+        overlayToggle.checked = this.shouldShowFaceIdOverlay();
+
+        if (overlayToggle.dataset.listenerAttached === 'true') {
+            return;
+        }
+
+        overlayToggle.addEventListener('change', (event) => {
+            const enabled = Boolean(event.target.checked);
+            this.saveFaceIdOverlayPreference(enabled);
+            console.log(`Face ID overlay ${enabled ? 'enabled' : 'disabled'}`);
+        });
+
+        overlayToggle.dataset.listenerAttached = 'true';
     }
     
     updateCacheStats() {
