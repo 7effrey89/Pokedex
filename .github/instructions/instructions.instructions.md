@@ -1,7 +1,7 @@
 ---
 applyTo: '**'
 ---
-Always at the end of the response tell developer to either refresh or restart the server.
+Always at the end of the response tell developer to either refresh or restart the server depending on what is minimum neccesary to explore the change.
 
 ## Project Architecture
 
@@ -157,7 +157,7 @@ case 'your-screen-type':
 
 ## PokéAPI Fair Use & Caching
 
-- **Never call `https://pokeapi.co` directly from the frontend or backend helpers.** All live Pokémon data must flow through the Flask proxy blueprint mounted at `/api/pokemon/*` so we can cache every response locally and comply with PokéAPI’s “locally cache resources whenever you request them” policy.
+- **Never call `https://pokeapi.co` directly from the frontend or backend helpers.** All live Pokémon data is recommended to flow through the Flask proxy blueprint mounted at `/api/pokemon/*` so we can cache every response locally and avoid rate limiting.
 - The proxy already exposes `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/type/<type_name>`, and `/evolution-chain/<chain_id>` and transparently stores results via `CacheService`. Add new proxy endpoints (instead of raw fetches) if you need more PokéAPI resources.
 - Use the `?refresh=1` query string when you intentionally want to bypass the cache (force refresh buttons, admin workflows, etc.). Do **not** delete cache files manually.
 - Keep proxy routes lightweight (<300 lines) and reuse shared helpers for cache key generation so filenames stay descriptive in the `/cache` directory.

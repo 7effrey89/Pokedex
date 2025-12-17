@@ -109,6 +109,7 @@ class PokemonChatApp {
         
         // Cache configuration
         this.cacheConfig = null;
+        this.pokeapiBaseUrl = 'https://pokeapi.co/api/v2';
         
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
@@ -127,6 +128,7 @@ class PokemonChatApp {
         this.initializeChatSidebar();
         this.adjustTextareaHeight();
         this.loadTools();
+        this.loadCacheConfig();
         this.gridView.show(); // Use gridView instead of loadPokemonGrid
     }
     
@@ -532,15 +534,7 @@ class PokemonChatApp {
             // Fallback: try direct API call with name
             console.log('🌐 Attempting direct API call for:', pokemonName);
             try {
-                const response = await fetch(`/api/pokemon/${pokemonName}`);
-                
-                if (response.ok) {
-                    const pokemon = await response.json();
-                    console.log('✅ Loaded Pokemon from API:', pokemon.name);
-                    await this.detailView.loadPokemon(pokemon.id);
-                } else {
-                    console.error('❌ Pokemon not found:', pokemonName);
-                }
+                await this.detailView.loadPokemon(pokemonName);
             } catch (error) {
                 console.error('❌ Error loading Pokemon:', pokemonName, error);
             }
@@ -1319,6 +1313,62 @@ class PokemonChatApp {
         const percentRaw = ((numericValue - sliderMin) / range) * 100;
         const percent = Math.min(100, Math.max(0, percentRaw));
         cacheExpiry.style.background = `linear-gradient(to right, var(--pokedex-red) 0%, var(--pokedex-red) ${percent}%, #e0e0e0 ${percent}%, #e0e0e0 100%)`;
+    }
+
+    shouldUsePokemonProxy() {
+        if (!this.cacheConfig) {
+            return true;
+        }
+        return this.cacheConfig.pokeapi_cache_enabled !== false;
+    }
+
+    normalizePokemonIdentifier(identifier, { preserveCase = false } = {}) {
+        if (identifier === undefined || identifier === null) {
+            return '';
+        }
+        const text = String(identifier).trim();
+        if (!text) {
+            return '';
+        }
+        if (/^\d+$/.test(text)) {
+            return text;
+        }
+        return preserveCase ? text : text.toLowerCase();
+    }
+
+    buildPokemonApiUrl(resource, identifier, options = {}) {
+        const mode = options.mode || (this.shouldUsePokemonProxy() ? 'proxy' : 'direct');
+        const useProxy = mode === 'proxy';
+        const preserveCase = resource === 'evolution';
+        const normalized = this.normalizePokemonIdentifier(identifier, { preserveCase });
+        const encoded = encodeURIComponent(normalized);
+        const directBase = this.pokeapiBaseUrl.replace(/\/$/, '');
+
+        const proxyPaths = {
+            pokemon: `/api/pokemon/${encoded}`,
+            species: `/api/pokemon/species/${encoded}`,
+            type: `/api/pokemon/type/${encoded}`,
+            evolution: `/api/pokemon/evolution-chain/${encoded}`
+        };
+
+        const directPaths = {
+            pokemon: `${directBase}/pokemon/${encoded}`,
+            species: `${directBase}/pokemon-species/${encoded}`,
+            type: `${directBase}/type/${encoded}`,
+            evolution: `${directBase}/evolution-chain/${encoded}`
+        };
+
+        if (useProxy) {
+            if (!proxyPaths[resource]) {
+                throw new Error(`Unknown PokéAPI proxy resource: ${resource}`);
+            }
+            return proxyPaths[resource];
+        }
+
+        if (!directPaths[resource]) {
+            throw new Error(`Unknown PokéAPI direct resource: ${resource}`);
+        }
+        return directPaths[resource];
     }
     
     async updateCacheEnabled(enabled) {

@@ -4,7 +4,7 @@ import logging
 import os
 from functools import lru_cache
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 
 import requests
 from flask import Blueprint, jsonify, request
@@ -62,12 +62,15 @@ def _fetch_with_cache(
     resource_path: str,
     refresh: bool,
     use_cache: bool,
-) -> Optional[Dict]:
+) -> Tuple[Optional[Dict], str]:
     """Fetch a PokeAPI resource with CacheService backing."""
-    if use_cache and not refresh:
-        cached = cache_service.get(cache_key, params)
-        if cached is not None:
-            return cached
+    cache_label = "bypass"
+    if use_cache:
+        cache_label = "refresh" if refresh else "miss"
+        if not refresh:
+            cached = cache_service.get(cache_key, params)
+            if cached is not None:
+                return cached, "hit"
 
     url = f"{POKEAPI_BASE_URL.rstrip('/')}/{resource_path.lstrip('/')}"
     try:
@@ -77,7 +80,7 @@ def _fetch_with_cache(
         raise
 
     if resp.status_code == 404:
-        return None
+        return None, cache_label
 
     try:
         resp.raise_for_status()
@@ -88,21 +91,37 @@ def _fetch_with_cache(
     data = resp.json()
     if use_cache:
         cache_service.set(cache_key, params, data)
-    return data
+    return data, cache_label
 
 
 def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str):
     refresh = _should_refresh()
     use_cache = _is_pokeapi_cache_enabled()
     try:
-        data = _fetch_with_cache(cache_key, params, resource_path, refresh, use_cache)
+        data, cache_status = _fetch_with_cache(cache_key, params, resource_path, refresh, use_cache)
     except requests.RequestException:
-        return jsonify({"error": "Failed to reach PokeAPI"}), 502
+        error_response = jsonify({"error": "Failed to reach PokeAPI"})
+        error_response.status_code = 502
+        error_response.headers["X-PokeAPI-Cache"] = "error"
+        logger.info("PokeAPI proxy %s cache=%s status=%s", resource_path, "error", 502)
+        return error_response
 
     if data is None:
-        return jsonify({"error": "Resource not found"}), 404
+        error_response = jsonify({"error": "Resource not found"})
+        error_response.status_code = 404
+        error_response.headers["X-PokeAPI-Cache"] = cache_status
+        logger.info("PokeAPI proxy %s cache=%s status=%s", resource_path, cache_status, 404)
+        return error_response
 
-    return jsonify(data)
+    response = jsonify(data)
+    response.headers["X-PokeAPI-Cache"] = cache_status
+    logger.info(
+        "PokeAPI proxy %s cache=%s status=%s",
+        resource_path,
+        cache_status,
+        200,
+    )
+    return response
 
 
 @pokeapi_bp.route("/<string:name_or_id>", methods=["GET"])
