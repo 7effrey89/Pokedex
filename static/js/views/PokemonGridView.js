@@ -46,23 +46,23 @@ class PokemonGridView {
         }
 
         console.log('Loading Pokemon grid...');
-        const promises = [];
-        
-        for (let i = 1; i <= this.app.MAX_POKEMON; i++) {
-            promises.push(
-                fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-                    .then(res => res.json())
-                    .catch(err => {
-                        console.error(`Failed to load Pokemon #${i}:`, err);
-                        return null;
-                    })
-            );
+        try {
+            const response = await fetch('/api/pokemon/list');
+            if (!response.ok) {
+                throw new Error('Failed to load Pokemon list');
+            }
+            const list = await response.json();
+            this.app.allPokemons = list.map(entry => ({
+                id: entry.number,
+                name: entry.name,
+            }));
+            this.renderPokemonGrid();
+        } catch (error) {
+            console.error('Failed to load Pokemon list:', error);
+            if (this.pokemonList) {
+                this.pokemonList.innerHTML = '<div class="error-state">Unable to load Pokémon. Please refresh.</div>';
+            }
         }
-
-        const results = await Promise.all(promises);
-        this.app.allPokemons = results.filter(p => p !== null);
-        
-        this.renderPokemonGrid();
     }
 
     renderPokemonGrid() {
@@ -106,9 +106,7 @@ class PokemonGridView {
         card.onclick = () => this.app.detailView.loadPokemon(pokemon.id);
         card.style.position = 'relative';
 
-        const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
-                        pokemon.sprites?.front_default || 
-                        '';
+        const imageUrl = this.getArtworkUrl(pokemon.id);
         
         // Get viewing badge
         const badge = this.app.getViewingBadge(pokemon.id);
@@ -124,5 +122,9 @@ class PokemonGridView {
         `;
 
         return card;
+    }
+
+    getArtworkUrl(pokemonId) {
+        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
     }
 }

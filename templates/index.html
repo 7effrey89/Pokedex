@@ -407,15 +407,26 @@
                                     <span class="toggle-slider"></span>
                                 </label>
                             </div>
+
+                            <div class="control-row">
+                                <label for="pokeapiCacheToggle" class="control-label">
+                                    <span>Use Cache for PokéAPI</span>
+                                    <small>Bypass this to fetch fresh PokéAPI data every time</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="pokeapiCacheToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
                             
                             <div class="control-row">
                                 <label for="cacheExpiry" class="control-label">
-                                    <span>Cache Expiry: <strong id="cacheExpiryValue">7</strong> days</span>
+                                    <span>Cache Expiry: <strong id="cacheExpiryValue">7 days</strong></span>
                                     <small>Cached data will refresh after this time</small>
                                 </label>
-                                <input type="range" id="cacheExpiry" min="1" max="90" value="7" class="cache-slider">
+                                <input type="range" id="cacheExpiry" min="0" max="90" value="7" class="cache-slider">
                                 <div class="slider-labels">
-                                    <span>1 day</span>
+                                    <span>Unlimited</span>
                                     <span>90 days</span>
                                 </div>
                             </div>

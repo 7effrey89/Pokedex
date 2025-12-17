@@ -79,8 +79,8 @@ class PokemonDetailView {
     async loadPokemon(id) {
         try {
             const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+                fetch(`/api/pokemon/${id}`),
+                fetch(`/api/pokemon/species/${id}`)
             ]);
 
             const pokemon = await pokemonResponse.json();
@@ -89,7 +89,8 @@ class PokemonDetailView {
             // Fetch evolution chain if available
             let evolutionChain = null;
             if (species.evolution_chain && species.evolution_chain.url) {
-                const evolutionResponse = await fetch(species.evolution_chain.url);
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                const evolutionResponse = await fetch(`/api/pokemon/evolution-chain/${chainId}`);
                 evolutionChain = await evolutionResponse.json();
             }
 
@@ -102,8 +103,8 @@ class PokemonDetailView {
     async loadPokemonWithoutHistory(id) {
         try {
             const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+                fetch(`/api/pokemon/${id}`),
+                fetch(`/api/pokemon/species/${id}`)
             ]);
 
             const pokemon = await pokemonResponse.json();
@@ -112,7 +113,8 @@ class PokemonDetailView {
             // Fetch evolution chain if available
             let evolutionChain = null;
             if (species.evolution_chain && species.evolution_chain.url) {
-                const evolutionResponse = await fetch(species.evolution_chain.url);
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                const evolutionResponse = await fetch(`/api/pokemon/evolution-chain/${chainId}`);
                 evolutionChain = await evolutionResponse.json();
             }
 
@@ -374,7 +376,7 @@ class PokemonDetailView {
         // Fetch type data for all Pokemon types
         const typeData = await Promise.all(
             pokemon.types.map(t => 
-                fetch(`https://pokeapi.co/api/v2/type/${t.type.name}`)
+                fetch(`/api/pokemon/type/${t.type.name}`)
                     .then(res => res.json())
             )
         );
@@ -594,7 +596,7 @@ class PokemonDetailView {
         
         // Fetch Pokemon data for image and types
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+            const response = await fetch(`/api/pokemon/${pokemonId}`);
             const pokemon = await response.json();
             
             evolutions.push({

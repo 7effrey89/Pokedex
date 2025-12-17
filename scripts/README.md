@@ -6,6 +6,7 @@ Two scripts keep offline TCG data in sync with the format this app expects:
 | --- | --- | --- | --- |
 | 01 | `scripts/01-download_tcg_cache.py` | Bulk download every Pokémon’s raw TCG response directly from the public API. | Raw JSON snapshots in `tcg-cache/` plus `data/pokemon_list.json`. |
 | 02 | `scripts/02-normalize_tcg_cache.py` | Reformat those raw files so they exactly match the CacheService schema. | Canonical files in `cache/` (or in-place when requested). |
+| 03 | `scripts/03-preload_pokeapi_cache.py` | Warm the local CacheService with live PokeAPI responses so the UI never needs to hit pokéapi.co directly. | Fresh `pokeapi-*` files inside `cache/`. |
 
 ## Step 01 – Download raw caches
 
@@ -56,6 +57,30 @@ python scripts/02-normalize_tcg_cache.py tcg-cache/tcg-002-ivysaur.json --in-pla
 ```
 
 Outputs land in `cache/` (unless `--in-place`), so the app can immediately pick them up via `CacheService` while your raw archive remains safely stored in `tcg-cache/`.
+
+## Step 03 – Preload PokeAPI caches
+
+`scripts/03-preload_pokeapi_cache.py` iterates the national dex, fetches the selected PokeAPI resources (`pokemon`, `species`, optional `evolution` chains and `type` metadata), and stores the payloads via `CacheService`. Run it anytime you want the `cache/` folder to be fully hydrated so the frontend stays offline-friendly.
+
+Highlights:
+
+- Honors cache hits unless `--refresh` is supplied, making it safe to rerun.
+- Supports dex windows (`--start`, `--end`, `--limit`) so you can warm only the regions you care about.
+- Lets you pick resources (`--resources pokemon,species,evolution`) and adds a global type sweep when `types` is included.
+- Reuses the same descriptor logic as the Flask proxy, producing files like `pokeapi-0001-bulbasaur.json` automatically.
+
+Quick commands:
+
+```bash
+# Hydrate pokemon + species caches for the entire dex
+python scripts/03-preload_pokeapi_cache.py
+
+# Refresh the first 151 entries, including evolution chains
+python scripts/03-preload_pokeapi_cache.py --end 151 --resources pokemon,species,evolution --refresh
+
+# Warm type metadata only
+python scripts/03-preload_pokeapi_cache.py --resources types
+```
 
 ## FAQ
 

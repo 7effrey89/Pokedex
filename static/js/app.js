@@ -202,14 +202,29 @@ class PokemonChatApp {
         const pokemonName = pokemonNameEl.textContent.toLowerCase();
         console.log('🔄 Force refreshing Pokemon:', pokemonName);
         
-        // Clear cache for this Pokemon
         try {
-            await fetch(`/api/cache/clear?tool=get_pokemon&params=${encodeURIComponent(JSON.stringify({ pokemon_name: pokemonName }))}`, {
-                method: 'POST'
+            const invalidateResponse = await fetch('/api/cache/invalidate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool: 'get_pokemon',
+                    params: { pokemon_name: pokemonName }
+                })
             });
-            console.log('✅ Cache cleared, reloading...');
-            
-            // Reload the Pokemon detail
+            if (!invalidateResponse.ok) {
+                throw new Error('Failed to invalidate chat cache');
+            }
+
+            const warmupResponses = await Promise.all([
+                fetch(`/api/pokemon/${pokemonName}?refresh=1`),
+                fetch(`/api/pokemon/species/${pokemonName}?refresh=1`)
+            ]);
+            warmupResponses.forEach(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to refresh Pokemon proxy cache');
+                }
+            });
+            console.log('✅ Cache refreshed, reloading...');
             await this.detailView.loadPokemon(pokemonName);
         } catch (error) {
             console.error('❌ Error force refreshing:', error);
@@ -511,14 +526,13 @@ class PokemonChatApp {
         );
         
         if (foundPokemon) {
-            const idFromUrl = foundPokemon.url.split('/').filter(Boolean).pop();
-            console.log('✅ Found Pokemon in list:', pokemonName, 'ID:', idFromUrl);
-            await this.detailView.loadPokemon(parseInt(idFromUrl));
+            console.log('✅ Found Pokemon in list:', pokemonName, 'ID:', foundPokemon.id);
+            await this.detailView.loadPokemon(foundPokemon.id);
         } else {
             // Fallback: try direct API call with name
             console.log('🌐 Attempting direct API call for:', pokemonName);
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+                const response = await fetch(`/api/pokemon/${pokemonName}`);
                 
                 if (response.ok) {
                     const pokemon = await response.json();
@@ -1213,28 +1227,29 @@ class PokemonChatApp {
                 await this.updateCacheEnabled(e.target.checked);
             });
         }
+
+        // PokeAPI cache toggle
+        const pokeapiCacheToggle = document.getElementById('pokeapiCacheToggle');
+        if (pokeapiCacheToggle) {
+            pokeapiCacheToggle.checked = this.cacheConfig?.pokeapi_cache_enabled ?? true;
+            pokeapiCacheToggle.disabled = !(this.cacheConfig?.enabled ?? true);
+            pokeapiCacheToggle.addEventListener('change', async (e) => {
+                await this.updatePokeapiCacheEnabled(e.target.checked);
+            });
+        }
         
         // Cache expiry slider
         const cacheExpiry = document.getElementById('cacheExpiry');
         const cacheExpiryValue = document.getElementById('cacheExpiryValue');
         if (cacheExpiry && cacheExpiryValue) {
-            cacheExpiry.value = this.cacheConfig?.expiry_days ?? 7;
-            cacheExpiryValue.textContent = cacheExpiry.value;
-            
-            // Update slider background
-            const updateSliderBg = () => {
-                const percent = ((cacheExpiry.value - 1) / (90 - 1)) * 100;
-                cacheExpiry.style.background = `linear-gradient(to right, var(--pokedex-red) 0%, var(--pokedex-red) ${percent}%, #e0e0e0 ${percent}%, #e0e0e0 100%)`;
-            };
-            updateSliderBg();
-            
+            this.updateCacheExpiryUI(this.cacheConfig?.expiry_days ?? Number(cacheExpiry.value));
+
             cacheExpiry.addEventListener('input', (e) => {
-                cacheExpiryValue.textContent = e.target.value;
-                updateSliderBg();
+                this.updateCacheExpiryUI(Number(e.target.value));
             });
             
             cacheExpiry.addEventListener('change', async (e) => {
-                await this.updateCacheExpiry(parseInt(e.target.value));
+                await this.updateCacheExpiry(parseInt(e.target.value, 10));
             });
         }
         
@@ -1265,6 +1280,45 @@ class PokemonChatApp {
         if (cacheSize) {
             cacheSize.textContent = `${this.cacheConfig.total_size_mb ?? 0} MB`;
         }
+
+        this.updateCacheExpiryUI(this.cacheConfig?.expiry_days);
+        this.syncCacheControlAvailability();
+    }
+
+    syncCacheControlAvailability() {
+        const pokeapiCacheToggle = document.getElementById('pokeapiCacheToggle');
+        if (pokeapiCacheToggle) {
+            const globalEnabled = this.cacheConfig?.enabled ?? true;
+            pokeapiCacheToggle.disabled = !globalEnabled;
+            if (typeof this.cacheConfig?.pokeapi_cache_enabled !== 'undefined') {
+                pokeapiCacheToggle.checked = this.cacheConfig.pokeapi_cache_enabled;
+            }
+        }
+    }
+
+    formatCacheExpiryLabel(days) {
+        const value = Number(days);
+        if (!Number.isFinite(value) || value <= 0) {
+            return 'Unlimited';
+        }
+        return value === 1 ? '1 day' : `${value} days`;
+    }
+
+    updateCacheExpiryUI(value) {
+        const cacheExpiry = document.getElementById('cacheExpiry');
+        const cacheExpiryValue = document.getElementById('cacheExpiryValue');
+        if (!cacheExpiry || !cacheExpiryValue) {
+            return;
+        }
+        const sliderMin = Number(cacheExpiry.min ?? 0);
+        const sliderMax = Number(cacheExpiry.max ?? 90);
+        const numericValue = value === undefined || value === null ? Number(cacheExpiry.value) : Number(value);
+        cacheExpiry.value = numericValue;
+        cacheExpiryValue.textContent = this.formatCacheExpiryLabel(numericValue);
+        const range = sliderMax - sliderMin || 1;
+        const percentRaw = ((numericValue - sliderMin) / range) * 100;
+        const percent = Math.min(100, Math.max(0, percentRaw));
+        cacheExpiry.style.background = `linear-gradient(to right, var(--pokedex-red) 0%, var(--pokedex-red) ${percent}%, #e0e0e0 ${percent}%, #e0e0e0 100%)`;
     }
     
     async updateCacheEnabled(enabled) {
@@ -1285,6 +1339,25 @@ class PokemonChatApp {
             console.error('Error updating cache:', error);
         }
     }
+
+    async updatePokeapiCacheEnabled(enabled) {
+        try {
+            const response = await fetch('/api/cache/pokeapi', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ enabled })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                this.cacheConfig = { ...this.cacheConfig, ...data.config };
+                this.updateCacheStats();
+                console.log('✅ PokeAPI cache', enabled ? 'enabled' : 'disabled');
+            }
+        } catch (error) {
+            console.error('Error updating PokeAPI cache:', error);
+        }
+    }
     
     async updateCacheExpiry(days) {
         try {
@@ -1297,7 +1370,9 @@ class PokemonChatApp {
             if (response.ok) {
                 const data = await response.json();
                 this.cacheConfig = { ...this.cacheConfig, ...data.config };
-                console.log(`✅ Cache expiry set to ${days} days`);
+                this.updateCacheStats();
+                const label = days === 0 ? 'unlimited' : `${days} day${days === 1 ? '' : 's'}`;
+                console.log(`✅ Cache expiry set to ${label}`);
             }
         } catch (error) {
             console.error('Error updating cache expiry:', error);

@@ -154,3 +154,10 @@ case 'your-screen-type':
 - Always define unique view keys in `buildViewKey()` to prevent duplicate history entries
 - History automatically truncates forward entries when user navigates to a new view
 - **IMPORTANT**: If `navigateForward()` or `navigateBack()` use `await`, they must be declared as `async` functions
+
+## PokéAPI Fair Use & Caching
+
+- **Never call `https://pokeapi.co` directly from the frontend or backend helpers.** All live Pokémon data must flow through the Flask proxy blueprint mounted at `/api/pokemon/*` so we can cache every response locally and comply with PokéAPI’s “locally cache resources whenever you request them” policy.
+- The proxy already exposes `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/type/<type_name>`, and `/evolution-chain/<chain_id>` and transparently stores results via `CacheService`. Add new proxy endpoints (instead of raw fetches) if you need more PokéAPI resources.
+- Use the `?refresh=1` query string when you intentionally want to bypass the cache (force refresh buttons, admin workflows, etc.). Do **not** delete cache files manually.
+- Keep proxy routes lightweight (<300 lines) and reuse shared helpers for cache key generation so filenames stay descriptive in the `/cache` directory.

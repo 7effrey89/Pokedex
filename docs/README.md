@@ -39,6 +39,18 @@ The app features a clean, mobile-first design with:
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
 
+## PokeAPI Fair Use & Caching
+
+- Every client-side Pokemon lookup now goes through the Flask proxy blueprint mounted at `/api/pokemon`. The proxy forwards to PokeAPI, writes the response through `CacheService`, and serves subsequent requests from disk so we comply with PokeAPI’s “locally cache resources whenever you request them” rule.
+- Available proxy routes (all support `?refresh=1` to bypass the cache and pull fresh data):
+   - `GET /api/pokemon/<name_or_id>` – core Pokemon payloads used by the grid, detail view, and evolution previews.
+   - `GET /api/pokemon/species/<name_or_id>` – species metadata (entries, egg groups, evolution chain pointer).
+   - `GET /api/pokemon/evolution-chain/<chain_id>` – deep evolution data.
+   - `GET /api/pokemon/type/<type_name>` – damage relations for weakness calculations.
+- The cache directory (`/cache`) keeps descriptive filenames; expiration defaults to 7 days but can be tuned in `cache/cache_config.json` or via the existing cache settings routes.
+- Force-refresh actions in the UI invalidate both the chat tool cache (`get_pokemon`) and the new proxy caches by issuing `refresh=1` requests, so the next render picks up live data without manual file edits.
+- Override the upstream host with the `POKEMON_API_URL` environment variable if you need to point at a mirror during development; the proxy uses that value for every outbound request.
+
 ## Installation
 
 ### Prerequisites
