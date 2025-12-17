@@ -39,6 +39,18 @@ The app features a clean, mobile-first design with:
 - **Styling**: Custom CSS with mobile-first responsive design
 - **Architecture**: RESTful API with JSON responses
 
+## PokeAPI Fair Use & Caching
+
+- Every client-side Pokemon lookup now goes through the Flask proxy blueprint mounted at `/api/pokemon`. The proxy forwards to PokeAPI, writes the response through `CacheService`, and serves subsequent requests from disk so we comply with PokeAPI’s “locally cache resources whenever you request them” rule.
+- Available proxy routes (all support `?refresh=1` to bypass the cache and pull fresh data):
+   - `GET /api/pokemon/<name_or_id>` – core Pokemon payloads used by the grid, detail view, and evolution previews.
+   - `GET /api/pokemon/species/<name_or_id>` – species metadata (entries, egg groups, evolution chain pointer).
+   - `GET /api/pokemon/evolution-chain/<chain_id>` – deep evolution data.
+   - `GET /api/pokemon/type/<type_name>` – damage relations for weakness calculations.
+- The cache directory (`/cache`) keeps descriptive filenames; expiration defaults to 7 days but can be tuned in `cache/cache_config.json` or via the existing cache settings routes.
+- Force-refresh actions in the UI invalidate both the chat tool cache (`get_pokemon`) and the new proxy caches by issuing `refresh=1` requests, so the next render picks up live data without manual file edits.
+- Override the upstream host with the `POKEMON_API_URL` environment variable if you need to point at a mirror during development; the proxy uses that value for every outbound request.
+
 ## Installation
 
 ### Prerequisites
@@ -79,6 +91,86 @@ The app features a clean, mobile-first design with:
 6. **Open in browser**
    - Navigate to `http://localhost:5000`
    - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
+
+## Deploying to Azure App Service
+
+You can host the entire experience on Azure Web Apps so the realtime chat, MCP tools, and camera scanner are available from anywhere.
+
+### Prerequisites
+
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- An Azure subscription with permission to create App Service resources
+- Python 3.11 locally (matches the runtime we deploy)
+
+### 1. Prepare environment variables
+
+Create or update a `.env` file with the secrets you want in production (Azure OpenAI keys, PokeAPI overrides, `POKEMON_TCG_API_KEY`, etc.). These values will be mirrored into App Service settings.
+
+### 2. Log in and create Azure resources
+
+```bash
+az login
+RESOURCE_GROUP=pokedex-rg
+LOCATION=eastus
+APP_NAME=pokedex-chat-$RANDOM
+
+az group create --name $RESOURCE_GROUP --location $LOCATION
+az appservice plan create \
+   --name $APP_NAME-plan \
+   --resource-group $RESOURCE_GROUP \
+   --sku B1 \
+   --is-linux
+az webapp create \
+   --resource-group $RESOURCE_GROUP \
+   --plan $APP_NAME-plan \
+   --name $APP_NAME \
+   --runtime "PYTHON|3.11"
+```
+
+### 3. Push configuration to App Service
+
+Mirror your `.env` contents (plus production-only values) into App Service settings:
+
+```bash
+az webapp config appsettings set \
+   --resource-group $RESOURCE_GROUP \
+   --name $APP_NAME \
+   --settings \
+      FLASK_ENV=production \
+      POKEMON_TCG_API_KEY="<your-key>" \
+      USE_NATIVE_MCP=false \
+      SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+
+Add any Azure OpenAI or MCP endpoints the same way. App settings become environment variables available to Flask when it starts.
+
+### 4. Package and deploy the code
+
+Create a clean build (exclude caches and local venvs) and push it with Zip Deploy:
+
+```bash
+pip install -r requirements.txt --target .python_packages/lib/site-packages
+zip -r pokedex.zip app.py src static templates \
+      requirements.txt realtime_chat.py azure_openai_chat.py \
+      tools_config.json data tcg-cache
+
+az webapp deployment source config-zip \
+   --resource-group $RESOURCE_GROUP \
+   --name $APP_NAME \
+   --src pokedex.zip
+```
+
+App Service automatically runs `gunicorn app:app` for Linux Python sites. Tail logs if you want to verify startup:
+
+```bash
+az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
+```
+
+### 5. Handle persistent assets
+
+The `/tcg-cache` and `/profiles_pic` folders are part of the deployment package. If you need caches or profile images to persist across deployments, store them in Azure Blob Storage and mount them using [App Service storage](https://learn.microsoft.com/azure/app-service/configure-connect-to-azure-storage) or rehydrate them during CI/CD.
+
+> **Tip:** When you update the code, rebuild the zip (or connect the repo to Azure via GitHub Actions) and run `config-zip` again. Existing App Settings stay in place, so secrets are not overwritten by deployments.
 
 ## Usage
 

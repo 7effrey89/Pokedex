@@ -1,0 +1,1326 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:drednaw"
+  },
+  "cache_key": "9bddf298e8c098f160512a9e4b655c18",
+  "cached_at": 1765902396.312084,
+  "response": {
+    "data": [
+      {
+        "id": "swsh35-14",
+        "name": "Drednaw V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Powerful Bite",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/14.png",
+          "large": "https://images.pokemontcg.io/swsh35/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.0,
+              "high": 9.99,
+              "market": 0.9,
+              "directLow": 0.86
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.01,
+            "lowPrice": 0.5,
+            "trendPrice": 1.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.33,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.0,
+            "avg7": 0.94,
+            "avg30": 0.97,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 1.35,
+            "reverseHoloAvg30": 1.46
+          }
+        }
+      },
+      {
+        "id": "swsh35-15",
+        "name": "Drednaw VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "320",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Drednaw V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "G-Max Headbutt",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160+",
+            "text": "Flip a coin. If heads, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/15.png",
+          "large": "https://images.pokemontcg.io/swsh35/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.37,
+              "high": 19.99,
+              "market": 1.97,
+              "directLow": 3.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.47,
+            "lowPrice": 0.9,
+            "trendPrice": 2.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.35,
+            "lowPriceExPlus": 0.9,
+            "avg1": 2.1,
+            "avg7": 2.79,
+            "avg30": 2.45,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 4.36,
+            "reverseHoloAvg30": 4.85
+          }
+        }
+      },
+      {
+        "id": "swsh4-39",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "attacks": [
+          {
+            "name": "Vise Wave",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "If you played Nessa from your hand during this turn, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Surf",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "140",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Taira Akitsu",
+        "rarity": "Rare",
+        "flavorText": "With jaws that can shear through steel rods, this highly aggressive Pokémon chomps down on its unfortunate prey.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/39.png",
+          "large": "https://images.pokemontcg.io/swsh4/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.22,
+              "high": 999.99,
+              "market": 0.18,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": 0.12
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.32,
+            "lowPrice": 0.15,
+            "trendPrice": 1.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.15,
+            "avg1": 1.5,
+            "avg7": 1.61,
+            "avg30": 2.05,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH047",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "attacks": [
+          {
+            "name": "Vise Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Jaw Lock",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH047",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Promo",
+        "flavorText": "This Pokémon rapidly extends its retractable neck to sink its sharp fangs into distant enemies and take them down.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH047.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH047_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH047",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.11,
+              "high": 3.79,
+              "market": 1.11,
+              "directLow": 0.93
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH047",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.1,
+            "trendPrice": 0.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.4,
+            "lowPriceExPlus": 0.19,
+            "avg1": 0.8,
+            "avg7": 0.71,
+            "avg30": 0.68,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.33,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      },
+      {
+        "id": "swsh1-61",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "attacks": [
+          {
+            "name": "Vise Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Jaw Lock",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "This Pokémon rapidly extends its retractable neck to sink its sharp fangs into distant enemies and take them down.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/61.png",
+          "large": "https://images.pokemontcg.io/swsh1/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 4.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.18,
+              "mid": 0.45,
+              "high": 9.99,
+              "market": 0.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.2,
+            "lowPrice": 0.02,
+            "trendPrice": 0.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.84,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.9,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.16,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 1.17,
+            "reverseHoloAvg7": 0.65,
+            "reverseHoloAvg30": 0.75
+          }
+        }
+      },
+      {
+        "id": "swsh35-69",
+        "name": "Drednaw V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Powerful Bite",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "aky CG Works",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/69.png",
+          "large": "https://images.pokemontcg.io/swsh35/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.82,
+              "mid": 1.49,
+              "high": 7.99,
+              "market": 1.28,
+              "directLow": 1.46
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.59,
+            "lowPrice": 0.45,
+            "trendPrice": 1.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.36,
+            "lowPriceExPlus": 0.49,
+            "avg1": 0.69,
+            "avg7": 1.68,
+            "avg30": 1.52,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 2.28,
+            "reverseHoloAvg30": 2.54
+          }
+        }
+      },
+      {
+        "id": "swsh35-75",
+        "name": "Drednaw VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "320",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Drednaw V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "G-Max Headbutt",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160+",
+            "text": "Flip a coin. If heads, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "75",
+        "artist": "aky CG Works",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/75.png",
+          "large": "https://images.pokemontcg.io/swsh35/75_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-75",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.24,
+              "mid": 7.73,
+              "high": 22.79,
+              "market": 6.13,
+              "directLow": 6.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-75",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 7.95,
+            "lowPrice": 4.0,
+            "trendPrice": 8.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 17.04,
+            "lowPriceExPlus": 4.8,
+            "avg1": 5.7,
+            "avg7": 5.4,
+            "avg30": 7.22,
+            "reverseHoloAvg1": 12.99,
+            "reverseHoloAvg7": 16.06,
+            "reverseHoloAvg30": 18.15
+          }
+        }
+      },
+      {
+        "id": "swsh45-27",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "abilities": [
+          {
+            "name": "Exoskeleton",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Skull Bash",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "27",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "This Pokémon rapidly extends its retractable neck to sink its sharp fangs into distant enemies and take them down.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/27.png",
+          "large": "https://images.pokemontcg.io/swsh45/27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 5.08,
+              "market": 0.16,
+              "directLow": 0.15
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 4.07,
+              "market": 0.09,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.11,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV029",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "attacks": [
+          {
+            "name": "Vise Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Jaw Lock",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV029",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Shiny",
+        "flavorText": "This Pokémon rapidly extends its retractable neck to sink its sharp fangs into distant enemies and take them down.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV029.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV029_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV029",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.57,
+              "mid": 1.67,
+              "high": 5.95,
+              "market": 1.52,
+              "directLow": 1.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV029",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.97,
+            "lowPrice": 1.3,
+            "trendPrice": 2.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.97,
+            "lowPriceExPlus": 1.3,
+            "avg1": 1.94,
+            "avg7": 2.11,
+            "avg30": 2.14,
+            "reverseHoloAvg1": 5.48,
+            "reverseHoloAvg7": 7.61,
+            "reverseHoloAvg30": 8.08
+          }
+        }
+      },
+      {
+        "id": "swsh8-81",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "attacks": [
+          {
+            "name": "Hard Bite",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "Flip a coin. If heads, this attack does 50 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "kodama",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon rapidly extends its retractable neck to sink its sharp fangs into distant enemies and take them down.",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/81.png",
+          "large": "https://images.pokemontcg.io/swsh8/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 19.98,
+              "market": 0.15,
+              "directLow": 0.09
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.04,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.23,
+            "reverseHoloAvg30": 0.23
+          }
+        }
+      },
+      {
+        "id": "sv7-44",
+        "name": "Drednaw",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Chewtle",
+        "abilities": [
+          {
+            "name": "Impervious Shell",
+            "text": "Prevent all damage done to this Pokémon by attacks from your opponent's Pokémon if that damage is 200 or more.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hard Crunch",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "44",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          834
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/44.png",
+          "large": "https://images.pokemontcg.io/sv7/44_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 40.0,
+              "market": 0.1,
+              "directLow": 0.09
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 5.0,
+              "market": 0.14,
+              "directLow": 0.13
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.14,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.11,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.12,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 11,
+    "totalCount": 11
+  }
+}

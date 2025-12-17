@@ -1,0 +1,940 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:throh"
+  },
+  "cache_key": "d44861f96ae087b76030dec66b485ce0",
+  "cached_at": 1765915835.736347,
+  "response": {
+    "data": [
+      {
+        "id": "bw10-51",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Freestyle Strike",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          },
+          {
+            "name": "Shoulder Throw",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80-",
+            "text": "Does 80 damage minus 20 damage for each Colorless in the Defending Pokémon's Retreat Cost."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Naoki Saito",
+        "rarity": "Common",
+        "flavorText": "When it encounters a foe bigger than itself, it wants to throw it. It changes belts as it gets stronger.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/51.png",
+          "large": "https://images.pokemontcg.io/bw10/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.27,
+              "high": 5.0,
+              "market": 0.27,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.49,
+              "high": 1.0,
+              "market": 0.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 1.13,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.2,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 0.84,
+            "reverseHoloAvg30": 0.71
+          }
+        }
+      },
+      {
+        "id": "bw1-61",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Circle Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Storm Throw",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw1",
+          "name": "Black & White",
+          "series": "Black & White",
+          "printedTotal": 114,
+          "total": 115,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLW",
+          "releaseDate": "2011/04/25",
+          "updatedAt": "2018/11/29 19:56:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw1/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw1/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "When they encounter foes bigger than themselves, they try to throw them. They always travel in packs of five.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw1/61.png",
+          "large": "https://images.pokemontcg.io/bw1/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.51,
+              "mid": 0.99,
+              "high": 4.0,
+              "market": 1.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.41,
+              "mid": 1.95,
+              "high": 3.99,
+              "market": 1.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.69,
+            "lowPrice": 0.02,
+            "trendPrice": 0.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.16,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.04,
+            "lowPriceExPlus": 0.24,
+            "avg1": 1.0,
+            "avg7": 0.85,
+            "avg30": 0.77,
+            "reverseHoloAvg1": 1.35,
+            "reverseHoloAvg7": 1.37,
+            "reverseHoloAvg30": 1.53
+          }
+        }
+      },
+      {
+        "id": "bw2-58",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Scarf Hold",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw2",
+          "name": "Emerging Powers",
+          "series": "Black & White",
+          "printedTotal": 98,
+          "total": 98,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EPO",
+          "releaseDate": "2011/08/31",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw2/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw2/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "match",
+        "rarity": "Uncommon",
+        "flavorText": "When it tightens its belt, it becomes stronger. Wild Throh use vines to weave their own belts.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw2/58.png",
+          "large": "https://images.pokemontcg.io/bw2/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw2-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 5.0,
+              "market": 0.24,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.44,
+              "high": 1.49,
+              "market": 0.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw2-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.5,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.62,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.85,
+            "avg7": 0.18,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.5,
+            "reverseHoloAvg30": 0.5
+          }
+        }
+      },
+      {
+        "id": "bw6-68",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Squeeze",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 20 more damage and the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Superpower",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70+",
+            "text": "You may do 20 more damage. If you do, this Pokémon does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "Midori Harada",
+        "rarity": "Uncommon",
+        "flavorText": "When they encounter foes bigger than themselves, they try to throw them. They always travel in packs of five.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/68.png",
+          "large": "https://images.pokemontcg.io/bw6/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.12,
+              "mid": 0.33,
+              "high": 5.0,
+              "market": 0.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.46,
+              "mid": 0.8,
+              "high": 8.0,
+              "market": 0.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-68",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.39,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.63,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.15,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 0.34,
+            "reverseHoloAvg7": 0.52,
+            "reverseHoloAvg30": 0.61
+          }
+        }
+      },
+      {
+        "id": "sm12-118",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Reverse Shoulder Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If your Benched Pokémon have any damage counters on them, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "118",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "When it tightens its belt, it becomes stronger. Wild Throh use vines to weave their own belts.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/118.png",
+          "large": "https://images.pokemontcg.io/sm12/118_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-118",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.4,
+              "high": 3.0,
+              "market": 0.35,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 10.0,
+              "market": 0.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-118",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.74,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.54,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.06,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.65,
+            "reverseHoloAvg30": 0.42
+          }
+        }
+      },
+      {
+        "id": "swsh9-80",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Lunge Out",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Teeziro",
+        "rarity": "Common",
+        "flavorText": "It performs throwing moves with first-rate skill. Over the course of many battles, Throh's belt grows darker as it absorbs its wearer's sweat.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/80.png",
+          "large": "https://images.pokemontcg.io/swsh9/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.07,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.19,
+              "high": 2.78,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.06,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-50",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Shoulder Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120-",
+            "text": "This attack does 30 less damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "When it tightens its belt, it becomes stronger. Wild Throh use vines to weave their own belts.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/50.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.03,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.2,
+              "high": 2.37,
+              "market": 0.18,
+              "directLow": 0.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.22,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.03,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-128",
+        "name": "Throh",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Shoulder Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120-",
+            "text": "This attack does 30 less damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "128",
+        "artist": "GOSSAN",
+        "rarity": "Illustration Rare",
+        "flavorText": "When it tightens its belt, it becomes stronger. Wild Throh use vines to weave their own belts.",
+        "nationalPokedexNumbers": [
+          538
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/128.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/128_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-128",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.6,
+              "mid": 5.69,
+              "high": 25.0,
+              "market": 4.86,
+              "directLow": 4.87
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-128",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 4.74,
+            "lowPrice": 1.5,
+            "trendPrice": 4.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.49,
+            "avg7": 4.39,
+            "avg30": 4.71,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

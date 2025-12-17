@@ -1,0 +1,2266 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:noivern"
+  },
+  "cache_key": "77bebfc31d63bc7a0f58a8697dc47d33",
+  "cached_at": 1765915998.701908,
+  "response": {
+    "data": [
+      {
+        "id": "sma-SV78",
+        "name": "Noivern-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Distort",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent can't play any Item cards from their hand during their next turn."
+          },
+          {
+            "name": "Sonic Volume",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Your opponent can't play any Special Energy cards from their hand during their next turn."
+          },
+          {
+            "name": "Boomburst-GX",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sma",
+          "name": "Hidden Fates Shiny Vault",
+          "series": "Sun & Moon",
+          "printedTotal": 94,
+          "total": 94,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sma/symbol.png",
+            "logo": "https://images.pokemontcg.io/sma/logo.png"
+          }
+        },
+        "number": "SV78",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Shiny GX",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sma/SV78.png",
+          "large": "https://images.pokemontcg.io/sma/SV78_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sma-SV78",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.7,
+              "mid": 13.27,
+              "high": 19.0,
+              "market": 13.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sma-SV78",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.41,
+            "lowPrice": 5.0,
+            "trendPrice": 9.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.43,
+            "lowPriceExPlus": 8.0,
+            "avg1": 9.25,
+            "avg7": 9.46,
+            "avg30": 11.5,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 20.52,
+            "reverseHoloAvg30": 22.46
+          }
+        }
+      },
+      {
+        "id": "xy3-77",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "abilities": [
+          {
+            "name": "Echolocation",
+            "text": "If any damage is done to this Pokémon by attacks, flip a coin. If heads, prevent that damage.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo",
+        "flavorText": "They fly around on moonless nights and attack careless prey. Nothing can beat them in a battle in the dark.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/77.png",
+          "large": "https://images.pokemontcg.io/xy3/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.45,
+              "mid": 1.0,
+              "high": 19.99,
+              "market": 1.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.6,
+              "mid": 1.2,
+              "high": 2.49,
+              "market": 1.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.11,
+            "lowPrice": 0.05,
+            "trendPrice": 1.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.5,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 2.13,
+            "lowPriceExPlus": 0.15,
+            "avg1": 1.1,
+            "avg7": 1.13,
+            "avg30": 1.32,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 2.0,
+            "reverseHoloAvg30": 1.9
+          }
+        }
+      },
+      {
+        "id": "sm3-99",
+        "name": "Noivern-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Distort",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent can't play any Item cards from their hand during their next turn."
+          },
+          {
+            "name": "Sonic Volume",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Your opponent can't play any Special Energy cards from their hand during their next turn."
+          },
+          {
+            "name": "Boomburst-GX",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/99.png",
+          "large": "https://images.pokemontcg.io/sm3/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.75,
+              "high": 8.49,
+              "market": 1.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-99",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 1.79,
+            "lowPrice": 0.25,
+            "trendPrice": 2.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.69,
+            "lowPriceExPlus": 0.79,
+            "avg1": 0.45,
+            "avg7": 1.82,
+            "avg30": 1.76,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.86,
+            "reverseHoloAvg30": 2.04
+          }
+        }
+      },
+      {
+        "id": "sm6-101",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Noibat",
+        "attacks": [
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Resonance",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70+",
+            "text": "If your opponent's Active Pokémon is Confused, this attack does 70 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "You Iribi",
+        "rarity": "Rare",
+        "flavorText": "The ultrasonic waves it emits from its ears can reduce a large boulder to pebbles. It swoops out of the dark to attack.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/101.png",
+          "large": "https://images.pokemontcg.io/sm6/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 1.99,
+              "market": 0.7,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.25,
+              "mid": 0.46,
+              "high": 2.99,
+              "market": 0.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-101",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.36,
+            "lowPrice": 0.02,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.01,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 0.89,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.49,
+            "avg7": 0.38,
+            "avg30": 0.44,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 0.92,
+            "reverseHoloAvg30": 0.76
+          }
+        }
+      },
+      {
+        "id": "xy8-112",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "attacks": [
+          {
+            "name": "Tuning",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Shuffle your hand into your deck. Then, draw a number of cards equal to the number of cards in your opponent's hand."
+          },
+          {
+            "name": "Air Slash",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard an Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "112",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "The ultrasonic waves it emits from its ears can reduce a large boulder to pebbles. It emerges out of the dark to attack.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/112.png",
+          "large": "https://images.pokemontcg.io/xy8/112_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-112",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.39,
+              "high": 2.0,
+              "market": 0.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.55,
+              "mid": 0.77,
+              "high": 2.0,
+              "market": 0.71,
+              "directLow": 1.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-112",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.6,
+            "lowPrice": 0.04,
+            "trendPrice": 0.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.25,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.17,
+            "lowPriceExPlus": 0.04,
+            "avg1": 1.5,
+            "avg7": 0.54,
+            "avg30": 0.82,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 1.9,
+            "reverseHoloAvg30": 1.36
+          }
+        }
+      },
+      {
+        "id": "xy8-113",
+        "name": "Noivern BREAK",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "BREAK"
+        ],
+        "hp": "130",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noivern",
+        "rules": [
+          "BREAK Evolution Rule: Noivern BREAK retains the attacks, Abilities, Weakness, Resistance, and Retreat Cost of its previous Evolution."
+        ],
+        "attacks": [
+          {
+            "name": "Synchro Woofer",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 80 more damage."
+          }
+        ],
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "113",
+        "artist": "5ban Graphics",
+        "rarity": "Rare BREAK",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/113.png",
+          "large": "https://images.pokemontcg.io/xy8/113_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-113",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.25,
+              "mid": 3.13,
+              "high": 25.95,
+              "market": 2.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-113",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.5,
+            "lowPrice": 1.0,
+            "trendPrice": 4.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 5.9,
+            "lowPriceExPlus": 2.1,
+            "avg1": 2.8,
+            "avg7": 2.67,
+            "avg30": 3.78,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 5.41,
+            "reverseHoloAvg30": 2.98
+          }
+        }
+      },
+      {
+        "id": "sm3-141",
+        "name": "Noivern-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Distort",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent can't play any Item cards from their hand during their next turn."
+          },
+          {
+            "name": "Sonic Volume",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Your opponent can't play any Special Energy cards from their hand during their next turn."
+          },
+          {
+            "name": "Boomburst-GX",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "141",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/141.png",
+          "large": "https://images.pokemontcg.io/sm3/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.75,
+              "mid": 5.6,
+              "high": 29.99,
+              "market": 5.37,
+              "directLow": 5.39
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.72,
+            "lowPrice": 1.0,
+            "trendPrice": 3.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.36,
+            "lowPriceExPlus": 3.0,
+            "avg1": 5.0,
+            "avg7": 3.85,
+            "avg30": 3.85,
+            "reverseHoloAvg1": 9.99,
+            "reverseHoloAvg7": 4.85,
+            "reverseHoloAvg30": 5.27
+          }
+        }
+      },
+      {
+        "id": "sm3-160",
+        "name": "Noivern-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Distort",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent can't play any Item cards from their hand during their next turn."
+          },
+          {
+            "name": "Sonic Volume",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Your opponent can't play any Special Energy cards from their hand during their next turn."
+          },
+          {
+            "name": "Boomburst-GX",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "160",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/160.png",
+          "large": "https://images.pokemontcg.io/sm3/160_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-160",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.63,
+              "mid": 12.99,
+              "high": 34.99,
+              "market": 14.15,
+              "directLow": 16.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-160",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.59,
+            "lowPrice": 2.5,
+            "trendPrice": 10.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.09,
+            "lowPriceExPlus": 8.0,
+            "avg1": 10.0,
+            "avg7": 10.75,
+            "avg30": 11.22,
+            "reverseHoloAvg1": 13.0,
+            "reverseHoloAvg7": 14.33,
+            "reverseHoloAvg30": 11.07
+          }
+        }
+      },
+      {
+        "id": "sm11-159",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dragon Pulse",
+            "cost": [
+              "Psychic",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard the top card of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "159",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare",
+        "flavorText": "Although it has a violent disposition, if you give it a nice ripe fruit that it loves, Noivern will suddenly become tame.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/159.png",
+          "large": "https://images.pokemontcg.io/sm11/159_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-159",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 0.63,
+              "high": 1.92,
+              "market": 0.65,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.08,
+              "mid": 0.38,
+              "high": 1.0,
+              "market": 0.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-159",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.31,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.3,
+            "avg30": 0.28,
+            "reverseHoloAvg1": 1.15,
+            "reverseHoloAvg7": 1.16,
+            "reverseHoloAvg30": 0.76
+          }
+        }
+      },
+      {
+        "id": "swsh7-117",
+        "name": "Noivern V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Synchro Loud",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 120 more damage."
+          }
+        ],
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/117.png",
+          "large": "https://images.pokemontcg.io/swsh7/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.99,
+              "high": 5.7,
+              "market": 0.81,
+              "directLow": 0.74
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-117",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.9,
+            "lowPrice": 0.2,
+            "trendPrice": 0.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.75,
+            "avg7": 0.9,
+            "avg30": 0.89,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-195",
+        "name": "Noivern V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Synchro Loud",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 120 more damage."
+          }
+        ],
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "195",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/195.png",
+          "large": "https://images.pokemontcg.io/swsh7/195_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-195",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 3.56,
+              "high": 49.99,
+              "market": 3.42,
+              "directLow": 3.91
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-195",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.05,
+            "lowPrice": 1.71,
+            "trendPrice": 2.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.45,
+            "avg1": 4.5,
+            "avg7": 4.41,
+            "avg30": 5.3,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-196",
+        "name": "Noivern V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Synchro Loud",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 120 more damage."
+          }
+        ],
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "196",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/196.png",
+          "large": "https://images.pokemontcg.io/swsh7/196_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-196",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 54.21,
+              "mid": 66.99,
+              "high": 199.99,
+              "market": 60.23,
+              "directLow": 65.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-196",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 56.5,
+            "lowPrice": 25.0,
+            "trendPrice": 60.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 29.9,
+            "avg1": 50.0,
+            "avg7": 45.17,
+            "avg30": 54.78,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH148",
+        "name": "Noivern V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Boomburst",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Synchro Loud",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 120 more damage."
+          }
+        ],
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH148",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH148.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH148_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH148",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.81,
+              "mid": 2.28,
+              "high": 5.5,
+              "market": 2.28,
+              "directLow": 3.84
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH148",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.57,
+            "lowPrice": 0.1,
+            "trendPrice": 1.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.0,
+            "avg7": 1.57,
+            "avg30": 1.48,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12-133",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "attacks": [
+          {
+            "name": "Radiant Hunt",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Knock Out 1 of your opponent's Radiant Pokémon."
+          },
+          {
+            "name": "Seventh Echo",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "Draw cards until you have 7 cards in your hand."
+          }
+        ],
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "133",
+        "artist": "aoki",
+        "rarity": "Rare",
+        "flavorText": "Aggressive and cruel, this Pokémon will ruthlessly torment enemies that are helpless in the dark.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/133.png",
+          "large": "https://images.pokemontcg.io/swsh12/133_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-133",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.29,
+              "high": 1.99,
+              "market": 0.27,
+              "directLow": 0.25
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 3.0,
+              "market": 0.13,
+              "directLow": 0.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-133",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.32,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.33,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.15,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.31,
+            "reverseHoloAvg30": 0.34
+          }
+        }
+      },
+      {
+        "id": "sv2-153",
+        "name": "Noivern ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Covert Flight",
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon.",
+            "convertedEnergyCost": 2
+          },
+          {
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "name": "Dominating Echo",
+            "damage": "140",
+            "text": "During your opponent's next turn, they can't play any Special Energy or Stadium cards from their hand.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "153",
+        "artist": "Nisota Niso",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/153.png",
+          "large": "https://images.pokemontcg.io/sv2/153_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-153",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 0.99,
+              "high": 11.0,
+              "market": 0.6,
+              "directLow": 0.7
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-153",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.1,
+            "trendPrice": 0.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.96,
+            "avg7": 0.81,
+            "avg30": 0.72,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv2-246",
+        "name": "Noivern ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Covert Flight",
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon.",
+            "convertedEnergyCost": 2
+          },
+          {
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "name": "Dominating Echo",
+            "damage": "140",
+            "text": "During your opponent's next turn, they can't play any Special Energy or Stadium cards from their hand.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "246",
+        "artist": "Eske Yoshinob",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/246.png",
+          "large": "https://images.pokemontcg.io/sv2/246_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-246",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.38,
+              "mid": 1.96,
+              "high": 12.08,
+              "market": 1.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-246",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.71,
+            "lowPrice": 1.05,
+            "trendPrice": 1.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.05,
+            "avg1": 1.1,
+            "avg7": 2.02,
+            "avg30": 1.73,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-69",
+        "name": "Noivern ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Covert Flight",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon."
+          },
+          {
+            "name": "Dominating Echo",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140",
+            "text": "During your opponent's next turn, they can't play any Special Energy or Stadium cards from their hand."
+          }
+        ],
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "Nisota Niso",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/69.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.99,
+              "high": 42.0,
+              "market": 0.47,
+              "directLow": 0.52
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-69",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.5,
+            "lowPrice": 0.08,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.39,
+            "avg7": 0.5,
+            "avg30": 0.49,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-220",
+        "name": "Noivern ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "260",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Covert Flight",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks from Basic Pokémon."
+          },
+          {
+            "name": "Dominating Echo",
+            "cost": [
+              "Psychic",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140",
+            "text": "During your opponent's next turn, they can't play any Special Energy or Stadium cards from their hand."
+          }
+        ],
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "220",
+        "artist": "Eske Yoshinob",
+        "rarity": "Shiny Ultra Rare",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/220.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/220_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-220",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.8,
+              "mid": 1.75,
+              "high": 15.95,
+              "market": 1.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-220",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.3,
+            "lowPrice": 0.4,
+            "trendPrice": 1.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.42,
+            "avg7": 1.05,
+            "avg30": 1.25,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-91",
+        "name": "Noivern ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Noibat",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Sonic Blast",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "220",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "91",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/91.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.19,
+              "mid": 0.8,
+              "high": 999.0,
+              "market": 0.56,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "sv9-128",
+        "name": "Noivern",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Noibat",
+        "abilities": [
+          {
+            "name": "Tuning Echo",
+            "text": "If you have the same number of cards in your hand as your opponent, ignore all Energy in the cost of Frightening Howl used by this Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Frightening Howl",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "128",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Rare",
+        "flavorText": "Ultrasonic waves emitted by a Noivern can pulverize a large boulder. This Pokémon has a cruel disposition.",
+        "nationalPokedexNumbers": [
+          715
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/128.png",
+          "large": "https://images.pokemontcg.io/sv9/128_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-128",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.32,
+              "high": 25.0,
+              "market": 0.29,
+              "directLow": 0.2
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.13,
+              "high": 5.0,
+              "market": 0.08,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-128",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.33,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.32,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.06,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.51,
+            "reverseHoloAvg7": 0.35,
+            "reverseHoloAvg30": 0.33
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 20,
+    "totalCount": 20
+  }
+}

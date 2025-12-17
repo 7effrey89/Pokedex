@@ -1,0 +1,1942 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:snivy"
+  },
+  "cache_key": "dcfdd8ed1b5e5c369305de3b2ae501fc",
+  "cached_at": 1765897754.423616,
+  "response": {
+    "data": [
+      {
+        "id": "sm12-1",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/1.png",
+          "large": "https://images.pokemontcg.io/sm12/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.0,
+              "mid": 24.94,
+              "high": 100.0,
+              "market": 20.19,
+              "directLow": 23.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.93,
+            "lowPrice": 4.93,
+            "trendPrice": 17.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.68,
+            "lowPriceExPlus": 8.0,
+            "avg1": 19.31,
+            "avg7": 18.86,
+            "avg30": 16.16,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 4.5,
+            "reverseHoloAvg30": 4.7
+          }
+        }
+      },
+      {
+        "id": "bw1-1",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Tackle",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Vine Whip",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw1",
+          "name": "Black & White",
+          "series": "Black & White",
+          "printedTotal": 114,
+          "total": 115,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLW",
+          "releaseDate": "2011/04/25",
+          "updatedAt": "2018/11/29 19:56:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw1/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Common",
+        "flavorText": "They photosynthesize by bathing their tails in sunlight. When they are not feeling well, their tails droop.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw1/1.png",
+          "large": "https://images.pokemontcg.io/bw1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.3,
+              "high": 1.99,
+              "market": 0.32,
+              "directLow": 0.34
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.6,
+              "high": 3.49,
+              "market": 1.55,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.02,
+            "trendPrice": 1.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.65,
+            "lowPriceExPlus": 0.45,
+            "avg1": 1.85,
+            "avg7": 0.8,
+            "avg30": 0.94,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.54,
+            "reverseHoloAvg30": 0.63
+          }
+        }
+      },
+      {
+        "id": "bw1-2",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw1",
+          "name": "Black & White",
+          "series": "Black & White",
+          "printedTotal": 114,
+          "total": 115,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLW",
+          "releaseDate": "2011/04/25",
+          "updatedAt": "2018/11/29 19:56:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw1/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "5ban Graphics",
+        "rarity": "Common",
+        "flavorText": "They photosynthesize by bathing their tails in sunlight. When they are not feeling well, their tails droop.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw1/2.png",
+          "large": "https://images.pokemontcg.io/bw1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.35,
+              "high": 1.49,
+              "market": 0.39,
+              "directLow": 0.35
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 1.94,
+              "high": 4.99,
+              "market": 2.77,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.2,
+            "lowPrice": 0.02,
+            "trendPrice": 0.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.05,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 2.45,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.18,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.03,
+            "reverseHoloAvg30": 1.83
+          }
+        }
+      },
+      {
+        "id": "bw11-6",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Aya Kusube",
+        "rarity": "Common",
+        "flavorText": "They photosynthesize by bathing their tails in sunlight. When they are not feeling well, their tails droop.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/6.png",
+          "large": "https://images.pokemontcg.io/bw11/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.28,
+              "high": 1.49,
+              "market": 0.33,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.97,
+              "mid": 1.49,
+              "high": 4.99,
+              "market": 1.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.21,
+            "lowPrice": 0.05,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.9,
+            "reverseHoloLow": 2.35,
+            "reverseHoloTrend": 2.89,
+            "lowPriceExPlus": 0.07,
+            "avg1": 0.25,
+            "avg7": 0.17,
+            "avg30": 0.32,
+            "reverseHoloAvg1": 3.9,
+            "reverseHoloAvg7": 2.82,
+            "reverseHoloAvg30": 1.36
+          }
+        }
+      },
+      {
+        "id": "xy10-5",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Blot",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Heal 10 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Atsuko Nishida",
+        "rarity": "Common",
+        "flavorText": "They photosynthesize by bathing their tails in sunlight. When they are not feeling well, their tails droop.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/5.png",
+          "large": "https://images.pokemontcg.io/xy10/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 4.0,
+              "market": 0.18,
+              "directLow": 0.19
+            },
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.41,
+              "high": 2.0,
+              "market": 0.39,
+              "directLow": 0.38
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.12,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.24,
+            "reverseHoloAvg7": 0.27,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "bwp-BW01",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW01",
+        "artist": "Ken Sugimori",
+        "rarity": "Promo",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW01.png",
+          "large": "https://images.pokemontcg.io/bwp/BW01_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW01",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.97,
+              "mid": 1.88,
+              "high": 7.0,
+              "market": 1.63,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW01",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.03,
+            "lowPrice": 0.05,
+            "trendPrice": 1.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.18,
+            "lowPriceExPlus": 0.25,
+            "avg1": 0.1,
+            "avg7": 0.89,
+            "avg30": 1.41,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.06,
+            "reverseHoloAvg30": 0.67
+          }
+        }
+      },
+      {
+        "id": "bw7-11",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Vine Whip",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Cut",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Mizue",
+        "rarity": "Common",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/11.png",
+          "large": "https://images.pokemontcg.io/bw7/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.06,
+              "mid": 0.3,
+              "high": 1.4,
+              "market": 0.32,
+              "directLow": 0.3
+            },
+            "reverseHolofoil": {
+              "low": 0.6,
+              "mid": 1.99,
+              "high": 2.09,
+              "market": 2.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.06,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.89,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.12,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 0.99,
+            "reverseHoloAvg30": 0.62
+          }
+        }
+      },
+      {
+        "id": "bwp-BW06",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Paralyzing Gaze",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Tail Smack",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW06",
+        "artist": "Shizurow",
+        "rarity": "Promo",
+        "flavorText": "They photosynthesize by bathing their tails in sunlight. When they are not feeling well, their tails droop.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW06.png",
+          "large": "https://images.pokemontcg.io/bwp/BW06_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW06",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.86,
+              "mid": 1.45,
+              "high": 19.99,
+              "market": 1.59,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW06",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.0,
+            "lowPrice": 2.49,
+            "trendPrice": 6.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.5,
+            "lowPriceExPlus": 5.0,
+            "avg1": 6.99,
+            "avg7": 6.76,
+            "avg30": 4.98,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.94,
+            "reverseHoloAvg30": 1.55
+          }
+        }
+      },
+      {
+        "id": "mcd11-1",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "mcd11",
+          "name": "McDonald's Collection 2011",
+          "series": "Other",
+          "printedTotal": 12,
+          "total": 12,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2011/06/17",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/mcd11/symbol.png",
+            "logo": "https://images.pokemontcg.io/mcd11/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Ken Sugimori",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/mcd11/1.png",
+          "large": "https://images.pokemontcg.io/mcd11/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/mcd11-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.19,
+              "mid": 2.93,
+              "high": 9.99,
+              "market": 4.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/mcd11-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.18,
+            "lowPrice": 0.05,
+            "trendPrice": 2.83,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.13,
+            "lowPriceExPlus": 0.7,
+            "avg1": 2.0,
+            "avg7": 2.86,
+            "avg30": 2.13,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.84,
+            "reverseHoloAvg30": 0.88
+          }
+        }
+      },
+      {
+        "id": "bw11-RC1",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Growth",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach a Grass Energy from your hand to this Pokémon."
+          },
+          {
+            "name": "Razor Leaf",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "RC1",
+        "artist": "Eske Yoshinob",
+        "rarity": "Common",
+        "flavorText": "Being exposed to sunlight makes its movements swifter. It uses vines more adeptly than its hands.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/RC1.png",
+          "large": "https://images.pokemontcg.io/bw11/RC1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-RC1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 1.54,
+              "high": 6.0,
+              "market": 1.49,
+              "directLow": 1.67
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-RC1",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 1.01,
+            "lowPrice": 0.15,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.84,
+            "reverseHoloLow": 0.95,
+            "reverseHoloTrend": 1.66,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.9,
+            "avg7": 0.93,
+            "avg30": 1.03,
+            "reverseHoloAvg1": 1.84,
+            "reverseHoloAvg7": 1.61,
+            "reverseHoloAvg30": 1.34
+          }
+        }
+      },
+      {
+        "id": "sm12-210",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "210",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/210.png",
+          "large": "https://images.pokemontcg.io/sm12/210_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-210",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 26.54,
+              "mid": 48.0,
+              "high": 129.95,
+              "market": 38.94,
+              "directLow": 40.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-210",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 27.49,
+            "lowPrice": 5.0,
+            "trendPrice": 31.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.46,
+            "lowPriceExPlus": 9.7,
+            "avg1": 55.0,
+            "avg7": 28.48,
+            "avg30": 25.13,
+            "reverseHoloAvg1": 11.0,
+            "reverseHoloAvg7": 11.52,
+            "reverseHoloAvg30": 9.98
+          }
+        }
+      },
+      {
+        "id": "smp-SM229",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM229",
+        "artist": "Yuka Morii",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM229.png",
+          "large": "https://images.pokemontcg.io/smp/SM229_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM229",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 51.61,
+              "mid": 75.0,
+              "high": 9999.0,
+              "market": 63.85,
+              "directLow": 67.81
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM229",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 44.59,
+            "lowPrice": 8.44,
+            "trendPrice": 31.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.57,
+            "lowPriceExPlus": 19.75,
+            "avg1": 18.0,
+            "avg7": 42.55,
+            "avg30": 46.06,
+            "reverseHoloAvg1": 4.17,
+            "reverseHoloAvg7": 5.23,
+            "reverseHoloAvg30": 4.89
+          }
+        }
+      },
+      {
+        "id": "sm12-249",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "249",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/249.png",
+          "large": "https://images.pokemontcg.io/sm12/249_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-249",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 47.94,
+              "mid": 69.69,
+              "high": 99.95,
+              "market": 56.37,
+              "directLow": 59.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-249",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 14.99,
+            "trendPrice": 32.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 23.46,
+            "lowPriceExPlus": 24.99,
+            "avg1": 23.0,
+            "avg7": 31.05,
+            "avg30": 32.34,
+            "reverseHoloAvg1": 21.0,
+            "reverseHoloAvg7": 23.8,
+            "reverseHoloAvg30": 20.96
+          }
+        }
+      },
+      {
+        "id": "mcd21-5",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "mcd21",
+          "name": "McDonald's Collection 2021",
+          "series": "Other",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2021/02/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/mcd21/symbol.png",
+            "logo": "https://images.pokemontcg.io/mcd21/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Ken Sugimori",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/mcd21/5.png",
+          "large": "https://images.pokemontcg.io/mcd21/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/mcd21-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.31,
+              "high": 5.0,
+              "market": 0.28,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.56,
+              "mid": 1.15,
+              "high": 5.0,
+              "market": 1.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/mcd21-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.21,
+            "lowPrice": 0.02,
+            "trendPrice": 0.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.18,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 2.2,
+            "reverseHoloAvg7": 3.02,
+            "reverseHoloAvg30": 2.97
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-1",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Tackle",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Vine Whip",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Susumu Maeya",
+        "rarity": "Common",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/1.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.09,
+              "mid": 0.25,
+              "high": 1.25,
+              "market": null,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.06,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 2.37,
+              "market": 0.12,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.13,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.12,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-87",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "attacks": [
+          {
+            "name": "Tackle",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Vine Whip",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Yoshimi Miyoshi",
+        "rarity": "Illustration Rare",
+        "flavorText": "It is very intelligent and calm. Being exposed to lots of sunlight makes its movements swifter.",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/87.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.34,
+              "mid": 22.16,
+              "high": 49.99,
+              "market": 20.64,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-87",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 13.84,
+            "lowPrice": 10.9,
+            "trendPrice": 12.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 11.5,
+            "avg1": 12.97,
+            "avg7": 13.3,
+            "avg30": 13.71,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 16,
+    "totalCount": 16
+  }
+}

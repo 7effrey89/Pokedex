@@ -407,16 +407,40 @@
                                     <span class="toggle-slider"></span>
                                 </label>
                             </div>
-                            
-                            <div class="control-row">
-                                <label for="cacheExpiry" class="control-label">
-                                    <span>Cache Expiry: <strong id="cacheExpiryValue">7</strong> days</span>
-                                    <small>Cached data will refresh after this time</small>
+
+                            <div class="control-row sub-control">
+                                <label for="pokeapiCacheToggle" class="control-label">
+                                    <span>Use Cache for PokéAPI</span>
+                                    <small>Disable to fetch fresh PokéAPI data every time</small>
                                 </label>
-                                <input type="range" id="cacheExpiry" min="1" max="90" value="7" class="cache-slider">
-                                <div class="slider-labels">
-                                    <span>1 day</span>
-                                    <span>90 days</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="pokeapiCacheToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="control-row sub-control">
+                                <label for="tcgCacheToggle" class="control-label">
+                                    <span>Use Cache for TCG</span>
+                                    <small>Disable to fetch fresh Pokémon TCG data every time</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="tcgCacheToggle" checked disabled data-force-disabled="true">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="control-row cache-expiry-row">
+                                <div class="control-label">
+                                    <span id="cacheExpiryTitle">Cache Expiry: 7 days</span>
+                                    <small id="cacheExpiryDescription">Cached data will refresh after this time</small>
+                                </div>
+                                <div class="cache-slider-wrap">
+                                    <input type="range" id="cacheExpiry" min="0" max="90" value="7" class="cache-slider">
+                                    <div class="slider-labels">
+                                        <span>0</span>
+                                        <span>90 days</span>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -506,6 +530,10 @@
                     <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
                 </div>
                 <div class="camera-modal-actions">
+                    <button class="camera-action camera-action-ghost camera-switch-button" id="cameraSwitchButton" type="button" aria-label="Switch to front camera">
+                        <span class="camera-switch-icon">🔄</span>
+                        <span class="camera-switch-text" id="cameraSwitchText">Use Front Camera</span>
+                    </button>
                     <p class="camera-modal-note">Scanning runs the moment this window opens and pauses as soon as you close it.</p>
                 </div>
             </div>

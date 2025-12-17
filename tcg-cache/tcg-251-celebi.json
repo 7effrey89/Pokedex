@@ -1,0 +1,4130 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:celebi"
+  },
+  "cache_key": "c68dd6c475217400bf6fa80c0c171362",
+  "cached_at": 1765906765.186809,
+  "response": {
+    "data": [
+      {
+        "id": "sm9-1",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/1.png",
+          "large": "https://images.pokemontcg.io/sm9/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 34.93,
+              "mid": 47.62,
+              "high": 79.97,
+              "market": 47.68,
+              "directLow": 44.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 31.55,
+            "lowPrice": 4.56,
+            "trendPrice": 34.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.88,
+            "lowPriceExPlus": 9.0,
+            "avg1": 40.0,
+            "avg7": 28.76,
+            "avg30": 32.24,
+            "reverseHoloAvg1": 6.46,
+            "reverseHoloAvg7": 6.39,
+            "reverseHoloAvg30": 7.36
+          }
+        }
+      },
+      {
+        "id": "hgss4-3",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Future Sight",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 5 cards of either player's deck and put them back on top of that player's deck in any order."
+          },
+          {
+            "name": "Leaf Bind",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Holo",
+        "flavorText": "This Pokémon wanders across time. Grass and trees flourish in the forests in which it has appeared.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/3.png",
+          "large": "https://images.pokemontcg.io/hgss4/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 8.23,
+              "high": 28.99,
+              "market": 7.0,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.74,
+              "mid": 8.0,
+              "high": 12.5,
+              "market": 10.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.95,
+            "lowPrice": 0.45,
+            "trendPrice": 6.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.0,
+            "reverseHoloLow": 1.39,
+            "reverseHoloTrend": 4.67,
+            "lowPriceExPlus": 1.9,
+            "avg1": 3.99,
+            "avg7": 6.46,
+            "avg30": 4.18,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 4.77,
+            "reverseHoloAvg30": 5.06
+          }
+        }
+      },
+      {
+        "id": "swsh1-1",
+        "name": "Celebi V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Find a Friend",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Line Force",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 20 more damage for each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/1.png",
+          "large": "https://images.pokemontcg.io/swsh1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.54,
+              "mid": 1.5,
+              "high": 6.77,
+              "market": 1.31,
+              "directLow": 2.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.97,
+            "lowPrice": 0.5,
+            "trendPrice": 3.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.67,
+            "lowPriceExPlus": 1.2,
+            "avg1": 4.0,
+            "avg7": 2.49,
+            "avg30": 2.91,
+            "reverseHoloAvg1": 3.45,
+            "reverseHoloAvg7": 4.69,
+            "reverseHoloAvg30": 4.55
+          }
+        }
+      },
+      {
+        "id": "neo3-3",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "16",
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "abilities": [
+          {
+            "name": "Time Travel",
+            "text": "If an opponent's attack would Knock Out Celebi, flip a coin. If heads, Celebi isn't Knocked Out and you shuffle it and all cards attached to it into your deck. This power doesn't work if Celebi is already Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Damage",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip 3 coins. For each heads, put 1 damage counter on the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "This Pokémon wanders across time. Grass and trees flourish in the forests in which it has appeared.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/3.png",
+          "large": "https://images.pokemontcg.io/neo3/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 82.98,
+              "mid": 99.99,
+              "high": 299.99,
+              "market": 170.0,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 77.89,
+              "mid": 99.99,
+              "high": 190.55,
+              "market": 109.41,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 190.86,
+            "lowPrice": 15.0,
+            "trendPrice": 197.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 47.59,
+            "lowPriceExPlus": 45.0,
+            "avg1": 20.0,
+            "avg7": 211.71,
+            "avg30": 87.42,
+            "reverseHoloAvg1": 34.99,
+            "reverseHoloAvg7": 71.32,
+            "reverseHoloAvg30": 46.49
+          }
+        }
+      },
+      {
+        "id": "bw7-9",
+        "name": "Celebi-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Time Recall",
+            "text": "Each of your evolved Pokémon can use any attack from its previous Evolutions. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wind Whisk",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Toyste Beach",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/9.png",
+          "large": "https://images.pokemontcg.io/bw7/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.99,
+              "mid": 32.99,
+              "high": 40.27,
+              "market": 27.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.48,
+            "lowPrice": 1.95,
+            "trendPrice": 17.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.38,
+            "lowPriceExPlus": 4.0,
+            "avg1": 4.95,
+            "avg7": 18.91,
+            "avg30": 10.52,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 6.12,
+            "reverseHoloAvg30": 6.11
+          }
+        }
+      },
+      {
+        "id": "sm11-4",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Time Spiral",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Devolve 1 of your opponent's evolved Pokémon by removing the highest Stage Evolution card from it. Your opponent shuffles that card into their deck."
+          },
+          {
+            "name": "Mind Bend",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Megumi Mizutani",
+        "rarity": "Rare Holo",
+        "flavorText": "This Pokémon wanders across time. Grass and trees flourish in the forests in which it has appeared.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/4.png",
+          "large": "https://images.pokemontcg.io/sm11/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.81,
+              "high": 99.99,
+              "market": 1.83,
+              "directLow": 1.8
+            },
+            "reverseHolofoil": {
+              "low": 0.79,
+              "mid": 1.45,
+              "high": 4.5,
+              "market": 1.52,
+              "directLow": 2.29
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.68,
+            "lowPrice": 0.5,
+            "trendPrice": 2.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.81,
+            "reverseHoloLow": 0.9,
+            "reverseHoloTrend": 5.97,
+            "lowPriceExPlus": 0.79,
+            "avg1": 2.0,
+            "avg7": 1.83,
+            "avg30": 1.99,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 4.98,
+            "reverseHoloAvg30": 3.71
+          }
+        }
+      },
+      {
+        "id": "ex5-4",
+        "name": "Dark Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass",
+          "Darkness"
+        ],
+        "rules": [
+          "This Pokémon is both GrassDarkness type."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Provide",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 1 Grass or Darkness Energy card from your hand to your Pokémon."
+          },
+          {
+            "name": "Leaf Poison",
+            "cost": [
+              "Grass",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Ken Ikuji",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/4.png",
+          "large": "https://images.pokemontcg.io/ex5/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 27.9,
+              "mid": 41.42,
+              "high": 99.99,
+              "market": 34.32,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 68.8,
+              "mid": 96.19,
+              "high": 119.99,
+              "market": 81.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.43,
+            "lowPrice": 1.75,
+            "trendPrice": 12.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 14.44,
+            "reverseHoloLow": 4.9,
+            "reverseHoloTrend": 10.74,
+            "lowPriceExPlus": 6.0,
+            "avg1": 5.0,
+            "avg7": 14.13,
+            "avg30": 10.02,
+            "reverseHoloAvg1": 44.0,
+            "reverseHoloAvg7": 14.02,
+            "reverseHoloAvg30": 12.16
+          }
+        }
+      },
+      {
+        "id": "swsh4-9",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Energy Press",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Amazing Bloom",
+            "cost": [
+              "Lightning",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "For each of your Benched Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "5ban Graphics",
+        "rarity": "Amazing Rare",
+        "flavorText": "This Pokémon has the ability to move through time. Records describing it as a forest deity can be found from many different eras.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/9.png",
+          "large": "https://images.pokemontcg.io/swsh4/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 5.18,
+              "high": 300.0,
+              "market": 4.59,
+              "directLow": 5.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.81,
+            "lowPrice": 2.9,
+            "trendPrice": 19.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.45,
+            "lowPriceExPlus": 5.98,
+            "avg1": 67.5,
+            "avg7": 13.66,
+            "avg30": 10.31,
+            "reverseHoloAvg1": 15.5,
+            "reverseHoloAvg7": 15.92,
+            "reverseHoloAvg30": 16.99
+          }
+        }
+      },
+      {
+        "id": "dp2-7",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "39",
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Sprouting",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Search your deck for a Grass Energy card and attach it to Celebi. Shuffle your deck afterward."
+          },
+          {
+            "name": "Leaf Tornado",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "You may move any number of basic Grass Energy cards attached to your Pokémon to your other Pokémon in any way you like."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "It has the power to travel across time, but is is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/7.png",
+          "large": "https://images.pokemontcg.io/dp2/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.5,
+              "mid": 19.69,
+              "high": 37.78,
+              "market": 24.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.99,
+              "mid": 7.84,
+              "high": 22.11,
+              "market": 13.62,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.28,
+            "lowPrice": 1.0,
+            "trendPrice": 6.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 21.2,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 19.29,
+            "lowPriceExPlus": 3.0,
+            "avg1": 1.5,
+            "avg7": 6.68,
+            "avg30": 9.25,
+            "reverseHoloAvg1": 99.99,
+            "reverseHoloAvg7": 19.31,
+            "reverseHoloAvg30": 8.56
+          }
+        }
+      },
+      {
+        "id": "neo3-16",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "14",
+        "hp": "50",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Leaf",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin for each Energy attached to the Defending Pokémon. This attack does 10 damage plus 10 more damage for each heads. Remove a number of damage counters from Celebi equal to the damage done to the Defending Pokémon (after applying Weakness and Resistance). If Celebi has fewer damage counters than that, remove all of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Rare",
+        "flavorText": "When Celebi disappears deep in a forest, it is said to leave behind an egg it brought from the future.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/16.png",
+          "large": "https://images.pokemontcg.io/neo3/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 19.98,
+              "mid": 21.74,
+              "high": 24.99,
+              "market": 23.48,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 8.54,
+              "mid": 12.4,
+              "high": 9999.0,
+              "market": 12.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.01,
+            "lowPrice": 2.0,
+            "trendPrice": 11.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 29.77,
+            "lowPriceExPlus": 7.0,
+            "avg1": 9.99,
+            "avg7": 13.37,
+            "avg30": 10.33,
+            "reverseHoloAvg1": 34.0,
+            "reverseHoloAvg7": 26.75,
+            "reverseHoloAvg30": 17.81
+          }
+        }
+      },
+      {
+        "id": "sm8-19",
+        "name": "Celebi ◇",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Prism Star"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "◇ (Prism Star) Rule: You can't have more than 1 ◇ card with the same name in your deck. If a ◇ card would go to the discard pile, put it in the Lost Zone instead."
+        ],
+        "attacks": [
+          {
+            "name": "Time Distortion",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Devolve any number of your Benched Pokémon as many times as you like. Put each Evolution card removed this way into your hand."
+          },
+          {
+            "name": "Leech Seed",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Heal 20 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Prism Star",
+        "flavorText": "It has the power to travel across time, but it is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/19.png",
+          "large": "https://images.pokemontcg.io/sm8/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.56,
+              "mid": 6.0,
+              "high": 49.99,
+              "market": 5.72,
+              "directLow": 7.84
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.95,
+            "lowPrice": 0.79,
+            "trendPrice": 3.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.65,
+            "reverseHoloTrend": 4.42,
+            "lowPriceExPlus": 1.49,
+            "avg1": 2.0,
+            "avg7": 2.78,
+            "avg30": 4.18,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.91,
+            "reverseHoloAvg30": 3.84
+          }
+        }
+      },
+      {
+        "id": "pop2-17",
+        "name": "Celebi ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Time Reversal",
+            "text": "Once during your turn, when you put Celebi ex from your hand onto your Bench, you may search your discard pile for a card, show it to your opponent, and put it on top of your deck.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Shield",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Prevent all effects of attacks, including damage, done to Celebi ex by your opponent's Pokémon-ex during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pop2",
+          "name": "POP Series 2",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop2/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop2/17.png",
+          "large": "https://images.pokemontcg.io/pop2/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop2-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 59.85,
+              "mid": 81.42,
+              "high": 212.99,
+              "market": 39.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop2-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 15.92,
+            "lowPrice": 2.0,
+            "trendPrice": 19.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.5,
+            "lowPriceExPlus": 7.0,
+            "avg1": 7.32,
+            "avg7": 14.34,
+            "avg30": 21.71,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 6.05,
+            "reverseHoloAvg30": 7.44
+          }
+        }
+      },
+      {
+        "id": "np-29",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Slice",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "np",
+          "name": "Nintendo Black Star Promos",
+          "series": "NP",
+          "printedTotal": 40,
+          "total": 40,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR-NP",
+          "releaseDate": "2003/10/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/np/symbol.png",
+            "logo": "https://images.pokemontcg.io/np/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Hajime Kusajima",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/np/29.png",
+          "large": "https://images.pokemontcg.io/np/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/np-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 27.99,
+              "mid": 37.99,
+              "high": 75.0,
+              "market": 33.96,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/np-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 16.08,
+            "lowPrice": 2.0,
+            "trendPrice": 13.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.14,
+            "lowPriceExPlus": 17.0,
+            "avg1": 5.2,
+            "avg7": 14.54,
+            "avg30": 12.84,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 6.43,
+            "reverseHoloAvg30": 5.27
+          }
+        }
+      },
+      {
+        "id": "basep-50",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Slice",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 2 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "basep",
+          "name": "Wizards Black Star Promos",
+          "series": "Base",
+          "printedTotal": 53,
+          "total": 53,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR",
+          "releaseDate": "1999/07/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+            "logo": "https://images.pokemontcg.io/basep/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "Hajime Kusajima",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/basep/50.png",
+          "large": "https://images.pokemontcg.io/basep/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/basep-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 24.83,
+              "mid": 27.32,
+              "high": 35.7,
+              "market": 33.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/basep-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 65.46,
+            "lowPrice": 64.95,
+            "trendPrice": 67.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 24.1,
+            "lowPriceExPlus": 64.95,
+            "avg1": 64.99,
+            "avg7": 66.73,
+            "avg30": 54.69,
+            "reverseHoloAvg1": 26.99,
+            "reverseHoloAvg7": 18.25,
+            "reverseHoloAvg30": 18.25
+          }
+        }
+      },
+      {
+        "id": "smp-SM79",
+        "name": "Shining Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "abilities": [
+          {
+            "name": "Time Recall",
+            "text": "Each of your evolved Pokémon can use any attack from its previous Evolutions. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Step",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM79",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Promo",
+        "flavorText": "This Pokémon wanders across time. Grass and trees flourish in the forests in which it has appeared.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM79.png",
+          "large": "https://images.pokemontcg.io/smp/SM79_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM79",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.0,
+              "mid": 28.99,
+              "high": 99.95,
+              "market": 28.55,
+              "directLow": 37.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM79",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 11.78,
+            "lowPrice": 4.5,
+            "trendPrice": 14.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 52.01,
+            "lowPriceExPlus": 5.45,
+            "avg1": 19.45,
+            "avg7": 19.16,
+            "avg30": 14.94,
+            "reverseHoloAvg1": 29.99,
+            "reverseHoloAvg7": 65.62,
+            "reverseHoloAvg30": 48.53
+          }
+        }
+      },
+      {
+        "id": "hgss4-92",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Prime"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "abilities": [
+          {
+            "name": "Forest Breath",
+            "text": "Once during your turn (before your attack), if Celebi is your Active Pokémon, you may attach a Grass Energy card from your hand to 1 of your Pokémon. This power can't be used if Celebi is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Time Circle",
+            "cost": [
+              "Grass",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "During your opponent's next turn, prevent all damage done to Celebi by attacks from your opponent's Stage 1 or Stage 2 Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "Hideaki Hakozaki",
+        "rarity": "Rare Prime",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/92.png",
+          "large": "https://images.pokemontcg.io/hgss4/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.89,
+              "mid": 47.81,
+              "high": 94.4,
+              "market": 55.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 21.13,
+            "lowPrice": 4.99,
+            "trendPrice": 24.97,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.89,
+            "lowPriceExPlus": 13.99,
+            "avg1": 24.99,
+            "avg7": 29.42,
+            "avg30": 22.44,
+            "reverseHoloAvg1": 5.75,
+            "reverseHoloAvg7": 16.73,
+            "reverseHoloAvg30": 11.69
+          }
+        }
+      },
+      {
+        "id": "xyp-XY93",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "ancientTrait": {
+          "name": "θ Stop",
+          "text": "Prevent all effects of your opponent's Pokémon's Abilities done to this Pokémon."
+        },
+        "abilities": [
+          {
+            "name": "Leap Through Time",
+            "text": "When this Pokémon is Knocked Out, flip a coin. If heads, shuffle this Pokémon and all cards attached to it into your deck, and your opponent can't take any Prize cards for it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sparkle Motion",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 1 damage counter on each of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY93",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "flavorText": "It has the power to travel across time, but it is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY93.png",
+          "large": "https://images.pokemontcg.io/xyp/XY93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.69,
+              "mid": 10.0,
+              "high": 33.1,
+              "market": 12.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 11.27,
+            "lowPrice": 3.49,
+            "trendPrice": 10.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.67,
+            "lowPriceExPlus": 5.0,
+            "avg1": 8.0,
+            "avg7": 9.34,
+            "avg30": 8.51,
+            "reverseHoloAvg1": 9.49,
+            "reverseHoloAvg7": 7.22,
+            "reverseHoloAvg30": 3.43
+          }
+        }
+      },
+      {
+        "id": "ex14-100",
+        "name": "Celebi ★",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Star"
+        ],
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "You can't have more than 1 Pokémon Star in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Time Travel",
+            "text": "If Celebi Star would be Knocked Out by damage from an opponent's attack, you may flip a coin. If heads, Celebi Star is not Knocked Out, discard all cards attached to Celebi Star, and put Celebi Star on the bottom of your deck.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Shade",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Count the amount of Energy attached to Celebi Star. Put that many damage counters on 1 of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "100",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo Star",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/100.png",
+          "large": "https://images.pokemontcg.io/ex14/100_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-100",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1050.0,
+              "mid": 1999.99,
+              "high": 1999.99,
+              "market": 590.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-100",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 450.0,
+            "lowPrice": 399.0,
+            "trendPrice": 560.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 266.04,
+            "lowPriceExPlus": 700.0,
+            "avg1": 750.0,
+            "avg7": 529.92,
+            "avg30": 464.34,
+            "reverseHoloAvg1": 187.0,
+            "reverseHoloAvg7": 167.28,
+            "reverseHoloAvg30": 195.16
+          }
+        }
+      },
+      {
+        "id": "neo4-106",
+        "name": "Shining Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "18",
+        "hp": "50",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "You can't have more than 1 Shining Celebi in your deck."
+        ],
+        "attacks": [
+          {
+            "name": "Healing Water",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Remove a number of damage counters from 1 of your Benched Pokémon equal to the number of Water Energy cards attached to Shining Celebi. If the Pokémon has fewer damage counters than that, remove all of them."
+          },
+          {
+            "name": "Miracle Leaf",
+            "cost": [
+              "Grass",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10",
+            "text": "Flip a number of coins equal to the number of Energy attached to the Defending Pokémon. If you get 1 or more heads, the Defending Pokémon is now Asleep, Confused, or Poisoned (your choice)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Rare Shining",
+        "flavorText": "It is worshipped as a god of the forest. It appears only in undisturbed old-growth forests.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/106.png",
+          "large": "https://images.pokemontcg.io/neo4/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 560.0,
+              "mid": 582.9,
+              "high": 1400.0,
+              "market": null,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 354.33,
+              "mid": 382.21,
+              "high": 450.0,
+              "market": 388.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-106",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 206.1,
+            "lowPrice": 100.0,
+            "trendPrice": 282.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 195.12,
+            "lowPriceExPlus": 209.99,
+            "avg1": 313.0,
+            "avg7": 201.33,
+            "avg30": 354.27,
+            "reverseHoloAvg1": 200.0,
+            "reverseHoloAvg7": 174.84,
+            "reverseHoloAvg30": 146.78
+          }
+        }
+      },
+      {
+        "id": "ex10-117",
+        "name": "Celebi ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Spiral Leaf",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, put 1 damage counter on each of your opponent's Pokémon. If tails, remove 1 damage counter from each of your Pokémon."
+          },
+          {
+            "name": "Time Trap",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, look at the top 4 cards of your opponent's deck, and put them back on top of your opponent's deck in any order. If tails, look at the top 4 cards of your deck, and put them back on top of your deck in any order."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/117.png",
+          "large": "https://images.pokemontcg.io/ex10/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 439.99,
+              "mid": 457.6,
+              "high": 475.2,
+              "market": 499.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-117",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 117.54,
+            "lowPrice": 75.0,
+            "trendPrice": 260.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 108.57,
+            "lowPriceExPlus": 200.0,
+            "avg1": 425.0,
+            "avg7": 367.88,
+            "avg30": 252.26,
+            "reverseHoloAvg1": 200.0,
+            "reverseHoloAvg7": 122.86,
+            "reverseHoloAvg30": 68.62
+          }
+        }
+      },
+      {
+        "id": "xyp-XY111",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Time Call",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, search your deck for a card that evolves from 1 of your Pokémon and put it onto that Pokémon. (This counts as evolving that Pokémon.) Shuffle your deck afterward."
+          },
+          {
+            "name": "Leech Seed",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Heal 10 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY111",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "flavorText": "It has the power to travel across time, but it is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY111.png",
+          "large": "https://images.pokemontcg.io/xyp/XY111_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY111",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 25.0,
+              "mid": 35.35,
+              "high": 59.47,
+              "market": 36.7,
+              "directLow": 28.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY111",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 14.5,
+            "lowPrice": 5.0,
+            "trendPrice": 15.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.19,
+            "lowPriceExPlus": 9.99,
+            "avg1": 9.0,
+            "avg7": 12.28,
+            "avg30": 17.62,
+            "reverseHoloAvg1": 18.0,
+            "reverseHoloAvg7": 14.21,
+            "reverseHoloAvg30": 12.5
+          }
+        }
+      },
+      {
+        "id": "bw7-141",
+        "name": "Celebi-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Time Recall",
+            "text": "Each of your evolved Pokémon can use any attack from its previous Evolutions. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wind Whisk",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "141",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/141.png",
+          "large": "https://images.pokemontcg.io/bw7/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 135.0,
+              "mid": 183.74,
+              "high": 260.58,
+              "market": 205.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 12.51,
+            "lowPrice": 6.95,
+            "trendPrice": 42.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 29.83,
+            "lowPriceExPlus": 15.0,
+            "avg1": 12.51,
+            "avg7": 36.03,
+            "avg30": 36.96,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 20.21,
+            "reverseHoloAvg30": 15.95
+          }
+        }
+      },
+      {
+        "id": "sm9-159",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "159",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/159.png",
+          "large": "https://images.pokemontcg.io/sm9/159_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-159",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 62.0,
+              "mid": 75.98,
+              "high": 104.05,
+              "market": 64.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-159",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 28.49,
+            "lowPrice": 6.0,
+            "trendPrice": 31.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.37,
+            "lowPriceExPlus": 18.5,
+            "avg1": 20.0,
+            "avg7": 30.38,
+            "avg30": 32.74,
+            "reverseHoloAvg1": 17.95,
+            "reverseHoloAvg7": 13.83,
+            "reverseHoloAvg30": 12.58
+          }
+        }
+      },
+      {
+        "id": "smp-SM167",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM167",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM167.png",
+          "large": "https://images.pokemontcg.io/smp/SM167_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM167",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.0,
+              "mid": 72.74,
+              "high": 149.99,
+              "market": 69.11,
+              "directLow": 41.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM167",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 114.39,
+            "lowPrice": 34.9,
+            "trendPrice": 109.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.98,
+            "lowPriceExPlus": 50.0,
+            "avg1": 90.0,
+            "avg7": 121.66,
+            "avg30": 116.34,
+            "reverseHoloAvg1": 12.5,
+            "reverseHoloAvg7": 15.24,
+            "reverseHoloAvg30": 15.29
+          }
+        }
+      },
+      {
+        "id": "sm9-182",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/182.png",
+          "large": "https://images.pokemontcg.io/sm9/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 90.0,
+              "mid": 120.11,
+              "high": 190.74,
+              "market": 117.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 39.0,
+            "lowPrice": 9.9,
+            "trendPrice": 70.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 39.31,
+            "lowPriceExPlus": 27.5,
+            "avg1": 40.0,
+            "avg7": 42.1,
+            "avg30": 52.19,
+            "reverseHoloAvg1": 35.0,
+            "reverseHoloAvg7": 43.36,
+            "reverseHoloAvg30": 27.57
+          }
+        }
+      },
+      {
+        "id": "ecard3-145",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Colorless"
+        ],
+        "abilities": [
+          {
+            "name": "Crystal Type",
+            "text": "Whenever you attach a Grass, Water, or Psychic basic Energy card from your hand to Celebi, Celebi's type (color) becomes the same as that type of Energy until the end of the turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Empathic Healing",
+            "cost": [
+              "Grass",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Remove 2 damage counters from Celebi and each Pokémon that's the same type (color) as Celebi."
+          },
+          {
+            "name": "Mind Bend",
+            "cost": [
+              "Grass",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "145",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/145.png",
+          "large": "https://images.pokemontcg.io/ecard3/145_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-145",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 275.0,
+              "mid": 387.5,
+              "high": 499.99,
+              "market": 349.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-145",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4675.0,
+            "lowPrice": 119.0,
+            "trendPrice": 1800.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 133.8,
+            "reverseHoloLow": 119.0,
+            "reverseHoloTrend": 182.09,
+            "lowPriceExPlus": 150.0,
+            "avg1": 8799.99,
+            "avg7": 1845.43,
+            "avg30": 749.38,
+            "reverseHoloAvg1": 99.99,
+            "reverseHoloAvg7": 135.55,
+            "reverseHoloAvg30": 174.44
+          }
+        }
+      },
+      {
+        "id": "xyp-XY187",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Time Call",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, search your deck for a card that evolves from 1 of your Pokémon and put it onto that Pokémon. (This counts as evolving that Pokémon.) Shuffle your deck afterward."
+          },
+          {
+            "name": "Leech Seed",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Heal 10 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY187",
+        "artist": "Tomokazu Komiya",
+        "rarity": "Promo",
+        "flavorText": "It has the power to travel across time, but it is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY187.png",
+          "large": "https://images.pokemontcg.io/xyp/XY187_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY187",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.81,
+              "mid": 6.02,
+              "high": 25.95,
+              "market": 6.82,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY187",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 17.78,
+            "lowPrice": 12.0,
+            "trendPrice": 17.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.83,
+            "lowPriceExPlus": 18.0,
+            "avg1": 16.0,
+            "avg7": 14.23,
+            "avg30": 12.88,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 3.95,
+            "reverseHoloAvg30": 2.32
+          }
+        }
+      },
+      {
+        "id": "smp-SM224",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Greatness",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 3 Pokémon-GX with different names, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM224",
+        "artist": "Mizue",
+        "rarity": "Promo",
+        "flavorText": "This Pokémon wanders across time. Grass and trees flourish in the forests in which it has appeared.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM224.png",
+          "large": "https://images.pokemontcg.io/smp/SM224_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM224",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.93,
+              "mid": 4.99,
+              "high": 19.99,
+              "market": 4.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM224",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.94,
+            "lowPrice": 0.4,
+            "trendPrice": 2.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.91,
+            "lowPriceExPlus": 0.65,
+            "avg1": 1.5,
+            "avg7": 3.55,
+            "avg30": 2.56,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 1.05,
+            "reverseHoloAvg30": 0.84
+          }
+        }
+      },
+      {
+        "id": "swsh45-3",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "abilities": [
+          {
+            "name": "Woodland Stroll",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may look at the top 6 cards of your deck, reveal an Energy card you find there, and put it into your hand. Shuffle the other cards back into your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Step",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Yuu Nishida",
+        "rarity": "Rare",
+        "flavorText": "It has the power to travel across time, but it is said to appear only in peaceful times.",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/3.png",
+          "large": "https://images.pokemontcg.io/swsh45/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.35,
+              "high": 2.0,
+              "market": 0.3,
+              "directLow": 0.25
+            },
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 50.0,
+              "market": 0.18,
+              "directLow": 0.13
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.43,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.51,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.18,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.59,
+            "reverseHoloAvg30": 0.45
+          }
+        }
+      },
+      {
+        "id": "swsh6-7",
+        "name": "Celebi V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaflet Dance",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Grass Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Slash Back",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/7.png",
+          "large": "https://images.pokemontcg.io/swsh6/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.63,
+              "mid": 1.18,
+              "high": 999.0,
+              "market": 0.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.86,
+            "lowPrice": 0.69,
+            "trendPrice": 1.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.69,
+            "avg1": 1.22,
+            "avg7": 1.4,
+            "avg30": 1.87,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-8",
+        "name": "Celebi VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Celebi V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Curative Forest",
+            "text": "Once during your turn, you may heal 20 damage from each of your Grass Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Max Plant",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Search your deck for up to 2 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/8.png",
+          "large": "https://images.pokemontcg.io/swsh6/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.84,
+              "mid": 3.07,
+              "high": 999.0,
+              "market": 2.86,
+              "directLow": 3.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.0,
+            "lowPrice": 1.5,
+            "trendPrice": 3.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.84,
+            "avg7": 3.52,
+            "avg30": 3.14,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-160",
+        "name": "Celebi V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaflet Dance",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Grass Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Slash Back",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "160",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/160.png",
+          "large": "https://images.pokemontcg.io/swsh6/160_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-160",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.0,
+              "mid": 10.9,
+              "high": 999.0,
+              "market": 9.08,
+              "directLow": 12.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-160",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 7.44,
+            "lowPrice": 3.0,
+            "trendPrice": 7.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.75,
+            "avg1": 6.99,
+            "avg7": 7.03,
+            "avg30": 7.74,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-199",
+        "name": "Celebi VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Celebi V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Curative Forest",
+            "text": "Once during your turn, you may heal 20 damage from each of your Grass Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Max Plant",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Search your deck for up to 2 Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "199",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/199.png",
+          "large": "https://images.pokemontcg.io/swsh6/199_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-199",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.0,
+              "mid": 25.41,
+              "high": 999.0,
+              "market": 20.5,
+              "directLow": 19.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-199",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 13.11,
+            "lowPrice": 4.0,
+            "trendPrice": 13.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 8.99,
+            "avg1": 15.75,
+            "avg7": 13.56,
+            "avg30": 13.66,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh8-245",
+        "name": "Celebi V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaflet Dance",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Grass Energy cards from your hand to your Pokémon in any way you like."
+          },
+          {
+            "name": "Slash Back",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "245",
+        "artist": "Teeziro",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/245.png",
+          "large": "https://images.pokemontcg.io/swsh8/245_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-245",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 48.0,
+              "mid": 66.5,
+              "high": 199.99,
+              "market": 55.94,
+              "directLow": 61.56
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-245",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 84.84,
+            "lowPrice": 34.0,
+            "trendPrice": 99.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 54.9,
+            "avg1": 55.0,
+            "avg7": 95.27,
+            "avg30": 85.74,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv7-4",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Collect",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card."
+          },
+          {
+            "name": "Leaf Step",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "4",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/4.png",
+          "large": "https://images.pokemontcg.io/sv7/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.06,
+              "directLow": 0.08
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.19,
+              "high": 2.0,
+              "market": 0.13,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.14,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.12,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      },
+      {
+        "id": "me1-12",
+        "name": "Celebi",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "attacks": [
+          {
+            "name": "Traverse Time",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 3 in any combination of Grass Pokémon and Stadium cards, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Solar Cutter",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "12",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/12.png",
+          "large": "https://images.pokemontcg.io/me1/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": 0.02
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.07,
+              "directLow": 0.04
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 36,
+    "totalCount": 36
+  }
+}

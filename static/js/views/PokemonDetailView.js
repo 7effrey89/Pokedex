@@ -8,6 +8,32 @@ class PokemonDetailView {
         this.setupNavigationArrows();
     }
 
+    async fetchPokemonResource(resource, identifier, mode = 'auto') {
+        const options = mode === 'auto' ? {} : { mode };
+        const url = this.app.buildPokemonApiUrl(resource, identifier, options);
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${resource} (${response.status})`);
+        }
+        return response.json();
+    }
+
+    async fetchResourceWithFallback(resource, identifier) {
+        if (!this.app.cacheConfig) {
+            await this.app.loadCacheConfig();
+        }
+
+        if (this.app.shouldUsePokemonProxy()) {
+            return this.fetchPokemonResource(resource, identifier, 'proxy');
+        }
+        try {
+            return await this.fetchPokemonResource(resource, identifier, 'direct');
+        } catch (error) {
+            console.warn(`Direct ${resource} fetch failed, falling back to proxy`, error);
+            return this.fetchPokemonResource(resource, identifier, 'proxy');
+        }
+    }
+
     setupNavigationArrows() {
         const prevBtn = document.getElementById('pokemonNavPrev');
         const nextBtn = document.getElementById('pokemonNavNext');
@@ -76,21 +102,18 @@ class PokemonDetailView {
         }
     }
 
-    async loadPokemon(id) {
+    async loadPokemon(identifier) {
         try {
-            const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+            const [pokemon, species] = await Promise.all([
+                this.fetchResourceWithFallback('pokemon', identifier),
+                this.fetchResourceWithFallback('species', identifier)
             ]);
-
-            const pokemon = await pokemonResponse.json();
-            const species = await speciesResponse.json();
 
             // Fetch evolution chain if available
             let evolutionChain = null;
             if (species.evolution_chain && species.evolution_chain.url) {
-                const evolutionResponse = await fetch(species.evolution_chain.url);
-                evolutionChain = await evolutionResponse.json();
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                evolutionChain = await this.fetchResourceWithFallback('evolution', chainId);
             }
 
             this.display(pokemon, species, evolutionChain);
@@ -99,21 +122,18 @@ class PokemonDetailView {
         }
     }
 
-    async loadPokemonWithoutHistory(id) {
+    async loadPokemonWithoutHistory(identifier) {
         try {
-            const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
-                fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+            const [pokemon, species] = await Promise.all([
+                this.fetchResourceWithFallback('pokemon', identifier),
+                this.fetchResourceWithFallback('species', identifier)
             ]);
-
-            const pokemon = await pokemonResponse.json();
-            const species = await speciesResponse.json();
 
             // Fetch evolution chain if available
             let evolutionChain = null;
             if (species.evolution_chain && species.evolution_chain.url) {
-                const evolutionResponse = await fetch(species.evolution_chain.url);
-                evolutionChain = await evolutionResponse.json();
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                evolutionChain = await this.fetchResourceWithFallback('evolution', chainId);
             }
 
             // Defensive checks
@@ -372,12 +392,15 @@ class PokemonDetailView {
         }
         
         // Fetch type data for all Pokemon types
-        const typeData = await Promise.all(
-            pokemon.types.map(t => 
-                fetch(`https://pokeapi.co/api/v2/type/${t.type.name}`)
-                    .then(res => res.json())
-            )
-        );
+        let typeData = [];
+        try {
+            typeData = await Promise.all(
+                pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
+            );
+        } catch (error) {
+            console.error('Error loading type data for weaknesses:', error);
+            return;
+        }
         
         // Calculate weaknesses (damage multipliers)
         const weaknessMap = {};
@@ -594,8 +617,7 @@ class PokemonDetailView {
         
         // Fetch Pokemon data for image and types
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-            const pokemon = await response.json();
+            const pokemon = await this.fetchResourceWithFallback('pokemon', pokemonId);
             
             evolutions.push({
                 name: chain.species.name,

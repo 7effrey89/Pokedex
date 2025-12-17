@@ -1,0 +1,5408 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:dragonite"
+  },
+  "cache_key": "2106fbb18bb5c5e5203006548d378da6",
+  "cached_at": 1765912716.233628,
+  "response": {
+    "data": [
+      {
+        "id": "ex11-3",
+        "name": "Dragonite δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Lightning",
+          "Metal"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "This Pokémon is both Lightning Metal type."
+        ],
+        "abilities": [
+          {
+            "name": "Delta Charge",
+            "text": "Once during your turn (before your attack), you may attach a Lightning Energy card from your discard pile to 1 of your Benched Pokémon. This power can't be used if Dragonite is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Agility",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, prevent all effects of an attack, including damage, done to Dragonite during your opponent's next turn."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Lightning",
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/3.png",
+          "large": "https://images.pokemontcg.io/ex11/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 117.05,
+              "mid": 173.53,
+              "high": 230.0,
+              "market": 122.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 124.98,
+              "mid": 159.94,
+              "high": 399.95,
+              "market": 303.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 37.21,
+            "lowPrice": 7.5,
+            "trendPrice": 37.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 41.88,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 39.39,
+            "lowPriceExPlus": 50.0,
+            "avg1": 14.49,
+            "avg7": 30.06,
+            "avg30": 40.13,
+            "reverseHoloAvg1": 70.0,
+            "reverseHoloAvg7": 83.36,
+            "reverseHoloAvg30": 106.6
+          }
+        }
+      },
+      {
+        "id": "base3-4",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Step In",
+            "text": "Once during your turn (before your attack), if Dragonite is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "An extremely rarely seen marine Pokémon. Its intelligence is said to match that of humans.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/4.png",
+          "large": "https://images.pokemontcg.io/base3/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 259.0,
+              "mid": 299.99,
+              "high": 510.0,
+              "market": 277.28,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 67.72,
+              "mid": 105.89,
+              "high": 195.1,
+              "market": 136.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 74.39,
+            "lowPrice": 15.0,
+            "trendPrice": 87.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 40.43,
+            "lowPriceExPlus": 79.95,
+            "avg1": 55.0,
+            "avg7": 84.21,
+            "avg30": 80.23,
+            "reverseHoloAvg1": 81.66,
+            "reverseHoloAvg7": 48.96,
+            "reverseHoloAvg30": 48.56
+          }
+        }
+      },
+      {
+        "id": "dv1-5",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If heads, discard an Energy attached to the Defending Pokémon."
+          },
+          {
+            "name": "Hurricane Tail",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60×",
+            "text": "Flip 4 coins. This attack does 60 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Dragon",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dv1",
+          "name": "Dragon Vault",
+          "series": "Black & White",
+          "printedTotal": 20,
+          "total": 21,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRV",
+          "releaseDate": "2012/10/05",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dv1/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "It is said to make its home somewhere in the sea. It guides crews of shipwrecks to shore.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dv1/5.png",
+          "large": "https://images.pokemontcg.io/dv1/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dv1-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.76,
+              "mid": 16.91,
+              "high": 44.95,
+              "market": 16.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dv1-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.01,
+            "lowPrice": 0.5,
+            "trendPrice": 4.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.5,
+            "reverseHoloTrend": 2.8,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.4,
+            "avg7": 7.19,
+            "avg30": 6.16,
+            "reverseHoloAvg1": 1.39,
+            "reverseHoloAvg7": 3.53,
+            "reverseHoloAvg30": 3.88
+          }
+        }
+      },
+      {
+        "id": "base6-5",
+        "name": "Dark Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "33",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dark Dragonair",
+        "abilities": [
+          {
+            "name": "Summon Minions",
+            "text": "When you play Dark Dragonite from your hand, search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "Sometimes called \"The God of Destruction.\" Its wings are able to support it in spite of its massive weight.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/5.png",
+          "large": "https://images.pokemontcg.io/base6/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 102.37,
+              "mid": 160.0,
+              "high": 188.89,
+              "market": 188.89,
+              "directLow": 74.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 26.5,
+            "lowPrice": 9.34,
+            "trendPrice": 23.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 200.0,
+            "reverseHoloLow": 120.0,
+            "reverseHoloTrend": 214.78,
+            "lowPriceExPlus": 50.0,
+            "avg1": 28.0,
+            "avg7": 22.12,
+            "avg30": 37.94,
+            "reverseHoloAvg1": 200.0,
+            "reverseHoloAvg7": 192.0,
+            "reverseHoloAvg30": 306.95
+          }
+        }
+      },
+      {
+        "id": "base5-5",
+        "name": "Dark Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "33",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dark Dragonair",
+        "abilities": [
+          {
+            "name": "Summon Minions",
+            "text": "When you play Dark Dragonite from your hand, search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "Sometimes called \"The God of Destruction.\" Its wings are able to support it in spite of its massive weight.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/5.png",
+          "large": "https://images.pokemontcg.io/base5/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 279.99,
+              "mid": 389.64,
+              "high": 449.99,
+              "market": 322.8,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 94.07,
+              "mid": 131.99,
+              "high": 200.0,
+              "market": 141.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 155.76,
+            "lowPrice": 20.0,
+            "trendPrice": 88.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 45.98,
+            "lowPriceExPlus": 85.0,
+            "avg1": 130.0,
+            "avg7": 83.18,
+            "avg30": 122.13,
+            "reverseHoloAvg1": 37.5,
+            "reverseHoloAvg7": 55.74,
+            "reverseHoloAvg30": 62.69
+          }
+        }
+      },
+      {
+        "id": "basep-5",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "43",
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Special Delivery",
+            "text": "Once during your turn (before your attack), you may draw a card. If you do, choose a card from your hand and put it on top of your deck. This power can't be used if Dragonite is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Supersonic Flight",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "basep",
+          "name": "Wizards Black Star Promos",
+          "series": "Base",
+          "printedTotal": 53,
+          "total": 53,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR",
+          "releaseDate": "1999/07/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+            "logo": "https://images.pokemontcg.io/basep/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Toshinao Aoki",
+        "rarity": "Promo",
+        "flavorText": "This Pokémon can fly is spite of its large bulk. It is said to be able to circumnavigate the earth in just 16 hours.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/basep/5.png",
+          "large": "https://images.pokemontcg.io/basep/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/basep-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 16.0,
+              "mid": 30.0,
+              "high": 9999.0,
+              "market": 42.4,
+              "directLow": 28.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/basep-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.11,
+            "lowPrice": 1.0,
+            "trendPrice": 13.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.02,
+            "lowPriceExPlus": 15.0,
+            "avg1": 40.0,
+            "avg7": 15.99,
+            "avg30": 13.63,
+            "reverseHoloAvg1": 22.0,
+            "reverseHoloAvg7": 20.49,
+            "reverseHoloAvg30": 11.4
+          }
+        }
+      },
+      {
+        "id": "dp6-2",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "61",
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, discard an Energy card attached to the Defending Pokémon."
+          },
+          {
+            "name": "Draco Meteor",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Flip a coin for each of your opponent's Pokémon. If that coin flip is heads, this attack does 50 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "It is said to make its home somewhere in the sea. It guides crews of shipwrecks to shore.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/2.png",
+          "large": "https://images.pokemontcg.io/dp6/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 60.0,
+              "mid": 101.85,
+              "high": 247.5,
+              "market": 117.95,
+              "directLow": 247.5
+            },
+            "reverseHolofoil": {
+              "low": 27.83,
+              "mid": 74.85,
+              "high": 99.99,
+              "market": 110.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 15.69,
+            "lowPrice": 3.99,
+            "trendPrice": 13.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.6,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 10.22,
+            "lowPriceExPlus": 12.5,
+            "avg1": 4.15,
+            "avg7": 14.31,
+            "avg30": 18.78,
+            "reverseHoloAvg1": 7.99,
+            "reverseHoloAvg7": 9.28,
+            "reverseHoloAvg30": 10.58
+          }
+        }
+      },
+      {
+        "id": "neo4-14",
+        "name": "Light Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "47",
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Light Dragonair",
+        "abilities": [
+          {
+            "name": "Miraculous Wind",
+            "text": "As long as Light Dragonite is your Active Pokémon, each Special Energy card provides Colorless Energy instead of its usual type and its other effects stop working. This power stops working while Light Dragonite is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Light Wave",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Prevent all effects of attacks, other than damage, done to Light Dragonite during your opponent's next turn."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "flavorText": "It is said to fly constantly over the sea, looking for people in need of aid.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/14.png",
+          "large": "https://images.pokemontcg.io/neo4/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 593.99,
+              "mid": 593.99,
+              "high": 593.99,
+              "market": 279.99,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 199.95,
+              "mid": 256.14,
+              "high": 450.99,
+              "market": 258.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 89.25,
+            "lowPrice": 26.9,
+            "trendPrice": 100.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 20.82,
+            "lowPriceExPlus": 95.0,
+            "avg1": 180.0,
+            "avg7": 85.36,
+            "avg30": 94.05,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 24.87,
+            "reverseHoloAvg30": 49.08
+          }
+        }
+      },
+      {
+        "id": "ex7-15",
+        "name": "Dark Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Dark Dragonair",
+        "abilities": [
+          {
+            "name": "Dark Trance",
+            "text": "As often as you like during your turn (before your attack), you may move a Darkness Energy card attached to 1 of your Pokémon to another of your Pokémon. This power can't be used if Dark Dragonite is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Double Wing Attack",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Does 30 damage to each Defending Pokémon."
+          },
+          {
+            "name": "Claw Swipe",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Nakaoka",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/15.png",
+          "large": "https://images.pokemontcg.io/ex7/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 55.0,
+              "mid": 73.0,
+              "high": 138.0,
+              "market": 81.01,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 243.97,
+              "mid": 243.97,
+              "high": 243.97,
+              "market": 262.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 32.15,
+            "lowPrice": 3.0,
+            "trendPrice": 29.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 473.32,
+            "reverseHoloLow": 50.0,
+            "reverseHoloTrend": 410.6,
+            "lowPriceExPlus": 19.99,
+            "avg1": 110.0,
+            "avg7": 27.32,
+            "avg30": 29.51,
+            "reverseHoloAvg1": 650.0,
+            "reverseHoloAvg7": 442.24,
+            "reverseHoloAvg30": 210.57
+          }
+        }
+      },
+      {
+        "id": "hgss4-18",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Calming Wind",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Remove all Special Conditions from Dragonite."
+          },
+          {
+            "name": "Dragon Stamp",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Flip 2 coins. If both of them are tails, this attack does nothing. If both of them are heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "This marine Pokémon has an impressive build that lets it freely fly over raging seas without trouble.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/18.png",
+          "large": "https://images.pokemontcg.io/hgss4/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.99,
+              "mid": 6.82,
+              "high": 14.11,
+              "market": 9.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.03,
+              "mid": 18.97,
+              "high": 49.99,
+              "market": 27.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.48,
+            "lowPrice": 0.1,
+            "trendPrice": 4.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 17.48,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 13.65,
+            "lowPriceExPlus": 3.0,
+            "avg1": 1.95,
+            "avg7": 4.92,
+            "avg30": 4.9,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 14.3,
+            "reverseHoloAvg30": 11.76
+          }
+        }
+      },
+      {
+        "id": "base3-19",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Step In",
+            "text": "Once during your turn (before your attack), if Dragonite is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "An extremely rarely seen marine Pokémon. Its intelligence is said to match that of humans.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/19.png",
+          "large": "https://images.pokemontcg.io/base3/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 27.99,
+              "mid": 33.98,
+              "high": 68.35,
+              "market": 43.72,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 8.29,
+              "mid": 11.99,
+              "high": 25.99,
+              "market": 16.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 19.52,
+            "lowPrice": 3.5,
+            "trendPrice": 26.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 27.5,
+            "lowPriceExPlus": 10.0,
+            "avg1": 5.0,
+            "avg7": 32.3,
+            "avg30": 22.0,
+            "reverseHoloAvg1": 29.0,
+            "reverseHoloAvg7": 20.85,
+            "reverseHoloAvg30": 37.66
+          }
+        }
+      },
+      {
+        "id": "ecard1-9",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Tailwind",
+            "text": "Once during your turn (before your attack), if Dragonite is on your Bench, you may reduce your Active Pokémon's Retreat Cost to 0.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Tail",
+            "cost": [
+              "Lightning",
+              "Water",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/9.png",
+          "large": "https://images.pokemontcg.io/ecard1/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 435.4,
+              "mid": 798.85,
+              "high": 849.98,
+              "market": 364.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 74.95,
+              "mid": 77.97,
+              "high": 236.75,
+              "market": 250.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 81.22,
+            "lowPrice": 14.95,
+            "trendPrice": 70.94,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 27.52,
+            "reverseHoloLow": 14.95,
+            "reverseHoloTrend": 75.55,
+            "lowPriceExPlus": 53.99,
+            "avg1": 149.9,
+            "avg7": 276.41,
+            "avg30": 261.34,
+            "reverseHoloAvg1": 45.04,
+            "reverseHoloAvg7": 69.29,
+            "reverseHoloAvg30": 57.03
+          }
+        }
+      },
+      {
+        "id": "base5-22",
+        "name": "Dark Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "33",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dark Dragonair",
+        "abilities": [
+          {
+            "name": "Summon Minions",
+            "text": "When you play Dark Dragonite from your hand, search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "Sometimes called \"The God of Destruction.\" Its wings are able to support it in spite of its massive weight.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/22.png",
+          "large": "https://images.pokemontcg.io/base5/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 31.31,
+              "mid": 41.04,
+              "high": 9999.0,
+              "market": 41.59,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 11.65,
+              "mid": 14.47,
+              "high": 100.0,
+              "market": 19.88,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 19.86,
+            "lowPrice": 3.95,
+            "trendPrice": 22.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.95,
+            "lowPriceExPlus": 10.0,
+            "avg1": 9.0,
+            "avg7": 21.13,
+            "avg30": 18.76,
+            "reverseHoloAvg1": 13.9,
+            "reverseHoloAvg7": 31.49,
+            "reverseHoloAvg30": 14.9
+          }
+        }
+      },
+      {
+        "id": "sm75-37",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "This Pokémon can't attack during your next turn."
+          },
+          {
+            "name": "Dragonporter-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 3 Dragon Pokémon from your discard pile onto your Bench. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/37.png",
+          "large": "https://images.pokemontcg.io/sm75/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.5,
+              "mid": 16.14,
+              "high": 24.17,
+              "market": 15.37,
+              "directLow": 15.53
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.3,
+            "lowPrice": 2.99,
+            "trendPrice": 9.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.82,
+            "lowPriceExPlus": 4.0,
+            "avg1": 9.99,
+            "avg7": 11.33,
+            "avg30": 9.48,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 7.11,
+            "reverseHoloAvg30": 7.59
+          }
+        }
+      },
+      {
+        "id": "ecard1-43",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Tailwind",
+            "text": "Once during your turn (before your attack), if Dragonite is on your Bench, you may reduce your Active Pokémon's Retreat Cost to 0.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Tail",
+            "cost": [
+              "Lightning",
+              "Water",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/43.png",
+          "large": "https://images.pokemontcg.io/ecard1/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 41.99,
+              "mid": 56.11,
+              "high": 80.0,
+              "market": 54.92,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 89.1,
+              "mid": 92.05,
+              "high": 200.0,
+              "market": 110.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 20.28,
+            "lowPrice": 2.75,
+            "trendPrice": 16.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 15.3,
+            "reverseHoloLow": 8.0,
+            "reverseHoloTrend": 23.24,
+            "lowPriceExPlus": 15.0,
+            "avg1": 17.5,
+            "avg7": 13.44,
+            "avg30": 20.97,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 14.19,
+            "reverseHoloAvg30": 22.3
+          }
+        }
+      },
+      {
+        "id": "xy6-51",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Max Wind",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon, you may heal all damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mach Press",
+            "cost": [
+              "Grass",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Flip 2 coins. If both of them are heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy6",
+          "name": "Roaring Skies",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 112,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ROS",
+          "releaseDate": "2015/05/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy6/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy6/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "It is said to make its home somewhere in the sea. It guides crews of shipwrecks to shore.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy6/51.png",
+          "large": "https://images.pokemontcg.io/xy6/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.45,
+              "mid": 0.99,
+              "high": 5.0,
+              "market": 1.25,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.25,
+              "mid": 6.07,
+              "high": 15.0,
+              "market": 5.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.28,
+            "lowPrice": 0.6,
+            "trendPrice": 1.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 48.41,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 29.04,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.9,
+            "avg7": 1.68,
+            "avg30": 2.09,
+            "reverseHoloAvg1": 6.9,
+            "reverseHoloAvg7": 47.0,
+            "reverseHoloAvg30": 15.36
+          }
+        }
+      },
+      {
+        "id": "xy6-52",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "ancientTrait": {
+          "name": "Δ Plus",
+          "text": "If your opponent's Pokémon is Knocked Out by damage from an attack of this Pokémon, take 1 more Prize card."
+        },
+        "attacks": [
+          {
+            "name": "Wrapped in Wind",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 2 basic Energy cards from your hand to this Pokémon."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "150",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy6",
+          "name": "Roaring Skies",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 112,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ROS",
+          "releaseDate": "2015/05/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy6/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy6/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "hatachu",
+        "rarity": "Rare Holo",
+        "flavorText": "It is said to make its home somewhere in the sea. It guides crews of shipwrecks to shore.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy6/52.png",
+          "large": "https://images.pokemontcg.io/xy6/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy6-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.57,
+              "mid": 16.97,
+              "high": 39.99,
+              "market": 17.07,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 8.87,
+              "mid": 16.99,
+              "high": 32.24,
+              "market": 16.27,
+              "directLow": 18.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy6-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.18,
+            "lowPrice": 1.0,
+            "trendPrice": 7.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.75,
+            "reverseHoloLow": 2.89,
+            "reverseHoloTrend": 9.0,
+            "lowPriceExPlus": 3.0,
+            "avg1": 17.79,
+            "avg7": 9.27,
+            "avg30": 8.81,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 8.5,
+            "reverseHoloAvg30": 11.72
+          }
+        }
+      },
+      {
+        "id": "pl3-56",
+        "name": "Dragonite FB",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "50",
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "attacks": [
+          {
+            "name": "Mach Blow",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "If the Defending Pokémon is a Pokémon SP, this attack's base damage is 80 instead of 20."
+          },
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/56.png",
+          "large": "https://images.pokemontcg.io/pl3/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.75,
+              "mid": 5.41,
+              "high": 6.95,
+              "market": 5.96,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.5,
+              "mid": 15.05,
+              "high": 29.69,
+              "market": 15.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.76,
+            "lowPrice": 2.0,
+            "trendPrice": 11.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.46,
+            "lowPriceExPlus": 5.0,
+            "avg1": 6.7,
+            "avg7": 8.01,
+            "avg30": 8.78,
+            "reverseHoloAvg1": 9.99,
+            "reverseHoloAvg7": 12.85,
+            "reverseHoloAvg30": 4.6
+          }
+        }
+      },
+      {
+        "id": "sm75-67",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "This Pokémon can't attack during your next turn."
+          },
+          {
+            "name": "Dragonporter-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 3 Dragon Pokémon from your discard pile onto your Bench. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/67.png",
+          "large": "https://images.pokemontcg.io/sm75/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 37.63,
+              "mid": 57.96,
+              "high": 80.0,
+              "market": 44.06,
+              "directLow": 50.67
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-67",
+          "updatedAt": "2025/12/14",
+          "prices": {
+            "averageSellPrice": 24.25,
+            "lowPrice": 13.95,
+            "trendPrice": 31.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.75,
+            "lowPriceExPlus": 16.0,
+            "avg1": 24.0,
+            "avg7": 28.92,
+            "avg30": 30.72,
+            "reverseHoloAvg1": 39.98,
+            "reverseHoloAvg7": 22.2,
+            "reverseHoloAvg30": 15.01
+          }
+        }
+      },
+      {
+        "id": "xy12-72",
+        "name": "Dragonite-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Pull Up",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may put 2 Basic Pokémon (except for Dragonite-EX) from your discard pile into your hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "Discard an Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/72.png",
+          "large": "https://images.pokemontcg.io/xy12/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.4,
+              "mid": 5.0,
+              "high": 14.95,
+              "market": 4.3,
+              "directLow": 4.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.19,
+            "lowPrice": 1.5,
+            "trendPrice": 8.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.0,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.39,
+            "avg7": 8.71,
+            "avg30": 4.18,
+            "reverseHoloAvg1": 13.99,
+            "reverseHoloAvg7": 12.48,
+            "reverseHoloAvg30": 12.48
+          }
+        }
+      },
+      {
+        "id": "bw9-83",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Deafen",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent can't play any Item cards from his or her hand during his or her next turn."
+          },
+          {
+            "name": "Healwing",
+            "cost": [
+              "Grass",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Dragon",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw9",
+          "name": "Plasma Freeze",
+          "series": "Black & White",
+          "printedTotal": 116,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLF",
+          "releaseDate": "2013/05/08",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw9/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw9/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Holo",
+        "flavorText": "It is said to make its home somewhere in the sea. It guides crews of shipwrecks to shore.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw9/83.png",
+          "large": "https://images.pokemontcg.io/bw9/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw9-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.99,
+              "mid": 9.37,
+              "high": 49.99,
+              "market": 14.77,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 20.6,
+              "mid": 29.95,
+              "high": 50.0,
+              "market": 21.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw9-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 6.95,
+            "lowPrice": 2.0,
+            "trendPrice": 11.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.24,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 7.62,
+            "lowPriceExPlus": 4.0,
+            "avg1": 9.95,
+            "avg7": 10.75,
+            "avg30": 8.39,
+            "reverseHoloAvg1": 4.48,
+            "reverseHoloAvg7": 7.6,
+            "reverseHoloAvg30": 6.09
+          }
+        }
+      },
+      {
+        "id": "xy3-74",
+        "name": "Dragonite-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Bust In",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may move any number of basic Energy attached to your Pokémon to this Pokémon. If you do, switch this Pokémon with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jet Sonic",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "You may discard an Energy attached to this Pokémon. If you do, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "74",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/74.png",
+          "large": "https://images.pokemontcg.io/xy3/74_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-74",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.98,
+              "mid": 5.72,
+              "high": 16.38,
+              "market": 7.29,
+              "directLow": 4.53
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-74",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 6.98,
+            "lowPrice": 1.0,
+            "trendPrice": 5.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.17,
+            "lowPriceExPlus": 3.0,
+            "avg1": 3.38,
+            "avg7": 4.65,
+            "avg30": 5.41,
+            "reverseHoloAvg1": 6.75,
+            "reverseHoloAvg7": 4.24,
+            "reverseHoloAvg30": 4.76
+          }
+        }
+      },
+      {
+        "id": "ex3-90",
+        "name": "Dragonite ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Call for Power",
+            "text": "As often as you like during your turn, you may move an Energy card attached to 1 of your Pokémon to Dragonite ex. This power can't be used if Dragonite ex is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Wave",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "Discard a Water Energy card and a Lightning Energy card attached to Dragonite ex."
+          },
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/90.png",
+          "large": "https://images.pokemontcg.io/ex3/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 400.0,
+              "mid": 480.5,
+              "high": 1228.99,
+              "market": 510.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 74.91,
+            "lowPrice": 11.99,
+            "trendPrice": 130.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 31.45,
+            "lowPriceExPlus": 79.9,
+            "avg1": 45.0,
+            "avg7": 83.56,
+            "avg30": 179.41,
+            "reverseHoloAvg1": 90.0,
+            "reverseHoloAvg7": 28.41,
+            "reverseHoloAvg30": 31.97
+          }
+        }
+      },
+      {
+        "id": "sm1-96",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Dragon Wave",
+            "cost": [
+              "Grass",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "130",
+            "text": "Discard a Grass Energy and a Lightning Energy from this Pokémon."
+          },
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "200",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "Hiroyuki Yamamoto",
+        "rarity": "Rare Holo",
+        "flavorText": "Incur the wrath of this normally calm Pokémon at your peril, because it will smash everything to smithereens before it's satisfied.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/96.png",
+          "large": "https://images.pokemontcg.io/sm1/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.08,
+              "high": 9.95,
+              "market": 1.04,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.25,
+              "high": 7.63,
+              "market": 1.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 21.44,
+            "lowPrice": 0.2,
+            "trendPrice": 32.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.07,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.02,
+            "lowPriceExPlus": 0.82,
+            "avg1": 0.99,
+            "avg7": 1.91,
+            "avg30": 20.1,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 1.88,
+            "reverseHoloAvg30": 8.21
+          }
+        }
+      },
+      {
+        "id": "ex15-91",
+        "name": "Dragonite ex δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Deafen",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Your opponent can't play any Trainer cards (except for Supporter cards) from his or her hand during your opponent's next turn."
+          },
+          {
+            "name": "Dragon Roar",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Put 8 damage counters on the Defending Pokémon. If that Pokémon would be Knocked Out by this attack, put any damage counters not necessary to Knock Out the Defending Pokémon on your opponent's Benched Pokémon in any way you like."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/91.png",
+          "large": "https://images.pokemontcg.io/ex15/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 199.98,
+              "mid": 250.0,
+              "high": 482.0,
+              "market": 199.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 95.4,
+            "lowPrice": 17.0,
+            "trendPrice": 82.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 31.89,
+            "lowPriceExPlus": 94.0,
+            "avg1": 15.0,
+            "avg7": 93.49,
+            "avg30": 68.02,
+            "reverseHoloAvg1": 9.99,
+            "reverseHoloAvg7": 27.25,
+            "reverseHoloAvg30": 22.23
+          }
+        }
+      },
+      {
+        "id": "xy12-106",
+        "name": "Dragonite-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Pull Up",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may put 2 Basic Pokémon (except for Dragonite-EX) from your discard pile into your hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "Discard an Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/106.png",
+          "large": "https://images.pokemontcg.io/xy12/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 27.6,
+              "mid": 41.8,
+              "high": 75.0,
+              "market": 39.83,
+              "directLow": 35.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-106",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 32.99,
+            "lowPrice": 6.98,
+            "trendPrice": 34.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 30.6,
+            "lowPriceExPlus": 18.0,
+            "avg1": 75.0,
+            "avg7": 40.39,
+            "avg30": 35.15,
+            "reverseHoloAvg1": 27.99,
+            "reverseHoloAvg7": 34.5,
+            "reverseHoloAvg30": 36.55
+          }
+        }
+      },
+      {
+        "id": "sm9-119",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Fast Call",
+            "text": "Once during your turn (before your attack), you may search your deck for a Supporter card, reveal it, and put it into your hand. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "119",
+        "artist": "Megumi Mizutani",
+        "rarity": "Rare Holo",
+        "flavorText": "It flies over raging seas as if they were nothing. Observing this, a ship's captain dubbed this Pokémon \"the sea incarnate.\"",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/119.png",
+          "large": "https://images.pokemontcg.io/sm9/119_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-119",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.14,
+              "mid": 2.55,
+              "high": 4.99,
+              "market": 2.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.6,
+              "mid": 3.83,
+              "high": 9.99,
+              "market": 4.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-119",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 5.06,
+            "lowPrice": 1.75,
+            "trendPrice": 13.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.53,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 7.42,
+            "lowPriceExPlus": 2.95,
+            "avg1": 4.0,
+            "avg7": 4.85,
+            "avg30": 7.51,
+            "reverseHoloAvg1": 6.85,
+            "reverseHoloAvg7": 7.31,
+            "reverseHoloAvg30": 6.64
+          }
+        }
+      },
+      {
+        "id": "xy3-108",
+        "name": "Dragonite-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Bust In",
+            "text": "When you play this Pokémon from your hand onto your Bench, you may move any number of basic Energy attached to your Pokémon to this Pokémon. If you do, switch this Pokémon with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jet Sonic",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "You may discard an Energy attached to this Pokémon. If you do, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "108",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/108.png",
+          "large": "https://images.pokemontcg.io/xy3/108_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-108",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 65.0,
+              "mid": 91.96,
+              "high": 152.43,
+              "market": 104.94,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-108",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 35.13,
+            "lowPrice": 9.99,
+            "trendPrice": 41.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.61,
+            "lowPriceExPlus": 30.0,
+            "avg1": 90.0,
+            "avg7": 41.87,
+            "avg30": 43.6,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 17.0,
+            "reverseHoloAvg30": 17.54
+          }
+        }
+      },
+      {
+        "id": "smp-SM156",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "This Pokémon can't attack during your next turn."
+          },
+          {
+            "name": "Dragonporter-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 3 Dragon Pokémon from your discard pile onto your Bench. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM156",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM156.png",
+          "large": "https://images.pokemontcg.io/smp/SM156_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM156",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 55.0,
+              "mid": 86.44,
+              "high": 149.69,
+              "market": 86.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM156",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 25.32,
+            "lowPrice": 9.5,
+            "trendPrice": 52.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 30.91,
+            "lowPriceExPlus": 9.75,
+            "avg1": 11.85,
+            "avg7": 106.06,
+            "avg30": 42.02,
+            "reverseHoloAvg1": 33.49,
+            "reverseHoloAvg7": 31.15,
+            "reverseHoloAvg30": 23.67
+          }
+        }
+      },
+      {
+        "id": "sm11-151",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Hurricane Charge",
+            "text": "Once during your turn (before your attack), you may attach a Water Energy card, a Lightning Energy card, or 1 of each from your hand to your Pokémon in any way you like.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "170",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "151",
+        "artist": "Misa Tsutsui",
+        "rarity": "Rare",
+        "flavorText": "It flies over raging seas as if they were nothing. Observing this, a ship's captain dubbed this Pokémon \"the sea incarnate.\"",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/151.png",
+          "large": "https://images.pokemontcg.io/sm11/151_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-151",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 2.5,
+              "mid": 3.99,
+              "high": 7.99,
+              "market": 3.55,
+              "directLow": null
+            },
+            "normal": {
+              "low": 1.5,
+              "mid": 1.8,
+              "high": 3.49,
+              "market": 1.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-151",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.21,
+            "lowPrice": 0.25,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.92,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 3.73,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.0,
+            "avg7": 1.42,
+            "avg30": 15.08,
+            "reverseHoloAvg1": 3.25,
+            "reverseHoloAvg7": 4.05,
+            "reverseHoloAvg30": 3.65
+          }
+        }
+      },
+      {
+        "id": "sm11-152",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          },
+          {
+            "name": "Sky Judgment",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "270",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Mach Delivery-GX",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "You may discard any number of cards from your hand until you have 9 or fewer. Draw cards until you have 10 cards in your hand. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "152",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/152.png",
+          "large": "https://images.pokemontcg.io/sm11/152_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-152",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.99,
+              "mid": 12.99,
+              "high": 29.99,
+              "market": 10.84,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-152",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 8.02,
+            "lowPrice": 1.0,
+            "trendPrice": 8.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.97,
+            "lowPriceExPlus": 3.9,
+            "avg1": 3.95,
+            "avg7": 6.76,
+            "avg30": 7.88,
+            "reverseHoloAvg1": 9.8,
+            "reverseHoloAvg7": 7.26,
+            "reverseHoloAvg30": 6.21
+          }
+        }
+      },
+      {
+        "id": "sm11-229",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          },
+          {
+            "name": "Sky Judgment",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "270",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Mach Delivery-GX",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "You may discard any number of cards from your hand until you have 9 or fewer. Draw cards until you have 10 cards in your hand. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "229",
+        "artist": "ConceptLab",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/229.png",
+          "large": "https://images.pokemontcg.io/sm11/229_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-229",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.95,
+              "mid": 35.75,
+              "high": 100.0,
+              "market": 30.12,
+              "directLow": 36.5
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-229",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 26.83,
+            "lowPrice": 5.0,
+            "trendPrice": 16.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.76,
+            "lowPriceExPlus": 10.0,
+            "avg1": 15.5,
+            "avg7": 18.66,
+            "avg30": 16.54,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 12.35,
+            "reverseHoloAvg30": 11.71
+          }
+        }
+      },
+      {
+        "id": "sm11-248",
+        "name": "Dragonite-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          },
+          {
+            "name": "Sky Judgment",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "270",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Mach Delivery-GX",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "You may discard any number of cards from your hand until you have 9 or fewer. Draw cards until you have 10 cards in your hand. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "248",
+        "artist": "ConceptLab",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/248.png",
+          "large": "https://images.pokemontcg.io/sm11/248_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-248",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 77.91,
+              "mid": 113.75,
+              "high": 188.05,
+              "market": 116.02,
+              "directLow": 77.91
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-248",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 31.49,
+            "lowPrice": 14.87,
+            "trendPrice": 81.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 52.69,
+            "lowPriceExPlus": 27.99,
+            "avg1": 28.0,
+            "avg7": 77.45,
+            "avg30": 66.04,
+            "reverseHoloAvg1": 125.0,
+            "reverseHoloAvg7": 42.26,
+            "reverseHoloAvg30": 30.61
+          }
+        }
+      },
+      {
+        "id": "swsh7-191",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Shred",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Dragon Gale",
+            "cost": [
+              "Water",
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "191",
+        "artist": "Saki Hayashiro",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/191.png",
+          "large": "https://images.pokemontcg.io/swsh7/191_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-191",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.0,
+              "mid": 22.79,
+              "high": 79.95,
+              "market": 21.51,
+              "directLow": 25.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-191",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 15.95,
+            "lowPrice": 8.0,
+            "trendPrice": 15.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.99,
+            "avg1": 12.9,
+            "avg7": 14.35,
+            "avg30": 15.29,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-192",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Shred",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Dragon Gale",
+            "cost": [
+              "Water",
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "192",
+        "artist": "Atsushi Furusawa",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/192.png",
+          "large": "https://images.pokemontcg.io/swsh7/192_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-192",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 349.0,
+              "mid": 426.13,
+              "high": 1299.98,
+              "market": 404.48,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-192",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 258.51,
+            "lowPrice": 50.0,
+            "trendPrice": 184.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 159.0,
+            "avg1": 230.0,
+            "avg7": 232.68,
+            "avg30": 293.54,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH154",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Shred",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Dragon Gale",
+            "cost": [
+              "Water",
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH154",
+        "artist": "Saki Hayashiro",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH154.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH154_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH154",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.81,
+              "mid": 3.6,
+              "high": 9999.0,
+              "market": 3.78,
+              "directLow": 5.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH154",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.53,
+            "lowPrice": 0.8,
+            "trendPrice": 2.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.2,
+            "avg1": 2.2,
+            "avg7": 2.52,
+            "avg30": 2.31,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pgo-49",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Buster Tail",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "kawayoo",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/49.png",
+          "large": "https://images.pokemontcg.io/pgo/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.66,
+              "mid": 4.17,
+              "high": 99.99,
+              "market": 3.96,
+              "directLow": 4.87
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.56,
+            "lowPrice": 0.7,
+            "trendPrice": 1.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 1.5,
+            "avg7": 1.43,
+            "avg30": 1.62,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pgo-50",
+        "name": "Dragonite VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "280",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonite V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "250",
+            "text": "During your next turn, this Pokémon can't attack."
+          },
+          {
+            "name": "Draconic Star",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 12 cards of your deck and attach any number of Water or Lightning Energy cards you find there to your Pokémon in any way you like. Shuffle the other cards back into your deck. (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/50.png",
+          "large": "https://images.pokemontcg.io/pgo/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.28,
+              "mid": 2.5,
+              "high": 99.99,
+              "market": 2.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.81,
+            "lowPrice": 0.98,
+            "trendPrice": 1.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.98,
+            "avg1": 0.98,
+            "avg7": 1.89,
+            "avg30": 1.86,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pgo-76",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Buster Tail",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "76",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/76.png",
+          "large": "https://images.pokemontcg.io/pgo/76_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-76",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.0,
+              "mid": 10.77,
+              "high": 1000.0,
+              "market": 9.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-76",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 6.88,
+            "lowPrice": 3.33,
+            "trendPrice": 7.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.59,
+            "avg1": 6.33,
+            "avg7": 8.09,
+            "avg30": 7.27,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "pgo-81",
+        "name": "Dragonite VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "280",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonite V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "250",
+            "text": "During your next turn, this Pokémon can't attack."
+          },
+          {
+            "name": "Draconic Star",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 12 cards of your deck and attach any number of Water or Lightning Energy cards you find there to your Pokémon in any way you like. Shuffle the other cards back into your deck. (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/81.png",
+          "large": "https://images.pokemontcg.io/pgo/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.0,
+              "mid": 32.0,
+              "high": 97.25,
+              "market": 31.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 30.45,
+            "lowPrice": 13.0,
+            "trendPrice": 25.97,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 20.0,
+            "avg1": 25.0,
+            "avg7": 25.81,
+            "avg30": 29.55,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12-131",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Energy Hurricane",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Search your deck for up to 3 basic Energy cards and attach them to your Pokémon in any way you like. Then, shuffle your deck."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "131",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare Holo",
+        "flavorText": "It's a kindhearted Pokémon. If it spots a drowning person or Pokémon, Dragonite simply must help them.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/131.png",
+          "large": "https://images.pokemontcg.io/swsh12/131_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-131",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.48,
+              "high": 25.39,
+              "market": 0.45,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.35,
+              "mid": 0.59,
+              "high": 2.99,
+              "market": 0.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-131",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.32,
+            "lowPrice": 0.02,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.83,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.18,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.49,
+            "avg7": 0.32,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.27,
+            "reverseHoloAvg30": 0.81
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH235",
+        "name": "Dragonite V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Buster Tail",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH235",
+        "artist": "kawayoo",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH235.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH235_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH235",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 5.42,
+              "high": 75.0,
+              "market": 4.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH235",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.0,
+            "lowPrice": 0.4,
+            "trendPrice": 2.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.49,
+            "avg1": 2.09,
+            "avg7": 3.18,
+            "avg30": 2.92,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH236",
+        "name": "Dragonite VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "280",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonite V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Giga Impact",
+            "cost": [
+              "Water",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "250",
+            "text": "During your next turn, this Pokémon can't attack."
+          },
+          {
+            "name": "Draconic Star",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 12 cards of your deck and attach any number of Water or Lightning Energy cards you find there to your Pokémon in any way you like. Shuffle the other cards back into your deck. (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH236",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH236.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH236_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH236",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 3.0,
+              "high": 75.0,
+              "market": 2.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH236",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.42,
+            "lowPrice": 0.99,
+            "trendPrice": 2.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.99,
+            "avg7": 2.44,
+            "avg30": 2.44,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3-159",
+        "name": "Dragonite ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex",
+          "Tera"
+        ],
+        "hp": "330",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards.",
+          "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's)."
+        ],
+        "attacks": [
+          {
+            "name": "Wing Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Mighty Meteor",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140+",
+            "text": "Flip a coin. If heads, this attack does 140 more damage. If tails, during your next turn, this Pokémon can't attack."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "159",
+        "artist": "5ban Graphics",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/159.png",
+          "large": "https://images.pokemontcg.io/sv3/159_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-159",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.75,
+              "mid": 1.64,
+              "high": 9.97,
+              "market": 1.35,
+              "directLow": 0.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-159",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.31,
+            "lowPrice": 0.5,
+            "trendPrice": 2.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.9,
+            "avg7": 2.05,
+            "avg30": 2.14,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-149",
+        "name": "Dragonite",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Dragonair",
+        "abilities": [
+          {
+            "name": "Jet Cruise",
+            "text": "Your Pokémon in play have no Retreat Cost.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Pulse",
+            "cost": [
+              "Water",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "180",
+            "text": "Discard the top 2 cards of your deck."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "149",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Rare",
+        "flavorText": "It is said that somewhere in the ocean lies an island where these gather. Only they live there.",
+        "nationalPokedexNumbers": [
+          149
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/149.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/149_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-149",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.35,
+              "high": 5.0,
+              "market": 0.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 1.5,
+              "high": 501.11,
+              "market": 1.03,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-149",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.33,
+            "lowPrice": 0.02,
+            "trendPrice": 0.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.99,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.96,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.55,
+            "avg7": 0.48,
+            "avg30": 0.37,
+            "reverseHoloAvg1": 1.68,
+            "reverseHoloAvg7": 1.92,
+            "reverseHoloAvg30": 1.97
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 45,
+    "totalCount": 45
+  }
+}

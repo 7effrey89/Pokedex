@@ -1,0 +1,4142 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:leafeon"
+  },
+  "cache_key": "6f8ca9164fdcba0d92932b64fe3a6811",
+  "cached_at": 1765913298.097955,
+  "response": {
+    "data": [
+      {
+        "id": "bw5-6",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          },
+          {
+            "name": "Energy Assist",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Attach a basic Energy card from your discard pile to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare",
+        "flavorText": "It basically does not fight. With cells similar to those of plants, it can perform photosynthesis.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/6.png",
+          "large": "https://images.pokemontcg.io/bw5/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.68,
+              "mid": 9.99,
+              "high": 15.2,
+              "market": 7.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.99,
+              "mid": 12.99,
+              "high": 12.99,
+              "market": 16.74,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.25,
+            "lowPrice": 0.8,
+            "trendPrice": 3.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 11.98,
+            "lowPriceExPlus": 1.0,
+            "avg1": 3.0,
+            "avg7": 4.64,
+            "avg30": 3.79,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 9.52,
+            "reverseHoloAvg30": 8.65
+          }
+        }
+      },
+      {
+        "id": "sm5-13",
+        "name": "Leafeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Breath of the Leaves",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may heal 50 damage from 1 of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Grand Bloom-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Basic Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/13.png",
+          "large": "https://images.pokemontcg.io/sm5/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 7.11,
+              "high": 19.24,
+              "market": 7.33,
+              "directLow": 8.37
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.83,
+            "lowPrice": 2.0,
+            "trendPrice": 4.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.11,
+            "lowPriceExPlus": 2.5,
+            "avg1": 2.0,
+            "avg7": 4.35,
+            "avg30": 4.23,
+            "reverseHoloAvg1": 4.45,
+            "reverseHoloAvg7": 4.32,
+            "reverseHoloAvg30": 4.53
+          }
+        }
+      },
+      {
+        "id": "bw9-11",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "Does 20 damage times the amount of Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "Flip a coin. If heads, this attack does 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw9",
+          "name": "Plasma Freeze",
+          "series": "Black & White",
+          "printedTotal": 116,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLF",
+          "releaseDate": "2013/05/08",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw9/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw9/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "With cells similar to those of plants, it performs photosynthesis inside its body and creates pure air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw9/11.png",
+          "large": "https://images.pokemontcg.io/bw9/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw9-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.2,
+              "mid": 8.15,
+              "high": 14.99,
+              "market": 8.38,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.73,
+              "mid": 25.7,
+              "high": 39.99,
+              "market": 27.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw9-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.11,
+            "lowPrice": 0.1,
+            "trendPrice": 5.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.35,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 5.99,
+            "lowPriceExPlus": 1.35,
+            "avg1": 3.0,
+            "avg7": 4.38,
+            "avg30": 4.44,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 3.94,
+            "reverseHoloAvg30": 5.63
+          }
+        }
+      },
+      {
+        "id": "col1-13",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Miasma Wind",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "Does 50 damage times the number of Special Conditions affecting the Defending Pokémon."
+          },
+          {
+            "name": "Sooting Scent",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "When you see Leafeon asleep in a patch of sunshine, you'll know it is using photosynthesis to produce clean air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/13.png",
+          "large": "https://images.pokemontcg.io/col1/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.24,
+              "mid": 19.48,
+              "high": 37.2,
+              "market": 20.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.51,
+              "mid": 21.5,
+              "high": 652.47,
+              "market": 16.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 22.89,
+            "lowPrice": 1.7,
+            "trendPrice": 16.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 10.95,
+            "reverseHoloLow": 1.7,
+            "reverseHoloTrend": 27.47,
+            "lowPriceExPlus": 6.89,
+            "avg1": 8.0,
+            "avg7": 19.67,
+            "avg30": 14.33,
+            "reverseHoloAvg1": 23.5,
+            "reverseHoloAvg7": 29.95,
+            "reverseHoloAvg30": 22.61
+          }
+        }
+      },
+      {
+        "id": "dp5-7",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "42",
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Bind Down",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "During your opponent's next turn, any damage done to Leafeon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "Just like a plant, it uses photosynthesis. As a result, it is always enveloped in clear air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/7.png",
+          "large": "https://images.pokemontcg.io/dp5/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 40.71,
+              "mid": 50.0,
+              "high": 83.6,
+              "market": 83.21,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 44.27,
+              "mid": 45.19,
+              "high": 48.1,
+              "market": 45.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.61,
+            "lowPrice": 4.0,
+            "trendPrice": 12.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 15.0,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 12.06,
+            "lowPriceExPlus": 9.98,
+            "avg1": 12.0,
+            "avg7": 12.41,
+            "avg30": 13.19,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 10.22,
+            "reverseHoloAvg30": 12.65
+          }
+        }
+      },
+      {
+        "id": "xy3-7",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Soothing Scent",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Magical Leaf",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage and heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "When you see Leafeon asleep in a patch of sunshine, you'll know it is using photosynthesis to produce clean air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/7.png",
+          "large": "https://images.pokemontcg.io/xy3/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.72,
+              "mid": 2.0,
+              "high": 175.0,
+              "market": 1.97,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.3,
+              "mid": 4.32,
+              "high": 7.2,
+              "market": 4.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.61,
+            "lowPrice": 0.2,
+            "trendPrice": 1.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 5.51,
+            "lowPriceExPlus": 0.5,
+            "avg1": 3.5,
+            "avg7": 2.64,
+            "avg30": 2.06,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 6.53,
+            "reverseHoloAvg30": 6.84
+          }
+        }
+      },
+      {
+        "id": "hgss3-17",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Miasma Wind",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "Does 50 damage damage times the number of Special Conditions affecting the Defending Pokémon."
+          },
+          {
+            "name": "Soothing Scent",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Noriko Hotta",
+        "rarity": "Rare",
+        "flavorText": "When you see Leafeon asleep in a patch of sunshine, you'll know it is using photosynthesis to produce clean air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/17.png",
+          "large": "https://images.pokemontcg.io/hgss3/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.42,
+              "mid": 7.23,
+              "high": 11.2,
+              "market": 6.85,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.57,
+              "mid": 18.0,
+              "high": 18.95,
+              "market": 17.99,
+              "directLow": 18.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.63,
+            "lowPrice": 0.2,
+            "trendPrice": 7.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 17.5,
+            "reverseHoloLow": 0.99,
+            "reverseHoloTrend": 19.07,
+            "lowPriceExPlus": 1.3,
+            "avg1": 3.29,
+            "avg7": 4.07,
+            "avg30": 9.0,
+            "reverseHoloAvg1": 18.0,
+            "reverseHoloAvg7": 23.45,
+            "reverseHoloAvg30": 14.8
+          }
+        }
+      },
+      {
+        "id": "g1-10",
+        "name": "Leafeon-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          },
+          {
+            "name": "Nature's Breath",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If there is any Stadium card in play, this attack does 30 more damage and heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "10",
+        "artist": "Naoki Saito",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/10.png",
+          "large": "https://images.pokemontcg.io/g1/10_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.99,
+              "mid": 23.0,
+              "high": 74.99,
+              "market": 25.93,
+              "directLow": 29.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.14,
+            "lowPrice": 8.0,
+            "trendPrice": 18.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.93,
+            "lowPriceExPlus": 15.0,
+            "avg1": 11.5,
+            "avg7": 17.18,
+            "avg30": 19.19,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 10.43,
+            "reverseHoloAvg30": 11.95
+          }
+        }
+      },
+      {
+        "id": "dp5-24",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Sprial Drain",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Remove 1 damage counter from Leafeon."
+          },
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 50 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "Just like a plant, it uses photosynthesis. As a result, it is always enveloped in clear air.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/24.png",
+          "large": "https://images.pokemontcg.io/dp5/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.57,
+              "mid": 8.21,
+              "high": 30.0,
+              "market": 7.82,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 5.01,
+              "mid": 7.79,
+              "high": 10.63,
+              "market": 8.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.29,
+            "lowPrice": 0.05,
+            "trendPrice": 0.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.0,
+            "reverseHoloLow": 0.9,
+            "reverseHoloTrend": 5.14,
+            "lowPriceExPlus": 1.45,
+            "avg1": 1.0,
+            "avg7": 2.14,
+            "avg30": 3.68,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 6.89,
+            "reverseHoloAvg30": 6.27
+          }
+        }
+      },
+      {
+        "id": "pl2-45",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "49",
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "abilities": [
+          {
+            "name": "Energy Refresh",
+            "text": "As long as Leafeon is your Active Pokémon, whenever you attach an Energy card from your hand to 1 of your Pokémon, remove 2 damage counters from that Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Plus Energy",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Attach a basic Energy card from your hand to 1 of your Pokémon."
+          },
+          {
+            "name": "Soothing Scent",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Suwama Chiaki",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/45.png",
+          "large": "https://images.pokemontcg.io/pl2/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.99,
+              "mid": 2.39,
+              "high": 9.99,
+              "market": 2.48,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.37,
+              "mid": 9.25,
+              "high": 19.99,
+              "market": 9.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.79,
+            "lowPrice": 0.02,
+            "trendPrice": 0.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.39,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 4.24,
+            "lowPriceExPlus": 0.08,
+            "avg1": 1.0,
+            "avg7": 0.89,
+            "avg30": 0.69,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 3.41,
+            "reverseHoloAvg30": 4.23
+          }
+        }
+      },
+      {
+        "id": "sma-SV46",
+        "name": "Leafeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Breath of the Leaves",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may heal 50 damage from 1 of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Grand Bloom-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Basic Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sma",
+          "name": "Hidden Fates Shiny Vault",
+          "series": "Sun & Moon",
+          "printedTotal": 94,
+          "total": 94,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sma/symbol.png",
+            "logo": "https://images.pokemontcg.io/sma/logo.png"
+          }
+        },
+        "number": "SV46",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Shiny GX",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sma/SV46.png",
+          "large": "https://images.pokemontcg.io/sma/SV46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sma-SV46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 51.0,
+              "mid": 55.95,
+              "high": 149.99,
+              "market": 54.86,
+              "directLow": 59.96
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sma-SV46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 66.68,
+            "lowPrice": 22.99,
+            "trendPrice": 66.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 55.27,
+            "lowPriceExPlus": 39.0,
+            "avg1": 48.5,
+            "avg7": 57.12,
+            "avg30": 62.05,
+            "reverseHoloAvg1": 18.5,
+            "reverseHoloAvg7": 51.42,
+            "reverseHoloAvg30": 63.48
+          }
+        }
+      },
+      {
+        "id": "bwp-BW87",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          },
+          {
+            "name": "Energy Assist",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Attach a basic Energy card from your discard pile to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW87",
+        "artist": "The Pokémon Company Art Team",
+        "rarity": "Promo",
+        "flavorText": "It basically does not fight. With cells similar to those of plants, it can perform photosynthesis.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW87.png",
+          "large": "https://images.pokemontcg.io/bwp/BW87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 31.19,
+              "mid": 37.14,
+              "high": 80.0,
+              "market": 46.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 19.22,
+            "lowPrice": 1.0,
+            "trendPrice": 15.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.91,
+            "lowPriceExPlus": 9.0,
+            "avg1": 9.99,
+            "avg7": 19.81,
+            "avg30": 16.56,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 4.91,
+            "reverseHoloAvg30": 4.85
+          }
+        }
+      },
+      {
+        "id": "dp5-99",
+        "name": "Leafeon LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon",
+        "rules": [
+          "Put this card onto your Active Leafeon. Leafeon LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Energy Forcing",
+            "text": "Once during your turn (before your attack), you may attach an Energy card from your hand to 1 of your Pokémon. This power can't be used if Leafeon is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Verdant Dance",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Energy attached to all of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/99.png",
+          "large": "https://images.pokemontcg.io/dp5/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 126.24,
+              "mid": 126.24,
+              "high": 126.24,
+              "market": 190.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 211.0,
+            "lowPrice": 20.0,
+            "trendPrice": 173.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 35.0,
+            "reverseHoloLow": 180.0,
+            "reverseHoloTrend": 50.51,
+            "lowPriceExPlus": 119.97,
+            "avg1": 26.89,
+            "avg7": 175.2,
+            "avg30": 136.45,
+            "reverseHoloAvg1": 35.0,
+            "reverseHoloAvg7": 36.41,
+            "reverseHoloAvg30": 33.03
+          }
+        }
+      },
+      {
+        "id": "sm5-139",
+        "name": "Leafeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Breath of the Leaves",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may heal 50 damage from 1 of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Grand Bloom-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Basic Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "139",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/139.png",
+          "large": "https://images.pokemontcg.io/sm5/139_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-139",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 25.0,
+              "mid": 37.49,
+              "high": 99.8,
+              "market": 36.81,
+              "directLow": 70.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-139",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 16.5,
+            "lowPrice": 5.0,
+            "trendPrice": 20.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.47,
+            "lowPriceExPlus": 13.0,
+            "avg1": 16.5,
+            "avg7": 20.11,
+            "avg30": 20.26,
+            "reverseHoloAvg1": 21.0,
+            "reverseHoloAvg7": 21.4,
+            "reverseHoloAvg30": 15.34
+          }
+        }
+      },
+      {
+        "id": "smp-SM146",
+        "name": "Leafeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Breath of the Leaves",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may heal 50 damage from 1 of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Grand Bloom-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Basic Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM146",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM146.png",
+          "large": "https://images.pokemontcg.io/smp/SM146_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM146",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.5,
+              "mid": 4.48,
+              "high": 9999.0,
+              "market": 4.24,
+              "directLow": 5.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM146",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 6.03,
+            "lowPrice": 1.5,
+            "trendPrice": 5.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.14,
+            "lowPriceExPlus": 1.9,
+            "avg1": 2.63,
+            "avg7": 4.61,
+            "avg30": 4.84,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 4.87,
+            "reverseHoloAvg30": 5.31
+          }
+        }
+      },
+      {
+        "id": "sm5-157",
+        "name": "Leafeon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Breath of the Leaves",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may heal 50 damage from 1 of your Pokémon that has any Energy attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          },
+          {
+            "name": "Grand Bloom-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each of your Benched Basic Pokémon, search your deck for a card that evolves from that Pokémon and put it onto that Pokémon to evolve it. Then, shuffle your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "157",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/157.png",
+          "large": "https://images.pokemontcg.io/sm5/157_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-157",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 68.01,
+              "mid": 86.98,
+              "high": 699.95,
+              "market": 87.73,
+              "directLow": 166.68
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-157",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 41.78,
+            "lowPrice": 13.99,
+            "trendPrice": 58.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 36.59,
+            "lowPriceExPlus": 18.99,
+            "avg1": 64.98,
+            "avg7": 37.69,
+            "avg30": 46.96,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 37.49,
+            "reverseHoloAvg30": 24.45
+          }
+        }
+      },
+      {
+        "id": "smp-SM237",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Aromax",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal all damage from 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "Flip a coin. If heads, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM237",
+        "artist": "chibi",
+        "rarity": "Promo",
+        "flavorText": "Although it doesn't like disputes, it will sharpen the leaf on its tail into a blade and fight if it has to protect its friends.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM237.png",
+          "large": "https://images.pokemontcg.io/smp/SM237_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM237",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.5,
+              "mid": 3.25,
+              "high": 19.99,
+              "market": 3.19,
+              "directLow": 3.66
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM237",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 7.49,
+            "lowPrice": 0.99,
+            "trendPrice": 6.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.83,
+            "lowPriceExPlus": 1.5,
+            "avg1": 0.99,
+            "avg7": 6.68,
+            "avg30": 5.99,
+            "reverseHoloAvg1": 2.2,
+            "reverseHoloAvg7": 1.86,
+            "reverseHoloAvg30": 1.87
+          }
+        }
+      },
+      {
+        "id": "swsh7-8",
+        "name": "Leafeon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Grass Knot",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Max Leaf",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/8.png",
+          "large": "https://images.pokemontcg.io/swsh7/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 7.06,
+              "high": 100.0,
+              "market": 7.44,
+              "directLow": 10.53
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.64,
+            "lowPrice": 2.0,
+            "trendPrice": 5.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.0,
+            "avg1": 5.0,
+            "avg7": 5.78,
+            "avg30": 5.69,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-7",
+        "name": "Leafeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Greening Cells",
+            "text": "Once during your turn, you may search your deck for a Grass Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "Flip a coin. If heads, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/7.png",
+          "large": "https://images.pokemontcg.io/swsh7/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.06,
+              "high": 25.0,
+              "market": 1.77,
+              "directLow": 2.7
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.3,
+            "lowPrice": 0.49,
+            "trendPrice": 2.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.99,
+            "avg1": 3.64,
+            "avg7": 2.4,
+            "avg30": 2.31,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-166",
+        "name": "Leafeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Greening Cells",
+            "text": "Once during your turn, you may search your deck for a Grass Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "Flip a coin. If heads, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "166",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/166.png",
+          "large": "https://images.pokemontcg.io/swsh7/166_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-166",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.2,
+              "mid": 15.6,
+              "high": 34.75,
+              "market": 14.71,
+              "directLow": 13.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-166",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 21.75,
+            "lowPrice": 9.99,
+            "trendPrice": 19.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.99,
+            "avg1": 14.99,
+            "avg7": 25.39,
+            "avg30": 18.23,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-167",
+        "name": "Leafeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Greening Cells",
+            "text": "Once during your turn, you may search your deck for a Grass Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Blade",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "Flip a coin. If heads, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "167",
+        "artist": "You Iribi",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/167.png",
+          "large": "https://images.pokemontcg.io/swsh7/167_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-167",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 95.0,
+              "mid": 120.87,
+              "high": 225.02,
+              "market": 115.52,
+              "directLow": 119.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-167",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 150.3,
+            "lowPrice": 45.0,
+            "trendPrice": 164.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 50.0,
+            "avg1": 134.99,
+            "avg7": 164.39,
+            "avg30": 127.37,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-205",
+        "name": "Leafeon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Grass Knot",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Max Leaf",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "205",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/205.png",
+          "large": "https://images.pokemontcg.io/swsh7/205_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-205",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 270.0,
+              "mid": 376.73,
+              "high": 568.7,
+              "market": 358.88,
+              "directLow": 363.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-205",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 299.29,
+            "lowPrice": 115.0,
+            "trendPrice": 286.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 140.0,
+            "avg1": 200.0,
+            "avg7": 278.86,
+            "avg30": 303.51,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-204",
+        "name": "Leafeon VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Grass Knot",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          },
+          {
+            "name": "Max Leaf",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "204",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/204.png",
+          "large": "https://images.pokemontcg.io/swsh7/204_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-204",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 30.0,
+              "mid": 34.87,
+              "high": 150.0,
+              "market": 31.79,
+              "directLow": 36.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-204",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 31.28,
+            "lowPrice": 14.0,
+            "trendPrice": 29.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 19.99,
+            "avg1": 26.0,
+            "avg7": 31.94,
+            "avg30": 28.24,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH194",
+        "name": "Leafeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Slashing Strike",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your next turn, this Pokémon can't use Slashing Strike."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH194",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH194.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH194_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH194",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.84,
+              "high": 79.99,
+              "market": 1.59,
+              "directLow": 1.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH194",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.25,
+            "lowPrice": 1.0,
+            "trendPrice": 2.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.3,
+            "avg1": 2.39,
+            "avg7": 2.39,
+            "avg30": 2.28,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH195",
+        "name": "Leafeon VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "260",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ivy Star",
+            "text": "During your turn, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH195",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH195.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH195_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH195",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.05,
+              "high": 19.95,
+              "market": 1.86,
+              "directLow": 2.34
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH195",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.12,
+            "lowPrice": 1.4,
+            "trendPrice": 4.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.4,
+            "avg1": 2.2,
+            "avg7": 2.23,
+            "avg30": 2.89,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH191",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Grass Knot",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 30 more damage for each Colorless in your opponent's Active Pokémon's Retreat Cost."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH191",
+        "artist": "OKACHEKE",
+        "rarity": "Promo",
+        "flavorText": "This Pokémon's tail is blade sharp, with a fantastic cutting edge that can slice right though large trees.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH191.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH191_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH191",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.54,
+              "mid": 3.1,
+              "high": 9999.0,
+              "market": 3.2,
+              "directLow": 4.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH191",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.28,
+            "lowPrice": 0.2,
+            "trendPrice": 1.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.2,
+            "avg1": 6.45,
+            "avg7": 1.62,
+            "avg30": 1.29,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10-13",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Energy Garden",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 3 basic Energy cards of different types and attach them to your Pokémon in any way you like. Then, shuffle your deck."
+          },
+          {
+            "name": "Leafy Cyclone",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Atsushi Furusawa",
+        "rarity": "Rare",
+        "flavorText": "Cells similar to those of plants have been found in its fur. Its hard tail can fell a large tree with one stroke, and the tail's sharpness exceeds even that of a sword crafted by a master.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/13.png",
+          "large": "https://images.pokemontcg.io/swsh10/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.26,
+              "high": 2.99,
+              "market": 0.26,
+              "directLow": 0.2
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.4,
+              "high": 5.95,
+              "market": 0.38,
+              "directLow": 0.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.45,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.64,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.14,
+            "avg7": 0.14,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 0.42,
+            "reverseHoloAvg7": 0.5,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-13",
+        "name": "Leafeon V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Slashing Strike",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your next turn, this Pokémon can't use Slashing Strike."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/13.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.64,
+              "mid": 1.5,
+              "high": 999.0,
+              "market": 1.47,
+              "directLow": 1.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.41,
+            "lowPrice": 0.4,
+            "trendPrice": 1.73,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.88,
+            "avg7": 1.44,
+            "avg30": 1.43,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-14",
+        "name": "Leafeon VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "260",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ivy Star",
+            "text": "During your turn, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "PLANETA Hiiragi",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/14.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.37,
+              "high": 999.0,
+              "market": 2.25,
+              "directLow": 2.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.43,
+            "lowPrice": 1.49,
+            "trendPrice": 2.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.49,
+            "avg1": 1.7,
+            "avg7": 2.42,
+            "avg30": 2.49,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5gg-GG35",
+        "name": "Leafeon VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "260",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Leafeon V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ivy Star",
+            "text": "During your turn, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Guard",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5gg",
+          "name": "Crown Zenith Galarian Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 70,
+          "total": 70,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5gg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5gg/logo.png"
+          }
+        },
+        "number": "GG35",
+        "artist": "Jiro Sasumo",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5gg/GG35.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5gg/GG35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5gg-GG35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.0,
+              "mid": 63.71,
+              "high": 138.0,
+              "market": 56.11,
+              "directLow": 62.76
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5gg-GG35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 55.24,
+            "lowPrice": 15.0,
+            "trendPrice": 55.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 40.9,
+            "avg1": 47.38,
+            "avg7": 53.97,
+            "avg30": 55.25,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv6-11",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Leaflet Blessings",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach a Basic Grass Energy card from your hand to 1 of your Benched Pokémon. If you do, heal all damage from that Pokémon."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Kuroimori",
+        "rarity": "Uncommon",
+        "flavorText": "The younger they are, the more they smell like fresh grass. With age, their fragrance takes on the odor of fallen leaves.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/11.png",
+          "large": "https://images.pokemontcg.io/sv6/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.12,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.16,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.13,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-6",
+        "name": "Leafeon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Verdant Storm",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Moss Agate",
+            "cost": [
+              "Grass",
+              "Fire",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "Heal 100 damage from each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "6",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/6.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.45,
+              "mid": 3.27,
+              "high": 9999.0,
+              "market": 2.54,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-5",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Leaflet Blessings",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach a Basic Grass Energy card from your hand to 1 of your Benched Pokémon. If you do, heal all damage from that Pokémon."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "5",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/5.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.26,
+              "high": 999.0,
+              "market": 0.26,
+              "directLow": 0.08
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.21,
+              "high": 999.0,
+              "market": 0.2,
+              "directLow": 0.12
+            }
+          }
+        }
+      },
+      {
+        "id": "sv8pt5-144",
+        "name": "Leafeon ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Tera",
+          "ex"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "rules": [
+          "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Verdant Storm",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Moss Agate",
+            "cost": [
+              "Grass",
+              "Fire",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "Heal 100 damage from each of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv8pt5",
+          "name": "Prismatic Evolutions",
+          "series": "Scarlet & Violet",
+          "printedTotal": 131,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRE",
+          "releaseDate": "2025/01/17",
+          "updatedAt": "025/01/16 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
+          }
+        },
+        "number": "144",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8pt5/144.png",
+          "large": "https://images.pokemontcg.io/sv8pt5/144_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-144",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 239.99,
+              "mid": 299.99,
+              "high": 999.0,
+              "market": 257.92,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "svp-170",
+        "name": "Leafeon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Eevee",
+        "attacks": [
+          {
+            "name": "Leaflet Blessings",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach a Basic Grass Energy card from your hand to 1 of your Benched Pokémon. If you do, heal all damage from that Pokémon."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 150,
+          "total": 148,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2022/11/01",
+          "updatedAt": "2023/07/20 22:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "170",
+        "artist": "Iori Suzuki",
+        "rarity": "Promo",
+        "flavorText": "The younger they are, the more they smell like fresh grass. With age, their fragrance takes on the odor of fallen leaves.",
+        "nationalPokedexNumbers": [
+          470
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/170.png",
+          "large": "https://images.pokemontcg.io/svp/170_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-170",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.98,
+              "mid": 2.99,
+              "high": 10.0,
+              "market": 2.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-170",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.1,
+            "trendPrice": 0.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.59,
+            "avg7": 0.67,
+            "avg30": 0.69,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 35,
+    "totalCount": 35
+  }
+}

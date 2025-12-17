@@ -1,0 +1,3454 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:zacian"
+  },
+  "cache_key": "cd73acac0e2a9ab0499c1e4149f7273c",
+  "cached_at": 1765902564.087092,
+  "response": {
+    "data": [
+      {
+        "id": "swshp-SWSH018",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH018",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH018.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH018_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH018",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 1.0,
+              "high": 8.0,
+              "market": 0.95,
+              "directLow": 0.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH018",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.1,
+            "lowPrice": 0.38,
+            "trendPrice": 1.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.14,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.2,
+            "avg7": 1.22,
+            "avg30": 1.15,
+            "reverseHoloAvg1": 3.08,
+            "reverseHoloAvg7": 2.86,
+            "reverseHoloAvg30": 3.04
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH033",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Crunch",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If heads, discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Metal Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "190",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH033",
+        "artist": "Kouki Saitou",
+        "rarity": "Promo",
+        "flavorText": "Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH033.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH033_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH033",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 3.5,
+              "high": 9.95,
+              "market": 3.48,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH033",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.29,
+            "lowPrice": 1.0,
+            "trendPrice": 2.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.67,
+            "lowPriceExPlus": 1.79,
+            "avg1": 1.99,
+            "avg7": 2.21,
+            "avg30": 2.51,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 3.57,
+            "reverseHoloAvg30": 3.95
+          }
+        }
+      },
+      {
+        "id": "swsh4-82",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Metal Armament",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Attach a basic Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Amazing Sword",
+            "cost": [
+              "Grass",
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150+",
+            "text": "If your opponent has any Pokémon VMAX in play, this attack does 150 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "82",
+        "artist": "Shin Nagasawa",
+        "rarity": "Amazing Rare",
+        "flavorText": "Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/82.png",
+          "large": "https://images.pokemontcg.io/swsh4/82_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-82",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.75,
+              "mid": 3.0,
+              "high": 19.95,
+              "market": 2.57,
+              "directLow": 3.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-82",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 4.49,
+            "lowPrice": 2.55,
+            "trendPrice": 4.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.85,
+            "lowPriceExPlus": 2.95,
+            "avg1": 5.33,
+            "avg7": 4.34,
+            "avg30": 4.48,
+            "reverseHoloAvg1": 13.5,
+            "reverseHoloAvg7": 13.71,
+            "reverseHoloAvg30": 13.84
+          }
+        }
+      },
+      {
+        "id": "swsh2-139",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Energy Stream",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Attach a Metal Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Smashing Edge",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Flip a coin. If tails, discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "139",
+        "artist": "Hideki Ishikawa",
+        "rarity": "Rare",
+        "flavorText": "Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/139.png",
+          "large": "https://images.pokemontcg.io/swsh2/139_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-139",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.41,
+              "mid": 0.67,
+              "high": 9.99,
+              "market": 0.67,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.2,
+              "mid": 0.44,
+              "high": 1.5,
+              "market": 0.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-139",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.55,
+            "lowPrice": 0.02,
+            "trendPrice": 0.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.92,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.3,
+            "avg7": 0.5,
+            "avg30": 0.6,
+            "reverseHoloAvg1": 0.16,
+            "reverseHoloAvg7": 1.02,
+            "reverseHoloAvg30": 1.07
+          }
+        }
+      },
+      {
+        "id": "swsh1-138",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "138",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/138.png",
+          "large": "https://images.pokemontcg.io/swsh1/138_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-138",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.49,
+              "mid": 1.08,
+              "high": 8.0,
+              "market": 1.05,
+              "directLow": 1.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-138",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.46,
+            "lowPrice": 0.5,
+            "trendPrice": 2.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.99,
+            "avg1": 1.99,
+            "avg7": 2.11,
+            "avg30": 2.9,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh1-195",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "195",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/195.png",
+          "large": "https://images.pokemontcg.io/swsh1/195_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-195",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.48,
+              "mid": 5.29,
+              "high": 29.99,
+              "market": 5.22,
+              "directLow": 7.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-195",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 6.05,
+            "lowPrice": 3.48,
+            "trendPrice": 5.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 20.28,
+            "lowPriceExPlus": 3.99,
+            "avg1": 4.0,
+            "avg7": 5.54,
+            "avg30": 6.42,
+            "reverseHoloAvg1": 20.5,
+            "reverseHoloAvg7": 19.68,
+            "reverseHoloAvg30": 21.84
+          }
+        }
+      },
+      {
+        "id": "swsh1-211",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "211",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/211.png",
+          "large": "https://images.pokemontcg.io/swsh1/211_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-211",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.68,
+              "mid": 17.99,
+              "high": 69.95,
+              "market": 15.94,
+              "directLow": 19.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-211",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 25.24,
+            "lowPrice": 8.0,
+            "trendPrice": 25.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 77.97,
+            "lowPriceExPlus": 15.0,
+            "avg1": 22.0,
+            "avg7": 24.81,
+            "avg30": 23.89,
+            "reverseHoloAvg1": 72.95,
+            "reverseHoloAvg7": 83.85,
+            "reverseHoloAvg30": 76.26
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH076",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH076",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH076.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH076_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH076",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.41,
+              "mid": 11.76,
+              "high": 9999.0,
+              "market": 9.91,
+              "directLow": 9.61
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH076",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 7.76,
+            "lowPrice": 4.0,
+            "trendPrice": 7.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 36.23,
+            "lowPriceExPlus": 5.0,
+            "avg1": 6.98,
+            "avg7": 7.74,
+            "avg30": 7.86,
+            "reverseHoloAvg1": 37.5,
+            "reverseHoloAvg7": 42.81,
+            "reverseHoloAvg30": 46.03
+          }
+        }
+      },
+      {
+        "id": "cel25-16",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Roar of the Sword",
+            "text": "Once during your turn, you may search your deck for a Psychic Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck. If you use this Ability, your turn ends."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Storm Slash",
+            "damage": "60+",
+            "text": "This attack does 30 more damage for each Psychic Energy attached to this Pokémon.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "cel25",
+          "name": "Celebrations",
+          "series": "Sword & Shield",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEL",
+          "releaseDate": "2021/10/08",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/cel25/symbol.png",
+            "logo": "https://images.pokemontcg.io/cel25/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/cel25/16.png",
+          "large": "https://images.pokemontcg.io/cel25/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/cel25-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 0.99,
+              "high": 200.0,
+              "market": 0.65,
+              "directLow": 0.66
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/cel25-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.65,
+            "lowPrice": 0.1,
+            "trendPrice": 0.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.37,
+            "avg7": 0.56,
+            "avg30": 0.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH135",
+        "name": "Zacian LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "160",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Zacian",
+        "rules": [
+          "(This card cannot be used at official tournaments.)",
+          "Put this card onto your Active Zacian. Zacian LV.X can use any attack, Poké-Power, or Poké-Body from its previous Level."
+        ],
+        "abilities": [
+          {
+            "name": "Bladed Armament",
+            "text": "Damage from this Pokémon's attacks isn't affected by any effects on your opponent's Active Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH135",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Banned"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH135.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH135_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH135",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.92,
+              "mid": 3.73,
+              "high": 9999.0,
+              "market": 3.29,
+              "directLow": 2.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH135",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.24,
+            "lowPrice": 0.1,
+            "trendPrice": 1.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 1.25,
+            "avg7": 1.0,
+            "avg30": 1.24,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH163",
+        "name": "Zacian V-UNION",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "V-UNION"
+        ],
+        "hp": "320",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "How to play a Pokémon V-UNION: Once per game during your turn, combine 4 different Zacian V-UNION from your discard pile and put them onto your Bench.",
+          "V-UNION rule: When your Pokémon V-UNION is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Union Gain",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 2 Metal Energy cards from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Dance of the Crowned Sword",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks do 150 less damage (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Steel Cut",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": ""
+          },
+          {
+            "name": "Master Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "340",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH163",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH163.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH163_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH163",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.73,
+              "mid": 2.49,
+              "high": 5.99,
+              "market": 2.36,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH163",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.09,
+            "lowPrice": 1.98,
+            "trendPrice": 3.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.98,
+            "avg1": 2.2,
+            "avg7": 3.8,
+            "avg30": 2.67,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH164",
+        "name": "Zacian V-UNION",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "V-UNION"
+        ],
+        "hp": "320",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "How to play a Pokémon V-UNION: Once per game during your turn, combine 4 different Zacian V-UNION from your discard pile and put them onto your Bench.",
+          "V-UNION rule: When your Pokémon V-UNION is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Union Gain",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 2 Metal Energy cards from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Dance of the Crowned Sword",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks do 150 less damage (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Steel Cut",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": ""
+          },
+          {
+            "name": "Master Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "340",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH164",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH164.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH164_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH164",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.95,
+              "mid": 2.5,
+              "high": 5.99,
+              "market": 2.43,
+              "directLow": 2.12
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH164",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.55,
+            "lowPrice": 1.4,
+            "trendPrice": 2.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.4,
+            "avg1": 2.3,
+            "avg7": 2.55,
+            "avg30": 2.36,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH165",
+        "name": "Zacian V-UNION",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "V-UNION"
+        ],
+        "hp": "320",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "How to play a Pokémon V-UNION: Once per game during your turn, combine 4 different Zacian V-UNION from your discard pile and put them onto your Bench.",
+          "V-UNION rule: When your Pokémon V-UNION is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Union Gain",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 2 Metal Energy cards from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Dance of the Crowned Sword",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks do 150 less damage (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Steel Cut",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": ""
+          },
+          {
+            "name": "Master Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "340",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH165",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH165.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH165_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH165",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.38,
+              "mid": 2.61,
+              "high": 6.4,
+              "market": 2.63,
+              "directLow": 2.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH165",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.12,
+            "lowPrice": 1.95,
+            "trendPrice": 3.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.95,
+            "avg1": 2.5,
+            "avg7": 2.67,
+            "avg30": 2.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH166",
+        "name": "Zacian V-UNION",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "V-UNION"
+        ],
+        "hp": "320",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "How to play a Pokémon V-UNION: Once per game during your turn, combine 4 different Zacian V-UNION from your discard pile and put them onto your Bench.",
+          "V-UNION rule: When your Pokémon V-UNION is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Union Gain",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 2 Metal Energy cards from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Dance of the Crowned Sword",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks do 150 less damage (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Steel Cut",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": ""
+          },
+          {
+            "name": "Master Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "340",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH166",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH166.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH166_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH166",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.22,
+              "mid": 4.64,
+              "high": 42.55,
+              "market": 4.05,
+              "directLow": 2.5
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH166",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.63,
+            "lowPrice": 1.98,
+            "trendPrice": 2.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.98,
+            "avg1": 2.1,
+            "avg7": 2.57,
+            "avg30": 2.49,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10tg-TG21",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10tg",
+          "name": "Astral Radiance Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10tg/logo.png"
+          }
+        },
+        "number": "TG21",
+        "artist": "aoki",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10tg/TG21.png",
+          "large": "https://images.pokemontcg.io/swsh10tg/TG21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10tg-TG21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.16,
+              "mid": 16.25,
+              "high": 100.0,
+              "market": 14.99,
+              "directLow": 17.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10tg-TG21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.29,
+            "lowPrice": 6.5,
+            "trendPrice": 18.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.9,
+            "avg1": 16.95,
+            "avg7": 17.22,
+            "avg30": 17.1,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-94",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Battle Legion",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "This attack does 10 more damage for each of your Benched Pokémon. This attack's damage isn't affected by Weakness or by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Slicing Blade",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "94",
+        "artist": "nagimiso",
+        "rarity": "Rare Holo",
+        "flavorText": "Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/94.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/94_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-94",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.16
+            },
+            "reverseHolofoil": {
+              "low": 0.13,
+              "mid": 0.3,
+              "high": 999.0,
+              "market": 0.29,
+              "directLow": 0.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-94",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.39,
+            "lowPrice": 0.03,
+            "trendPrice": 0.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.67,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.5,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.26,
+            "avg7": 0.43,
+            "avg30": 0.38,
+            "reverseHoloAvg1": 0.43,
+            "reverseHoloAvg7": 0.44,
+            "reverseHoloAvg30": 0.61
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-95",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Piercing Strike",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "This attack's damage isn't affected by Weakness or Resistance, or by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Behemoth Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 160 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/95.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.38,
+              "mid": 0.99,
+              "high": 999.0,
+              "market": 0.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.88,
+            "lowPrice": 0.2,
+            "trendPrice": 0.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.57,
+            "avg7": 0.76,
+            "avg30": 0.87,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-96",
+        "name": "Zacian VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Zacian V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Break Edge",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "This attack's damage isn't affected by Weakness or Resistance, or by any effects on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Sword Star",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "310",
+            "text": "This Pokémon also does 30 damage to itself. (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/96.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.6,
+              "high": 999.0,
+              "market": 1.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.68,
+            "lowPrice": 0.89,
+            "trendPrice": 1.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.89,
+            "avg1": 1.53,
+            "avg7": 1.76,
+            "avg30": 1.71,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5gg-GG48",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Roar of the Sword",
+            "text": "Once during your turn, you may search your deck for a Psychic Energy card and attach it to 1 of your Pokémon. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Storm Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 30 more damage for each Psychic Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5gg",
+          "name": "Crown Zenith Galarian Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 70,
+          "total": 70,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5gg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5gg/logo.png"
+          }
+        },
+        "number": "GG48",
+        "artist": "Hataya",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5gg/GG48.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5gg/GG48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5gg-GG48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.89,
+              "mid": 19.79,
+              "high": 100.0,
+              "market": 18.08,
+              "directLow": 20.87
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5gg-GG48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.19,
+            "lowPrice": 14.64,
+            "trendPrice": 21.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 14.99,
+            "avg1": 29.99,
+            "avg7": 20.38,
+            "avg30": 20.78,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH292",
+        "name": "Zacian V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Intrepid Sword",
+            "text": "Once during your turn, you may look at the top 3 cards of your deck and attach any number of Metal Energy cards you find there to this Pokémon. Put the other cards into your hand. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH292",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH292.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH292_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH292",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.42,
+              "mid": 4.15,
+              "high": 9999.0,
+              "market": 3.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH292",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.81,
+            "lowPrice": 0.99,
+            "trendPrice": 2.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.98,
+            "avg7": 2.5,
+            "avg30": 2.04,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4-136",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Iron Roar",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Attach a Basic Metal Energy card from your discard pile to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Brave Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "136",
+        "artist": "Tonji Matsuno",
+        "rarity": "Rare",
+        "flavorText": "Able to cut down anything with a single strike, it became known as the Fairy King's Sword, and it inspired awe in friend and foe alike.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/136.png",
+          "large": "https://images.pokemontcg.io/sv4/136_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-136",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.02,
+              "mid": 0.16,
+              "high": 19.98,
+              "market": 0.15,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-136",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.13,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.21,
+            "reverseHoloAvg7": 0.2,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "sv9-111",
+        "name": "Hop's Zacian ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "230",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Insta-Strike",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Brave Slash",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Brave Slash."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "111",
+        "artist": "aky CG Works",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/111.png",
+          "large": "https://images.pokemontcg.io/sv9/111_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-111",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.76,
+              "high": 9999.0,
+              "market": 0.54,
+              "directLow": 0.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-111",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.54,
+            "lowPrice": 0.02,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.43,
+            "avg7": 0.54,
+            "avg30": 0.54,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-176",
+        "name": "Hop's Zacian ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "230",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Insta-Strike",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Brave Slash",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Brave Slash."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "176",
+        "artist": "aky CG Works",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/176.png",
+          "large": "https://images.pokemontcg.io/sv9/176_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-176",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.45,
+              "high": 9999.0,
+              "market": 1.86,
+              "directLow": 2.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-176",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.49,
+            "lowPrice": 0.8,
+            "trendPrice": 2.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 2.61,
+            "avg7": 2.34,
+            "avg30": 2.4,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-186",
+        "name": "Hop's Zacian ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "230",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Insta-Strike",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Brave Slash",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Brave Slash."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "186",
+        "artist": "DOM",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/186.png",
+          "large": "https://images.pokemontcg.io/sv9/186_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-186",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.99,
+              "mid": 37.57,
+              "high": 9999.0,
+              "market": 32.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-186",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 44.86,
+            "lowPrice": 30.0,
+            "trendPrice": 36.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 30.49,
+            "avg1": 42.66,
+            "avg7": 35.84,
+            "avg30": 40.64,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "svp-193",
+        "name": "Hop's Zacian ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "230",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Insta-Strike",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Brave Slash",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Brave Slash."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 150,
+          "total": 148,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2022/11/01",
+          "updatedAt": "2023/07/20 22:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "193",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/193.png",
+          "large": "https://images.pokemontcg.io/svp/193_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-193",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.77,
+            "lowPrice": 0.05,
+            "trendPrice": 0.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.99,
+            "avg7": 0.87,
+            "avg30": 0.6,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "svp-198",
+        "name": "Zacian ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Steel Armament",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Search your deck for a Basic Metal Energy card and attach it to this Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "Slashing Strike",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "210",
+            "text": "During your next turn, this Pokémon can't use Slashing Strike."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 150,
+          "total": 148,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2022/11/01",
+          "updatedAt": "2023/07/20 22:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "198",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/198.png",
+          "large": "https://images.pokemontcg.io/svp/198_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-198",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.23,
+              "mid": 0.75,
+              "high": 3.95,
+              "market": 0.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-198",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.66,
+            "lowPrice": 0.1,
+            "trendPrice": 0.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.37,
+            "avg7": 0.66,
+            "avg30": 0.66,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "me2-45",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Limit Break",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If your opponent has 3 or fewer Prize cards remaining, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "Able to cut down anything with a single strike, it became known as the Fairy King's Sword, and it inspired awe in friend and foe alike.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/45.png",
+          "large": "https://images.pokemontcg.io/me2/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.08,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.09,
+              "directLow": 0.04
+            }
+          }
+        }
+      },
+      {
+        "id": "me2-100",
+        "name": "Zacian",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Limit Break",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If your opponent has 3 or fewer Prize cards remaining, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "100",
+        "artist": "Yoriyuki Ikegami",
+        "rarity": "Illustration Rare",
+        "flavorText": "Able to cut down anything with a single strike, it became known as the Fairy King's Sword, and it inspired awe in friend and foe alike.",
+        "nationalPokedexNumbers": [
+          888
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/100.png",
+          "large": "https://images.pokemontcg.io/me2/100_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-100",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.79,
+              "mid": 4.75,
+              "high": 999.0,
+              "market": 3.31,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 28,
+    "totalCount": 28
+  }
+}

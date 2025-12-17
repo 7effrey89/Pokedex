@@ -1,0 +1,632 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:nihilego"
+  },
+  "cache_key": "bb85183e0170ff95231f1ea479189e3e",
+  "cached_at": 1765913542.328696,
+  "response": {
+    "data": [
+      {
+        "id": "sm4-49",
+        "name": "Nihilego-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Empty Light",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may leave both Active Pokémon Confused and Poisoned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lock Up",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Symbiont-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Add the top 2 cards of your opponent's deck to their Prize cards. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          793
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/49.png",
+          "large": "https://images.pokemontcg.io/sm4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.75,
+              "mid": 6.25,
+              "high": 34.92,
+              "market": 7.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.8,
+            "lowPrice": 3.59,
+            "trendPrice": 4.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.09,
+            "lowPriceExPlus": 4.75,
+            "avg1": 5.9,
+            "avg7": 5.2,
+            "avg30": 5.2,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 3.09,
+            "reverseHoloAvg30": 3.22
+          }
+        }
+      },
+      {
+        "id": "sma-SV62",
+        "name": "Nihilego-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Empty Light",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may leave both Active Pokémon Confused and Poisoned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lock Up",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Symbiont-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Add the top 2 cards of your opponent's deck to their Prize cards. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sma",
+          "name": "Hidden Fates Shiny Vault",
+          "series": "Sun & Moon",
+          "printedTotal": 94,
+          "total": 94,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sma/symbol.png",
+            "logo": "https://images.pokemontcg.io/sma/logo.png"
+          }
+        },
+        "number": "SV62",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Shiny GX",
+        "nationalPokedexNumbers": [
+          793
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sma/SV62.png",
+          "large": "https://images.pokemontcg.io/sma/SV62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sma-SV62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.74,
+              "mid": 16.16,
+              "high": 317.0,
+              "market": 14.39,
+              "directLow": 17.33
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sma-SV62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.0,
+            "lowPrice": 6.0,
+            "trendPrice": 9.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.79,
+            "lowPriceExPlus": 6.0,
+            "avg1": 8.99,
+            "avg7": 10.27,
+            "avg30": 9.73,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 11.14,
+            "reverseHoloAvg30": 12.86
+          }
+        }
+      },
+      {
+        "id": "sm8-106",
+        "name": "Nihilego",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Nightcap",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "You can use this attack only if your opponent has exactly 2 Prize cards remaining. Choose 1 of your opponent's Pokémon's attacks and use it as this attack."
+          },
+          {
+            "name": "Void Tentacles",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Megumi Mizutani",
+        "rarity": "Rare Holo",
+        "flavorText": "One of the Ultra Beasts, it's unclear whether or not this Pokémon is sentient, but sometimes it can be observed behaving like a young girl.",
+        "nationalPokedexNumbers": [
+          793
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/106.png",
+          "large": "https://images.pokemontcg.io/sm8/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 10.99,
+              "mid": 13.36,
+              "high": 20.8,
+              "market": 13.12,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 9.91,
+              "mid": 11.99,
+              "high": 16.59,
+              "market": 11.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-106",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 12.21,
+            "lowPrice": 7.5,
+            "trendPrice": 12.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 17.45,
+            "reverseHoloLow": 8.0,
+            "reverseHoloTrend": 15.84,
+            "lowPriceExPlus": 7.5,
+            "avg1": 10.0,
+            "avg7": 11.49,
+            "avg30": 11.76,
+            "reverseHoloAvg1": 19.9,
+            "reverseHoloAvg7": 15.1,
+            "reverseHoloAvg30": 11.03
+          }
+        }
+      },
+      {
+        "id": "sm4-103",
+        "name": "Nihilego-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Empty Light",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may leave both Active Pokémon Confused and Poisoned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lock Up",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Symbiont-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Add the top 2 cards of your opponent's deck to their Prize cards. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          793
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/103.png",
+          "large": "https://images.pokemontcg.io/sm4/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.56,
+              "mid": 8.05,
+              "high": 19.99,
+              "market": 7.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-103",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 5.95,
+            "lowPrice": 1.0,
+            "trendPrice": 5.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.64,
+            "lowPriceExPlus": 4.5,
+            "avg1": 6.0,
+            "avg7": 6.21,
+            "avg30": 5.85,
+            "reverseHoloAvg1": 4.25,
+            "reverseHoloAvg7": 4.27,
+            "reverseHoloAvg30": 4.24
+          }
+        }
+      },
+      {
+        "id": "sm4-114",
+        "name": "Nihilego-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Empty Light",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may leave both Active Pokémon Confused and Poisoned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lock Up",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Symbiont-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Add the top 2 cards of your opponent's deck to their Prize cards. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "114",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          793
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/114.png",
+          "large": "https://images.pokemontcg.io/sm4/114_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-114",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.13,
+              "mid": 12.36,
+              "high": 60.0,
+              "market": 12.45,
+              "directLow": 12.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-114",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 6.75,
+            "lowPrice": 4.99,
+            "trendPrice": 14.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.46,
+            "lowPriceExPlus": 7.0,
+            "avg1": 5.0,
+            "avg7": 8.98,
+            "avg30": 13.83,
+            "reverseHoloAvg1": 8.95,
+            "reverseHoloAvg7": 11.97,
+            "reverseHoloAvg30": 8.84
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 5,
+    "totalCount": 5
+  }
+}

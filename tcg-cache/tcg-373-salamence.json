@@ -1,0 +1,3662 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:salamence"
+  },
+  "cache_key": "f127fb6443978efb1b3d4c068a6e591e",
+  "cached_at": 1765915592.131338,
+  "response": {
+    "data": [
+      {
+        "id": "dv1-8",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Scornful Storm",
+            "text": "Once during your turn (before your attack), you may have your opponent discard cards from his or her hand until he or she has 4 cards left in his or her hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shred",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "This attack's damage isn't affected by any effects on the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Dragon",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dv1",
+          "name": "Dragon Vault",
+          "series": "Black & White",
+          "printedTotal": 20,
+          "total": 21,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRV",
+          "releaseDate": "2012/10/05",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dv1/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "BERUBURI",
+        "rarity": "Rare Holo",
+        "flavorText": "As a result of its long-held dream of flying, its cellular structure changed, and wings grew out.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dv1/8.png",
+          "large": "https://images.pokemontcg.io/dv1/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dv1-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.3,
+              "mid": 2.74,
+              "high": 20.0,
+              "market": 4.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dv1-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.68,
+            "lowPrice": 0.25,
+            "trendPrice": 3.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.81,
+            "lowPriceExPlus": 0.5,
+            "avg1": 2.49,
+            "avg7": 2.82,
+            "avg30": 3.16,
+            "reverseHoloAvg1": 4.19,
+            "reverseHoloAvg7": 2.7,
+            "reverseHoloAvg30": 2.81
+          }
+        }
+      },
+      {
+        "id": "pl4-8",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "68",
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Top Accelerator",
+            "text": "Once during your turn (before your attack), you may reveal the top card of your deck. If that card is a basic Energy card, attach it to 1 of your Pokémon. If that card isn't a basic Energy card, discard it. This power can't be used if Salamence is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shoot Through",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl4",
+          "name": "Arceus",
+          "series": "Platinum",
+          "printedTotal": 99,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AR",
+          "releaseDate": "2009/11/04",
+          "updatedAt": "2021/07/15 11:30:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl4/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl4/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl4/8.png",
+          "large": "https://images.pokemontcg.io/pl4/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl4-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.84,
+              "mid": 6.0,
+              "high": 10.08,
+              "market": 6.22,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.67,
+              "mid": 8.25,
+              "high": 11.99,
+              "market": 8.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl4-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.77,
+            "lowPrice": 0.3,
+            "trendPrice": 1.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.07,
+            "reverseHoloLow": 0.99,
+            "reverseHoloTrend": 4.04,
+            "lowPriceExPlus": 2.0,
+            "avg1": 2.93,
+            "avg7": 3.42,
+            "avg30": 4.9,
+            "reverseHoloAvg1": 6.07,
+            "reverseHoloAvg7": 4.31,
+            "reverseHoloAvg30": 3.48
+          }
+        }
+      },
+      {
+        "id": "ex3-10",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Dragon Wind",
+            "text": "Once during your turn (before your attack), if Salamence is your Active Pokémon, you may switch 1 of your opponent's Benched Pokémon with 1 of the Defending Pokémon. Your opponent chooses the Defending Pokémon to switch. This power can't be used if Salamence is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Agility",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, prevent all effects of an attack, including damage, done to Salamence during your opponent's next turn."
+          },
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          },
+          {
+            "type": "Fire",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "10",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/10.png",
+          "large": "https://images.pokemontcg.io/ex3/10_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 78.65,
+              "mid": 112.67,
+              "high": 148.82,
+              "market": 69.44,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 24.94,
+              "mid": 47.19,
+              "high": 52.95,
+              "market": 46.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 18.0,
+            "lowPrice": 2.5,
+            "trendPrice": 17.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 10.0,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 13.82,
+            "lowPriceExPlus": 15.0,
+            "avg1": 21.99,
+            "avg7": 20.43,
+            "avg30": 22.95,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 12.34,
+            "reverseHoloAvg30": 15.66
+          }
+        }
+      },
+      {
+        "id": "ex11-14",
+        "name": "Salamence δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fire",
+          "Metal"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "This Pokémon is both Fire Metal type."
+        ],
+        "attacks": [
+          {
+            "name": "Fire Dance",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Search your discard pile for a Fire Energy card and attach it to 1 of your Pokémon."
+          },
+          {
+            "name": "Delta Blast",
+            "cost": [
+              "Fire",
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Discard a Metal Energy card attached to Salamence."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fire",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/14.png",
+          "large": "https://images.pokemontcg.io/ex11/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 22.76,
+              "mid": 24.94,
+              "high": 50.6,
+              "market": 30.45,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 50.0,
+              "mid": 59.99,
+              "high": 97.41,
+              "market": 84.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.02,
+            "lowPrice": 0.98,
+            "trendPrice": 4.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.18,
+            "reverseHoloLow": 2.9,
+            "reverseHoloTrend": 17.74,
+            "lowPriceExPlus": 6.0,
+            "avg1": 7.0,
+            "avg7": 5.04,
+            "avg30": 12.53,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 10.77,
+            "reverseHoloAvg30": 34.67
+          }
+        }
+      },
+      {
+        "id": "dp3-18",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "62",
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "attacks": [
+          {
+            "name": "Direct Hit",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, Poké-Powers, Poké-Bodies, or any other effects on the Defending Pokémon."
+          },
+          {
+            "name": "Dragon Finish",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 basic Fire Energy cards or 2 basic Water Energy cards attached to Salamence. If you discarded 2 basic Fire Energy cards, this attack does 100 damage to the Defending Pokémon. If you discarded 2 Basic Water Energy cards, this attack does 100 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (If you can't discard cards, this attack does nothing.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Kazuyuki Kano",
+        "rarity": "Rare Holo",
+        "flavorText": "As a result of its long-held dream of flying, its cellular structure changes, and wings grew out.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/18.png",
+          "large": "https://images.pokemontcg.io/dp3/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.99,
+              "mid": 26.11,
+              "high": 49.99,
+              "market": 25.65,
+              "directLow": 16.0
+            },
+            "reverseHolofoil": {
+              "low": 3.98,
+              "mid": 5.8,
+              "high": 29.99,
+              "market": 5.67,
+              "directLow": 13.47
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.91,
+            "lowPrice": 0.25,
+            "trendPrice": 7.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.72,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 6.96,
+            "lowPriceExPlus": 1.9,
+            "avg1": 8.0,
+            "avg7": 8.27,
+            "avg30": 5.24,
+            "reverseHoloAvg1": 2.2,
+            "reverseHoloAvg7": 4.24,
+            "reverseHoloAvg30": 4.59
+          }
+        }
+      },
+      {
+        "id": "ex3-19",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Intimidating Fang",
+            "text": "As long as Salamence is your Active Pokémon, any damage done to your Pokémon by an opponent's attack is reduced by 10 (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Flame",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "You may discard an Energy card attached to Salamence. If you do, this attack does 40 damage plus 20 more damage."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/19.png",
+          "large": "https://images.pokemontcg.io/ex3/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.98,
+              "mid": 1.38,
+              "high": 6.75,
+              "market": 1.42,
+              "directLow": 3.97
+            },
+            "reverseHolofoil": {
+              "low": 19.99,
+              "mid": 39.51,
+              "high": 58.69,
+              "market": 40.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 68.18,
+            "lowPrice": 3.0,
+            "trendPrice": 67.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.21,
+            "lowPriceExPlus": 5.99,
+            "avg1": 19.62,
+            "avg7": 61.04,
+            "avg30": 37.77,
+            "reverseHoloAvg1": 14.21,
+            "reverseHoloAvg7": 14.21,
+            "reverseHoloAvg30": 14.21
+          }
+        }
+      },
+      {
+        "id": "dp7-24",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "66",
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Battle Rush",
+            "text": "If your opponent has any Pokémon in play that has maximum HP of 120 or more, ignore all Colorless Energy necessary to use Salamence's attacks.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Combustion",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Steam Twister",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard a Fire Energy and a Water Energy attached to Salamence."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/24.png",
+          "large": "https://images.pokemontcg.io/dp7/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.03,
+              "mid": 2.89,
+              "high": 3.75,
+              "market": 1.86,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 8.0,
+              "mid": 9.97,
+              "high": 19.99,
+              "market": 9.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.87,
+            "lowPrice": 0.15,
+            "trendPrice": 1.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.67,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 3.14,
+            "lowPriceExPlus": 1.2,
+            "avg1": 1.8,
+            "avg7": 2.24,
+            "avg30": 1.99,
+            "reverseHoloAvg1": 9.98,
+            "reverseHoloAvg7": 2.94,
+            "reverseHoloAvg30": 2.83
+          }
+        }
+      },
+      {
+        "id": "sm75-44",
+        "name": "Salamence-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Dragon Lift",
+            "text": "Your Pokémon in play have no Retreat Cost, except Pokémon-GX and Pokémon-EX.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Bright Flame",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Flame Jet-GX",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "44",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/44.png",
+          "large": "https://images.pokemontcg.io/sm75/44_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.99,
+              "mid": 8.61,
+              "high": 17.99,
+              "market": 7.79,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.06,
+            "lowPrice": 1.97,
+            "trendPrice": 6.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.66,
+            "lowPriceExPlus": 2.99,
+            "avg1": 1.97,
+            "avg7": 5.2,
+            "avg30": 6.26,
+            "reverseHoloAvg1": 4.5,
+            "reverseHoloAvg7": 3.72,
+            "reverseHoloAvg30": 4.31
+          }
+        }
+      },
+      {
+        "id": "xy6-57",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "attacks": [
+          {
+            "name": "Shatter",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "Discard any Stadium card in play."
+          },
+          {
+            "name": "Power Howl",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "This attack does 20 damage times the number of cards in your opponent's hand."
+          },
+          {
+            "name": "Steam Blast",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "170",
+            "text": "Discard 3 Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy6",
+          "name": "Roaring Skies",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 112,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ROS",
+          "releaseDate": "2015/05/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy6/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy6/logo.png"
+          }
+        },
+        "number": "57",
+        "artist": "TOKIYA",
+        "rarity": "Rare Holo",
+        "flavorText": "It's uncontrollable if enraged. It flies around spouting flames and scorching fields and mountains.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy6/57.png",
+          "large": "https://images.pokemontcg.io/xy6/57_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy6-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.03,
+              "high": 9.09,
+              "market": 1.24,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.42,
+              "mid": 1.02,
+              "high": 2.0,
+              "market": 1.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy6-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.34,
+            "lowPrice": 0.39,
+            "trendPrice": 1.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.8,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.93,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.79,
+            "avg7": 1.28,
+            "avg30": 2.07,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 2.5,
+            "reverseHoloAvg30": 2.85
+          }
+        }
+      },
+      {
+        "id": "bw10-64",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Breakwing",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon, you may discard all Pokémon Tool cards attached to each of your opponent's Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Gaia Crush",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Discard any Stadium card in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Dragon",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Naoki Saito",
+        "rarity": "Rare Holo",
+        "flavorText": "As a result of its long-held dream of flying, its cellular structure changed, and wings grew out.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/64.png",
+          "large": "https://images.pokemontcg.io/bw10/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.92,
+              "mid": 4.36,
+              "high": 9.99,
+              "market": 5.48,
+              "directLow": 4.37
+            },
+            "reverseHolofoil": {
+              "low": 4.2,
+              "mid": 5.03,
+              "high": 7.99,
+              "market": 5.72,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.85,
+            "lowPrice": 0.9,
+            "trendPrice": 4.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.65,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 5.68,
+            "lowPriceExPlus": 1.5,
+            "avg1": 1.95,
+            "avg7": 3.7,
+            "avg30": 4.42,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 5.1,
+            "reverseHoloAvg30": 5.43
+          }
+        }
+      },
+      {
+        "id": "xyp-XY59",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "ancientTrait": {
+          "name": "Δ Evolution",
+          "text": "You may play this card from your hand to evolve a Pokémon during your first turn or the turn you play that Pokémon."
+        },
+        "attacks": [
+          {
+            "name": "Call for Goons",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 3 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward."
+          },
+          {
+            "name": "Dragon Pulse",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "Discard the top card of your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY59",
+        "artist": "Naoki Saito",
+        "rarity": "Promo",
+        "flavorText": "It's uncontrollable if enraged. It flies around spouting flames and scorching fields and mountains.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY59.png",
+          "large": "https://images.pokemontcg.io/xyp/XY59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 28.49,
+              "mid": 40.0,
+              "high": 72.5,
+              "market": 34.78,
+              "directLow": 25.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.1,
+            "lowPrice": 6.0,
+            "trendPrice": 20.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.28,
+            "lowPriceExPlus": 7.5,
+            "avg1": 6.99,
+            "avg7": 14.11,
+            "avg30": 15.23,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 3.94,
+            "reverseHoloAvg30": 2.55
+          }
+        }
+      },
+      {
+        "id": "sm75-73",
+        "name": "Salamence-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Dragon Lift",
+            "text": "Your Pokémon in play have no Retreat Cost, except Pokémon-GX and Pokémon-EX.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Bright Flame",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Flame Jet-GX",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/73.png",
+          "large": "https://images.pokemontcg.io/sm75/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 38.99,
+              "mid": 43.0,
+              "high": 131.98,
+              "market": 42.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-73",
+          "updatedAt": "2025/12/14",
+          "prices": {
+            "averageSellPrice": 38.66,
+            "lowPrice": 14.9,
+            "trendPrice": 37.94,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 34.52,
+            "lowPriceExPlus": 20.0,
+            "avg1": 39.99,
+            "avg7": 38.57,
+            "avg30": 39.99,
+            "reverseHoloAvg1": 29.99,
+            "reverseHoloAvg7": 30.92,
+            "reverseHoloAvg30": 21.5
+          }
+        }
+      },
+      {
+        "id": "pl4-98",
+        "name": "Salamence LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "160",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Salamence",
+        "rules": [
+          "Put this card onto your Active Salamence. Salamence LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Double Fall",
+            "text": "Once during your turn (before your attack), when you put Salamence LV.X from your hand onto your Active Salamence, you may use this power. For each of your opponent's Pokémon that is Knocked Out by damage from Salamence's attacks this turn, take 1 more Prize card.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Steam Blast",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Discard an Energy card attached to Salamence."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl4",
+          "name": "Arceus",
+          "series": "Platinum",
+          "printedTotal": 99,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AR",
+          "releaseDate": "2009/11/04",
+          "updatedAt": "2021/07/15 11:30:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl4/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl4/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl4/98.png",
+          "large": "https://images.pokemontcg.io/pl4/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl4-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 36.98,
+              "mid": 79.18,
+              "high": 241.58,
+              "market": 48.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl4-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 25.52,
+            "lowPrice": 3.49,
+            "trendPrice": 13.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.36,
+            "lowPriceExPlus": 7.5,
+            "avg1": 22.0,
+            "avg7": 20.38,
+            "avg30": 31.0,
+            "reverseHoloAvg1": 11.0,
+            "reverseHoloAvg7": 11.07,
+            "reverseHoloAvg30": 8.27
+          }
+        }
+      },
+      {
+        "id": "ex16-96",
+        "name": "Salamence ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "160",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Volcanic Flame",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": "Discard the top 5 cards from your deck."
+          },
+          {
+            "name": "Hydro Wave",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard all Water Energy attached to Salamence ex. This attack does 30 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fire",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/96.png",
+          "large": "https://images.pokemontcg.io/ex16/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 83.26,
+              "mid": 170.0,
+              "high": 249.95,
+              "market": 108.07,
+              "directLow": 170.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 48.43,
+            "lowPrice": 8.0,
+            "trendPrice": 58.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 33.63,
+            "lowPriceExPlus": 45.0,
+            "avg1": 85.0,
+            "avg7": 55.0,
+            "avg30": 36.75,
+            "reverseHoloAvg1": 24.5,
+            "reverseHoloAvg7": 23.77,
+            "reverseHoloAvg30": 22.58
+          }
+        }
+      },
+      {
+        "id": "ex8-103",
+        "name": "Salamence ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "160",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Dragon Lift",
+            "text": "The Retreat Cost for each of your Pokémon (excluding Pokémon-ex and Baby Pokémon) is 0.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Flame Jet",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 40 damage to that Pokémon. This attack's damage isn't affected by Weakness or Resistance."
+          },
+          {
+            "name": "Bright Flame",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard 2 Energy attached to Salamence ex."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fire",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex8",
+          "name": "Deoxys",
+          "series": "EX",
+          "printedTotal": 107,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DX",
+          "releaseDate": "2005/02/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex8/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex8/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex8/103.png",
+          "large": "https://images.pokemontcg.io/ex8/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex8-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 260.0,
+              "mid": 260.0,
+              "high": 1174.95,
+              "market": 169.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex8-103",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 405.0,
+            "lowPrice": 16.0,
+            "trendPrice": 217.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 28.93,
+            "lowPriceExPlus": 90.0,
+            "avg1": 330.0,
+            "avg7": 202.7,
+            "avg30": 97.54,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 23.49,
+            "reverseHoloAvg30": 22.56
+          }
+        }
+      },
+      {
+        "id": "sm7-106",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Dragon Wind",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "It flies around on its wings, which have grown in at last. In its happiness, it gushes hot flames, burning up the fields it passes over.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/106.png",
+          "large": "https://images.pokemontcg.io/sm7/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.75,
+              "mid": 1.01,
+              "high": 1.75,
+              "market": 1.02,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.5,
+              "high": 79.0,
+              "market": 0.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-106",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.08,
+            "lowPrice": 0.2,
+            "trendPrice": 1.73,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.99,
+            "reverseHoloLow": 0.95,
+            "reverseHoloTrend": 2.81,
+            "lowPriceExPlus": 0.95,
+            "avg1": 1.99,
+            "avg7": 2.05,
+            "avg30": 2.26,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 2.39,
+            "reverseHoloAvg30": 2.16
+          }
+        }
+      },
+      {
+        "id": "ex15-98",
+        "name": "Salamence ex δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Type Shift",
+            "text": "Once during your turn (before your attack), you may use this power. Salamence ex's type is Fire until the end of your turn.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Claw Swipe",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Dual Stream",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "You may do up to 40 damage instead of 80 to the Defending Pokémon. If you do, this attack does 40 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Colorless",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fire",
+            "value": "-30"
+          },
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/98.png",
+          "large": "https://images.pokemontcg.io/ex15/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 129.95,
+              "mid": 179.7,
+              "high": 200.0,
+              "market": 171.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 78.51,
+            "lowPrice": 13.7,
+            "trendPrice": 67.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 39.28,
+            "lowPriceExPlus": 54.99,
+            "avg1": 38.0,
+            "avg7": 63.44,
+            "avg30": 51.64,
+            "reverseHoloAvg1": 45.0,
+            "reverseHoloAvg7": 38.25,
+            "reverseHoloAvg30": 27.11
+          }
+        }
+      },
+      {
+        "id": "smp-SM139",
+        "name": "Salamence-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Dragon Lift",
+            "text": "Your Pokémon in play have no Retreat Cost, except Pokémon-GX and Pokémon-EX.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Bright Flame",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Flame Jet-GX",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM139",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM139.png",
+          "large": "https://images.pokemontcg.io/smp/SM139_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM139",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.69,
+              "mid": 19.9,
+              "high": 9999.0,
+              "market": 13.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM139",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 8.76,
+            "lowPrice": 3.99,
+            "trendPrice": 16.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.33,
+            "lowPriceExPlus": 6.5,
+            "avg1": 9.9,
+            "avg7": 8.88,
+            "avg30": 11.17,
+            "reverseHoloAvg1": 6.7,
+            "reverseHoloAvg7": 7.85,
+            "reverseHoloAvg30": 7.86
+          }
+        }
+      },
+      {
+        "id": "smp-SM140",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Dragon Wind",
+            "text": "If this Pokémon is your Active Pokémon, once during your turn (before your attack), you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dragon Claw",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM140",
+        "artist": "kawayoo",
+        "rarity": "Promo",
+        "flavorText": "It flies around on its wings, which have grown in at last. In its happiness, it gushes hot flames, burning up the fields it passes over.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM140.png",
+          "large": "https://images.pokemontcg.io/smp/SM140_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM140",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.86,
+              "mid": 5.75,
+              "high": 9.95,
+              "market": 4.78,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM140",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 6.53,
+            "lowPrice": 3.25,
+            "trendPrice": 8.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.98,
+            "lowPriceExPlus": 3.49,
+            "avg1": 9.9,
+            "avg7": 6.24,
+            "avg30": 6.76,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.99,
+            "reverseHoloAvg30": 2.69
+          }
+        }
+      },
+      {
+        "id": "swsh3-143",
+        "name": "Salamence V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Swoop Across",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Heavy Storm",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "143",
+        "artist": "Saki Hayashiro",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/143.png",
+          "large": "https://images.pokemontcg.io/swsh3/143_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-143",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.0,
+              "high": 25.0,
+              "market": 0.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-143",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.5,
+            "lowPrice": 0.5,
+            "trendPrice": 1.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.04,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.25,
+            "avg7": 1.32,
+            "avg30": 1.46,
+            "reverseHoloAvg1": 1.33,
+            "reverseHoloAvg7": 1.86,
+            "reverseHoloAvg30": 2.41
+          }
+        }
+      },
+      {
+        "id": "swsh3-144",
+        "name": "Salamence VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "320",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Salamence V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Sonic Double",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 40 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Max Wings",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Max Wings."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "144",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/144.png",
+          "large": "https://images.pokemontcg.io/swsh3/144_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-144",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 3.4,
+              "high": 24.99,
+              "market": 2.9,
+              "directLow": 3.41
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-144",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.34,
+            "lowPrice": 0.79,
+            "trendPrice": 3.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.57,
+            "lowPriceExPlus": 1.89,
+            "avg1": 3.59,
+            "avg7": 3.5,
+            "avg30": 3.45,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 7.56,
+            "reverseHoloAvg30": 8.33
+          }
+        }
+      },
+      {
+        "id": "xyp-XY170",
+        "name": "Salamence-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesTo": [
+          "M Salamence-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Beastly Fang",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "This attack does 50 more damage for each of your opponent's Pokémon-EX."
+          },
+          {
+            "name": "Dragon Strike",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "This Pokémon can't use Dragon Strike during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY170",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY170.png",
+          "large": "https://images.pokemontcg.io/xyp/XY170_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY170",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.0,
+              "mid": 12.02,
+              "high": 18.0,
+              "market": 15.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY170",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 11.21,
+            "lowPrice": 2.48,
+            "trendPrice": 10.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.09,
+            "lowPriceExPlus": 4.95,
+            "avg1": 25.0,
+            "avg7": 12.13,
+            "avg30": 9.34,
+            "reverseHoloAvg1": 13.45,
+            "reverseHoloAvg7": 7.69,
+            "reverseHoloAvg30": 5.13
+          }
+        }
+      },
+      {
+        "id": "xyp-XY171",
+        "name": "M Salamence-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "230",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Salamence-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Savage Wing",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100+",
+            "text": "Discard as many basic Fire Energy attached to this Pokémon as you like. This attack does 40 more damage for each Energy card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY171",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY171.png",
+          "large": "https://images.pokemontcg.io/xyp/XY171_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY171",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 36.99,
+              "mid": 56.06,
+              "high": 199.99,
+              "market": 55.38,
+              "directLow": 78.51
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY171",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 24.12,
+            "lowPrice": 29.98,
+            "trendPrice": 25.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.45,
+            "lowPriceExPlus": 29.98,
+            "avg1": 5.0,
+            "avg7": 26.69,
+            "avg30": 31.63,
+            "reverseHoloAvg1": 11.5,
+            "reverseHoloAvg7": 10.93,
+            "reverseHoloAvg30": 9.87
+          }
+        }
+      },
+      {
+        "id": "xyp-XY172",
+        "name": "Salamence Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Salamence-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY172",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY172.png",
+          "large": "https://images.pokemontcg.io/xyp/XY172_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY172",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.25,
+              "mid": 1.99,
+              "high": 2.0,
+              "market": 2.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY172",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 9.95,
+            "lowPrice": 9.5,
+            "trendPrice": 9.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.0,
+            "lowPriceExPlus": 9.5,
+            "avg1": 9.95,
+            "avg7": 9.62,
+            "avg30": 7.25,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.5,
+            "reverseHoloAvg30": 1.5
+          }
+        }
+      },
+      {
+        "id": "swsh3-185",
+        "name": "Salamence V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Swoop Across",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Heavy Storm",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "185",
+        "artist": "Saki Hayashiro",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/185.png",
+          "large": "https://images.pokemontcg.io/swsh3/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.3,
+              "mid": 3.51,
+              "high": 22.0,
+              "market": 3.49,
+              "directLow": 4.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.93,
+            "lowPrice": 1.5,
+            "trendPrice": 5.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.45,
+            "lowPriceExPlus": 2.43,
+            "avg1": 6.89,
+            "avg7": 5.66,
+            "avg30": 5.47,
+            "reverseHoloAvg1": 5.97,
+            "reverseHoloAvg7": 6.62,
+            "reverseHoloAvg30": 7.05
+          }
+        }
+      },
+      {
+        "id": "swsh3-194",
+        "name": "Salamence VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "320",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Salamence V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Sonic Double",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 40 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Max Wings",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "During your next turn, this Pokémon can't use Max Wings."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "194",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/194.png",
+          "large": "https://images.pokemontcg.io/swsh3/194_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-194",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.36,
+              "mid": 12.54,
+              "high": 49.99,
+              "market": 11.55,
+              "directLow": 12.91
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-194",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 15.92,
+            "lowPrice": 4.98,
+            "trendPrice": 18.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 37.28,
+            "lowPriceExPlus": 7.75,
+            "avg1": 6.89,
+            "avg7": 18.26,
+            "avg30": 13.25,
+            "reverseHoloAvg1": 35.99,
+            "reverseHoloAvg7": 33.35,
+            "reverseHoloAvg30": 37.35
+          }
+        }
+      },
+      {
+        "id": "swsh7-109",
+        "name": "Salamence",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "abilities": [
+          {
+            "name": "Intimidating Roar",
+            "text": "Once during your turn, you may have your opponent switch their Active Pokémon with 1 of their Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fierce Dragon",
+            "cost": [
+              "Fire",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 120 more damage."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "kodama",
+        "rarity": "Rare Holo",
+        "flavorText": "Thanks to its fervent wishes, the cells in its body finally mutated, and at last it has its heart's desire—wings.",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/109.png",
+          "large": "https://images.pokemontcg.io/swsh7/109_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-109",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.48,
+              "high": 3.99,
+              "market": 0.44,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.49,
+              "high": 9.99,
+              "market": 0.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-109",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.63,
+            "lowPrice": 0.02,
+            "trendPrice": 0.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.71,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.83,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.46,
+            "avg30": 0.58,
+            "reverseHoloAvg1": 0.62,
+            "reverseHoloAvg7": 0.74,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "sv9-114",
+        "name": "Salamence ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "320",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Wide Blast",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dragon Impact",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "300",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "114",
+        "artist": "toriyufu",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/114.png",
+          "large": "https://images.pokemontcg.io/sv9/114_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-114",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.8,
+              "high": 65.0,
+              "market": 0.52,
+              "directLow": 0.52
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-114",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.66,
+            "lowPrice": 0.02,
+            "trendPrice": 0.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.51,
+            "avg7": 0.56,
+            "avg30": 0.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-177",
+        "name": "Salamence ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "320",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Wide Blast",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dragon Impact",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "300",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "177",
+        "artist": "5ban Graphics",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/177.png",
+          "large": "https://images.pokemontcg.io/sv9/177_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-177",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.0,
+              "high": 9999.0,
+              "market": 1.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-177",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.11,
+            "lowPrice": 0.9,
+            "trendPrice": 2.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.95,
+            "avg1": 2.02,
+            "avg7": 2.01,
+            "avg30": 2.0,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-187",
+        "name": "Salamence ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "320",
+        "types": [
+          "Dragon"
+        ],
+        "evolvesFrom": "Shelgon",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Wide Blast",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dragon Impact",
+            "cost": [
+              "Fire",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "300",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "187",
+        "artist": "Tsuyoshi Nagano",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          373
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/187.png",
+          "large": "https://images.pokemontcg.io/sv9/187_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-187",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 67.06,
+              "mid": 76.24,
+              "high": 9999.0,
+              "market": 70.21,
+              "directLow": 73.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-187",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 69.96,
+            "lowPrice": 43.95,
+            "trendPrice": 60.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 43.95,
+            "avg1": 71.5,
+            "avg7": 60.82,
+            "avg30": 65.13,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 30,
+    "totalCount": 30
+  }
+}

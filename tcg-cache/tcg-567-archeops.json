@@ -1,0 +1,958 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:archeops"
+  },
+  "cache_key": "4b85fab31177c45da0ddcae86acc2b91",
+  "cached_at": 1765914545.58768,
+  "response": {
+    "data": [
+      {
+        "id": "bw10-54",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "attacks": [
+          {
+            "name": "Acrobatics",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "Flip 2 coins. This attack does 20 more damage for each heads."
+          },
+          {
+            "name": "Swift Dive",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "If this Pokémon's remaining HP is 50 or less, this attack's base damage is 50."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "It runs better than it flies. It takes off into the sky by running at a speed of 25 mph.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/54.png",
+          "large": "https://images.pokemontcg.io/bw10/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.85,
+              "mid": 1.49,
+              "high": 3.59,
+              "market": 1.73,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.09,
+              "mid": 5.35,
+              "high": 10.79,
+              "market": 5.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.73,
+            "lowPrice": 0.5,
+            "trendPrice": 2.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.0,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.75,
+            "lowPriceExPlus": 0.7,
+            "avg1": 2.95,
+            "avg7": 2.4,
+            "avg30": 2.41,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 2.37,
+            "reverseHoloAvg30": 2.41
+          }
+        }
+      },
+      {
+        "id": "bw3-67",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Ancient Power",
+            "text": "Each play can't play any Pokémon from his or her hand to evolve his or her Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rock Slide",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Does 10 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw3",
+          "name": "Noble Victories",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NVI",
+          "releaseDate": "2011/11/16",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw3/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw3/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "They are intelligent and will cooperate to catch prey. From the ground, they use a running start to take flight.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Banned"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw3/67.png",
+          "large": "https://images.pokemontcg.io/bw3/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw3-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 8.0,
+              "mid": 10.45,
+              "high": 14.03,
+              "market": 12.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.63,
+              "mid": 11.94,
+              "high": 30.0,
+              "market": 10.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw3-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.24,
+            "lowPrice": 0.15,
+            "trendPrice": 2.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.55,
+            "reverseHoloLow": 1.25,
+            "reverseHoloTrend": 3.48,
+            "lowPriceExPlus": 0.99,
+            "avg1": 3.0,
+            "avg7": 2.42,
+            "avg30": 2.95,
+            "reverseHoloAvg1": 4.1,
+            "reverseHoloAvg7": 3.47,
+            "reverseHoloAvg30": 4.18
+          }
+        }
+      },
+      {
+        "id": "bw5-110",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Ancient Power",
+            "text": "Each play can't play any Pokémon from his or her hand to evolve his or her Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rock Slide",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Does 10 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "110",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "flavorText": "This extremely rare Pokémon is a different color than usual. It is very hard to find.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Banned"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/110.png",
+          "large": "https://images.pokemontcg.io/bw5/110_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-110",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 64.99,
+              "mid": 78.31,
+              "high": 199.99,
+              "market": 71.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-110",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 34.99,
+            "lowPrice": 18.84,
+            "trendPrice": 17.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 17.56,
+            "lowPriceExPlus": 30.0,
+            "avg1": 49.99,
+            "avg7": 33.12,
+            "avg30": 49.5,
+            "reverseHoloAvg1": 12.5,
+            "reverseHoloAvg7": 13.43,
+            "reverseHoloAvg30": 22.47
+          }
+        }
+      },
+      {
+        "id": "sm11-121",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "attacks": [
+          {
+            "name": "U-turn",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "80",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "121",
+        "artist": "Hasuno",
+        "rarity": "Rare",
+        "flavorText": "This ancient Pokémon's plumage is delicate, so if anyone other than an experienced professional tries to restore it, they will fail.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/121.png",
+          "large": "https://images.pokemontcg.io/sm11/121_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-121",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.64,
+              "high": 1.25,
+              "market": 0.56,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.24,
+              "mid": 0.44,
+              "high": 3.0,
+              "market": 0.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-121",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.42,
+            "lowPrice": 0.02,
+            "trendPrice": 0.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.95,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.75,
+            "lowPriceExPlus": 0.08,
+            "avg1": 1.5,
+            "avg7": 0.52,
+            "avg30": 0.42,
+            "reverseHoloAvg1": 0.89,
+            "reverseHoloAvg7": 0.94,
+            "reverseHoloAvg30": 0.88
+          }
+        }
+      },
+      {
+        "id": "swsh12-147",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Primal Turbo",
+            "text": "Once during your turn, you may search your deck for up to 2 Special Energy cards and attach them to 1 of your Pokémon. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Speed Wing",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "147",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "flavorText": "It needs a running start to take off. If Archeops wants to fly, it first needs to run nearly 25 mph, building speed over a course of about 2.5 miles.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/147.png",
+          "large": "https://images.pokemontcg.io/swsh12/147_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-147",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.3,
+              "high": 2.49,
+              "market": 0.3,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.33,
+              "high": 4.15,
+              "market": 0.28,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-147",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.22,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.21,
+            "avg30": 0.4,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH272",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Primal Turbo",
+            "text": "Once during your turn, you may search your deck for up to 2 Special Energy cards and attach them to 1 of your Pokémon. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Speed Wing",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH272",
+        "artist": "Nisota Niso",
+        "rarity": "Promo",
+        "flavorText": "It needs a running start to take off. If Archeops wants to fly, it first needs to run nearly 25 mph, building speed over a course of about 2.5 miles.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH272.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH272_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH272",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.14,
+              "mid": 21.75,
+              "high": 99.98,
+              "market": 20.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH272",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.96,
+            "lowPrice": 0.25,
+            "trendPrice": 1.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 1.16,
+            "avg7": 1.76,
+            "avg30": 1.92,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-51",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Ancient Wing",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may devolve 1 of your opponent's evolved Pokémon by putting the highest Stage Evolution card on it into your opponent's hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rock Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Haru Akasaka",
+        "rarity": "Rare",
+        "flavorText": "They are intelligent and will cooperate to catch prey. From the ground, they use a running start to take flight.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/51.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.47,
+              "market": 0.07,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.2,
+              "high": 2.37,
+              "market": 0.18,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.31,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.05,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.14,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-132",
+        "name": "Archeops",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Archen",
+        "abilities": [
+          {
+            "name": "Ancient Wing",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may devolve 1 of your opponent's evolved Pokémon by putting the highest Stage Evolution card on it into your opponent's hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rock Throw",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "132",
+        "artist": "Jerky",
+        "rarity": "Illustration Rare",
+        "flavorText": "They are intelligent and will cooperate to catch prey. From the ground, they use a running start to take flight.",
+        "nationalPokedexNumbers": [
+          567
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/132.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/132_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-132",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 7.05,
+              "high": 40.0,
+              "market": 6.84,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-132",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 6.0,
+            "lowPrice": 4.1,
+            "trendPrice": 5.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.2,
+            "avg1": 5.77,
+            "avg7": 5.77,
+            "avg30": 5.97,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

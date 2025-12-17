@@ -1,0 +1,5404 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:blastoise"
+  },
+  "cache_key": "80052d9a8dcfb9626e649066ac3decb8",
+  "cached_at": 1765879142.94001,
+  "response": {
+    "data": [
+      {
+        "id": "pl1-2",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "60",
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Dig Well",
+            "text": "Once during your turn (before your attack), you may look at the top 3 cards of your deck, choose as many Water Energy cards as you like, and attach them to your Pokémon in any way you like. Discard the other cards. This power can't be used if Blastoise is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Aqua Press",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each Energy attached to all Pokémon (both yours and your opponent's)."
+          },
+          {
+            "name": "Double Launcher",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 Energy attached to Blastoise. Choose 2 of your opponent's Benched Pokémon. This attack does 60 damage to each of them. (Don't apply Weakness and Resistance for Benched Pokémon.) Blastoise can't use Double Launcher during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/2.png",
+          "large": "https://images.pokemontcg.io/pl1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 22.0,
+              "mid": 32.46,
+              "high": 55.0,
+              "market": 32.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 8.88,
+              "mid": 20.91,
+              "high": 39.99,
+              "market": 24.53,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.63,
+            "lowPrice": 1.5,
+            "trendPrice": 7.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.6,
+            "reverseHoloLow": 1.95,
+            "reverseHoloTrend": 4.58,
+            "lowPriceExPlus": 6.0,
+            "avg1": 2.3,
+            "avg7": 7.37,
+            "avg30": 7.89,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 5.19,
+            "reverseHoloAvg30": 5.66
+          }
+        }
+      },
+      {
+        "id": "dp3-2",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Waterlog",
+            "text": "Once during your turn (before your attack), you may attach as many basic Water Energy cards from your hand to any of your Pokémon in any way you like. If you do, your turn ends. This power can't be used if Blastoise is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Does 50 damage plus 20 more damage for each Water Energy attached to Blastoise but not used to pay for this attack's Energy cost. You can't add more than 40 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Daisuke Ito",
+        "rarity": "Rare Holo",
+        "flavorText": "The jets of water it spouts from the rocket cannons on its shell can punch through thick steel.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/2.png",
+          "large": "https://images.pokemontcg.io/dp3/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 40.0,
+              "mid": 74.67,
+              "high": 199.99,
+              "market": 77.21,
+              "directLow": 56.98
+            },
+            "reverseHolofoil": {
+              "low": 25.99,
+              "mid": 54.36,
+              "high": 87.42,
+              "market": 66.78,
+              "directLow": 66.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.77,
+            "lowPrice": 2.0,
+            "trendPrice": 11.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.15,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 8.03,
+            "lowPriceExPlus": 6.0,
+            "avg1": 34.0,
+            "avg7": 11.93,
+            "avg30": 10.08,
+            "reverseHoloAvg1": 3.8,
+            "reverseHoloAvg7": 6.52,
+            "reverseHoloAvg30": 10.15
+          }
+        }
+      },
+      {
+        "id": "base4-2",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Rain Dance",
+            "text": "As often as you like during your turn (before your attack), you may attach 1 Water Energy card to 1 of your Water Pokémon. (This doesn't use up your 1 Energy card attachment for the turn.) This power can't be used if Blastoise is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Water Energy attached to Blastoise but not used to pay for this attack's Energy cost. You can't add more than 20 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "A brutal Pokémon with pressurized water jets on its shell. They are used for high-speed tackles.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/2.png",
+          "large": "https://images.pokemontcg.io/base4/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 69.64,
+              "mid": 94.59,
+              "high": 150.0,
+              "market": 107.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 70.9,
+            "lowPrice": 30.0,
+            "trendPrice": 64.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 119.54,
+            "lowPriceExPlus": 60.0,
+            "avg1": 45.0,
+            "avg7": 75.77,
+            "avg30": 73.35,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 132.22,
+            "reverseHoloAvg30": 93.91
+          }
+        }
+      },
+      {
+        "id": "pop3-1",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "attacks": [
+          {
+            "name": "Smash Turn",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "After your attack, you may switch Blastoise with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Rocket Tackle",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "Blastoise does 10 damage to itself. Flip a coin. If heads, prevent all damage done to Blastoise by attacks during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pop3",
+          "name": "POP Series 3",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2006/04/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop3/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop3/1.png",
+          "large": "https://images.pokemontcg.io/pop3/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 350.0,
+              "mid": 350.0,
+              "high": 350.0,
+              "market": 15.0,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 68.7,
+              "mid": 75.99,
+              "high": 124.99,
+              "market": 121.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 181.71,
+            "lowPrice": 20.0,
+            "trendPrice": 133.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 59.99,
+            "lowPriceExPlus": 79.0,
+            "avg1": 99.95,
+            "avg7": 120.01,
+            "avg30": 87.53,
+            "reverseHoloAvg1": 99.99,
+            "reverseHoloAvg7": 50.0,
+            "reverseHoloAvg30": 50.0
+          }
+        }
+      },
+      {
+        "id": "base1-2",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Rain Dance",
+            "text": "As often as you like during your turn (before your attack), you may attach 1 Water Energy card to 1 of your Water Pokémon. (This doesn't use up your 1 Energy card attachment for the turn.) This power can't be used if Blastoise is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Water Energy attached to Blastoise but not used to pay for this attack's Energy cost. Extra Water Energy after the 2nd doesn't count."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base1",
+          "name": "Base",
+          "series": "Base",
+          "printedTotal": 102,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BS",
+          "releaseDate": "1999/01/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+            "logo": "https://images.pokemontcg.io/base1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "A brutal Pokémon with pressurized water jets on its shell. They are used for high-speed tackles.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base1/2.png",
+          "large": "https://images.pokemontcg.io/base1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 88.32,
+              "mid": 128.7,
+              "high": 500.0,
+              "market": 160.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 126.5,
+            "lowPrice": 20.0,
+            "trendPrice": 144.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 73.51,
+            "lowPriceExPlus": 65.0,
+            "avg1": 55.0,
+            "avg7": 151.69,
+            "avg30": 137.78,
+            "reverseHoloAvg1": 100.0,
+            "reverseHoloAvg7": 50.43,
+            "reverseHoloAvg30": 64.46
+          }
+        }
+      },
+      {
+        "id": "ex14-2",
+        "name": "Blastoise δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting",
+          "Metal"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "This Pokémon is both Fighting Metal type."
+        ],
+        "abilities": [
+          {
+            "name": "Shield Veil",
+            "text": "Each of your Active Pokémon has no Weakness.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Enraged Linear Attack",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage for each damage counter on Blastoise to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Skull Bash",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/2.png",
+          "large": "https://images.pokemontcg.io/ex14/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 108.99,
+              "mid": 130.0,
+              "high": 2000.0,
+              "market": 90.78,
+              "directLow": 109.97
+            },
+            "reverseHolofoil": {
+              "low": 111.69,
+              "mid": 120.0,
+              "high": 189.99,
+              "market": 180.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.12,
+            "lowPrice": 5.0,
+            "trendPrice": 23.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 27.98,
+            "reverseHoloLow": 7.19,
+            "reverseHoloTrend": 40.66,
+            "lowPriceExPlus": 14.99,
+            "avg1": 5.0,
+            "avg7": 24.12,
+            "avg30": 27.71,
+            "reverseHoloAvg1": 45.0,
+            "reverseHoloAvg7": 28.22,
+            "reverseHoloAvg30": 37.19
+          }
+        }
+      },
+      {
+        "id": "base5-3",
+        "name": "Dark Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "28",
+        "hp": "70",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Dark Wartortle",
+        "attacks": [
+          {
+            "name": "Hydrocannon",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Does 30 damage plus 20 more damage for each Water Energy attached to Dark Blastoise but not used to pay for this attack. You can't add more than 40 damage in this way."
+          },
+          {
+            "name": "Rocket Tackle",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Dark Blastoise does 10 damage to itself. Flip a coin. If heads, prevent all damage done to Dark Blastoise during your opponent's next turn. (Any other effects of attacks still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "An aggressive Pokémon that tackles anything it sees.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/3.png",
+          "large": "https://images.pokemontcg.io/base5/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 517.49,
+              "mid": 598.99,
+              "high": 799.99,
+              "market": 355.78,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 90.0,
+              "mid": 133.58,
+              "high": 349.99,
+              "market": 134.41,
+              "directLow": 103.61
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 89.29,
+            "lowPrice": 25.0,
+            "trendPrice": 64.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 55.24,
+            "lowPriceExPlus": 79.0,
+            "avg1": 70.0,
+            "avg7": 63.88,
+            "avg30": 89.18,
+            "reverseHoloAvg1": 14.0,
+            "reverseHoloAvg7": 60.92,
+            "reverseHoloAvg30": 56.81
+          }
+        }
+      },
+      {
+        "id": "base6-4",
+        "name": "Dark Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "28",
+        "hp": "70",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Dark Wartortle",
+        "attacks": [
+          {
+            "name": "Hydrocannon",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Does 30 damage plus 20 more damage for each Water Energy attached to Dark Blastoise but not used to pay for this attack's Energy cost. You can't add more than 40 damage in this way."
+          },
+          {
+            "name": "Rocket Tackle",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Dark Blastoise does 10 damage to itself. Flip a coin. If heads, prevent all damage done to Dark Blastoise during your opponent's next turn. (Any other effects of attacks still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "An aggressive Pokémon that tackles anything it sees.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/4.png",
+          "large": "https://images.pokemontcg.io/base6/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 89.8,
+              "mid": 130.0,
+              "high": 140.0,
+              "market": 141.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 285.0,
+              "mid": 289.98,
+              "high": 324.99,
+              "market": 550.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 38.83,
+            "lowPrice": 17.5,
+            "trendPrice": 33.94,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 800.0,
+            "reverseHoloLow": 34.99,
+            "reverseHoloTrend": 289.84,
+            "lowPriceExPlus": 29.95,
+            "avg1": 29.98,
+            "avg7": 31.49,
+            "avg30": 34.76,
+            "reverseHoloAvg1": 800.0,
+            "reverseHoloAvg7": 349.29,
+            "reverseHoloAvg30": 216.18
+          }
+        }
+      },
+      {
+        "id": "ecard1-4",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Jet Stream",
+            "text": "Once during your turn (before your attack), if Blastoise is your Active Pokémon, you may flip a coin. If heads, discard an Energy card attached to Blastoise, if any. Then, if there are any Energy cards attached to the Defending Pokémon, choose 1 of them and discard it. This power can't be used if Blastoise is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Energy Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Energy attached to Blastoise but not used to pay for this attack's Energy Cost. You can't add more than 20 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/4.png",
+          "large": "https://images.pokemontcg.io/ecard1/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 285.52,
+              "mid": 305.0,
+              "high": 800.0,
+              "market": 400.0,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 169.99,
+              "mid": 235.0,
+              "high": 300.0,
+              "market": 119.94,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 71.66,
+            "lowPrice": 8.0,
+            "trendPrice": 110.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 189.5,
+            "reverseHoloLow": 8.0,
+            "reverseHoloTrend": 65.04,
+            "lowPriceExPlus": 54.99,
+            "avg1": 18.95,
+            "avg7": 82.99,
+            "avg30": 92.95,
+            "reverseHoloAvg1": 14.0,
+            "reverseHoloAvg7": 65.41,
+            "reverseHoloAvg30": 40.71
+          }
+        }
+      },
+      {
+        "id": "hgss2-13",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Wash Out",
+            "text": "As often as you like during your turn (before your attack), you may move a Water Energy attached to 1 of your Benched Pokémon to your Active Pokémon. This power can't be used if Blastoise is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Launcher",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Return 2 Water Energy attached to Blastoise to your hand. Choose 1 of your opponent's Pokémon. This attack does 100 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "It deliberately makes itself heavy so it can withstand the recoil of the water jets it fires.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/13.png",
+          "large": "https://images.pokemontcg.io/hgss2/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.12,
+              "mid": 5.51,
+              "high": 10.54,
+              "market": 7.6,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 19.99,
+              "mid": 30.91,
+              "high": 51.98,
+              "market": 35.96,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.55,
+            "lowPrice": 0.49,
+            "trendPrice": 1.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.83,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 20.67,
+            "lowPriceExPlus": 2.5,
+            "avg1": 5.95,
+            "avg7": 4.9,
+            "avg30": 6.34,
+            "reverseHoloAvg1": 9.5,
+            "reverseHoloAvg7": 11.44,
+            "reverseHoloAvg30": 14.35
+          }
+        }
+      },
+      {
+        "id": "bw10-16",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Deluge",
+            "text": "As often as you like during your turn (before your attack), you may attach a Water Energy card from your hand to 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "Does 10 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare Holo",
+        "flavorText": "The jets of water it spouts from the rocket cannons on its shell can punch through thick steel.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/16.png",
+          "large": "https://images.pokemontcg.io/bw10/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.09,
+              "mid": 6.99,
+              "high": 16.0,
+              "market": 8.7,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.0,
+              "mid": 9.71,
+              "high": 15.23,
+              "market": 9.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.05,
+            "lowPrice": 1.5,
+            "trendPrice": 6.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 7.44,
+            "lowPriceExPlus": 3.0,
+            "avg1": 8.75,
+            "avg7": 7.91,
+            "avg30": 6.07,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 8.49,
+            "reverseHoloAvg30": 6.26
+          }
+        }
+      },
+      {
+        "id": "ex14-14",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Water Pressure",
+            "text": "As long as Blastoise's remaining HP is 40 or less, Blastoise does 40 more damage to the Defending Pokémon (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Does 50 damage plus 20 more damage for each Water Energy attached to Blastoise but not used to pay for this attack's Energy cost. You can't add more than 40 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/14.png",
+          "large": "https://images.pokemontcg.io/ex14/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 7.89,
+              "mid": 13.35,
+              "high": 20.0,
+              "market": 7.51,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 80.0,
+              "mid": 125.0,
+              "high": 125.0,
+              "market": 88.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.84,
+            "lowPrice": 0.3,
+            "trendPrice": 7.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 20.63,
+            "reverseHoloLow": 1.49,
+            "reverseHoloTrend": 0.02,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.35,
+            "avg7": 9.13,
+            "avg30": 6.42,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 20.36,
+            "reverseHoloAvg30": 51.41
+          }
+        }
+      },
+      {
+        "id": "base5-20",
+        "name": "Dark Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "28",
+        "hp": "70",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Dark Wartortle",
+        "attacks": [
+          {
+            "name": "Hydrocannon",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Does 30 damage plus 20 more damage for each Water Energy attached to Dark Blastoise but not used to pay for this attack. You can't add more than 40 damage in this way."
+          },
+          {
+            "name": "Rocket Tackle",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Dark Blastoise does 10 damage to itself. Flip a coin. If heads, prevent all damage done to Dark Blastoise during your opponent's next turn. (Any other effects of attacks still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "An aggressive Pokémon that tackles anything it sees.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/20.png",
+          "large": "https://images.pokemontcg.io/base5/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 34.31,
+              "mid": 49.98,
+              "high": 87.0,
+              "market": 52.68,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 14.2,
+              "mid": 24.24,
+              "high": 9999.0,
+              "market": 28.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 19.43,
+            "lowPrice": 3.0,
+            "trendPrice": 21.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 39.3,
+            "lowPriceExPlus": 18.99,
+            "avg1": 7.95,
+            "avg7": 21.26,
+            "avg30": 20.86,
+            "reverseHoloAvg1": 26.0,
+            "reverseHoloAvg7": 39.37,
+            "reverseHoloAvg30": 26.16
+          }
+        }
+      },
+      {
+        "id": "sm9-25",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Powerful Squall",
+            "text": "Once during your turn (before your attack), you may look at the top 6 cards of your deck and attach any number of Water Energy cards you find there to your Pokémon in any way you like. Shuffle the other cards back into your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Tackle",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "This Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/25.png",
+          "large": "https://images.pokemontcg.io/sm9/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 1.99,
+              "mid": 9.3,
+              "high": 59.99,
+              "market": 10.82,
+              "directLow": 49.99
+            },
+            "normal": {
+              "low": 3.17,
+              "mid": 5.15,
+              "high": 24.99,
+              "market": 4.32,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.97,
+            "lowPrice": 0.75,
+            "trendPrice": 4.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.6,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 10.41,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 3.92,
+            "avg30": 4.48,
+            "reverseHoloAvg1": 10.8,
+            "reverseHoloAvg7": 9.82,
+            "reverseHoloAvg30": 7.35
+          }
+        }
+      },
+      {
+        "id": "xy12-21",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Spin",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. Then, your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Splash Bomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Flip a coin. If tails, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/21.png",
+          "large": "https://images.pokemontcg.io/xy12/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.3,
+              "mid": 4.84,
+              "high": 19.95,
+              "market": 3.96,
+              "directLow": 4.36
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.34,
+            "lowPrice": 1.89,
+            "trendPrice": 3.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.9,
+            "lowPriceExPlus": 3.0,
+            "avg1": 5.57,
+            "avg7": 4.81,
+            "avg30": 5.73,
+            "reverseHoloAvg1": 9.7,
+            "reverseHoloAvg7": 10.1,
+            "reverseHoloAvg30": 10.19
+          }
+        }
+      },
+      {
+        "id": "g1-17",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Whirlpool",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If heads, discard an Energy attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Hydro Press",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "This attack does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/17.png",
+          "large": "https://images.pokemontcg.io/g1/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.55,
+              "mid": 8.54,
+              "high": 20.0,
+              "market": 9.45,
+              "directLow": 17.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.22,
+            "lowPrice": 2.45,
+            "trendPrice": 5.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.88,
+            "lowPriceExPlus": 5.0,
+            "avg1": 4.0,
+            "avg7": 5.12,
+            "avg30": 6.5,
+            "reverseHoloAvg1": 5.75,
+            "reverseHoloAvg7": 6.86,
+            "reverseHoloAvg30": 5.64
+          }
+        }
+      },
+      {
+        "id": "xy12-22",
+        "name": "M Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Blastoise-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Bombard",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/22.png",
+          "large": "https://images.pokemontcg.io/xy12/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.15,
+              "mid": 19.89,
+              "high": 79.95,
+              "market": 18.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.55,
+            "lowPrice": 4.95,
+            "trendPrice": 16.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.14,
+            "lowPriceExPlus": 11.0,
+            "avg1": 20.0,
+            "avg7": 16.27,
+            "avg30": 14.82,
+            "reverseHoloAvg1": 10.73,
+            "reverseHoloAvg7": 12.12,
+            "reverseHoloAvg30": 13.97
+          }
+        }
+      },
+      {
+        "id": "g1-18",
+        "name": "M Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Blastoise-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dread Launcher",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Flip a coin. If tails, discard 2 Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/18.png",
+          "large": "https://images.pokemontcg.io/g1/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.45,
+              "mid": 28.5,
+              "high": 69.99,
+              "market": 26.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 12.26,
+            "lowPrice": 4.99,
+            "trendPrice": 8.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.89,
+            "lowPriceExPlus": 9.8,
+            "avg1": 4.5,
+            "avg7": 9.87,
+            "avg30": 18.82,
+            "reverseHoloAvg1": 9.0,
+            "reverseHoloAvg7": 12.18,
+            "reverseHoloAvg30": 13.93
+          }
+        }
+      },
+      {
+        "id": "bw7-31",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Deluge",
+            "text": "As often as you like during your turn (before your attack), you may attach a Water Energy card from your hand to 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "Does 10 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare Holo",
+        "flavorText": "The jets of water it spouts from the rocket cannons on its shell can punch through thick steel.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/31.png",
+          "large": "https://images.pokemontcg.io/bw7/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.4,
+              "mid": 4.08,
+              "high": 29.99,
+              "market": 7.1,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 9.67,
+              "mid": 17.19,
+              "high": 24.95,
+              "market": 19.48,
+              "directLow": 17.19
+            },
+            "reverseHolofoil": {
+              "low": 9.6,
+              "mid": 17.14,
+              "high": 50.0,
+              "market": 20.29,
+              "directLow": 17.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.1,
+            "lowPrice": 0.3,
+            "trendPrice": 3.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.0,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 10.54,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 4.79,
+            "avg30": 3.74,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 9.83,
+            "reverseHoloAvg30": 8.11
+          }
+        }
+      },
+      {
+        "id": "xy1-29",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Spin",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. Then, your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Splash Bomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Flip a coin. If tails, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/29.png",
+          "large": "https://images.pokemontcg.io/xy1/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.99,
+              "mid": 5.46,
+              "high": 17.75,
+              "market": 5.38,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.61,
+            "lowPrice": 2.61,
+            "trendPrice": 5.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.18,
+            "lowPriceExPlus": 3.95,
+            "avg1": 4.95,
+            "avg7": 5.69,
+            "avg30": 10.76,
+            "reverseHoloAvg1": 9.49,
+            "reverseHoloAvg7": 7.77,
+            "reverseHoloAvg30": 5.79
+          }
+        }
+      },
+      {
+        "id": "xy1-30",
+        "name": "M Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Blastoise-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Bombard",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/30.png",
+          "large": "https://images.pokemontcg.io/xy1/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.0,
+              "mid": 26.52,
+              "high": 56.98,
+              "market": 25.53,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.71,
+            "lowPrice": 2.5,
+            "trendPrice": 16.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.5,
+            "lowPriceExPlus": 10.0,
+            "avg1": 16.0,
+            "avg7": 16.72,
+            "avg30": 16.61,
+            "reverseHoloAvg1": 5.5,
+            "reverseHoloAvg7": 9.42,
+            "reverseHoloAvg30": 10.24
+          }
+        }
+      },
+      {
+        "id": "sm12-38",
+        "name": "Blastoise & Piplup-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Prinplup"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Splash Maker",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "You may attach up to 3 Water Energy cards from your hand to your Pokémon in any way you like. If you do, heal 50 damage from those Pokémon for each card you attached to them in this way."
+          },
+          {
+            "name": "Bubble Launcher-GX",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Your opponent's Active Pokémon is now Paralyzed. If this Pokémon has at least 3 extra Water Energy attached to it (in addition to this attack's cost), this attack does 150 more damage. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          9,
+          393
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/38.png",
+          "large": "https://images.pokemontcg.io/sm12/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 41.0,
+              "mid": 49.99,
+              "high": 546.93,
+              "market": 50.13,
+              "directLow": 46.84
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 38.21,
+            "lowPrice": 10.0,
+            "trendPrice": 39.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.94,
+            "lowPriceExPlus": 20.0,
+            "avg1": 65.0,
+            "avg7": 42.87,
+            "avg30": 38.5,
+            "reverseHoloAvg1": 8.45,
+            "reverseHoloAvg7": 7.24,
+            "reverseHoloAvg30": 8.58
+          }
+        }
+      },
+      {
+        "id": "xyp-XY30",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Spin",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. Then, your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Splash Bomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Flip a coin. If tails, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY30",
+        "artist": "Eske Yoshinob",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY30.png",
+          "large": "https://images.pokemontcg.io/xyp/XY30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 5.01,
+              "high": 8.99,
+              "market": 5.41,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.7,
+            "lowPrice": 2.0,
+            "trendPrice": 7.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.21,
+            "lowPriceExPlus": 3.0,
+            "avg1": 17.98,
+            "avg7": 9.17,
+            "avg30": 6.22,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 4.54,
+            "reverseHoloAvg30": 4.73
+          }
+        }
+      },
+      {
+        "id": "sm10-35",
+        "name": "Blastoise-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rocket Splash",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Shuffle any amount of Water Energy from your Pokémon into your deck. This attack does 60 damage for each card you shuffled into your deck in this way."
+          },
+          {
+            "name": "Giant Geyser-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Water Energy cards from your hand to your Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "sadaji",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/35.png",
+          "large": "https://images.pokemontcg.io/sm10/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.23,
+              "mid": 10.58,
+              "high": 629.1,
+              "market": 9.13,
+              "directLow": 12.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.49,
+            "lowPrice": 2.49,
+            "trendPrice": 8.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.14,
+            "lowPriceExPlus": 4.0,
+            "avg1": 6.9,
+            "avg7": 8.17,
+            "avg30": 9.1,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 8.9,
+            "reverseHoloAvg30": 7.98
+          }
+        }
+      },
+      {
+        "id": "ecard1-36",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "attacks": [
+          {
+            "name": "Bubble",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Double Cannon",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "36",
+        "artist": "Hiromichi Sugiyama",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/36.png",
+          "large": "https://images.pokemontcg.io/ecard1/36_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 33.0,
+              "mid": 39.5,
+              "high": 60.0,
+              "market": 38.71,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 132.15,
+              "mid": 139.99,
+              "high": 199.99,
+              "market": 108.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 17.13,
+            "lowPrice": 1.4,
+            "trendPrice": 21.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.98,
+            "reverseHoloLow": 2.99,
+            "reverseHoloTrend": 35.48,
+            "lowPriceExPlus": 7.0,
+            "avg1": 114.0,
+            "avg7": 23.91,
+            "avg30": 15.44,
+            "reverseHoloAvg1": 9.98,
+            "reverseHoloAvg7": 40.71,
+            "reverseHoloAvg30": 26.11
+          }
+        }
+      },
+      {
+        "id": "ecard1-37",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Jet Stream",
+            "text": "Once during your turn (before your attack), if Blastoise is your Active Pokémon, you may flip a coin. If heads, discard an Energy card attached to Blastoise, if any. Then, if there are any Energy cards attached to the Defending Pokémon, choose 1 of them and discard it. This power can't be used if Blastoise is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Energy Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Energy attached to Blastoise but not used to pay for this attack's Energy Cost. You can't add more than 20 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/37.png",
+          "large": "https://images.pokemontcg.io/ecard1/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 27.0,
+              "mid": 28.82,
+              "high": 50.0,
+              "market": 35.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 32.0,
+              "mid": 45.26,
+              "high": 119.99,
+              "market": 84.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 16.84,
+            "lowPrice": 2.0,
+            "trendPrice": 15.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 31.67,
+            "reverseHoloLow": 3.9,
+            "reverseHoloTrend": 27.79,
+            "lowPriceExPlus": 13.0,
+            "avg1": 12.0,
+            "avg7": 15.0,
+            "avg30": 13.56,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 29.14,
+            "reverseHoloAvg30": 21.5
+          }
+        }
+      },
+      {
+        "id": "xy12-73",
+        "name": "Blastoise Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Blastoise-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/73.png",
+          "large": "https://images.pokemontcg.io/xy12/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.18,
+              "high": 3.0,
+              "market": 0.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.48,
+              "mid": 0.85,
+              "high": 7.99,
+              "market": 0.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.75,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 2.1,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.13,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 2.9,
+            "reverseHoloAvg7": 1.76,
+            "reverseHoloAvg30": 2.43
+          }
+        }
+      },
+      {
+        "id": "xy12-102",
+        "name": "M Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Blastoise-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Bombard",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/102.png",
+          "large": "https://images.pokemontcg.io/xy12/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 42.8,
+              "mid": 68.69,
+              "high": 249.95,
+              "market": 61.82,
+              "directLow": 49.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-102",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 44.7,
+            "lowPrice": 7.5,
+            "trendPrice": 15.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 29.85,
+            "lowPriceExPlus": 25.0,
+            "avg1": 30.0,
+            "avg7": 40.19,
+            "avg30": 53.67,
+            "reverseHoloAvg1": 39.99,
+            "reverseHoloAvg7": 31.41,
+            "reverseHoloAvg30": 35.63
+          }
+        }
+      },
+      {
+        "id": "ex6-104",
+        "name": "Blastoise ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Energy Rain",
+            "text": "As often as you like during your turn (before your attack), you may attach a Water Energy card from your hand to 1 of your Pokémon. Put 1 damage counter on that Pokémon. This power can't be used if Blastoise ex is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Whirlpool",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Flip a coin until you get tails. For each heads, your opponent discards an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "104",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/104.png",
+          "large": "https://images.pokemontcg.io/ex6/104_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-104",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 340.0,
+              "mid": 474.95,
+              "high": 499.98,
+              "market": 300.78,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-104",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 117.4,
+            "lowPrice": 19.99,
+            "trendPrice": 165.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 75.24,
+            "lowPriceExPlus": 66.99,
+            "avg1": 39.99,
+            "avg7": 190.71,
+            "avg30": 105.02,
+            "reverseHoloAvg1": 29.99,
+            "reverseHoloAvg7": 62.66,
+            "reverseHoloAvg30": 54.43
+          }
+        }
+      },
+      {
+        "id": "xyp-XY122",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Spin",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. The, your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Splash Bomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Flip a coin. If heads, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY122",
+        "artist": "kawayoo",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY122.png",
+          "large": "https://images.pokemontcg.io/xyp/XY122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 114.99,
+              "mid": 213.26,
+              "high": 414.48,
+              "market": 213.25,
+              "directLow": 210.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY122",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 103.63,
+            "lowPrice": 24.99,
+            "trendPrice": 94.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.14,
+            "lowPriceExPlus": 59.9,
+            "avg1": 84.0,
+            "avg7": 77.36,
+            "avg30": 99.18,
+            "reverseHoloAvg1": 13.25,
+            "reverseHoloAvg7": 19.35,
+            "reverseHoloAvg30": 19.3
+          }
+        }
+      },
+      {
+        "id": "xy1-142",
+        "name": "Blastoise-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "M Blastoise-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Spin",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. Then, your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Splash Bomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Flip a coin. If tails, this Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/142.png",
+          "large": "https://images.pokemontcg.io/xy1/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 85.48,
+              "mid": 146.96,
+              "high": 200.0,
+              "market": 118.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 74.66,
+            "lowPrice": 16.5,
+            "trendPrice": 75.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 40.0,
+            "reverseHoloTrend": 35.83,
+            "lowPriceExPlus": 37.0,
+            "avg1": 80.0,
+            "avg7": 89.86,
+            "avg30": 76.55,
+            "reverseHoloAvg1": 55.99,
+            "reverseHoloAvg7": 35.28,
+            "reverseHoloAvg30": 31.7
+          }
+        }
+      },
+      {
+        "id": "bw8-137",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Deluge",
+            "text": "As often as you like during your turn (before your attack), you may attach a Water Energy card from your hand to 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "Does 10 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw8",
+          "name": "Plasma Storm",
+          "series": "Black & White",
+          "printedTotal": 135,
+          "total": 138,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLS",
+          "releaseDate": "2013/02/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw8/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw8/logo.png"
+          }
+        },
+        "number": "137",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Secret",
+        "flavorText": "This extremely rare Pokémon is a different color than usual. It is very hard to find.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw8/137.png",
+          "large": "https://images.pokemontcg.io/bw8/137_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw8-137",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 299.97,
+              "mid": 384.99,
+              "high": 499.99,
+              "market": 476.23,
+              "directLow": 299.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw8-137",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 105.0,
+            "lowPrice": 35.0,
+            "trendPrice": 189.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 81.24,
+            "lowPriceExPlus": 100.0,
+            "avg1": 139.99,
+            "avg7": 214.14,
+            "avg30": 171.13,
+            "reverseHoloAvg1": 80.0,
+            "reverseHoloAvg7": 79.99,
+            "reverseHoloAvg30": 55.47
+          }
+        }
+      },
+      {
+        "id": "smp-SM189",
+        "name": "Blastoise-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rocket Splash",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Shuffle any amount of Water Energy from your Pokémon into your deck. This attack does 60 damage for each card you shuffled into your deck in this way."
+          },
+          {
+            "name": "Giant Geyser-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Water Energy cards from your hand to your Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM189",
+        "artist": "sadaji",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM189.png",
+          "large": "https://images.pokemontcg.io/smp/SM189_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM189",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.89,
+              "mid": 16.61,
+              "high": 9999.0,
+              "market": 15.83,
+              "directLow": 24.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM189",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 15.19,
+            "lowPrice": 2.98,
+            "trendPrice": 16.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.77,
+            "lowPriceExPlus": 5.99,
+            "avg1": 12.0,
+            "avg7": 14.03,
+            "avg30": 13.03,
+            "reverseHoloAvg1": 14.49,
+            "reverseHoloAvg7": 15.04,
+            "reverseHoloAvg30": 12.3
+          }
+        }
+      },
+      {
+        "id": "sm12-214",
+        "name": "Blastoise & Piplup-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Prinplup"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Splash Maker",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "You may attach up to 3 Water Energy cards from your hand to your Pokémon in any way you like. If you do, heal 50 damage from those Pokémon for each card you attached to them in this way."
+          },
+          {
+            "name": "Bubble Launcher-GX",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Your opponent's Active Pokémon is now Paralyzed. If this Pokémon has at least 3 extra Water Energy attached to it (in addition to this attack's cost), this attack does 150 more damage. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "214",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          9,
+          393
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/214.png",
+          "large": "https://images.pokemontcg.io/sm12/214_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-214",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 38.0,
+              "mid": 78.24,
+              "high": 149.95,
+              "market": 71.7,
+              "directLow": 77.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-214",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 48.98,
+            "lowPrice": 15.0,
+            "trendPrice": 44.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.33,
+            "lowPriceExPlus": 20.0,
+            "avg1": 25.0,
+            "avg7": 45.7,
+            "avg30": 32.19,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 18.3,
+            "reverseHoloAvg30": 14.46
+          }
+        }
+      },
+      {
+        "id": "sm12-215",
+        "name": "Blastoise & Piplup-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Prinplup"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Splash Maker",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "You may attach up to 3 Water Energy cards from your hand to your Pokémon in any way you like. If you do, heal 50 damage from those Pokémon for each card you attached to them in this way."
+          },
+          {
+            "name": "Bubble Launcher-GX",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Your opponent's Active Pokémon is now Paralyzed. If this Pokémon has at least 3 extra Water Energy attached to it (in addition to this attack's cost), this attack does 150 more damage. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "215",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          9,
+          393
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/215.png",
+          "large": "https://images.pokemontcg.io/sm12/215_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-215",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 280.0,
+              "mid": 385.09,
+              "high": 1000.0,
+              "market": 356.01,
+              "directLow": 369.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-215",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 185.83,
+            "lowPrice": 48.25,
+            "trendPrice": 171.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 24.95,
+            "lowPriceExPlus": 99.95,
+            "avg1": 189.0,
+            "avg7": 186.28,
+            "avg30": 252.48,
+            "reverseHoloAvg1": 19.99,
+            "reverseHoloAvg7": 27.78,
+            "reverseHoloAvg30": 25.63
+          }
+        }
+      },
+      {
+        "id": "sm10-218",
+        "name": "Blastoise-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rocket Splash",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Shuffle any amount of Water Energy from your Pokémon into your deck. This attack does 60 damage for each card you shuffled into your deck in this way."
+          },
+          {
+            "name": "Giant Geyser-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach any number of Water Energy cards from your hand to your Pokémon in any way you like. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "218",
+        "artist": "sadaji",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/218.png",
+          "large": "https://images.pokemontcg.io/sm10/218_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-218",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 80.4,
+              "mid": 99.15,
+              "high": 199.69,
+              "market": 99.31,
+              "directLow": 99.31
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-218",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 68.51,
+            "lowPrice": 39.99,
+            "trendPrice": 81.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 113.33,
+            "lowPriceExPlus": 45.0,
+            "avg1": 50.0,
+            "avg7": 66.8,
+            "avg30": 80.22,
+            "reverseHoloAvg1": 38.4,
+            "reverseHoloAvg7": 105.62,
+            "reverseHoloAvg30": 61.43
+          }
+        }
+      },
+      {
+        "id": "sm12-253",
+        "name": "Blastoise & Piplup-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Prinplup"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Splash Maker",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "You may attach up to 3 Water Energy cards from your hand to your Pokémon in any way you like. If you do, heal 50 damage from those Pokémon for each card you attached to them in this way."
+          },
+          {
+            "name": "Bubble Launcher-GX",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Your opponent's Active Pokémon is now Paralyzed. If this Pokémon has at least 3 extra Water Energy attached to it (in addition to this attack's cost), this attack does 150 more damage. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "253",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          9,
+          393
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/253.png",
+          "large": "https://images.pokemontcg.io/sm12/253_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-253",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 69.99,
+              "mid": 89.93,
+              "high": 149.99,
+              "market": 87.01,
+              "directLow": 89.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-253",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 53.59,
+            "lowPrice": 11.0,
+            "trendPrice": 67.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 47.84,
+            "lowPriceExPlus": 28.89,
+            "avg1": 67.99,
+            "avg7": 76.62,
+            "avg30": 70.67,
+            "reverseHoloAvg1": 34.95,
+            "reverseHoloAvg7": 49.35,
+            "reverseHoloAvg30": 33.95
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH101",
+        "name": "Blastoise V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Water Gun",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Torrential Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "During your next turn, this Pokémon can't use Torrential Cannon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH101",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH101.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.5,
+              "mid": 6.25,
+              "high": 9999.0,
+              "market": 6.23,
+              "directLow": 29.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 5.9,
+            "lowPrice": 2.0,
+            "trendPrice": 5.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.68,
+            "lowPriceExPlus": 3.99,
+            "avg1": 5.5,
+            "avg7": 5.7,
+            "avg30": 6.19,
+            "reverseHoloAvg1": 12.95,
+            "reverseHoloAvg7": 12.84,
+            "reverseHoloAvg30": 11.15
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH103",
+        "name": "Blastoise VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "330",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Blastoise V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Grand Falls",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Search your deck for up to 3 Water Energy cards and attach them to your Benched Pokémon in any way you like. Then, shuffle your deck."
+          },
+          {
+            "name": "G-Max Bombard",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "This attack also does 30 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH103",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH103.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 30.0,
+              "mid": 37.0,
+              "high": 9999.0,
+              "market": 34.65,
+              "directLow": 38.56
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH103",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 5.16,
+            "lowPrice": 2.5,
+            "trendPrice": 12.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.92,
+            "lowPriceExPlus": 2.5,
+            "avg1": 4.5,
+            "avg7": 5.16,
+            "avg30": 7.63,
+            "reverseHoloAvg1": 6.95,
+            "reverseHoloAvg7": 3.94,
+            "reverseHoloAvg30": 3.94
+          }
+        }
+      },
+      {
+        "id": "cel25c-2_A",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "52",
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Rain Dance",
+            "text": "As often as you like during your turn (before your attack), you may attach 1 Water Energy card to 1 of your Water Pokémon. (This doesn't use up your 1 Energy card attachment for the turn.) This power can't be used if Blastoise is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "name": "Hydro Pump",
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Water Energy attached to Blastoise but not used to pay for this attack's Energy cost. Extra Water Energy after the 2nd doesn't count.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "cel25c",
+          "name": "Celebrations: Classic Collection",
+          "series": "Sword & Shield",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CEL",
+          "releaseDate": "2021/10/08",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/cel25c/symbol.png",
+            "logo": "https://images.pokemontcg.io/cel25c/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Ken Sugimori",
+        "rarity": "Classic Collection",
+        "flavorText": "A brutal Pokémon with pressurized water jets on its shell. They are used for high-speed tackles.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/cel25c/2_A.png",
+          "large": "https://images.pokemontcg.io/cel25c/2_A_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/cel25c-2_A",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.01,
+              "mid": 14.2,
+              "high": 1000.0,
+              "market": 10.95,
+              "directLow": 11.47
+            }
+          }
+        }
+      },
+      {
+        "id": "pgo-17",
+        "name": "Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "abilities": [
+          {
+            "name": "Vitality Spring",
+            "text": "Once during your turn, you may search your deck for up to 6 Energy cards and attach them to your Pokémon in any way you like. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "NC Empire",
+        "rarity": "Rare Holo",
+        "flavorText": "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/17.png",
+          "large": "https://images.pokemontcg.io/pgo/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.49,
+              "mid": 1.25,
+              "high": 14.97,
+              "market": 0.95,
+              "directLow": 0.95
+            },
+            "holofoil": {
+              "low": 0.29,
+              "mid": 0.85,
+              "high": 10.0,
+              "market": 0.65,
+              "directLow": 0.29
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.03,
+            "lowPrice": 0.1,
+            "trendPrice": 0.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.17,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 1.29,
+            "lowPriceExPlus": 0.1,
+            "avg1": 1.94,
+            "avg7": 0.9,
+            "avg30": 0.99,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 1.16,
+            "reverseHoloAvg30": 1.15
+          }
+        }
+      },
+      {
+        "id": "pgo-18",
+        "name": "Radiant Blastoise",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Radiant"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "Radiant Pokémon Rule: You can't have more than 1 Radiant Pokémon in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Pump Shot",
+            "text": "You must discard a Water Energy card from your hand in order to use this Ability. Once during your turn, you may put 2 damage counters on 1 of your opponent's Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Torrential Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "During your next turn, this Pokémon can't use Torrential Cannon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Radiant Rare",
+        "flavorText": "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/18.png",
+          "large": "https://images.pokemontcg.io/pgo/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.3,
+              "mid": 7.5,
+              "high": 65.0,
+              "market": 6.91,
+              "directLow": 8.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.08,
+            "lowPrice": 2.46,
+            "trendPrice": 9.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.46,
+            "avg1": 4.35,
+            "avg7": 10.68,
+            "avg30": 7.88,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-9",
+        "name": "Blastoise ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "330",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Twin Cannons",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140×",
+            "text": "Discard up to 2 Basic Water Energy cards from your hand. This attack does 140 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/9.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.32,
+              "mid": 1.0,
+              "high": 55.55,
+              "market": 0.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.9,
+            "lowPrice": 0.1,
+            "trendPrice": 2.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.89,
+            "avg1": 1.97,
+            "avg7": 1.98,
+            "avg30": 1.95,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-184",
+        "name": "Blastoise ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "330",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Twin Cannons",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140×",
+            "text": "Discard up to 2 Basic Water Energy cards from your hand. This attack does 140 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "184",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/184.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/184_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-184",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.11,
+              "mid": 15.0,
+              "high": 300.0,
+              "market": 13.57,
+              "directLow": 13.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-184",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 19.56,
+            "lowPrice": 13.99,
+            "trendPrice": 17.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 14.65,
+            "avg1": 18.49,
+            "avg7": 17.45,
+            "avg30": 18.82,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-200",
+        "name": "Blastoise ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "330",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Twin Cannons",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140×",
+            "text": "Discard up to 2 Basic Water Energy cards from your hand. This attack does 140 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "200",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/200.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/200_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-200",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 68.4,
+              "mid": 84.99,
+              "high": 199.99,
+              "market": 71.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-200",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 87.61,
+            "lowPrice": 58.0,
+            "trendPrice": 79.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 58.0,
+            "avg1": 79.0,
+            "avg7": 88.24,
+            "avg30": 88.38,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv7-30",
+        "name": "Blastoise ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "330",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wartortle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Twin Cannons",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "140×",
+            "text": "Discard up to 2 Basic Water Energy cards from your hand. This attack does 140 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "30",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          9
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/30.png",
+          "large": "https://images.pokemontcg.io/sv7/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 2.0,
+              "high": 22.0,
+              "market": 2.01,
+              "directLow": 4.47
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.82,
+            "lowPrice": 0.45,
+            "trendPrice": 1.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.45,
+            "avg1": 1.58,
+            "avg7": 1.7,
+            "avg30": 1.81,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 46,
+    "totalCount": 46
+  }
+}

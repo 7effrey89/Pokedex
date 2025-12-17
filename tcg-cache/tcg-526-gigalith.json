@@ -1,0 +1,997 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:gigalith"
+  },
+  "cache_key": "3d920385d3f54514c79ced997294b988",
+  "cached_at": 1765915793.41466,
+  "response": {
+    "data": [
+      {
+        "id": "xy4-50",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "abilities": [
+          {
+            "name": "High Density Armor",
+            "text": "If this Pokémon has full HP, any damage done to this Pokémon by an opponent's attack is reduced by 50 (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Overdrive Smash",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "During your next turn, this Pokémon's Overdrive Smash attack does 40 more damage (before applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Holo",
+        "flavorText": "The solar rays it absorbs are processed in its energy core and fired as a ball of light.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/50.png",
+          "large": "https://images.pokemontcg.io/xy4/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.74,
+              "high": 4.45,
+              "market": 0.65,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.27,
+              "mid": 0.75,
+              "high": 2.69,
+              "market": 0.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.2,
+            "lowPrice": 0.25,
+            "trendPrice": 1.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 0.84,
+            "lowPriceExPlus": 0.4,
+            "avg1": 2.5,
+            "avg7": 1.17,
+            "avg30": 1.06,
+            "reverseHoloAvg1": 0.9,
+            "reverseHoloAvg7": 0.88,
+            "reverseHoloAvg30": 1.12
+          }
+        }
+      },
+      {
+        "id": "bw2-53",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Shear",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard the top 5 cards of your deck. If any of those cards are Fighting Energy cards, attach them to this Pokémon."
+          },
+          {
+            "name": "Rock Bullet",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "Does 20 more damage for each Fighting Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw2",
+          "name": "Emerging Powers",
+          "series": "Black & White",
+          "printedTotal": 98,
+          "total": 98,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EPO",
+          "releaseDate": "2011/08/31",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw2/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw2/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "Naoki Saito",
+        "rarity": "Rare",
+        "flavorText": "The solar energy absorbed by its body's orange crystals is magnified internally and fired from its mouth.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw2/53.png",
+          "large": "https://images.pokemontcg.io/bw2/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw2-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.19,
+              "mid": 0.5,
+              "high": 2.49,
+              "market": 0.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.5,
+              "mid": 2.29,
+              "high": 3.98,
+              "market": 1.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw2-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.77,
+            "lowPrice": 0.02,
+            "trendPrice": 0.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.9,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.89,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.5,
+            "avg7": 0.8,
+            "avg30": 1.13,
+            "reverseHoloAvg1": 2.9,
+            "reverseHoloAvg7": 1.89,
+            "reverseHoloAvg30": 1.72
+          }
+        }
+      },
+      {
+        "id": "bw3-61",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Core Cannon",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon for each Fighting Energy attached to this Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Power Gem",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw3",
+          "name": "Noble Victories",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NVI",
+          "releaseDate": "2011/11/16",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw3/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw3/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "Compressing the energy from its internal core lets it fire off an attack capable of blowing away a mountain.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw3/61.png",
+          "large": "https://images.pokemontcg.io/bw3/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw3-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.55,
+              "mid": 0.83,
+              "high": 2.0,
+              "market": 0.79,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.25,
+              "mid": 2.14,
+              "high": 4.25,
+              "market": 2.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw3-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.35,
+            "lowPrice": 0.02,
+            "trendPrice": 0.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.25,
+            "reverseHoloLow": 0.6,
+            "reverseHoloTrend": 1.98,
+            "lowPriceExPlus": 0.45,
+            "avg1": 0.45,
+            "avg7": 0.48,
+            "avg30": 0.84,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 2.1,
+            "reverseHoloAvg30": 1.62
+          }
+        }
+      },
+      {
+        "id": "bw6-67",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Revenge Cannon",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Does 10 more damage for each damage counter on each of your Benched Pokémon."
+          },
+          {
+            "name": "Reckless Charge",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "This Pokémon does 40 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo",
+        "flavorText": "The solar energy absorbed by its body's orange crystals is magnified internally are fired from its mouth.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/67.png",
+          "large": "https://images.pokemontcg.io/bw6/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 0.97,
+              "high": 3.98,
+              "market": 0.83,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.39,
+              "mid": 1.14,
+              "high": 3.98,
+              "market": 1.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-67",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.15,
+            "lowPrice": 0.2,
+            "trendPrice": 1.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.11,
+            "lowPriceExPlus": 0.39,
+            "avg1": 1.92,
+            "avg7": 1.55,
+            "avg30": 1.23,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.34,
+            "reverseHoloAvg30": 1.22
+          }
+        }
+      },
+      {
+        "id": "sm1-71",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Rock Artillery",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "Discard any amount of Fighting Energy from your Pokémon. This attack does 50 damage for each card you discarded in this way."
+          },
+          {
+            "name": "Rock Tumble",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo",
+        "flavorText": "Known for its hefty horsepower, this Pokémon is a popular partner for construction workers.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/71.png",
+          "large": "https://images.pokemontcg.io/sm1/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.09,
+              "mid": 0.34,
+              "high": 2.0,
+              "market": 0.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.36,
+              "high": 1.49,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-71",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.47,
+            "lowPrice": 0.02,
+            "trendPrice": 0.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.92,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 0.75,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.3,
+            "avg7": 0.54,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.69,
+            "reverseHoloAvg30": 0.73
+          }
+        }
+      },
+      {
+        "id": "swsh7-88",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Guard Press",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "During your opponent's next turn, this Pokémon takes 50 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Pressure Shot",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "This Pokémon also does 10 damage to itself for each damage counter on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "Although its energy blasts can blow away a dump truck, they have a limitation— they can only be fired when the sun is out.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/88.png",
+          "large": "https://images.pokemontcg.io/swsh7/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.22,
+              "high": 10.0,
+              "market": 0.16,
+              "directLow": 0.13
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.17,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.09,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.15,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-48",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Vengeful Cannon",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each damage counter on all of your Benched Fighting Pokémon."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Uncommon",
+        "flavorText": "Compressing the energy from its internal core lets it fire off an attack capable of blowing away a mountain.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/48.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 1.53,
+              "market": 0.11,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.16,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-129",
+        "name": "Gigalith",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Boldore",
+        "attacks": [
+          {
+            "name": "Vengeful Cannon",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each damage counter on all of your Benched Fighting Pokémon."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "129",
+        "artist": "toi8",
+        "rarity": "Illustration Rare",
+        "flavorText": "Compressing the energy from its internal core lets it fire off an attack capable of blowing away a mountain.",
+        "nationalPokedexNumbers": [
+          526
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/129.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/129_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-129",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.69,
+              "mid": 17.91,
+              "high": 85.0,
+              "market": 16.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-129",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 14.1,
+            "lowPrice": 9.5,
+            "trendPrice": 12.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.89,
+            "avg1": 14.46,
+            "avg7": 14.44,
+            "avg30": 14.35,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

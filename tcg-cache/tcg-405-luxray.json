@@ -1,0 +1,3065 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:luxray"
+  },
+  "cache_key": "d0bb6b76b012f5cf10f5c90635b2ae54",
+  "cached_at": 1765915666.731224,
+  "response": {
+    "data": [
+      {
+        "id": "pl4-5",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "53",
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Flash",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing."
+          },
+          {
+            "name": "Gadget Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "If Luxray has a Pokémon Tool card attached to it, you may do 100 damage instead of 60 to the Defending Pokémon. If you do, discard that Pokémon Tool card."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "pl4",
+          "name": "Arceus",
+          "series": "Platinum",
+          "printedTotal": 99,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AR",
+          "releaseDate": "2009/11/04",
+          "updatedAt": "2021/07/15 11:30:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl4/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl4/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "kawayoo",
+        "rarity": "Rare Holo",
+        "flavorText": "It can see clearly through walls to track down its prey and seek its lost young.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl4/5.png",
+          "large": "https://images.pokemontcg.io/pl4/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl4-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.13,
+              "mid": 4.99,
+              "high": 10.0,
+              "market": 4.75,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.94,
+              "mid": 6.1,
+              "high": 7.98,
+              "market": 6.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl4-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.02,
+            "lowPrice": 0.1,
+            "trendPrice": 1.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.9,
+            "reverseHoloLow": 0.35,
+            "reverseHoloTrend": 1.38,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.95,
+            "avg7": 0.92,
+            "avg30": 1.1,
+            "reverseHoloAvg1": 0.9,
+            "reverseHoloAvg7": 1.65,
+            "reverseHoloAvg30": 2.18
+          }
+        }
+      },
+      {
+        "id": "dp1-7",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "48",
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Gleam Eyes",
+            "text": "Once during your turn, when you play Luxray from your hand to evolve 1 of your Pokémon, you may look at your opponent's hand. If your opponent's Bench isn't full, choose 1 Basic Pokémon from your opponent's hand, and put it onto his or her Bench. Then, switch it with the Defending Pokémon.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lightning Star",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Move all Lightning Energy attached to Luxray to 1 of your Benched Pokémon. (Ignore this effect if you don't have any Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Mikiko Takeda",
+        "rarity": "Rare Holo",
+        "flavorText": "It has eyes that can see through anything. It spots and captures prey hiding behind objects.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/7.png",
+          "large": "https://images.pokemontcg.io/dp1/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.0,
+              "mid": 20.0,
+              "high": 89.99,
+              "market": 25.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.69,
+              "mid": 15.3,
+              "high": 22.57,
+              "market": 15.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.36,
+            "lowPrice": 0.25,
+            "trendPrice": 3.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.45,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.27,
+            "lowPriceExPlus": 3.7,
+            "avg1": 0.7,
+            "avg7": 3.24,
+            "avg30": 3.41,
+            "reverseHoloAvg1": 6.64,
+            "reverseHoloAvg7": 3.55,
+            "reverseHoloAvg30": 3.0
+          }
+        }
+      },
+      {
+        "id": "pop8-3",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Intimidating Fang",
+            "text": "As long as Luxray is your Active Pokémon, any damage done by an opponent's attack is reduced by 10 (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Thunder",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Flip a coin. If tails, Luxray does 40 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pop8",
+          "name": "POP Series 8",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2008/09/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop8/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop8/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "flavorText": "When its eyes gleam gold, it can spot hiding prey–even those taking shelter behind a wall.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop8/3.png",
+          "large": "https://images.pokemontcg.io/pop8/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop8-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.7,
+              "mid": 5.99,
+              "high": 10.0,
+              "market": 7.39,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 1.8,
+              "mid": 5.06,
+              "high": 6.56,
+              "market": 6.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop8-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.03,
+            "lowPrice": 0.29,
+            "trendPrice": 3.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.48,
+            "lowPriceExPlus": 1.99,
+            "avg1": 1.05,
+            "avg7": 3.73,
+            "avg30": 2.61,
+            "reverseHoloAvg1": 2.4,
+            "reverseHoloAvg7": 5.47,
+            "reverseHoloAvg30": 2.38
+          }
+        }
+      },
+      {
+        "id": "pl2-9",
+        "name": "Luxray GL",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "48",
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Trash Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard an Energy card from your hand. (If you can't discard a card from your hand, this attack does nothing.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/9.png",
+          "large": "https://images.pokemontcg.io/pl2/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.9,
+              "mid": 14.85,
+              "high": 29.99,
+              "market": 21.94,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.52,
+              "mid": 16.53,
+              "high": 31.0,
+              "market": 24.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.62,
+            "lowPrice": 0.75,
+            "trendPrice": 4.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.98,
+            "reverseHoloTrend": 2.75,
+            "lowPriceExPlus": 4.0,
+            "avg1": 5.2,
+            "avg7": 4.67,
+            "avg30": 5.75,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 4.61,
+            "reverseHoloAvg30": 5.41
+          }
+        }
+      },
+      {
+        "id": "dp6-8",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "51",
+        "hp": "120",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Rivalry",
+            "text": "If your opponent has any Pokémon LV.X in play, each of Luxray's attacks does 50 more damage to the Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Plasma",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Search your discard pile for a Lightning Energy card and attach it to Luxray."
+          },
+          {
+            "name": "Shock Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "Discard all Lightning Energy attached to Luxray."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "It has eyes that can see through anything. It spots and captures prey hiding behind objects.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/8.png",
+          "large": "https://images.pokemontcg.io/dp6/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.99,
+              "mid": 15.77,
+              "high": 37.99,
+              "market": 31.28,
+              "directLow": 14.75
+            },
+            "reverseHolofoil": {
+              "low": 4.33,
+              "mid": 6.55,
+              "high": 8.68,
+              "market": 10.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.94,
+            "lowPrice": 0.9,
+            "trendPrice": 5.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.5,
+            "reverseHoloLow": 0.9,
+            "reverseHoloTrend": 3.68,
+            "lowPriceExPlus": 4.0,
+            "avg1": 2.0,
+            "avg7": 3.66,
+            "avg30": 6.46,
+            "reverseHoloAvg1": 2.99,
+            "reverseHoloAvg7": 3.63,
+            "reverseHoloAvg30": 4.05
+          }
+        }
+      },
+      {
+        "id": "xy2-34",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Fang Snipe",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Your opponent reveals his or her hand. Discard a Trainer card you find there."
+          },
+          {
+            "name": "Wild Charge",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy2",
+          "name": "Flashfire",
+          "series": "XY",
+          "printedTotal": 106,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLF",
+          "releaseDate": "2014/05/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy2/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "When its eyes gleam gold, it can spot hiding prey–even those taking shelter behind a wall.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy2/34.png",
+          "large": "https://images.pokemontcg.io/xy2/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.51,
+              "high": 1.8,
+              "market": 0.53,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.67,
+              "mid": 1.06,
+              "high": 2.99,
+              "market": 1.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.05,
+            "trendPrice": 0.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.6,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.66,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.4,
+            "avg7": 0.77,
+            "avg30": 0.66,
+            "reverseHoloAvg1": 1.24,
+            "reverseHoloAvg7": 1.6,
+            "reverseHoloAvg30": 1.65
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH023",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Raid",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60+",
+            "text": "If this Pokémon evolved from Luxio during this turn, this attack does 100 more damage."
+          },
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH023",
+        "artist": "Megumi Higuchi",
+        "rarity": "Promo",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH023.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH023_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH023",
+          "updatedAt": "2025/12/04",
+          "prices": {
+            "holofoil": {
+              "low": 90.0,
+              "mid": 90.0,
+              "high": 90.0,
+              "market": 54.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH023",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 16.18,
+            "lowPrice": 4.99,
+            "trendPrice": 22.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.65,
+            "lowPriceExPlus": 4.99,
+            "avg1": 17.0,
+            "avg7": 22.27,
+            "avg30": 19.94,
+            "reverseHoloAvg1": 3.45,
+            "reverseHoloAvg7": 6.08,
+            "reverseHoloAvg30": 6.82
+          }
+        }
+      },
+      {
+        "id": "bw4-46",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Flash Impact",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "Does 20 damage to 1 of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Crunch",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Flip a coin. If heads, discard an Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw4",
+          "name": "Next Destinies",
+          "series": "Black & White",
+          "printedTotal": 99,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NXD",
+          "releaseDate": "2012/02/08",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw4/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw4/logo.png"
+          }
+        },
+        "number": "46",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Holo",
+        "flavorText": "It can see clearly through walls to track down its prey and seek its lost young.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw4/46.png",
+          "large": "https://images.pokemontcg.io/bw4/46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw4-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.05,
+              "mid": 1.13,
+              "high": 3.45,
+              "market": 1.52,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.2,
+              "mid": 2.42,
+              "high": 2.77,
+              "market": 2.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw4-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.26,
+            "lowPrice": 0.05,
+            "trendPrice": 2.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.32,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.58,
+            "lowPriceExPlus": 0.15,
+            "avg1": 2.95,
+            "avg7": 2.73,
+            "avg30": 2.11,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.34,
+            "reverseHoloAvg30": 2.66
+          }
+        }
+      },
+      {
+        "id": "sm5-48",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Intimidating Fang",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Active Pokémon's attacks do 30 less damage (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Volt Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard all Lightning Energy from this Pokémon. This attack does 150 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Holo",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/48.png",
+          "large": "https://images.pokemontcg.io/sm5/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.78,
+              "high": 3.95,
+              "market": 0.71,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.45,
+              "mid": 1.1,
+              "high": 2.54,
+              "market": 1.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.1,
+            "trendPrice": 0.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.18,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.01,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.33,
+            "avg7": 0.83,
+            "avg30": 0.83,
+            "reverseHoloAvg1": 0.63,
+            "reverseHoloAvg7": 2.1,
+            "reverseHoloAvg30": 1.41
+          }
+        }
+      },
+      {
+        "id": "xy9-46",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Snarl",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "46",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/46.png",
+          "large": "https://images.pokemontcg.io/xy9/46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.29,
+              "high": 1.49,
+              "market": 0.28,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.5,
+              "high": 1.65,
+              "market": 0.55,
+              "directLow": 0.47
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.23,
+            "lowPrice": 0.03,
+            "trendPrice": 0.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.6,
+            "reverseHoloLow": 0.08,
+            "reverseHoloTrend": 0.95,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.27,
+            "avg7": 0.23,
+            "avg30": 0.44,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 0.94,
+            "reverseHoloAvg30": 0.96
+          }
+        }
+      },
+      {
+        "id": "xy9-47",
+        "name": "Luxray BREAK",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "BREAK"
+        ],
+        "hp": "170",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxray",
+        "rules": [
+          "BREAK Evolution Rule: Luxray BREAK retains the attacks, Abilities, Weakness, Resistance, and Retreat Cost of its previous Evolution."
+        ],
+        "attacks": [
+          {
+            "name": "Wild Fury",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130+",
+            "text": "Flip a coin until you get tails. This attack does 40 more damage for each heads."
+          }
+        ],
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "47",
+        "artist": "5ban Graphics",
+        "rarity": "Rare BREAK",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/47.png",
+          "large": "https://images.pokemontcg.io/xy9/47_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 4.6,
+              "high": 9.98,
+              "market": 4.83,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.54,
+            "lowPrice": 1.0,
+            "trendPrice": 4.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.99,
+            "reverseHoloTrend": 6.17,
+            "lowPriceExPlus": 2.5,
+            "avg1": 2.47,
+            "avg7": 3.53,
+            "avg30": 3.84,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 5.87,
+            "reverseHoloAvg30": 4.34
+          }
+        }
+      },
+      {
+        "id": "swsh2-62",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Raid",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60+",
+            "text": "If this Pokémon evolved from Luxio during this turn, this attack does 100 more damage."
+          },
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "62",
+        "artist": "Hasuno",
+        "rarity": "Rare Holo",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/62.png",
+          "large": "https://images.pokemontcg.io/swsh2/62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.15,
+              "mid": 0.37,
+              "high": 3.95,
+              "market": 0.36,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.37,
+              "mid": 0.54,
+              "high": 4.95,
+              "market": 0.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.41,
+            "lowPrice": 0.02,
+            "trendPrice": 0.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.6,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.8,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.15,
+            "avg7": 0.43,
+            "avg30": 0.35,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.58,
+            "reverseHoloAvg30": 0.74
+          }
+        }
+      },
+      {
+        "id": "pl2-109",
+        "name": "Luxray GL LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up",
+          "SP"
+        ],
+        "level": "X",
+        "hp": "110",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxray GL",
+        "rules": [
+          "Put this card onto your Active Luxray GL. Luxray GL LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Bright Look",
+            "text": "Once during your turn (before your attack), when you put Luxray GL LV.X from your hand onto your Active Luxray GL, you may switch the Defending Pokémon with 1 of your opponent's Benched Pokémon.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Flash Impact",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Does 30 damage to 1 of your Pokémon, and don't apply Weakness and Resistance to this damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/109.png",
+          "large": "https://images.pokemontcg.io/pl2/109_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-109",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 85.0,
+              "mid": 112.82,
+              "high": 140.64,
+              "market": 117.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-109",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 46.89,
+            "lowPrice": 7.0,
+            "trendPrice": 58.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 90.0,
+            "reverseHoloTrend": 2.73,
+            "lowPriceExPlus": 20.0,
+            "avg1": 80.0,
+            "avg7": 44.07,
+            "avg30": 36.85,
+            "reverseHoloAvg1": 7.43,
+            "reverseHoloAvg7": 20.92,
+            "reverseHoloAvg30": 25.87
+          }
+        }
+      },
+      {
+        "id": "swsh45-33",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Raid",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60+",
+            "text": "If this Pokémon evolved from Luxio during this turn, this attack does 100 more damage."
+          },
+          {
+            "name": "Head Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "33",
+        "artist": "Hasuno",
+        "rarity": "Rare Holo",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/33.png",
+          "large": "https://images.pokemontcg.io/swsh45/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.29,
+              "high": 2.0,
+              "market": 0.31,
+              "directLow": 0.25
+            },
+            "holofoil": {
+              "low": 0.03,
+              "mid": 0.25,
+              "high": 2.35,
+              "market": 0.26,
+              "directLow": 0.21
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.25,
+            "lowPrice": 0.02,
+            "trendPrice": 0.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.26,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.12,
+            "avg7": 0.2,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.27,
+            "reverseHoloAvg30": 0.26
+          }
+        }
+      },
+      {
+        "id": "swsh5-48",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Rapid Strike"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Electrostep",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 40 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Scar Strikes",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Kazuma Koda",
+        "rarity": "Rare Holo",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/48.png",
+          "large": "https://images.pokemontcg.io/swsh5/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.3,
+              "high": 2.95,
+              "market": 0.3,
+              "directLow": 0.24
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.3,
+              "high": 4.99,
+              "market": 0.31,
+              "directLow": 0.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.05,
+            "trendPrice": 0.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.58,
+            "reverseHoloLow": 0.07,
+            "reverseHoloTrend": 0.64,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.5,
+            "avg7": 0.32,
+            "avg30": 0.35,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.53,
+            "reverseHoloAvg30": 0.51
+          }
+        }
+      },
+      {
+        "id": "cel25c-109_A",
+        "name": "Luxray GL LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up",
+          "SP"
+        ],
+        "level": "X",
+        "hp": "110",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxray GL",
+        "rules": [
+          "Put this card onto your Active Luxray GL. Luxray GL LV. X can use any attack, Poké-Power, or Poké-Body from its previous Level."
+        ],
+        "abilities": [
+          {
+            "type": "Poké-Power",
+            "name": "Bright Look",
+            "text": "Once during your turn (before your attack), when you put Luxray GL LV.X from your hand onto your Active Luxray GL, you may switch the Defending Pokémon with 1 of your opponent's Benched Pokémon."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "name": "Flash Impact",
+            "damage": "60",
+            "text": "Does 30 damage to 1 of your Pokémon, and don't apply Weakness and Resistance to this damage.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "cel25c",
+          "name": "Celebrations: Classic Collection",
+          "series": "Sword & Shield",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CEL",
+          "releaseDate": "2021/10/08",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/cel25c/symbol.png",
+            "logo": "https://images.pokemontcg.io/cel25c/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Classic Collection",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/cel25c/109_A.png",
+          "large": "https://images.pokemontcg.io/cel25c/109_A_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/cel25c-109_A",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 3.48,
+              "high": 999.99,
+              "market": 2.76,
+              "directLow": 3.99
+            }
+          }
+        }
+      },
+      {
+        "id": "swsh8-93",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Thunder Claws",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "93",
+        "artist": "Atsushi Furusawa",
+        "rarity": "Rare",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/93.png",
+          "large": "https://images.pokemontcg.io/swsh8/93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.19,
+              "high": 5.25,
+              "market": 0.16,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.26,
+              "high": 3.25,
+              "market": 0.26,
+              "directLow": 0.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.31,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.12,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      },
+      {
+        "id": "swsh9-51",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Energy Crush",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each Energy attached to all of your opponent's Pokémon."
+          },
+          {
+            "name": "Flash Impact",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "110",
+            "text": "This attack also does 30 damage to 1 of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare",
+        "flavorText": "Luxray can see through solid objects. It will instantly spot prey trying to hide behind walls, even if the walls are thick.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/51.png",
+          "large": "https://images.pokemontcg.io/swsh9/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.21,
+              "high": 5.13,
+              "market": 0.21,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.18,
+              "high": 4.0,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.36,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.29,
+            "avg7": 0.1,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.65,
+            "reverseHoloAvg7": 0.4,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "swsh10-50",
+        "name": "Luxray V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Fang Snipe",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent reveals their hand. Discard a Trainer card you find there."
+          },
+          {
+            "name": "Radiating Pulse",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard 2 Energy from this Pokémon. Your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/50.png",
+          "large": "https://images.pokemontcg.io/swsh10/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.75,
+              "mid": 1.75,
+              "high": 4.99,
+              "market": 1.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.7,
+            "lowPrice": 0.8,
+            "trendPrice": 1.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 1.1,
+            "avg7": 1.71,
+            "avg30": 1.69,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10-168",
+        "name": "Luxray V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Fang Snipe",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent reveals their hand. Discard a Trainer card you find there."
+          },
+          {
+            "name": "Radiating Pulse",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard 2 Energy from this Pokémon. Your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "168",
+        "artist": "MUGENUP",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/168.png",
+          "large": "https://images.pokemontcg.io/swsh10/168_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-168",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.9,
+              "mid": 4.37,
+              "high": 19.98,
+              "market": 4.17,
+              "directLow": 19.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-168",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.91,
+            "lowPrice": 2.05,
+            "trendPrice": 4.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.05,
+            "avg1": 3.95,
+            "avg7": 3.99,
+            "avg30": 3.88,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-43",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Rapid Strike"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "attacks": [
+          {
+            "name": "Electrostep",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 40 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Scar Strikes",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "sui",
+        "rarity": "Rare",
+        "flavorText": "Luxray's ability to see through objects comes in handy when it's scouting for danger.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/43.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.3,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.04,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.12,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.63,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.13,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.35,
+            "reverseHoloAvg30": 0.56
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-44",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Explosiveness",
+            "text": "If this Pokémon is in your hand when you are setting up to play, you may put it face down as your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Seeking Fang",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Search your deck for up to 2 Trainer cards, reveal them, and put them into your hand. Then, shuffle your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "44",
+        "artist": "Ryota Murayama",
+        "rarity": "Rare",
+        "flavorText": "Luxray can see through solid objects. It will instantly spot prey trying to hide behind walls, even if the walls are thick.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/44.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/44_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.33,
+              "high": 999.0,
+              "market": 0.26,
+              "directLow": 0.25
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.17,
+              "high": 999.0,
+              "market": 0.11,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.44,
+            "reverseHoloLow": 0.08,
+            "reverseHoloTrend": 0.51,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.3,
+            "avg7": 0.14,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.49,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "sv2-71",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Swelling Flash",
+            "text": "Once during your turn, if this Pokémon is in your hand and you have more Prize cards remaining than your opponent, you may put this Pokémon onto your Bench."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Wild Charge",
+            "damage": "180",
+            "text": "This Pokémon also does 20 damage to itself.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "aoki",
+        "rarity": "Rare",
+        "flavorText": "It can see clearly through walls to track down its prey and seek its lost young.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/71.png",
+          "large": "https://images.pokemontcg.io/sv2/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": 0.12
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.23,
+              "high": 19.98,
+              "market": 0.17,
+              "directLow": 0.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-71",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.3,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.28,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.13,
+            "avg7": 0.09,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.11,
+            "reverseHoloAvg7": 0.3,
+            "reverseHoloAvg30": 0.3
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-137",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "abilities": [
+          {
+            "name": "Swelling Flash",
+            "text": "Once during your turn, if this Pokémon is in your hand and you have more Prize cards remaining than your opponent, you may put this Pokémon onto your Bench.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wild Charge",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "This Pokémon also does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "137",
+        "artist": "kantaro",
+        "rarity": "Shiny Rare",
+        "flavorText": "It can see clearly through walls to track down its prey and seek its lost young.",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/137.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/137_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-137",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.69,
+              "mid": 8.12,
+              "high": 17.0,
+              "market": 7.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-137",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 5.81,
+            "lowPrice": 0.66,
+            "trendPrice": 5.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.75,
+            "avg1": 3.8,
+            "avg7": 5.27,
+            "avg30": 5.8,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv6-68",
+        "name": "Luxray ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Piercing Gaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "Your opponent reveals their hand. Discard a card you find there."
+          },
+          {
+            "name": "Volt Strike",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "250",
+            "text": "Discard all Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/68.png",
+          "large": "https://images.pokemontcg.io/sv6/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.8,
+              "high": 999.0,
+              "market": 0.56,
+              "directLow": 0.7
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-68",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.62,
+            "lowPrice": 0.1,
+            "trendPrice": 0.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.46,
+            "avg7": 0.59,
+            "avg30": 0.61,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv6-195",
+        "name": "Luxray ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "310",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Luxio",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Piercing Gaze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "Your opponent reveals their hand. Discard a card you find there."
+          },
+          {
+            "name": "Volt Strike",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "250",
+            "text": "Discard all Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "195",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/195.png",
+          "large": "https://images.pokemontcg.io/sv6/195_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-195",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.09,
+              "high": 999.0,
+              "market": 1.93,
+              "directLow": 2.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-195",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.13,
+            "lowPrice": 0.98,
+            "trendPrice": 2.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.98,
+            "avg1": 2.99,
+            "avg7": 1.84,
+            "avg30": 2.1,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 26,
+    "totalCount": 26
+  }
+}

@@ -1,0 +1,1689 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:crawdaunt"
+  },
+  "cache_key": "91f8b49ea113e477f7bc872da92963c6",
+  "cached_at": 1765906893.629207,
+  "response": {
+    "data": [
+      {
+        "id": "ex3-3",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "abilities": [
+          {
+            "name": "Power Pinchers",
+            "text": "As long as Crawdaunt is your Active Pokémon, when any of your Active Pokémon does damage to the Defending Pokémon, the attack does 10 more damage (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Guillotine",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Hisao Nakamura",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/3.png",
+          "large": "https://images.pokemontcg.io/ex3/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.01,
+              "mid": 6.94,
+              "high": 23.99,
+              "market": 7.13,
+              "directLow": 19.98
+            },
+            "reverseHolofoil": {
+              "low": 3.79,
+              "mid": 4.25,
+              "high": 6.63,
+              "market": 5.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.12,
+            "lowPrice": 0.4,
+            "trendPrice": 6.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.42,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 3.32,
+            "lowPriceExPlus": 1.7,
+            "avg1": 0.98,
+            "avg7": 6.03,
+            "avg30": 4.11,
+            "reverseHoloAvg1": 4.38,
+            "reverseHoloAvg7": 4.19,
+            "reverseHoloAvg30": 3.47
+          }
+        }
+      },
+      {
+        "id": "ex4-2",
+        "name": "Team Aqua's Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water",
+          "Darkness"
+        ],
+        "evolvesFrom": "Team Aqua's Corphish",
+        "rules": [
+          "This Pokémon is both Water Darkness type."
+        ],
+        "attacks": [
+          {
+            "name": "Aqua Reverse",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Before doing damage, you may choose 1 of your opponent's Benched Pokémon that has Team Magma in its name and switch it with 1 of the Defending Pokémon. Your opponent chooses the Defending Pokémon to switch."
+          },
+          {
+            "name": "Deep Impact",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "If the Defending Pokémon already has any damage counters on it, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Nakaoka",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/2.png",
+          "large": "https://images.pokemontcg.io/ex4/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.0,
+              "mid": 16.16,
+              "high": 18.92,
+              "market": 16.52,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.99,
+              "mid": 14.8,
+              "high": 14.99,
+              "market": 14.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.54,
+            "lowPrice": 0.99,
+            "trendPrice": 10.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.75,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 7.56,
+            "lowPriceExPlus": 3.3,
+            "avg1": 11.98,
+            "avg7": 8.05,
+            "avg30": 7.54,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 8.59,
+            "reverseHoloAvg30": 5.27
+          }
+        }
+      },
+      {
+        "id": "ex8-6",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Corphish",
+        "abilities": [
+          {
+            "name": "Dark Protection",
+            "text": "Any damage done to Crawdaunt by your opponent's attacks is reduced by 10 for each Darkness Energy attached to Crawdaunt (after applying Weakness and Resistance). You can't reduce more than 20 damage in this way.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Bubblebeam",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Cross-Cut",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "If the Defending Pokémon is an Evolved Pokémon, this attack does 40 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex8",
+          "name": "Deoxys",
+          "series": "EX",
+          "printedTotal": 107,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DX",
+          "releaseDate": "2005/02/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex8/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex8/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Tomoko Wakai",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex8/6.png",
+          "large": "https://images.pokemontcg.io/ex8/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex8-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.95,
+              "mid": 3.99,
+              "high": 4.0,
+              "market": 5.94,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 15.29,
+              "mid": 16.22,
+              "high": 28.0,
+              "market": 20.82,
+              "directLow": 39.99
+            },
+            "reverseHolofoil": {
+              "low": 12.0,
+              "mid": 22.59,
+              "high": 31.69,
+              "market": 37.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex8-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.13,
+            "lowPrice": 1.4,
+            "trendPrice": 9.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.76,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 7.72,
+            "lowPriceExPlus": 4.5,
+            "avg1": 5.99,
+            "avg7": 7.38,
+            "avg30": 7.68,
+            "reverseHoloAvg1": 9.0,
+            "reverseHoloAvg7": 9.75,
+            "reverseHoloAvg30": 15.38
+          }
+        }
+      },
+      {
+        "id": "ex4-14",
+        "name": "Team Aqua's Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Team Aqua's Corphish",
+        "attacks": [
+          {
+            "name": "Poison Reaction",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "If the Defending Pokémon is Poisoned, this attack does 20 damage plus 20 more damage."
+          },
+          {
+            "name": "Double Claw",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Flip 2 coins. This attack does 30 damage plus 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Nakaoka",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/14.png",
+          "large": "https://images.pokemontcg.io/ex4/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.16,
+              "mid": 1.82,
+              "high": 3.67,
+              "market": 1.69,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.57,
+              "mid": 4.25,
+              "high": 4.6,
+              "market": 5.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.05,
+            "lowPrice": 0.02,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.46,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 5.23,
+            "lowPriceExPlus": 0.35,
+            "avg1": 0.5,
+            "avg7": 1.05,
+            "avg30": 1.5,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 6.9,
+            "reverseHoloAvg30": 3.7
+          }
+        }
+      },
+      {
+        "id": "ex3-13",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Poison Claws",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Rend",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "If the Defending Pokémon has any damage counters on it, this attack does 30 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/13.png",
+          "large": "https://images.pokemontcg.io/ex3/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.49,
+              "mid": 0.8,
+              "high": 1.63,
+              "market": 0.88,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.5,
+              "mid": 4.08,
+              "high": 12.98,
+              "market": 4.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.61,
+            "lowPrice": 0.05,
+            "trendPrice": 0.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.32,
+            "reverseHoloLow": 0.85,
+            "reverseHoloTrend": 6.87,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.62,
+            "avg7": 0.59,
+            "avg30": 0.78,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 8.29,
+            "reverseHoloAvg30": 4.25
+          }
+        }
+      },
+      {
+        "id": "pl3-23",
+        "name": "Crawdaunt G",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "61",
+        "hp": "80",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Smash Turn",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "You may switch Crawdaunt G with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, discard an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Wataru Kawahara",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/23.png",
+          "large": "https://images.pokemontcg.io/pl3/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.85,
+              "mid": 1.37,
+              "high": 2.78,
+              "market": 2.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.81,
+              "mid": 2.35,
+              "high": 4.45,
+              "market": 2.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.07,
+            "lowPrice": 0.5,
+            "trendPrice": 2.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.75,
+            "reverseHoloTrend": 2.6,
+            "lowPriceExPlus": 0.9,
+            "avg1": 2.29,
+            "avg7": 2.53,
+            "avg30": 1.9,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 2.33,
+            "reverseHoloAvg30": 2.36
+          }
+        }
+      },
+      {
+        "id": "dp6-22",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "32",
+        "hp": "90",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Gripthrow",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, your opponent returns the Defending Pokémon and all cards attached to it to his or her hand."
+          },
+          {
+            "name": "Prop-up Pinchers",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If Crawdaunt has a Technical Machine card attached to it, this attack does 50 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "It is a ruffian that uses its pincers to pick up and toss out other Pokémon from its pond.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/22.png",
+          "large": "https://images.pokemontcg.io/dp6/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.7,
+              "mid": 1.4,
+              "high": 3.34,
+              "market": 1.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.61,
+              "mid": 2.28,
+              "high": 3.97,
+              "market": 2.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.42,
+            "lowPrice": 0.09,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.26,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.72,
+            "lowPriceExPlus": 0.35,
+            "avg1": 0.1,
+            "avg7": 0.59,
+            "avg30": 0.88,
+            "reverseHoloAvg1": 1.26,
+            "reverseHoloAvg7": 2.37,
+            "reverseHoloAvg30": 1.43
+          }
+        }
+      },
+      {
+        "id": "sm4-25",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Double Claws",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Discard 2 Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Saya Tsuruta",
+        "rarity": "Rare",
+        "flavorText": "It is a ruffian that uses its pincers to pick up and toss out other Pokémon from its pond.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/25.png",
+          "large": "https://images.pokemontcg.io/sm4/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.23,
+              "high": 3.0,
+              "market": 0.21,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.36,
+              "high": 1.5,
+              "market": 0.35,
+              "directLow": 0.34
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.39,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.31,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.49,
+            "avg7": 0.27,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.39,
+            "reverseHoloAvg30": 0.4
+          }
+        }
+      },
+      {
+        "id": "xy5-92",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Corphish",
+        "abilities": [
+          {
+            "name": "Unruly Claw",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon, you may discard an Energy attached to your opponent's Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crabhammer",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "flavorText": "Loving to battle, this Pokémon pinches all Pokémon that enter its territory with its pincers and throws them out.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/92.png",
+          "large": "https://images.pokemontcg.io/xy5/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.57,
+              "high": 1.74,
+              "market": 0.54,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.39,
+              "mid": 0.72,
+              "high": 1.49,
+              "market": 0.78,
+              "directLow": 0.5
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.5,
+            "lowPrice": 0.5,
+            "trendPrice": 1.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 1.51,
+            "lowPriceExPlus": 0.56,
+            "avg1": 0.65,
+            "avg7": 1.36,
+            "avg30": 1.29,
+            "reverseHoloAvg1": 0.87,
+            "reverseHoloAvg7": 1.47,
+            "reverseHoloAvg30": 1.65
+          }
+        }
+      },
+      {
+        "id": "ex13-99",
+        "name": "Crawdaunt ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "110",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Splash Back",
+            "text": "Once during your turn (before your attack), if your opponent has 4 or more Benched Pokémon, you may choose 1 of them and return that Pokémon and all cards attached to it to his or her hand. This power can't be used if Crawdaunt ex is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Power Blow",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the amount of Energy attached to Crawdaunt ex."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex13",
+          "name": "Holon Phantoms",
+          "series": "EX",
+          "printedTotal": 110,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HP",
+          "releaseDate": "2006/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex13/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex13/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex13/99.png",
+          "large": "https://images.pokemontcg.io/ex13/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex13-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 30.8,
+              "mid": 49.99,
+              "high": 66.0,
+              "market": 51.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex13-99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 27.5,
+            "lowPrice": 8.5,
+            "trendPrice": 30.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.6,
+            "lowPriceExPlus": 22.0,
+            "avg1": 15.0,
+            "avg7": 18.43,
+            "avg30": 22.86,
+            "reverseHoloAvg1": 13.95,
+            "reverseHoloAvg7": 7.55,
+            "reverseHoloAvg30": 9.91
+          }
+        }
+      },
+      {
+        "id": "swsh5-39",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Knock Off",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard a random card from your opponent's hand."
+          },
+          {
+            "name": "Crabhammer",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "140",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Hasegawa Saki",
+        "rarity": "Uncommon",
+        "flavorText": "A brutish Pokémon that loves to battle. It will crash itself into any foe that approaches its nest.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/39.png",
+          "large": "https://images.pokemontcg.io/swsh5/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.02,
+              "mid": 0.12,
+              "high": 1.49,
+              "market": 0.06,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.21,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.24,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "swsh9-33",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Corkscrew Punch",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Crab Impact",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "33",
+        "artist": "Shibuzoh.",
+        "rarity": "Uncommon",
+        "flavorText": "A rough customer that wildly flails its giant claws. It is said to be extremely hard to raise.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/33.png",
+          "large": "https://images.pokemontcg.io/swsh9/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 2.0,
+              "market": 0.11,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "sv6-48",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Snip Snip",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Flip 2 coins. For each heads, discard the top card of your opponent's deck."
+          },
+          {
+            "name": "Rampaging Hammer",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Kurata So",
+        "rarity": "Common",
+        "flavorText": "A rough customer that wildly flails its giant claws. It is said to be extremely hard to raise.",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/48.png",
+          "large": "https://images.pokemontcg.io/sv6/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.08,
+              "directLow": 0.06
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": 0.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "me1-85",
+        "name": "Crawdaunt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Corphish",
+        "attacks": [
+          {
+            "name": "Vise Grip",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Cutting Riposte",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "If this Pokémon has any damage counters on it, this attack can be used for Darkness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "85",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          342
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/85.png",
+          "large": "https://images.pokemontcg.io/me1/85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.13,
+              "directLow": 0.18
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.09,
+              "high": 999.0,
+              "market": 0.03,
+              "directLow": 0.02
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 14,
+    "totalCount": 14
+  }
+}

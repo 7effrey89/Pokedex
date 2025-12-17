@@ -1,0 +1,630 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:hatenna"
+  },
+  "cache_key": "0b59af5e2c71aecede3aa8d73f280a28",
+  "cached_at": 1765895561.399228,
+  "response": {
+    "data": [
+      {
+        "id": "swsh35-18",
+        "name": "Hatenna",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Hattrem"
+        ],
+        "attacks": [
+          {
+            "name": "Stampede",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Magical Shot",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Akira Komayama",
+        "rarity": "Common",
+        "flavorText": "Via the protrusion on its head, it senses other creatures' emotions. If you don't have a calm disposition, it will never warm up to you.",
+        "nationalPokedexNumbers": [
+          856
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/18.png",
+          "large": "https://images.pokemontcg.io/swsh35/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 1.49,
+              "market": 0.07,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.23,
+            "reverseHoloAvg30": 0.21
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH040",
+        "name": "Hatenna",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Hattrem"
+        ],
+        "attacks": [
+          {
+            "name": "Find a Friend",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH040",
+        "artist": "Misa Tsutsui",
+        "rarity": "Promo",
+        "flavorText": "Via the protrusion on its head, it senses other creatures' emotions. If you don't have a calm disposition, it will never warm up to you.",
+        "nationalPokedexNumbers": [
+          856
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH040.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH040_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH040",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.48,
+              "high": 5.03,
+              "market": 0.41,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH040",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.09,
+            "lowPrice": 1.0,
+            "trendPrice": 2.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.33,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.0,
+            "avg7": 1.82,
+            "avg30": 2.14,
+            "reverseHoloAvg1": 4.25,
+            "reverseHoloAvg7": 6.45,
+            "reverseHoloAvg30": 6.45
+          }
+        }
+      },
+      {
+        "id": "swsh2-83",
+        "name": "Hatenna",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Hattrem"
+        ],
+        "attacks": [
+          {
+            "name": "Find a Friend",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Mina Nakai",
+        "rarity": "Common",
+        "flavorText": "Via the protrusion on its head, it senses other creatures' emotions. If you don't have a calm disposition, it will never warm up to you.",
+        "nationalPokedexNumbers": [
+          856
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/83.png",
+          "large": "https://images.pokemontcg.io/swsh2/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.27,
+              "high": 2.99,
+              "market": 0.22,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.02,
+              "mid": 0.12,
+              "high": 2.0,
+              "market": 0.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.23,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.04,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV054",
+        "name": "Hatenna",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Hattrem"
+        ],
+        "attacks": [
+          {
+            "name": "Find a Friend",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV054",
+        "artist": "otumami",
+        "rarity": "Rare Shiny",
+        "flavorText": "Via the protrusion on its head, it senses other creatures' emotions. If you don't have a calm disposition, it will never warm up to you.",
+        "nationalPokedexNumbers": [
+          856
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV054.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV054_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV054",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.23,
+              "mid": 2.22,
+              "high": 9.99,
+              "market": 1.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV054",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.65,
+            "lowPrice": 1.94,
+            "trendPrice": 2.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.24,
+            "lowPriceExPlus": 1.94,
+            "avg1": 2.0,
+            "avg7": 2.6,
+            "avg30": 2.55,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 6.07,
+            "reverseHoloAvg30": 5.81
+          }
+        }
+      },
+      {
+        "id": "swsh6-71",
+        "name": "Hatenna",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Hattrem"
+        ],
+        "attacks": [
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "Sekio",
+        "rarity": "Common",
+        "flavorText": "If this Pokémon senses a strong emotion, it will run away as fast as it can. It prefers areas without people.",
+        "nationalPokedexNumbers": [
+          856
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/71.png",
+          "large": "https://images.pokemontcg.io/swsh6/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.06,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 999.0,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.35,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 5,
+    "totalCount": 5
+  }
+}

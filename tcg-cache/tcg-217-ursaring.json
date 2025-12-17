@@ -1,0 +1,1983 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:ursaring"
+  },
+  "cache_key": "3b80fa75ade274c68c2ff6b70a955147",
+  "cached_at": 1765913311.621195,
+  "response": {
+    "data": [
+      {
+        "id": "ex10-18",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "abilities": [
+          {
+            "name": "Intimidating Ring",
+            "text": "As long as Ursaring is your Active Pokémon, your opponent's Basic Pokémon can't attack or use any Poké-Powers.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Drag Off",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Before doing damage, you may switch 1 of your opponent's Benched Pokémon with the Defending Pokémon. If you do, this attack does 20 damage to the new Defending Pokémon. Your opponent chooses the Defending Pokémon to switch."
+          },
+          {
+            "name": "Rock Smash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/18.png",
+          "large": "https://images.pokemontcg.io/ex10/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.6,
+              "mid": 14.92,
+              "high": 39.99,
+              "market": 16.8,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 14.48,
+              "mid": 18.99,
+              "high": 23.0,
+              "market": 14.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.76,
+            "lowPrice": 1.93,
+            "trendPrice": 6.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.0,
+            "reverseHoloLow": 1.98,
+            "reverseHoloTrend": 6.63,
+            "lowPriceExPlus": 2.0,
+            "avg1": 5.0,
+            "avg7": 6.37,
+            "avg30": 6.03,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 5.11,
+            "reverseHoloAvg30": 7.9
+          }
+        }
+      },
+      {
+        "id": "neo4-21",
+        "name": "Dark Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "28",
+        "hp": "60",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Provoke",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at your opponent's hand. If he or she has any Baby Pokémon and/or Basic Pokémon there, you may put any number of them onto your opponent's Bench (as long as there's room). Then, your opponent looks at your hand. If you have any Baby Pokémon and/or Basic Pokémon there, your opponent may put any number of them onto your Bench (as long as there's room)."
+          },
+          {
+            "name": "Battle Frenzy",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "For each Pokémon in play (yours and your opponent's), flip a coin. For each heads, this attack does 20 damage to that Pokémon. Don't apply Weakness and Resistance for this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "Its keen nose can pick out any scent, even that of food buried deep underground.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/21.png",
+          "large": "https://images.pokemontcg.io/neo4/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 17.5,
+              "mid": 33.0,
+              "high": 33.57,
+              "market": 33.57,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 7.8,
+              "mid": 11.26,
+              "high": 15.0,
+              "market": 11.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.43,
+            "lowPrice": 2.0,
+            "trendPrice": 10.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.99,
+            "lowPriceExPlus": 6.5,
+            "avg1": 12.47,
+            "avg7": 8.11,
+            "avg30": 9.79,
+            "reverseHoloAvg1": 9.99,
+            "reverseHoloAvg7": 9.99,
+            "reverseHoloAvg30": 9.99
+          }
+        }
+      },
+      {
+        "id": "neo2-15",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Headpress",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed. If tails, this attack does nothing (not even damage)."
+          },
+          {
+            "name": "Double Lariat",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare Holo",
+        "flavorText": "Although it is a good climber, it prefers to snap trees with its forelegs and eat fallen berries.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/15.png",
+          "large": "https://images.pokemontcg.io/neo2/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 67.73,
+              "mid": 80.99,
+              "high": 199.99,
+              "market": 67.79,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 22.99,
+              "mid": 30.5,
+              "high": 75.0,
+              "market": 31.58,
+              "directLow": 41.17
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 40.18,
+            "lowPrice": 4.99,
+            "trendPrice": 34.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.28,
+            "lowPriceExPlus": 14.0,
+            "avg1": 15.0,
+            "avg7": 19.42,
+            "avg30": 33.11,
+            "reverseHoloAvg1": 107.5,
+            "reverseHoloAvg7": 35.32,
+            "reverseHoloAvg30": 18.33
+          }
+        }
+      },
+      {
+        "id": "hgss2-27",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Confront",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Cross Chop",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 50 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "27",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "With its ability to distinguish any aroma, it unfailing finds all food buried deep underground.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/27.png",
+          "large": "https://images.pokemontcg.io/hgss2/27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.45,
+              "mid": 1.05,
+              "high": 2.97,
+              "market": 0.81,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.99,
+              "mid": 3.02,
+              "high": 9.99,
+              "market": 3.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.84,
+            "lowPrice": 0.05,
+            "trendPrice": 1.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 3.12,
+            "lowPriceExPlus": 0.3,
+            "avg1": 2.13,
+            "avg7": 1.33,
+            "avg30": 1.08,
+            "reverseHoloAvg1": 1.1,
+            "reverseHoloAvg7": 2.89,
+            "reverseHoloAvg30": 1.91
+          }
+        }
+      },
+      {
+        "id": "col1-37",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Confront",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Cross Chop",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 50 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "With its ability to distinguish any aroma, it unfailing finds all food buried deep underground.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/37.png",
+          "large": "https://images.pokemontcg.io/col1/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.59,
+              "mid": 0.87,
+              "high": 1.26,
+              "market": 0.97,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.69,
+              "mid": 2.99,
+              "high": 4.59,
+              "market": 2.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.48,
+            "lowPrice": 0.1,
+            "trendPrice": 1.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 4.39,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.75,
+            "avg7": 1.35,
+            "avg30": 1.46,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 3.01,
+            "reverseHoloAvg30": 3.06
+          }
+        }
+      },
+      {
+        "id": "neo2-34",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Headpress",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed. If tails, this attack does nothing (not even damage)."
+          },
+          {
+            "name": "Double Lariat",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "Although it is a good climber, it prefers to snap trees with its forelegs and eat fallen berries.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/34.png",
+          "large": "https://images.pokemontcg.io/neo2/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 5.54,
+              "mid": 9.58,
+              "high": 24.97,
+              "market": 9.03,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 3.2,
+              "mid": 4.91,
+              "high": 7.79,
+              "market": 4.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.36,
+            "lowPrice": 0.3,
+            "trendPrice": 3.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.28,
+            "lowPriceExPlus": 3.9,
+            "avg1": 20.0,
+            "avg7": 6.28,
+            "avg30": 6.64,
+            "reverseHoloAvg1": 2.49,
+            "reverseHoloAvg7": 6.0,
+            "reverseHoloAvg30": 4.8
+          }
+        }
+      },
+      {
+        "id": "dp2-38",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "38",
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Bad Temper",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "The Defending Pokémon is now Confused. During your opponent's next turn, that Pokémon's attacks do 60 more damage to the Active Pokémon (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Defensive Claw",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "If Teddiursa is on your Bench, this attack does 60 damage plus 20 more damage. If Teddiursa is on your Bench and has any damage counters on it, this attack does 60 damage plus 40 more damage and remove all damage counters from that Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "In its territory, it leaves scratches on trees that bear delicious berries or fruits.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/38.png",
+          "large": "https://images.pokemontcg.io/dp2/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.53,
+              "mid": 1.25,
+              "high": 2.97,
+              "market": 1.33,
+              "directLow": 1.46
+            },
+            "reverseHolofoil": {
+              "low": 1.25,
+              "mid": 2.29,
+              "high": 5.0,
+              "market": 1.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.14,
+            "lowPrice": 0.04,
+            "trendPrice": 1.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.67,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.69,
+            "lowPriceExPlus": 0.48,
+            "avg1": 0.1,
+            "avg7": 1.14,
+            "avg30": 1.4,
+            "reverseHoloAvg1": 0.67,
+            "reverseHoloAvg7": 2.08,
+            "reverseHoloAvg30": 2.02
+          }
+        }
+      },
+      {
+        "id": "bw10-76",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Adrenalash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "During your next turn, each of this Pokémon's attacks does 50 more damage (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Strength",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "76",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "flavorText": "In its territory, it leaves scratches on trees that bear delicious berries or fruits.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/76.png",
+          "large": "https://images.pokemontcg.io/bw10/76_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-76",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.35,
+              "high": 5.0,
+              "market": 0.37,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.8,
+              "high": 2.49,
+              "market": 0.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-76",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.02,
+            "trendPrice": 0.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.7,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.91,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.1,
+            "avg7": 0.3,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.72,
+            "reverseHoloAvg30": 1.1
+          }
+        }
+      },
+      {
+        "id": "hgss2-89",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Prime"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "abilities": [
+          {
+            "name": "Berserk",
+            "text": "If Ursaring has any damage counters on it, each of Ursaring's attacks does 60 more damage (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hammer Arm",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Discard the top card from your opponent's deck."
+          },
+          {
+            "name": "Megaton Lariat",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Wataru Kawahara",
+        "rarity": "Rare Prime",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/89.png",
+          "large": "https://images.pokemontcg.io/hgss2/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 24.5,
+              "mid": 27.29,
+              "high": 60.0,
+              "market": 33.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 8.12,
+            "lowPrice": 0.99,
+            "trendPrice": 6.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.92,
+            "lowPriceExPlus": 2.0,
+            "avg1": 9.0,
+            "avg7": 6.24,
+            "avg30": 8.01,
+            "reverseHoloAvg1": 9.45,
+            "reverseHoloAvg7": 5.24,
+            "reverseHoloAvg30": 4.61
+          }
+        }
+      },
+      {
+        "id": "bw11-RC16",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Picnic Weather",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put a Teddiursa from your discard pile onto your Bench. Then, attach an Energy card from your discard pile to that Pokémon."
+          },
+          {
+            "name": "Fury Swipes",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50×",
+            "text": "Flip 3 coins. This attack does 50 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "RC16",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Common",
+        "flavorText": "In its territory, it leaves scratches on trees that bear delicious berries or fruits.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/RC16.png",
+          "large": "https://images.pokemontcg.io/bw11/RC16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-RC16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.38,
+              "mid": 4.05,
+              "high": 10.0,
+              "market": 4.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-RC16",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.51,
+            "lowPrice": 0.2,
+            "trendPrice": 1.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.83,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 1.86,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.0,
+            "avg7": 1.22,
+            "avg30": 1.79,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 1.53,
+            "reverseHoloAvg30": 1.59
+          }
+        }
+      },
+      {
+        "id": "xy8-122",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Drag Off",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Switch 1 of your opponent's Benched Pokémon with his or her Active Pokémon. This attack does 50 damage to the new Active Pokémon."
+          },
+          {
+            "name": "Swing Around",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80+",
+            "text": "Flip 2 coins. This attack does 40 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "122",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "flavorText": "Although it has a large body, it is quite skilled at climbing trees. It eats and sleeps in the treetops.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/122.png",
+          "large": "https://images.pokemontcg.io/xy8/122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 1.49,
+              "market": 0.21,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.14,
+              "mid": 0.35,
+              "high": 1.49,
+              "market": 0.32,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-122",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.13,
+            "reverseHoloTrend": 0.52,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.11,
+            "avg7": 0.12,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.28,
+            "reverseHoloAvg7": 0.46,
+            "reverseHoloAvg30": 0.78
+          }
+        }
+      },
+      {
+        "id": "ecard3-110",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Bear Hug",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Rend",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "If the Defending Pokémon already has any damage counters on it, this attack does 40 damage plus 20 more damage. If not, this attack does 40 damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "110",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/110.png",
+          "large": "https://images.pokemontcg.io/ecard3/110_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-110",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 11.5,
+              "mid": 15.0,
+              "high": 18.49,
+              "market": 18.13,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 73.53,
+              "mid": 106.76,
+              "high": 139.99,
+              "market": 67.0,
+              "directLow": 139.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-110",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 7.3,
+            "lowPrice": 0.5,
+            "trendPrice": 4.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 11.89,
+            "lowPriceExPlus": 1.0,
+            "avg1": 0.5,
+            "avg7": 2.23,
+            "avg30": 4.23,
+            "reverseHoloAvg1": 9.9,
+            "reverseHoloAvg7": 11.18,
+            "reverseHoloAvg30": 11.72
+          }
+        }
+      },
+      {
+        "id": "swsh3-139",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Hammer Arm",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard the top card of your opponent's deck."
+          },
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "139",
+        "artist": "Uta",
+        "rarity": "Uncommon",
+        "flavorText": "Although it has a large body, it is quite skilled at climbing trees. It eats and sleeps in the treetops.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/139.png",
+          "large": "https://images.pokemontcg.io/swsh3/139_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-139",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 25.08,
+              "market": 0.09,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.21,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-139",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.25,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.25,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "sm12-172",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Heavy Hold",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "The Defending Pokémon can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "172",
+        "artist": "Hiroki Asanuma",
+        "rarity": "Rare",
+        "flavorText": "With its ability to distinguish any aroma, it unfailingly finds all food buried deep underground.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/172.png",
+          "large": "https://images.pokemontcg.io/sm12/172_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-172",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 10.0,
+              "market": 0.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.49,
+              "high": 10.0,
+              "market": 0.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-172",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.64,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.62,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.14,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.64,
+            "reverseHoloAvg30": 0.65
+          }
+        }
+      },
+      {
+        "id": "swsh7-127",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Slash",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Whap Down",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "127",
+        "artist": "Hasegawa Saki",
+        "rarity": "Uncommon",
+        "flavorText": "Although it has a large body, it is quite skilled at climbing trees. It eats and sleeps in the treetops.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/127.png",
+          "large": "https://images.pokemontcg.io/swsh7/127_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-127",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.21,
+              "high": 2.0,
+              "market": 0.18,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-127",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.23,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.07,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "swsh10-123",
+        "name": "Ursaring",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Teddiursa",
+        "attacks": [
+          {
+            "name": "Continuous Slap",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40×",
+            "text": "Flip a coin until you get tails. This attack does 40 damage for each heads."
+          },
+          {
+            "name": "Strength",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "123",
+        "artist": "Teeziro",
+        "rarity": "Uncommon",
+        "flavorText": "When the cold season arrives in Hisui, this Pokémon will wander fields and mountains alike in search of its favorite berries. Ursaring's hunger during this time makes it a ferocious danger.",
+        "nationalPokedexNumbers": [
+          217
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/123.png",
+          "large": "https://images.pokemontcg.io/swsh10/123_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-123",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.22,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-123",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.23,
+            "reverseHoloAvg7": 0.15,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 16,
+    "totalCount": 16
+  }
+}

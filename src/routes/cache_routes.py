@@ -49,6 +49,54 @@ def set_cache_enabled():
         return jsonify({"error": str(e)}), 500
 
 
+@cache_bp.route('/pokeapi', methods=['POST'])
+def set_pokeapi_cache_enabled():
+    """Enable or disable caching for PokeAPI proxy requests only"""
+    from src.services.cache_service import get_cache_service
+
+    try:
+        data = request.get_json() or {}
+        enabled = data.get('enabled')
+
+        if enabled is None:
+            return jsonify({"error": "enabled field is required"}), 400
+
+        cache_service = get_cache_service()
+        cache_service.set_pokeapi_cache_enabled(enabled)
+
+        return jsonify({
+            "message": f"PokeAPI cache {'enabled' if enabled else 'disabled'}",
+            "config": cache_service.get_config()
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@cache_bp.route('/tcg', methods=['POST'])
+def set_tcg_cache_enabled():
+    """Enable or disable caching for Pokemon TCG API requests"""
+    from src.services.cache_service import get_cache_service
+
+    try:
+        data = request.get_json() or {}
+        enabled = data.get('enabled')
+
+        if enabled is None:
+            return jsonify({"error": "enabled field is required"}), 400
+
+        cache_service = get_cache_service()
+        cache_service.set_tcg_cache_enabled(enabled)
+
+        return jsonify({
+            "message": f"TCG cache {'enabled' if enabled else 'disabled'}",
+            "config": cache_service.get_config()
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @cache_bp.route('/expiry', methods=['POST'])
 def set_cache_expiry():
     """Set cache expiry time in days"""
@@ -62,10 +110,13 @@ def set_cache_expiry():
             return jsonify({"error": "days field is required"}), 400
         
         cache_service = get_cache_service()
-        cache_service.set_expiry_days(int(days))
+        days_value = int(days)
+        cache_service.set_expiry_days(days_value)
+
+        message = "Cache expiry set to unlimited" if days_value == 0 else f"Cache expiry set to {days_value} days"
         
         return jsonify({
-            "message": f"Cache expiry set to {days} days",
+            "message": message,
             "config": cache_service.get_config()
         })
     

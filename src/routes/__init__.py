@@ -14,11 +14,13 @@ from .realtime_routes import realtime_bp
 from .tool_routes import tool_bp
 from .cache_routes import cache_bp
 from .face_routes import face_bp
+from .pokeapi_routes import pokeapi_bp
 
 __all__ = [
     'chat_bp',
     'realtime_bp',
     'tool_bp',
     'cache_bp',
-    'face_bp'
+    'face_bp',
+    'pokeapi_bp'
 ]

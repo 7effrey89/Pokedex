@@ -1,0 +1,2383 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:misdreavus"
+  },
+  "cache_key": "451884e2b6a5cc786edf6c133a79d96f",
+  "cached_at": 1765913089.964424,
+  "response": {
+    "data": [
+      {
+        "id": "neo3-11",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "25",
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Night Eyes",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Perish Song",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "If the Defending Pokémon is Asleep and was attacked with Night Eyes during your last turn, it is Knocked Out."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "It likes playing mischievous tricks such as screaming and wailing to startle people at night.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/11.png",
+          "large": "https://images.pokemontcg.io/neo3/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 83.76,
+              "mid": 125.0,
+              "high": 143.0,
+              "market": 105.03,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 27.72,
+              "mid": 34.95,
+              "high": 50.6,
+              "market": 44.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.63,
+            "lowPrice": 7.99,
+            "trendPrice": 18.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.08,
+            "lowPriceExPlus": 34.9,
+            "avg1": 17.99,
+            "avg7": 24.54,
+            "avg30": 33.89,
+            "reverseHoloAvg1": 19.32,
+            "reverseHoloAvg7": 17.72,
+            "reverseHoloAvg30": 17.0
+          }
+        }
+      },
+      {
+        "id": "ex7-25",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "abilities": [
+          {
+            "name": "Dark Spell",
+            "text": "Once during your turn (before your attack), if Misdreavus is your Active Pokémon, you may flip a coin. If heads, put 1 damage counter on 1 of your opponent's Pokémon. This power can't be used if Misdreavus is affected by a Special Condition or if your other Active Pokémon is not Misdreavus.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hide in Shadows",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Switch Misdreavus with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Aya Kusube",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/25.png",
+          "large": "https://images.pokemontcg.io/ex7/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.0,
+              "mid": 2.8,
+              "high": 4.75,
+              "market": 2.46,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 37.0,
+              "mid": 46.6,
+              "high": 59.99,
+              "market": 47.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.62,
+            "lowPrice": 0.2,
+            "trendPrice": 2.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 46.99,
+            "reverseHoloLow": 10.0,
+            "reverseHoloTrend": 22.92,
+            "lowPriceExPlus": 1.3,
+            "avg1": 3.5,
+            "avg7": 2.87,
+            "avg30": 2.58,
+            "reverseHoloAvg1": 46.99,
+            "reverseHoloAvg7": 26.11,
+            "reverseHoloAvg30": 15.42
+          }
+        }
+      },
+      {
+        "id": "ex12-40",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "abilities": [
+          {
+            "name": "Deep Sleep",
+            "text": "As long as Misdreavus is your Active Pokémon, each player flips 2 coins for his or her Pokémon that is Asleep between turns. If either coin is tails, that Pokémon is still Asleep.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Return Trance",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Return an Energy card attached to Misdreavus to your hand. The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Dream Eater",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "If the Defending Pokémon is not Asleep, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex12",
+          "name": "Legend Maker",
+          "series": "EX",
+          "printedTotal": 92,
+          "total": 93,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LM",
+          "releaseDate": "2006/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex12/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex12/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Yukiko Baba",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex12/40.png",
+          "large": "https://images.pokemontcg.io/ex12/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex12-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.45,
+              "mid": 0.75,
+              "high": 3.0,
+              "market": 0.8,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.75,
+              "mid": 8.45,
+              "high": 12.01,
+              "market": 13.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex12-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.66,
+            "lowPrice": 0.05,
+            "trendPrice": 0.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.0,
+            "reverseHoloLow": 2.25,
+            "reverseHoloTrend": 6.14,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.5,
+            "avg7": 0.62,
+            "avg30": 0.69,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 8.38,
+            "reverseHoloAvg30": 7.99
+          }
+        }
+      },
+      {
+        "id": "basep-39",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "23",
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Pain Split",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 1 damage counter on the Defending Pokémon for each damage counter on Misdreavus."
+          },
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "basep",
+          "name": "Wizards Black Star Promos",
+          "series": "Base",
+          "printedTotal": 53,
+          "total": 53,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR",
+          "releaseDate": "1999/07/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+            "logo": "https://images.pokemontcg.io/basep/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Promo",
+        "flavorText": "It loves to bite and yank people's hair from behind without warning, just to see their shocked reactions.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/basep/39.png",
+          "large": "https://images.pokemontcg.io/basep/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/basep-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.2,
+              "mid": 7.31,
+              "high": 23.99,
+              "market": 7.46,
+              "directLow": 7.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/basep-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.25,
+            "lowPrice": 1.0,
+            "trendPrice": 5.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.0,
+            "lowPriceExPlus": 2.0,
+            "avg1": 5.49,
+            "avg7": 5.28,
+            "avg30": 5.18,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.0,
+            "reverseHoloAvg30": 1.0
+          }
+        }
+      },
+      {
+        "id": "sm4-39",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "so-taro",
+        "rarity": "Common",
+        "flavorText": "It will use any means necessary to frighten people and absorb their life energy. It practices constantly to hone its skill in causing fear.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/39.png",
+          "large": "https://images.pokemontcg.io/sm4/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 1.49,
+              "market": 0.14,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.35,
+              "high": 3.49,
+              "market": 0.36,
+              "directLow": 0.4
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.28,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.31,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.06,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.38,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.23
+          }
+        }
+      },
+      {
+        "id": "bw11-57",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Spooky Shot",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "57",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Common",
+        "flavorText": "A Pokémon that startles people in the middle of the night. It gathers fear as its energy.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/57.png",
+          "large": "https://images.pokemontcg.io/bw11/57_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.26,
+              "high": 19.98,
+              "market": 0.34,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.32,
+              "mid": 0.68,
+              "high": 1.0,
+              "market": 0.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.25,
+            "lowPrice": 0.1,
+            "trendPrice": 0.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.45,
+            "reverseHoloLow": 3.5,
+            "reverseHoloTrend": 3.92,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.08,
+            "avg7": 0.24,
+            "avg30": 0.27,
+            "reverseHoloAvg1": 3.9,
+            "reverseHoloAvg7": 3.25,
+            "reverseHoloAvg30": 1.93
+          }
+        }
+      },
+      {
+        "id": "hgss2-54",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Sharpshooting",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "Hideaki Hakozaki",
+        "rarity": "Common",
+        "flavorText": "It likes playing mischievous tricks such as screaming and wailing to startle people at night.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/54.png",
+          "large": "https://images.pokemontcg.io/hgss2/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.3,
+              "high": 2.25,
+              "market": 0.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.82,
+              "mid": 3.55,
+              "high": 9.99,
+              "market": 1.78,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.5,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 1.9,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.11,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 2.5,
+            "reverseHoloAvg30": 1.47
+          }
+        }
+      },
+      {
+        "id": "hgss3-57",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Mumble",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Dual Draw",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Each player draws 3 cards."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "57",
+        "artist": "Suwama Chiaki",
+        "rarity": "Common",
+        "flavorText": "It loves to bite and yank people's hair from behind without warning, just to see their shocked reactions.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/57.png",
+          "large": "https://images.pokemontcg.io/hgss3/57_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.11,
+              "mid": 0.27,
+              "high": 2.42,
+              "market": 0.29,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.51,
+              "mid": 0.67,
+              "high": 1.49,
+              "market": 0.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.23,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.18,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 0.45,
+            "reverseHoloAvg7": 1.14,
+            "reverseHoloAvg30": 1.33
+          }
+        }
+      },
+      {
+        "id": "col1-65",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Mumble",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "Dual Draw",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Each player draws 3 cards."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "Suwama Chiaki",
+        "rarity": "Common",
+        "flavorText": "It loves to bite and yank people's hair from behind without warning, just to see their shocked reactions.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/65.png",
+          "large": "https://images.pokemontcg.io/col1/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.28,
+              "high": 5.0,
+              "market": 0.28,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 1.05,
+              "mid": 1.5,
+              "high": 3.5,
+              "market": 1.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.68,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.3,
+            "avg7": 0.3,
+            "avg30": 0.26,
+            "reverseHoloAvg1": 1.98,
+            "reverseHoloAvg7": 2.93,
+            "reverseHoloAvg30": 2.46
+          }
+        }
+      },
+      {
+        "id": "xy8-65",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Haunt",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 2 damage counters on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "sui",
+        "rarity": "Common",
+        "flavorText": "It likes playing mischievous tricks, such as screaming and wailing to startle people at night.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/65.png",
+          "large": "https://images.pokemontcg.io/xy8/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 4.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.45,
+              "high": 2.52,
+              "market": 0.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.63,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.12,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.6,
+            "reverseHoloAvg30": 0.72
+          }
+        }
+      },
+      {
+        "id": "ecard3-39",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Gift of Spite",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Count the number of your Pokémon in play with damage counters on them. Put that many damage counters on the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Atsuko Nishida",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/39.png",
+          "large": "https://images.pokemontcg.io/ecard3/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 5.99,
+              "mid": 8.99,
+              "high": 619.92,
+              "market": 7.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 29.97,
+              "mid": 39.0,
+              "high": 41.99,
+              "market": 39.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.72,
+            "lowPrice": 0.64,
+            "trendPrice": 2.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.0,
+            "reverseHoloLow": 4.9,
+            "reverseHoloTrend": 9.17,
+            "lowPriceExPlus": 1.8,
+            "avg1": 3.99,
+            "avg7": 2.93,
+            "avg30": 2.55,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 9.65,
+            "reverseHoloAvg30": 9.34
+          }
+        }
+      },
+      {
+        "id": "dp7-68",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "19",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Lullaby",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Nightmare Feast",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If the Defending Pokémon is Asleep, this attack does 50 damage and remove 5 damage counters from Misdreavus. If the Defending Pokémon is not Asleep, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "Atsuko Nishida",
+        "rarity": "Common",
+        "flavorText": "It loves to sneak up on people late at night, then startle them with its shrieklike cry.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/68.png",
+          "large": "https://images.pokemontcg.io/dp7/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.33,
+              "high": 5.0,
+              "market": 0.44,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.8,
+              "mid": 2.9,
+              "high": 4.99,
+              "market": 3.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.63,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.19,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 0.55,
+            "reverseHoloAvg30": 0.53
+          }
+        }
+      },
+      {
+        "id": "pl1-83",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "12",
+        "hp": "50",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Take Back",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Flip a coin. If heads, search your discard pile for a Trainer card, show it to your opponent, and put it into your hand."
+          },
+          {
+            "name": "Tackle",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Common",
+        "flavorText": "A Pokémon that startles people in the middle of the night. It gathers fear as its energy.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/83.png",
+          "large": "https://images.pokemontcg.io/pl1/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.26,
+              "high": 19.98,
+              "market": 0.34,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 1.31,
+              "mid": 2.31,
+              "high": 2.99,
+              "market": 1.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.42,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.05,
+            "avg7": 0.1,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.44,
+            "reverseHoloAvg30": 0.57
+          }
+        }
+      },
+      {
+        "id": "sm10-77",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Ominous Eyes",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 1 damage counter on 1 of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "Miki Tanaka",
+        "rarity": "Common",
+        "flavorText": "What gives meaning to its life is surprising others. If you set your ear against the red orbs around its neck, you can hear shrieking.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/77.png",
+          "large": "https://images.pokemontcg.io/sm10/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.18,
+              "high": 10.0,
+              "market": 0.16,
+              "directLow": 0.1
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.31,
+              "high": 2.31,
+              "market": 0.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.13,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.27,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.14,
+            "avg7": 0.09,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.12,
+            "reverseHoloAvg7": 0.3,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "dp1-91",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "16",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Astonish",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 1 card from your opponent's hand without looking. Look at the card you chose, then have your opponent shuffle that card into his or her deck."
+          },
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Ken Sugimori",
+        "rarity": "Common",
+        "flavorText": "It loves to sneak up on people late at night, then startle them with its shrieklike cry.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/91.png",
+          "large": "https://images.pokemontcg.io/dp1/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.28,
+              "high": 5.0,
+              "market": 0.28,
+              "directLow": 0.29
+            },
+            "reverseHolofoil": {
+              "low": 0.8,
+              "mid": 2.28,
+              "high": 3.67,
+              "market": 2.67,
+              "directLow": 1.5
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.62,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 3.62,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.21,
+            "avg7": 0.28,
+            "avg30": 0.26,
+            "reverseHoloAvg1": 0.46,
+            "reverseHoloAvg7": 4.25,
+            "reverseHoloAvg30": 2.22
+          }
+        }
+      },
+      {
+        "id": "dp6-107",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "18",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Show Off",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Search your deck for a basic Energy card, show it to your opponent, and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Payback",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If your opponent has only 1 Prize card left, this attack does 10 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "107",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Common",
+        "flavorText": "It loves to sneak up on people late at night, then startle them with its shrieklike cry.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/107.png",
+          "large": "https://images.pokemontcg.io/dp6/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.39,
+              "high": 1.11,
+              "market": 0.43,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.48,
+              "mid": 3.94,
+              "high": 7.06,
+              "market": 2.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-107",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 0.24,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.75,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.37,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.45,
+            "avg7": 0.27,
+            "avg30": 0.26,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.81,
+            "reverseHoloAvg30": 1.15
+          }
+        }
+      },
+      {
+        "id": "swsh10-58",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Mumble",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Common",
+        "flavorText": "It conceals itself in darkness, sending chills up travelers' spines with its childlike weeping. As it observes the frightened travelers with glee, the red orbs upon its chest let off an eerie light.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/58.png",
+          "large": "https://images.pokemontcg.io/swsh10/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.05,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "swsh12-63",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Confuse Ray",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "63",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Common",
+        "flavorText": "What makes it happy is imitating the voices of weeping people and scaring everyone. It doesn't deal well with folks who aren't easily frightened.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/63.png",
+          "large": "https://images.pokemontcg.io/swsh12/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.07,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 2.39,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.02,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.13,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "sv2-87",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "name": "Hypnoblast",
+            "damage": "10",
+            "text": "Your opponent's Active Pokémon is now Asleep.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Megumi Higuchi",
+        "rarity": "Common",
+        "flavorText": "This Pokémon startles people in the middle of the night. It gathers fear as its energy.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/87.png",
+          "large": "https://images.pokemontcg.io/sv2/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 2.0,
+              "market": 0.12,
+              "directLow": 0.1
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 4.0,
+              "market": 0.07,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.08,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.11,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "me2-35",
+        "name": "Misdreavus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesTo": [
+          "Mismagius"
+        ],
+        "attacks": [
+          {
+            "name": "Petty Grudge",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "Mousho",
+        "rarity": "Common",
+        "flavorText": "This Pokémon startles people in the middle of the night. It gathers fear as its energy.",
+        "nationalPokedexNumbers": [
+          200
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/35.png",
+          "large": "https://images.pokemontcg.io/me2/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.08,
+              "high": 999.0,
+              "market": 0.02,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.2
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 20,
+    "totalCount": 20
+  }
+}

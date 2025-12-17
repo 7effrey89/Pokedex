@@ -1,0 +1,872 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:flamigo"
+  },
+  "cache_key": "950266b6663e7d6048b8116b90268428",
+  "cached_at": 1765916274.893145,
+  "response": {
+    "data": [
+      {
+        "id": "sv1-165",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless"
+            ],
+            "name": "Flap",
+            "damage": "30",
+            "text": "",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Nosedive",
+            "damage": "110",
+            "text": "This Pokémon also does 20 damage to itself.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv1",
+          "name": "Scarlet & Violet",
+          "series": "Scarlet & Violet",
+          "printedTotal": 198,
+          "total": 258,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/03/31",
+          "updatedAt": "2023/03/31 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv1/logo.png"
+          }
+        },
+        "number": "165",
+        "artist": "kantaro",
+        "rarity": "Uncommon",
+        "flavorText": "Thanks to a behavior of theirs known as \"synchronizing,\" an entire flock of these Pokémon can attack simultaneously in perfect harmony.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv1/165.png",
+          "large": "https://images.pokemontcg.io/sv1/165_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv1-165",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.14,
+              "directLow": 0.13
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 10.06,
+              "market": 0.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv1-165",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.18,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.13
+          }
+        }
+      },
+      {
+        "id": "sv2-170",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Insta-Flock",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may search your deck for up to 3 Flamigo, reveal them, and put them into your hand. Then, shuffle your deck."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "United Wings",
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Pokémon in your discard pile that has the United Wings attack.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "170",
+        "artist": "nagimiso",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon apparently ties the base of its neck into a knot so that the energy stored in its belly does not escape from its beak.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/170.png",
+          "large": "https://images.pokemontcg.io/sv2/170_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-170",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.13,
+              "high": 1.61,
+              "market": 0.1,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-170",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.2,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "sv2-227",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Insta-Flock",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may search your deck for up to 3 Flamigo, reveal them, and put them into your hand. Then, shuffle your deck."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "United Wings",
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Pokémon in your discard pile that has the United Wings attack.",
+            "convertedEnergyCost": 2
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "227",
+        "artist": "Shibuzoh.",
+        "rarity": "Illustration Rare",
+        "flavorText": "This Pokémon apparently ties the base of its neck into a knot so that the energy stored in its belly does not escape from its beak.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/227.png",
+          "large": "https://images.pokemontcg.io/sv2/227_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-227",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.5,
+              "mid": 6.29,
+              "high": 70.0,
+              "market": 6.4,
+              "directLow": 8.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-227",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.69,
+            "lowPrice": 2.5,
+            "trendPrice": 4.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.0,
+            "avg1": 3.57,
+            "avg7": 4.41,
+            "avg30": 4.58,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3-185",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "attacks": [
+          {
+            "name": "Peck",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Synchronized Feathers",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "If Flamigo is on your Bench, this attack also does 60 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "185",
+        "artist": "Hiroki Asanuma",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon apparently ties the base of its neck into a knot so that the energy stored in its belly does not escape from its beak.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/185.png",
+          "large": "https://images.pokemontcg.io/sv3/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.23,
+              "high": 1.53,
+              "market": 0.2,
+              "directLow": 0.1
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 19.98,
+              "market": 0.06,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.13,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.2
+          }
+        }
+      },
+      {
+        "id": "sv4-106",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Peck",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Combat Beak",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "This attack does 20 more damage for each of your opponent's Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Common",
+        "flavorText": "This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/106.png",
+          "large": "https://images.pokemontcg.io/sv4/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 1.53,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-106",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.08,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.06,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.02,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-211",
+        "name": "Flamigo",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Colorless"
+        ],
+        "abilities": [
+          {
+            "name": "Insta-Flock",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may search your deck for up to 3 Flamigo, reveal them, and put them into your hand. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "United Wings",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Pokémon in your discard pile that has the United Wings attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "211",
+        "artist": "Akira Komayama",
+        "rarity": "Shiny Rare",
+        "flavorText": "This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak.",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/211.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/211_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-211",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.7,
+              "mid": 3.19,
+              "high": 6.49,
+              "market": 3.19,
+              "directLow": 2.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-211",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.39,
+            "lowPrice": 1.0,
+            "trendPrice": 2.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.2,
+            "avg1": 2.37,
+            "avg7": 2.4,
+            "avg30": 2.38,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv8-160",
+        "name": "Flamigo ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "200",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Precise Beak",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If this Pokémon and your opponent's Active Pokémon have the same amount of Energy attached, this attack does 100 more damage."
+          },
+          {
+            "name": "Brave Bird",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "160",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          973
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/160.png",
+          "large": "https://images.pokemontcg.io/sv8/160_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-160",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.75,
+              "high": 6.0,
+              "market": 0.57,
+              "directLow": 0.8
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-160",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.5,
+            "lowPrice": 0.02,
+            "trendPrice": 0.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.54,
+            "avg7": 0.43,
+            "avg30": 0.49,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 7,
+    "totalCount": 7
+  }
+}

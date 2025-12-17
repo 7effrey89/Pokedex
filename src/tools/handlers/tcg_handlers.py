@@ -24,6 +24,45 @@ cache_service = get_cache_service()
 TCG_PAGE_SIZE = int(os.getenv('TCG_PAGE_SIZE', '250'))
 
 
+def _build_search_label(pokemon_name: Optional[str], card_type: Optional[str], rarity: Optional[str]) -> str:
+    candidates = [pokemon_name, card_type, rarity, "filtered cards"]
+    for value in candidates:
+        if value:
+            return str(value)
+    return "filtered cards"
+
+
+def _normalize_cached_search_response(
+    cached: Optional[Dict[str, Any]],
+    pokemon_name: Optional[str],
+    card_type: Optional[str],
+    hp_min: Optional[int],
+    hp_max: Optional[int],
+    rarity: Optional[str]
+) -> Optional[Dict[str, Any]]:
+    """Ensure cached responses match the formatted shape the UI expects."""
+    if not cached or not isinstance(cached, dict):
+        return cached
+    if "cards" in cached:
+        return cached
+    if "data" in cached:
+        formatted_cards = tcg_api_client.format_cards_response(cached)
+        total_count = (
+            cached.get("totalCount")
+            or cached.get("count")
+            or len(formatted_cards)
+        )
+        label = _build_search_label(pokemon_name, card_type, rarity)
+        if hp_min is not None or hp_max is not None:
+            label = f"{label} (HP filtered)"
+        return {
+            "cards": formatted_cards,
+            "total_count": total_count,
+            "search_query": label
+        }
+    return cached
+
+
 def handle_search_pokemon_cards(
     pokemon_name: str = None,
     card_type: str = None,
@@ -56,8 +95,19 @@ def handle_search_pokemon_cards(
     }
     cached_response = cache_service.get("search_pokemon_cards", cache_key_params)
     if cached_response:
-        logger.info(f"🎯 Returning cached TCG card search for: {pokemon_name}")
-        return cached_response
+        normalized_cached = _normalize_cached_search_response(
+            cached_response,
+            pokemon_name,
+            card_type,
+            hp_min,
+            hp_max,
+            rarity
+        )
+        logger.info(
+            "🎯 Returning cached TCG card search for: %s",
+            pokemon_name or card_type or "filters"
+        )
+        return normalized_cached
     
     logger.info(f"🃏 NOT IN CACHE - Fetching from API: name='{pokemon_name}', type={card_type}, hp_min={hp_min}, hp_max={hp_max}, rarity={rarity}")
     
