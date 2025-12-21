@@ -10,6 +10,8 @@ from typing import Dict, Any, Optional
 import logging
 import os
 
+from flask import g
+
 from src.api import pokemon_tcg_api
 from src.tools.tool_manager import tool_manager
 from src.services.cache_service import get_cache_service
@@ -17,7 +19,7 @@ from src.services.cache_service import get_cache_service
 logger = logging.getLogger(__name__)
 
 # Instantiate API client
-tcg_api_client = pokemon_tcg_api.PokemonTCGTools()
+default_tcg_api_client = pokemon_tcg_api.PokemonTCGTools()
 cache_service = get_cache_service()
 
 # Get page size from environment or use default
@@ -46,7 +48,7 @@ def _normalize_cached_search_response(
     if "cards" in cached:
         return cached
     if "data" in cached:
-        formatted_cards = tcg_api_client.format_cards_response(cached)
+        formatted_cards = default_tcg_api_client.format_cards_response(cached)
         total_count = (
             cached.get("totalCount")
             or cached.get("count")
@@ -61,6 +63,40 @@ def _normalize_cached_search_response(
             "search_query": label
         }
     return cached
+
+
+def _get_request_tcg_api_key() -> Optional[str]:
+    try:
+        api_settings = getattr(g, 'api_settings', None)
+    except RuntimeError:
+        api_settings = None
+    if not api_settings:
+        return None
+    tcg_config = api_settings.get('tcg')
+    if not tcg_config:
+        return None
+    key = tcg_config.get('api_key')
+    if key:
+        trimmed = str(key).strip()
+        return trimmed or None
+    return None
+
+
+def _get_tcg_client() -> pokemon_tcg_api.PokemonTCGTools:
+    api_key = _get_request_tcg_api_key()
+    if not api_key:
+        return default_tcg_api_client
+    try:
+        cached_key = getattr(g, '_tcg_client_key', None)
+        cached_client = getattr(g, '_tcg_client_instance', None)
+        if cached_client and cached_key == api_key:
+            return cached_client
+        new_client = pokemon_tcg_api.PokemonTCGTools(api_key=api_key)
+        g._tcg_client_key = api_key
+        g._tcg_client_instance = new_client
+        return new_client
+    except RuntimeError:
+        return pokemon_tcg_api.PokemonTCGTools(api_key=api_key)
 
 
 def handle_search_pokemon_cards(
@@ -118,21 +154,22 @@ def handle_search_pokemon_cards(
     
     # Use direct Pokemon TCG API
     logger.info("📡 Using direct Pokemon TCG API...")
+    client = _get_tcg_client()
     try:
         if hp_min or hp_max or card_type:
-            cards_data = tcg_api_client.search_cards_advanced(
+            cards_data = client.search_cards_advanced(
                 types=[card_type] if card_type else None,
                 hp_min=hp_min,
                 hp_max=hp_max,
                 page_size=TCG_PAGE_SIZE
             )
         elif pokemon_name:
-            cards_data = tcg_api_client.search_cards(pokemon_name, page_size=TCG_PAGE_SIZE)
+            cards_data = client.search_cards(pokemon_name, page_size=TCG_PAGE_SIZE)
         else:
             return {"error": "Please specify a Pokemon name or filters"}
         
         if cards_data and cards_data.get("data"):
-            formatted_cards = tcg_api_client.format_cards_response(cards_data)
+            formatted_cards = client.format_cards_response(cards_data)
             result = {
                 "cards": formatted_cards,
                 "total_count": cards_data.get("totalCount", 0),
@@ -167,8 +204,9 @@ def handle_get_card_price(card_id: str) -> Dict[str, Any]:
     
     logger.info(f"🎴 Getting price for card: {card_id}")
     
+    client = _get_tcg_client()
     try:
-        price_info = tcg_api_client.get_card_price(card_id)
+        price_info = client.get_card_price(card_id)
         
         if price_info:
             result = {

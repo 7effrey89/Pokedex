@@ -188,6 +188,104 @@
     line-height: 1.4;
 }
 
+/* API Access Settings */
+.api-mode-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.api-radio-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.api-radio-card input {
+    margin-top: 0.4rem;
+}
+
+.api-radio-card:hover,
+.api-radio-card.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color) inset;
+}
+
+.api-radio-content h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.api-radio-content p {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.api-password-panel,
+.api-custom-fields {
+    background: var(--chat-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.api-password-panel label,
+.api-custom-fields label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.api-password-panel input,
+.api-custom-fields input,
+.api-custom-fields select {
+    width: 100%;
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: white;
+    font-size: 0.95rem;
+}
+
+.api-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem 1rem;
+}
+
+.api-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.api-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.api-status-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.api-status-text.api-status-success {
+    color: #0f8a3b;
+}
+
+.api-status-text.api-status-error {
+    color: #c62828;
+}
+
 /* Toggle Switch */
 .tool-toggle {
     position: relative;

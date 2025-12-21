@@ -18,6 +18,7 @@ class RealtimeVoiceClient {
         this.tools = [];
         this.useNativeMcp = false; // If true, API handles tool calls automatically
         this.supportsImageInput = false; // If true, can send images to the conversation
+        this.apiSettingsProvider = options.apiSettingsProvider || null;
         
         // Audio playback queue and buffering
         this.audioQueue = [];
@@ -63,7 +64,27 @@ class RealtimeVoiceClient {
         try {
             this.onStatusChange('initializing', 'Checking realtime availability...');
             
-            const response = await fetch('/api/realtime/config');
+            const apiSettings = typeof this.apiSettingsProvider === 'function'
+                ? this.apiSettingsProvider()
+                : null;
+
+            if (!apiSettings) {
+                throw new Error('Add API credentials in Settings to unlock realtime voice.');
+            }
+
+            const response = await fetch('/api/realtime/config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    api_settings: apiSettings,
+                    voice: this.preferredVoice
+                })
+            });
+
+            if (!response.ok) {
+                const errorBody = await response.json().catch(() => ({}));
+                throw new Error(errorBody.error || 'Realtime API not available');
+            }
             const data = await response.json();
             
             if (!data.available) {

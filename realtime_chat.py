@@ -10,32 +10,44 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Azure OpenAI Realtime API configuration
-AZURE_OPENAI_ENDPOINT = os.getenv('AZURE_OPENAI_ENDPOINT', '').rstrip('/')
-AZURE_OPENAI_API_KEY = os.getenv('AZURE_OPENAI_API_KEY', '')
-AZURE_OPENAI_REALTIME_DEPLOYMENT = os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime')
-AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
 
-def get_realtime_config():
+def _sanitize_endpoint(value: str) -> str:
+    return (value or '').rstrip('/')
+
+
+DEFAULT_REALTIME_CONFIG = {
+    'endpoint': _sanitize_endpoint(os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('AZURE_OPENAI_ENDPOINT', ''))),
+    'api_key': os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')),
+    'deployment': os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime'),
+    'api_version': os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
+}
+
+def get_realtime_config(overrides=None):
     """
     Get the configuration for Azure OpenAI Realtime API connection.
     Returns WebSocket URL and headers for the browser to connect directly.
     """
-    if not AZURE_OPENAI_ENDPOINT or not AZURE_OPENAI_API_KEY:
+    cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
+    endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
+    api_key = cfg.get('api_key', '')
+    deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
+    api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
+
+    if not endpoint or not api_key or not deployment:
         raise ValueError("Azure OpenAI credentials not configured")
     
     # Extract the hostname from the endpoint
-    endpoint_host = AZURE_OPENAI_ENDPOINT.replace('https://', '').replace('http://', '')
+    endpoint_host = endpoint.replace('https://', '').replace('http://', '')
     
     # Construct the WebSocket URL for Azure OpenAI Realtime API
     # Format: wss://{resource}.openai.azure.com/openai/realtime?api-version={version}&deployment={deployment}
-    ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={AZURE_OPENAI_API_VERSION}&deployment={AZURE_OPENAI_REALTIME_DEPLOYMENT}"
+    ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
     
     return {
         'ws_url': ws_url,
-        'api_key': AZURE_OPENAI_API_KEY,
-        'deployment': AZURE_OPENAI_REALTIME_DEPLOYMENT,
-        'api_version': AZURE_OPENAI_API_VERSION
+        'api_key': api_key,
+        'deployment': deployment,
+        'api_version': api_version
     }
 
 def get_session_config():
@@ -182,33 +194,28 @@ def get_available_tools():
         }
     ]
 
-def check_realtime_availability():
+def check_realtime_availability(overrides=None):
     """
     Check if Azure OpenAI Realtime API is available and configured.
     """
-    result = {
-        'available': False,
-        'message': '',
-        'details': {}
+    cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
+    endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
+    api_key = cfg.get('api_key', '')
+    deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
+    api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
+
+    if not endpoint:
+        return {'available': False, 'message': 'Azure OpenAI endpoint not configured', 'details': {}}
+    if not api_key:
+        return {'available': False, 'message': 'Azure OpenAI API key not configured', 'details': {}}
+    if not deployment:
+        return {'available': False, 'message': 'Realtime deployment not configured', 'details': {}}
+
+    return {
+        'available': True,
+        'message': 'Realtime API configured',
+        'details': {
+            'deployment': deployment,
+            'api_version': api_version
+        }
     }
-    
-    if not AZURE_OPENAI_ENDPOINT:
-        result['message'] = 'Azure OpenAI endpoint not configured'
-        return result
-    
-    if not AZURE_OPENAI_API_KEY:
-        result['message'] = 'Azure OpenAI API key not configured'
-        return result
-    
-    if not AZURE_OPENAI_REALTIME_DEPLOYMENT:
-        result['message'] = 'Realtime deployment not configured. Add AZURE_OPENAI_REALTIME_DEPLOYMENT to .env'
-        return result
-    
-    result['available'] = True
-    result['message'] = 'Realtime API configured'
-    result['details'] = {
-        'deployment': AZURE_OPENAI_REALTIME_DEPLOYMENT,
-        'api_version': AZURE_OPENAI_API_VERSION
-    }
-    
-    return result

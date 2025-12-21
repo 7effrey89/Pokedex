@@ -444,6 +444,81 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- API Access Section -->
+                    <div class="settings-section">
+                        <h3>🔑 API Access</h3>
+                        <p class="section-description">
+                            Bring your own Azure OpenAI credentials or unlock the built-in defaults with a password. Your choices stay on this device.
+                        </p>
+
+                        <div class="api-mode-options" role="radiogroup" aria-label="API credential mode">
+                            <label class="api-radio-card">
+                                <input type="radio" name="apiMode" value="app" id="apiModeApp">
+                                <div class="api-radio-content">
+                                    <h4>Use Built-in Credentials</h4>
+                                    <p>Protected defaults shipped with the app. Requires access password.</p>
+                                </div>
+                            </label>
+                            <label class="api-radio-card">
+                                <input type="radio" name="apiMode" value="custom" id="apiModeCustom">
+                                <div class="api-radio-content">
+                                    <h4>Use My Own Azure Account</h4>
+                                    <p>Provide your own endpoint, key, and deployments.</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="api-password-panel" id="appPasswordPanel" hidden>
+                            <label for="appApiPassword">Enter Access Password</label>
+                            <input type="password" id="appApiPassword" placeholder="••••••••" autocomplete="off">
+                            <small>This password never leaves this browser unless you choose built-in credentials.</small>
+                        </div>
+
+                        <div class="api-custom-fields" id="customApiFields" hidden>
+                            <div class="api-fields-grid">
+                                <div class="api-field">
+                                    <label for="customChatEndpoint">Chat Endpoint URL</label>
+                                    <input type="text" id="customChatEndpoint" placeholder="https://YOUR_RESOURCE.openai.azure.com">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customChatKey">Chat API Key</label>
+                                    <input type="password" id="customChatKey" placeholder="Paste key">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customChatDeployment">Chat Deployment Name</label>
+                                    <input type="text" id="customChatDeployment" placeholder="gpt-4o-mini">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeEndpoint">Realtime Endpoint URL</label>
+                                    <input type="text" id="customRealtimeEndpoint" placeholder="https://YOUR_RESOURCE.openai.azure.com">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeKey">Realtime API Key</label>
+                                    <input type="password" id="customRealtimeKey" placeholder="Paste key">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeDeployment">Realtime Deployment Name</label>
+                                    <input type="text" id="customRealtimeDeployment" placeholder="gpt-4o-realtime-preview">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeApiVersion">Realtime API Version</label>
+                                    <input type="text" id="customRealtimeApiVersion" placeholder="2024-10-01-preview">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customTcgApiKey">Pokemon TCG API Key</label>
+                                    <input type="password" id="customTcgApiKey" placeholder="Paste Pokemon TCG API key">
+                                    <small>Used for card searches and TCG price lookups. Get one at pokemontcg.io.</small>
+                                </div>
+                            </div>
+                            <small>Realtime fields are optional if you only use chat. Missing values fall back to chat credentials.</small>
+                        </div>
+
+                        <div class="api-actions">
+                            <button class="tools-save-btn" id="apiSettingsSaveBtn">Apply API Settings</button>
+                            <span class="api-status-text" id="apiSettingsStatus" role="status"></span>
+                        </div>
+                    </div>
                     
                     <!-- Viewing History Section -->
                     <div class="settings-section">

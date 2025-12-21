@@ -1,0 +1,49 @@
+name: Deploy Pokédex to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Optional Azure environment tag (production, staging, etc.)"
+        required: false
+        default: production
+
+env:
+  PYTHON_VERSION: '3.11'
+  ARTIFACT_NAME: release.zip
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'production' }}
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create deployment archive
+        run: |
+          zip -r ${{ env.ARTIFACT_NAME }} . \
+            -x "*.git*" "__pycache__/*" "venv/*" "cache/*" "tcg-cache/*" "pokeapi-cache/*" "*.zip"
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.ARTIFACT_NAME }}

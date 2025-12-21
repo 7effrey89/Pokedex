@@ -5,12 +5,14 @@ Realtime Routes - Handle Azure OpenAI Realtime Voice API endpoints
 import logging
 from flask import Blueprint, request, jsonify
 
+from src.utils.api_settings import resolve_api_settings
+
 logger = logging.getLogger(__name__)
 
 realtime_bp = Blueprint('realtime', __name__, url_prefix='/api/realtime')
 
 
-@realtime_bp.route('/config', methods=['GET'])
+@realtime_bp.route('/config', methods=['POST'])
 def get_realtime_connection_config():
     """
     Get WebSocket configuration for Azure OpenAI Realtime API.
@@ -22,7 +24,14 @@ def get_realtime_connection_config():
     from realtime_chat import get_realtime_config, get_session_config, check_realtime_availability, get_available_tools
     
     try:
-        availability = check_realtime_availability()
+        data = request.get_json() or {}
+        api_settings_payload = data.get('api_settings')
+        preferred_voice = data.get('voice')
+
+        api_settings = resolve_api_settings(api_settings_payload, require_chat=True, require_realtime=True)
+        realtime_config = api_settings.get('realtime')
+
+        availability = check_realtime_availability(realtime_config)
         
         if not availability['available']:
             return jsonify({
@@ -30,8 +39,11 @@ def get_realtime_connection_config():
                 "available": False
             }), 400
         
-        config = get_realtime_config()
+        config = get_realtime_config(realtime_config)
         session_config = get_session_config()
+        if preferred_voice:
+            session = session_config.get('session', {})
+            session['voice'] = preferred_voice
         tools = get_available_tools()
         
         return jsonify({
@@ -43,6 +55,11 @@ def get_realtime_connection_config():
             "supports_image_input": True
         })
         
+    except ValueError as exc:
+        return jsonify({
+            "error": str(exc),
+            "available": False
+        }), 400
     except Exception as e:
         return jsonify({
             "error": str(e),
@@ -50,7 +67,7 @@ def get_realtime_connection_config():
         }), 500
 
 
-@realtime_bp.route('/status', methods=['GET'])
+@realtime_bp.route('/status', methods=['GET', 'POST'])
 def get_realtime_status():
     """
     Check if Azure OpenAI Realtime API is available.
@@ -60,7 +77,17 @@ def get_realtime_status():
     """
     from realtime_chat import check_realtime_availability
     
-    availability = check_realtime_availability()
+    data = request.get_json(silent=True) or {}
+    api_settings_payload = data.get('api_settings')
+    realtime_config = None
+    if api_settings_payload:
+        try:
+            api_settings = resolve_api_settings(api_settings_payload, require_chat=True, require_realtime=True)
+            realtime_config = api_settings.get('realtime')
+        except ValueError as exc:
+            return jsonify({"available": False, "message": str(exc)}), 400
+    
+    availability = check_realtime_availability(realtime_config)
     return jsonify(availability)
 
 

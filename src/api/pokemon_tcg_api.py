@@ -13,7 +13,7 @@ import os
 class PokemonTCGTools:
     """Tools for looking up Pokemon Trading Card Game information"""
     
-    def __init__(self):
+    def __init__(self, api_key: Optional[str] = None):
         self.base_url = "https://api.pokemontcg.io/v2"
         self.headers = {
             "Content-Type": "application/json"
@@ -21,9 +21,10 @@ class PokemonTCGTools:
         self.timeout = 60  # Increased timeout to 60 seconds for slow API
         
         # Optional: Add API key for higher rate limits (free at pokemontcg.io)
-        api_key = os.environ.get("POKEMON_TCG_API_KEY", "")
-        if api_key:
-            self.headers["X-Api-Key"] = api_key
+        resolved_key = str(api_key or os.environ.get("POKEMON_TCG_API_KEY", "")).strip()
+        if resolved_key:
+            self.headers["X-Api-Key"] = resolved_key
+        self.api_key = resolved_key
         
         # Set up session with retry logic
         self.session = requests.Session()

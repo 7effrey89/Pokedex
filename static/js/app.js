@@ -20,6 +20,7 @@ class PokemonChatApp {
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
+        this.apiSettings = this.loadApiSettings();
 
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -81,6 +82,12 @@ class PokemonChatApp {
         this.toolsModalClose = document.getElementById('toolsModalClose');
         this.toolsResetBtn = document.getElementById('toolsResetBtn');
         this.toolsSaveBtn = document.getElementById('toolsSaveBtn');
+        this.apiModeInputs = Array.from(document.querySelectorAll('input[name="apiMode"]'));
+        this.appPasswordPanel = document.getElementById('appPasswordPanel');
+        this.appPasswordInput = document.getElementById('appApiPassword');
+        this.customApiFields = document.getElementById('customApiFields');
+        this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
+        this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
 
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
@@ -145,6 +152,7 @@ class PokemonChatApp {
         this.restartingRealtimeVoice = null;
 
         this.installFetchInterceptor();
+        this.initializeApiSettingsControls();
         this.initializeVoice();
 
         this.initializeEventListeners();
@@ -385,13 +393,26 @@ class PokemonChatApp {
             return null;
         }
 
-        const cropWidth = videoWidth * 0.55;
-        const cropHeight = videoHeight * 0.7;
+        const outputWidth = 512;
+        const outputHeight = 640;
+        const desiredRatio = outputWidth / outputHeight; // Keep portrait output without distortion
+
+        let cropWidth = videoWidth * 0.55;
+        let cropHeight = cropWidth / desiredRatio;
+
+        if (cropHeight > videoHeight * 0.9) {
+            cropHeight = videoHeight * 0.9;
+            cropWidth = cropHeight * desiredRatio;
+        }
+
+        if (cropWidth > videoWidth) {
+            cropWidth = videoWidth * 0.9;
+            cropHeight = cropWidth / desiredRatio;
+        }
+
         const sourceX = (videoWidth - cropWidth) / 2;
         const sourceY = (videoHeight - cropHeight) / 2;
 
-        const outputWidth = 512;
-        const outputHeight = 640;
         const canvas = document.createElement('canvas');
         canvas.width = outputWidth;
         canvas.height = outputHeight;
@@ -510,7 +531,273 @@ class PokemonChatApp {
             this.isSavingFaceProfile = false;
             this.updateFaceProfileUIState();
         }
+
     }
+
+        // ====================
+        // API Settings Management
+        // ====================
+
+        getDefaultApiSettings() {
+            return {
+                mode: 'app',
+                appPassword: '',
+                custom: {
+                    chatEndpoint: '',
+                    chatKey: '',
+                    chatDeployment: '',
+                    realtimeEndpoint: '',
+                    realtimeKey: '',
+                    realtimeDeployment: '',
+                    realtimeApiVersion: '',
+                    tcgApiKey: ''
+                }
+            };
+        }
+
+        loadApiSettings() {
+            const defaults = this.getDefaultApiSettings();
+            try {
+                if (typeof localStorage === 'undefined') {
+                    return { ...defaults };
+                }
+                const raw = localStorage.getItem('pokedex_api_settings_v1');
+                if (!raw) {
+                    return { ...defaults };
+                }
+
+                const parsed = JSON.parse(raw);
+                return {
+                    ...defaults,
+                    ...parsed,
+                    custom: {
+                        ...defaults.custom,
+                        ...(parsed.custom || {})
+                    }
+                };
+            } catch (error) {
+                console.warn('Unable to parse stored API settings:', error);
+                return { ...defaults };
+            }
+        }
+
+        persistApiSettings() {
+            try {
+                if (typeof localStorage === 'undefined') {
+                    return;
+                }
+                localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
+            } catch (error) {
+                console.warn('Unable to persist API settings:', error);
+            }
+        }
+
+        initializeApiSettingsControls() {
+            // Controls might not exist on lightweight embeds
+            if (!this.apiModeInputs || this.apiModeInputs.length === 0) {
+                return;
+            }
+
+            const mode = this.apiSettings?.mode || 'app';
+            this.apiModeInputs.forEach((input) => {
+                input.checked = input.value === mode;
+                const card = input.closest('.api-radio-card');
+                if (card) {
+                    card.classList.toggle('selected', input.checked);
+                }
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        this.apiSettings.mode = input.value;
+                        this.persistApiSettings();
+                        this.updateApiSettingsUI();
+                        this.updateApiSettingsStatus('Mode updated.', 'info');
+                    }
+                });
+            });
+
+            if (this.appPasswordInput) {
+                this.appPasswordInput.value = this.apiSettings.appPassword || '';
+                this.appPasswordInput.addEventListener('input', (event) => {
+                    this.apiSettings.appPassword = event.target.value;
+                    this.persistApiSettings();
+                });
+            }
+
+            this.bindApiField('customChatEndpoint', 'custom.chatEndpoint');
+            this.bindApiField('customChatKey', 'custom.chatKey');
+            this.bindApiField('customChatDeployment', 'custom.chatDeployment');
+            this.bindApiField('customRealtimeEndpoint', 'custom.realtimeEndpoint');
+            this.bindApiField('customRealtimeKey', 'custom.realtimeKey');
+            this.bindApiField('customRealtimeDeployment', 'custom.realtimeDeployment');
+            this.bindApiField('customRealtimeApiVersion', 'custom.realtimeApiVersion');
+            this.bindApiField('customTcgApiKey', 'custom.tcgApiKey');
+
+            if (this.apiSettingsSaveBtn) {
+                this.apiSettingsSaveBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const payload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+                    if (payload) {
+                        this.updateApiSettingsStatus('API settings saved locally.', 'success');
+                        this.showToast('API Access', 'Settings saved to this browser.', 'success', 2500);
+
+                        // Attempt to reinitialize realtime voice if unlocked
+                        if (!this.useRealtimeApi && window.RealtimeVoiceClient?.isSupported()) {
+                            this.initializeVoice();
+                        }
+                    }
+                });
+            }
+
+            this.updateApiSettingsUI();
+        }
+
+        bindApiField(elementId, path) {
+            const element = document.getElementById(elementId);
+            if (!element) {
+                return;
+            }
+
+            element.value = this.getApiSettingsValue(path);
+            element.addEventListener('input', (event) => {
+                this.setApiSettingsValue(path, event.target.value);
+            });
+        }
+
+        getApiSettingsValue(path) {
+            const parts = path.split('.');
+            let current = this.apiSettings;
+            for (const part of parts) {
+                if (!current || typeof current !== 'object') {
+                    return '';
+                }
+                current = current[part];
+            }
+            return typeof current === 'string' ? current : (current ?? '');
+        }
+
+        setApiSettingsValue(path, value) {
+            const parts = path.split('.');
+            let current = this.apiSettings;
+            for (let index = 0; index < parts.length - 1; index += 1) {
+                const part = parts[index];
+                if (!current[part] || typeof current[part] !== 'object') {
+                    current[part] = {};
+                }
+                current = current[part];
+            }
+            current[parts[parts.length - 1]] = value;
+            this.persistApiSettings();
+        }
+
+        updateApiSettingsUI() {
+            const mode = this.apiSettings?.mode || 'app';
+            if (this.appPasswordPanel) {
+                this.appPasswordPanel.hidden = mode !== 'app';
+            }
+            if (this.customApiFields) {
+                this.customApiFields.hidden = mode !== 'custom';
+            }
+            if (this.apiModeInputs) {
+                this.apiModeInputs.forEach((input) => {
+                    const selected = input.value === mode;
+                    input.checked = selected;
+                    const card = input.closest('.api-radio-card');
+                    if (card) {
+                        card.classList.toggle('selected', selected);
+                    }
+                });
+            }
+        }
+
+        updateApiSettingsStatus(message, type = 'info') {
+            if (!this.apiSettingsStatus) {
+                return;
+            }
+            this.apiSettingsStatus.textContent = message;
+            this.apiSettingsStatus.classList.remove('api-status-success', 'api-status-error');
+            if (type === 'success') {
+                this.apiSettingsStatus.classList.add('api-status-success');
+            } else if (type === 'error') {
+                this.apiSettingsStatus.classList.add('api-status-error');
+            }
+        }
+
+        buildApiSettingsPayload(target = 'chat', options = {}) {
+            const settings = this.apiSettings || this.loadApiSettings();
+            const notifyOnError = Boolean(options.notifyOnError);
+
+            if (!settings) {
+                if (notifyOnError) {
+                    this.updateApiSettingsStatus('No API settings found.', 'error');
+                }
+                return null;
+            }
+
+            const mode = settings.mode || 'app';
+            if (mode === 'custom') {
+                const custom = settings.custom || {};
+                const chatEndpoint = (custom.chatEndpoint || '').trim();
+                const chatKey = (custom.chatKey || '').trim();
+                const chatDeployment = (custom.chatDeployment || '').trim();
+
+                if (!chatEndpoint || !chatKey || !chatDeployment) {
+                    if (notifyOnError) {
+                        this.updateApiSettingsStatus('Provide endpoint, key, and deployment for chat.', 'error');
+                        this.showToast('API Access', 'Add your Azure endpoint, key, and deployment before continuing.', 'warning', 4500);
+                    }
+                    return null;
+                }
+
+                const realtimeEndpoint = (custom.realtimeEndpoint || chatEndpoint).trim();
+                const realtimeKey = (custom.realtimeKey || chatKey).trim();
+                const realtimeDeployment = (custom.realtimeDeployment || chatDeployment).trim();
+                const realtimeApiVersion = (custom.realtimeApiVersion || '').trim();
+                const tcgApiKey = (custom.tcgApiKey || '').trim();
+
+                const payload = {
+                    mode: 'custom',
+                    custom: {
+                        chat_endpoint: chatEndpoint,
+                        chat_api_key: chatKey,
+                        chat_deployment: chatDeployment,
+                        realtime_endpoint: realtimeEndpoint,
+                        realtime_api_key: realtimeKey,
+                        realtime_deployment: realtimeDeployment
+                    }
+                };
+
+                if (realtimeApiVersion) {
+                    payload.custom.realtime_api_version = realtimeApiVersion;
+                }
+
+                if (tcgApiKey) {
+                    payload.custom.tcg_api_key = tcgApiKey;
+                }
+
+                return payload;
+            }
+
+            if (mode === 'app') {
+                const password = (settings.appPassword || '').trim();
+                if (!password) {
+                    if (notifyOnError) {
+                        this.updateApiSettingsStatus('Enter the password to unlock built-in credentials.', 'error');
+                        this.showToast('API Access', 'Enter the password before using the built-in credentials.', 'warning', 4500);
+                    }
+                    return null;
+                }
+
+                return {
+                    mode: 'app',
+                    app_password: password
+                };
+            }
+
+            if (notifyOnError) {
+                this.updateApiSettingsStatus('Select an API mode to continue.', 'error');
+            }
+            return null;
+        }
 
     clearViewingStatus() {
         this.viewingStatus = {};
@@ -2442,19 +2729,33 @@ class PokemonChatApp {
     async initializeVoice() {
         // First, check if Azure OpenAI Realtime API is available
         if (window.RealtimeVoiceClient && RealtimeVoiceClient.isSupported()) {
-            try {
-                const statusResponse = await fetch('/api/realtime/status');
-                const status = await statusResponse.json();
-                
-                if (status.available) {
-                    console.log('Azure OpenAI Realtime API available, initializing...');
-                    this.initializeRealtimeVoice();
-                    return;
-                } else {
-                    console.log('Realtime API not configured:', status.message);
+            const realtimeSettings = this.buildApiSettingsPayload('realtime');
+            if (realtimeSettings) {
+                try {
+                    const statusOptions = {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ api_settings: realtimeSettings })
+                    };
+                    const statusResponse = await fetch('/api/realtime/status', statusOptions);
+                    if (!statusResponse.ok) {
+                        const errorBody = await statusResponse.json().catch(() => ({}));
+                        console.log('Realtime status error:', errorBody.message || statusResponse.statusText);
+                        throw new Error(errorBody.message || 'Realtime API unavailable');
+                    }
+                    const status = await statusResponse.json();
+                    
+                    if (status.available) {
+                        console.log('Azure OpenAI Realtime API available, initializing...');
+                        this.initializeRealtimeVoice();
+                        return;
+                    }
+                    console.log('Realtime API not available:', status.message || 'Unknown reason');
+                } catch (error) {
+                    console.log('Could not check Realtime API status:', error);
                 }
-            } catch (error) {
-                console.log('Could not check Realtime API status:', error);
+            } else {
+                console.log('Realtime API locked until credentials are configured.');
             }
         }
         
@@ -2470,6 +2771,7 @@ class PokemonChatApp {
         this.realtimeVoice = new RealtimeVoiceClient({
             debug: true,
             preferredVoice: this.voicePreference,
+            apiSettingsProvider: () => this.buildApiSettingsPayload('realtime', { notifyOnError: true }),
             
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);
@@ -2831,6 +3133,14 @@ class PokemonChatApp {
     }
     
     async startVoiceConversation() {
+        const requiredPayload = this.useRealtimeApi
+            ? this.buildApiSettingsPayload('realtime', { notifyOnError: true })
+            : this.buildApiSettingsPayload('chat', { notifyOnError: true });
+
+        if (!requiredPayload) {
+            return;
+        }
+
         // Use Realtime API if available
         if (this.useRealtimeApi && this.realtimeVoice) {
             try {
@@ -2943,6 +3253,11 @@ class PokemonChatApp {
     
     async processVoiceMessage(message) {
         this.setLoading(true);
+        const apiSettingsPayload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+        if (!apiSettingsPayload) {
+            this.setLoading(false);
+            return;
+        }
         
         try {
             const response = await fetch('/api/chat', {
@@ -2953,7 +3268,8 @@ class PokemonChatApp {
                 body: JSON.stringify({
                     message: message,
                     user_id: this.userId,
-                    card_context: this.getCardContextPayload()
+                    card_context: this.getCardContextPayload(),
+                    api_settings: apiSettingsPayload
                 })
             });
             
@@ -3267,6 +3583,11 @@ class PokemonChatApp {
         
         // Show loading indicator
         this.setLoading(true);
+        const apiSettingsPayload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+        if (!apiSettingsPayload) {
+            this.setLoading(false);
+            return;
+        }
         
         try {
             // Send message to backend
@@ -3278,7 +3599,8 @@ class PokemonChatApp {
                 body: JSON.stringify({
                     message: message,
                     user_id: this.userId,
-                    card_context: this.getCardContextPayload()
+                    card_context: this.getCardContextPayload(),
+                    api_settings: apiSettingsPayload
                 })
             });
             
