@@ -514,6 +514,16 @@
                             <small>Realtime fields are optional if you only use chat. Missing values fall back to chat credentials.</small>
                         </div>
 
+                        <div class="api-field api-language-field">
+                            <label for="realtimeLanguageSelect">Realtime Response Language</label>
+                            <select id="realtimeLanguageSelect">
+                                <option value="english">English</option>
+                                <option value="danish">Danish</option>
+                                <option value="cantonese">Cantonese</option>
+                            </select>
+                            <small>This sets the default language Azure GPT Realtime uses when speaking back to you.</small>
+                        </div>
+
                         <div class="api-actions">
                             <button class="tools-save-btn" id="apiSettingsSaveBtn">Apply API Settings</button>
                             <span class="api-status-text" id="apiSettingsStatus" role="status"></span>

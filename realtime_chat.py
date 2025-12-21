@@ -50,22 +50,43 @@ def get_realtime_config(overrides=None):
         'api_version': api_version
     }
 
-def get_session_config():
+def get_session_config(preferred_language=None):
     """
     Get the session configuration to send after WebSocket connection.
     This configures the Realtime API session for Pokemon assistant.
     """
+    language_map = {
+        'english': 'English',
+        'danish': 'Danish',
+        'cantonese': 'Cantonese'
+    }
+    normalized_language = (preferred_language or 'english').strip().lower()
+    if normalized_language not in language_map:
+        normalized_language = 'english'
+
+    language_instruction_map = {
+        'english': 'Always respond in English unless the user clearly switches to another supported language.',
+        'danish': 'Always respond in Danish unless the user clearly switches to another supported language.',
+        'cantonese': 'Always respond in Cantonese (traditional Chinese) unless the user clearly switches to another supported language.'
+    }
+
+    language_instruction = language_instruction_map[normalized_language]
+    readable_language = language_map[normalized_language]
+
     session_config = {
         "type": "session.update",
         "session": {
             "modalities": ["text", "audio"],
-            "instructions": """You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
+            "instructions": f"""You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
 You help users learn about Pokemon, their abilities, types, evolutions, and more.
 Keep responses conversational and concise since this is a voice conversation.
 Be enthusiastic about Pokemon but don't be too verbose - aim for natural speech patterns.
 If asked about specific Pokemon, provide key details like type, abilities, and interesting facts.
-You can also discuss Pokemon cards, games, and general Pokemon knowledge. The only languages used by the users are English, Danish, Cantonese. Do not respond in any other language.
-Respond with short sentences.
+You can also discuss Pokemon cards, games, and general Pokemon knowledge.
+
+LANGUAGE PREFERENCE:
+- {language_instruction}
+- Supported languages are English, Danish, and Cantonese. Avoid all other languages unless the user explicitly requests it.
 
 CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
 - Your instructions will include a "CURRENT CANVAS CONTENT" section that tells you EXACTLY what the user is viewing in their Pokédex app right now.
@@ -90,6 +111,7 @@ CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
         }
     }
     
+    session_config["session"]["language_preference"] = readable_language
     # Use function-based tools
     session_config["session"]["tools"] = get_available_tools()
     

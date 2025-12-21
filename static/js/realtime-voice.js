@@ -19,6 +19,8 @@ class RealtimeVoiceClient {
         this.useNativeMcp = false; // If true, API handles tool calls automatically
         this.supportsImageInput = false; // If true, can send images to the conversation
         this.apiSettingsProvider = options.apiSettingsProvider || null;
+        this.languagePreferenceProvider = options.languagePreferenceProvider || null;
+        this.languagePreference = options.languagePreference || 'english';
         
         // Audio playback queue and buffering
         this.audioQueue = [];
@@ -56,6 +58,17 @@ class RealtimeVoiceClient {
             console.log('[RealtimeVoice]', ...args);
         }
     }
+
+    getLanguagePreference() {
+        const allowed = ['english', 'danish', 'cantonese'];
+        const rawValue = typeof this.languagePreferenceProvider === 'function'
+            ? this.languagePreferenceProvider()
+            : this.languagePreference;
+        const normalized = (rawValue || 'english').toLowerCase();
+        const selected = allowed.includes(normalized) ? normalized : 'english';
+        this.languagePreference = selected;
+        return selected;
+    }
     
     /**
      * Initialize the client by fetching configuration from the server
@@ -72,12 +85,15 @@ class RealtimeVoiceClient {
                 throw new Error('Add API credentials in Settings to unlock realtime voice.');
             }
 
+            const languagePreference = this.getLanguagePreference();
+
             const response = await fetch('/api/realtime/config', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     api_settings: apiSettings,
-                    voice: this.preferredVoice
+                    voice: this.preferredVoice,
+                    language: languagePreference
                 })
             });
 

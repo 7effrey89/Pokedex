@@ -27,6 +27,7 @@ def get_realtime_connection_config():
         data = request.get_json() or {}
         api_settings_payload = data.get('api_settings')
         preferred_voice = data.get('voice')
+        preferred_language = data.get('language') or data.get('language_preference')
 
         api_settings = resolve_api_settings(api_settings_payload, require_chat=True, require_realtime=True)
         realtime_config = api_settings.get('realtime')
@@ -40,7 +41,7 @@ def get_realtime_connection_config():
             }), 400
         
         config = get_realtime_config(realtime_config)
-        session_config = get_session_config()
+        session_config = get_session_config(preferred_language)
         if preferred_voice:
             session = session_config.get('session', {})
             session['voice'] = preferred_voice

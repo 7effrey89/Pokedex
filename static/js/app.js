@@ -88,6 +88,7 @@ class PokemonChatApp {
         this.customApiFields = document.getElementById('customApiFields');
         this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
         this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
+        this.realtimeLanguageSelect = document.getElementById('realtimeLanguageSelect');
 
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
@@ -542,6 +543,7 @@ class PokemonChatApp {
             return {
                 mode: 'app',
                 appPassword: '',
+                realtimeLanguage: 'english',
                 custom: {
                     chatEndpoint: '',
                     chatKey: '',
@@ -631,6 +633,7 @@ class PokemonChatApp {
             this.bindApiField('customRealtimeDeployment', 'custom.realtimeDeployment');
             this.bindApiField('customRealtimeApiVersion', 'custom.realtimeApiVersion');
             this.bindApiField('customTcgApiKey', 'custom.tcgApiKey');
+            this.initializeRealtimeLanguageControl();
 
             if (this.apiSettingsSaveBtn) {
                 this.apiSettingsSaveBtn.addEventListener('click', (event) => {
@@ -720,6 +723,74 @@ class PokemonChatApp {
             } else if (type === 'error') {
                 this.apiSettingsStatus.classList.add('api-status-error');
             }
+        }
+
+        normalizeRealtimeLanguagePreference(input) {
+            const allowed = ['english', 'danish', 'cantonese'];
+            const normalized = (input || '').toLowerCase();
+            return allowed.includes(normalized) ? normalized : 'english';
+        }
+
+        getRealtimeLanguagePreference() {
+            return this.normalizeRealtimeLanguagePreference(this.apiSettings?.realtimeLanguage || 'english');
+        }
+
+        getRealtimeLanguageLabel(language) {
+            const labels = {
+                english: 'English',
+                danish: 'Danish',
+                cantonese: 'Cantonese'
+            };
+            return labels[this.normalizeRealtimeLanguagePreference(language)] || 'English';
+        }
+
+        setRealtimeLanguagePreference(language) {
+            const normalized = this.normalizeRealtimeLanguagePreference(language);
+            if (!this.apiSettings) {
+                this.apiSettings = this.loadApiSettings();
+            }
+            this.apiSettings.realtimeLanguage = normalized;
+            this.persistApiSettings();
+            if (this.realtimeLanguageSelect) {
+                this.realtimeLanguageSelect.value = normalized;
+            }
+            return normalized;
+        }
+
+        initializeRealtimeLanguageControl() {
+            if (!this.realtimeLanguageSelect) {
+                return;
+            }
+
+            this.realtimeLanguageSelect.value = this.getRealtimeLanguagePreference();
+
+            if (this.realtimeLanguageSelect.dataset.listenerAttached === 'true') {
+                return;
+            }
+
+            this.realtimeLanguageSelect.addEventListener('change', async (event) => {
+                const previous = this.getRealtimeLanguagePreference();
+                const selected = this.normalizeRealtimeLanguagePreference(event.target.value);
+                if (selected === previous) {
+                    return;
+                }
+
+                this.setRealtimeLanguagePreference(selected);
+                const readableLabel = this.getRealtimeLanguageLabel(selected);
+                this.updateApiSettingsStatus(`Realtime language set to ${readableLabel}.`, 'info');
+                this.showToast('Realtime Language', `Realtime voice replies will be in ${readableLabel}.`, 'success', 2800);
+
+                if (this.useRealtimeApi) {
+                    try {
+                        await this.restartRealtimeVoiceClient({ resumeVoice: this.isVoiceActive });
+                    } catch (error) {
+                        console.warn('Failed to restart realtime voice after language change:', error);
+                        this.showToast('Realtime Language', 'Language saved, restart voice manually if needed.', 'warning', 3200);
+                    }
+                }
+            });
+
+            this.realtimeLanguageSelect.dataset.listenerAttached = 'true';
         }
 
         buildApiSettingsPayload(target = 'chat', options = {}) {
@@ -2739,7 +2810,10 @@ class PokemonChatApp {
                     const statusOptions = {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ api_settings: realtimeSettings })
+                        body: JSON.stringify({
+                            api_settings: realtimeSettings,
+                            language: this.getRealtimeLanguagePreference()
+                        })
                     };
                     const statusResponse = await fetch('/api/realtime/status', statusOptions);
                     if (!statusResponse.ok) {
@@ -2776,6 +2850,7 @@ class PokemonChatApp {
             debug: true,
             preferredVoice: this.voicePreference,
             apiSettingsProvider: () => this.buildApiSettingsPayload('realtime', { notifyOnError: true }),
+            languagePreferenceProvider: () => this.getRealtimeLanguagePreference(),
             
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);

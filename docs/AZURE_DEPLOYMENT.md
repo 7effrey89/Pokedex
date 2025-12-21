@@ -5,12 +5,13 @@ The repository now ships with the workflow `.github/workflows/deploy-azure-webap
 ## 1. Provision the Azure Web App
 
 1. Create an **App Service** (Linux) in your preferred resource group.
-2. Choose a **Python 3.11** runtime stack. The workflow packages the code without additional build steps, so no Docker image is required.
-3. After the app is created, go to **Configuration → General settings** and set:
+2. Select at least a **Standard (S1) App Service Plan** so WebSockets stay enabled for the realtime voice WebSocket connection. Basic and Free SKUs disable WebSockets and will break the voice client.
+3. Choose a **Python 3.11** runtime stack. The workflow packages the code without additional build steps, so no Docker image is required.
+4. After the app is created, go to **Configuration → General settings** and set:
    - `Startup Command`: `gunicorn --bind=0.0.0.0:$PORT --timeout 600 app:app`
    - `WEBSITES_PORT`: `5000` (matches the default `PORT` expected by `app.py`).
-4. In **Configuration → Application settings**, add the environment variables used locally (`AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_REALTIME_DEPLOYMENT`, `POKEMON_API_URL`, `POKEMON_TCG_API_KEY`, `APP_API_PASSWORD`, etc.). These map 1:1 with the values you enter in the Settings panel of the UI.
-5. Download the **Publish profile** for the web app (Portal → Overview → Get publish profile). This XML file will be stored as a GitHub secret.
+5. In **Configuration → Application settings**, add the environment variables used locally (`AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_REALTIME_DEPLOYMENT`, `POKEMON_API_URL`, `POKEMON_TCG_API_KEY`, `APP_API_PASSWORD`, etc.). These map 1:1 with the values you enter in the Settings panel of the UI.
+6. Download the **Publish profile** for the web app (Portal → Overview → Get publish profile). This XML file will be stored as a GitHub secret.
 
 ## 2. Configure GitHub Secrets
 
