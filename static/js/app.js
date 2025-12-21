@@ -1264,6 +1264,10 @@ class PokemonChatApp {
     showPokemonIndexInCanvas() {
         console.log('📋 showPokemonIndexInCanvas called - displaying all Pokemon');
         this.gridView.show();
+        return {
+            success: true,
+            view: 'grid'
+        };
     }
     
     async navigateForward() {
@@ -4689,6 +4693,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showTcgCardByIndex = (cardIndex, pokemonName = null) => {
         if (window.pokemonChatApp) {
             return window.pokemonChatApp.showTcgCardByIndex(cardIndex, pokemonName);
+        }
+        return { error: 'App not initialized' };
+    };
+    
+    window.showPokemonIndexCanvas = () => {
+        if (window.pokemonChatApp) {
+            return window.pokemonChatApp.showPokemonIndexInCanvas();
         }
         return { error: 'App not initialized' };
     };

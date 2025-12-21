@@ -598,6 +598,44 @@ class RealtimeVoiceClient {
         
         try {
             // Handle frontend-only tools (UI actions)
+            if (toolName === 'show_pokemon_index') {
+                if (window.showPokemonIndexCanvas) {
+                    const indexResult = window.showPokemonIndexCanvas();
+                    if (indexResult && !indexResult.error) {
+                        result = {
+                            success: true,
+                            message: 'Showing the Pokemon index grid'
+                        };
+                        success = true;
+                    } else {
+                        result = { error: indexResult?.error || 'Unable to show the Pokemon index right now.' };
+                        success = false;
+                    }
+                } else {
+                    result = { error: 'Pokemon index view is not available in this context.' };
+                    success = false;
+                }
+
+                this.log('Frontend tool result:', result);
+                this.onToolResult(toolName, args, result, success);
+
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'conversation.item.create',
+                        item: {
+                            type: 'function_call_output',
+                            call_id: callId,
+                            output: JSON.stringify(result)
+                        }
+                    }));
+                    this.ws.send(JSON.stringify({
+                        type: 'response.create'
+                    }));
+                }
+
+                return;
+            }
+
             if (toolName === 'show_tcg_card_by_index') {
                 const cardIndex = args.card_index;
                 const pokemonName = args.pokemon_name;

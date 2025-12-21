@@ -192,6 +192,16 @@ def get_available_tools():
                 "required": ["card_index"]
             }
         }
+        {
+            "type": "function",
+            "name": "show_pokemon_index",
+            "description": "Return the canvas to the main Pokemon index/grid view. Use when the user says to go back home or show all Pokemon again.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        }
     ]
 
 def check_realtime_availability(overrides=None):
