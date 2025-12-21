@@ -191,7 +191,7 @@ def get_available_tools():
                 },
                 "required": ["card_index"]
             }
-        }
+        },
         {
             "type": "function",
             "name": "show_pokemon_index",
