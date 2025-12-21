@@ -2,12 +2,20 @@
 Face Recognition Routes - Handle face identification endpoints
 """
 
+import base64
+import binascii
 import logging
+import re
+from datetime import datetime
+from pathlib import Path
+
 from flask import Blueprint, request, jsonify
 
 logger = logging.getLogger(__name__)
 
 face_bp = Blueprint('face', __name__, url_prefix='/api/face')
+
+PROFILES_DIR = Path('profiles_pic')
 
 
 @face_bp.route('/identify', methods=['POST'])
@@ -52,6 +60,67 @@ def identify_face():
 
     except Exception as e:
         logger.error(f"Error in face identification: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+@face_bp.route('/profiles', methods=['POST'])
+def save_face_profile():
+    """Save a captured face photo into the profiles directory."""
+    from src.tools.tool_manager import tool_manager
+
+    try:
+        if not tool_manager.is_tool_enabled("face_identification"):
+            return jsonify({
+                "error": "Face identification is disabled. Enable it in the tools settings."
+            }), 403
+
+        data = request.get_json() or {}
+        base64_image = data.get('image')
+        raw_name = data.get('name', '').strip()
+
+        if not base64_image or not raw_name:
+            return jsonify({"error": "Image data and profile name are required."}), 400
+
+        sanitized_name = re.sub(r'[^A-Za-z0-9_-]+', '-', raw_name).strip('-_').lower()
+        if not sanitized_name:
+            return jsonify({"error": "Profile name must include letters or numbers."}), 400
+
+        if ',' in base64_image:
+            base64_image = base64_image.split(',', 1)[1]
+
+        try:
+            image_bytes = base64.b64decode(base64_image)
+        except (binascii.Error, ValueError) as exc:
+            logger.error(f"Invalid base64 image payload: {exc}")
+            return jsonify({"error": "Image payload is invalid."}), 400
+
+        PROFILES_DIR.mkdir(parents=True, exist_ok=True)
+
+        filename = f"{sanitized_name}.png"
+        output_path = PROFILES_DIR / filename
+        if output_path.exists():
+            timestamp = datetime.utcnow().strftime('%Y%m%d%H%M%S')
+            output_path = PROFILES_DIR / f"{sanitized_name}-{timestamp}.png"
+
+        with output_path.open('wb') as f:
+            f.write(image_bytes)
+
+        from src.services.face_recognition_service import get_face_recognition_service
+
+        face_service = get_face_recognition_service()
+        face_service.reload_profiles()
+
+        return jsonify({
+            "message": "Profile saved successfully.",
+            "profile": {
+                "file": output_path.name,
+                "displayName": output_path.stem,
+                "directory": str(PROFILES_DIR)
+            }
+        }), 201
+
+    except Exception as e:
+        logger.error(f"Error saving face profile: {e}")
         return jsonify({"error": str(e)}), 500
 
 

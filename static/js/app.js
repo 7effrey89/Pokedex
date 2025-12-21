@@ -7,7 +7,7 @@ class PokemonChatApp {
         this.isVoiceActive = false;
         this.tools = [];
         this.pendingToolChanges = {};
-        
+
         // Chain of thought tracking for current response
         this.currentToolCalls = [];
         this.currentToolCallStartTime = null;
@@ -20,10 +20,10 @@ class PokemonChatApp {
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
-        
+
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
-        
+
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -37,7 +37,7 @@ class PokemonChatApp {
         this.activeLoadingCount = 0;
         this.fetchInterceptorInstalled = false;
         this.initializeHeaderLights();
-        
+
         // Camera scanner elements
         this.cameraButton = document.getElementById('cameraButton');
         this.cameraModalOverlay = document.getElementById('cameraModalOverlay');
@@ -52,13 +52,28 @@ class PokemonChatApp {
         this.shouldSendSnapshotOnNextQuestion = false;
         this.isSendingImage = false;
         this.currentCardContext = null;
-        
+
+        // Face profile capture elements (Settings modal)
+        this.faceProfileVideo = document.getElementById('faceProfileVideo');
+        this.faceProfileStatus = document.getElementById('faceProfileStatus');
+        this.faceProfileNameInput = document.getElementById('faceProfileNameInput');
+        this.faceProfilePreviewWrapper = document.getElementById('faceProfilePreviewWrapper');
+        this.faceProfilePreview = document.getElementById('faceProfilePreview');
+        this.faceProfileStartButton = document.getElementById('faceProfileStartButton');
+        this.faceProfileCaptureButton = document.getElementById('faceProfileCaptureButton');
+        this.faceProfileSaveButton = document.getElementById('faceProfileSaveButton');
+        this.faceProfileCameraStream = null;
+        this.faceProfileCaptureDataUrl = null;
+        this.isSavingFaceProfile = false;
+        this.faceProfileControlsInitialized = false;
+        this.isFaceProfileCameraStarting = false;
+
         // Canvas context tracking
         this.currentCanvasState = {
             type: 'grid', // 'grid', 'pokemon', 'tcg-gallery', 'tcg-detail'
             data: null
         };
-        
+
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
         this.toolsModalOverlay = document.getElementById('toolsModalOverlay');
@@ -66,12 +81,12 @@ class PokemonChatApp {
         this.toolsModalClose = document.getElementById('toolsModalClose');
         this.toolsResetBtn = document.getElementById('toolsResetBtn');
         this.toolsSaveBtn = document.getElementById('toolsSaveBtn');
-        
+
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
         this.tcgCardModalContent = document.getElementById('tcgCardModalContent');
         this.tcgCardModalClose = document.getElementById('tcgCardModalClose');
-        
+
         // New layout elements
         this.chatSidebar = document.getElementById('chatSidebar');
         this.chatToggleBtn = document.getElementById('chatToggleBtn');
@@ -82,18 +97,18 @@ class PokemonChatApp {
         this.pokemonDetailView = document.getElementById('pokemonDetailView');
         this.tcgCardsView = document.getElementById('tcgCardsView');
         this.tcgCardDetailView = document.getElementById('tcgCardDetailView');
-        
+
         // Initialize view classes
         this.gridView = new PokemonGridView(this);
         this.detailView = new PokemonDetailView(this);
         this.tcgGallery = new TcgCardsGalleryView(this);
         this.tcgDetail = new TcgCardDetailView(this);
-        
+
         // Pokemon data
         this.allPokemons = [];
         this.MAX_POKEMON = 1025; // All Pokemon up to Gen 9
         this.currentPokemonName = null; // Store current Pokemon name for card searches
-        
+
         // Pokemon generations for separators
         this.generations = [
             { name: 'Generation I (Kanto)', start: 1, end: 151 },
@@ -106,77 +121,397 @@ class PokemonChatApp {
             { name: 'Generation VIII (Galar)', start: 810, end: 905 },
             { name: 'Generation IX (Paldea)', start: 906, end: 1025 }
         ];
-        
+
         // View history for navigation
         this.viewHistory = ['grid']; // Start at grid view
         this.currentViewIndex = 0;
         this.currentTcgData = null; // Store last TCG data for forward navigation
-        
+
         // Cache configuration
         this.cacheConfig = null;
         this.pokeapiBaseUrl = 'https://pokeapi.co/api/v2';
-        
+
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
         this.synthesis = window.speechSynthesis;
         this.availableSpeechVoices = [];
         this.initializeSpeechVoices();
-        
+
         // Azure OpenAI Realtime Voice client
         this.realtimeVoice = null;
         this.useRealtimeApi = false; // Will be set to true if available
         this.realtimeVoiceSessionAnnounced = false;
         this.voicePreviewPending = false;
         this.restartingRealtimeVoice = null;
-        
+
         this.installFetchInterceptor();
         this.initializeVoice();
-        
+
         this.initializeEventListeners();
         this.initializeToolsModal();
         this.initializeCameraControls();
         this.initializeChatSidebar();
+        this.initializeFaceProfileCaptureControls();
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
         this.gridView.show(); // Use gridView instead of loadPokemonGrid
     }
-    
+
     generateUserId() {
-        const stored = localStorage.getItem('pokemon_chat_user_id');
-        if (stored) return stored;
-        
+        try {
+            const stored = localStorage.getItem('pokemon_chat_user_id');
+            if (stored) {
+                return stored;
+            }
+        } catch (error) {
+            console.warn('Unable to read stored user id:', error);
+        }
+
         const newId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('pokemon_chat_user_id', newId);
+
+        try {
+            localStorage.setItem('pokemon_chat_user_id', newId);
+        } catch (error) {
+            console.warn('Unable to persist generated user id:', error);
+        }
+
         return newId;
     }
-    
-    // Viewing Status Tracking (Cookie-based)
-    loadViewingStatus() {
-        try {
-            const cookie = document.cookie.split('; ').find(row => row.startsWith('pokemonViewingStatus='));
-            if (cookie) {
-                const value = cookie.split('=')[1];
-                return JSON.parse(decodeURIComponent(value));
+
+    initializeFaceProfileCaptureControls() {
+        const hasFaceProfileElements = this.faceProfileVideo ||
+            this.faceProfileStartButton ||
+            this.faceProfileCaptureButton ||
+            this.faceProfileSaveButton ||
+            this.faceProfileNameInput;
+
+        if (!hasFaceProfileElements) {
+            return;
+        }
+
+        if (!this.faceProfileControlsInitialized) {
+            if (this.faceProfileStartButton) {
+                this.faceProfileStartButton.addEventListener('click', () => this.toggleFaceProfileCamera());
             }
-        } catch (e) {
-            console.error('Error loading viewing status:', e);
+
+            if (this.faceProfileCaptureButton) {
+                this.faceProfileCaptureButton.addEventListener('click', () => this.captureFaceProfilePhoto());
+            }
+
+            if (this.faceProfileSaveButton) {
+                this.faceProfileSaveButton.addEventListener('click', () => this.saveFaceProfilePhoto());
+            }
+
+            if (this.faceProfileNameInput) {
+                this.faceProfileNameInput.addEventListener('input', () => {
+                    this.cacheFaceCapture({ name: this.faceProfileNameInput.value.trim() });
+                    this.updateFaceProfileUIState();
+                });
+            }
+
+            this.faceProfileControlsInitialized = true;
         }
-        return {};
+
+        this.restoreCachedFaceProfileData();
+
+        if (!this.faceProfileCameraStream) {
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+        }
+
+        this.updateFaceProfileUIState();
     }
-    
-    saveViewingStatus() {
+
+    ensureFaceProfileCameraActive() {
+        if (!this.faceProfileVideo) {
+            return;
+        }
+
+        if (this.faceProfileCameraStream || this.isFaceProfileCameraStarting) {
+            return;
+        }
+
+        this.startFaceProfileCamera();
+    }
+
+    restoreCachedFaceProfileData() {
+        if (this.faceProfileNameInput) {
+            const detectedName = this.currentIdentifiedUser;
+            this.faceProfileNameInput.value = detectedName || this.loadCachedFaceCaptureName();
+        }
+
+        const cachedImage = this.loadCachedFaceCaptureImage();
+        if (cachedImage && this.faceProfilePreview && this.faceProfilePreviewWrapper) {
+            this.faceProfilePreview.src = cachedImage;
+            this.faceProfilePreviewWrapper.hidden = false;
+            this.faceProfileCaptureDataUrl = cachedImage;
+        } else if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = true;
+        }
+    }
+
+    loadCachedFaceCaptureName() {
         try {
-            const value = encodeURIComponent(JSON.stringify(this.viewingStatus));
-            // Set cookie for 1 year
-            const expires = new Date();
-            expires.setFullYear(expires.getFullYear() + 1);
-            document.cookie = `pokemonViewingStatus=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
-        } catch (e) {
-            console.error('Error saving viewing status:', e);
+            return localStorage.getItem('pokedex_last_face_name') || '';
+        } catch (error) {
+            console.warn('Unable to read cached face name:', error);
+            return '';
         }
     }
-    
+
+    loadCachedFaceCaptureImage() {
+        try {
+            return localStorage.getItem('pokedex_last_face_capture') || '';
+        } catch (error) {
+            console.warn('Unable to read cached face capture:', error);
+            return '';
+        }
+    }
+
+    updateFaceProfileUIState() {
+        const hasStream = Boolean(this.faceProfileCameraStream);
+        if (this.faceProfileStartButton) {
+            this.faceProfileStartButton.textContent = hasStream ? 'Stop Camera' : 'Start Camera';
+        }
+        if (this.faceProfileCaptureButton) {
+            this.faceProfileCaptureButton.disabled = !hasStream;
+        }
+
+        const hasName = !!(this.faceProfileNameInput && this.faceProfileNameInput.value.trim());
+        const canSave = Boolean(hasName && this.faceProfileCaptureDataUrl && !this.isSavingFaceProfile);
+        if (this.faceProfileSaveButton) {
+            this.faceProfileSaveButton.disabled = !canSave;
+        }
+    }
+
+    updateFaceProfileStatus(message) {
+        if (this.faceProfileStatus) {
+            this.faceProfileStatus.textContent = message;
+        }
+    }
+
+    async toggleFaceProfileCamera() {
+        if (this.faceProfileCameraStream) {
+            this.stopFaceProfileCamera();
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+            this.updateFaceProfileUIState();
+            return;
+        }
+
+        await this.startFaceProfileCamera();
+    }
+
+    async startFaceProfileCamera() {
+        if (!this.faceProfileVideo || this.isFaceProfileCameraStarting) {
+            return;
+        }
+
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            this.updateFaceProfileStatus('Camera access is not supported on this device.');
+            return;
+        }
+
+        this.isFaceProfileCameraStarting = true;
+        this.updateFaceProfileStatus('Requesting camera permission...');
+
+        try {
+            this.faceProfileCameraStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: { ideal: 'user' } },
+                audio: false
+            });
+
+            this.faceProfileVideo.srcObject = this.faceProfileCameraStream;
+            await this.faceProfileVideo.play().catch(() => {});
+            this.updateFaceProfileStatus('Camera ready. Capture your face when centered.');
+        } catch (error) {
+            console.error('Face profile camera failed:', error);
+            this.updateFaceProfileStatus('Camera access denied or unavailable.');
+            this.stopFaceProfileCamera();
+        } finally {
+            this.isFaceProfileCameraStarting = false;
+            this.updateFaceProfileUIState();
+        }
+    }
+
+    stopFaceProfileCamera() {
+        if (this.faceProfileCameraStream) {
+            this.faceProfileCameraStream.getTracks().forEach(track => track.stop());
+            this.faceProfileCameraStream = null;
+        }
+
+        if (this.faceProfileVideo) {
+            this.faceProfileVideo.pause();
+            this.faceProfileVideo.srcObject = null;
+        }
+
+        this.isFaceProfileCameraStarting = false;
+    }
+
+    captureFaceProfilePhoto() {
+        if (!this.faceProfileVideo || this.faceProfileVideo.readyState < 2) {
+            this.updateFaceProfileStatus('Camera is still warming up.');
+            return;
+        }
+
+        const dataUrl = this.getFaceCropDataUrl(this.faceProfileVideo);
+        if (!dataUrl) {
+            this.updateFaceProfileStatus('Unable to capture the image.');
+            this.showToast('Face Profile', 'Could not capture a frame. Try again.', 'error');
+            return;
+        }
+
+        this.faceProfileCaptureDataUrl = dataUrl;
+        if (this.faceProfilePreview) {
+            this.faceProfilePreview.src = dataUrl;
+        }
+        if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = false;
+        }
+
+        this.updateFaceProfileStatus('Great! Name it and tap Save Profile to add it to face ID.');
+        this.cacheFaceCapture({ image: dataUrl });
+        this.updateFaceProfileUIState();
+    }
+
+    getFaceCropDataUrl(videoElement) {
+        if (!videoElement) {
+            return null;
+        }
+
+        const videoWidth = videoElement.videoWidth;
+        const videoHeight = videoElement.videoHeight;
+
+        if (!videoWidth || !videoHeight) {
+            return null;
+        }
+
+        const cropWidth = videoWidth * 0.55;
+        const cropHeight = videoHeight * 0.7;
+        const sourceX = (videoWidth - cropWidth) / 2;
+        const sourceY = (videoHeight - cropHeight) / 2;
+
+        const outputWidth = 512;
+        const outputHeight = 640;
+        const canvas = document.createElement('canvas');
+        canvas.width = outputWidth;
+        canvas.height = outputHeight;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            return null;
+        }
+
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, outputWidth, outputHeight);
+        ctx.save();
+        ctx.beginPath();
+        ctx.ellipse(outputWidth / 2, outputHeight / 2, outputWidth * 0.4, outputHeight * 0.45, 0, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+
+        ctx.drawImage(
+            videoElement,
+            sourceX,
+            sourceY,
+            cropWidth,
+            cropHeight,
+            0,
+            0,
+            outputWidth,
+            outputHeight
+        );
+        ctx.restore();
+
+        return canvas.toDataURL('image/png');
+    }
+
+    cacheFaceCapture({ image = null, name = null } = {}) {
+        try {
+            if (typeof localStorage === 'undefined') {
+                return;
+            }
+
+            if (image) {
+                localStorage.setItem('pokedex_last_face_capture', image);
+            }
+
+            if (typeof name === 'string') {
+                if (name) {
+                    localStorage.setItem('pokedex_last_face_name', name);
+                } else {
+                    localStorage.removeItem('pokedex_last_face_name');
+                }
+            }
+        } catch (error) {
+            console.warn('Unable to cache face capture locally:', error);
+        }
+    }
+
+    resetFaceProfilePreview() {
+        this.faceProfileCaptureDataUrl = null;
+        if (this.faceProfilePreview) {
+            this.faceProfilePreview.src = '';
+        }
+        if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = true;
+        }
+    }
+
+    async saveFaceProfilePhoto() {
+        if (!this.faceProfileNameInput) {
+            return;
+        }
+
+        const name = this.faceProfileNameInput.value.trim();
+        if (!name) {
+            this.showToast('Face Profile', 'Give this photo a name before saving.', 'info');
+            this.faceProfileNameInput.focus();
+            return;
+        }
+
+        if (!this.faceProfileCaptureDataUrl) {
+            this.showToast('Face Profile', 'Capture a photo first.', 'info');
+            return;
+        }
+
+        if (this.isSavingFaceProfile) {
+            return;
+        }
+
+        this.isSavingFaceProfile = true;
+        this.updateFaceProfileUIState();
+        this.updateFaceProfileStatus('Saving profile photo...');
+
+        try {
+            const response = await fetch('/api/face/profiles', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    image: this.faceProfileCaptureDataUrl,
+                    name
+                })
+            });
+
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                throw new Error(data.error || 'Unable to save profile photo.');
+            }
+
+            const savedName = data?.profile?.displayName || name;
+            this.updateFaceProfileStatus('Profile saved! I can now recognize you by this photo.');
+            this.showToast('Face Profile', `Saved ${savedName}`, 'success');
+            this.cacheFaceCapture({ image: this.faceProfileCaptureDataUrl, name: savedName });
+            this.resetFaceProfilePreview();
+        } catch (error) {
+            console.error('Failed to save profile photo:', error);
+            const message = error.message || 'Could not save profile photo.';
+            this.updateFaceProfileStatus(message);
+            this.showToast('Face Profile', message, 'error');
+        } finally {
+            this.isSavingFaceProfile = false;
+            this.updateFaceProfileUIState();
+        }
+    }
+
     clearViewingStatus() {
         this.viewingStatus = {};
         document.cookie = 'pokemonViewingStatus=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -753,6 +1088,8 @@ class PokemonChatApp {
             }
         }
     }
+
+    
 
     getCameraFacingDescription(mode = this.cameraFacingMode) {
         return mode === 'environment' ? 'rear' : 'front';
@@ -1437,23 +1774,22 @@ class PokemonChatApp {
 
     setupFaceIdentificationControls() {
         const overlayToggle = document.getElementById('faceIdOverlayToggle');
-        if (!overlayToggle) {
-            return;
+        if (overlayToggle) {
+            overlayToggle.checked = this.shouldShowFaceIdOverlay();
+
+            if (overlayToggle.dataset.listenerAttached !== 'true') {
+                overlayToggle.addEventListener('change', (event) => {
+                    const enabled = Boolean(event.target.checked);
+                    this.saveFaceIdOverlayPreference(enabled);
+                    console.log(`Face ID overlay ${enabled ? 'enabled' : 'disabled'}`);
+                });
+
+                overlayToggle.dataset.listenerAttached = 'true';
+            }
         }
 
-        overlayToggle.checked = this.shouldShowFaceIdOverlay();
-
-        if (overlayToggle.dataset.listenerAttached === 'true') {
-            return;
-        }
-
-        overlayToggle.addEventListener('change', (event) => {
-            const enabled = Boolean(event.target.checked);
-            this.saveFaceIdOverlayPreference(enabled);
-            console.log(`Face ID overlay ${enabled ? 'enabled' : 'disabled'}`);
-        });
-
-        overlayToggle.dataset.listenerAttached = 'true';
+        this.initializeFaceProfileCaptureControls();
+        this.ensureFaceProfileCameraActive();
     }
 
     setupVoiceControls() {
@@ -1891,6 +2227,16 @@ class PokemonChatApp {
             this.toolsModalOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        if (this.faceProfileCameraStream) {
+            this.stopFaceProfileCamera();
+        }
+
+        if (!this.faceProfileCameraStream) {
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+        }
+
+        this.updateFaceProfileUIState();
     }
     
     async saveToolChanges() {

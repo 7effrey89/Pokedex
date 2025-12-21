@@ -500,6 +500,35 @@
                                 </label>
                             </div>
                         </div>
+
+                        <div class="face-profile-capture">
+                            <div class="face-profile-video-wrapper">
+                                <video id="faceProfileVideo" autoplay playsinline muted></video>
+                                <div class="face-profile-overlay" aria-hidden="true">
+                                    <div class="face-profile-ring"></div>
+                                    <span class="face-profile-hint">Center your face inside the guide</span>
+                                </div>
+                                <div class="face-profile-status" id="faceProfileStatus">Camera idle. Tap Start Camera to begin.</div>
+                            </div>
+                            <div class="face-profile-video-actions">
+                                <button class="camera-action camera-action-ghost" id="faceProfileStartButton" type="button">Start Camera</button>
+                                <button class="camera-action" id="faceProfileCaptureButton" type="button" disabled>Capture Face</button>
+                            </div>
+                            <div class="face-profile-controls">
+                                <div class="camera-prompt face-profile-name-field">
+                                    <label for="faceProfileNameInput">Profile Name</label>
+                                    <input type="text" id="faceProfileNameInput" placeholder="Enter who you are (e.g. Misty)">
+                                </div>
+                                <div class="face-profile-preview" id="faceProfilePreviewWrapper" hidden>
+                                    <img id="faceProfilePreview" alt="Captured face preview" />
+                                    <span>Captured preview</span>
+                                </div>
+                            </div>
+                            <div class="face-profile-actions">
+                                <button class="camera-action" id="faceProfileSaveButton" type="button" disabled>Save Profile</button>
+                            </div>
+                            <p class="face-profile-note">Photos save locally in <code>profiles_pic</code> so the Pokédex can recognize you later.</p>
+                        </div>
                     </div>
 
                     <!-- Voice Settings Section -->
