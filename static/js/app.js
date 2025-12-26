@@ -18,6 +18,8 @@ class PokemonChatApp {
         this.isFaceIdentifying = false;
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
+        this.pendingRealtimeUserName = null;
+        this.lastAppliedRealtimeUserName = null;
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
         this.apiSettings = this.loadApiSettings();
@@ -1935,37 +1937,11 @@ class PokemonChatApp {
             }
 
             // Handle the result
-            if (result.name && result.is_new_user && result.greeting_message) {
-                // New user detected - greet them
-                this.currentIdentifiedUser = result.name;
-                this.addMessage('assistant', result.greeting_message);
-                console.log(`Greeting new user: ${result.name}`);
-
-                // Update realtime voice context with user's name
-                if (this.realtimeVoice && typeof this.realtimeVoice.updateUserContext === 'function') {
-                    if (this.realtimeVoice.isConnected) {
-                        this.realtimeVoice.updateUserContext(result.name);
-                    } else {
-                        console.log('⏳ Realtime voice not connected yet, will update context when connected');
-                    }
-                } else {
-                    console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
-                }
-            } else if (result.name && !result.is_new_user) {
-                // Same user as before - update tracking but don't greet
-                this.currentIdentifiedUser = result.name;
-                console.log(`Same user detected: ${result.name}, no greeting`);
-
-                // Update realtime voice context with user's name (even if same user)
-                if (this.realtimeVoice && typeof this.realtimeVoice.updateUserContext === 'function') {
-                    if (this.realtimeVoice.isConnected) {
-                        this.realtimeVoice.updateUserContext(result.name);
-                    } else {
-                        console.log('⏳ Realtime voice not connected yet, will update context when connected');
-                    }
-                } else {
-                    console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
-                }
+            if (result.name) {
+                this.handleIdentifiedUserResult(result.name, {
+                    isNewUser: Boolean(result.is_new_user),
+                    greetingMessage: result.is_new_user ? result.greeting_message : null
+                });
             } else if (result.error) {
                 // Error occurred
                 console.log('Face identification error:', result.error);
@@ -2011,6 +1987,72 @@ class PokemonChatApp {
 
             this.isFaceIdentifying = false;
         }
+    }
+
+    handleIdentifiedUserResult(name, { isNewUser = false, greetingMessage = null } = {}) {
+        if (!name) {
+            return;
+        }
+
+        this.currentIdentifiedUser = name;
+        this.cacheFaceCapture({ name });
+
+        if (this.faceProfileNameInput && this.faceProfileNameInput.value !== name) {
+            this.faceProfileNameInput.value = name;
+        }
+
+        if (isNewUser && greetingMessage) {
+            this.addMessage('assistant', greetingMessage);
+            console.log(`Greeting new user: ${name}`);
+        } else if (!isNewUser) {
+            console.log(`Same user detected: ${name} (no greeting)`);
+        }
+
+        this.syncIdentifiedUserToRealtime({ force: isNewUser });
+    }
+
+    syncIdentifiedUserToRealtime({ force = false } = {}) {
+        const name = this.currentIdentifiedUser;
+        if (!name) {
+            return;
+        }
+
+        this.pendingRealtimeUserName = name;
+
+        if (!this.realtimeVoice || typeof this.realtimeVoice.updateUserContext !== 'function') {
+            console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
+            return;
+        }
+
+        if (!this.realtimeVoice.isConnected) {
+            console.log('⏳ Realtime voice not connected yet, user context queued');
+            return;
+        }
+
+        if (!force && this.lastAppliedRealtimeUserName === name) {
+            this.pendingRealtimeUserName = null;
+            return;
+        }
+
+        const success = this.realtimeVoice.updateUserContext(name);
+        if (success) {
+            this.lastAppliedRealtimeUserName = name;
+            this.pendingRealtimeUserName = null;
+        } else {
+            console.log('⚠️ Unable to update realtime user context immediately, will retry when idle');
+        }
+    }
+
+    flushPendingRealtimeUserContext({ force = false } = {}) {
+        if (!this.pendingRealtimeUserName) {
+            return;
+        }
+
+        if (this.currentIdentifiedUser !== this.pendingRealtimeUserName) {
+            this.currentIdentifiedUser = this.pendingRealtimeUserName;
+        }
+
+        this.syncIdentifiedUserToRealtime({ force });
     }
 
     /**
@@ -2190,6 +2232,7 @@ class PokemonChatApp {
         if (!this.realtimeVoice.isConnected) {
             await this.realtimeVoice.connect();
             this.syncCurrentViewContext();
+            this.flushPendingRealtimeUserContext({ force: true });
         }
     }
 
@@ -2856,13 +2899,20 @@ class PokemonChatApp {
                 console.log('Realtime status:', status, message);
                 this.updateVoiceStatus(status, message);
 
+                if (status === 'connected') {
+                    this.flushPendingRealtimeUserContext();
+                }
+
                 // Trigger face identification when session becomes ready
                 // Use a longer delay to avoid interrupting user's initial interaction
-                if (status === 'session_ready' && this.faceRecognitionEnabled) {
-                    console.log('Session ready - scheduling face identification (2s delay)');
-                    setTimeout(() => {
-                        this.identifyUserFromCamera();
-                    }, 2000);
+                if (status === 'session_ready') {
+                    this.flushPendingRealtimeUserContext({ force: true });
+                    if (this.faceRecognitionEnabled) {
+                        console.log('Session ready - scheduling face identification (2s delay)');
+                        setTimeout(() => {
+                            this.identifyUserFromCamera();
+                        }, 2000);
+                    }
                 }
             },
             
@@ -3090,6 +3140,11 @@ class PokemonChatApp {
             }
         });
         
+        this.lastAppliedRealtimeUserName = null;
+        if (this.currentIdentifiedUser) {
+            this.pendingRealtimeUserName = this.currentIdentifiedUser;
+        }
+
         this.useRealtimeApi = true;
         console.log('Realtime Voice client initialized');
     }
@@ -3277,6 +3332,7 @@ class PokemonChatApp {
             // Set the current view context when connection is established
             console.log('🎯 Setting initial canvas context after connection');
             this.syncCurrentViewContext();
+            this.flushPendingRealtimeUserContext({ force: true });
         }
 
         if (!this.realtimeVoice.isRecording) {
