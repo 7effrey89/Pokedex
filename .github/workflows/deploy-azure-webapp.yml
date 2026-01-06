@@ -36,20 +36,25 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential cmake
 
+      - name: Remove any Python cmake shadows from PATH
+        run: |
+          # Uninstall pip cmake if it exists to prevent shadowing system cmake
+          pip uninstall -y cmake || true
+          # Remove Python cmake wrapper scripts that could shadow the real binary
+          sudo rm -f /opt/hostedtoolcache/Python/3.11.*/x64/bin/cmake || true
+          sudo rm -f /usr/local/bin/cmake || true
 
       - name: Verify CMake availability
         run: |
-          echo "PATH before pip: $PATH"
-          which cmake || true
-          cmake --version || true
+          echo "PATH: $PATH"
+          which cmake
+          cmake --version
 
       - name: Install app dependencies into bundle
-        env:
-          PATH: "/usr/bin:$PATH"
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          # Install Python cmake package as fallback for pip's isolated build environment
-          python -m pip install scikit-build cmake
+          # Do NOT install pip cmake - use system cmake only
+          python -m pip install scikit-build
           python -m pip install -r requirements.txt --target .python_packages/lib/site-packages
 
       - name: Create deployment archive (exclude requirements.txt to prevent Oryx build)
