@@ -47,6 +47,7 @@ jobs:
           PATH: "/usr/bin:$PATH"
         run: |
           python -m pip install --upgrade pip setuptools wheel
+          # Install Python cmake package as fallback for pip's isolated build environment
           python -m pip install scikit-build cmake
           python -m pip install -r requirements.txt --target .python_packages/lib/site-packages
 
