@@ -31,15 +31,10 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install CMake (required for dlib)
-        uses: jwlawson/actions-setup-cmake@v1
-        with:
-          cmake-version: '3.29.0'
-
-      - name: Install build tools (required for dlib)
+      - name: Install build tools and CMake (required for dlib)
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential
+          sudo apt-get install -y build-essential cmake
 
       - name: Install app dependencies into bundle
         run: |
