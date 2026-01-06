@@ -23,7 +23,7 @@ if [ -d "$BUNDLED_PACKAGES" ]; then
         if [ -n "$SITE_PACKAGES" ]; then
             echo "Copying bundled packages to $SITE_PACKAGES..."
             # Copy all files, handling empty directories gracefully
-            if ls -A "$BUNDLED_PACKAGES" 2>/dev/null | grep -q .; then
+            if [ "$(ls -A "$BUNDLED_PACKAGES" 2>/dev/null)" ]; then
                 cp -r "$BUNDLED_PACKAGES"/* "$SITE_PACKAGES/" 2>/dev/null || echo "Warning: Some files could not be copied"
                 echo "Successfully copied bundled packages"
             else
