@@ -4,9 +4,11 @@ Chat Routes - Handle chat and messaging endpoints
 
 import time
 import logging
-from flask import Blueprint, request, jsonify, Response
+from flask import Blueprint, request, jsonify, Response, g
 from typing import Optional
 import json
+
+from src.utils.api_settings import resolve_api_settings
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +19,7 @@ conversations = {}
 card_contexts = {}
 
 
-def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None, context_only: bool = False) -> dict:
+def generate_response(message: str, user_id: str = "default", card_context: Optional[str] = None, context_only: bool = False, api_config: Optional[dict] = None) -> dict:
     """
     Generate a response to the user message using Azure OpenAI
     
@@ -30,7 +32,6 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
     Returns:
         Dict containing response data
     """
-    import os
     from azure_openai_chat import get_azure_chat
     from src.tools.tool_handlers import execute_tool
     
@@ -60,6 +61,9 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
             "timestamp": time.time()
         }
 
+    if not api_config:
+        raise ValueError('API credentials are required to generate a response.')
+
     # Add user message to history
     conversations[user_id].append({
         "role": "user",
@@ -75,67 +79,59 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
     }
     
     # Check if Azure OpenAI is configured
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    azure_key = os.getenv("AZURE_OPENAI_API_KEY")
-    
-    if azure_endpoint and azure_key:
-        try:
-            azure_chat = get_azure_chat()
-            
-            # Create wrapper functions that call the unified handlers
-            def handle_get_pokemon_info(pokemon_name: str) -> dict:
-                return execute_tool('get_pokemon', {'pokemon_name': pokemon_name})
-            
-            def handle_search_pokemon_cards(
-                pokemon_name: str = None,
-                card_type: str = None,
-                hp_min: int = None,
-                hp_max: int = None,
-                rarity: str = None
-            ) -> dict:
-                return execute_tool('search_pokemon_cards', {
-                    'pokemon_name': pokemon_name,
-                    'card_type': card_type,
-                    'hp_min': hp_min,
-                    'hp_max': hp_max,
-                    'rarity': rarity
-                })
-            
-            def handle_get_pokemon_list(limit: int = 10, offset: int = 0) -> dict:
-                return execute_tool('get_pokemon_list', {'limit': limit, 'offset': offset})
-            
-            def handle_get_random_pokemon() -> dict:
-                return execute_tool('get_random_pokemon', {})
-            
-            def handle_get_random_pokemon_from_region(region: str) -> dict:
-                return execute_tool('get_random_pokemon_from_region', {'region': region})
-            
-            def handle_get_random_pokemon_by_type(pokemon_type: str) -> dict:
-                return execute_tool('get_random_pokemon_by_type', {'pokemon_type': pokemon_type})
-            
-            tool_handlers = {
-                "get_pokemon_info": handle_get_pokemon_info,
-                "search_pokemon_cards": handle_search_pokemon_cards,
-                "get_pokemon_list": handle_get_pokemon_list,
-                "get_random_pokemon": handle_get_random_pokemon,
-                "get_random_pokemon_from_region": handle_get_random_pokemon_from_region,
-                "get_random_pokemon_by_type": handle_get_random_pokemon_by_type
-            }
-            
-            # Call Azure OpenAI with tools
-            result = azure_chat.chat(message, user_id, tool_handlers)
-            
-            response_data["message"] = result["message"]
-            response_data["pokemon_data"] = result.get("pokemon_data")
-            response_data["tcg_data"] = result.get("tcg_data")
-            
-        except Exception as e:
-            logger.error(f"Azure OpenAI error: {e}")
-            response_data["message"] = f"I'm having trouble connecting to my AI brain. Error: {str(e)}"
-    else:
-        error_msg = "OpenAI connection is required. Please configure AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY environment variables."
-        logger.error(error_msg)
-        response_data["message"] = error_msg
+    try:
+        azure_chat = get_azure_chat()
+
+        # Create wrapper functions that call the unified handlers
+        def handle_get_pokemon_info(pokemon_name: str) -> dict:
+            return execute_tool('get_pokemon', {'pokemon_name': pokemon_name})
+
+        def handle_search_pokemon_cards(
+            pokemon_name: str = None,
+            card_type: str = None,
+            hp_min: int = None,
+            hp_max: int = None,
+            rarity: str = None
+        ) -> dict:
+            return execute_tool('search_pokemon_cards', {
+                'pokemon_name': pokemon_name,
+                'card_type': card_type,
+                'hp_min': hp_min,
+                'hp_max': hp_max,
+                'rarity': rarity
+            })
+
+        def handle_get_pokemon_list(limit: int = 10, offset: int = 0) -> dict:
+            return execute_tool('get_pokemon_list', {'limit': limit, 'offset': offset})
+
+        def handle_get_random_pokemon() -> dict:
+            return execute_tool('get_random_pokemon', {})
+
+        def handle_get_random_pokemon_from_region(region: str) -> dict:
+            return execute_tool('get_random_pokemon_from_region', {'region': region})
+
+        def handle_get_random_pokemon_by_type(pokemon_type: str) -> dict:
+            return execute_tool('get_random_pokemon_by_type', {'pokemon_type': pokemon_type})
+
+        tool_handlers = {
+            "get_pokemon_info": handle_get_pokemon_info,
+            "search_pokemon_cards": handle_search_pokemon_cards,
+            "get_pokemon_list": handle_get_pokemon_list,
+            "get_random_pokemon": handle_get_random_pokemon,
+            "get_random_pokemon_from_region": handle_get_random_pokemon_from_region,
+            "get_random_pokemon_by_type": handle_get_random_pokemon_by_type
+        }
+
+        # Call Azure OpenAI with tools
+        result = azure_chat.chat(message, user_id, tool_handlers, client_config=api_config)
+
+        response_data["message"] = result["message"]
+        response_data["pokemon_data"] = result.get("pokemon_data")
+        response_data["tcg_data"] = result.get("tcg_data")
+
+    except Exception as e:
+        logger.error(f"Azure OpenAI error: {e}")
+        response_data["message"] = f"I'm having trouble connecting to my AI brain. Error: {str(e)}"
     
     # Add response to history
     conversations[user_id].append({
@@ -162,11 +158,18 @@ def chat():
         message = data.get('message', '')
         user_id = data.get('user_id', 'default')
         card_context = data.get('card_context')
+        api_settings_payload = data.get('api_settings')
         
         if not message:
             return jsonify({"error": "Message is required"}), 400
+
+        try:
+            api_settings = resolve_api_settings(api_settings_payload, require_chat=True)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        g.api_settings = api_settings
         
-        response_data = generate_response(message, user_id, card_context)
+        response_data = generate_response(message, user_id, card_context, api_config=api_settings['chat'])
         return jsonify(response_data)
     
     except Exception as e:
@@ -186,12 +189,19 @@ def chat_stream():
         message = data.get('message', '')
         user_id = data.get('user_id', 'default')
         card_context = data.get('card_context')
+        api_settings_payload = data.get('api_settings')
         
         if not message:
             return jsonify({"error": "Message is required"}), 400
+
+        try:
+            api_settings = resolve_api_settings(api_settings_payload, require_chat=True)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+        g.api_settings = api_settings
         
         def generate():
-            response_data = generate_response(message, user_id, card_context)
+            response_data = generate_response(message, user_id, card_context, api_config=api_settings['chat'])
             
             # Stream the response word by word for a typing effect
             words = response_data["message"].split()

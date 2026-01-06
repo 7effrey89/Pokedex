@@ -18,6 +18,9 @@ class RealtimeVoiceClient {
         this.tools = [];
         this.useNativeMcp = false; // If true, API handles tool calls automatically
         this.supportsImageInput = false; // If true, can send images to the conversation
+        this.apiSettingsProvider = options.apiSettingsProvider || null;
+        this.languagePreferenceProvider = options.languagePreferenceProvider || null;
+        this.languagePreference = options.languagePreference || 'english';
         
         // Audio playback queue and buffering
         this.audioQueue = [];
@@ -39,10 +42,12 @@ class RealtimeVoiceClient {
         this.onToolCall = options.onToolCall || (() => {});
         this.onToolResult = options.onToolResult || (() => {});
         this.onSpeechStarted = options.onSpeechStarted || (() => {}); // Face recognition trigger
+        this.onPlaybackLevel = options.onPlaybackLevel || (() => {});
 
         // Audio settings
         this.sampleRate = 24000; // Azure OpenAI Realtime uses 24kHz
         this.inputSampleRate = 16000;
+        this.preferredVoice = options.preferredVoice || 'alloy';
         
         // Debug mode
         this.debug = options.debug || false;
@@ -53,6 +58,17 @@ class RealtimeVoiceClient {
             console.log('[RealtimeVoice]', ...args);
         }
     }
+
+    getLanguagePreference() {
+        const allowed = ['english', 'danish', 'cantonese'];
+        const rawValue = typeof this.languagePreferenceProvider === 'function'
+            ? this.languagePreferenceProvider()
+            : this.languagePreference;
+        const normalized = (rawValue || 'english').toLowerCase();
+        const selected = allowed.includes(normalized) ? normalized : 'english';
+        this.languagePreference = selected;
+        return selected;
+    }
     
     /**
      * Initialize the client by fetching configuration from the server
@@ -61,7 +77,30 @@ class RealtimeVoiceClient {
         try {
             this.onStatusChange('initializing', 'Checking realtime availability...');
             
-            const response = await fetch('/api/realtime/config');
+            const apiSettings = typeof this.apiSettingsProvider === 'function'
+                ? this.apiSettingsProvider()
+                : null;
+
+            if (!apiSettings) {
+                throw new Error('Add API credentials in Settings to unlock realtime voice.');
+            }
+
+            const languagePreference = this.getLanguagePreference();
+
+            const response = await fetch('/api/realtime/config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    api_settings: apiSettings,
+                    voice: this.preferredVoice,
+                    language: languagePreference
+                })
+            });
+
+            if (!response.ok) {
+                const errorBody = await response.json().catch(() => ({}));
+                throw new Error(errorBody.error || 'Realtime API not available');
+            }
             const data = await response.json();
             
             if (!data.available) {
@@ -165,12 +204,13 @@ class RealtimeVoiceClient {
     sendSessionConfig() {
         if (!this.ws || this.ws.readyState !== WebSocket.OPEN) return;
         
-        const config = this.sessionConfig || {
+        const sourceConfig = this.sessionConfig ? JSON.parse(JSON.stringify(this.sessionConfig)) : null;
+        const config = sourceConfig || {
             type: "session.update",
             session: {
                 modalities: ["text", "audio"],
                 instructions: "You are PokéChat, a friendly Pokemon assistant. Keep responses conversational and concise.",
-                voice: "alloy",
+                voice: this.preferredVoice || "alloy",
                 input_audio_format: "pcm16",
                 output_audio_format: "pcm16",
                 turn_detection: {
@@ -182,14 +222,77 @@ class RealtimeVoiceClient {
             }
         };
         
+        config.session = config.session || {};
+        config.session.voice = this.preferredVoice || config.session.voice || 'alloy';
+
         // Add tools if available
         if (this.tools.length > 0) {
             config.session.tools = this.tools;
             config.session.tool_choice = "auto";
         }
         
+        this.sessionConfig = config;
         this.log('Sending session config:', config);
         this.ws.send(JSON.stringify(config));
+    }
+
+    setVoicePreference(voice) {
+        if (!voice) {
+            return;
+        }
+        this.preferredVoice = voice;
+        if (this.sessionConfig?.session) {
+            this.sessionConfig.session.voice = voice;
+        }
+
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            const payload = {
+                type: 'session.update',
+                session: { voice }
+            };
+            try {
+                this.ws.send(JSON.stringify(payload));
+                this.log('Voice updated to', voice);
+                this.sendSessionConfig();
+            } catch (error) {
+                this.log('Error sending voice update:', error);
+            }
+        }
+    }
+
+    async playVoicePreview(voiceName) {
+        const targetVoice = voiceName || this.preferredVoice || 'alloy';
+        this.setVoicePreference(targetVoice);
+
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            this.log('Cannot play voice preview - WebSocket not connected');
+            return false;
+        }
+
+        const displayName = targetVoice.charAt(0).toUpperCase() + targetVoice.slice(1);
+        const prompt = `Say only: Hi! This is the ${displayName} voice.`;
+
+        try {
+            this.ws.send(JSON.stringify({
+                type: 'conversation.item.create',
+                item: {
+                    type: 'message',
+                    role: 'user',
+                    content: [
+                        {
+                            type: 'input_text',
+                            text: prompt
+                        }
+                    ]
+                }
+            }));
+
+            this.ws.send(JSON.stringify({ type: 'response.create' }));
+            return true;
+        } catch (error) {
+            this.log('Voice preview error:', error);
+            return false;
+        }
     }
     
     /**
@@ -405,6 +508,19 @@ class RealtimeVoiceClient {
                     }
                     offset += chunk.length;
                 }
+
+                // Estimate playback energy for visualizers
+                let rms = 0;
+                if (totalSamples > 0) {
+                    let sumSquares = 0;
+                    for (let i = 0; i < totalSamples; i++) {
+                        const sample = combinedArray[i];
+                        sumSquares += sample * sample;
+                    }
+                    rms = Math.sqrt(sumSquares / totalSamples);
+                }
+                const normalizedEnergy = Math.min(1, rms * 4);
+                this.onPlaybackLevel(normalizedEnergy);
                 
                 // Create audio buffer
                 const audioBuffer = this.playbackContext.createBuffer(1, totalSamples, this.sampleRate);
@@ -441,6 +557,7 @@ class RealtimeVoiceClient {
             }
             
             this.isPlaying = false;
+            this.onPlaybackLevel(0);
             this.onAudioEnd();
         };
         
@@ -454,6 +571,7 @@ class RealtimeVoiceClient {
         // 1. Clear the audio queue
         this.audioQueue = [];
         
+        this.onPlaybackLevel(0);
         // 2. Stop all playing audio sources
         for (const source of this.currentAudioSources) {
             try {
@@ -496,6 +614,44 @@ class RealtimeVoiceClient {
         
         try {
             // Handle frontend-only tools (UI actions)
+            if (toolName === 'show_pokemon_index') {
+                if (window.showPokemonIndexCanvas) {
+                    const indexResult = window.showPokemonIndexCanvas();
+                    if (indexResult && !indexResult.error) {
+                        result = {
+                            success: true,
+                            message: 'Showing the Pokemon index grid'
+                        };
+                        success = true;
+                    } else {
+                        result = { error: indexResult?.error || 'Unable to show the Pokemon index right now.' };
+                        success = false;
+                    }
+                } else {
+                    result = { error: 'Pokemon index view is not available in this context.' };
+                    success = false;
+                }
+
+                this.log('Frontend tool result:', result);
+                this.onToolResult(toolName, args, result, success);
+
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'conversation.item.create',
+                        item: {
+                            type: 'function_call_output',
+                            call_id: callId,
+                            output: JSON.stringify(result)
+                        }
+                    }));
+                    this.ws.send(JSON.stringify({
+                        type: 'response.create'
+                    }));
+                }
+
+                return;
+            }
+
             if (toolName === 'show_tcg_card_by_index') {
                 const cardIndex = args.card_index;
                 const pokemonName = args.pokemon_name;
@@ -920,10 +1076,14 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
+            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
+            this.sessionConfig.session.voice = voiceSetting;
+
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
-                    instructions: updatedInstructions
+                    instructions: updatedInstructions,
+                    voice: voiceSetting
                 }
             };
 
@@ -1007,10 +1167,14 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
+            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
+            this.sessionConfig.session.voice = voiceSetting;
+
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
-                    instructions: updatedInstructions
+                    instructions: updatedInstructions,
+                    voice: voiceSetting
                 }
             };
 

@@ -108,17 +108,19 @@ Create or update a `.env` file with the secrets you want in production (Azure Op
 
 ### 2. Log in and create Azure resources
 
+> ℹ️ **Realtime voice relies on WebSockets.** Azure only enables WebSockets on Standard (S1) App Service plans and above, so choose at least `S1` for the deployment plan.
+
 ```bash
 az login
 RESOURCE_GROUP=pokedex-rg
-LOCATION=eastus
-APP_NAME=pokedex-chat-$RANDOM
+LOCATION=swedencentral
+APP_NAME=pokedex-chat
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
 az appservice plan create \
    --name $APP_NAME-plan \
    --resource-group $RESOURCE_GROUP \
-   --sku B1 \
+   --sku S1 \
    --is-linux
 az webapp create \
    --resource-group $RESOURCE_GROUP \
@@ -137,7 +139,17 @@ az webapp config appsettings set \
    --name $APP_NAME \
    --settings \
       FLASK_ENV=production \
-      POKEMON_TCG_API_KEY="<your-key>" \
+      FLASK_DEBUG=False \
+      PORT=5000 \
+      AZURE_OPENAI_ENDPOINT="https://<YourResource>.openai.azure.com/" \
+      AZURE_OPENAI_API_KEY="<key>" \
+      AZURE_OPENAI_DEPLOYMENT="gpt-5.1-chat" \
+      AZURE_OPENAI_REALTIME_DEPLOYMENT="gpt-realtime" \
+      AZURE_OPENAI_REALTIME_API_VERSION="2024-10-01-preview" \
+      POKEMON_API_URL="https://pokeapi.co/api/v2" \
+      POKEMON_TCG_API_KEY="<key>" \
+      TCG_PAGE_SIZE=250 \
+      APP_API_PASSWORD="PasswordExample" \
       USE_NATIVE_MCP=false \
       SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
@@ -148,16 +160,38 @@ Add any Azure OpenAI or MCP endpoints the same way. App settings become environm
 
 Create a clean build (exclude caches and local venvs) and push it with Zip Deploy:
 
+> ⚠️ **Windows packaging requires CMake and the Microsoft C++ Build Tools.** Install an official copy of CMake (add it to `PATH`) plus the "Desktop development with C++" workload so `dlib` can compile during the `pip install` step. Verify `cmake --version` works before continuing.
+
+**Linux / macOS**
+
 ```bash
 pip install -r requirements.txt --target .python_packages/lib/site-packages
 zip -r pokedex.zip app.py src static templates \
-      requirements.txt realtime_chat.py azure_openai_chat.py \
-      tools_config.json data tcg-cache
+         requirements.txt realtime_chat.py azure_openai_chat.py \
+         tools_config.json data tcg-cache
+```
 
-az webapp deployment source config-zip \
-   --resource-group $RESOURCE_GROUP \
-   --name $APP_NAME \
-   --src pokedex.zip
+**Windows (PowerShell)**
+
+```powershell
+pip install -r requirements.txt --target .python_packages\lib\site-packages
+Remove-Item pokedex.zip -ErrorAction SilentlyContinue
+Compress-Archive -Path app.py,src,static,templates,data,tcg-cache,azure_openai_chat.py,realtime_chat.py,requirements.txt,tools_config.json,.python_packages -DestinationPath pokedex.zip
+Get-Item pokedex.zip
+```
+
+After the archive exists locally, push it with Zip Deploy:
+
+```bash
+az webapp deploy \
+   --resource-group "$RESOURCE_GROUP" \
+   --name "$APP_NAME" \
+   --src-path pokedex.zip \
+   --type zip
+```
+
+```powershell
+az webapp deploy --resource-group $env:RESOURCE_GROUP --name $env:APP_NAME --src-path "$PWD\pokedex.zip" --type zip
 ```
 
 App Service automatically runs `gunicorn app:app` for Linux Python sites. Tail logs if you want to verify startup:
@@ -165,6 +199,19 @@ App Service automatically runs `gunicorn app:app` for Linux Python sites. Tail l
 ```bash
 az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 ```
+
+#### Option B — Deploy with GitHub Actions (CI/CD)
+
+The repository now includes `.github/workflows/deploy-azure-webapp.yml`, which bundles the app the same way as the manual zip above (it installs dependencies into `.python_packages/lib/site-packages` before zipping `app.py`, `src/`, `static/`, `templates/`, `data/`, `tcg-cache/`, and the helper scripts). To enable it:
+
+1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
+2. **Create two GitHub Action secrets** in *Settings → Secrets and variables → Actions*:
+   - `AZURE_WEBAPP_NAME` → the App Service name (e.g., `pokedex-prod`).
+   - `AZURE_WEBAPP_PUBLISH_PROFILE` → paste the full contents of the downloaded publish profile XML.
+3. Push to the `main` branch (default trigger) or run the workflow manually from the **Actions** tab using the *Run workflow* button. The optional `environment` input lets you tag runs as `production`, `staging`, etc.
+4. Monitor the run logs to confirm the archive step and the `azure/webapps-deploy@v3` action succeed. When it finishes, the new build is already live in App Service—no manual Zip Deploy needed.
+
+> Tip: if deployment fails because of missing secrets or configuration, fix the issue and simply re-run the workflow from the failed run’s page.
 
 ### 5. Handle persistent assets
 

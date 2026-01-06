@@ -15,12 +15,13 @@ class AzureOpenAIChat:
     """Handles chat with Azure OpenAI using function calling for Pokemon tools"""
     
     def __init__(self):
-        self.client = AzureOpenAI(
-            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-            api_version="2024-10-21"
-        )
-        self.deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4")
+        self.default_config = {
+            "endpoint": (os.getenv("AZURE_OPENAI_ENDPOINT", "") or "").rstrip('/'),
+            "api_key": os.getenv("AZURE_OPENAI_API_KEY", ""),
+            "deployment": os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4"),
+            "api_version": os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21")
+        }
+        self.default_client: Optional[AzureOpenAI] = None
         self.conversation_history: Dict[str, List[Dict]] = {}
         
         # Define the tools/functions available to the LLM
@@ -208,7 +209,31 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
         if len(history) > 21:
             self.conversation_history[user_id] = [history[0]] + history[-20:]
     
-    def chat(self, message: str, user_id: str, tool_handlers: Dict[str, callable]) -> Dict[str, Any]:
+    def _get_client(self, override_config: Optional[Dict[str, str]] = None):
+        cfg = (override_config or self.default_config).copy()
+        cfg["endpoint"] = (cfg.get("endpoint") or "").rstrip('/')
+        missing = [key for key in ("endpoint", "api_key", "deployment") if not cfg.get(key)]
+        if missing:
+            raise ValueError(f"Azure OpenAI credentials missing: {', '.join(missing)}")
+
+        api_version = cfg.get("api_version") or "2024-10-21"
+        if override_config:
+            client = AzureOpenAI(
+                azure_endpoint=cfg["endpoint"],
+                api_key=cfg["api_key"],
+                api_version=api_version
+            )
+            return client, cfg["deployment"]
+
+        if self.default_client is None:
+            self.default_client = AzureOpenAI(
+                azure_endpoint=cfg["endpoint"],
+                api_key=cfg["api_key"],
+                api_version=api_version
+            )
+        return self.default_client, cfg["deployment"]
+
+    def chat(self, message: str, user_id: str, tool_handlers: Dict[str, callable], client_config: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
         """
         Send a message and get a response, potentially using tools
         
@@ -232,9 +257,10 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
         }
         
         try:
+            client, deployment = self._get_client(client_config)
             # First API call - may return tool calls
-            response = self.client.chat.completions.create(
-                model=self.deployment,
+            response = client.chat.completions.create(
+                model=deployment,
                 messages=history,
                 tools=self.tools,
                 tool_choice="auto",
@@ -305,8 +331,8 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
                         })
                 
                 # Second API call to get final response with tool results
-                final_response = self.client.chat.completions.create(
-                    model=self.deployment,
+                final_response = client.chat.completions.create(
+                    model=deployment,
                     messages=history,
                     max_completion_tokens=1000
                 )

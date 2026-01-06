@@ -26,48 +26,42 @@
     <div class="app-container">
         <!-- Header -->
         <header class="app-header">
-            <div class="pokedex-lights">
-                <div class="power-light"></div>
-                <div class="indicator-lights">
-                    <div class="indicator-light red"></div>
-                    <div class="indicator-light yellow"></div>
-                    <div class="indicator-light green"></div>
-                </div>
-            </div>
             <div class="header-content">
-                <div class="logo">
-                    <span class="pokeball-icon">⚾</span>
-                    <h1>POKEDEX</h1>
+                <div class="pokedex-lights">
+                    <div class="power-light"></div>
+                    <div class="indicator-lights">
+                        <div class="indicator-light red"></div>
+                        <div class="indicator-light yellow"></div>
+                        <div class="indicator-light green"></div>
+                    </div>
                 </div>
-                <div class="header-actions">
-                    <button id="toolsButton" class="tools-button" aria-label="Manage settings" title="Manage settings">
-                        <svg class="tools-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
-                            <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span class="tools-text">Settings</span>
-                    </button>
-                    <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
-                        <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span class="voice-text">Voice</span>
-                    </button>
-                    <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span class="camera-text">Scan</span>
-                    </button>
-                    <div class="status-indicator" id="statusIndicator">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Online</span>
+                <div class="header-spacer"></div>
+                <div class="header-controls">
+                    <div class="logo" aria-label="Pokedex brand">
+                        <h1>POKEDEX</h1>
+                    </div>
+                    <div class="header-actions" aria-label="Voice and scan controls">
+                        <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
+                            <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="voice-text">Voice</span>
+                        </button>
+                        <button id="cameraButton" class="camera-button" aria-label="Open camera scanner" title="Scan cards with your camera">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 8c0-1.1.9-2 2-2h2l1-1h6l1 1h2c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 6l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="camera-text">Scan</span>
+                        </button>
+                        <div class="status-indicator" id="statusIndicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Online</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,46 +263,44 @@
         <!-- Footer Actions Bar -->
         <footer class="pokedex-footer">
             <div class="footer-actions">
-                <button class="footer-btn" id="helpBtn" aria-label="Help">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
-                    </svg>
-                    <span>Help</span>
+                <button class="footer-btn footer-btn-icon-only" id="backBtnFooter" aria-label="Back" data-tooltip="Back">
+                    <img
+                        src="{{ url_for('static', filename='images/backForwardbutton.svg') }}"
+                        alt="Back button"
+                        class="footer-btn-icon footer-btn-icon-back"
+                    />
                 </button>
                 
-                <button class="footer-btn" id="randomPokemonBtn" aria-label="Random Pokemon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Random</span>
+                <button class="footer-btn footer-btn-icon-only" id="forwardBtnFooter" aria-label="Forward" data-tooltip="Forward">
+                    <img
+                        src="{{ url_for('static', filename='images/backForwardbutton.svg') }}"
+                        alt="Forward button"
+                        class="footer-btn-icon footer-btn-icon-forward"
+                    />
                 </button>
-                
-                <button class="footer-btn" id="toolsBtnFooter" aria-label="Settings">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6" stroke="currentColor" stroke-width="2"/>
-                        <path d="M4.2 4.2l4.3 4.3m5 5l4.3 4.3M4.2 19.8l4.3-4.3m5-5l4.3-4.3" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Settings</span>
+
+                <button class="footer-btn footer-btn-image-only" id="randomPokemonBtn" aria-label="Random Pokemon" data-tooltip="Random">
+                    <img
+                        src="{{ url_for('static', filename='images/guess-that-pokmon2.png') }}"
+                        alt="Who's that Pokémon graphic"
+                        class="footer-random-img"
+                    />
                 </button>
-                
-                <button class="footer-btn" id="backBtnFooter" aria-label="Back">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Back</span>
+
+                <button class="footer-btn footer-btn-icon-only" id="toolsBtnFooter" aria-label="Settings" data-tooltip="Settings">
+                    <img
+                        src="{{ url_for('static', filename='images/setting.png') }}"
+                        alt="Settings icon"
+                        class="footer-setting-icon"
+                    />
                 </button>
-                
-                <button class="footer-btn" id="forwardBtnFooter" aria-label="Forward">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Forward</span>
+
+                <button class="footer-btn footer-btn-icon-only" id="helpBtn" aria-label="Help" data-tooltip="Help">
+                    <img
+                        src="{{ url_for('static', filename='images/slowbro.png') }}"
+                        alt="Help icon"
+                        class="footer-help-icon"
+                    />
                 </button>
             </div>
         </footer>
@@ -452,6 +444,91 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- API Access Section -->
+                    <div class="settings-section">
+                        <h3>🔑 API Access</h3>
+                        <p class="section-description">
+                            Bring your own Azure OpenAI credentials or unlock the built-in defaults with a password. Your choices stay on this device.
+                        </p>
+
+                        <div class="api-mode-options" role="radiogroup" aria-label="API credential mode">
+                            <label class="api-radio-card">
+                                <input type="radio" name="apiMode" value="app" id="apiModeApp">
+                                <div class="api-radio-content">
+                                    <h4>Use Built-in Credentials</h4>
+                                    <p>Protected defaults shipped with the app. Requires access password.</p>
+                                </div>
+                            </label>
+                            <label class="api-radio-card">
+                                <input type="radio" name="apiMode" value="custom" id="apiModeCustom">
+                                <div class="api-radio-content">
+                                    <h4>Use My Own Azure Account</h4>
+                                    <p>Provide your own endpoint, key, and deployments.</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="api-password-panel" id="appPasswordPanel" hidden>
+                            <label for="appApiPassword">Enter Access Password</label>
+                            <input type="password" id="appApiPassword" placeholder="••••••••" autocomplete="off">
+                            <small>This password never leaves this browser unless you choose built-in credentials.</small>
+                        </div>
+
+                        <div class="api-custom-fields" id="customApiFields" hidden>
+                            <div class="api-fields-grid">
+                                <div class="api-field">
+                                    <label for="customChatEndpoint">Chat Endpoint URL</label>
+                                    <input type="text" id="customChatEndpoint" placeholder="https://YOUR_RESOURCE.openai.azure.com">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customChatKey">Chat API Key</label>
+                                    <input type="password" id="customChatKey" placeholder="Paste key">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customChatDeployment">Chat Deployment Name</label>
+                                    <input type="text" id="customChatDeployment" placeholder="gpt-4o-mini">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeEndpoint">Realtime Endpoint URL</label>
+                                    <input type="text" id="customRealtimeEndpoint" placeholder="https://YOUR_RESOURCE.openai.azure.com">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeKey">Realtime API Key</label>
+                                    <input type="password" id="customRealtimeKey" placeholder="Paste key">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeDeployment">Realtime Deployment Name</label>
+                                    <input type="text" id="customRealtimeDeployment" placeholder="gpt-4o-realtime-preview">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customRealtimeApiVersion">Realtime API Version</label>
+                                    <input type="text" id="customRealtimeApiVersion" placeholder="2024-10-01-preview">
+                                </div>
+                                <div class="api-field">
+                                    <label for="customTcgApiKey">Pokemon TCG API Key</label>
+                                    <input type="password" id="customTcgApiKey" placeholder="Paste Pokemon TCG API key">
+                                    <small>Used for card searches and TCG price lookups. Get one at pokemontcg.io.</small>
+                                </div>
+                            </div>
+                            <small>Realtime fields are optional if you only use chat. Missing values fall back to chat credentials.</small>
+                        </div>
+
+                        <div class="api-field api-language-field">
+                            <label for="realtimeLanguageSelect">Realtime Response Language</label>
+                            <select id="realtimeLanguageSelect">
+                                <option value="english">English</option>
+                                <option value="danish">Danish</option>
+                                <option value="cantonese">Cantonese</option>
+                            </select>
+                            <small>This sets the default language Azure GPT Realtime uses when speaking back to you.</small>
+                        </div>
+
+                        <div class="api-actions">
+                            <button class="tools-save-btn" id="apiSettingsSaveBtn">Apply API Settings</button>
+                            <span class="api-status-text" id="apiSettingsStatus" role="status"></span>
+                        </div>
+                    </div>
                     
                     <!-- Viewing History Section -->
                     <div class="settings-section">
@@ -487,6 +564,89 @@
                             <small style="color: var(--text-secondary); margin-top: 0.5rem; display: block;">
                                 This data is stored in browser cookies and only visible to you.
                             </small>
+                        </div>
+                    </div>
+
+                    <!-- Face Identification Section -->
+                    <div class="settings-section">
+                        <h3>👤 Face Identification</h3>
+                        <p class="section-description">
+                            Control the visual overlay that appears when the app is identifying a face. Disabling the overlay keeps identification active but runs quietly in the background.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="faceIdOverlayToggle" class="control-label">
+                                    <span>Show Face Identification Overlay</span>
+                                    <small>Turn off if you prefer background detection without the popup</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="faceIdOverlayToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="face-profile-capture">
+                            <div class="face-profile-video-wrapper">
+                                <video id="faceProfileVideo" autoplay playsinline muted></video>
+                                <div class="face-profile-overlay" aria-hidden="true">
+                                    <div class="face-profile-ring"></div>
+                                    <span class="face-profile-hint">Center your face inside the guide</span>
+                                </div>
+                                <div class="face-profile-status" id="faceProfileStatus">Camera idle. Tap Start Camera to begin.</div>
+                            </div>
+                            <div class="face-profile-video-actions">
+                                <button class="camera-action camera-action-ghost" id="faceProfileStartButton" type="button">Start Camera</button>
+                                <button class="camera-action" id="faceProfileCaptureButton" type="button" disabled>Capture Face</button>
+                            </div>
+                            <div class="face-profile-controls">
+                                <div class="camera-prompt face-profile-name-field">
+                                    <label for="faceProfileNameInput">Profile Name</label>
+                                    <input type="text" id="faceProfileNameInput" placeholder="Enter who you are (e.g. Misty)">
+                                </div>
+                                <div class="face-profile-preview" id="faceProfilePreviewWrapper" hidden>
+                                    <img id="faceProfilePreview" alt="Captured face preview" />
+                                    <span>Captured preview</span>
+                                </div>
+                            </div>
+                            <div class="face-profile-actions">
+                                <button class="camera-action" id="faceProfileSaveButton" type="button" disabled>Save Profile</button>
+                            </div>
+                            <p class="face-profile-note">Photos save locally in <code>profiles_pic</code> so the Pokédex can recognize you later.</p>
+                        </div>
+                    </div>
+
+                    <!-- Voice Settings Section -->
+                    <div class="settings-section">
+                        <h3>🎙️ Voice Settings</h3>
+                        <p class="section-description">
+                            Choose which Azure voice the assistant should use during real-time conversations. Changes apply immediately if voice chat is connected.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="voiceActorSelect" class="control-label">
+                                    <span>Voice Actor</span>
+                                    <small>Select the speaking style you prefer</small>
+                                </label>
+                                <div class="control-input">
+                                    <select id="voiceActorSelect" class="settings-select">
+                                        <option value="alloy">Alloy — Neutral guide (M)</option>
+                                        <option value="ash">Ash — Warm storyteller (F)</option>
+                                        <option value="ballad">Ballad — Dramatic narrator (M)</option>
+                                        <option value="cedar">Cedar — Calm mentor (F)</option>
+                                        <option value="coral">Coral — Energetic coach (F)</option>
+                                        <option value="echo">Echo — Crisp announcer (M)</option>
+                                        <option value="ember">Ember — Radiant performer (F)</option>
+                                        <option value="marin">Marin — Gentle companion (F)</option>
+                                        <option value="luna">Luna — Dreamy storyteller (F)</option>
+                                        <option value="pearl">Pearl — Polished presenter (F)</option>
+                                        <option value="sage">Sage — Deep announcer (M)</option>
+                                        <option value="shimmer">Shimmer — Playful host (F)</option>
+                                        <option value="sol">Sol — Bold hero (M)</option>
+                                        <option value="verse">Verse — Soft narrator (F)</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

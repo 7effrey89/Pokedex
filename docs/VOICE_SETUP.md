@@ -152,8 +152,19 @@ def get_session_config():
 ### Available Voices
 
 - `alloy` - Neutral and balanced
-- `echo` - Warm and expressive  
-- `shimmer` - Clear and bright
+- `ash` - Warm storyteller energy
+- `ballad` - Dramatic narrator cadence
+- `cedar` - Calm, grounded mentor tone
+- `coral` - High-energy coach vibe
+- `echo` - Crisp announcer presence
+- `ember` - Radiant, expressive performer
+- `luna` - Dreamy nighttime storyteller
+- `marin` - Gentle, reassuring companion
+- `pearl` - Polished presenter delivery
+- `sage` - Deep baritone announcer
+- `shimmer` - Bright, playful host
+- `sol` - Bold heroic lead
+- `verse` - Soft-spoken narrator
 
 ### Turn Detection Options
 

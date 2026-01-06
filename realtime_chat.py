@@ -10,50 +10,83 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Azure OpenAI Realtime API configuration
-AZURE_OPENAI_ENDPOINT = os.getenv('AZURE_OPENAI_ENDPOINT', '').rstrip('/')
-AZURE_OPENAI_API_KEY = os.getenv('AZURE_OPENAI_API_KEY', '')
-AZURE_OPENAI_REALTIME_DEPLOYMENT = os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime')
-AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
 
-def get_realtime_config():
+def _sanitize_endpoint(value: str) -> str:
+    return (value or '').rstrip('/')
+
+
+DEFAULT_REALTIME_CONFIG = {
+    'endpoint': _sanitize_endpoint(os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('AZURE_OPENAI_ENDPOINT', ''))),
+    'api_key': os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')),
+    'deployment': os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime'),
+    'api_version': os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
+}
+
+def get_realtime_config(overrides=None):
     """
     Get the configuration for Azure OpenAI Realtime API connection.
     Returns WebSocket URL and headers for the browser to connect directly.
     """
-    if not AZURE_OPENAI_ENDPOINT or not AZURE_OPENAI_API_KEY:
+    cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
+    endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
+    api_key = cfg.get('api_key', '')
+    deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
+    api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
+
+    if not endpoint or not api_key or not deployment:
         raise ValueError("Azure OpenAI credentials not configured")
     
     # Extract the hostname from the endpoint
-    endpoint_host = AZURE_OPENAI_ENDPOINT.replace('https://', '').replace('http://', '')
+    endpoint_host = endpoint.replace('https://', '').replace('http://', '')
     
     # Construct the WebSocket URL for Azure OpenAI Realtime API
     # Format: wss://{resource}.openai.azure.com/openai/realtime?api-version={version}&deployment={deployment}
-    ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={AZURE_OPENAI_API_VERSION}&deployment={AZURE_OPENAI_REALTIME_DEPLOYMENT}"
+    ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
     
     return {
         'ws_url': ws_url,
-        'api_key': AZURE_OPENAI_API_KEY,
-        'deployment': AZURE_OPENAI_REALTIME_DEPLOYMENT,
-        'api_version': AZURE_OPENAI_API_VERSION
+        'api_key': api_key,
+        'deployment': deployment,
+        'api_version': api_version
     }
 
-def get_session_config():
+def get_session_config(preferred_language=None):
     """
     Get the session configuration to send after WebSocket connection.
     This configures the Realtime API session for Pokemon assistant.
     """
+    language_map = {
+        'english': 'English',
+        'danish': 'Danish',
+        'cantonese': 'Cantonese'
+    }
+    normalized_language = (preferred_language or 'english').strip().lower()
+    if normalized_language not in language_map:
+        normalized_language = 'english'
+
+    language_instruction_map = {
+        'english': 'Always respond in English unless the user clearly switches to another supported language.',
+        'danish': 'Always respond in Danish unless the user clearly switches to another supported language.',
+        'cantonese': 'Always respond in Cantonese (traditional Chinese) unless the user clearly switches to another supported language.'
+    }
+
+    language_instruction = language_instruction_map[normalized_language]
+    readable_language = language_map[normalized_language]
+
     session_config = {
         "type": "session.update",
         "session": {
             "modalities": ["text", "audio"],
-            "instructions": """You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
+            "instructions": f"""You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
 You help users learn about Pokemon, their abilities, types, evolutions, and more.
 Keep responses conversational and concise since this is a voice conversation.
 Be enthusiastic about Pokemon but don't be too verbose - aim for natural speech patterns.
 If asked about specific Pokemon, provide key details like type, abilities, and interesting facts.
-You can also discuss Pokemon cards, games, and general Pokemon knowledge. The only languages used by the users are English, Danish, Cantonese. Do not respond in any other language.
-Respond with short sentences.
+You can also discuss Pokemon cards, games, and general Pokemon knowledge.
+
+LANGUAGE PREFERENCE:
+- {language_instruction}
+- Supported languages are English, Danish, and Cantonese. Avoid all other languages unless the user explicitly requests it.
 
 CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
 - Your instructions will include a "CURRENT CANVAS CONTENT" section that tells you EXACTLY what the user is viewing in their Pokédex app right now.
@@ -61,7 +94,7 @@ CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
 - The canvas content updates automatically as users navigate - you always know whether they're viewing the index page, a specific Pokemon, or a Pokemon card.
 - When users send you images via the camera scanner, analyze what you see - this is for identifying physical Pokemon cards.
 - Do NOT make up or hallucinate content that isn't in the CURRENT CANVAS CONTENT section.""",
-            "voice": "alloy",  # Options: alloy, echo, shimmer
+            "voice": "alloy",  # Options: alloy, ash, ballad, cedar, coral, echo, ember, luna, marin, pearl, sage, shimmer, sol, verse
             "input_audio_format": "pcm16",
             "output_audio_format": "pcm16",
             "input_audio_transcription": {
@@ -78,6 +111,7 @@ CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
         }
     }
     
+    session_config["session"]["language_preference"] = readable_language
     # Use function-based tools
     session_config["session"]["tools"] = get_available_tools()
     
@@ -179,36 +213,41 @@ def get_available_tools():
                 },
                 "required": ["card_index"]
             }
+        },
+        {
+            "type": "function",
+            "name": "show_pokemon_index",
+            "description": "Return the canvas to the main Pokemon index/grid view. Use when the user says to go back home or show all Pokemon again.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
         }
     ]
 
-def check_realtime_availability():
+def check_realtime_availability(overrides=None):
     """
     Check if Azure OpenAI Realtime API is available and configured.
     """
-    result = {
-        'available': False,
-        'message': '',
-        'details': {}
+    cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
+    endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
+    api_key = cfg.get('api_key', '')
+    deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
+    api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
+
+    if not endpoint:
+        return {'available': False, 'message': 'Azure OpenAI endpoint not configured', 'details': {}}
+    if not api_key:
+        return {'available': False, 'message': 'Azure OpenAI API key not configured', 'details': {}}
+    if not deployment:
+        return {'available': False, 'message': 'Realtime deployment not configured', 'details': {}}
+
+    return {
+        'available': True,
+        'message': 'Realtime API configured',
+        'details': {
+            'deployment': deployment,
+            'api_version': api_version
+        }
     }
-    
-    if not AZURE_OPENAI_ENDPOINT:
-        result['message'] = 'Azure OpenAI endpoint not configured'
-        return result
-    
-    if not AZURE_OPENAI_API_KEY:
-        result['message'] = 'Azure OpenAI API key not configured'
-        return result
-    
-    if not AZURE_OPENAI_REALTIME_DEPLOYMENT:
-        result['message'] = 'Realtime deployment not configured. Add AZURE_OPENAI_REALTIME_DEPLOYMENT to .env'
-        return result
-    
-    result['available'] = True
-    result['message'] = 'Realtime API configured'
-    result['details'] = {
-        'deployment': AZURE_OPENAI_REALTIME_DEPLOYMENT,
-        'api_version': AZURE_OPENAI_API_VERSION
-    }
-    
-    return result

@@ -7,7 +7,7 @@ class PokemonChatApp {
         this.isVoiceActive = false;
         this.tools = [];
         this.pendingToolChanges = {};
-        
+
         // Chain of thought tracking for current response
         this.currentToolCalls = [];
         this.currentToolCallStartTime = null;
@@ -18,10 +18,15 @@ class PokemonChatApp {
         this.isFaceIdentifying = false;
         this.lastFaceIdentificationTime = 0;
         this.faceIdentificationCooldown = 10000; // 10 seconds cooldown between identifications
-        
+        this.pendingRealtimeUserName = null;
+        this.lastAppliedRealtimeUserName = null;
+        this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
+        this.voicePreference = this.loadVoiceActorPreference();
+        this.apiSettings = this.loadApiSettings();
+
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
-        
+
         // DOM elements
         this.chatContainer = document.getElementById('chatContainer');
         this.messageInput = document.getElementById('messageInput');
@@ -34,7 +39,8 @@ class PokemonChatApp {
         this.statusText = document.querySelector('.status-text');
         this.activeLoadingCount = 0;
         this.fetchInterceptorInstalled = false;
-        
+        this.initializeHeaderLights();
+
         // Camera scanner elements
         this.cameraButton = document.getElementById('cameraButton');
         this.cameraModalOverlay = document.getElementById('cameraModalOverlay');
@@ -49,13 +55,28 @@ class PokemonChatApp {
         this.shouldSendSnapshotOnNextQuestion = false;
         this.isSendingImage = false;
         this.currentCardContext = null;
-        
+
+        // Face profile capture elements (Settings modal)
+        this.faceProfileVideo = document.getElementById('faceProfileVideo');
+        this.faceProfileStatus = document.getElementById('faceProfileStatus');
+        this.faceProfileNameInput = document.getElementById('faceProfileNameInput');
+        this.faceProfilePreviewWrapper = document.getElementById('faceProfilePreviewWrapper');
+        this.faceProfilePreview = document.getElementById('faceProfilePreview');
+        this.faceProfileStartButton = document.getElementById('faceProfileStartButton');
+        this.faceProfileCaptureButton = document.getElementById('faceProfileCaptureButton');
+        this.faceProfileSaveButton = document.getElementById('faceProfileSaveButton');
+        this.faceProfileCameraStream = null;
+        this.faceProfileCaptureDataUrl = null;
+        this.isSavingFaceProfile = false;
+        this.faceProfileControlsInitialized = false;
+        this.isFaceProfileCameraStarting = false;
+
         // Canvas context tracking
         this.currentCanvasState = {
             type: 'grid', // 'grid', 'pokemon', 'tcg-gallery', 'tcg-detail'
             data: null
         };
-        
+
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
         this.toolsModalOverlay = document.getElementById('toolsModalOverlay');
@@ -63,12 +84,19 @@ class PokemonChatApp {
         this.toolsModalClose = document.getElementById('toolsModalClose');
         this.toolsResetBtn = document.getElementById('toolsResetBtn');
         this.toolsSaveBtn = document.getElementById('toolsSaveBtn');
-        
+        this.apiModeInputs = Array.from(document.querySelectorAll('input[name="apiMode"]'));
+        this.appPasswordPanel = document.getElementById('appPasswordPanel');
+        this.appPasswordInput = document.getElementById('appApiPassword');
+        this.customApiFields = document.getElementById('customApiFields');
+        this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
+        this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
+        this.realtimeLanguageSelect = document.getElementById('realtimeLanguageSelect');
+
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
         this.tcgCardModalContent = document.getElementById('tcgCardModalContent');
         this.tcgCardModalClose = document.getElementById('tcgCardModalClose');
-        
+
         // New layout elements
         this.chatSidebar = document.getElementById('chatSidebar');
         this.chatToggleBtn = document.getElementById('chatToggleBtn');
@@ -79,18 +107,18 @@ class PokemonChatApp {
         this.pokemonDetailView = document.getElementById('pokemonDetailView');
         this.tcgCardsView = document.getElementById('tcgCardsView');
         this.tcgCardDetailView = document.getElementById('tcgCardDetailView');
-        
+
         // Initialize view classes
         this.gridView = new PokemonGridView(this);
         this.detailView = new PokemonDetailView(this);
         this.tcgGallery = new TcgCardsGalleryView(this);
         this.tcgDetail = new TcgCardDetailView(this);
-        
+
         // Pokemon data
         this.allPokemons = [];
         this.MAX_POKEMON = 1025; // All Pokemon up to Gen 9
         this.currentPokemonName = null; // Store current Pokemon name for card searches
-        
+
         // Pokemon generations for separators
         this.generations = [
             { name: 'Generation I (Kanto)', start: 1, end: 151 },
@@ -103,73 +131,747 @@ class PokemonChatApp {
             { name: 'Generation VIII (Galar)', start: 810, end: 905 },
             { name: 'Generation IX (Paldea)', start: 906, end: 1025 }
         ];
-        
+
         // View history for navigation
         this.viewHistory = ['grid']; // Start at grid view
         this.currentViewIndex = 0;
         this.currentTcgData = null; // Store last TCG data for forward navigation
-        
+
         // Cache configuration
         this.cacheConfig = null;
         this.pokeapiBaseUrl = 'https://pokeapi.co/api/v2';
-        
+
         // Voice recognition setup (fallback for browsers without Realtime API support)
         this.recognition = null;
         this.synthesis = window.speechSynthesis;
-        
+        this.availableSpeechVoices = [];
+        this.initializeSpeechVoices();
+
         // Azure OpenAI Realtime Voice client
         this.realtimeVoice = null;
         this.useRealtimeApi = false; // Will be set to true if available
         this.realtimeVoiceSessionAnnounced = false;
-        
+        this.voicePreviewPending = false;
+        this.restartingRealtimeVoice = null;
+
         this.installFetchInterceptor();
+        this.initializeApiSettingsControls();
         this.initializeVoice();
-        
+
         this.initializeEventListeners();
         this.initializeToolsModal();
         this.initializeCameraControls();
         this.initializeChatSidebar();
+        this.initializeFaceProfileCaptureControls();
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
         this.gridView.show(); // Use gridView instead of loadPokemonGrid
     }
-    
+
     generateUserId() {
-        const stored = localStorage.getItem('pokemon_chat_user_id');
-        if (stored) return stored;
-        
+        try {
+            const stored = localStorage.getItem('pokemon_chat_user_id');
+            if (stored) {
+                return stored;
+            }
+        } catch (error) {
+            console.warn('Unable to read stored user id:', error);
+        }
+
         const newId = 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('pokemon_chat_user_id', newId);
+
+        try {
+            localStorage.setItem('pokemon_chat_user_id', newId);
+        } catch (error) {
+            console.warn('Unable to persist generated user id:', error);
+        }
+
         return newId;
     }
-    
-    // Viewing Status Tracking (Cookie-based)
-    loadViewingStatus() {
-        try {
-            const cookie = document.cookie.split('; ').find(row => row.startsWith('pokemonViewingStatus='));
-            if (cookie) {
-                const value = cookie.split('=')[1];
-                return JSON.parse(decodeURIComponent(value));
+
+    initializeFaceProfileCaptureControls() {
+        const hasFaceProfileElements = this.faceProfileVideo ||
+            this.faceProfileStartButton ||
+            this.faceProfileCaptureButton ||
+            this.faceProfileSaveButton ||
+            this.faceProfileNameInput;
+
+        if (!hasFaceProfileElements) {
+            return;
+        }
+
+        if (!this.faceProfileControlsInitialized) {
+            if (this.faceProfileStartButton) {
+                this.faceProfileStartButton.addEventListener('click', () => this.toggleFaceProfileCamera());
             }
-        } catch (e) {
-            console.error('Error loading viewing status:', e);
+
+            if (this.faceProfileCaptureButton) {
+                this.faceProfileCaptureButton.addEventListener('click', () => this.captureFaceProfilePhoto());
+            }
+
+            if (this.faceProfileSaveButton) {
+                this.faceProfileSaveButton.addEventListener('click', () => this.saveFaceProfilePhoto());
+            }
+
+            if (this.faceProfileNameInput) {
+                this.faceProfileNameInput.addEventListener('input', () => {
+                    this.cacheFaceCapture({ name: this.faceProfileNameInput.value.trim() });
+                    this.updateFaceProfileUIState();
+                });
+            }
+
+            this.faceProfileControlsInitialized = true;
         }
-        return {};
+
+        this.restoreCachedFaceProfileData();
+
+        if (!this.faceProfileCameraStream) {
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+        }
+
+        this.updateFaceProfileUIState();
     }
-    
-    saveViewingStatus() {
+
+    ensureFaceProfileCameraActive() {
+        if (!this.faceProfileVideo) {
+            return;
+        }
+
+        if (this.faceProfileCameraStream || this.isFaceProfileCameraStarting) {
+            return;
+        }
+
+        this.startFaceProfileCamera();
+    }
+
+    restoreCachedFaceProfileData() {
+        if (this.faceProfileNameInput) {
+            const detectedName = this.currentIdentifiedUser;
+            this.faceProfileNameInput.value = detectedName || this.loadCachedFaceCaptureName();
+        }
+
+        const cachedImage = this.loadCachedFaceCaptureImage();
+        if (cachedImage && this.faceProfilePreview && this.faceProfilePreviewWrapper) {
+            this.faceProfilePreview.src = cachedImage;
+            this.faceProfilePreviewWrapper.hidden = false;
+            this.faceProfileCaptureDataUrl = cachedImage;
+        } else if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = true;
+        }
+    }
+
+    loadCachedFaceCaptureName() {
         try {
-            const value = encodeURIComponent(JSON.stringify(this.viewingStatus));
-            // Set cookie for 1 year
-            const expires = new Date();
-            expires.setFullYear(expires.getFullYear() + 1);
-            document.cookie = `pokemonViewingStatus=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
-        } catch (e) {
-            console.error('Error saving viewing status:', e);
+            return localStorage.getItem('pokedex_last_face_name') || '';
+        } catch (error) {
+            console.warn('Unable to read cached face name:', error);
+            return '';
         }
     }
-    
+
+    loadCachedFaceCaptureImage() {
+        try {
+            return localStorage.getItem('pokedex_last_face_capture') || '';
+        } catch (error) {
+            console.warn('Unable to read cached face capture:', error);
+            return '';
+        }
+    }
+
+    updateFaceProfileUIState() {
+        const hasStream = Boolean(this.faceProfileCameraStream);
+        if (this.faceProfileStartButton) {
+            this.faceProfileStartButton.textContent = hasStream ? 'Stop Camera' : 'Start Camera';
+        }
+        if (this.faceProfileCaptureButton) {
+            this.faceProfileCaptureButton.disabled = !hasStream;
+        }
+
+        const hasName = !!(this.faceProfileNameInput && this.faceProfileNameInput.value.trim());
+        const canSave = Boolean(hasName && this.faceProfileCaptureDataUrl && !this.isSavingFaceProfile);
+        if (this.faceProfileSaveButton) {
+            this.faceProfileSaveButton.disabled = !canSave;
+        }
+    }
+
+    updateFaceProfileStatus(message) {
+        if (this.faceProfileStatus) {
+            this.faceProfileStatus.textContent = message;
+        }
+    }
+
+    async toggleFaceProfileCamera() {
+        if (this.faceProfileCameraStream) {
+            this.stopFaceProfileCamera();
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+            this.updateFaceProfileUIState();
+            return;
+        }
+
+        await this.startFaceProfileCamera();
+    }
+
+    async startFaceProfileCamera() {
+        if (!this.faceProfileVideo || this.isFaceProfileCameraStarting) {
+            return;
+        }
+
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            this.updateFaceProfileStatus('Camera access is not supported on this device.');
+            return;
+        }
+
+        this.isFaceProfileCameraStarting = true;
+        this.updateFaceProfileStatus('Requesting camera permission...');
+
+        try {
+            this.faceProfileCameraStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: { ideal: 'user' } },
+                audio: false
+            });
+
+            this.faceProfileVideo.srcObject = this.faceProfileCameraStream;
+            await this.faceProfileVideo.play().catch(() => {});
+            this.updateFaceProfileStatus('Camera ready. Capture your face when centered.');
+        } catch (error) {
+            console.error('Face profile camera failed:', error);
+            this.updateFaceProfileStatus('Camera access denied or unavailable.');
+            this.stopFaceProfileCamera();
+        } finally {
+            this.isFaceProfileCameraStarting = false;
+            this.updateFaceProfileUIState();
+        }
+    }
+
+    stopFaceProfileCamera() {
+        if (this.faceProfileCameraStream) {
+            this.faceProfileCameraStream.getTracks().forEach(track => track.stop());
+            this.faceProfileCameraStream = null;
+        }
+
+        if (this.faceProfileVideo) {
+            this.faceProfileVideo.pause();
+            this.faceProfileVideo.srcObject = null;
+        }
+
+        this.isFaceProfileCameraStarting = false;
+    }
+
+    captureFaceProfilePhoto() {
+        if (!this.faceProfileVideo || this.faceProfileVideo.readyState < 2) {
+            this.updateFaceProfileStatus('Camera is still warming up.');
+            return;
+        }
+
+        const dataUrl = this.getFaceCropDataUrl(this.faceProfileVideo);
+        if (!dataUrl) {
+            this.updateFaceProfileStatus('Unable to capture the image.');
+            this.showToast('Face Profile', 'Could not capture a frame. Try again.', 'error');
+            return;
+        }
+
+        this.faceProfileCaptureDataUrl = dataUrl;
+        if (this.faceProfilePreview) {
+            this.faceProfilePreview.src = dataUrl;
+        }
+        if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = false;
+        }
+
+        this.updateFaceProfileStatus('Great! Name it and tap Save Profile to add it to face ID.');
+        this.cacheFaceCapture({ image: dataUrl });
+        this.updateFaceProfileUIState();
+    }
+
+    getFaceCropDataUrl(videoElement) {
+        if (!videoElement) {
+            return null;
+        }
+
+        const videoWidth = videoElement.videoWidth;
+        const videoHeight = videoElement.videoHeight;
+
+        if (!videoWidth || !videoHeight) {
+            return null;
+        }
+
+        const outputWidth = 512;
+        const outputHeight = 640;
+        const desiredRatio = outputWidth / outputHeight; // Keep portrait output without distortion
+
+        let cropWidth = videoWidth * 0.55;
+        let cropHeight = cropWidth / desiredRatio;
+
+        if (cropHeight > videoHeight * 0.9) {
+            cropHeight = videoHeight * 0.9;
+            cropWidth = cropHeight * desiredRatio;
+        }
+
+        if (cropWidth > videoWidth) {
+            cropWidth = videoWidth * 0.9;
+            cropHeight = cropWidth / desiredRatio;
+        }
+
+        const sourceX = (videoWidth - cropWidth) / 2;
+        const sourceY = (videoHeight - cropHeight) / 2;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = outputWidth;
+        canvas.height = outputHeight;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            return null;
+        }
+
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, outputWidth, outputHeight);
+        ctx.save();
+        ctx.beginPath();
+        ctx.ellipse(outputWidth / 2, outputHeight / 2, outputWidth * 0.4, outputHeight * 0.45, 0, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+
+        ctx.drawImage(
+            videoElement,
+            sourceX,
+            sourceY,
+            cropWidth,
+            cropHeight,
+            0,
+            0,
+            outputWidth,
+            outputHeight
+        );
+        ctx.restore();
+
+        return canvas.toDataURL('image/png');
+    }
+
+    cacheFaceCapture({ image = null, name = null } = {}) {
+        try {
+            if (typeof localStorage === 'undefined') {
+                return;
+            }
+
+            if (image) {
+                localStorage.setItem('pokedex_last_face_capture', image);
+            }
+
+            if (typeof name === 'string') {
+                if (name) {
+                    localStorage.setItem('pokedex_last_face_name', name);
+                } else {
+                    localStorage.removeItem('pokedex_last_face_name');
+                }
+            }
+        } catch (error) {
+            console.warn('Unable to cache face capture locally:', error);
+        }
+    }
+
+    resetFaceProfilePreview() {
+        this.faceProfileCaptureDataUrl = null;
+        if (this.faceProfilePreview) {
+            this.faceProfilePreview.src = '';
+        }
+        if (this.faceProfilePreviewWrapper) {
+            this.faceProfilePreviewWrapper.hidden = true;
+        }
+    }
+
+    async saveFaceProfilePhoto() {
+        if (!this.faceProfileNameInput) {
+            return;
+        }
+
+        const name = this.faceProfileNameInput.value.trim();
+        if (!name) {
+            this.showToast('Face Profile', 'Give this photo a name before saving.', 'info');
+            this.faceProfileNameInput.focus();
+            return;
+        }
+
+        if (!this.faceProfileCaptureDataUrl) {
+            this.showToast('Face Profile', 'Capture a photo first.', 'info');
+            return;
+        }
+
+        if (this.isSavingFaceProfile) {
+            return;
+        }
+
+        this.isSavingFaceProfile = true;
+        this.updateFaceProfileUIState();
+        this.updateFaceProfileStatus('Saving profile photo...');
+
+        try {
+            const response = await fetch('/api/face/profiles', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    image: this.faceProfileCaptureDataUrl,
+                    name
+                })
+            });
+
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                throw new Error(data.error || 'Unable to save profile photo.');
+            }
+
+            const savedName = data?.profile?.displayName || name;
+            this.updateFaceProfileStatus('Profile saved! I can now recognize you by this photo.');
+            this.showToast('Face Profile', `Saved ${savedName}`, 'success');
+            this.cacheFaceCapture({ image: this.faceProfileCaptureDataUrl, name: savedName });
+            this.resetFaceProfilePreview();
+        } catch (error) {
+            console.error('Failed to save profile photo:', error);
+            const message = error.message || 'Could not save profile photo.';
+            this.updateFaceProfileStatus(message);
+            this.showToast('Face Profile', message, 'error');
+        } finally {
+            this.isSavingFaceProfile = false;
+            this.updateFaceProfileUIState();
+        }
+
+    }
+
+        // ====================
+        // API Settings Management
+        // ====================
+
+        getDefaultApiSettings() {
+            return {
+                mode: 'app',
+                appPassword: '',
+                realtimeLanguage: 'english',
+                custom: {
+                    chatEndpoint: '',
+                    chatKey: '',
+                    chatDeployment: '',
+                    realtimeEndpoint: '',
+                    realtimeKey: '',
+                    realtimeDeployment: '',
+                    realtimeApiVersion: '',
+                    tcgApiKey: ''
+                }
+            };
+        }
+
+        loadApiSettings() {
+            const defaults = this.getDefaultApiSettings();
+            try {
+                if (typeof localStorage === 'undefined') {
+                    return { ...defaults };
+                }
+                const raw = localStorage.getItem('pokedex_api_settings_v1');
+                if (!raw) {
+                    return { ...defaults };
+                }
+
+                const parsed = JSON.parse(raw);
+                return {
+                    ...defaults,
+                    ...parsed,
+                    custom: {
+                        ...defaults.custom,
+                        ...(parsed.custom || {})
+                    }
+                };
+            } catch (error) {
+                console.warn('Unable to parse stored API settings:', error);
+                return { ...defaults };
+            }
+        }
+
+        persistApiSettings() {
+            try {
+                if (typeof localStorage === 'undefined') {
+                    return;
+                }
+                localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
+            } catch (error) {
+                console.warn('Unable to persist API settings:', error);
+            }
+        }
+
+        initializeApiSettingsControls() {
+            // Controls might not exist on lightweight embeds
+            if (!this.apiModeInputs || this.apiModeInputs.length === 0) {
+                return;
+            }
+
+            const mode = this.apiSettings?.mode || 'app';
+            this.apiModeInputs.forEach((input) => {
+                input.checked = input.value === mode;
+                const card = input.closest('.api-radio-card');
+                if (card) {
+                    card.classList.toggle('selected', input.checked);
+                }
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        this.apiSettings.mode = input.value;
+                        this.persistApiSettings();
+                        this.updateApiSettingsUI();
+                        this.updateApiSettingsStatus('Mode updated.', 'info');
+                    }
+                });
+            });
+
+            if (this.appPasswordInput) {
+                this.appPasswordInput.value = this.apiSettings.appPassword || '';
+                this.appPasswordInput.addEventListener('input', (event) => {
+                    this.apiSettings.appPassword = event.target.value;
+                    this.persistApiSettings();
+                });
+            }
+
+            this.bindApiField('customChatEndpoint', 'custom.chatEndpoint');
+            this.bindApiField('customChatKey', 'custom.chatKey');
+            this.bindApiField('customChatDeployment', 'custom.chatDeployment');
+            this.bindApiField('customRealtimeEndpoint', 'custom.realtimeEndpoint');
+            this.bindApiField('customRealtimeKey', 'custom.realtimeKey');
+            this.bindApiField('customRealtimeDeployment', 'custom.realtimeDeployment');
+            this.bindApiField('customRealtimeApiVersion', 'custom.realtimeApiVersion');
+            this.bindApiField('customTcgApiKey', 'custom.tcgApiKey');
+            this.initializeRealtimeLanguageControl();
+
+            if (this.apiSettingsSaveBtn) {
+                this.apiSettingsSaveBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const payload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+                    if (payload) {
+                        this.updateApiSettingsStatus('API settings saved locally.', 'success');
+                        this.showToast('API Access', 'Settings saved to this browser.', 'success', 2500);
+
+                        // Attempt to reinitialize realtime voice if unlocked
+                        if (!this.useRealtimeApi && window.RealtimeVoiceClient?.isSupported()) {
+                            this.initializeVoice();
+                        }
+                    }
+                });
+            }
+
+            this.updateApiSettingsUI();
+        }
+
+        bindApiField(elementId, path) {
+            const element = document.getElementById(elementId);
+            if (!element) {
+                return;
+            }
+
+            element.value = this.getApiSettingsValue(path);
+            element.addEventListener('input', (event) => {
+                this.setApiSettingsValue(path, event.target.value);
+            });
+        }
+
+        getApiSettingsValue(path) {
+            const parts = path.split('.');
+            let current = this.apiSettings;
+            for (const part of parts) {
+                if (!current || typeof current !== 'object') {
+                    return '';
+                }
+                current = current[part];
+            }
+            return typeof current === 'string' ? current : (current ?? '');
+        }
+
+        setApiSettingsValue(path, value) {
+            const parts = path.split('.');
+            let current = this.apiSettings;
+            for (let index = 0; index < parts.length - 1; index += 1) {
+                const part = parts[index];
+                if (!current[part] || typeof current[part] !== 'object') {
+                    current[part] = {};
+                }
+                current = current[part];
+            }
+            current[parts[parts.length - 1]] = value;
+            this.persistApiSettings();
+        }
+
+        updateApiSettingsUI() {
+            const mode = this.apiSettings?.mode || 'app';
+            if (this.appPasswordPanel) {
+                this.appPasswordPanel.hidden = mode !== 'app';
+            }
+            if (this.customApiFields) {
+                this.customApiFields.hidden = mode !== 'custom';
+            }
+            if (this.apiModeInputs) {
+                this.apiModeInputs.forEach((input) => {
+                    const selected = input.value === mode;
+                    input.checked = selected;
+                    const card = input.closest('.api-radio-card');
+                    if (card) {
+                        card.classList.toggle('selected', selected);
+                    }
+                });
+            }
+        }
+
+        updateApiSettingsStatus(message, type = 'info') {
+            if (!this.apiSettingsStatus) {
+                return;
+            }
+            this.apiSettingsStatus.textContent = message;
+            this.apiSettingsStatus.classList.remove('api-status-success', 'api-status-error');
+            if (type === 'success') {
+                this.apiSettingsStatus.classList.add('api-status-success');
+            } else if (type === 'error') {
+                this.apiSettingsStatus.classList.add('api-status-error');
+            }
+        }
+
+        normalizeRealtimeLanguagePreference(input) {
+            const allowed = ['english', 'danish', 'cantonese'];
+            const normalized = (input || '').toLowerCase();
+            return allowed.includes(normalized) ? normalized : 'english';
+        }
+
+        getRealtimeLanguagePreference() {
+            return this.normalizeRealtimeLanguagePreference(this.apiSettings?.realtimeLanguage || 'english');
+        }
+
+        getRealtimeLanguageLabel(language) {
+            const labels = {
+                english: 'English',
+                danish: 'Danish',
+                cantonese: 'Cantonese'
+            };
+            return labels[this.normalizeRealtimeLanguagePreference(language)] || 'English';
+        }
+
+        setRealtimeLanguagePreference(language) {
+            const normalized = this.normalizeRealtimeLanguagePreference(language);
+            if (!this.apiSettings) {
+                this.apiSettings = this.loadApiSettings();
+            }
+            this.apiSettings.realtimeLanguage = normalized;
+            this.persistApiSettings();
+            if (this.realtimeLanguageSelect) {
+                this.realtimeLanguageSelect.value = normalized;
+            }
+            return normalized;
+        }
+
+        initializeRealtimeLanguageControl() {
+            if (!this.realtimeLanguageSelect) {
+                return;
+            }
+
+            this.realtimeLanguageSelect.value = this.getRealtimeLanguagePreference();
+
+            if (this.realtimeLanguageSelect.dataset.listenerAttached === 'true') {
+                return;
+            }
+
+            this.realtimeLanguageSelect.addEventListener('change', async (event) => {
+                const previous = this.getRealtimeLanguagePreference();
+                const selected = this.normalizeRealtimeLanguagePreference(event.target.value);
+                if (selected === previous) {
+                    return;
+                }
+
+                this.setRealtimeLanguagePreference(selected);
+                const readableLabel = this.getRealtimeLanguageLabel(selected);
+                this.updateApiSettingsStatus(`Realtime language set to ${readableLabel}.`, 'info');
+                this.showToast('Realtime Language', `Realtime voice replies will be in ${readableLabel}.`, 'success', 2800);
+
+                if (this.useRealtimeApi) {
+                    try {
+                        await this.restartRealtimeVoiceClient({ resumeVoice: this.isVoiceActive });
+                    } catch (error) {
+                        console.warn('Failed to restart realtime voice after language change:', error);
+                        this.showToast('Realtime Language', 'Language saved, restart voice manually if needed.', 'warning', 3200);
+                    }
+                }
+            });
+
+            this.realtimeLanguageSelect.dataset.listenerAttached = 'true';
+        }
+
+        buildApiSettingsPayload(target = 'chat', options = {}) {
+            const settings = this.apiSettings || this.loadApiSettings();
+            const notifyOnError = Boolean(options.notifyOnError);
+
+            if (!settings) {
+                if (notifyOnError) {
+                    this.updateApiSettingsStatus('No API settings found.', 'error');
+                }
+                return null;
+            }
+
+            const mode = settings.mode || 'app';
+            if (mode === 'custom') {
+                const custom = settings.custom || {};
+                const chatEndpoint = (custom.chatEndpoint || '').trim();
+                const chatKey = (custom.chatKey || '').trim();
+                const chatDeployment = (custom.chatDeployment || '').trim();
+
+                if (!chatEndpoint || !chatKey || !chatDeployment) {
+                    if (notifyOnError) {
+                        this.updateApiSettingsStatus('Provide endpoint, key, and deployment for chat.', 'error');
+                        this.showToast('API Access', 'Add your Azure endpoint, key, and deployment before continuing.', 'warning', 4500);
+                    }
+                    return null;
+                }
+
+                const realtimeEndpoint = (custom.realtimeEndpoint || chatEndpoint).trim();
+                const realtimeKey = (custom.realtimeKey || chatKey).trim();
+                const realtimeDeployment = (custom.realtimeDeployment || chatDeployment).trim();
+                const realtimeApiVersion = (custom.realtimeApiVersion || '').trim();
+                const tcgApiKey = (custom.tcgApiKey || '').trim();
+
+                const payload = {
+                    mode: 'custom',
+                    custom: {
+                        chat_endpoint: chatEndpoint,
+                        chat_api_key: chatKey,
+                        chat_deployment: chatDeployment,
+                        realtime_endpoint: realtimeEndpoint,
+                        realtime_api_key: realtimeKey,
+                        realtime_deployment: realtimeDeployment
+                    }
+                };
+
+                if (realtimeApiVersion) {
+                    payload.custom.realtime_api_version = realtimeApiVersion;
+                }
+
+                if (tcgApiKey) {
+                    payload.custom.tcg_api_key = tcgApiKey;
+                }
+
+                return payload;
+            }
+
+            if (mode === 'app') {
+                const password = (settings.appPassword || '').trim();
+                if (!password) {
+                    if (notifyOnError) {
+                        this.updateApiSettingsStatus('Enter the password to unlock built-in credentials.', 'error');
+                        this.showToast('API Access', 'Enter the password before using the built-in credentials.', 'warning', 4500);
+                    }
+                    return null;
+                }
+
+                return {
+                    mode: 'app',
+                    app_password: password
+                };
+            }
+
+            if (notifyOnError) {
+                this.updateApiSettingsStatus('Select an API mode to continue.', 'error');
+            }
+            return null;
+        }
+
     clearViewingStatus() {
         this.viewingStatus = {};
         document.cookie = 'pokemonViewingStatus=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -474,6 +1176,22 @@ class PokemonChatApp {
         }
     }
 
+    initializeHeaderLights() {
+        this.powerLightElement = document.querySelector('.power-light');
+        this.indicatorLights = Array.from(document.querySelectorAll('.indicator-light'));
+        this.powerLightLevel = 0;
+        this.powerLightTargetLevel = 0;
+        this.powerLightAnimationFrame = null;
+        this.indicatorPulseTimeout = null;
+        this.indicatorFlashTimeouts = [];
+        this.indicatorLoadingActive = false;
+        this.powerLightVoiceActive = false;
+
+        if (this.powerLightElement) {
+            this.powerLightElement.style.setProperty('--power-light-level', '0');
+        }
+    }
+
     toggleChatSidebar() {
         if (this.chatSidebar) {
             this.chatSidebar.classList.toggle('open');
@@ -619,6 +1337,10 @@ class PokemonChatApp {
     showPokemonIndexInCanvas() {
         console.log('📋 showPokemonIndexInCanvas called - displaying all Pokemon');
         this.gridView.show();
+        return {
+            success: true,
+            view: 'grid'
+        };
     }
     
     async navigateForward() {
@@ -658,13 +1380,17 @@ class PokemonChatApp {
         const forwardBtn = document.getElementById('forwardBtnFooter');
         
         if (backBtn) {
-            backBtn.disabled = this.currentViewIndex === 0;
-            backBtn.style.opacity = this.currentViewIndex === 0 ? '0.5' : '1';
+            const canGoBack = this.currentViewIndex > 0;
+            backBtn.disabled = !canGoBack;
+            backBtn.style.opacity = canGoBack ? '1' : '0.4';
+            backBtn.classList.toggle('footer-btn-active', canGoBack);
         }
         
         if (forwardBtn) {
-            forwardBtn.disabled = this.currentViewIndex >= this.viewHistory.length - 1;
-            forwardBtn.style.opacity = this.currentViewIndex >= this.viewHistory.length - 1 ? '0.5' : '1';
+            const canGoForward = this.currentViewIndex < this.viewHistory.length - 1;
+            forwardBtn.disabled = !canGoForward;
+            forwardBtn.style.opacity = canGoForward ? '1' : '0.4';
+            forwardBtn.classList.toggle('footer-btn-active', canGoForward);
         }
     }
     
@@ -726,6 +1452,8 @@ class PokemonChatApp {
             }
         }
     }
+
+    
 
     getCameraFacingDescription(mode = this.cameraFacingMode) {
         return mode === 'environment' ? 'rear' : 'front';
@@ -961,6 +1689,115 @@ class PokemonChatApp {
         return tool ? tool.enabled : false;
     }
 
+    loadFaceIdOverlayPreference() {
+        try {
+            const stored = localStorage.getItem('faceIdOverlayEnabled');
+            if (stored === null) {
+                return true;
+            }
+            return stored === 'true';
+        } catch (error) {
+            console.warn('Unable to read face overlay preference, defaulting to enabled', error);
+            return true;
+        }
+    }
+
+    saveFaceIdOverlayPreference(enabled) {
+        this.faceIdOverlayEnabled = Boolean(enabled);
+        try {
+            localStorage.setItem('faceIdOverlayEnabled', String(this.faceIdOverlayEnabled));
+        } catch (error) {
+            console.warn('Unable to persist face overlay preference', error);
+        }
+    }
+
+    shouldShowFaceIdOverlay() {
+        return this.faceIdOverlayEnabled !== false;
+    }
+
+    loadVoiceActorPreference() {
+        try {
+            return localStorage.getItem('voiceActorPreference') || 'alloy';
+        } catch (error) {
+            console.warn('Unable to read voice preference, defaulting to Alloy', error);
+            return 'alloy';
+        }
+    }
+
+    saveVoiceActorPreference(voice) {
+        const normalized = voice || 'alloy';
+        this.voicePreference = normalized;
+        try {
+            localStorage.setItem('voiceActorPreference', normalized);
+        } catch (error) {
+            console.warn('Unable to persist voice preference', error);
+        }
+        this.applyVoicePreference();
+    }
+
+    applyVoicePreference() {
+        if (this.realtimeVoice && typeof this.realtimeVoice.setVoicePreference === 'function') {
+            this.realtimeVoice.setVoicePreference(this.voicePreference);
+        }
+    }
+
+    initializeSpeechVoices() {
+        if (!this.synthesis) {
+            return;
+        }
+
+        const updateVoices = () => {
+            this.availableSpeechVoices = this.synthesis.getVoices() || [];
+        };
+
+        updateVoices();
+
+        if (typeof this.synthesis.onvoiceschanged !== 'undefined') {
+            this.synthesis.onvoiceschanged = updateVoices;
+        }
+    }
+
+    getSpeechVoiceProfile(preference = this.voicePreference) {
+        const defaults = { voice: null, rate: 1, pitch: 1 };
+        if (!this.synthesis) {
+            return defaults;
+        }
+
+        const voices = (this.availableSpeechVoices && this.availableSpeechVoices.length > 0)
+            ? this.availableSpeechVoices
+            : this.synthesis.getVoices();
+
+        if (!voices || voices.length === 0) {
+            return defaults;
+        }
+
+        const profiles = {
+            alloy: { tokens: ['guy', 'david', 'mark', 'daniel', 'ryan'], rate: 1.0, pitch: 1.0 },
+            ash: { tokens: ['aria', 'zira', 'ash', 'female'], rate: 1.0, pitch: 1.05 },
+            ballad: { tokens: ['guy', 'brian', 'mark', 'male'], rate: 0.96, pitch: 0.95 },
+            cedar: { tokens: ['jenny', 'linda', 'female'], rate: 0.97, pitch: 1.0 },
+            coral: { tokens: ['ava', 'allison', 'bright', 'female'], rate: 1.05, pitch: 1.08 },
+            echo: { tokens: ['guy', 'davis', 'roger', 'male'], rate: 1.02, pitch: 0.98 },
+            ember: { tokens: ['aria', 'zira', 'jessa', 'susan', 'female'], rate: 0.98, pitch: 1.08 },
+            marin: { tokens: ['emma', 'serena', 'sofia', 'female'], rate: 0.95, pitch: 1.02 },
+            luna: { tokens: ['luna', 'sofia', 'midnight', 'female'], rate: 0.96, pitch: 1.12 },
+            pearl: { tokens: ['pearl', 'clara', 'olivia', 'female'], rate: 0.99, pitch: 0.97 },
+            sage: { tokens: ['george', 'brian', 'roger', 'bass', 'baritone'], rate: 0.9, pitch: 0.85 },
+            shimmer: { tokens: ['jenny', 'ava', 'bright', 'youth'], rate: 1.08, pitch: 1.15 },
+            sol: { tokens: ['ava', 'allison', 'hero', 'male'], rate: 1.1, pitch: 1.05 },
+            verse: { tokens: ['emma', 'serena', 'eva', 'olivia', 'neural'], rate: 0.94, pitch: 0.92 }
+        };
+
+        const profile = profiles[preference] || profiles.alloy;
+        const match = voices.find((voice) => profile.tokens.some((token) => voice.name.toLowerCase().includes(token)));
+
+        return {
+            voice: match || voices[0],
+            rate: profile.rate,
+            pitch: profile.pitch
+        };
+    }
+
     /**
      * Capture an image from the camera and identify the user via face recognition
      */
@@ -994,14 +1831,23 @@ class PokemonChatApp {
         let stream = null;
         let timeoutId = null;
         let faceIdModal = null;
+        let statusText = null;
+        let videoElement = null;
+        const showOverlay = this.shouldShowFaceIdOverlay();
 
         try {
             this.isFaceIdentifying = true;
             this.lastFaceIdentificationTime = now;
 
-            // Create face identification modal to show camera preview
-            faceIdModal = this.createFaceIdModal();
-            document.body.appendChild(faceIdModal);
+            if (showOverlay) {
+                // Create face identification modal to show camera preview
+                faceIdModal = this.createFaceIdModal();
+                document.body.appendChild(faceIdModal);
+                videoElement = faceIdModal.querySelector('video');
+                statusText = faceIdModal.querySelector('.face-id-status');
+            } else {
+                videoElement = this.createFaceIdVideoElement();
+            }
 
             // Set timeout for camera access (10 seconds)
             const timeoutPromise = new Promise((_, reject) => {
@@ -1026,7 +1872,7 @@ class PokemonChatApp {
             }
 
             // Show camera preview in modal
-            const video = faceIdModal.querySelector('video');
+            const video = videoElement;
             video.srcObject = stream;
             video.autoplay = true;
 
@@ -1043,8 +1889,9 @@ class PokemonChatApp {
             await videoReadyPromise;
 
             // Update modal status
-            const statusText = faceIdModal.querySelector('.face-id-status');
-            statusText.textContent = 'Identifying...';
+            if (statusText) {
+                statusText.textContent = 'Identifying...';
+            }
 
             // Wait a bit for camera to adjust
             await new Promise(resolve => setTimeout(resolve, 500));
@@ -1085,40 +1932,16 @@ class PokemonChatApp {
             console.log('Face identification result:', result);
 
             // Update modal with result
-            statusText.textContent = result.name ? `Hello, ${result.name}!` : 'Identifying...';
+            if (statusText) {
+                statusText.textContent = result.name ? `Hello, ${result.name}!` : 'Identifying...';
+            }
 
             // Handle the result
-            if (result.name && result.is_new_user && result.greeting_message) {
-                // New user detected - greet them
-                this.currentIdentifiedUser = result.name;
-                this.addMessage('assistant', result.greeting_message);
-                console.log(`Greeting new user: ${result.name}`);
-
-                // Update realtime voice context with user's name
-                if (this.realtimeVoice && typeof this.realtimeVoice.updateUserContext === 'function') {
-                    if (this.realtimeVoice.isConnected) {
-                        this.realtimeVoice.updateUserContext(result.name);
-                    } else {
-                        console.log('⏳ Realtime voice not connected yet, will update context when connected');
-                    }
-                } else {
-                    console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
-                }
-            } else if (result.name && !result.is_new_user) {
-                // Same user as before - update tracking but don't greet
-                this.currentIdentifiedUser = result.name;
-                console.log(`Same user detected: ${result.name}, no greeting`);
-
-                // Update realtime voice context with user's name (even if same user)
-                if (this.realtimeVoice && typeof this.realtimeVoice.updateUserContext === 'function') {
-                    if (this.realtimeVoice.isConnected) {
-                        this.realtimeVoice.updateUserContext(result.name);
-                    } else {
-                        console.log('⏳ Realtime voice not connected yet, will update context when connected');
-                    }
-                } else {
-                    console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
-                }
+            if (result.name) {
+                this.handleIdentifiedUserResult(result.name, {
+                    isNewUser: Boolean(result.is_new_user),
+                    greetingMessage: result.is_new_user ? result.greeting_message : null
+                });
             } else if (result.error) {
                 // Error occurred
                 console.log('Face identification error:', result.error);
@@ -1166,6 +1989,72 @@ class PokemonChatApp {
         }
     }
 
+    handleIdentifiedUserResult(name, { isNewUser = false, greetingMessage = null } = {}) {
+        if (!name) {
+            return;
+        }
+
+        this.currentIdentifiedUser = name;
+        this.cacheFaceCapture({ name });
+
+        if (this.faceProfileNameInput && this.faceProfileNameInput.value !== name) {
+            this.faceProfileNameInput.value = name;
+        }
+
+        if (isNewUser && greetingMessage) {
+            this.addMessage('assistant', greetingMessage);
+            console.log(`Greeting new user: ${name}`);
+        } else if (!isNewUser) {
+            console.log(`Same user detected: ${name} (no greeting)`);
+        }
+
+        this.syncIdentifiedUserToRealtime({ force: isNewUser });
+    }
+
+    syncIdentifiedUserToRealtime({ force = false } = {}) {
+        const name = this.currentIdentifiedUser;
+        if (!name) {
+            return;
+        }
+
+        this.pendingRealtimeUserName = name;
+
+        if (!this.realtimeVoice || typeof this.realtimeVoice.updateUserContext !== 'function') {
+            console.log('⚠️ Realtime voice not initialized or updateUserContext method not available');
+            return;
+        }
+
+        if (!this.realtimeVoice.isConnected) {
+            console.log('⏳ Realtime voice not connected yet, user context queued');
+            return;
+        }
+
+        if (!force && this.lastAppliedRealtimeUserName === name) {
+            this.pendingRealtimeUserName = null;
+            return;
+        }
+
+        const success = this.realtimeVoice.updateUserContext(name);
+        if (success) {
+            this.lastAppliedRealtimeUserName = name;
+            this.pendingRealtimeUserName = null;
+        } else {
+            console.log('⚠️ Unable to update realtime user context immediately, will retry when idle');
+        }
+    }
+
+    flushPendingRealtimeUserContext({ force = false } = {}) {
+        if (!this.pendingRealtimeUserName) {
+            return;
+        }
+
+        if (this.currentIdentifiedUser !== this.pendingRealtimeUserName) {
+            this.currentIdentifiedUser = this.pendingRealtimeUserName;
+        }
+
+        this.syncIdentifiedUserToRealtime({ force });
+    }
+
     /**
      * Create face identification modal with camera preview
      */
@@ -1188,6 +2077,16 @@ class PokemonChatApp {
         return modal;
     }
 
+    createFaceIdVideoElement() {
+        const video = document.createElement('video');
+        video.autoplay = true;
+        video.playsInline = true;
+        video.muted = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('muted', '');
+        return video;
+    }
+
     async openToolsModal() {
         if (!this.toolsModalOverlay) return;
         
@@ -1202,6 +2101,8 @@ class PokemonChatApp {
         ]);
         this.renderToolsModal();
         this.setupCacheControls();
+        this.setupFaceIdentificationControls();
+        this.setupVoiceControls();
     }
     
     async loadCacheConfig() {
@@ -1273,6 +2174,149 @@ class PokemonChatApp {
         // Update cache stats
         this.updateCacheStats();
         this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
+    }
+
+    setupFaceIdentificationControls() {
+        const overlayToggle = document.getElementById('faceIdOverlayToggle');
+        if (overlayToggle) {
+            overlayToggle.checked = this.shouldShowFaceIdOverlay();
+
+            if (overlayToggle.dataset.listenerAttached !== 'true') {
+                overlayToggle.addEventListener('change', (event) => {
+                    const enabled = Boolean(event.target.checked);
+                    this.saveFaceIdOverlayPreference(enabled);
+                    console.log(`Face ID overlay ${enabled ? 'enabled' : 'disabled'}`);
+                });
+
+                overlayToggle.dataset.listenerAttached = 'true';
+            }
+        }
+
+        this.initializeFaceProfileCaptureControls();
+        this.ensureFaceProfileCameraActive();
+    }
+
+    setupVoiceControls() {
+        const voiceSelect = document.getElementById('voiceActorSelect');
+        if (!voiceSelect) {
+            return;
+        }
+
+        const currentPreference = this.voicePreference || 'alloy';
+        const optionExists = Array.from(voiceSelect.options).some(option => option.value === currentPreference);
+        voiceSelect.value = optionExists ? currentPreference : voiceSelect.options[0]?.value;
+
+        if (voiceSelect.dataset.listenerAttached === 'true') {
+            return;
+        }
+
+        voiceSelect.addEventListener('change', async (event) => {
+            const nextVoice = event.target.value || 'alloy';
+            const resumeVoice = this.isVoiceActive;
+            this.saveVoiceActorPreference(nextVoice);
+            console.log(`Voice preference set to ${nextVoice}`);
+
+            if (this.useRealtimeApi) {
+                await this.restartRealtimeVoiceClient({ resumeVoice, voiceName: nextVoice });
+            }
+        });
+
+        voiceSelect.dataset.listenerAttached = 'true';
+    }
+
+    async ensureRealtimeVoiceConnection() {
+        if (!this.useRealtimeApi || !this.realtimeVoice) {
+            throw new Error('Realtime voice is not available');
+        }
+
+        if (!this.realtimeVoice.isConnected) {
+            await this.realtimeVoice.connect();
+            this.syncCurrentViewContext();
+            this.flushPendingRealtimeUserContext({ force: true });
+        }
+    }
+
+    async previewVoiceChange(voiceName) {
+        if (!voiceName || !this.useRealtimeApi || !this.realtimeVoice) {
+            return;
+        }
+
+        const displayName = voiceName.charAt(0).toUpperCase() + voiceName.slice(1);
+
+        try {
+            await this.ensureRealtimeVoiceConnection();
+
+            if (this.realtimeVoice.isResponseActive) {
+                this.realtimeVoice.cancelCurrentResponse();
+            }
+
+            this.voicePreviewPending = true;
+            const started = await this.realtimeVoice.playVoicePreview(voiceName);
+            if (!started) {
+                this.voicePreviewPending = false;
+                return;
+            }
+
+            this.showToast('Voice Settings', `${displayName} voice selected. Preview playing...`, 'info', 2000);
+        } catch (error) {
+            this.voicePreviewPending = false;
+            console.error('Voice preview failed:', error);
+            this.showToast('Voice Settings', 'Unable to play the voice preview right now.', 'error', 4000);
+        }
+    }
+
+    async restartRealtimeVoiceClient({ resumeVoice = false, voiceName = this.voicePreference } = {}) {
+        if (!this.useRealtimeApi) {
+            return;
+        }
+
+        if (this.restartingRealtimeVoice) {
+            await this.restartingRealtimeVoice;
+            return;
+        }
+
+        const shouldResumeVoice = resumeVoice && this.isVoiceActive;
+        const displayName = voiceName ? voiceName.charAt(0).toUpperCase() + voiceName.slice(1) : 'Alloy';
+
+        const restartRoutine = (async () => {
+            if (this.realtimeVoice) {
+                try { this.realtimeVoice.cancelCurrentResponse(); } catch (error) { console.warn('Unable to cancel response before restart', error); }
+                try { this.realtimeVoice.stopRecording(); } catch (error) { console.warn('Unable to stop recording before restart', error); }
+                try { this.realtimeVoice.disconnect(); } catch (error) { console.warn('Unable to disconnect realtime voice before restart', error); }
+            }
+
+            this.initializeRealtimeVoice();
+
+            if (!shouldResumeVoice) {
+                try {
+                    await this.previewVoiceChange(voiceName);
+                } catch (error) {
+                    console.warn('Voice preview failed during restart', error);
+                }
+            } else {
+                try {
+                    await this.ensureRealtimeVoiceConnection();
+                    this.showToast('Voice Settings', `${displayName} voice applied.`, 'success', 2000);
+                } catch (error) {
+                    console.warn('Unable to reconnect realtime voice before resuming:', error);
+                }
+            }
+
+            if (shouldResumeVoice) {
+                try {
+                    await this.activateRealtimeConversation({ announce: false });
+                } catch (error) {
+                    console.error('Failed to resume realtime conversation after voice change:', error);
+                    this.showToast('Voice Settings', 'Voice session restarted, tap Voice to resume listening.', 'info', 5000);
+                    this.isVoiceActive = false;
+                    this.voiceButton?.classList.remove('active');
+                }
+            }
+        })();
+
+        this.restartingRealtimeVoice = restartRoutine;
+        await restartRoutine;
+        this.restartingRealtimeVoice = null;
     }
     
     updateCacheStats() {
@@ -1588,6 +2632,16 @@ class PokemonChatApp {
             this.toolsModalOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        if (this.faceProfileCameraStream) {
+            this.stopFaceProfileCamera();
+        }
+
+        if (!this.faceProfileCameraStream) {
+            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
+        }
+
+        this.updateFaceProfileUIState();
     }
     
     async saveToolChanges() {
@@ -1793,19 +2847,36 @@ class PokemonChatApp {
     async initializeVoice() {
         // First, check if Azure OpenAI Realtime API is available
         if (window.RealtimeVoiceClient && RealtimeVoiceClient.isSupported()) {
-            try {
-                const statusResponse = await fetch('/api/realtime/status');
-                const status = await statusResponse.json();
-                
-                if (status.available) {
-                    console.log('Azure OpenAI Realtime API available, initializing...');
-                    this.initializeRealtimeVoice();
-                    return;
-                } else {
-                    console.log('Realtime API not configured:', status.message);
+            const realtimeSettings = this.buildApiSettingsPayload('realtime');
+            if (realtimeSettings) {
+                try {
+                    const statusOptions = {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            api_settings: realtimeSettings,
+                            language: this.getRealtimeLanguagePreference()
+                        })
+                    };
+                    const statusResponse = await fetch('/api/realtime/status', statusOptions);
+                    if (!statusResponse.ok) {
+                        const errorBody = await statusResponse.json().catch(() => ({}));
+                        console.log('Realtime status error:', errorBody.message || statusResponse.statusText);
+                        throw new Error(errorBody.message || 'Realtime API unavailable');
+                    }
+                    const status = await statusResponse.json();
+                    
+                    if (status.available) {
+                        console.log('Azure OpenAI Realtime API available, initializing...');
+                        this.initializeRealtimeVoice();
+                        return;
+                    }
+                    console.log('Realtime API not available:', status.message || 'Unknown reason');
+                } catch (error) {
+                    console.log('Could not check Realtime API status:', error);
                 }
-            } catch (error) {
-                console.log('Could not check Realtime API status:', error);
+            } else {
+                console.log('Realtime API locked until credentials are configured.');
             }
         }
         
@@ -1820,18 +2891,28 @@ class PokemonChatApp {
     initializeRealtimeVoice() {
         this.realtimeVoice = new RealtimeVoiceClient({
             debug: true,
+            preferredVoice: this.voicePreference,
+            apiSettingsProvider: () => this.buildApiSettingsPayload('realtime', { notifyOnError: true }),
+            languagePreferenceProvider: () => this.getRealtimeLanguagePreference(),
             
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);
                 this.updateVoiceStatus(status, message);
 
+                if (status === 'connected') {
+                    this.flushPendingRealtimeUserContext();
+                }
+
                 // Trigger face identification when session becomes ready
                 // Use a longer delay to avoid interrupting user's initial interaction
-                if (status === 'session_ready' && this.faceRecognitionEnabled) {
-                    console.log('Session ready - scheduling face identification (2s delay)');
-                    setTimeout(() => {
-                        this.identifyUserFromCamera();
-                    }, 2000);
+                if (status === 'session_ready') {
+                    this.flushPendingRealtimeUserContext({ force: true });
+                    if (this.faceRecognitionEnabled) {
+                        console.log('Session ready - scheduling face identification (2s delay)');
+                        setTimeout(() => {
+                            this.identifyUserFromCamera();
+                        }, 2000);
+                    }
                 }
             },
             
@@ -1877,6 +2958,13 @@ class PokemonChatApp {
             },
             
             onResponse: (text, isPartial) => {
+                if (this.voicePreviewPending) {
+                    if (!isPartial) {
+                        this.voicePreviewPending = false;
+                    }
+                    return;
+                }
+
                 if (!isPartial && text) {
                     
                     // Full response received - extract any pokemon/tcg data from tool results
@@ -1942,6 +3030,11 @@ class PokemonChatApp {
                 if (this.isVoiceActive) {
                     this.updateVoiceStatus('listening', 'Listening...');
                 }
+                this.handleRealtimePlaybackLevel(0);
+            },
+
+            onPlaybackLevel: (level) => {
+                this.handleRealtimePlaybackLevel(level);
             },
             
             onToolCall: (toolName, args) => {
@@ -2047,6 +3140,11 @@ class PokemonChatApp {
             }
         });
         
+        this.lastAppliedRealtimeUserName = null;
+        if (this.currentIdentifiedUser) {
+            this.pendingRealtimeUserName = this.currentIdentifiedUser;
+        }
+
         this.useRealtimeApi = true;
         console.log('Realtime Voice client initialized');
     }
@@ -2079,6 +3177,9 @@ class PokemonChatApp {
                 this.voiceButton?.classList.remove('active');
             }
         }
+
+        const activeStatuses = new Set(['recording', 'listening', 'speaking', 'processing']);
+        this.setPowerLightVoiceMode(this.isVoiceActive || activeStatuses.has(status));
     }
 
     initializeVoiceRecognition() {
@@ -2166,6 +3267,14 @@ class PokemonChatApp {
     }
     
     async startVoiceConversation() {
+        const requiredPayload = this.useRealtimeApi
+            ? this.buildApiSettingsPayload('realtime', { notifyOnError: true })
+            : this.buildApiSettingsPayload('chat', { notifyOnError: true });
+
+        if (!requiredPayload) {
+            return;
+        }
+
         // Use Realtime API if available
         if (this.useRealtimeApi && this.realtimeVoice) {
             try {
@@ -2194,6 +3303,7 @@ class PokemonChatApp {
         
         this.isVoiceActive = true;
         this.voiceButton.classList.add('active');
+        this.setPowerLightVoiceMode(true);
         this.hideWelcomeMessage();
         
         // Add a system message
@@ -2222,6 +3332,7 @@ class PokemonChatApp {
             // Set the current view context when connection is established
             console.log('🎯 Setting initial canvas context after connection');
             this.syncCurrentViewContext();
+            this.flushPendingRealtimeUserContext({ force: true });
         }
 
         if (!this.realtimeVoice.isRecording) {
@@ -2232,6 +3343,7 @@ class PokemonChatApp {
         if (becameActive) {
             this.isVoiceActive = true;
             this.voiceButton?.classList.add('active');
+            this.setPowerLightVoiceMode(true);
             this.hideWelcomeMessage();
         }
 
@@ -2244,6 +3356,7 @@ class PokemonChatApp {
     stopVoiceConversation() {
         this.isVoiceActive = false;
         this.voiceButton.classList.remove('active');
+        this.setPowerLightVoiceMode(false);
         this.statusText.textContent = 'Online';
         const voiceText = this.voiceButton.querySelector('.voice-text');
         if (voiceText) voiceText.textContent = 'Voice';
@@ -2275,6 +3388,11 @@ class PokemonChatApp {
     
     async processVoiceMessage(message) {
         this.setLoading(true);
+        const apiSettingsPayload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+        if (!apiSettingsPayload) {
+            this.setLoading(false);
+            return;
+        }
         
         try {
             const response = await fetch('/api/chat', {
@@ -2285,7 +3403,8 @@ class PokemonChatApp {
                 body: JSON.stringify({
                     message: message,
                     user_id: this.userId,
-                    card_context: this.getCardContextPayload()
+                    card_context: this.getCardContextPayload(),
+                    api_settings: apiSettingsPayload
                 })
             });
             
@@ -2335,8 +3454,12 @@ class PokemonChatApp {
             .substring(0, MAX_SPEECH_LENGTH);
         
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.rate = 1.0;
-        utterance.pitch = 1.0;
+        const profile = this.getSpeechVoiceProfile();
+        if (profile.voice) {
+            utterance.voice = profile.voice;
+        }
+        utterance.rate = profile.rate;
+        utterance.pitch = profile.pitch;
         utterance.volume = 1.0;
         
         utterance.onend = () => {
@@ -2595,6 +3718,11 @@ class PokemonChatApp {
         
         // Show loading indicator
         this.setLoading(true);
+        const apiSettingsPayload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
+        if (!apiSettingsPayload) {
+            this.setLoading(false);
+            return;
+        }
         
         try {
             // Send message to backend
@@ -2606,7 +3734,8 @@ class PokemonChatApp {
                 body: JSON.stringify({
                     message: message,
                     user_id: this.userId,
-                    card_context: this.getCardContextPayload()
+                    card_context: this.getCardContextPayload(),
+                    api_settings: apiSettingsPayload
                 })
             });
             
@@ -3543,8 +4672,118 @@ class PokemonChatApp {
         }
         if (this.activeLoadingCount > 0) {
             this.loadingIndicator.classList.add('active');
+            this.startIndicatorLoadingEffects();
         } else {
             this.loadingIndicator.classList.remove('active');
+            this.stopIndicatorLoadingEffects();
+        }
+    }
+
+    handleRealtimePlaybackLevel(level) {
+        if (!this.powerLightElement) {
+            return;
+        }
+        const clamped = Math.max(0, Math.min(1, Number(level) || 0));
+        const amplified = Math.max(0, Math.min(1, Math.pow(clamped, 0.6)));
+        this.powerLightTargetLevel = amplified;
+
+        if (!this.powerLightAnimationFrame) {
+            this.powerLightAnimationFrame = requestAnimationFrame(() => this.animatePowerLightGlow());
+        }
+    }
+
+    animatePowerLightGlow() {
+        if (!this.powerLightElement) {
+            this.powerLightAnimationFrame = null;
+            return;
+        }
+
+        const smoothing = 0.35;
+        this.powerLightLevel += (this.powerLightTargetLevel - this.powerLightLevel) * smoothing;
+        this.powerLightElement.style.setProperty('--power-light-level', this.powerLightLevel.toFixed(3));
+
+        const shouldContinue = this.powerLightTargetLevel > 0.01 || this.powerLightLevel > 0.01;
+        if (!shouldContinue) {
+            this.powerLightLevel = 0;
+            this.powerLightElement.style.setProperty('--power-light-level', '0');
+            this.powerLightAnimationFrame = null;
+            return;
+        }
+
+        this.powerLightAnimationFrame = requestAnimationFrame(() => this.animatePowerLightGlow());
+    }
+
+    setPowerLightVoiceMode(isActive) {
+        if (!this.powerLightElement) {
+            return;
+        }
+        const normalized = Boolean(isActive);
+        if (this.powerLightVoiceActive === normalized) {
+            return;
+        }
+        this.powerLightVoiceActive = normalized;
+        this.powerLightElement.classList.toggle('voice-active', normalized);
+    }
+
+    startIndicatorLoadingEffects() {
+        if (!this.indicatorLights || this.indicatorLights.length === 0 || this.indicatorLoadingActive) {
+            return;
+        }
+        this.indicatorLoadingActive = true;
+        this.scheduleIndicatorPulse();
+    }
+
+    scheduleIndicatorPulse() {
+        if (!this.indicatorLoadingActive) {
+            return;
+        }
+
+        this.flashIndicatorLights();
+        const delay = 130 + Math.random() * 220;
+        this.indicatorPulseTimeout = setTimeout(() => this.scheduleIndicatorPulse(), delay);
+    }
+
+    flashIndicatorLights() {
+        if (!this.indicatorLights || this.indicatorLights.length === 0) {
+            return;
+        }
+
+        this.indicatorLights.forEach(light => light.classList.remove('flash'));
+        const activeCount = Math.max(1, Math.floor(Math.random() * this.indicatorLights.length));
+        const shuffled = [...this.indicatorLights].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, activeCount);
+
+        selected.forEach(light => {
+            const brightness = 0.35 + Math.random() * 0.65;
+            light.style.setProperty('--indicator-brightness', brightness.toFixed(2));
+            light.classList.add('flash');
+            const timeoutId = setTimeout(() => {
+                light.classList.remove('flash');
+                const idx = this.indicatorFlashTimeouts.indexOf(timeoutId);
+                if (idx > -1) {
+                    this.indicatorFlashTimeouts.splice(idx, 1);
+                }
+            }, 120 + Math.random() * 180);
+            this.indicatorFlashTimeouts.push(timeoutId);
+        });
+    }
+
+    stopIndicatorLoadingEffects() {
+        if (this.indicatorPulseTimeout) {
+            clearTimeout(this.indicatorPulseTimeout);
+            this.indicatorPulseTimeout = null;
+        }
+        if (this.indicatorFlashTimeouts && this.indicatorFlashTimeouts.length > 0) {
+            this.indicatorFlashTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+            this.indicatorFlashTimeouts = [];
+        }
+        this.indicatorLoadingActive = false;
+
+        if (this.indicatorLights) {
+            this.indicatorLights.forEach(light => {
+                light.classList.remove('flash');
+                light.style.removeProperty('--indicator-brightness');
+            });
         }
     }
     
@@ -3585,6 +4824,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showTcgCardByIndex = (cardIndex, pokemonName = null) => {
         if (window.pokemonChatApp) {
             return window.pokemonChatApp.showTcgCardByIndex(cardIndex, pokemonName);
+        }
+        return { error: 'App not initialized' };
+    };
+    
+    window.showPokemonIndexCanvas = () => {
+        if (window.pokemonChatApp) {
+            return window.pokemonChatApp.showPokemonIndexInCanvas();
         }
         return { error: 'App not initialized' };
     };
