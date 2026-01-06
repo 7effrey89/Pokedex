@@ -205,8 +205,8 @@ az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 The repository now includes `.github/workflows/deploy-azure-webapp.yml`, which bundles the app the same way as the manual zip above (it installs dependencies into `.python_packages/lib/site-packages` before zipping `app.py`, `src/`, `static/`, `templates/`, `data/`, `tcg-cache/`, and the helper scripts). To enable it:
 
 1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
-2. **Create two GitHub Action secrets** in *Settings → Secrets and variables → Actions*:
-   - `AZURE_WEBAPP_NAME` → the App Service name (e.g., `pokedex-prod`).
+2. **Create two GitHub Action repository secrets** in *Settings → Secrets and variables → Actions*:
+   - `AZURE_WEBAPP_NAME` → the App Service name (e.g., `pokedex-chat`) - must match with the name of the web app.
    - `AZURE_WEBAPP_PUBLISH_PROFILE` → paste the full contents of the downloaded publish profile XML.
 3. Push to the `main` branch (default trigger) or run the workflow manually from the **Actions** tab using the *Run workflow* button. The optional `environment` input lets you tag runs as `production`, `staging`, etc.
 4. Monitor the run logs to confirm the archive step and the `azure/webapps-deploy@v3` action succeed. When it finishes, the new build is already live in App Service—no manual Zip Deploy needed.

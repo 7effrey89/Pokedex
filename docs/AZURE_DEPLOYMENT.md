@@ -19,7 +19,7 @@ Add the following repository secrets (Settings → Secrets and variables → Act
 
 | Secret Name | Description |
 |-------------|-------------|
-| `AZURE_WEBAPP_NAME` | The exact name of the App Service you just created. |
+| `AZURE_WEBAPP_NAME` | The exact name of the App Service you just created. e.g pokedex-chat|
 | `AZURE_WEBAPP_PUBLISH_PROFILE` | The entire contents of the downloaded publish profile XML file. |
 
 Optionally, you can also add `APP_API_PASSWORD` to the Web App settings if you want a password other than the default `Password1`.
