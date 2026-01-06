@@ -52,7 +52,7 @@ jobs:
           python -m pip install scikit-build cmake
           python -m pip install -r requirements.txt --target .python_packages/lib/site-packages
 
-      - name: Create deployment archive
+      - name: Create deployment archive (exclude requirements.txt to prevent Oryx build)
         run: |
           zip -r ${{ env.ARTIFACT_NAME }} \
             app.py \
@@ -63,7 +63,6 @@ jobs:
             tcg-cache \
             azure_openai_chat.py \
             realtime_chat.py \
-            requirements.txt \
             tools_config.json \
             .python_packages
 
