@@ -69,6 +69,7 @@ jobs:
             azure_openai_chat.py \
             realtime_chat.py \
             tools_config.json \
+            startup.sh \
             .python_packages
 
       - name: Deploy to Azure Web App
@@ -77,3 +78,15 @@ jobs:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.ARTIFACT_NAME }}
+
+      - name: Configure Azure Web App startup command
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Set startup command
+        run: |
+          az webapp config set \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --name ${{ secrets.AZURE_WEBAPP_NAME }} \
+            --startup-file /home/site/wwwroot/startup.sh
