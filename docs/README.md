@@ -200,6 +200,19 @@ App Service automatically runs `gunicorn app:app` for Linux Python sites. Tail l
 az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 ```
 
+#### Option B — Deploy with GitHub Actions (CI/CD)
+
+The repository now includes `.github/workflows/deploy-azure-webapp.yml`, which bundles the app the same way as the manual zip above (it installs dependencies into `.python_packages/lib/site-packages` before zipping `app.py`, `src/`, `static/`, `templates/`, `data/`, `tcg-cache/`, and the helper scripts). To enable it:
+
+1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
+2. **Create two GitHub Action secrets** in *Settings → Secrets and variables → Actions*:
+   - `AZURE_WEBAPP_NAME` → the App Service name (e.g., `pokedex-prod`).
+   - `AZURE_WEBAPP_PUBLISH_PROFILE` → paste the full contents of the downloaded publish profile XML.
+3. Push to the `main` branch (default trigger) or run the workflow manually from the **Actions** tab using the *Run workflow* button. The optional `environment` input lets you tag runs as `production`, `staging`, etc.
+4. Monitor the run logs to confirm the archive step and the `azure/webapps-deploy@v3` action succeed. When it finishes, the new build is already live in App Service—no manual Zip Deploy needed.
+
+> Tip: if deployment fails because of missing secrets or configuration, fix the issue and simply re-run the workflow from the failed run’s page.
+
 ### 5. Handle persistent assets
 
 The `/tcg-cache` and `/profiles_pic` folders are part of the deployment package. If you need caches or profile images to persist across deployments, store them in Azure Blob Storage and mount them using [App Service storage](https://learn.microsoft.com/azure/app-service/configure-connect-to-azure-storage) or rehydrate them during CI/CD.
