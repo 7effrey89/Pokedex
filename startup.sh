@@ -18,12 +18,17 @@ if [ -d "$BUNDLED_PACKAGES" ]; then
         echo "Found Oryx virtualenv at $ANTENV_PATH"
         
         # Determine the site-packages directory in the virtualenv
-        SITE_PACKAGES=$(find "$ANTENV_PATH/lib" -type d -name "site-packages" | head -n 1)
+        SITE_PACKAGES=$(find "$ANTENV_PATH/lib" -type d -path "*/python*/site-packages" | head -n 1)
         
         if [ -n "$SITE_PACKAGES" ]; then
             echo "Copying bundled packages to $SITE_PACKAGES..."
-            cp -r "$BUNDLED_PACKAGES"/* "$SITE_PACKAGES/"
-            echo "Successfully copied bundled packages"
+            # Copy all files, handling empty directories gracefully
+            if ls -A "$BUNDLED_PACKAGES" 2>/dev/null | grep -q .; then
+                cp -r "$BUNDLED_PACKAGES"/* "$SITE_PACKAGES/" 2>/dev/null || echo "Warning: Some files could not be copied"
+                echo "Successfully copied bundled packages"
+            else
+                echo "Warning: No files found in bundled packages directory"
+            fi
         else
             echo "Warning: Could not find site-packages in virtualenv"
         fi

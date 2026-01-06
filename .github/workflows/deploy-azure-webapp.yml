@@ -84,7 +84,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-      - name: Set startup command
+      - name: Set startup command via Azure CLI
         run: |
           az webapp config set \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
