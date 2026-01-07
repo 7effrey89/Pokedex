@@ -23,7 +23,7 @@ To get the publish profile:
 2. Navigate to your App Service
 3. Click "Get publish profile" in the Overview section
 4. Open the downloaded XML file and copy its entire contents
-5. Paste it as the value for the `AZURE_WEBAPP_PUBLISH_PROFILE` secret
+5. In your GitHub repository settings, paste it as the value for the `AZURE_WEBAPP_PUBLISH_PROFILE` secret
 
 Optionally, you can also add `APP_API_PASSWORD` to the Web App settings if you want a password other than the default `Password1`.
 

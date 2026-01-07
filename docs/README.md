@@ -172,7 +172,9 @@ zip -r pokedex.zip app.py src static templates \
 
 ```powershell
 Remove-Item pokedex.zip -ErrorAction SilentlyContinue
-Compress-Archive -Path app.py,src,static,templates,data,tcg-cache,azure_openai_chat.py,realtime_chat.py,requirements.txt,tools_config.json -DestinationPath pokedex.zip
+Compress-Archive -Path app.py,src,static,templates,data,tcg-cache, `
+  azure_openai_chat.py,realtime_chat.py,requirements.txt,tools_config.json `
+  -DestinationPath pokedex.zip
 Get-Item pokedex.zip
 ```
 
