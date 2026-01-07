@@ -153,19 +153,299 @@ You can host the entire experience on Azure Web Apps so the realtime chat, MCP t
 
 For reliable deployment with native dependencies like `face-recognition` (dlib, cmake), use Docker with Azure Container Registry:
 
-📦 **See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
-
-**Quick Overview:**
-1. Create Azure Container Registry (ACR)
-2. Create Azure App Service (Linux, Docker Container)
-3. Configure GitHub Secrets (ACR credentials)
-4. Push to `main` branch - GitHub Actions builds and deploys automatically
+📦 **See [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
 
 **Why Docker?**
 - ✅ Handles native dependencies (dlib, cmake, build-essential)
 - ✅ Consistent builds across environments
 - ✅ Full control over system packages
 - ✅ Reliable and reproducible deployments
+- ✅ Built-in health checks for container readiness
+
+#### Step-by-Step Setup
+
+**1. Create Azure Container Registry (ACR)**
+
+```bash
+az login
+RESOURCE_GROUP=pokedex-rg
+LOCATION=eastus
+ACR_NAME=pokedexacr  # Must be globally unique, alphanumeric only
+
+# Create resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+# Create ACR (Basic tier is sufficient for small projects)
+az acr create \
+  --resource-group $RESOURCE_GROUP \
+  --name $ACR_NAME \
+  --sku Basic \
+  --admin-enabled true
+
+# Get ACR credentials (for GitHub Actions)
+az acr credential show --name $ACR_NAME --resource-group $RESOURCE_GROUP
+```
+
+**2. Create Azure App Service (Linux Container)**
+
+> ℹ️ **WebSocket Support:** For realtime voice features, use Standard (S1) or higher plans.
+
+```bash
+APP_NAME=pokedex-chat  # Must be globally unique
+
+# Create App Service Plan (Linux)
+az appservice plan create \
+  --name $APP_NAME-plan \
+  --resource-group $RESOURCE_GROUP \
+  --sku S1 \
+  --is-linux
+
+# Create Web App with container configuration
+az webapp create \
+  --resource-group $RESOURCE_GROUP \
+  --plan $APP_NAME-plan \
+  --name $APP_NAME \
+  --deployment-container-image-name $ACR_NAME.azurecr.io/pokedex-app:latest
+```
+
+**3. Enable Managed Identity and Assign AcrPull Role**
+
+This allows the Web App to pull images from ACR without storing credentials:
+
+```bash
+# Enable system-assigned managed identity
+az webapp identity assign \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME
+
+# Get the principal ID of the managed identity
+PRINCIPAL_ID=$(az webapp identity show \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --query principalId \
+  --output tsv)
+
+# Get ACR resource ID
+ACR_ID=$(az acr show \
+  --name $ACR_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --query id \
+  --output tsv)
+
+# Assign AcrPull role to the Web App's managed identity
+az role assignment create \
+  --assignee $PRINCIPAL_ID \
+  --role AcrPull \
+  --scope $ACR_ID
+```
+
+**4. Configure App Settings**
+
+Set required environment variables for proper container startup:
+
+```bash
+az webapp config appsettings set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --settings \
+    WEBSITES_PORT=80 \
+    WEBSITE_HEALTHCHECK_MAXPINGFAILURES=3 \
+    WEBSITES_CONTAINER_START_TIME_LIMIT=230 \
+    FLASK_ENV=production \
+    FLASK_DEBUG=False \
+    AZURE_OPENAI_ENDPOINT="https://<YourResource>.openai.azure.com/" \
+    AZURE_OPENAI_API_KEY="<key>" \
+    AZURE_OPENAI_DEPLOYMENT="gpt-4" \
+    AZURE_OPENAI_REALTIME_DEPLOYMENT="gpt-4o-realtime-preview" \
+    AZURE_OPENAI_REALTIME_API_VERSION="2024-10-01-preview" \
+    POKEMON_API_URL="https://pokeapi.co/api/v2" \
+    POKEMON_TCG_API_KEY="<key>" \
+    USE_NATIVE_MCP=false
+```
+
+**5. Configure Health Check Path**
+
+Enable Azure's health check monitoring:
+
+```bash
+az webapp config set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --generic-configurations '{"healthCheckPath": "/api/health"}'
+```
+
+**6. Configure Deployment Center for ACR**
+
+Connect the Web App to pull images from ACR using Managed Identity:
+
+```bash
+# Configure container settings to use ACR with managed identity
+az webapp config container set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --docker-custom-image-name $ACR_NAME.azurecr.io/pokedex-app:latest \
+  --docker-registry-server-url https://$ACR_NAME.azurecr.io
+
+# Enable continuous deployment (webhook)
+az webapp deployment container config \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --enable-cd true
+```
+
+**7. (Optional) Enable Always On**
+
+Keeps the app loaded and reduces cold start times (requires Basic tier or higher):
+
+```bash
+az webapp config set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --always-on true
+```
+
+**8. Restart Web App After Configuration**
+
+After assigning roles and configuring settings, restart the app:
+
+```bash
+az webapp restart \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME
+```
+
+#### CI/CD with GitHub Actions
+
+The repository includes `.github/workflows/build-and-deploy-acr.yml` for automated builds and deployments.
+
+**Configure GitHub Secrets:**
+
+In your GitHub repository, go to *Settings → Secrets and variables → Actions* and add:
+
+- `ACR_LOGIN_SERVER` → Your ACR login server (e.g., `pokedexacr.azurecr.io`)
+- `ACR_USERNAME` → ACR admin username (from step 1)
+- `ACR_PASSWORD` → ACR admin password (from step 1)
+- `AZURE_WEBAPP_NAME` → Your Web App name (e.g., `pokedex-chat`)
+- `AZURE_WEBAPP_PUBLISH_PROFILE` → Download from Azure Portal: *App Service → Deployment → Get publish profile*
+
+**Image Tagging Strategy:**
+
+The workflow automatically tags images with:
+- `latest` - Always points to the latest main branch build
+- `main-<git-sha>` - Specific commit SHA for rollback capability
+- `main` - Branch name tag
+
+Push to `main` branch to trigger automatic build and deployment.
+
+#### Viewing Logs and Diagnostics
+
+**Stream Live Logs:**
+
+```bash
+# Application logs
+az webapp log tail \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME
+
+# Container logs
+az webapp log tail \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --container-name $APP_NAME
+```
+
+**Enable Diagnostic Logging (Azure Portal):**
+
+1. Navigate to your App Service
+2. Go to *Monitoring → App Service logs*
+3. Enable:
+   - **Application Logging (Filesystem)** - Logs application output
+   - **Web server logging** - Logs HTTP requests
+   - **Detailed error messages** - Detailed error pages
+4. Click **Save**
+
+**View in Log Stream:**
+
+Azure Portal → *Monitoring → Log stream* for real-time logs
+
+#### Troubleshooting Startup Probe Failures
+
+If your container fails to start or the health check fails intermittently:
+
+**1. Check Health Endpoint Locally:**
+
+```bash
+# Test the Docker image locally first
+docker build -t pokedex-test .
+docker run -p 8080:80 -e PORT=80 pokedex-test
+
+# In another terminal, test the health endpoint
+curl http://localhost:8080/api/health
+```
+
+**2. Increase Start Time Limit:**
+
+```bash
+# Give the container more time to start (default is 230 seconds)
+az webapp config appsettings set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --settings WEBSITES_CONTAINER_START_TIME_LIMIT=300
+```
+
+**3. Check Container Logs:**
+
+```bash
+# View container startup logs
+az webapp log download \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --log-file logs.zip
+
+unzip logs.zip
+cat */docker.log
+```
+
+**4. Verify Environment Variables:**
+
+```bash
+# List all app settings
+az webapp config appsettings list \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_NAME \
+  --output table
+```
+
+**5. Check Docker HEALTHCHECK Status:**
+
+The Dockerfile includes a built-in health check that probes `/api/health` every 30 seconds. If the endpoint fails 3 times, the container is marked unhealthy.
+
+```bash
+# Inspect running container locally
+docker ps
+docker inspect <container-id> | grep -A 10 "Health"
+```
+
+**6. Common Issues:**
+
+- **Wrong Port Binding:** Ensure `WEBSITES_PORT=80` matches the port in Dockerfile `EXPOSE` and gunicorn `--bind`
+- **Missing Dependencies:** Check that `requirements.txt` includes all necessary packages
+- **Slow Startup:** Native dependencies (face-recognition, dlib) take time to install. Use Docker for faster, pre-built images.
+- **Health Check Path:** Verify `/api/health` endpoint is accessible and returns HTTP 200
+- **Managed Identity Permissions:** After assigning AcrPull role, restart the Web App for changes to take effect
+
+**7. Force Restart After Role Assignment:**
+
+```bash
+# Stop the app
+az webapp stop --resource-group $RESOURCE_GROUP --name $APP_NAME
+
+# Wait a few seconds
+sleep 5
+
+# Start the app
+az webapp start --resource-group $RESOURCE_GROUP --name $APP_NAME
+```
 
 ### Manual Azure CLI Deployment (Alternative)
 
@@ -287,7 +567,7 @@ The repository includes `.github/workflows/deploy-azure-webapp.yml`, which autom
 
 > Tip: if deployment fails because of missing secrets or configuration, fix the issue and simply re-run the workflow from the failed run's page.
 
-For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md).
+For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md).
 
 Ask about any Pokemon using natural language:
 

@@ -44,8 +44,13 @@ def index():
 
 @app.route('/api/health', methods=['GET'])
 def health():
-    """Health check endpoint"""
-    return jsonify({"status": "healthy", "service": "Pokemon Chat Demo"})
+    """
+    Health check endpoint for container readiness/liveness probes.
+    Returns quickly with minimal payload and proper headers.
+    """
+    response = jsonify({"status": "healthy", "service": "Pokemon Chat Demo"})
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    return response
 
 
 if __name__ == '__main__':

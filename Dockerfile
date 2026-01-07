@@ -11,6 +11,7 @@ WORKDIR /app
 # liblapack-dev: linear algebra library
 # libx11-dev: X11 development files for display support
 # libgtk-3-dev: GTK+ development files for GUI support
+# curl: for Docker HEALTHCHECK
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
@@ -18,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     liblapack-dev \
     libx11-dev \
     libgtk-3-dev \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip to latest version
@@ -43,7 +45,7 @@ COPY tcg-cache/ ./tcg-cache/
 # Create necessary directories for runtime
 RUN mkdir -p profiles_pic cache
 
-# Expose port 8000 (gunicorn default)
+# Expose port 80
 EXPOSE 80
 
 # Set environment variables
@@ -51,15 +53,18 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=80
 ENV GUNICORN_WORKERS=4
 
+# Docker HEALTHCHECK to probe the health endpoint
+# Checks every 30s with 3s timeout, starts checking after 10s, 3 retries before unhealthy
+# Note: ${PORT:-80} expands to $PORT if set, otherwise defaults to 80
+# HEALTHCHECK CMD runs in shell context and properly supports variable expansion
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:${PORT:-80}/api/health || exit 1
+
 # Run gunicorn with configurable workers (default 4)
-# --bind 0.0.0.0:8000 - listen on all interfaces
-# --workers - configurable via GUNICORN_WORKERS env var
+# Use sh -c for shell expansion of $PORT (Azure-provided or default 80)
+# --bind 0.0.0.0:$PORT - listen on all interfaces on Azure-provided port
+# --workers - configurable via GUNICORN_WORKERS env var (default 4)
 # --timeout 120 - 120 second timeout for requests
 # --access-logfile - - log to stdout
 # --error-logfile - - log errors to stdout
-CMD gunicorn --bind 0.0.0.0:80 \
-    --workers ${GUNICORN_WORKERS} \
-    --timeout 120 \
-    --access-logfile - \
-    --error-logfile - \
-    app:app
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-80} --workers ${GUNICORN_WORKERS:-4} --timeout 120 --access-logfile - --error-logfile - app:app"]
