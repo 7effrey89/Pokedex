@@ -49,7 +49,6 @@ def health():
     Returns quickly with minimal payload and proper headers.
     """
     response = jsonify({"status": "healthy", "service": "Pokemon Chat Demo"})
-    response.headers['Content-Type'] = 'application/json'
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     return response, 200
 
