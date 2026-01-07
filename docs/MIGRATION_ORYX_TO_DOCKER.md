@@ -62,7 +62,7 @@ az acr credential show --name $ACR_NAME --resource-group $RESOURCE_GROUP
 - `AZURE_WEBAPP_PUBLISH_PROFILE` - Your publish profile (reuse or download again)
 
 **Add these new secrets:**
-- `ACR_LOGIN_SERVER` - From ACR "Access keys" (e.g., `yourappacr.azurecr.io`)
+- `ACR_LOGIN_SERVER` - From ACR "Access keys" (e.g., `yourappacr.azurecr.io`) get from the "Home" page of the ACR resource in Azure Portal
 - `ACR_USERNAME` - From ACR "Access keys"
 - `ACR_PASSWORD` - From ACR "Access keys"
 
