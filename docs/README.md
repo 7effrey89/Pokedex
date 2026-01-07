@@ -96,6 +96,28 @@ The app features a clean, mobile-first design with:
 
 You can host the entire experience on Azure Web Apps so the realtime chat, MCP tools, and camera scanner are available from anywhere.
 
+### Docker + ACR Deployment (Recommended for Native Dependencies)
+
+For reliable deployment with native dependencies like `face-recognition` (dlib, cmake), use Docker with Azure Container Registry:
+
+📦 **See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
+
+**Quick Overview:**
+1. Create Azure Container Registry (ACR)
+2. Create Azure App Service (Linux, Docker Container)
+3. Configure GitHub Secrets (ACR credentials)
+4. Push to `main` branch - GitHub Actions builds and deploys automatically
+
+**Why Docker?**
+- ✅ Handles native dependencies (dlib, cmake, build-essential)
+- ✅ Consistent builds across environments
+- ✅ Full control over system packages
+- ✅ Reliable and reproducible deployments
+
+### Manual Azure CLI Deployment (Alternative)
+
+If you prefer manual deployment or don't need face recognition features:
+
 ### Prerequisites
 
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
