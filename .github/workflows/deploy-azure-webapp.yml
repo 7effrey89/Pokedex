@@ -26,38 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Install build dependencies and CMake (system-wide)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential cmake
-
-      - name: Remove any Python cmake shadows from PATH
-        run: |
-          # Uninstall pip cmake if it exists to prevent shadowing system cmake
-          pip uninstall -y cmake || true
-          # Remove Python cmake wrapper scripts that could shadow the real binary
-          sudo rm -f /opt/hostedtoolcache/Python/3.11.*/x64/bin/cmake || true
-          sudo rm -f /usr/local/bin/cmake || true
-
-      - name: Verify CMake availability
-        run: |
-          echo "PATH: $PATH"
-          which cmake
-          cmake --version
-
-      - name: Install app dependencies into bundle
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          # Do NOT install pip cmake - use system cmake only
-          python -m pip install scikit-build
-          python -m pip install -r requirements.txt --target .python_packages/lib/site-packages
-
-      - name: Create deployment archive (exclude requirements.txt to prevent Oryx build)
+      - name: Create deployment archive
         run: |
           zip -r ${{ env.ARTIFACT_NAME }} \
             app.py \
@@ -69,8 +38,7 @@ jobs:
             azure_openai_chat.py \
             realtime_chat.py \
             tools_config.json \
-            startup.sh \
-            .python_packages
+            requirements.txt
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -78,15 +46,3 @@ jobs:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.ARTIFACT_NAME }}
-
-      - name: Configure Azure Web App startup command
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
-      - name: Set startup command via Azure CLI
-        run: |
-          az webapp config set \
-            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-            --name ${{ secrets.AZURE_WEBAPP_NAME }} \
-            --startup-file /home/site/wwwroot/startup.sh

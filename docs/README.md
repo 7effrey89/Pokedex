@@ -160,12 +160,9 @@ Add any Azure OpenAI or MCP endpoints the same way. App settings become environm
 
 Create a clean build (exclude caches and local venvs) and push it with Zip Deploy:
 
-> ⚠️ **Windows packaging requires CMake and the Microsoft C++ Build Tools.** Install an official copy of CMake (add it to `PATH`) plus the "Desktop development with C++" workload so `dlib` can compile during the `pip install` step. Verify `cmake --version` works before continuing.
-
 **Linux / macOS**
 
 ```bash
-pip install -r requirements.txt --target .python_packages/lib/site-packages
 zip -r pokedex.zip app.py src static templates \
          requirements.txt realtime_chat.py azure_openai_chat.py \
          tools_config.json data tcg-cache
@@ -174,9 +171,10 @@ zip -r pokedex.zip app.py src static templates \
 **Windows (PowerShell)**
 
 ```powershell
-pip install -r requirements.txt --target .python_packages\lib\site-packages
 Remove-Item pokedex.zip -ErrorAction SilentlyContinue
-Compress-Archive -Path app.py,src,static,templates,data,tcg-cache,azure_openai_chat.py,realtime_chat.py,requirements.txt,tools_config.json,.python_packages -DestinationPath pokedex.zip
+Compress-Archive -Path app.py,src,static,templates,data,tcg-cache, `
+  azure_openai_chat.py,realtime_chat.py,requirements.txt,tools_config.json `
+  -DestinationPath pokedex.zip
 Get-Item pokedex.zip
 ```
 
@@ -194,7 +192,7 @@ az webapp deploy \
 az webapp deploy --resource-group $env:RESOURCE_GROUP --name $env:APP_NAME --src-path "$PWD\pokedex.zip" --type zip
 ```
 
-App Service automatically runs `gunicorn app:app` for Linux Python sites. Tail logs if you want to verify startup:
+Azure's Oryx build system will automatically detect `requirements.txt`, create a virtual environment, and install all dependencies. Gunicorn starts automatically to serve the Flask application. Tail logs if you want to verify startup:
 
 ```bash
 az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
@@ -202,31 +200,19 @@ az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 
 #### Option B — Deploy with GitHub Actions (CI/CD)
 
-The repository now includes `.github/workflows/deploy-azure-webapp.yml`, which bundles the app with pre-bundled dependencies (installed in `.python_packages/lib/site-packages` during the build phase) before zipping `app.py`, `src/`, `static/`, `templates/`, `data/`, `tcg-cache/`, `startup.sh`, and the helper scripts. The workflow then automatically configures the Azure startup command to use the custom `startup.sh` script. To enable it:
+The repository includes `.github/workflows/deploy-azure-webapp.yml`, which automatically packages and deploys the app to Azure App Service. The workflow includes `requirements.txt` in the deployment, and Azure's Oryx build system handles dependency installation. To enable it:
 
 1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
 2. **Create the following GitHub Action repository secrets** in *Settings → Secrets and variables → Actions*:
    - `AZURE_WEBAPP_NAME` → the App Service name (e.g., `pokedex-chat`) - must match the name of the web app.
    - `AZURE_WEBAPP_PUBLISH_PROFILE` → paste the full contents of the downloaded publish profile XML.
-   - `AZURE_RESOURCE_GROUP` → the name of your Azure resource group (e.g., `pokedex-rg`).
-   - `AZURE_CREDENTIALS` → Azure service principal credentials in JSON format (see below).
 
-3. **Create Azure service principal credentials**:
-   ```bash
-   az ad sp create-for-rbac \
-     --name "github-pokedex-deploy" \
-     --role contributor \
-     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> \
-     --sdk-auth
-   ```
-   Copy the entire JSON output and paste it as the value for `AZURE_CREDENTIALS`.
-   
-   **Note:** Find your subscription ID with `az account show --query id -o tsv`.
-
-4. Push to the `main` branch (default trigger) or run the workflow manually from the **Actions** tab using the *Run workflow* button. The optional `environment` input lets you tag runs as `production`, `staging`, etc.
-5. Monitor the run logs to confirm the archive step, the `azure/webapps-deploy@v3` action, and the automated startup command configuration succeed. When it finishes, the new build is already live in App Service—no manual configuration needed.
+3. Push to the `main` branch (default trigger) or run the workflow manually from the **Actions** tab using the *Run workflow* button. The optional `environment` input lets you tag runs as `production`, `staging`, etc.
+4. Monitor the run logs to confirm the archive step and the `azure/webapps-deploy@v3` action succeed. When it finishes, the new build is live in App Service and Oryx has automatically installed all dependencies from `requirements.txt`.
 
 > Tip: if deployment fails because of missing secrets or configuration, fix the issue and simply re-run the workflow from the failed run's page.
+
+For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md).
 
 Ask about any Pokemon using natural language:
 
