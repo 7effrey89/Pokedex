@@ -1,9 +1,14 @@
-name: Deploy Pokédex to Azure Web App
+name: Deploy Pokédex to Azure Web App (Legacy - Oryx)
+
+# ⚠️ LEGACY WORKFLOW - NOT RECOMMENDED FOR NATIVE DEPENDENCIES
+# This workflow uses Azure's Oryx build system, which may fail with native dependencies like dlib.
+# For reliable deployment with face-recognition support, use build-and-deploy-acr.yml instead.
+# See docs/AZURE_DEPLOYMENT.md for Docker + ACR deployment instructions.
 
 on:
-  push:
-    branches:
-      - main
+  # push:  # Disabled - use build-and-deploy-acr.yml for automatic deployments
+  #   branches:
+  #     - main
   workflow_dispatch:
     inputs:
       environment:
