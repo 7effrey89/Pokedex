@@ -73,15 +73,17 @@ See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md#3-configure-github-secrets-for-cic
 **Using Azure Portal:**
 1. Go to your App Service
 2. Navigate to **"Deployment Center"** (left sidebar)
-3. Under **"Settings"**:
-   - **Source**: Select "Container Registry"
+3. Under **"Containers (New)"**:
+   - **Add**: Select "Custom Container"
+   - **Name**: provide a name
    - **Registry**: Select your ACR
    - **Image**: Select `pokedex-app`
    - **Tag**: Select `latest`
+   - **Port**: `8000`
+   - **Authentication**: `Managed Identity`
 4. Click **"Save"**
 5. Go to **"Configuration"** → **"Application settings"**
-6. Add: `WEBSITES_PORT` = `8000`
-7. Click **"Save"**
+6. Click **"Save"**
 
 **Using Azure CLI:**
 ```bash
