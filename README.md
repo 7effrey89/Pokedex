@@ -2,6 +2,24 @@
 
 A real-time, mobile-friendly Pokemon chat assistant that allows users to ask questions and get instant responses about Pokemon with images and detailed information.
 
+## 🚀 Quick Deploy to Azure
+
+This app includes **Docker support** for seamless deployment to Azure App Service with native dependencies (face-recognition, dlib):
+
+📦 **[Complete Deployment Guide →](docs/AZURE_DEPLOYMENT.md)**
+
+**Quick Setup:**
+1. Create Azure Container Registry (ACR)
+2. Create Azure App Service (Linux Container)
+3. Configure GitHub Secrets
+4. Push to `main` - Auto-deploys via GitHub Actions!
+
+**Why Docker?**
+- ✅ Handles native dependencies (dlib, cmake, build-essential)
+- ✅ Reliable face-recognition feature deployment
+- ✅ Consistent builds across all environments
+- ✅ One-command deployment
+
 ## Features
 
 - 🎮 **Real-time Chat Interface** - Interactive chat with instant responses
@@ -57,8 +75,27 @@ The app features a clean, mobile-first design with:
 
 - Python 3.8 or higher
 - pip (Python package manager)
+- **For face-recognition feature**: cmake, build-essential (Linux) or Xcode Command Line Tools (macOS)
 
 ### Setup
+
+**Option 1: Docker (Recommended - includes all native dependencies)**
+
+```bash
+# Clone the repository
+git clone https://github.com/7effrey89/Pokedex.git
+cd Pokedex
+
+# Build the Docker image
+docker build -t pokedex-app .
+
+# Run the container
+docker run -p 8000:8000 --env-file .env pokedex-app
+
+# Access at http://localhost:8000
+```
+
+**Option 2: Local Python Installation**
 
 1. **Clone the repository**
    ```bash
@@ -66,29 +103,45 @@ The app features a clean, mobile-first design with:
    cd Pokedex
    ```
 
-2. **Create a virtual environment** (recommended)
+2. **Install system dependencies (for face-recognition)**
+   
+   **Ubuntu/Debian:**
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev
+   ```
+   
+   **macOS:**
+   ```bash
+   xcode-select --install
+   brew install cmake
+   ```
+
+3. **Create a virtual environment** (recommended)
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies**
+4. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
+   
+   **Note:** On Windows, installing `dlib` (required by face-recognition) can be challenging. Consider using Docker or WSL2 for easier setup.
 
-4. **Set up environment variables** (optional)
+5. **Set up environment variables** (optional)
    ```bash
    cp .env.example .env
    # Edit .env if you want to add Azure OpenAI integration in the future
    ```
 
-5. **Run the application**
+6. **Run the application**
    ```bash
    python app.py
    ```
 
-6. **Open in browser**
+7. **Open in browser**
    - Navigate to `http://localhost:5000`
    - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
 

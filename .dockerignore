@@ -1,0 +1,76 @@
+# Git
+.git
+.gitignore
+.github
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Node.js / MCP servers
+node_modules/
+*/node_modules/
+*/dist/
+ptcg-mcp/dist/
+poke-mcp/dist/
+*.js.map
+*.tsbuildinfo
+poke-mcp/
+ptcg-mcp/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Documentation (except those needed for runtime)
+*.md
+docs/
+!README.md
+
+# Test scripts
+test-scripts/
+scripts/
+
+# Face recognition profiles (privacy - will be added at runtime)
+profiles_pic/*.jpg
+profiles_pic/*.jpeg
+profiles_pic/*.png
+profiles_pic/*.gif
+profiles_pic/*.bmp
+
+# Cache directories (rebuilt at runtime)
+pokeapi-cache/
+cache/
+__pycache__/
+
+# Docker files
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# CI/CD
+.github/
