@@ -153,7 +153,7 @@ You can host the entire experience on Azure Web Apps so the realtime chat, MCP t
 
 For reliable deployment with native dependencies like `face-recognition` (dlib, cmake), use Docker with Azure Container Registry:
 
-📦 **See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
+📦 **See [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
 
 **Why Docker?**
 - ✅ Handles native dependencies (dlib, cmake, build-essential)
@@ -567,7 +567,7 @@ The repository includes `.github/workflows/deploy-azure-webapp.yml`, which autom
 
 > Tip: if deployment fails because of missing secrets or configuration, fix the issue and simply re-run the workflow from the failed run's page.
 
-For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md).
+For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md).
 
 Ask about any Pokemon using natural language:
 

@@ -55,6 +55,7 @@ ENV GUNICORN_WORKERS=4
 
 # Docker HEALTHCHECK to probe the health endpoint
 # Checks every 30s with 3s timeout, starts checking after 10s, 3 retries before unhealthy
+# Note: ${PORT:-80} expands to $PORT if set, otherwise defaults to 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:${PORT:-80}/api/health || exit 1
 
