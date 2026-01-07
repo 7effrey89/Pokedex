@@ -45,7 +45,7 @@ COPY tcg-cache/ ./tcg-cache/
 # Create necessary directories for runtime
 RUN mkdir -p profiles_pic cache
 
-# Expose port 8000 (gunicorn default)
+# Expose port 80
 EXPOSE 80
 
 # Set environment variables

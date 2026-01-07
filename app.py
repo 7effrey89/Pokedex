@@ -50,7 +50,7 @@ def health():
     """
     response = jsonify({"status": "healthy", "service": "Pokemon Chat Demo"})
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    return response, 200
+    return response
 
 
 if __name__ == '__main__':
