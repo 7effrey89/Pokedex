@@ -123,6 +123,7 @@ Now create an App Service that will run your Docker container from ACR.
    | Name | Value | Description |
    |------|-------|-------------|
    | `WEBSITES_PORT` | `8000` | Port your Docker container listens on |
+   | `GUNICORN_WORKERS` | `4` | Number of gunicorn worker processes (optional, default: 4) |
    | `AZURE_OPENAI_ENDPOINT` | `https://<your-resource>.openai.azure.com/` | Your Azure OpenAI endpoint |
    | `AZURE_OPENAI_API_KEY` | `your-api-key` | Your Azure OpenAI API key |
    | `AZURE_OPENAI_DEPLOYMENT` | `gpt-4` | Your chat deployment name |
@@ -132,6 +133,11 @@ Now create an App Service that will run your Docker container from ACR.
    | `POKEMON_TCG_API_KEY` | `your-tcg-api-key` | Pokemon TCG API key |
    | `APP_API_PASSWORD` | `YourSecurePassword` | App authentication password |
    | `USE_NATIVE_MCP` | `false` | MCP mode (false for client-side) |
+   
+   **Note:** For production workloads, consider adjusting `GUNICORN_WORKERS` based on your App Service tier:
+   - S1 (1 core): 2-4 workers recommended
+   - S2 (2 cores): 4-8 workers recommended
+   - S3 (4 cores): 8-16 workers recommended
    
    - Click **"Save"** at the top when done
 
@@ -182,6 +188,7 @@ az webapp config appsettings set \
   --name $APP_NAME \
   --settings \
     WEBSITES_PORT=8000 \
+    GUNICORN_WORKERS=4 \
     FLASK_ENV=production \
     FLASK_DEBUG=False \
     AZURE_OPENAI_ENDPOINT="https://<your-resource>.openai.azure.com/" \

@@ -17,8 +17,6 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'production' }}
     permissions:
       contents: read
     

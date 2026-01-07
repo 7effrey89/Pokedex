@@ -49,11 +49,17 @@ EXPOSE 8000
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8000
+ENV GUNICORN_WORKERS=4
 
-# Run gunicorn with 4 workers
+# Run gunicorn with configurable workers (default 4)
 # --bind 0.0.0.0:8000 - listen on all interfaces
-# --workers 4 - use 4 worker processes
+# --workers - configurable via GUNICORN_WORKERS env var
 # --timeout 120 - 120 second timeout for requests
 # --access-logfile - - log to stdout
 # --error-logfile - - log errors to stdout
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "4", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
+CMD gunicorn --bind 0.0.0.0:8000 \
+    --workers ${GUNICORN_WORKERS} \
+    --timeout 120 \
+    --access-logfile - \
+    --error-logfile - \
+    app:app
