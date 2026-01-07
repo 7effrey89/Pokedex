@@ -25,6 +25,8 @@ ptcg-mcp/dist/
 poke-mcp/dist/
 *.js.map
 *.tsbuildinfo
+poke-mcp/
+ptcg-mcp/
 
 # IDEs
 .vscode/
@@ -44,7 +46,7 @@ Thumbs.db
 .env
 .env.*
 
-# Documentation
+# Documentation (except those needed for runtime)
 *.md
 docs/
 !README.md
@@ -53,13 +55,22 @@ docs/
 test-scripts/
 scripts/
 
-# Face recognition profiles (privacy)
+# Face recognition profiles (privacy - will be added at runtime)
 profiles_pic/*.jpg
 profiles_pic/*.jpeg
 profiles_pic/*.png
 profiles_pic/*.gif
 profiles_pic/*.bmp
 
-# Cache (can be rebuilt)
+# Cache directories (rebuilt at runtime)
 pokeapi-cache/
 cache/
+__pycache__/
+
+# Docker files
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# CI/CD
+.github/

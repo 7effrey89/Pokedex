@@ -30,11 +30,18 @@ COPY requirements.txt .
 # Using --no-cache-dir to reduce image size
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy application code (specific directories and files only)
+COPY app.py .
+COPY azure_openai_chat.py .
+COPY realtime_chat.py .
+COPY src/ ./src/
+COPY static/ ./static/
+COPY templates/ ./templates/
+COPY data/ ./data/
+COPY tcg-cache/ ./tcg-cache/
 
-# Create necessary directories
-RUN mkdir -p templates static static/css static/js profiles_pic cache
+# Create necessary directories for runtime
+RUN mkdir -p profiles_pic cache
 
 # Expose port 8000 (gunicorn default)
 EXPOSE 8000
