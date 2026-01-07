@@ -56,14 +56,15 @@ ENV GUNICORN_WORKERS=4
 # Docker HEALTHCHECK to probe the health endpoint
 # Checks every 30s with 3s timeout, starts checking after 10s, 3 retries before unhealthy
 # Note: ${PORT:-80} expands to $PORT if set, otherwise defaults to 80
+# HEALTHCHECK CMD runs in shell context and properly supports variable expansion
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:${PORT:-80}/api/health || exit 1
 
 # Run gunicorn with configurable workers (default 4)
 # Use sh -c for shell expansion of $PORT (Azure-provided or default 80)
 # --bind 0.0.0.0:$PORT - listen on all interfaces on Azure-provided port
-# --workers - configurable via GUNICORN_WORKERS env var
+# --workers - configurable via GUNICORN_WORKERS env var (default 4)
 # --timeout 120 - 120 second timeout for requests
 # --access-logfile - - log to stdout
 # --error-logfile - - log errors to stdout
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-80} --workers ${GUNICORN_WORKERS} --timeout 120 --access-logfile - --error-logfile - app:app"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-80} --workers ${GUNICORN_WORKERS:-4} --timeout 120 --access-logfile - --error-logfile - app:app"]
