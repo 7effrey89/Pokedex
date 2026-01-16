@@ -872,6 +872,37 @@ class PokemonChatApp {
             return null;
         }
 
+        async extractApiError(response, fallbackMessage = 'Request failed') {
+            if (!response) {
+                return fallbackMessage;
+            }
+
+            const statusSuffix = response.status ? ` (HTTP ${response.status})` : '';
+
+            try {
+                const jsonClone = response.clone();
+                const data = await jsonClone.json();
+                if (data?.error) {
+                    return `${data.error}${statusSuffix}`;
+                }
+                if (typeof data?.message === 'string') {
+                    return `${data.message}${statusSuffix}`;
+                }
+            } catch (jsonError) {
+                try {
+                    const textClone = response.clone();
+                    const text = await textClone.text();
+                    if (text) {
+                        return `${text}${statusSuffix}`;
+                    }
+                } catch (textError) {
+                    console.warn('Unable to read error response body', textError);
+                }
+            }
+
+            return `${fallbackMessage}${statusSuffix}`;
+        }
+
     clearViewingStatus() {
         this.viewingStatus = {};
         document.cookie = 'pokemonViewingStatus=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -3409,7 +3440,8 @@ class PokemonChatApp {
             });
             
             if (!response.ok) {
-                throw new Error('Failed to get response');
+                const errorDetail = await this.extractApiError(response, 'Failed to get response');
+                throw new Error(errorDetail);
             }
             
             const data = await response.json();
@@ -3422,8 +3454,10 @@ class PokemonChatApp {
             
         } catch (error) {
             console.error('Error processing voice message:', error);
-            this.addMessage('assistant', 'Sorry, I encountered an error. Please try again.');
-            this.speakText('Sorry, I encountered an error. Please try again.');
+            const detail = error?.message || 'Unexpected error while processing your voice query.';
+            const assistantMessage = `Sorry, I ran into a problem: ${detail}`;
+            this.addMessage('assistant', assistantMessage);
+            this.speakText(assistantMessage);
         } finally {
             this.setLoading(false);
         }
@@ -3740,7 +3774,8 @@ class PokemonChatApp {
             });
             
             if (!response.ok) {
-                throw new Error('Failed to get response');
+                const errorDetail = await this.extractApiError(response, 'Failed to get response');
+                throw new Error(errorDetail);
             }
             
             const data = await response.json();
@@ -3750,7 +3785,8 @@ class PokemonChatApp {
             
         } catch (error) {
             console.error('Error sending message:', error);
-            this.addMessage('assistant', 'Sorry, I encountered an error. Please try again.');
+            const detail = error?.message || 'Unexpected error while sending your message.';
+            this.addMessage('assistant', `Sorry, I couldn’t answer that: ${detail}`);
         } finally {
             this.setLoading(false);
         }

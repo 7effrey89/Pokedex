@@ -569,6 +569,20 @@ The repository includes `.github/workflows/deploy-azure-webapp.yml`, which autom
 
 For more detailed information about the deployment process, see [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md).
 
+#### GitHub Actions Error: "Failed to get app runtime OS"
+
+If your GitHub Actions workflow fails with `Error: Deployment Failed, Error: Failed to get app runtime OS`, the target Azure Web App is likely blocking publish-profile based authentication. By default, App Service disables the legacy basic-auth endpoints when the **Download publish profile** policy is turned off, which prevents the `azure/webapps-deploy` action from authenticating.
+
+To fix this:
+
+1. Open the Azure Portal and navigate to your Web App.
+2. Go to **Settings → Configuration → General settings**.
+3. Scroll to the **Authentication / Authorization** section.
+4. Set both **SCM Basic Auth Publishing** and **FTP Basic Auth Publishing** to **Enabled**.
+5. Save the configuration and re-run the GitHub Actions workflow.
+
+Re-enabling those toggles restores the Kudu/FTP endpoints that the publish profile depends on, allowing the action to retrieve the runtime OS metadata and complete the deployment.
+
 Ask about any Pokemon using natural language:
 
 - "Tell me about Pikachu"
