@@ -89,12 +89,15 @@ class TcgCardDetailView {
                 </div>
             </div>
         `;
+
+        const overlayHTML = this.buildImageModalHTML(largeImage, card.name);
         
-        this.detailView.innerHTML = cardHTML;
+        this.detailView.innerHTML = cardHTML + overlayHTML;
         this.detailView.scrollTop = 0;
         
         // Attach event listener to evolves from link
         this.attachEvolvesFromListener();
+        this.attachImageModalListeners();
     }
 
     attachEvolvesFromListener() {
@@ -108,6 +111,40 @@ class TcgCardDetailView {
                 }
             });
         }
+    }
+
+    buildImageModalHTML(imageSrc, cardName) {
+        if (!imageSrc) return '';
+        return `
+            <div class="tcg-card-modal-overlay" aria-hidden="true">
+                <div class="tcg-card-modal" role="dialog" aria-label="${cardName} card preview">
+                    <button class="tcg-card-modal-close" type="button" aria-label="Close enlarged card">&times;</button>
+                    <div class="tcg-card-modal-content">
+                        <img src="${imageSrc}" alt="${cardName} trading card enlarged">
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    attachImageModalListeners() {
+        const overlay = this.detailView.querySelector('.tcg-card-modal-overlay');
+        const triggerImage = this.detailView.querySelector('.tcg-card-image img');
+        if (!overlay || !triggerImage) return;
+
+        const closeBtn = overlay.querySelector('.tcg-card-modal-close');
+        const toggleModal = (shouldShow) => {
+            overlay.classList.toggle('active', shouldShow);
+            overlay.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        };
+
+        triggerImage.addEventListener('click', () => toggleModal(true));
+        closeBtn?.addEventListener('click', () => toggleModal(false));
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                toggleModal(false);
+            }
+        });
     }
 
     buildSubtypeHeaderHTML(card) {
