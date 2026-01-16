@@ -1,0 +1,132 @@
+{
+  "endpoint": "search_pokemon_cards",
+  "params": {
+    "pokemon_name": "spectrier",
+    "card_type": null,
+    "hp_min": null,
+    "hp_max": null,
+    "rarity": null
+  },
+  "cache_key": "804d15607515676e5202c734bb254a19",
+  "cached_at": 1765898027.922655,
+  "response": {
+    "cards": [
+      {
+        "id": "swsh11-81",
+        "name": "Spectrier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "120",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Night Footsteps",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 2 of your opponent's Pokémon and put 2 damage counters on each of them."
+          },
+          {
+            "name": "Phantom Strike",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "During your next turn, this Pokémon can't use Phantom Strike."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "releaseDate": "2022/09/09",
+          "logo": "https://images.pokemontcg.io/swsh11/logo.png",
+          "symbol": "https://images.pokemontcg.io/swsh11/symbol.png"
+        },
+        "number": "81",
+        "rarity": "Rare Holo",
+        "flavorText": "It probes its surroundings with all its senses save one—it doesn't use its sense of sight. Spectrier's kicks are said to separate soul from body.",
+        "artist": "Narumi Sato",
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/81.png",
+          "large": "https://images.pokemontcg.io/swsh11/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.14,
+              "mid": 0.35,
+              "high": 19.98,
+              "market": 0.34,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.38,
+              "high": 2.5,
+              "market": 0.36,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.3,
+            "lowPrice": 0.02,
+            "trendPrice": 0.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.41,
+            "reverseHoloLow": 0.06,
+            "reverseHoloTrend": 0.58,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.42,
+            "avg7": 0.24,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 0.55,
+            "reverseHoloAvg7": 0.58,
+            "reverseHoloAvg30": 0.44
+          }
+        }
+      }
+    ],
+    "total_count": 1,
+    "search_query": "spectrier"
+  }
+}

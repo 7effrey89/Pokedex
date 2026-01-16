@@ -1,0 +1,667 @@
+{
+  "endpoint": "search_pokemon_cards",
+  "params": {
+    "pokemon_name": "blacephalon",
+    "card_type": null,
+    "hp_min": null,
+    "hp_max": null,
+    "rarity": null
+  },
+  "cache_key": "050b57b8038cf1c66abf53257841953c",
+  "cached_at": 1765895690.026418,
+  "response": {
+    "cards": [
+      {
+        "id": "sm10-32",
+        "name": "Blacephalon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "120",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Blazer",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Turn 1 of your face-down Prize cards face up. If it's a Fire Energy card, this attack does 50 more damage. (That Prize card remains face up for the rest of the game.)"
+          },
+          {
+            "name": "Fireball Circus",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50×",
+            "text": "Discard any number of Fire Energy cards from your hand. This attack does 50 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "releaseDate": "2019/05/03",
+          "logo": "https://images.pokemontcg.io/sm10/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png"
+        },
+        "number": "32",
+        "rarity": "Rare",
+        "flavorText": "It slithers toward people. Then, without warning, it triggers the explosion of its own head. It's apparently one kind of Ultra Beast.",
+        "artist": "kawayoo",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/32.png",
+          "large": "https://images.pokemontcg.io/sm10/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.0,
+              "mid": 3.61,
+              "high": 10.0,
+              "market": 3.72,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.04,
+              "mid": 6.0,
+              "high": 19.99,
+              "market": 3.19,
+              "directLow": 6.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.7,
+            "lowPrice": 1.39,
+            "trendPrice": 3.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.87,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 4.63,
+            "lowPriceExPlus": 1.39,
+            "avg1": 2.5,
+            "avg7": 3.31,
+            "avg30": 2.71,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 4.52,
+            "reverseHoloAvg30": 3.34
+          }
+        }
+      },
+      {
+        "id": "sm8-52",
+        "name": "Blacephalon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "180",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Bursting Burn",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Burned and Confused."
+          },
+          {
+            "name": "Mind Blown",
+            "cost": [
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "Put any amount of Fire Energy attached to your Pokémon in the Lost Zone. This attack does 50 damage for each card put in the Lost Zone in this way."
+          },
+          {
+            "name": "Burst-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 1 of your Prize cards. If it's an Energy card, attach it to 1 of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "releaseDate": "2018/11/02",
+          "logo": "https://images.pokemontcg.io/sm8/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm8/symbol.png"
+        },
+        "number": "52",
+        "rarity": "Rare Holo GX",
+        "flavorText": null,
+        "artist": "5ban Graphics",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/52.png",
+          "large": "https://images.pokemontcg.io/sm8/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.55,
+              "mid": 8.48,
+              "high": 29.99,
+              "market": 8.04,
+              "directLow": 9.33
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.65,
+            "lowPrice": 0.0,
+            "trendPrice": 4.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.0,
+            "avg1": 4.65,
+            "avg7": 4.65,
+            "avg30": 4.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sm12-104",
+        "name": "Blacephalon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "110",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Fireworks Bomb",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 4 damage counters on your opponent's Pokémon in any way you like. If your opponent has exactly 3 Prize cards remaining, put 12 damage counters on them instead."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "releaseDate": "2019/11/01",
+          "logo": "https://images.pokemontcg.io/sm12/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm12/symbol.png"
+        },
+        "number": "104",
+        "rarity": "Rare Holo",
+        "flavorText": "It slithers toward people. Then, without warning, it triggers the explosion of its own head. It's apparently one kind of Ultra Beast.",
+        "artist": "Hasuno",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/104.png",
+          "large": "https://images.pokemontcg.io/sm12/104_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-104",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.16,
+              "mid": 5.12,
+              "high": 7.0,
+              "market": 5.24,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.14,
+              "mid": 5.18,
+              "high": 7.88,
+              "market": 5.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-104",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.99,
+            "lowPrice": 1.0,
+            "trendPrice": 2.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.09,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 5.02,
+            "lowPriceExPlus": 1.79,
+            "avg1": 3.5,
+            "avg7": 2.64,
+            "avg30": 3.7,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 5.09,
+            "reverseHoloAvg30": 3.83
+          }
+        }
+      },
+      {
+        "id": "sm8-199",
+        "name": "Blacephalon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "180",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Bursting Burn",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Burned and Confused."
+          },
+          {
+            "name": "Mind Blown",
+            "cost": [
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "Put any amount of Fire Energy attached to your Pokémon in the Lost Zone. This attack does 50 damage for each card put in the Lost Zone in this way."
+          },
+          {
+            "name": "Burst-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 1 of your Prize cards. If it's an Energy card, attach it to 1 of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "releaseDate": "2018/11/02",
+          "logo": "https://images.pokemontcg.io/sm8/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm8/symbol.png"
+        },
+        "number": "199",
+        "rarity": "Rare Ultra",
+        "flavorText": null,
+        "artist": "5ban Graphics",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/199.png",
+          "large": "https://images.pokemontcg.io/sm8/199_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-199",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.37,
+              "mid": 23.94,
+              "high": 69.99,
+              "market": 19.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-199",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.59,
+            "lowPrice": 4.99,
+            "trendPrice": 11.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.11,
+            "lowPriceExPlus": 4.99,
+            "avg1": 11.99,
+            "avg7": 11.71,
+            "avg30": 11.14,
+            "reverseHoloAvg1": 7.5,
+            "reverseHoloAvg7": 8.19,
+            "reverseHoloAvg30": 7.89
+          }
+        }
+      },
+      {
+        "id": "smp-SM221",
+        "name": "Blacephalon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "110",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Fireworks Bomb",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 4 damage counters on your opponent's Pokémon in any way you like. If your opponent has exactly 3 Prize cards remaining, put 12 damage counters on them instead."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "releaseDate": "2017/02/03",
+          "logo": "https://images.pokemontcg.io/smp/logo.png",
+          "symbol": "https://images.pokemontcg.io/smp/symbol.png"
+        },
+        "number": "SM221",
+        "rarity": "Promo",
+        "flavorText": "It slithers toward people. Then, without warning, it triggers the explosion of its own head. It's apparently one kind of Ultra Beast.",
+        "artist": "Shin Nagasawa",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM221.png",
+          "large": "https://images.pokemontcg.io/smp/SM221_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM221",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.31,
+              "mid": 7.18,
+              "high": 9.99,
+              "market": 6.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM221",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 13.41,
+            "lowPrice": 2.8,
+            "trendPrice": 9.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.53,
+            "lowPriceExPlus": 2.8,
+            "avg1": 6.77,
+            "avg7": 8.32,
+            "avg30": 8.34,
+            "reverseHoloAvg1": 4.87,
+            "reverseHoloAvg7": 5.74,
+            "reverseHoloAvg30": 5.07
+          }
+        }
+      },
+      {
+        "id": "sm8-219",
+        "name": "Blacephalon-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "180",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Bursting Burn",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Burned and Confused."
+          },
+          {
+            "name": "Mind Blown",
+            "cost": [
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "Put any amount of Fire Energy attached to your Pokémon in the Lost Zone. This attack does 50 damage for each card put in the Lost Zone in this way."
+          },
+          {
+            "name": "Burst-GX",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard 1 of your Prize cards. If it's an Energy card, attach it to 1 of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "releaseDate": "2018/11/02",
+          "logo": "https://images.pokemontcg.io/sm8/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm8/symbol.png"
+        },
+        "number": "219",
+        "rarity": "Rare Rainbow",
+        "flavorText": null,
+        "artist": "5ban Graphics",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/219.png",
+          "large": "https://images.pokemontcg.io/sm8/219_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-219",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 35.0,
+              "mid": 45.0,
+              "high": 249.99,
+              "market": 48.74,
+              "directLow": 147.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-219",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 18.74,
+            "lowPrice": 8.0,
+            "trendPrice": 18.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.08,
+            "lowPriceExPlus": 8.0,
+            "avg1": 12.5,
+            "avg7": 22.35,
+            "avg30": 16.55,
+            "reverseHoloAvg1": 14.99,
+            "reverseHoloAvg7": 15.7,
+            "reverseHoloAvg30": 12.26
+          }
+        }
+      }
+    ],
+    "total_count": 6,
+    "search_query": "blacephalon"
+  }
+}
