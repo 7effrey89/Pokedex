@@ -6,6 +6,24 @@ class PokemonGridView {
         this.app = app;
         this.gridView = document.getElementById('pokemonGridView');
         this.pokemonList = document.getElementById('pokemonList');
+        this._savedScrollTop = 0;
+    }
+
+    /** Save scroll position of main canvas before leaving grid */
+    saveScrollPosition() {
+        const canvas = document.getElementById('mainCanvas');
+        if (canvas) {
+            this._savedScrollTop = canvas.scrollTop;
+        }
+    }
+
+    /** Restore saved scroll position on main canvas */
+    restoreScrollPosition() {
+        const canvas = document.getElementById('mainCanvas');
+        if (canvas && this._savedScrollTop > 0) {
+            // Use requestAnimationFrame to ensure DOM has updated
+            requestAnimationFrame(() => { canvas.scrollTop = this._savedScrollTop; });
+        }
     }
 
     async show() {
@@ -18,6 +36,9 @@ class PokemonGridView {
         
         // Load Pokemon if not already loaded
         await this.loadPokemonGrid();
+        
+        // Restore scroll position
+        this.restoreScrollPosition();
         
         // Update canvas state
         this.app.updateCanvasState('grid', null);
@@ -37,6 +58,10 @@ class PokemonGridView {
             this.app.tcgCardDetailView.style.display = 'none';
         }
         this.gridView.style.display = 'block';
+        
+        // Restore scroll position
+        this.restoreScrollPosition();
+        
         this.app.updateCanvasState('grid', null, false);
     }
 

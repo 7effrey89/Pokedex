@@ -14,6 +14,7 @@ class TcgCardDetailView {
         this.app.currentTcgCard = card;
         
         // Hide other views
+        this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         this.app.tcgCardsView.style.display = 'none';
@@ -40,6 +41,7 @@ class TcgCardDetailView {
         this.app.currentTcgCard = card;
         
         // Hide other views
+        this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         this.app.tcgCardsView.style.display = 'none';

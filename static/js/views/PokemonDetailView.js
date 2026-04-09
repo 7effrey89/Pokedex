@@ -229,6 +229,7 @@ class PokemonDetailView {
             }
 
             // Hide grid, show detail view (without adding to history)
+            this.app.gridView.saveScrollPosition();
             this.app.pokemonGridView.style.display = 'none';
             this.detailView.style.display = 'block';
             
@@ -261,6 +262,7 @@ class PokemonDetailView {
         }
         
         // Hide grid, show detail view
+        this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
         this.detailView.style.display = 'block';
         

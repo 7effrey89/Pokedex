@@ -21,6 +21,7 @@ class TcgCardsGalleryView {
         this.app.currentTcgData = tcgData;
         
         // Hide other views
+        this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         
@@ -56,6 +57,7 @@ class TcgCardsGalleryView {
         }, false);
         
         // Hide other views
+        this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         this.galleryView.style.display = 'block';
