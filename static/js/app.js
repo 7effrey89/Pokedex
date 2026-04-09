@@ -22,6 +22,7 @@ class PokemonChatApp {
         this.lastAppliedRealtimeUserName = null;
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
+        this.criesEnabled = this.loadCryPreference();
         this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
 
@@ -1814,6 +1815,42 @@ class PokemonChatApp {
         this.gridView.refreshSprites();
     }
 
+    loadCryPreference() {
+        try {
+            const raw = localStorage.getItem('pokedex_cry_enabled');
+            if (raw === null) return true;
+            return raw === 'true';
+        } catch {
+            return true;
+        }
+    }
+
+    saveCryPreference(enabled) {
+        this.criesEnabled = Boolean(enabled);
+        try {
+            localStorage.setItem('pokedex_cry_enabled', String(this.criesEnabled));
+        } catch { /* ignore */ }
+        if (!this.criesEnabled && this.detailView && typeof this.detailView.stopPokemonCry === 'function') {
+            this.detailView.stopPokemonCry();
+        }
+    }
+
+    setupCryControls() {
+        const toggle = document.getElementById('cryToggle');
+        if (!toggle) return;
+        toggle.checked = this.criesEnabled;
+
+        if (toggle.dataset.listenerAttached === 'true') {
+            return;
+        }
+
+        toggle.addEventListener('change', (event) => {
+            this.saveCryPreference(event.target.checked);
+        });
+
+        toggle.dataset.listenerAttached = 'true';
+    }
+
     setupSpriteStyleControls() {
         const grid = document.getElementById('spriteStyleGrid');
         if (!grid) return;
@@ -2223,6 +2260,7 @@ class PokemonChatApp {
         this.setupFaceIdentificationControls();
         this.setupVoiceControls();
         this.setupSpriteStyleControls();
+        this.setupCryControls();
     }
     
     async loadCacheConfig() {

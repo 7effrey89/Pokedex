@@ -5,6 +5,8 @@ class PokemonDetailView {
     constructor(app) {
         this.app = app;
         this.detailView = document.getElementById('pokemonDetailView');
+        this.lastCryPokemonId = null;
+        this.currentCryAudio = null;
         this.setupNavigationArrows();
     }
 
@@ -24,6 +26,30 @@ class PokemonDetailView {
             default:
                 return sprites.other?.['official-artwork']?.front_default || sprites.front_default;
         }
+    }
+
+    stopPokemonCry() {
+        if (this.currentCryAudio) {
+            this.currentCryAudio.pause();
+            this.currentCryAudio.currentTime = 0;
+        }
+    }
+
+    playPokemonCry(pokemon) {
+        if (!this.app.criesEnabled) return;
+        if (!pokemon || !pokemon.cries) return;
+        if (pokemon.id === this.lastCryPokemonId) return;
+
+        const cryUrl = pokemon.cries.latest || pokemon.cries.legacy;
+        if (!cryUrl) return;
+
+        this.lastCryPokemonId = pokemon.id;
+        this.stopPokemonCry();
+
+        const audio = new Audio(cryUrl);
+        audio.volume = 0.6;
+        audio.play().catch(() => {});
+        this.currentCryAudio = audio;
     }
 
     async fetchPokemonResource(resource, identifier, mode = 'auto') {
@@ -318,6 +344,8 @@ class PokemonDetailView {
             imageEl.src = imageUrl;
             imageEl.alt = pokemon.name;
         }
+
+        this.playPokemonCry(pokemon);
 
         // Update types
         const typesContainer = this.detailView.querySelector('.pokemon-types');
