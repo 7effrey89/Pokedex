@@ -150,6 +150,31 @@ class PokemonGridView {
     }
 
     getArtworkUrl(pokemonId) {
-        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+        const style = this.app.spriteStyle || 'official-artwork';
+        const base = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
+        switch (style) {
+            case 'home':
+                return `${base}/other/home/${pokemonId}.png`;
+            case 'dream-world':
+                return `${base}/other/dream-world/${pokemonId}.svg`;
+            case 'showdown':
+                return `${base}/other/showdown/${pokemonId}.gif`;
+            case 'default':
+                return `${base}/${pokemonId}.png`;
+            default:
+                return `${base}/other/official-artwork/${pokemonId}.png`;
+        }
+    }
+
+    refreshSprites() {
+        const container = this.app.pokemonList || document.getElementById('pokemonList');
+        if (!container) return;
+        container.querySelectorAll('.list-item').forEach(card => {
+            const numEl = card.querySelector('.number-wrap');
+            const imgEl = card.querySelector('.img-wrap img');
+            if (!numEl || !imgEl) return;
+            const id = parseInt(numEl.textContent.replace('#', ''));
+            if (id) imgEl.src = this.getArtworkUrl(id);
+        });
     }
 }

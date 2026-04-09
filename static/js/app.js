@@ -22,6 +22,7 @@ class PokemonChatApp {
         this.lastAppliedRealtimeUserName = null;
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
+        this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
 
         // Pokemon viewing status tracking (stored in cookies)
@@ -1797,6 +1798,42 @@ class PokemonChatApp {
         return this.faceIdOverlayEnabled !== false;
     }
 
+    loadSpriteStyle() {
+        try {
+            return localStorage.getItem('pokedex_sprite_style') || 'official-artwork';
+        } catch {
+            return 'official-artwork';
+        }
+    }
+
+    saveSpriteStyle(style) {
+        this.spriteStyle = style || 'official-artwork';
+        try {
+            localStorage.setItem('pokedex_sprite_style', this.spriteStyle);
+        } catch { /* ignore */ }
+        this.gridView.refreshSprites();
+    }
+
+    setupSpriteStyleControls() {
+        const grid = document.getElementById('spriteStyleGrid');
+        if (!grid) return;
+
+        // Mark the current selection
+        grid.querySelectorAll('.sprite-style-option').forEach(opt => {
+            opt.classList.toggle('selected', opt.dataset.style === this.spriteStyle);
+        });
+
+        if (grid.dataset.listenerAttached === 'true') return;
+        grid.addEventListener('click', (e) => {
+            const opt = e.target.closest('.sprite-style-option');
+            if (!opt) return;
+            grid.querySelectorAll('.sprite-style-option').forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            this.saveSpriteStyle(opt.dataset.style);
+        });
+        grid.dataset.listenerAttached = 'true';
+    }
+
     loadVoiceActorPreference() {
         try {
             return localStorage.getItem('voiceActorPreference') || 'alloy';
@@ -2185,6 +2222,7 @@ class PokemonChatApp {
         this.setupCacheControls();
         this.setupFaceIdentificationControls();
         this.setupVoiceControls();
+        this.setupSpriteStyleControls();
     }
     
     async loadCacheConfig() {

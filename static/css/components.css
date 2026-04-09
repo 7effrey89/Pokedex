@@ -565,6 +565,62 @@
     box-shadow: 0 0 0 2px rgba(238, 107, 47, 0.2);
 }
 
+/* Sprite Style Selector */
+.sprite-style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.sprite-style-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 0.4rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    background: white;
+}
+
+.sprite-style-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sprite-style-option.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(238, 107, 47, 0.2);
+    background: rgba(238, 107, 47, 0.04);
+}
+
+.sprite-style-option img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+.sprite-style-option[data-style="showdown"] img,
+.sprite-style-option[data-style="default"] img {
+    image-rendering: pixelated;
+}
+
+.sprite-style-label {
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.sprite-style-option.selected .sprite-style-label {
+    color: var(--primary-color);
+}
+
 .toggle-switch input:disabled + .toggle-slider {
     background-color: #d8d8d8;
     opacity: 0.6;
