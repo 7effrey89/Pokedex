@@ -396,7 +396,10 @@
 /* Evolution Chain */
 .pokemon-evolution-section {
     margin: 2rem 0;
-    background: rgba(0, 0, 0, 0.2);
+    background-color: #6d6d6d;
+    background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+    background-repeat: repeat;
+    background-position: top left;
     padding: 1.5rem;
     border-radius: 16px;
 }
@@ -408,6 +411,28 @@
     flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem 1rem;
+}
+
+.evolution-branch-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.evolution-branch-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.evolution-branch-leaf {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .evolution-item {
