@@ -8,6 +8,24 @@ class PokemonDetailView {
         this.setupNavigationArrows();
     }
 
+    getSpriteUrl(pokemon) {
+        const style = this.app.spriteStyle || 'official-artwork';
+        const sprites = pokemon.sprites;
+        if (!sprites) return this.app.gridView.getArtworkUrl(pokemon.id);
+        switch (style) {
+            case 'home':
+                return sprites.other?.home?.front_default || sprites.other?.['official-artwork']?.front_default || sprites.front_default;
+            case 'dream-world':
+                return sprites.other?.dream_world?.front_default || sprites.other?.['official-artwork']?.front_default || sprites.front_default;
+            case 'showdown':
+                return sprites.other?.showdown?.front_default || sprites.front_default;
+            case 'default':
+                return sprites.front_default;
+            default:
+                return sprites.other?.['official-artwork']?.front_default || sprites.front_default;
+        }
+    }
+
     async fetchPokemonResource(resource, identifier, mode = 'auto') {
         const options = mode === 'auto' ? {} : { mode };
         const url = this.app.buildPokemonApiUrl(resource, identifier, options);
@@ -73,7 +91,7 @@ class PokemonDetailView {
                 const img = prevBtn.querySelector('.nav-preview-image');
                 const name = prevBtn.querySelector('.nav-preview-name');
                 const number = prevBtn.querySelector('.nav-preview-number');
-                img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${prevPokemon.id}.png`;
+                img.src = this.app.gridView.getArtworkUrl(prevPokemon.id);
                 name.textContent = prevPokemon.name;
                 number.textContent = `#${String(prevPokemon.id).padStart(3, '0')}`;
             }
@@ -89,7 +107,7 @@ class PokemonDetailView {
                 const img = nextBtn.querySelector('.nav-preview-image');
                 const name = nextBtn.querySelector('.nav-preview-name');
                 const number = nextBtn.querySelector('.nav-preview-number');
-                img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${nextPokemon.id}.png`;
+                img.src = this.app.gridView.getArtworkUrl(nextPokemon.id);
                 name.textContent = nextPokemon.name;
                 number.textContent = `#${String(nextPokemon.id).padStart(3, '0')}`;
             }
@@ -295,9 +313,7 @@ class PokemonDetailView {
 
         // Update image
         const imageEl = this.detailView.querySelector('.pokemon-main-image');
-        const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || 
-                        pokemon.sprites?.front_default || 
-                        '';
+        const imageUrl = this.getSpriteUrl(pokemon) || '';
         if (imageUrl) {
             imageEl.src = imageUrl;
             imageEl.alt = pokemon.name;
@@ -712,7 +728,7 @@ class PokemonDetailView {
             evolutions.push({
                 name: chain.species.name,
                 id: pokemonId,
-                image: pokemon.sprites?.other?.['official-artwork']?.front_default || pokemon.sprites?.front_default,
+                image: this.getSpriteUrl(pokemon),
                 types: pokemon.types ? pokemon.types.map(t => t.type.name) : [],
                 details: details
             });
