@@ -104,7 +104,8 @@ def handle_search_pokemon_cards(
     card_type: str = None,
     hp_min: int = None,
     hp_max: int = None,
-    rarity: str = None
+    rarity: str = None,
+    force_refresh: bool = False
 ) -> Dict[str, Any]:
     """
     Handler for search_pokemon_cards tool - searches for Pokemon TCG cards.
@@ -117,11 +118,12 @@ def handle_search_pokemon_cards(
         hp_min: Minimum HP filter
         hp_max: Maximum HP filter
         rarity: Rarity filter
+        force_refresh: If True, skip cache and fetch fresh data
         
     Returns:
         Dictionary with cards array and total_count, or error
     """
-    # Check cache first
+    # Check cache first (stale-while-revalidate)
     cache_key_params = {
         "pokemon_name": pokemon_name.lower() if pokemon_name else None,
         "card_type": card_type,
@@ -129,21 +131,33 @@ def handle_search_pokemon_cards(
         "hp_max": hp_max,
         "rarity": rarity
     }
-    cached_response = cache_service.get("search_pokemon_cards", cache_key_params)
-    if cached_response:
-        normalized_cached = _normalize_cached_search_response(
-            cached_response,
-            pokemon_name,
-            card_type,
-            hp_min,
-            hp_max,
-            rarity
-        )
-        logger.info(
-            "🎯 Returning cached TCG card search for: %s",
-            pokemon_name or card_type or "filters"
-        )
-        return normalized_cached
+    if not force_refresh:
+        cached_response, cache_status = cache_service.get_with_stale("search_pokemon_cards", cache_key_params)
+        if cached_response:
+            normalized_cached = _normalize_cached_search_response(
+                cached_response,
+                pokemon_name,
+                card_type,
+                hp_min,
+                hp_max,
+                rarity
+            )
+            if cache_status == 'stale':
+                logger.info(
+                    "⏳ Returning STALE cached TCG card search for: %s",
+                    pokemon_name or card_type or "filters"
+                )
+                if normalized_cached and isinstance(normalized_cached, dict):
+                    normalized_cached['_cache_stale'] = True
+                    normalized_cached['_search_params'] = {
+                        k: v for k, v in cache_key_params.items() if v is not None
+                    }
+            else:
+                logger.info(
+                    "🎯 Returning cached TCG card search for: %s",
+                    pokemon_name or card_type or "filters"
+                )
+            return normalized_cached
     
     logger.info(f"🃏 NOT IN CACHE - Fetching from API: name='{pokemon_name}', type={card_type}, hp_min={hp_min}, hp_max={hp_max}, rarity={rarity}")
     
@@ -185,22 +199,29 @@ def handle_search_pokemon_cards(
     return {"error": "No TCG search results found"}
 
 
-def handle_get_card_price(card_id: str) -> Dict[str, Any]:
+def handle_get_card_price(card_id: str, force_refresh: bool = False) -> Dict[str, Any]:
     """
     Get price information for a Pokemon TCG card by ID
     
     Args:
         card_id: Card ID in format 'set-number' (e.g., 'sv3-25')
+        force_refresh: If True, skip cache and fetch fresh data
         
     Returns:
         Dict containing card pricing info from TCGPlayer and Cardmarket
     """
-    # Check cache first
+    # Check cache first (stale-while-revalidate)
     cache_key_params = {"card_id": card_id}
-    cached_response = cache_service.get("get_card_price", cache_key_params)
-    if cached_response:
-        logger.info(f"🎯 Returning cached card price for: {card_id}")
-        return cached_response
+    if not force_refresh:
+        cached_response, cache_status = cache_service.get_with_stale("get_card_price", cache_key_params)
+        if cached_response:
+            if cache_status == 'stale':
+                logger.info(f"⏳ Returning STALE cached card price for: {card_id}")
+                if isinstance(cached_response, dict):
+                    cached_response['_cache_stale'] = True
+            else:
+                logger.info(f"🎯 Returning cached card price for: {card_id}")
+            return cached_response
     
     logger.info(f"🎴 Getting price for card: {card_id}")
     

@@ -63,14 +63,19 @@ def _fetch_with_cache(
     refresh: bool,
     use_cache: bool,
 ) -> Tuple[Optional[Dict], str]:
-    """Fetch a PokeAPI resource with CacheService backing."""
+    """Fetch a PokeAPI resource with CacheService backing.
+
+    Uses stale-while-revalidate: expired cache entries are returned
+    immediately with status ``stale`` so callers can serve them while a
+    background refresh is kicked off.
+    """
     cache_label = "bypass"
     if use_cache:
         cache_label = "refresh" if refresh else "miss"
         if not refresh:
-            cached = cache_service.get(cache_key, params)
-            if cached is not None:
-                return cached, "hit"
+            data, status = cache_service.get_with_stale(cache_key, params)
+            if data is not None:
+                return data, status  # 'hit' or 'stale'
 
     url = f"{POKEAPI_BASE_URL.rstrip('/')}/{resource_path.lstrip('/')}"
     try:
@@ -115,6 +120,9 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str):
 
     response = jsonify(data)
     response.headers["X-PokeAPI-Cache"] = cache_status
+    if cache_status == "stale":
+        # Tell the frontend it can revalidate this resource asynchronously
+        response.headers["X-PokeAPI-Stale"] = "true"
     logger.info(
         "PokeAPI proxy %s cache=%s status=%s",
         resource_path,

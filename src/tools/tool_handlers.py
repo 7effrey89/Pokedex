@@ -73,12 +73,13 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
                 card_type=arguments.get('card_type', arguments.get('type', None)),
                 hp_min=arguments.get('hp_min', None),
                 hp_max=arguments.get('hp_max', None),
-                rarity=arguments.get('rarity', None)
+                rarity=arguments.get('rarity', None),
+                force_refresh=arguments.get('force_refresh', False)
             )
         
         elif tool_name == 'get_card_price':
             card_id = arguments.get('card_id', '')
-            return handle_get_card_price(card_id)
+            return handle_get_card_price(card_id, force_refresh=arguments.get('force_refresh', False))
         
         else:
             logger.warning(f"❓ Unknown tool: {tool_name}")

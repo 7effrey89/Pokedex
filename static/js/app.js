@@ -1446,6 +1446,11 @@ class PokemonChatApp {
         
         // Delegate to view class
         this.tcgGallery.display(tcgData);
+
+        // Stale-while-revalidate: if data was from expired cache, refresh in background
+        if (tcgData._cache_stale && tcgData.search_query) {
+            this._revalidateTcgSearch(tcgData);
+        }
     }
     
     // Delegate to tcgGallery view
@@ -1457,6 +1462,49 @@ class PokemonChatApp {
         }
         
         this.tcgGallery.displayWithoutHistory(tcgData);
+    }
+
+    /**
+     * Background revalidation for stale TCG search data.
+     * Re-fetches with force_refresh, re-renders gallery only if data changed.
+     */
+    async _revalidateTcgSearch(staleTcgData) {
+        console.log('🔄 Revalidating stale TCG data for:', staleTcgData.search_query);
+        try {
+            // Use original search params if available, otherwise fall back to search_query
+            const args = staleTcgData._search_params
+                ? { ...staleTcgData._search_params, force_refresh: true }
+                : { pokemon_name: staleTcgData.search_query, force_refresh: true };
+
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_pokemon_cards',
+                    arguments: args
+                })
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            const freshData = data.result;
+
+            if (!freshData || !freshData.cards || freshData.cards.length === 0) return;
+
+            // Compare: only re-render if content actually changed
+            const oldJson = JSON.stringify(staleTcgData.cards);
+            const newJson = JSON.stringify(freshData.cards);
+            if (oldJson === newJson) {
+                console.log('✅ TCG revalidation: data unchanged');
+                return;
+            }
+
+            console.log('🔄 TCG revalidation: data changed, re-rendering gallery');
+            this.currentTcgData = freshData;
+            // Re-render without adding a new history entry
+            this.tcgGallery.displayWithoutHistory(freshData);
+        } catch (err) {
+            console.warn('⚠️ TCG revalidation failed:', err);
+        }
     }
 
     async initializeCameraControls() {

@@ -199,6 +199,51 @@ class CacheService:
         except Exception as e:
             logger.error(f"Error reading cache: {e}")
             return None
+
+    def get_with_stale(self, endpoint: str, params: Dict[str, Any] = None) -> Tuple[Optional[Dict[str, Any]], str]:
+        """
+        Get cached response, returning stale data instead of discarding it.
+
+        Returns:
+            (response, status) where status is 'hit', 'stale', or 'miss'.
+            'stale' means the data is expired but still usable while a background
+            refresh happens.
+        """
+        if not self._is_endpoint_cacheable(endpoint):
+            return None, "miss"
+
+        if params is None:
+            params = {}
+
+        cache_key = self._get_cache_key(endpoint, params)
+        cache_path = self._get_cache_path(endpoint, params, cache_key)
+        candidate_paths = [cache_path]
+        legacy_path = self.cache_dir / f"{cache_key}.json"
+        if legacy_path != cache_path:
+            candidate_paths.append(legacy_path)
+
+        target_path = next((p for p in candidate_paths if p.exists()), None)
+        if not target_path:
+            return None, "miss"
+
+        try:
+            with target_path.open('r', encoding='utf-8') as f:
+                cached_data = json.load(f)
+
+            cached_time = cached_data.get("cached_at", 0)
+            expiry_days = self.config.get("expiry_days", 7)
+            expiry_seconds = None if expiry_days <= 0 else expiry_days * 24 * 60 * 60
+
+            if expiry_seconds is not None and time.time() - cached_time > expiry_seconds:
+                logger.info(f"Cache stale for {endpoint} (serving stale-while-revalidate)")
+                return cached_data.get("response"), "stale"
+
+            logger.info(f"Cache hit for {endpoint}")
+            return cached_data.get("response"), "hit"
+
+        except Exception as e:
+            logger.error(f"Error reading cache: {e}")
+            return None, "miss"
     
     def set(self, endpoint: str, params: Dict[str, Any], response: Dict[str, Any]):
         """

@@ -15,7 +15,9 @@ class PokemonDetailView {
         if (!response.ok) {
             throw new Error(`Failed to load ${resource} (${response.status})`);
         }
-        return response.json();
+        const data = await response.json();
+        const isStale = response.headers.get('X-PokeAPI-Stale') === 'true';
+        return { data, isStale };
     }
 
     async fetchResourceWithFallback(resource, identifier) {
@@ -32,6 +34,18 @@ class PokemonDetailView {
             console.warn(`Direct ${resource} fetch failed, falling back to proxy`, error);
             return this.fetchPokemonResource(resource, identifier, 'proxy');
         }
+    }
+
+    /**
+     * Revalidate a stale resource in the background.
+     * Fetches with ?refresh=1 and returns the fresh data.
+     */
+    async _revalidateResource(resource, identifier) {
+        const options = { mode: 'proxy' };
+        const url = this.app.buildPokemonApiUrl(resource, identifier, options) + '?refresh=1';
+        const response = await fetch(url);
+        if (!response.ok) return null;
+        return response.json();
     }
 
     setupNavigationArrows() {
@@ -104,36 +118,103 @@ class PokemonDetailView {
 
     async loadPokemon(identifier) {
         try {
-            const [pokemon, species] = await Promise.all([
+            const [pokemonResult, speciesResult] = await Promise.all([
                 this.fetchResourceWithFallback('pokemon', identifier),
                 this.fetchResourceWithFallback('species', identifier)
             ]);
 
+            const pokemon = pokemonResult.data;
+            const species = speciesResult.data;
+            const anyStale = pokemonResult.isStale || speciesResult.isStale;
+
             // Fetch evolution chain if available
             let evolutionChain = null;
+            let evolutionStale = false;
             if (species.evolution_chain && species.evolution_chain.url) {
                 const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
-                evolutionChain = await this.fetchResourceWithFallback('evolution', chainId);
+                const evoResult = await this.fetchResourceWithFallback('evolution', chainId);
+                evolutionChain = evoResult.data;
+                evolutionStale = evoResult.isStale;
             }
 
             this.display(pokemon, species, evolutionChain);
+
+            // Stale-while-revalidate: refresh in background, re-render if data changed
+            if (anyStale || evolutionStale) {
+                this._revalidateAndRerender(identifier, pokemon, species, evolutionChain,
+                    pokemonResult.isStale, speciesResult.isStale, evolutionStale);
+            }
         } catch (error) {
             console.error('Error loading Pokemon:', error);
         }
     }
 
+    async _revalidateAndRerender(identifier, oldPokemon, oldSpecies, oldEvolution,
+                                  pokemonStale, speciesStale, evolutionStale) {
+        console.log(`🔄 Revalidating stale cache for: ${identifier}`);
+        try {
+            const promises = [];
+            promises.push(pokemonStale
+                ? this._revalidateResource('pokemon', identifier)
+                : Promise.resolve(null));
+            promises.push(speciesStale
+                ? this._revalidateResource('species', identifier)
+                : Promise.resolve(null));
+
+            const [freshPokemon, freshSpecies] = await Promise.all(promises);
+
+            let freshEvolution = null;
+            const species = freshSpecies || oldSpecies;
+            if (evolutionStale && species.evolution_chain?.url) {
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                freshEvolution = await this._revalidateResource('evolution', chainId);
+            }
+
+            const newPokemon = freshPokemon || oldPokemon;
+            const newSpecies = freshSpecies || oldSpecies;
+            const newEvolution = freshEvolution || oldEvolution;
+
+            // Only re-render if data actually changed
+            const changed = (freshPokemon && JSON.stringify(freshPokemon) !== JSON.stringify(oldPokemon))
+                || (freshSpecies && JSON.stringify(freshSpecies) !== JSON.stringify(oldSpecies))
+                || (freshEvolution && JSON.stringify(freshEvolution) !== JSON.stringify(oldEvolution));
+
+            if (changed) {
+                console.log(`✨ Fresh data differs from stale — re-rendering ${identifier}`);
+                this.updateDisplay(newPokemon, newSpecies, newEvolution);
+                // Update canvas context so realtime voice knows about fresh data
+                this.app.updateCanvasState('pokemon', {
+                    pokemon: newPokemon,
+                    species: newSpecies,
+                    evolutionChain: newEvolution
+                }, false);
+            } else {
+                console.log(`✅ Revalidated ${identifier} — data unchanged, no re-render needed`);
+            }
+        } catch (err) {
+            console.warn('Background revalidation failed (stale data still shown):', err);
+        }
+    }
+
     async loadPokemonWithoutHistory(identifier) {
         try {
-            const [pokemon, species] = await Promise.all([
+            const [pokemonResult, speciesResult] = await Promise.all([
                 this.fetchResourceWithFallback('pokemon', identifier),
                 this.fetchResourceWithFallback('species', identifier)
             ]);
 
+            const pokemon = pokemonResult.data;
+            const species = speciesResult.data;
+            const anyStale = pokemonResult.isStale || speciesResult.isStale;
+
             // Fetch evolution chain if available
             let evolutionChain = null;
+            let evolutionStale = false;
             if (species.evolution_chain && species.evolution_chain.url) {
                 const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
-                evolutionChain = await this.fetchResourceWithFallback('evolution', chainId);
+                const evoResult = await this.fetchResourceWithFallback('evolution', chainId);
+                evolutionChain = evoResult.data;
+                evolutionStale = evoResult.isStale;
             }
 
             // Defensive checks
@@ -156,6 +237,12 @@ class PokemonDetailView {
             
             // Update the display
             this.updateDisplay(pokemon, species, evolutionChain);
+
+            // Stale-while-revalidate
+            if (anyStale || evolutionStale) {
+                this._revalidateAndRerender(identifier, pokemon, species, evolutionChain,
+                    pokemonResult.isStale, speciesResult.isStale, evolutionStale);
+            }
         } catch (error) {
             console.error('Error loading Pokemon:', error);
         }
@@ -394,9 +481,10 @@ class PokemonDetailView {
         // Fetch type data for all Pokemon types
         let typeData = [];
         try {
-            typeData = await Promise.all(
+            const typeResults = await Promise.all(
                 pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
             );
+            typeData = typeResults.map(r => r.data);
         } catch (error) {
             console.error('Error loading type data for weaknesses:', error);
             return;
@@ -617,7 +705,7 @@ class PokemonDetailView {
         
         // Fetch Pokemon data for image and types
         try {
-            const pokemon = await this.fetchResourceWithFallback('pokemon', pokemonId);
+            const { data: pokemon } = await this.fetchResourceWithFallback('pokemon', pokemonId);
             
             evolutions.push({
                 name: chain.species.name,
