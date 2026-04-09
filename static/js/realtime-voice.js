@@ -108,7 +108,9 @@ class RealtimeVoiceClient {
             }
             
             this.wsUrl = data.ws_url;
-            this.apiKey = data.api_key;
+            this.apiKey = data.api_key || null;
+            this.accessToken = data.access_token || null;
+            this.authMode = data.auth_mode || 'api_key';
             this.sessionConfig = data.session_config;
             this.tools = data.tools || [];
             this.useNativeMcp = data.use_native_mcp || false;
@@ -116,7 +118,9 @@ class RealtimeVoiceClient {
             
             this.log('Configuration loaded:', { 
                 wsUrl: this.wsUrl, 
+                authMode: this.authMode,
                 hasKey: !!this.apiKey,
+                hasToken: !!this.accessToken,
                 useNativeMcp: this.useNativeMcp,
                 supportsImageInput: this.supportsImageInput
             });
@@ -140,7 +144,7 @@ class RealtimeVoiceClient {
             return true;
         }
         
-        if (!this.wsUrl || !this.apiKey) {
+        if (!this.wsUrl || (!this.apiKey && !this.accessToken)) {
             const initialized = await this.initialize();
             if (!initialized) return false;
         }
@@ -149,17 +153,14 @@ class RealtimeVoiceClient {
             try {
                 this.onStatusChange('connecting', 'Connecting to Azure OpenAI...');
                 
-                // Create WebSocket connection with API key header
-                this.ws = new WebSocket(this.wsUrl, [], {
-                    headers: {
-                        'api-key': this.apiKey
-                    }
-                });
-                
-                // For browsers that don't support headers in WebSocket constructor
-                // We'll use the URL parameter approach
-                const wsUrlWithKey = `${this.wsUrl}&api-key=${this.apiKey}`;
-                this.ws = new WebSocket(wsUrlWithKey);
+                // Build WebSocket URL with appropriate auth parameter
+                let wsUrlWithAuth;
+                if (this.authMode === 'service_principal' && this.accessToken) {
+                    wsUrlWithAuth = `${this.wsUrl}&access_token=${this.accessToken}`;
+                } else {
+                    wsUrlWithAuth = `${this.wsUrl}&api-key=${this.apiKey}`;
+                }
+                this.ws = new WebSocket(wsUrlWithAuth);
                 
                 this.ws.onopen = () => {
                     this.log('WebSocket connected');

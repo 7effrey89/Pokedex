@@ -11,6 +11,10 @@ def _sanitize_endpoint(value: str) -> str:
     return value.strip().rstrip('/')
 
 
+def _is_service_principal_mode() -> bool:
+    return os.getenv("AZURE_AUTH_MODE", "key").strip().lower() == "service_principal"
+
+
 def _require_fields(values: Dict[str, str], name: str) -> None:
     missing = [field for field, val in values.items() if not val]
     if missing:
@@ -18,18 +22,28 @@ def _require_fields(values: Dict[str, str], name: str) -> None:
 
 
 def _resolve_env_chat_config() -> Dict[str, str]:
-    chat_endpoint = _sanitize_endpoint(os.getenv('AZURE_OPENAI_ENDPOINT', ''))
+    chat_endpoint = _sanitize_endpoint(os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))
     chat_key = os.getenv('AZURE_OPENAI_API_KEY', '').strip()
     chat_deployment = os.getenv('AZURE_OPENAI_DEPLOYMENT', '').strip()
     chat_api_version = os.getenv('AZURE_OPENAI_API_VERSION', '2024-10-21').strip()
-    _require_fields(
-        {
-            'AZURE_OPENAI_ENDPOINT': chat_endpoint,
-            'AZURE_OPENAI_API_KEY': chat_key,
-            'AZURE_OPENAI_DEPLOYMENT': chat_deployment
-        },
-        'environment'
-    )
+
+    if _is_service_principal_mode():
+        _require_fields(
+            {
+                'FOUNDRY_PROJECT_ENDPOINT': chat_endpoint,
+                'AZURE_OPENAI_DEPLOYMENT': chat_deployment
+            },
+            'environment'
+        )
+    else:
+        _require_fields(
+            {
+                'FOUNDRY_PROJECT_ENDPOINT': chat_endpoint,
+                'AZURE_OPENAI_API_KEY': chat_key,
+                'AZURE_OPENAI_DEPLOYMENT': chat_deployment
+            },
+            'environment'
+        )
     return {
         'endpoint': chat_endpoint,
         'api_key': chat_key,
@@ -40,19 +54,29 @@ def _resolve_env_chat_config() -> Dict[str, str]:
 
 def _resolve_env_realtime_config() -> Dict[str, str]:
     realtime_endpoint = _sanitize_endpoint(
-        os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('AZURE_OPENAI_ENDPOINT', ''))
+        os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))
     )
     realtime_key = os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')).strip()
     deployment = os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', '').strip()
     api_version = os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview').strip()
-    _require_fields(
-        {
-            'AZURE_OPENAI_ENDPOINT': realtime_endpoint,
-            'AZURE_OPENAI_API_KEY': realtime_key,
-            'AZURE_OPENAI_REALTIME_DEPLOYMENT': deployment
-        },
-        'environment'
-    )
+
+    if _is_service_principal_mode():
+        _require_fields(
+            {
+                'FOUNDRY_PROJECT_ENDPOINT': realtime_endpoint,
+                'AZURE_OPENAI_REALTIME_DEPLOYMENT': deployment
+            },
+            'environment'
+        )
+    else:
+        _require_fields(
+            {
+                'FOUNDRY_PROJECT_ENDPOINT': realtime_endpoint,
+                'AZURE_OPENAI_API_KEY': realtime_key,
+                'AZURE_OPENAI_REALTIME_DEPLOYMENT': deployment
+            },
+            'environment'
+        )
     return {
         'endpoint': realtime_endpoint,
         'api_key': realtime_key,

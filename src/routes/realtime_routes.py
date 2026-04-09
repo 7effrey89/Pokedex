@@ -46,15 +46,22 @@ def get_realtime_connection_config():
             session = session_config.get('session', {})
             session['voice'] = preferred_voice
         tools = get_available_tools()
-        
-        return jsonify({
+
+        response_data = {
             "available": True,
             "ws_url": config['ws_url'],
-            "api_key": config['api_key'],
+            "auth_mode": config.get('auth_mode', 'api_key'),
             "session_config": session_config,
             "tools": tools,
             "supports_image_input": True
-        })
+        }
+        # Include the appropriate credential
+        if config.get('auth_mode') == 'service_principal':
+            response_data["access_token"] = config['access_token']
+        else:
+            response_data["api_key"] = config['api_key']
+
+        return jsonify(response_data)
         
     except ValueError as exc:
         return jsonify({

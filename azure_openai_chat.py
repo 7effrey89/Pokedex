@@ -5,19 +5,42 @@ Uses LLM to understand natural language and call appropriate tools
 import os
 import json
 from typing import Optional, Dict, Any, List
-from openai import AzureOpenAI
+from openai import AzureOpenAI, OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# --- Authentication helpers ---------------------------------------------------
+
+def _is_service_principal_mode() -> bool:
+    return os.getenv("AZURE_AUTH_MODE", "key").strip().lower() == "service_principal"
+
+
+_DEFAULT_TOKEN_SCOPE = "https://cognitiveservices.azure.com/.default"
+
+
+def _get_token_provider():
+    """Return a bearer-token provider using service-principal credentials."""
+    from azure.identity import ClientSecretCredential, get_bearer_token_provider
+    credential = ClientSecretCredential(
+        tenant_id=os.getenv("AZURE_TENANT_ID", ""),
+        client_id=os.getenv("AZURE_CLIENT_ID", ""),
+        client_secret=os.getenv("AZURE_CLIENT_SECRET", ""),
+    )
+    scope = os.getenv("AZURE_TOKEN_SCOPE", _DEFAULT_TOKEN_SCOPE)
+    return get_bearer_token_provider(credential, scope)
+
+# ------------------------------------------------------------------------------
 
 
 class AzureOpenAIChat:
     """Handles chat with Azure OpenAI using function calling for Pokemon tools"""
     
     def __init__(self):
+        self.use_sp = _is_service_principal_mode()
         self.default_config = {
-            "endpoint": (os.getenv("AZURE_OPENAI_ENDPOINT", "") or "").rstrip('/'),
-            "api_key": os.getenv("AZURE_OPENAI_API_KEY", ""),
+            "endpoint": (os.getenv("FOUNDRY_PROJECT_ENDPOINT", "") or "").rstrip('/'),
+            "api_key": os.getenv("AZURE_OPENAI_API_KEY", "") if not self.use_sp else "",
             "deployment": os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4"),
             "api_version": os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21")
         }
@@ -212,11 +235,46 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
     def _get_client(self, override_config: Optional[Dict[str, str]] = None):
         cfg = (override_config or self.default_config).copy()
         cfg["endpoint"] = (cfg.get("endpoint") or "").rstrip('/')
-        missing = [key for key in ("endpoint", "api_key", "deployment") if not cfg.get(key)]
-        if missing:
-            raise ValueError(f"Azure OpenAI credentials missing: {', '.join(missing)}")
+        has_api_key = bool(cfg.get("api_key"))
+
+        # Determine whether to use service principal for this call:
+        # - Use SP when globally enabled AND the config has no api_key
+        use_sp_for_call = self.use_sp and not has_api_key
+
+        if use_sp_for_call:
+            if not cfg.get("endpoint") or not cfg.get("deployment"):
+                raise ValueError("Azure OpenAI credentials missing: endpoint and/or deployment")
+        else:
+            missing = [key for key in ("endpoint", "api_key", "deployment") if not cfg.get(key)]
+            if missing:
+                raise ValueError(f"Azure OpenAI credentials missing: {', '.join(missing)}")
 
         api_version = cfg.get("api_version") or "2024-10-21"
+
+        if use_sp_for_call:
+            # Foundry v1 API: use OpenAI() with base_url at resource level
+            # Strip /api/projects/... from the endpoint to get resource-level URL
+            endpoint = cfg['endpoint']
+            project_idx = endpoint.find('/api/projects/')
+            resource_url = endpoint[:project_idx] if project_idx != -1 else endpoint
+            base_url = f"{resource_url}/openai/v1/"
+            token_provider = _get_token_provider()
+
+            if override_config:
+                client = OpenAI(
+                    base_url=base_url,
+                    api_key=token_provider(),
+                )
+                return client, cfg["deployment"]
+
+            if self.default_client is None:
+                self.default_client = OpenAI(
+                    base_url=base_url,
+                    api_key=token_provider(),
+                )
+            return self.default_client, cfg["deployment"]
+
+        # Standard Azure OpenAI with API key
         if override_config:
             client = AzureOpenAI(
                 azure_endpoint=cfg["endpoint"],

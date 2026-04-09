@@ -15,8 +15,28 @@ def _sanitize_endpoint(value: str) -> str:
     return (value or '').rstrip('/')
 
 
+def _is_service_principal_mode() -> bool:
+    return os.getenv("AZURE_AUTH_MODE", "key").strip().lower() == "service_principal"
+
+
+_DEFAULT_TOKEN_SCOPE = "https://cognitiveservices.azure.com/.default"
+
+
+def _get_sp_access_token() -> str:
+    """Get a fresh access token using service-principal credentials."""
+    from azure.identity import ClientSecretCredential
+    credential = ClientSecretCredential(
+        tenant_id=os.getenv("AZURE_TENANT_ID", ""),
+        client_id=os.getenv("AZURE_CLIENT_ID", ""),
+        client_secret=os.getenv("AZURE_CLIENT_SECRET", ""),
+    )
+    scope = os.getenv("AZURE_TOKEN_SCOPE", _DEFAULT_TOKEN_SCOPE)
+    token = credential.get_token(scope)
+    return token.token
+
+
 DEFAULT_REALTIME_CONFIG = {
-    'endpoint': _sanitize_endpoint(os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('AZURE_OPENAI_ENDPOINT', ''))),
+    'endpoint': _sanitize_endpoint(os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))),
     'api_key': os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')),
     'deployment': os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime'),
     'api_version': os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
@@ -25,27 +45,43 @@ DEFAULT_REALTIME_CONFIG = {
 def get_realtime_config(overrides=None):
     """
     Get the configuration for Azure OpenAI Realtime API connection.
-    Returns WebSocket URL and headers for the browser to connect directly.
+    Returns WebSocket URL and headers/token for the browser to connect directly.
     """
     cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
     endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
-    api_key = cfg.get('api_key', '')
     deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
     api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
 
+    use_sp = _is_service_principal_mode() and not overrides
+
+    if use_sp:
+        if not endpoint or not deployment:
+            raise ValueError("Azure OpenAI credentials not configured")
+        access_token = _get_sp_access_token()
+        # Strip /api/projects/... to get resource-level host for WebSocket
+        project_idx = endpoint.find('/api/projects/')
+        resource_url = endpoint[:project_idx] if project_idx != -1 else endpoint
+        endpoint_host = resource_url.replace('https://', '').replace('http://', '')
+        ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
+        return {
+            'ws_url': ws_url,
+            'access_token': access_token,
+            'auth_mode': 'service_principal',
+            'deployment': deployment,
+            'api_version': api_version
+        }
+
+    api_key = cfg.get('api_key', '')
     if not endpoint or not api_key or not deployment:
         raise ValueError("Azure OpenAI credentials not configured")
     
-    # Extract the hostname from the endpoint
     endpoint_host = endpoint.replace('https://', '').replace('http://', '')
-    
-    # Construct the WebSocket URL for Azure OpenAI Realtime API
-    # Format: wss://{resource}.openai.azure.com/openai/realtime?api-version={version}&deployment={deployment}
     ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
     
     return {
         'ws_url': ws_url,
         'api_key': api_key,
+        'auth_mode': 'api_key',
         'deployment': deployment,
         'api_version': api_version
     }
@@ -232,14 +268,18 @@ def check_realtime_availability(overrides=None):
     """
     cfg = (overrides or DEFAULT_REALTIME_CONFIG).copy()
     endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
-    api_key = cfg.get('api_key', '')
     deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
     api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
 
     if not endpoint:
         return {'available': False, 'message': 'Azure OpenAI endpoint not configured', 'details': {}}
-    if not api_key:
-        return {'available': False, 'message': 'Azure OpenAI API key not configured', 'details': {}}
+
+    use_sp = _is_service_principal_mode() and not overrides
+    if not use_sp:
+        api_key = cfg.get('api_key', '')
+        if not api_key:
+            return {'available': False, 'message': 'Azure OpenAI API key not configured', 'details': {}}
+
     if not deployment:
         return {'available': False, 'message': 'Realtime deployment not configured', 'details': {}}
 
@@ -248,6 +288,7 @@ def check_realtime_availability(overrides=None):
         'message': 'Realtime API configured',
         'details': {
             'deployment': deployment,
-            'api_version': api_version
+            'api_version': api_version,
+            'auth_mode': 'service_principal' if use_sp else 'api_key'
         }
     }
