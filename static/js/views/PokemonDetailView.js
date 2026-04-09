@@ -697,49 +697,92 @@ class PokemonDetailView {
 
     async buildEvolutionChainHTML(chain, currentName) {
         if (!chain) return '';
-        
-        const evolutions = [];
-        await this.extractEvolutions(chain, evolutions);
-        
-        if (evolutions.length === 0) return '<p class="no-evolutions">This Pokémon does not evolve.</p>';
-        
-        return evolutions.map((evo, index) => {
-            const isCurrent = evo.name === currentName;
-            
-            // Build type badges HTML
-            const typeBadges = evo.types ? evo.types.map(type => 
-                `<span class="type-badge type-${type.toLowerCase()}">${type}</span>`
-            ).join('') : '';
-            
-            let html = `
-                <div class="evolution-item ${isCurrent ? 'current' : ''}" data-pokemon-id="${evo.id}">
-                    <div class="evolution-image-wrapper">
-                        <img src="${evo.image}" alt="${evo.name}" class="evolution-image">
-                        ${isCurrent ? '<span class="current-badge">Current</span>' : ''}
-                    </div>
-                    <p class="evolution-name">${evo.name}</p>
-                    <p class="evolution-id">#${String(evo.id).padStart(3, '0')}</p>
-                    <div class="evolution-types">${typeBadges}</div>
+
+        const html = await this.renderEvolutionNode(chain, currentName);
+        return html || '<p class="no-evolutions">This Pokémon does not evolve.</p>';
+    }
+
+    async renderEvolutionNode(node, currentName) {
+        if (!node) return '';
+
+        const speciesUrl = node.species?.url || '';
+        const pokemonId = speciesUrl.split('/').filter(Boolean).pop();
+        if (!pokemonId) return '';
+
+        let pokemon;
+        try {
+            const result = await this.fetchResourceWithFallback('pokemon', pokemonId);
+            pokemon = result.data;
+        } catch (error) {
+            console.error('Error fetching evolution Pokemon:', error);
+            return '';
+        }
+
+        const itemHtml = this.renderEvolutionItem(pokemon, node.species.name, pokemonId, currentName);
+        const children = node.evolves_to || [];
+
+        if (children.length === 0) {
+            return itemHtml;
+        }
+
+        if (children.length === 1) {
+            const child = children[0];
+            const detail = child.evolution_details && child.evolution_details[0];
+            const method = this.formatEvolutionDetails(detail);
+            const childHtml = await this.renderEvolutionNode(child, currentName);
+            return `${itemHtml}${this.renderEvolutionArrow(method)}${childHtml}`;
+        }
+
+        const childRows = await Promise.all(children.map(async (child) => {
+            const detail = child.evolution_details && child.evolution_details[0];
+            const method = this.formatEvolutionDetails(detail);
+            const childHtml = await this.renderEvolutionNode(child, currentName);
+            return `
+                <div class="evolution-branch-leaf">
+                    ${this.renderEvolutionArrow(method)}
+                    ${childHtml}
                 </div>
             `;
-            
-            // Show arrow with NEXT evolution's details (not current one's)
-            if (index < evolutions.length - 1) {
-                const nextEvo = evolutions[index + 1];
-                const evolutionDetails = nextEvo.details ? this.formatEvolutionDetails(nextEvo.details) : '';
-                
-                html += `
-                    <div class="evolution-arrow">
-                        <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        ${evolutionDetails ? `<span class="evolution-method">${evolutionDetails}</span>` : ''}
-                    </div>
-                `;
-            }
-            
-            return html;
-        }).join('');
+        }));
+
+        return `
+            <div class="evolution-branch-row">
+                ${itemHtml}
+                <div class="evolution-branch-column">
+                    ${childRows.join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    renderEvolutionItem(pokemon, speciesName, pokemonId, currentName) {
+        const isCurrent = speciesName === currentName;
+        const typeBadges = pokemon.types ? pokemon.types.map(type =>
+            `<span class="type-badge type-${type.type.name.toLowerCase()}">${type.type.name}</span>`
+        ).join('') : '';
+
+        return `
+            <div class="evolution-item ${isCurrent ? 'current' : ''}" data-pokemon-id="${pokemonId}">
+                <div class="evolution-image-wrapper">
+                    <img src="${this.getSpriteUrl(pokemon)}" alt="${speciesName}" class="evolution-image">
+                    ${isCurrent ? '<span class="current-badge">Current</span>' : ''}
+                </div>
+                <p class="evolution-name">${speciesName}</p>
+                <p class="evolution-id">#${String(pokemonId).padStart(3, '0')}</p>
+                <div class="evolution-types">${typeBadges}</div>
+            </div>
+        `;
+    }
+
+    renderEvolutionArrow(method) {
+        return `
+            <div class="evolution-arrow">
+                <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                ${method ? `<span class="evolution-method">${method}</span>` : ''}
+            </div>
+        `;
     }
 
     async extractEvolutions(chain, evolutions, details = null) {
