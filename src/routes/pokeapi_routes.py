@@ -52,8 +52,8 @@ _metadata_cache_count: int = 0  # number of cache files when last built
 def _build_metadata() -> Dict[str, dict]:
     """Scan pokeapi cache files and extract lightweight metadata.
 
-    Only reads the tail of each file (types, stats, height, weight are near
-    the end of PokeAPI responses) to avoid parsing several-MB files fully.
+    Reads the head of each file for abilities and the tail for
+    types/height/weight to avoid full JSON parsing of multi-MB files.
     """
     metadata: Dict[str, dict] = {}
     if not CACHE_DIR.is_dir():
@@ -66,25 +66,34 @@ def _build_metadata() -> Dict[str, dict]:
         poke_id = m.group(1).lstrip("0") or "0"
         filepath = CACHE_DIR / filename
         try:
-            # Read only the last 2KB where types/stats/height/weight live
             file_size = filepath.stat().st_size
             with filepath.open("r", encoding="utf-8") as fh:
+                # Read head for abilities + height (near top of file)
+                head = fh.read(min(6000, file_size))
+
+                # Read tail for types/height/weight (near end of file)
                 if file_size > 3000:
                     fh.seek(max(0, file_size - 2500))
                     tail = fh.read()
                 else:
-                    tail = fh.read()
+                    tail = head
+
+            # Extract abilities and height from head
+            abilities = re.findall(
+                r'"ability":\s*\{\s*"name":\s*"([^"]+)"', head
+            )
+            height_m = re.search(r'"height":\s*(\d+)', head)
 
             # Extract types via regex (faster than full JSON parse)
             types = re.findall(r'"type":\s*\{\s*"name":\s*"([^"]+)"', tail)
 
-            # Extract height/weight
-            height_m = re.search(r'"height":\s*(\d+)', tail)
+            # Extract weight from tail
             weight_m = re.search(r'"weight":\s*(\d+)', tail)
 
             metadata[poke_id] = {
                 "name": m.group(2),
                 "types": types,
+                "abilities": abilities,
                 "height": int(height_m.group(1)) if height_m else None,
                 "weight": int(weight_m.group(1)) if weight_m else None,
             }

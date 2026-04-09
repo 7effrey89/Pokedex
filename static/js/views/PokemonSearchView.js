@@ -11,6 +11,12 @@ class PokemonSearchView {
         this.genGrid = document.getElementById('searchGenGrid');
         this.numMin = document.getElementById('searchNumMin');
         this.numMax = document.getElementById('searchNumMax');
+        this.heightMin = document.getElementById('searchHeightMin');
+        this.heightMax = document.getElementById('searchHeightMax');
+        this.weightMin = document.getElementById('searchWeightMin');
+        this.weightMax = document.getElementById('searchWeightMax');
+        this.abilityInput = document.getElementById('searchAbilityInput');
+        this.abilityDatalist = document.getElementById('abilityDatalist');
         this.applyBtn = document.getElementById('searchApplyBtn');
         this.resetBtn = document.getElementById('searchResetBtn');
         this.resultBar = document.getElementById('searchResultBar');
@@ -113,6 +119,14 @@ class PokemonSearchView {
         if (this.numMax) {
             this.numMax.addEventListener('input', () => this.applyFilters());
         }
+
+        // Live filtering on height/weight/ability inputs
+        for (const el of [this.heightMin, this.heightMax, this.weightMin, this.weightMax]) {
+            if (el) el.addEventListener('input', () => this.applyFilters());
+        }
+        if (this.abilityInput) {
+            this.abilityInput.addEventListener('input', () => this.applyFilters());
+        }
     }
 
     toggle() {
@@ -142,6 +156,7 @@ class PokemonSearchView {
             if (resp.ok) {
                 this.metadata = await resp.json();
                 console.log(`🔍 Loaded metadata for ${Object.keys(this.metadata).length} cached Pokemon`);
+                this._buildAbilityDatalist();
             } else {
                 this.metadata = {};
             }
@@ -149,6 +164,18 @@ class PokemonSearchView {
             console.warn('Failed to load Pokemon metadata:', err);
             this.metadata = {};
         }
+    }
+
+    _buildAbilityDatalist() {
+        if (!this.abilityDatalist || !this.metadata) return;
+        const abilities = new Set();
+        for (const meta of Object.values(this.metadata)) {
+            if (meta.abilities) meta.abilities.forEach(a => abilities.add(a));
+        }
+        const sorted = [...abilities].sort();
+        this.abilityDatalist.innerHTML = sorted.map(a =>
+            `<option value="${a}">`
+        ).join('');
     }
 
     applyFilters() {
@@ -160,7 +187,26 @@ class PokemonSearchView {
         const hasNameFilter = nameQuery.length > 0;
         const hasRangeFilter = minNum > 1 || maxNum < 1025;
 
-        this.hasActiveFilter = hasTypeFilter || hasGenFilter || hasNameFilter || hasRangeFilter;
+        // Height filter (user enters metres, API stores decimetres)
+        const heightMinVal = parseFloat(this.heightMin?.value);
+        const heightMaxVal = parseFloat(this.heightMax?.value);
+        const hasHeightFilter = !isNaN(heightMinVal) || !isNaN(heightMaxVal);
+        const heightMinDm = !isNaN(heightMinVal) ? Math.round(heightMinVal * 10) : 0;
+        const heightMaxDm = !isNaN(heightMaxVal) ? Math.round(heightMaxVal * 10) : Infinity;
+
+        // Weight filter (user enters kg, API stores hectograms)
+        const weightMinVal = parseFloat(this.weightMin?.value);
+        const weightMaxVal = parseFloat(this.weightMax?.value);
+        const hasWeightFilter = !isNaN(weightMinVal) || !isNaN(weightMaxVal);
+        const weightMinHg = !isNaN(weightMinVal) ? Math.round(weightMinVal * 10) : 0;
+        const weightMaxHg = !isNaN(weightMaxVal) ? Math.round(weightMaxVal * 10) : Infinity;
+
+        // Ability filter
+        const abilityQuery = (this.abilityInput?.value || '').trim().toLowerCase();
+        const hasAbilityFilter = abilityQuery.length > 0;
+
+        this.hasActiveFilter = hasTypeFilter || hasGenFilter || hasNameFilter || hasRangeFilter
+            || hasHeightFilter || hasWeightFilter || hasAbilityFilter;
 
         // Build allowed generation ranges
         let genRanges = [];
@@ -214,6 +260,31 @@ class PokemonSearchView {
                 }
             }
 
+            // Height filter (requires metadata)
+            if (visible && hasHeightFilter && this.metadata) {
+                const meta = this.metadata[String(id)];
+                if (meta && meta.height != null) {
+                    if (meta.height < heightMinDm || meta.height > heightMaxDm) visible = false;
+                }
+            }
+
+            // Weight filter (requires metadata)
+            if (visible && hasWeightFilter && this.metadata) {
+                const meta = this.metadata[String(id)];
+                if (meta && meta.weight != null) {
+                    if (meta.weight < weightMinHg || meta.weight > weightMaxHg) visible = false;
+                }
+            }
+
+            // Ability filter (requires metadata)
+            if (visible && hasAbilityFilter && this.metadata) {
+                const meta = this.metadata[String(id)];
+                if (meta && meta.abilities) {
+                    const hasMatchingAbility = meta.abilities.some(a => a.includes(abilityQuery));
+                    if (!hasMatchingAbility) visible = false;
+                }
+            }
+
             card.style.display = visible ? '' : 'none';
             if (visible) matchCount++;
         });
@@ -257,6 +328,11 @@ class PokemonSearchView {
         if (this.nameInput) this.nameInput.value = '';
         if (this.numMin) this.numMin.value = '';
         if (this.numMax) this.numMax.value = '';
+        if (this.heightMin) this.heightMin.value = '';
+        if (this.heightMax) this.heightMax.value = '';
+        if (this.weightMin) this.weightMin.value = '';
+        if (this.weightMax) this.weightMax.value = '';
+        if (this.abilityInput) this.abilityInput.value = '';
 
         // Clear type selections
         this.selectedTypes.clear();
