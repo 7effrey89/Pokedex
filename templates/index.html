@@ -72,6 +72,7 @@
             
             <!-- Pokemon Grid View (Default) -->
             <div class="pokemon-grid-view" id="pokemonGridView">
+                <div class="search-result-bar" id="searchResultBar"></div>
                 <div class="grid-container">
                     <div class="list-wrapper" id="pokemonList">
                         <!-- Pokemon cards will be dynamically loaded here -->
@@ -260,6 +261,52 @@
             </div>
         </div>
 
+        <!-- Search/Filter Panel (slides up from footer) -->
+        <div class="search-panel" id="searchPanel">
+            <div class="search-panel-header">
+                <h3>Search &amp; Filter</h3>
+                <button class="search-panel-close" id="searchPanelClose">&times;</button>
+            </div>
+            <div class="search-panel-body">
+                <!-- Name search -->
+                <div class="search-field">
+                    <label for="searchNameInput">Name</label>
+                    <input type="text" id="searchNameInput" placeholder="e.g. Pikachu" autocomplete="off">
+                </div>
+
+                <!-- Type filter -->
+                <div class="search-field">
+                    <label>Type</label>
+                    <div class="search-type-grid" id="searchTypeGrid"></div>
+                </div>
+
+                <!-- Generation filter -->
+                <div class="search-field">
+                    <label>Generation</label>
+                    <div class="search-gen-grid" id="searchGenGrid"></div>
+                </div>
+
+                <!-- Number range -->
+                <div class="search-field search-range-row">
+                    <label>Number Range</label>
+                    <div class="search-range-inputs">
+                        <input type="number" id="searchNumMin" min="1" max="1025" placeholder="1">
+                        <span class="search-range-sep">&ndash;</span>
+                        <input type="number" id="searchNumMax" min="1" max="1025" placeholder="1025">
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="search-actions">
+                    <button class="search-btn search-btn-reset" id="searchResetBtn">Reset</button>
+                    <button class="search-btn search-btn-apply" id="searchApplyBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer Actions Bar -->
         <footer class="pokedex-footer">
             <div class="footer-actions">
@@ -285,6 +332,13 @@
                         alt="Who's that Pokémon graphic"
                         class="footer-random-img"
                     />
+                </button>
+
+                <button class="footer-btn footer-btn-icon-only" id="searchBtnFooter" aria-label="Search" data-tooltip="Search">
+                    <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
                 </button>
 
                 <button class="footer-btn footer-btn-icon-only" id="toolsBtnFooter" aria-label="Settings" data-tooltip="Settings">
@@ -705,6 +759,7 @@
     <script src="{{ url_for('static', filename='js/views/PokemonDetailView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/TcgCardsGalleryView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/TcgCardDetailView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/PokemonSearchView.js') }}"></script>
     
     <!-- Then load core application -->
     <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>

@@ -1441,6 +1441,257 @@
     border-left: 3px solid var(--pokedex-blue);
 }
 
+/* ============================================
+   Search / Filter Panel
+   ============================================ */
+.search-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #505050;
+    border-top: 3px solid var(--pokedex-black);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.search-panel.open {
+    transform: translateY(0);
+}
+
+.search-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem 0.5rem;
+    position: sticky;
+    top: 0;
+    background: #505050;
+    z-index: 1;
+}
+
+.search-panel-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.search-panel-close {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.75rem;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    line-height: 1;
+}
+
+.search-panel-close:hover {
+    color: #fff;
+}
+
+.search-panel-body {
+    padding: 0.5rem 1.25rem 1.25rem;
+}
+
+.search-field {
+    margin-bottom: 1rem;
+}
+
+.search-field label {
+    display: block;
+    color: #ddd;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.search-field input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 2px solid #666;
+    border-radius: 8px;
+    background: #3a3a3a;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-field input[type="text"]:focus {
+    border-color: var(--pokedex-blue);
+}
+
+/* Type chips grid */
+.search-type-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.search-type-chip {
+    padding: 0.3rem 0.7rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-transform: capitalize;
+    opacity: 0.55;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.search-type-chip:hover {
+    opacity: 0.8;
+}
+
+.search-type-chip.selected {
+    opacity: 1;
+    border-color: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Generation chips */
+.search-gen-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.search-gen-chip {
+    padding: 0.3rem 0.65rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.search-gen-chip:hover {
+    opacity: 0.85;
+}
+
+.search-gen-chip.selected {
+    opacity: 1;
+    background: var(--pokedex-blue);
+    border-color: #fff;
+}
+
+/* Number range */
+.search-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-range-inputs input[type="number"] {
+    width: 80px;
+    padding: 0.5rem 0.6rem;
+    border: 2px solid #666;
+    border-radius: 8px;
+    background: #3a3a3a;
+    color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+    text-align: center;
+}
+
+.search-range-inputs input[type="number"]:focus {
+    border-color: var(--pokedex-blue);
+}
+
+.search-range-sep {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+/* Action buttons */
+.search-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.search-btn {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.15s ease;
+}
+
+.search-btn-reset {
+    background: #888;
+    color: #fff;
+}
+
+.search-btn-reset:hover {
+    background: #999;
+}
+
+.search-btn-apply {
+    background: #F08030;
+    color: #fff;
+}
+
+.search-btn-apply:hover {
+    background: #e07020;
+}
+
+/* Active filter indicator on the footer search button */
+.search-active-dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background: #F08030;
+    border-radius: 50%;
+    border: 2px solid var(--pokedex-red-dark);
+}
+
+/* Match count shown above grid when filters active */
+.search-result-bar {
+    background: #3a3a3a;
+    color: #fff;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: none;
+}
+
+.search-result-bar.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .search-panel {
+        max-height: 85vh;
+    }
+}
+
 .help-section li strong {
     color: var(--pokedex-red);
     display: block;

@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+import re
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Optional, Tuple
@@ -16,6 +17,7 @@ logger = logging.getLogger(__name__)
 POKEAPI_BASE_URL = os.environ.get("POKEMON_API_URL", "https://pokeapi.co/api/v2")
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POKEMON_LIST_PATH = PROJECT_ROOT / "data" / "pokemon_list.json"
+CACHE_DIR = PROJECT_ROOT / "cache"
 cache_service = get_cache_service()
 
 pokeapi_bp = Blueprint("pokeapi", __name__, url_prefix="/api/pokemon")
@@ -38,6 +40,80 @@ def get_pokemon_list():
     except json.JSONDecodeError as exc:
         logger.error("Pokemon list file is invalid JSON: %s", exc)
         return jsonify({"error": "Pokemon list invalid"}), 500
+
+
+_CACHE_FILE_RE = re.compile(r"^pokeapi-(\d+)-(.+)\.json$")
+
+# In-memory metadata cache (built lazily on first request)
+_metadata_cache: Optional[Dict] = None
+_metadata_cache_count: int = 0  # number of cache files when last built
+
+
+def _build_metadata() -> Dict[str, dict]:
+    """Scan pokeapi cache files and extract lightweight metadata.
+
+    Only reads the tail of each file (types, stats, height, weight are near
+    the end of PokeAPI responses) to avoid parsing several-MB files fully.
+    """
+    metadata: Dict[str, dict] = {}
+    if not CACHE_DIR.is_dir():
+        return metadata
+
+    for filename in os.listdir(CACHE_DIR):
+        m = _CACHE_FILE_RE.match(filename)
+        if not m:
+            continue
+        poke_id = m.group(1).lstrip("0") or "0"
+        filepath = CACHE_DIR / filename
+        try:
+            # Read only the last 2KB where types/stats/height/weight live
+            file_size = filepath.stat().st_size
+            with filepath.open("r", encoding="utf-8") as fh:
+                if file_size > 3000:
+                    fh.seek(max(0, file_size - 2500))
+                    tail = fh.read()
+                else:
+                    tail = fh.read()
+
+            # Extract types via regex (faster than full JSON parse)
+            types = re.findall(r'"type":\s*\{\s*"name":\s*"([^"]+)"', tail)
+
+            # Extract height/weight
+            height_m = re.search(r'"height":\s*(\d+)', tail)
+            weight_m = re.search(r'"weight":\s*(\d+)', tail)
+
+            metadata[poke_id] = {
+                "name": m.group(2),
+                "types": types,
+                "height": int(height_m.group(1)) if height_m else None,
+                "weight": int(weight_m.group(1)) if weight_m else None,
+            }
+        except (OSError, ValueError):
+            continue
+
+    return metadata
+
+
+@pokeapi_bp.route("/metadata", methods=["GET"])
+def get_pokemon_metadata():
+    """Return lightweight metadata extracted from cached Pokemon JSON files."""
+    global _metadata_cache, _metadata_cache_count
+
+    # Count current cache files to detect new additions
+    current_count = 0
+    if CACHE_DIR.is_dir():
+        current_count = sum(
+            1 for f in os.listdir(CACHE_DIR) if _CACHE_FILE_RE.match(f)
+        )
+
+    # Rebuild if first request or cache file count changed
+    if _metadata_cache is None or current_count != _metadata_cache_count:
+        logger.info("Building Pokemon metadata cache (%d files)...", current_count)
+        _metadata_cache = _build_metadata()
+        _metadata_cache_count = current_count
+        logger.info("Pokemon metadata cache ready (%d entries)", len(_metadata_cache))
+
+    return jsonify(_metadata_cache)
 
 
 def _should_refresh() -> bool:

@@ -132,6 +132,9 @@ class PokemonChatApp {
             { name: 'Generation IX (Paldea)', start: 906, end: 1025 }
         ];
 
+        // Initialize search view (after generations is set)
+        this.searchView = new PokemonSearchView(this);
+
         // View history for navigation
         this.viewHistory = ['grid']; // Start at grid view
         this.currentViewIndex = 0;
