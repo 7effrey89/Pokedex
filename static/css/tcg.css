@@ -991,6 +991,10 @@
 
 .tcg-database-view {
     padding: 1rem;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .tcg-db-header {
@@ -1002,6 +1006,47 @@
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tcg-db-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* View toggle (Expansions / All Cards) */
+.tcg-view-toggle {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tcg-view-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.tcg-view-toggle-btn:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tcg-view-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tcg-view-toggle-btn.active {
+    background: rgba(255, 203, 5, 0.2);
+    color: #ffcb05;
 }
 
 .tcg-database-list {
@@ -1191,6 +1236,196 @@
     color: #ffcb05;
 }
 
+/* All Cards flat grid */
+.tcg-all-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.tcg-all-cards-set-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    width: 100%;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Expansion separator in All Cards view */
+.tcg-all-cards-separator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0 1rem;
+}
+
+.tcg-all-cards-separator-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 203, 5, 0.4), transparent);
+}
+
+.tcg-all-cards-separator-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+}
+
+.tcg-all-cards-set-logo {
+    height: 28px;
+    max-width: 100px;
+    object-fit: contain;
+}
+
+.tcg-all-cards-set-name {
+    color: #ffcb05;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tcg-all-cards-set-detail {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.tcg-all-cards-set-symbol {
+    height: 14px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.tcg-all-cards-grid .tcg-card-info {
+    padding: 0.4rem 0.15rem;
+}
+
+.tcg-all-cards-grid .tcg-card-set-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tcg-all-cards-grid .tcg-card-meta {
+    font-size: 0.7rem;
+    color: rgba(255, 203, 5, 0.7);
+    display: block;
+}
+
+/* Expansion Picker */
+.tcg-expansion-picker {
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tcg-expansion-picker-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.85rem 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.tcg-expansion-picker-header:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.tcg-expansion-picker-header.expanded {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tcg-expansion-picker-arrow {
+    color: rgba(255, 203, 5, 0.9);
+    font-size: 0.9rem;
+    width: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.tcg-expansion-picker-title {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.tcg-expansion-picker-count {
+    color: rgba(255, 203, 5, 0.85);
+    font-size: 0.8rem;
+    flex: 1;
+    text-align: right;
+}
+
+.tcg-expansion-picker-list {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 0 0.5rem 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tcg-picker-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 0.78rem;
+}
+
+.tcg-picker-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.tcg-picker-item input[type="checkbox"] {
+    accent-color: #ffcb05;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.tcg-picker-symbol {
+    height: 16px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.tcg-picker-name {
+    color: rgba(255, 255, 255, 0.8);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tcg-picker-year {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.tcg-picker-status {
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    width: 1.2em;
+    text-align: center;
+}
+
 /* Footer TCG icon */
 .footer-tcg-icon {
     width: 50px;
@@ -1229,6 +1464,24 @@
     .tcg-db-card-more {
         width: 80px;
         min-height: 112px;
+    }
+
+    .tcg-all-cards-set-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+
+    .tcg-all-cards-separator-label {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .tcg-all-cards-set-logo {
+        height: 22px;
+    }
+
+    .tcg-db-controls {
+        width: 100%;
     }
 }
 

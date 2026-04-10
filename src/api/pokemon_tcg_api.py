@@ -266,6 +266,7 @@ class PokemonTCGTools:
                 "symbol": card.get("set", {}).get("images", {}).get("symbol")
             },
             "number": card.get("number"),
+            "nationalPokedexNumbers": card.get("nationalPokedexNumbers", []),
             "rarity": card.get("rarity"),
             "flavorText": card.get("flavorText"),
             "artist": card.get("artist"),

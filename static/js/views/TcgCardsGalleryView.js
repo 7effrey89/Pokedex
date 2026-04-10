@@ -5,6 +5,7 @@ class TcgCardsGalleryView {
     constructor(app) {
         this.app = app;
         this.galleryView = document.getElementById('tcgCardsView');
+        this._dexLookup = null;
     }
 
     display(tcgData) {
@@ -108,6 +109,12 @@ class TcgCardsGalleryView {
                 <label for="tcg-sort-select">Sort by:</label>
                 <select id="tcg-sort-select">
                     <option value="default"${this.currentSort === 'default' ? ' selected' : ''}>Default</option>
+                    <option value="number"${this.currentSort === 'number' ? ' selected' : ''}>Card #</option>
+                    <option value="dex-asc"${this.currentSort === 'dex-asc' ? ' selected' : ''}>Pokédex #</option>
+                    <option value="name-asc"${this.currentSort === 'name-asc' ? ' selected' : ''}>Name: A → Z</option>
+                    <option value="name-desc"${this.currentSort === 'name-desc' ? ' selected' : ''}>Name: Z → A</option>
+                    <option value="rarity-desc"${this.currentSort === 'rarity-desc' ? ' selected' : ''}>Rarity: Rare First</option>
+                    <option value="rarity-asc"${this.currentSort === 'rarity-asc' ? ' selected' : ''}>Rarity: Common First</option>
                     <option value="price-desc"${this.currentSort === 'price-desc' ? ' selected' : ''}>Price: High → Low</option>
                     <option value="price-asc"${this.currentSort === 'price-asc' ? ' selected' : ''}>Price: Low → High</option>
                     <option value="year-desc"${this.currentSort === 'year-desc' ? ' selected' : ''}>Year: Newest</option>
@@ -182,6 +189,31 @@ class TcgCardsGalleryView {
     sortCards(cards, sortBy) {
         const sorted = [...cards];
         switch (sortBy) {
+            case 'number':
+                sorted.sort((a, b) => (a.number || '').localeCompare(b.number || '', undefined, { numeric: true }));
+                break;
+            case 'dex-asc':
+                sorted.sort((a, b) => {
+                    const aPoke = a.supertype === 'Pokémon';
+                    const bPoke = b.supertype === 'Pokémon';
+                    if (aPoke && bPoke) return this._getCardDexNumber(a) - this._getCardDexNumber(b);
+                    if (aPoke && !bPoke) return -1;
+                    if (!aPoke && bPoke) return 1;
+                    return (a.name || '').localeCompare(b.name || '');
+                });
+                break;
+            case 'name-asc':
+                sorted.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+                break;
+            case 'name-desc':
+                sorted.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+                break;
+            case 'rarity-desc':
+                sorted.sort((a, b) => this._getRarityRank(b.rarity) - this._getRarityRank(a.rarity));
+                break;
+            case 'rarity-asc':
+                sorted.sort((a, b) => this._getRarityRank(a.rarity) - this._getRarityRank(b.rarity));
+                break;
             case 'price-desc':
                 sorted.sort((a, b) => (this.getCardAvgPrice(b) || 0) - (this.getCardAvgPrice(a) || 0));
                 break;
@@ -204,6 +236,38 @@ class TcgCardsGalleryView {
                 break;
         }
         return sorted;
+    }
+
+    _getCardDexNumber(card) {
+        const dex = card.nationalPokedexNumbers;
+        if (dex && dex.length > 0) return dex[0];
+        // Fallback: reuse database view's lookup or load our own
+        const lookup = this._dexLookup || this.app.tcgDatabase?._dexLookup;
+        if (lookup && card.supertype === 'Pokémon') {
+            const baseName = (card.name || '').toLowerCase()
+                .replace(/\s+(ex|gx|vmax|vstar|v|lv\.\s*x|prime|break|δ)$/i, '')
+                .replace(/[\s-]+/g, '-').trim();
+            const dexNum = lookup.get(baseName);
+            if (dexNum) return dexNum;
+        }
+        return card.supertype === 'Pokémon' ? 99999 : Infinity;
+    }
+
+    _getRarityRank(rarity) {
+        const order = {
+            'Common': 1, 'Uncommon': 2, 'Rare': 3, 'Rare Holo': 4,
+            'Promo': 5, 'Double Rare': 6, 'Rare Holo EX': 7, 'Rare Holo GX': 8,
+            'Rare Holo V': 9, 'Rare Holo VMAX': 10, 'Rare Holo VSTAR': 11,
+            'Ultra Rare': 12, 'Rare Ultra': 12, 'Illustration Rare': 13,
+            'Special Illustration Rare': 14, 'Rare Rainbow': 15,
+            'Rare Secret': 16, 'Hyper Rare': 17, 'Shiny Rare': 18,
+            'Shiny Ultra Rare': 19, 'Rare Shiny': 18, 'Rare Shiny GX': 19,
+            'ACE SPEC Rare': 15, 'Rare ACE': 15, 'Radiant Rare': 13,
+            'Amazing Rare': 13, 'Rare BREAK': 7, 'Rare Holo LV.X': 8,
+            'Rare Prime': 8, 'Rare Prism Star': 9, 'Rare Holo Star': 16,
+            'Rare Shining': 16, 'LEGEND': 17, 'Classic Collection': 14,
+        };
+        return order[rarity] || 10;
     }
 
     getSetId(card) {

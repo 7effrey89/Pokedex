@@ -208,15 +208,21 @@
                         <h1>🃏 TCG Card Database</h1>
                         <p id="tcgDbSetCount"></p>
                     </div>
-                    <div class="tcg-sort-controls">
-                        <label for="tcg-db-sort-select">Sort by:</label>
-                        <select id="tcg-db-sort-select">
-                            <option value="release-desc" selected>Newest First</option>
-                            <option value="release-asc">Oldest First</option>
-                            <option value="name-asc">Name: A → Z</option>
-                            <option value="name-desc">Name: Z → A</option>
-                            <option value="cards-desc">Most Cards</option>
-                        </select>
+                    <div class="tcg-db-controls">
+                        <div class="tcg-view-toggle">
+                            <button class="tcg-view-toggle-btn active" data-mode="expansions">Expansions</button>
+                            <button class="tcg-view-toggle-btn" data-mode="all-cards">All Cards</button>
+                        </div>
+                        <div class="tcg-sort-controls">
+                            <label for="tcg-db-sort-select">Sort by:</label>
+                            <select id="tcg-db-sort-select">
+                                <option value="release-desc" selected>Newest First</option>
+                                <option value="release-asc">Oldest First</option>
+                                <option value="name-asc">Name: A → Z</option>
+                                <option value="name-desc">Name: Z → A</option>
+                                <option value="cards-desc">Most Cards</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="tcg-database-list" id="tcgDatabaseList">
@@ -353,12 +359,24 @@
                 <!-- TCG Filters (shown when on TCG Database) -->
                 <div id="tcgFilters" style="display: none;">
                     <div class="search-field">
-                        <label for="tcgSearchNameInput">Expansion Name</label>
-                        <input type="text" id="tcgSearchNameInput" placeholder="e.g. Scarlet &amp; Violet" autocomplete="off">
+                        <label for="tcgSearchNameInput">Search</label>
+                        <input type="text" id="tcgSearchNameInput" placeholder="Card name or expansion..." autocomplete="off">
                     </div>
 
                     <div class="search-field">
-                        <label>Card Type</label>
+                        <label>Expansion <small class="search-unit tcg-expansion-toggle" id="tcgExpansionToggle">▸ show list</small></label>
+                        <div class="tcg-expansion-list" id="tcgExpansionList" style="display: none;">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <label>Card Category</label>
+                        <div class="search-type-grid" id="tcgCategoryGrid"></div>
+                    </div>
+
+                    <div class="search-field">
+                        <label>Energy Type</label>
                         <div class="search-type-grid" id="tcgSearchTypeGrid"></div>
                     </div>
 

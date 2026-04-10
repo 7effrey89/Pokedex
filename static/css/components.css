@@ -1664,6 +1664,94 @@
     border-color: #fff;
 }
 
+/* TCG Category chips */
+.tcg-cat-chip {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tcg-cat-chip.selected {
+    background: rgba(255, 203, 5, 0.25);
+    border-color: #ffcb05;
+}
+
+/* TCG Expansion toggle */
+.tcg-expansion-toggle {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.tcg-expansion-toggle:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* TCG Expansion checkbox list */
+.tcg-expansion-list {
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 0.4rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.tcg-expansion-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tcg-expansion-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.tcg-expansion-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: background 0.15s;
+}
+
+.tcg-expansion-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tcg-expansion-item input[type="checkbox"] {
+    accent-color: #ffcb05;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.tcg-expansion-symbol {
+    height: 16px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.tcg-expansion-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tcg-expansion-year {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
 /* Number range */
 .search-range-inputs {
     display: flex;

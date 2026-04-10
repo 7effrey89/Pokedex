@@ -12,6 +12,17 @@ class TcgDatabaseView {
         this.loadedSets = new Set();
         this.currentSort = 'release-desc';
         this.observer = null;
+
+        // All Cards flat view state
+        this.viewMode = 'expansions'; // 'expansions' or 'all-cards'
+        this.allCards = [];
+        this.loadedSetIds = new Set(); // track which sets have been fetched
+        this.filteredCards = null; // null = no filter active
+        this.isLoadingCards = false;
+        this.cardSort = 'set-desc';
+        this._dexLookup = null; // name → dex number map (fetched lazily)
+        this._selectedSetIds = new Set(); // sets user has chosen to load
+
         this._setupLazyObserver();
     }
 
@@ -28,6 +39,56 @@ class TcgDatabaseView {
                 }
             });
         }, { rootMargin: '400px' });
+    }
+
+    async toggleViewMode(mode) {
+        if (mode === this.viewMode) return;
+        this.viewMode = mode;
+
+        // Update toggle button states
+        const toggleBtns = this.databaseView?.querySelectorAll('.tcg-view-toggle-btn');
+        toggleBtns?.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.mode === mode);
+        });
+
+        // Update sort select options
+        this._updateSortOptions();
+
+        if (mode === 'all-cards') {
+            await this._renderAllCardsView();
+        } else {
+            this._renderDatabase();
+        }
+    }
+
+    _updateSortOptions() {
+        const sortSelect = this.databaseView?.querySelector('#tcg-db-sort-select');
+        if (!sortSelect) return;
+
+        if (this.viewMode === 'all-cards') {
+            sortSelect.innerHTML = `
+                <option value="set-desc" selected>Newest Set First</option>
+                <option value="set-asc">Oldest Set First</option>
+                <option value="number">Card #</option>
+                <option value="dex-asc">Pokédex #</option>
+                <option value="name-asc">Name: A → Z</option>
+                <option value="name-desc">Name: Z → A</option>
+                <option value="rarity-desc">Rarity: Rare First</option>
+                <option value="rarity-asc">Rarity: Common First</option>
+                <option value="price-desc">Price: High → Low</option>
+                <option value="price-asc">Price: Low → High</option>
+            `;
+            sortSelect.value = this.cardSort;
+        } else {
+            sortSelect.innerHTML = `
+                <option value="release-desc" selected>Newest First</option>
+                <option value="release-asc">Oldest First</option>
+                <option value="name-asc">Name: A → Z</option>
+                <option value="name-desc">Name: Z → A</option>
+                <option value="cards-desc">Most Cards</option>
+            `;
+            sortSelect.value = this.currentSort;
+        }
     }
 
     saveScrollPosition() {
@@ -120,6 +181,14 @@ class TcgDatabaseView {
                 this.changeSort(sortSelect.value);
             });
         }
+
+        // View toggle buttons
+        const toggleBtns = this.databaseView?.querySelectorAll('.tcg-view-toggle-btn');
+        toggleBtns?.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.toggleViewMode(btn.dataset.mode);
+            });
+        });
     }
 
     _renderDatabase() {
@@ -284,18 +353,22 @@ class TcgDatabaseView {
         return sorted;
     }
 
-    /** Called from the TCG search panel to filter sets by name */
-    filterSets(query) {
+    /** Called from the TCG search panel to filter sets by name and/or selection */
+    filterSets(query, selectedSets) {
         if (!this.cardList) return;
         const lcQuery = query.toLowerCase();
+        const hasSetFilter = selectedSets && selectedSets.size > 0;
         const sections = this.cardList.querySelectorAll('.tcg-set-section');
         const separators = this.cardList.querySelectorAll('.tcg-series-separator');
 
         let visibleCount = 0;
         sections.forEach(section => {
+            const setId = section.dataset.setId || '';
             const setName = section.querySelector('.tcg-set-name')?.textContent?.toLowerCase() || '';
             const series = section.dataset?.series || '';
-            const visible = !lcQuery || setName.includes(lcQuery) || series.toLowerCase().includes(lcQuery);
+            const matchesQuery = !lcQuery || setName.includes(lcQuery) || series.toLowerCase().includes(lcQuery);
+            const matchesSet = !hasSetFilter || selectedSets.has(setId);
+            const visible = matchesQuery && matchesSet;
             section.style.display = visible ? '' : 'none';
             if (visible) visibleCount++;
         });
@@ -317,7 +390,451 @@ class TcgDatabaseView {
 
     /** Re-sort and re-render */
     changeSort(sortValue) {
-        this.currentSort = sortValue;
-        this._renderDatabase();
+        if (this.viewMode === 'all-cards') {
+            this.cardSort = sortValue;
+            this._renderCardGrid();
+        } else {
+            this.currentSort = sortValue;
+            this._renderDatabase();
+        }
+    }
+
+    // ========================================
+    // All Cards Flat View
+    // ========================================
+
+    async _renderAllCardsView() {
+        if (!this.cardList) return;
+        this.cardList.innerHTML = '';
+
+        // Ensure dex lookup is loaded for Pokemon sorting
+        await this._loadDexLookup();
+
+        // Build expansion picker
+        this._buildExpansionPicker();
+
+        // Create grid container
+        const grid = document.createElement('div');
+        grid.className = 'tcg-all-cards-grid';
+        grid.id = 'tcgAllCardsGrid';
+        this.cardList.appendChild(grid);
+
+        if (this.allCards.length > 0) {
+            // Already have cards
+            this._renderCardGrid();
+        } else {
+            // First visit: auto-select the latest expansion
+            const newest = this._sortSets(this.allSets, 'release-desc')[0];
+            if (newest) {
+                await this._toggleSetSelection(newest.id, true);
+            }
+        }
+
+        this._updateCardCount();
+    }
+
+    /** Build the expansion picker checklist below the header */
+    _buildExpansionPicker() {
+        let picker = document.getElementById('tcgExpansionPicker');
+        if (picker) picker.remove();
+
+        picker = document.createElement('div');
+        picker.className = 'tcg-expansion-picker';
+        picker.id = 'tcgExpansionPicker';
+
+        // Header row with toggle - entire header is clickable
+        const header = document.createElement('div');
+        header.className = 'tcg-expansion-picker-header';
+        header.innerHTML = `
+            <span class="tcg-expansion-picker-arrow" id="tcgPickerArrow">▸</span>
+            <span class="tcg-expansion-picker-title">Expansions to load</span>
+            <span class="tcg-expansion-picker-count" id="tcgPickerCount">${this._selectedSetIds.size} of ${this.allSets.length} selected</span>
+        `;
+        picker.appendChild(header);
+
+        // Checklist (hidden by default)
+        const list = document.createElement('div');
+        list.className = 'tcg-expansion-picker-list';
+        list.id = 'tcgPickerList';
+        list.style.display = 'none';
+
+        const sorted = this._sortSets(this.allSets, 'release-desc');
+        list.innerHTML = sorted.map(set => {
+            const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
+            const symbolUrl = set.images?.symbol || '';
+            const checked = this._selectedSetIds.has(set.id) ? 'checked' : '';
+            const loading = '';
+            return `<label class="tcg-picker-item" data-set-id="${set.id}">
+                <input type="checkbox" value="${set.id}" ${checked}>
+                ${symbolUrl ? `<img src="${symbolUrl}" alt="" class="tcg-picker-symbol" loading="lazy">` : ''}
+                <span class="tcg-picker-name">${set.name}</span>
+                <span class="tcg-picker-year">${year}</span>
+                <span class="tcg-picker-status" id="tcgPickerStatus-${set.id}"></span>
+            </label>`;
+        }).join('');
+        picker.appendChild(list);
+
+        // Insert before the card grid
+        this.cardList.insertBefore(picker, this.cardList.firstChild);
+
+        // Wire toggle - clicking anywhere on header toggles list
+        header.addEventListener('click', () => {
+            const visible = list.style.display !== 'none';
+            list.style.display = visible ? 'none' : '';
+            document.getElementById('tcgPickerArrow').textContent = visible ? '▸' : '▾';
+            header.classList.toggle('expanded', !visible);
+        });
+
+        // Wire checkboxes
+        list.addEventListener('change', async (e) => {
+            if (e.target.type !== 'checkbox') return;
+            const setId = e.target.value;
+            const checked = e.target.checked;
+            await this._toggleSetSelection(setId, checked);
+        });
+    }
+
+    /** Toggle a set on/off: load or unload its cards */
+    async _toggleSetSelection(setId, selected) {
+        if (selected) {
+            this._selectedSetIds.add(setId);
+            if (!this.loadedSetIds.has(setId)) {
+                await this._loadSetCardsForAllCards(setId);
+            }
+        } else {
+            this._selectedSetIds.delete(setId);
+            // Remove cards from this set
+            this.allCards = this.allCards.filter(c => (c.set?.id || '') !== setId);
+            this.loadedSetIds.delete(setId);
+        }
+
+        this.filteredCards = null;
+        this._updateCardCount();
+        this._renderCardGrid();
+        this._updatePickerCount();
+        this._syncFilterPanelExpansions();
+    }
+
+    /** Load cards for a single set into allCards */
+    async _loadSetCardsForAllCards(setId) {
+        // Show loading status
+        const statusEl = document.getElementById(`tcgPickerStatus-${setId}`);
+        if (statusEl) statusEl.textContent = '⏳';
+
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_cards_by_set',
+                    arguments: { set_id: setId }
+                })
+            });
+            if (!response.ok) throw new Error('Failed');
+            const data = await response.json();
+            if (data?.result?.cards) {
+                this.allCards = this.allCards.concat(data.result.cards);
+                this.loadedSetIds.add(setId);
+            }
+            if (statusEl) statusEl.textContent = '✓';
+        } catch (err) {
+            console.warn(`Failed to load cards for set ${setId}:`, err);
+            if (statusEl) statusEl.textContent = '✗';
+        }
+    }
+
+    /** Load multiple sets at once (for batch selection) */
+    async _loadMultipleSets(setIds) {
+        this.isLoadingCards = true;
+        const toLoad = setIds.filter(id => !this.loadedSetIds.has(id));
+
+        for (let i = 0; i < toLoad.length; i += 5) {
+            const batch = toLoad.slice(i, i + 5);
+            const promises = batch.map(id => this._loadSetCardsForAllCards(id));
+            await Promise.all(promises);
+            this._updateCardCount();
+            this._renderCardGrid();
+        }
+
+        this.isLoadingCards = false;
+        this._updateCardCount();
+        this._renderCardGrid();
+        this._updatePickerCount();
+    }
+
+    /** Update the picker count label */
+    _updatePickerCount() {
+        const el = document.getElementById('tcgPickerCount');
+        if (el) el.textContent = `${this._selectedSetIds.size} of ${this.allSets.length} selected`;
+
+        // Update checkbox states in picker
+        const list = document.getElementById('tcgPickerList');
+        if (list) {
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = this._selectedSetIds.has(cb.value);
+            });
+        }
+    }
+
+    /** Sync the expansion checkboxes in the filter panel with our selection */
+    _syncFilterPanelExpansions() {
+        const searchView = this.app.searchView;
+        if (!searchView) return;
+
+        // Update PokemonSearchView's tcgSelectedSets
+        searchView.tcgSelectedSets = new Set(this._selectedSetIds);
+
+        // Update checkbox DOM in the filter panel
+        const filterList = searchView.tcgExpansionList;
+        if (filterList) {
+            filterList.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = this._selectedSetIds.has(cb.value);
+            });
+        }
+    }
+
+    /** Called from PokemonSearchView when user changes expansion checkboxes in the filter panel */
+    syncFromFilterPanel(selectedSets) {
+        const added = [...selectedSets].filter(id => !this._selectedSetIds.has(id));
+        const removed = [...this._selectedSetIds].filter(id => !selectedSets.has(id));
+
+        // Remove unselected sets
+        removed.forEach(id => {
+            this._selectedSetIds.delete(id);
+            this.allCards = this.allCards.filter(c => (c.set?.id || '') !== id);
+            this.loadedSetIds.delete(id);
+        });
+
+        // Add newly selected sets
+        this._selectedSetIds = new Set(selectedSets);
+
+        if (added.length > 0) {
+            this._loadMultipleSets(added);
+        } else {
+            this.filteredCards = null;
+            this._updateCardCount();
+            this._renderCardGrid();
+            this._updatePickerCount();
+        }
+    }
+
+    _updateCardCount() {
+        const countEl = document.getElementById('tcgDbSetCount');
+        if (!countEl) return;
+        const display = this._getDisplayCards();
+        if (this.filteredCards !== null) {
+            countEl.textContent = `${display.length} of ${this.allCards.length} cards`;
+        } else {
+            countEl.textContent = `${this.allCards.length} cards · ${this._selectedSetIds.size} expansions`;
+        }
+    }
+
+    _getDisplayCards() {
+        return this.filteredCards !== null ? this.filteredCards : this.allCards;
+    }
+
+    _getCardPrice(card) {
+        const prices = card.tcgplayer?.prices || card.prices;
+        if (!prices) return 0;
+        for (const variant of Object.values(prices)) {
+            if (variant?.market) return variant.market;
+            if (variant?.mid) return variant.mid;
+        }
+        return 0;
+    }
+
+    /** Get the national dex number for a Pokemon card, or Infinity for non-Pokemon */
+    _getCardDexNumber(card) {
+        // First try the card's own nationalPokedexNumbers (new cache entries)
+        const dex = card.nationalPokedexNumbers;
+        if (dex && dex.length > 0) return dex[0];
+        // Fallback: look up by name from Pokemon metadata
+        if (this._dexLookup && card.supertype === 'Pokémon') {
+            // Normalize: strip suffixes like " ex", " V", " VMAX", " GX", " EX", etc.
+            const baseName = (card.name || '').toLowerCase()
+                .replace(/\s+(ex|gx|vmax|vstar|v|lv\.\s*x|prime|break|δ)$/i, '')
+                .replace(/[\s-]+/g, '-')
+                .trim();
+            const dexNum = this._dexLookup.get(baseName);
+            if (dexNum) return dexNum;
+        }
+        return card.supertype === 'Pokémon' ? 99999 : Infinity;
+    }
+
+    /** Load the Pokemon name→dex# lookup from metadata endpoint */
+    async _loadDexLookup() {
+        if (this._dexLookup) return;
+        try {
+            const resp = await fetch('/api/pokemon/metadata');
+            if (!resp.ok) return;
+            const data = await resp.json();
+            this._dexLookup = new Map();
+            for (const [id, meta] of Object.entries(data)) {
+                const name = (meta.name || '').toLowerCase().replace(/[\s-]+/g, '-');
+                this._dexLookup.set(name, parseInt(id));
+            }
+            console.log(`🔢 Loaded dex lookup: ${this._dexLookup.size} Pokemon`);
+        } catch (err) {
+            console.warn('Failed to load dex lookup:', err);
+        }
+    }
+
+    _sortCards(cards, sortBy) {
+        const sorted = [...cards];
+        switch (sortBy) {
+            case 'number':
+                sorted.sort((a, b) => {
+                    const setA = a.set?.releaseDate || '';
+                    const setB = b.set?.releaseDate || '';
+                    const setCmp = setB.localeCompare(setA);
+                    if (setCmp !== 0) return setCmp;
+                    return (a.number || '').localeCompare(b.number || '', undefined, { numeric: true });
+                });
+                break;
+            case 'dex-asc':
+                sorted.sort((a, b) => {
+                    const aPoke = a.supertype === 'Pokémon';
+                    const bPoke = b.supertype === 'Pokémon';
+                    if (aPoke && bPoke) return this._getCardDexNumber(a) - this._getCardDexNumber(b);
+                    if (aPoke && !bPoke) return -1;
+                    if (!aPoke && bPoke) return 1;
+                    return (a.name || '').localeCompare(b.name || '');
+                });
+                break;
+            case 'name-asc':
+                sorted.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+                break;
+            case 'name-desc':
+                sorted.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+                break;
+            case 'rarity-desc':
+                sorted.sort((a, b) => this._getRarityRank(b.rarity) - this._getRarityRank(a.rarity));
+                break;
+            case 'rarity-asc':
+                sorted.sort((a, b) => this._getRarityRank(a.rarity) - this._getRarityRank(b.rarity));
+                break;
+            case 'price-desc':
+                sorted.sort((a, b) => this._getCardPrice(b) - this._getCardPrice(a));
+                break;
+            case 'price-asc':
+                sorted.sort((a, b) => this._getCardPrice(a) - this._getCardPrice(b));
+                break;
+            case 'set-asc':
+                sorted.sort((a, b) => {
+                    const dateA = a.set?.releaseDate || '';
+                    const dateB = b.set?.releaseDate || '';
+                    return dateA.localeCompare(dateB) || (a.number || '').localeCompare(b.number || '', undefined, { numeric: true });
+                });
+                break;
+            case 'set-desc':
+            default:
+                sorted.sort((a, b) => {
+                    const dateA = a.set?.releaseDate || '';
+                    const dateB = b.set?.releaseDate || '';
+                    return dateB.localeCompare(dateA) || (a.number || '').localeCompare(b.number || '', undefined, { numeric: true });
+                });
+                break;
+        }
+        return sorted;
+    }
+
+    _renderCardGrid() {
+        const container = document.getElementById('tcgAllCardsGrid');
+        if (!container) return;
+        container.innerHTML = '';
+
+        const cards = this._getDisplayCards();
+        const sorted = this._sortCards(cards, this.cardSort);
+
+        const grid = document.createElement('div');
+        grid.className = 'tcg-all-cards-set-grid';
+        sorted.forEach(card => {
+            grid.appendChild(this._createFlatCardElement(card));
+        });
+        container.appendChild(grid);
+    }
+
+    /** Rarity rank: lower = more common */
+    _getRarityRank(rarity) {
+        const order = {
+            'Common': 1, 'Uncommon': 2, 'Rare': 3, 'Rare Holo': 4,
+            'Promo': 5, 'Double Rare': 6, 'Rare Holo EX': 7, 'Rare Holo GX': 8,
+            'Rare Holo V': 9, 'Rare Holo VMAX': 10, 'Rare Holo VSTAR': 11,
+            'Ultra Rare': 12, 'Rare Ultra': 12, 'Illustration Rare': 13,
+            'Special Illustration Rare': 14, 'Rare Rainbow': 15,
+            'Rare Secret': 16, 'Hyper Rare': 17, 'Shiny Rare': 18,
+            'Shiny Ultra Rare': 19, 'Rare Shiny': 18, 'Rare Shiny GX': 19,
+            'ACE SPEC Rare': 15, 'Rare ACE': 15, 'Radiant Rare': 13,
+            'Amazing Rare': 13, 'Rare BREAK': 7, 'Rare Holo LV.X': 8,
+            'Rare Prime': 8, 'Rare Prism Star': 9, 'Rare Holo Star': 16,
+            'Rare Shining': 16, 'LEGEND': 17, 'Classic Collection': 14,
+        };
+        return order[rarity] || 10;
+    }
+
+    _createFlatCardElement(card) {
+        const el = document.createElement('div');
+        el.className = 'tcg-card-item';
+
+        const imageUrl = card.images?.small || card.imageSmall || '';
+        const name = card.name || 'Unknown';
+        const setName = card.set?.name || '';
+        const price = this._getCardPrice(card);
+        const priceStr = price > 0 ? `$${price.toFixed(2)}` : '';
+        const rarity = card.rarity || '';
+
+        el.innerHTML = `
+            <img src="${imageUrl}" alt="${name}" loading="lazy">
+            <div class="tcg-card-info">
+                <span class="tcg-card-name">${name}</span>
+                <span class="tcg-card-set-label">${setName}</span>
+                ${priceStr || rarity ? `<span class="tcg-card-meta">${priceStr}${priceStr && rarity ? ' · ' : ''}${rarity}</span>` : ''}
+            </div>
+        `;
+
+        el.addEventListener('click', () => {
+            this.app.tcgDetail.show(card);
+        });
+
+        return el;
+    }
+
+    /** Filter cards by criteria from the search panel */
+    filterCards(filters) {
+        if (!filters || (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity)) {
+            this.filteredCards = null;
+        } else {
+            this.filteredCards = this.allCards.filter(card => {
+                // Name filter
+                if (filters.name) {
+                    const name = (card.name || '').toLowerCase();
+                    const setName = (card.set?.name || '').toLowerCase();
+                    if (!name.includes(filters.name) && !setName.includes(filters.name)) return false;
+                }
+                // Category filter (supertype + subtypes)
+                if (filters.categories?.size > 0) {
+                    const supertype = card.supertype || '';
+                    const subtypes = card.subtypes || [];
+                    const matchesSupertype = filters.categories.has(supertype);
+                    const matchesSubtype = subtypes.some(st => filters.categories.has(st));
+                    if (!matchesSupertype && !matchesSubtype) return false;
+                }
+                // Energy type filter
+                if (filters.types?.size > 0) {
+                    const cardTypes = card.types || [];
+                    if (!cardTypes.some(t => filters.types.has(t))) return false;
+                }
+                // Price range filter
+                const price = this._getCardPrice(card);
+                if (filters.priceMin && price < parseFloat(filters.priceMin)) return false;
+                if (filters.priceMax && price > parseFloat(filters.priceMax)) return false;
+                // Rarity filter
+                if (filters.rarity && card.rarity !== filters.rarity) return false;
+                return true;
+            });
+        }
+
+        this._updateCardCount();
+        this._renderCardGrid();
     }
 }
