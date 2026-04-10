@@ -408,16 +408,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem 1rem;
+    overflow: hidden;
 }
 
 .evolution-branch-row {
     display: flex;
     align-items: center;
     gap: 2rem;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -574,55 +573,43 @@
     font-size: 1rem;
 }
 
-@media (max-width: 768px) {
-    .evolution-chain {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+.evolution-chain.evolution-vertical {
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-    .evolution-branch-row {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+.evolution-vertical .evolution-branch-row {
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-    .evolution-branch-column {
-        align-items: center;
-    }
+.evolution-vertical .evolution-branch-column {
+    align-items: center;
+}
 
-    .evolution-variant-column {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
+.evolution-vertical .evolution-variant-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
 
-    .evolution-variant-column .evolution-branch-leaf {
-        flex-direction: column;
-    }
+.evolution-vertical .evolution-variant-column .evolution-branch-leaf {
+    flex-direction: column;
+}
 
-    .evolution-branch-leaf {
-        flex-direction: column;
-    }
-    
-    .evolution-image-wrapper {
-        width: 110px;
-        height: 110px;
-    }
-    
-    .evolution-image {
-        width: 90px;
-        height: 90px;
-    }
+.evolution-vertical .evolution-branch-leaf {
+    flex-direction: column;
+}
 
-    .evolution-arrow {
-        width: auto;
-    }
-    
-    .arrow-svg {
-        width: 40px;
-        height: 40px;
-        transform: rotate(90deg);
-    }
+.evolution-vertical .evolution-arrow {
+    width: auto;
+}
+
+.evolution-vertical .arrow-svg {
+    width: 40px;
+    height: 40px;
+    transform: rotate(90deg);
 }
 
 .pokemon-info-card {

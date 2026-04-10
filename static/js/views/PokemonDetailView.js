@@ -693,6 +693,33 @@ class PokemonDetailView {
                 }
             });
         });
+
+        // Check if evolution chain overflows horizontally and switch to vertical layout
+        this.checkEvolutionLayout(evolutionSection);
+    }
+
+    checkEvolutionLayout(evolutionSection) {
+        const chain = evolutionSection.querySelector('.evolution-chain');
+        if (!chain) return;
+
+        const applyLayout = () => {
+            // Reset to horizontal to measure natural width
+            chain.classList.remove('evolution-vertical');
+            requestAnimationFrame(() => {
+                if (chain.scrollWidth > chain.clientWidth) {
+                    chain.classList.add('evolution-vertical');
+                }
+            });
+        };
+
+        applyLayout();
+
+        // Re-check on window resize
+        if (this._evolutionResizeHandler) {
+            window.removeEventListener('resize', this._evolutionResizeHandler);
+        }
+        this._evolutionResizeHandler = applyLayout;
+        window.addEventListener('resize', this._evolutionResizeHandler);
     }
 
     async buildEvolutionChainHTML(chain, currentName) {
