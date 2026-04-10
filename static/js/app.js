@@ -185,6 +185,38 @@ class PokemonChatApp {
         // Suppress pushState during initial routing to avoid extra history entries
         this._suppressPushState = true;
         
+        // /tcg/set/:setId  →  TCG gallery for an expansion/set
+        const setMatch = path.match(/^\/tcg\/set\/([^\/]+)\/?$/);
+        if (setMatch) {
+            const setId = decodeURIComponent(setMatch[1]);
+            await this.gridView.show();
+            try {
+                const response = await fetch('/api/realtime/tool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tool_name: 'search_cards_by_set',
+                        arguments: { set_id: setId }
+                    })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.result && data.result.cards && data.result.cards.length > 0) {
+                        this.tcgGallery.currentSort = 'default';
+                        this.tcgGallery.display(data.result);
+                        this._suppressPushState = false;
+                        history.replaceState({ viewKey: 'tcg' }, '', path);
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Failed to load TCG set from URL:', err);
+            }
+            this._suppressPushState = false;
+            history.replaceState({ viewKey: 'grid' }, '', '/');
+            return;
+        }
+        
         // /pokemon/:name/cards  →  TCG gallery for that Pokemon
         const cardsMatch = path.match(/^\/pokemon\/([^\/]+)\/cards\/?$/);
         if (cardsMatch) {
@@ -259,6 +291,13 @@ class PokemonChatApp {
      */
     async handlePopState(e) {
         const path = window.location.pathname;
+        
+        // /tcg/set/:setId
+        const setMatch = path.match(/^\/tcg\/set\/([^\/]+)\/?$/);
+        if (setMatch && this.currentTcgData) {
+            this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+            return;
+        }
         
         // /pokemon/:name/cards
         const cardsMatch = path.match(/^\/pokemon\/([^\/]+)\/cards\/?$/);
@@ -4771,6 +4810,10 @@ class PokemonChatApp {
                 }
                 return '/';
             case 'tcg-gallery': {
+                // Expansion browsing uses /tcg/set/<setId>
+                if (data?.set_id) {
+                    return `/tcg/set/${encodeURIComponent(data.set_id)}`;
+                }
                 const pokemonName = data?.pokemon_name || this.currentPokemonName;
                 if (pokemonName) {
                     return `/pokemon/${pokemonName.toLowerCase()}/cards`;

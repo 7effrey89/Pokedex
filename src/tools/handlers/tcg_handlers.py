@@ -244,6 +244,55 @@ def handle_get_card_price(card_id: str, force_refresh: bool = False) -> Dict[str
         return {"error": str(e)}
 
 
+def handle_search_cards_by_set(
+    set_id: str,
+    force_refresh: bool = False
+) -> Dict[str, Any]:
+    """
+    Search for all cards in a specific TCG set/expansion.
+    
+    Args:
+        set_id: The set ID (e.g., "sv3pt5", "base1")
+        force_refresh: If True, skip cache
+        
+    Returns:
+        Dictionary with cards array and total_count
+    """
+    cache_key_params = {"set_id": set_id}
+    if not force_refresh:
+        cached_response, cache_status = cache_service.get_with_stale("search_cards_by_set", cache_key_params)
+        if cached_response:
+            if cache_status == 'stale':
+                logger.info("⏳ Returning STALE cached set cards for: %s", set_id)
+                if isinstance(cached_response, dict):
+                    cached_response['_cache_stale'] = True
+            else:
+                logger.info("🎯 Returning cached set cards for: %s", set_id)
+            return cached_response
+
+    logger.info(f"🃏 Fetching cards for set: {set_id}")
+
+    client = _get_tcg_client()
+    try:
+        cards_data = client.search_cards_by_set(set_id)
+        if cards_data and cards_data.get("data"):
+            formatted_cards = client.format_cards_response(cards_data)
+            set_name = formatted_cards[0].get("set", {}).get("name", set_id) if formatted_cards else set_id
+            result = {
+                "cards": formatted_cards,
+                "total_count": cards_data.get("totalCount", len(formatted_cards)),
+                "search_query": set_name,
+                "set_id": set_id
+            }
+            cache_service.set("search_cards_by_set", cache_key_params, result)
+            return result
+    except Exception as e:
+        logger.warning(f"⚠️ Error fetching set cards: {e}")
+        return {"error": str(e)}
+
+    return {"error": f"No cards found for set: {set_id}"}
+
+
 def handle_get_card_details(card_id: str) -> Dict[str, Any]:
     """
     Get full card details for a Pokemon TCG card by ID (for URL-based routing).

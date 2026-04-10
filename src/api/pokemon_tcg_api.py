@@ -256,9 +256,12 @@ class PokemonTCGTools:
             "retreatCost": card.get("retreatCost", []),
             "convertedRetreatCost": card.get("convertedRetreatCost", 0),
             "set": {
+                "id": card.get("set", {}).get("id"),
                 "name": card.get("set", {}).get("name"),
                 "series": card.get("set", {}).get("series"),
                 "releaseDate": card.get("set", {}).get("releaseDate"),
+                "total": card.get("set", {}).get("total"),
+                "images": card.get("set", {}).get("images", {}),
                 "logo": card.get("set", {}).get("images", {}).get("logo"),
                 "symbol": card.get("set", {}).get("images", {}).get("symbol")
             },
@@ -277,6 +280,34 @@ class PokemonTCGTools:
         
         return info
     
+    def search_cards_by_set(self, set_id: str, page: int = 1, page_size: int = 250) -> Optional[Dict]:
+        """
+        Search for all cards in a specific set/expansion.
+        
+        Args:
+            set_id: The set ID (e.g., "sv3pt5", "base1")
+            page: Page number
+            page_size: Results per page
+            
+        Returns:
+            Dict containing card search results
+        """
+        try:
+            params = {
+                "q": f"set.id:{set_id}",
+                "page": page,
+                "pageSize": page_size,
+                "orderBy": "number"
+            }
+            
+            url = f"{self.base_url}/cards"
+            response = self.session.get(url, params=params, headers=self.headers, timeout=self.timeout)
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            print(f"Error searching cards by set: {e}")
+            return None
+
     def format_cards_response(self, cards_data: Dict) -> List[Dict]:
         """
         Format multiple cards for display

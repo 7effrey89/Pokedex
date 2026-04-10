@@ -31,11 +31,13 @@ class TcgCardsGalleryView {
         this.renderCards(tcgData);
         
         // Update canvas state for TCG gallery
-        this.app.updateCanvasState('tcg-gallery', {
+        const stateData = {
             pokemon_name: tcgData.search_query || tcgData.pokemon_name || 'Pokemon',
             cards: tcgData.cards,
             total_count: tcgData.total_count
-        });
+        };
+        if (tcgData.set_id) stateData.set_id = tcgData.set_id;
+        this.app.updateCanvasState('tcg-gallery', stateData);
         
         // Scroll to top
         this.galleryView.scrollTop = 0;
@@ -50,11 +52,13 @@ class TcgCardsGalleryView {
         }
         
         // Update canvas state for TCG gallery (without adding to history)
-        this.app.updateCanvasState('tcg-gallery', {
+        const stateData = {
             pokemon_name: tcgData.search_query || tcgData.pokemon_name || 'Pokemon',
             cards: tcgData.cards,
             total_count: tcgData.total_count
-        }, false);
+        };
+        if (tcgData.set_id) stateData.set_id = tcgData.set_id;
+        this.app.updateCanvasState('tcg-gallery', stateData, false);
         
         // Hide other views
         this.app.gridView.saveScrollPosition();
@@ -78,9 +82,20 @@ class TcgCardsGalleryView {
         // Create header with sort controls
         const header = document.createElement('div');
         header.className = 'tcg-canvas-header';
+        
+        // Build subtitle for expansion browsing
+        let subtitleHTML = '';
+        if (tcgData.set_id && tcgData.cards.length > 0) {
+            const setName = tcgData.search_query || tcgData.cards[0]?.set?.name || '';
+            const releaseYear = this.getCardReleaseYear(tcgData.cards[0]);
+            const yearStr = releaseYear ? ` (${releaseYear})` : '';
+            subtitleHTML = `<p class="tcg-canvas-subtitle">${setName}${yearStr}</p>`;
+        }
+        
         header.innerHTML = `
             <div class="tcg-canvas-title">
                 <h1>🃏 Trading Card Gallery</h1>
+                ${subtitleHTML}
                 <p>${tcgData.total_count || tcgData.cards.length} cards found</p>
             </div>
             <div class="tcg-sort-controls">
@@ -178,6 +193,20 @@ class TcgCardsGalleryView {
         return sorted;
     }
 
+    getSetId(card) {
+        // Direct set.id (new format)
+        if (card.set?.id) return card.set.id;
+        // Extract from card ID (format: "setid-number", e.g. "det1-10")
+        if (card.id && card.id.includes('-')) {
+            return card.id.substring(0, card.id.lastIndexOf('-'));
+        }
+        // Extract from logo/symbol URL (e.g. "https://images.pokemontcg.io/det1/logo.png")
+        const url = card.set?.logo || card.set?.symbol || '';
+        const match = url.match(/pokemontcg\.io\/([^/]+)\//);
+        if (match) return match[1];
+        return '';
+    }
+
     createCardElement(card, index) {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'tcg-card-item';
@@ -186,27 +215,75 @@ class TcgCardsGalleryView {
         const imageUrl = card.images?.small || card.imageSmall || card.images?.large || card.image;
         const cardName = card.name || 'Unknown';
         const setInfo = card.set?.name || card.set || '';
+        const setId = this.getSetId(card);
         const releaseYear = this.getCardReleaseYear(card);
         const avgPrice = this.getCardAvgPrice(card);
 
         const priceDisplay = avgPrice !== null
             ? `$${avgPrice.toFixed(2)}`
             : 'N/A';
+
+        const setLink = setId
+            ? `<a href="#" class="tcg-set-link" data-set-id="${setId}" data-set-name="${setInfo}">${setInfo}</a>`
+            : setInfo;
         
         cardDiv.innerHTML = `
             <div class="card-index-badge">#${index + 1}</div>
             <img src="${imageUrl}" alt="${cardName}" loading="lazy">
             <div class="tcg-card-info">
                 <h3>${cardName}</h3>
-                ${setInfo ? `<p class="tcg-card-set">${setInfo}${releaseYear ? ` (${releaseYear})` : ''}</p>` : ''}
+                ${setInfo ? `<p class="tcg-card-set">${setLink}${releaseYear ? ` (${releaseYear})` : ''}</p>` : ''}
                 <p class="tcg-card-price-tag">Avg: <span class="${avgPrice !== null ? 'has-price' : 'no-price'}">${priceDisplay}</span></p>
             </div>
         `;
         
-        cardDiv.addEventListener('click', () => {
+        // Card image click → detail view
+        const img = cardDiv.querySelector('img');
+        img.addEventListener('click', () => {
             this.app.tcgDetail.show(card);
         });
+
+        // Set link click → browse expansion
+        const setLinkEl = cardDiv.querySelector('.tcg-set-link');
+        if (setLinkEl) {
+            setLinkEl.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.searchBySet(setLinkEl.dataset.setId, setLinkEl.dataset.setName);
+            });
+        }
         
         return cardDiv;
+    }
+
+    async searchBySet(setId, setName) {
+        console.log(`🃏 Searching cards for set: ${setName} (${setId})`);
+        this.app.setLoading(true);
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_cards_by_set',
+                    arguments: { set_id: setId }
+                })
+            });
+
+            if (!response.ok) throw new Error('Failed to search set cards');
+
+            const data = await response.json();
+            this.app.setLoading(false);
+
+            if (data.result && data.result.cards && data.result.cards.length > 0) {
+                this.currentSort = 'default';
+                this.display(data.result);
+            } else {
+                this.app.addMessage('assistant', `No cards found for expansion "${setName}".`);
+            }
+        } catch (error) {
+            console.error('❌ Error searching set:', error);
+            this.app.setLoading(false);
+            this.app.addMessage('assistant', `Error searching expansion "${setName}".`);
+        }
     }
 }

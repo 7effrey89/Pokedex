@@ -78,6 +78,20 @@
     text-overflow: ellipsis;
 }
 
+.tcg-set-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    text-underline-offset: 2px;
+    cursor: pointer;
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.tcg-set-link:hover {
+    color: #ffcb05;
+    text-decoration-color: #ffcb05;
+}
+
 .tcg-card-item .card-index-badge {
     position: absolute;
     top: 0.5rem;
@@ -690,6 +704,14 @@
     color: rgba(255, 255, 255, 0.8);
     margin: 0.5rem 0 0 0;
     font-weight: 600;
+}
+
+.tcg-canvas-subtitle {
+    font-size: 1.5rem !important;
+    color: #ffcb05 !important;
+    margin: 0.25rem 0 0 0 !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .tcg-canvas-grid {
