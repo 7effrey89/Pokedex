@@ -273,7 +273,8 @@ def _slim_card(card: Dict[str, Any]) -> Dict[str, Any]:
 def handle_search_cards_by_set(
     set_id: str,
     force_refresh: bool = False,
-    slim: bool = False
+    slim: bool = False,
+    limit: int = 0
 ) -> Dict[str, Any]:
     """
     Search for all cards in a specific TCG set/expansion.
@@ -282,6 +283,7 @@ def handle_search_cards_by_set(
         set_id: The set ID (e.g., "sv3pt5", "base1")
         force_refresh: If True, skip cache
         slim: If True, return only fields needed for grid display
+        limit: If > 0, return at most this many cards (for previews)
         
     Returns:
         Dictionary with cards array and total_count
@@ -297,9 +299,17 @@ def handle_search_cards_by_set(
             else:
                 logger.info("🎯 Returning cached set cards for: %s", set_id)
             if slim and isinstance(cached_response, dict) and "cards" in cached_response:
+                cards = cached_response["cards"]
+                if limit > 0:
+                    cards = cards[:limit]
                 return {
                     **cached_response,
-                    "cards": [_slim_card(c) for c in cached_response["cards"]],
+                    "cards": [_slim_card(c) for c in cards],
+                }
+            if limit > 0 and isinstance(cached_response, dict) and "cards" in cached_response:
+                return {
+                    **cached_response,
+                    "cards": cached_response["cards"][:limit],
                 }
             return cached_response
 

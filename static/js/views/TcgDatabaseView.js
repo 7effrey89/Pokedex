@@ -33,12 +33,32 @@ class TcgDatabaseView {
                 if (entry.isIntersecting) {
                     const setId = entry.target.dataset.setId;
                     if (setId && !this.loadedSets.has(setId)) {
-                        this._loadSetCards(setId, entry.target);
+                        this._queuePreviewLoad(setId, entry.target);
                     }
                     this.observer.unobserve(entry.target);
                 }
             });
         }, { rootMargin: '400px' });
+    }
+
+    /** Throttled preview loading — max 3 concurrent requests */
+    _queuePreviewLoad(setId, placeholderEl) {
+        if (!this._previewQueue) this._previewQueue = [];
+        if (!this._previewInFlight) this._previewInFlight = 0;
+        this._previewQueue.push({ setId, placeholderEl });
+        this._drainPreviewQueue();
+    }
+
+    async _drainPreviewQueue() {
+        const MAX_CONCURRENT = 3;
+        while (this._previewQueue.length > 0 && this._previewInFlight < MAX_CONCURRENT) {
+            const { setId, placeholderEl } = this._previewQueue.shift();
+            this._previewInFlight++;
+            this._loadSetCards(setId, placeholderEl).finally(() => {
+                this._previewInFlight--;
+                this._drainPreviewQueue();
+            });
+        }
     }
 
     async toggleViewMode(mode) {
@@ -103,10 +123,48 @@ class TcgDatabaseView {
         }
     }
 
+    /**
+     * Preload sets and dex data in the background so they're ready
+     * when the user navigates to the TCG Database page.
+     */
+    preload() {
+        // Fire-and-forget: don't await, just start loading in background
+        this._preloadPromise = Promise.all([
+            this._loadSetsData(),
+            this._loadDexLookup()
+        ]).catch(err => console.warn('TCG preload failed:', err));
+    }
+
+    /** Fetch sets data only (no DOM rendering) */
+    async _loadSetsData() {
+        if (this.allSets.length > 0) return;
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tool_name: 'get_tcg_sets', arguments: {} })
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (data.result?.sets) {
+                this.allSets = data.result.sets;
+                if (data.result._cache_stale) {
+                    this._revalidateSets();
+                }
+            }
+        } catch (err) {
+            console.warn('TCG sets preload failed:', err);
+        }
+    }
+
     async show() {
         this._hideOtherViews();
         this.databaseView.style.display = 'block';
 
+        // Wait for preload if it's still running, otherwise load now
+        if (this._preloadPromise) {
+            await this._preloadPromise;
+        }
         await this._loadSets();
         this.restoreScrollPosition();
 
@@ -136,7 +194,9 @@ class TcgDatabaseView {
     async _loadSets() {
         if (this.allSets.length > 0) {
             this._updateSetCount();
-            return; // Already loaded
+            this._wireControls();
+            this._renderDatabase();
+            return; // Already loaded from preload
         }
 
         console.log('🃏 Loading TCG sets...');
@@ -309,7 +369,7 @@ class TcgDatabaseView {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool_name: 'search_cards_by_set',
-                    arguments: { set_id: setId, slim: true }
+                    arguments: { set_id: setId, slim: true, limit: 8 }
                 })
             });
 
@@ -341,7 +401,7 @@ class TcgDatabaseView {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool_name: 'search_cards_by_set',
-                    arguments: { set_id: setId, slim: true, force_refresh: true }
+                    arguments: { set_id: setId, slim: true, limit: 8, force_refresh: true }
                 })
             });
             if (!response.ok) return;
@@ -377,10 +437,14 @@ class TcgDatabaseView {
             grid.appendChild(cardEl);
         });
 
-        if (cards.length > 8) {
+        // Use set total from allSets for accurate "+N more" count
+        const setId = placeholderEl.dataset.setId;
+        const setInfo = this.allSets.find(s => s.id === setId);
+        const totalCards = setInfo?.total || cards.length;
+        if (totalCards > 8) {
             const moreEl = document.createElement('div');
             moreEl.className = 'tcg-db-card-more';
-            moreEl.textContent = `+${cards.length - 8} more`;
+            moreEl.textContent = `+${totalCards - 8} more`;
             moreEl.addEventListener('click', () => {
                 const setId = placeholderEl.dataset.setId;
                 const setSection = placeholderEl.closest('.tcg-set-section');
@@ -471,27 +535,26 @@ class TcgDatabaseView {
         if (!this.cardList) return;
         this.cardList.innerHTML = '';
 
-        // Ensure dex lookup is loaded for Pokemon sorting
-        await this._loadDexLookup();
-
-        // Build expansion picker
+        // Build expansion picker and grid container immediately (no await)
         this._buildExpansionPicker();
 
-        // Create grid container
         const grid = document.createElement('div');
         grid.className = 'tcg-all-cards-grid';
         grid.id = 'tcgAllCardsGrid';
         this.cardList.appendChild(grid);
 
         if (this.allCards.length > 0) {
-            // Already have cards
+            // Already have cards — just load dex lookup in background for sorting
+            this._loadDexLookup();
             this._renderCardGrid();
         } else {
-            // First visit: auto-select the latest expansion
+            // First visit: load dex lookup + first expansion in parallel
             const newest = this._sortSets(this.allSets, 'release-desc')[0];
+            const promises = [this._loadDexLookup()];
             if (newest) {
-                await this._toggleSetSelection(newest.id, true);
+                promises.push(this._toggleSetSelection(newest.id, true));
             }
+            await Promise.all(promises);
         }
 
         this._updateCardCount();

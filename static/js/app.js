@@ -174,6 +174,8 @@ class PokemonChatApp {
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
+        // Preload TCG data in background so it's ready when user navigates there
+        this.tcgDatabase.preload();
         this.routeFromUrl(); // Route based on current URL instead of always showing grid
     }
     
