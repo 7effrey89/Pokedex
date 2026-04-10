@@ -23,7 +23,8 @@ from src.tools.handlers import (
     handle_search_pokemon_cards,
     handle_get_card_price,
     handle_get_card_details,
-    handle_search_cards_by_set
+    handle_search_cards_by_set,
+    handle_get_tcg_sets
 )
 
 logger = logging.getLogger(__name__)
@@ -91,6 +92,11 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
             set_id = arguments.get('set_id', '')
             return handle_search_cards_by_set(
                 set_id=set_id,
+                force_refresh=arguments.get('force_refresh', False)
+            )
+        
+        elif tool_name == 'get_tcg_sets':
+            return handle_get_tcg_sets(
                 force_refresh=arguments.get('force_refresh', False)
             )
         

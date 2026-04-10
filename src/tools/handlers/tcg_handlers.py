@@ -322,3 +322,64 @@ def handle_get_card_details(card_id: str) -> Dict[str, Any]:
     except Exception as e:
         logger.warning(f"⚠️ Error fetching card details: {e}")
         return {"error": str(e)}
+
+
+def handle_get_tcg_sets(force_refresh: bool = False) -> Dict[str, Any]:
+    """
+    Get all TCG sets/expansions metadata.
+    
+    Returns:
+        Dictionary with list of sets sorted by release date (newest first)
+    """
+    cache_key_params = {"all_sets": True}
+    if not force_refresh:
+        cached_response, cache_status = cache_service.get_with_stale("get_tcg_sets", cache_key_params)
+        if cached_response:
+            if cache_status == 'stale':
+                logger.info("⏳ Returning STALE cached TCG sets list")
+                if isinstance(cached_response, dict):
+                    cached_response['_cache_stale'] = True
+            else:
+                logger.info("🎯 Returning cached TCG sets list")
+            return cached_response
+
+    logger.info("🃏 Fetching all TCG sets from API")
+
+    client = _get_tcg_client()
+    try:
+        all_sets = []
+        page = 1
+        while True:
+            sets_data = client.get_sets(page=page, page_size=250)
+            if not sets_data or 'data' not in sets_data:
+                break
+            for s in sets_data['data']:
+                all_sets.append({
+                    "id": s.get("id"),
+                    "name": s.get("name"),
+                    "series": s.get("series"),
+                    "releaseDate": s.get("releaseDate"),
+                    "total": s.get("total", 0),
+                    "images": {
+                        "logo": s.get("images", {}).get("logo"),
+                        "symbol": s.get("images", {}).get("symbol"),
+                    }
+                })
+            # Check if more pages
+            total_count = sets_data.get("totalCount", 0)
+            if page * 250 >= total_count:
+                break
+            page += 1
+
+        # Sort newest first
+        all_sets.sort(key=lambda s: s.get("releaseDate", ""), reverse=True)
+
+        result = {
+            "sets": all_sets,
+            "total_count": len(all_sets)
+        }
+        cache_service.set("get_tcg_sets", cache_key_params, result)
+        return result
+    except Exception as e:
+        logger.warning(f"⚠️ Error fetching TCG sets: {e}")
+        return {"error": str(e)}

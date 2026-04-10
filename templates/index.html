@@ -200,6 +200,29 @@
             <div class="tcg-card-detail-view" id="tcgCardDetailView" style="display: none;">
                 <!-- TCG card detail will be dynamically populated here -->
             </div>
+
+            <!-- TCG Database View (All sets/expansions) -->
+            <div class="tcg-database-view" id="tcgDatabaseView" style="display: none;">
+                <div class="tcg-db-header">
+                    <div class="tcg-canvas-title">
+                        <h1>🃏 TCG Card Database</h1>
+                        <p id="tcgDbSetCount"></p>
+                    </div>
+                    <div class="tcg-sort-controls">
+                        <label for="tcg-db-sort-select">Sort by:</label>
+                        <select id="tcg-db-sort-select">
+                            <option value="release-desc" selected>Newest First</option>
+                            <option value="release-asc">Oldest First</option>
+                            <option value="name-asc">Name: A → Z</option>
+                            <option value="name-desc">Name: Z → A</option>
+                            <option value="cards-desc">Most Cards</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tcg-database-list" id="tcgDatabaseList">
+                    <!-- TCG sets will be dynamically populated here -->
+                </div>
+            </div>
         </div>
 
         <!-- Chat Sidebar (Hidden by default) -->
@@ -269,6 +292,8 @@
                 <button class="search-panel-close" id="searchPanelClose">&times;</button>
             </div>
             <div class="search-panel-body">
+                <!-- Pokemon Filters (shown when on Pokemon grid) -->
+                <div id="pokemonFilters">
                 <!-- Name search -->
                 <div class="search-field">
                     <label for="searchNameInput">Name</label>
@@ -323,6 +348,47 @@
                     <input type="text" id="searchAbilityInput" placeholder="e.g. levitate" autocomplete="off" list="abilityDatalist">
                     <datalist id="abilityDatalist"></datalist>
                 </div>
+                </div><!-- end pokemonFilters -->
+
+                <!-- TCG Filters (shown when on TCG Database) -->
+                <div id="tcgFilters" style="display: none;">
+                    <div class="search-field">
+                        <label for="tcgSearchNameInput">Expansion Name</label>
+                        <input type="text" id="tcgSearchNameInput" placeholder="e.g. Scarlet &amp; Violet" autocomplete="off">
+                    </div>
+
+                    <div class="search-field">
+                        <label>Card Type</label>
+                        <div class="search-type-grid" id="tcgSearchTypeGrid"></div>
+                    </div>
+
+                    <div class="search-field search-range-row">
+                        <label>Price Range <small class="search-unit">(USD)</small></label>
+                        <div class="search-range-inputs">
+                            <input type="number" id="tcgPriceMin" min="0" step="0.01" placeholder="Min">
+                            <span class="search-range-sep">&ndash;</span>
+                            <input type="number" id="tcgPriceMax" min="0" step="0.01" placeholder="Max">
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="tcgSearchRarity">Rarity</label>
+                        <select id="tcgSearchRarity">
+                            <option value="">All Rarities</option>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Rare Holo">Rare Holo</option>
+                            <option value="Rare Holo EX">Rare Holo EX</option>
+                            <option value="Rare Ultra">Rare Ultra</option>
+                            <option value="Rare Secret">Rare Secret</option>
+                            <option value="Rare Holo V">Rare Holo V</option>
+                            <option value="Rare Holo VMAX">Rare Holo VMAX</option>
+                            <option value="Illustration Rare">Illustration Rare</option>
+                            <option value="Special Art Rare">Special Art Rare</option>
+                        </select>
+                    </div>
+                </div><!-- end tcgFilters -->
 
                 <!-- Action buttons -->
                 <div class="search-actions">
@@ -359,6 +425,14 @@
                         src="{{ url_for('static', filename='images/pokedex.svg') }}"
                         alt="Pokédex Index"
                         class="footer-index-icon"
+                    />
+                </button>
+
+                <button class="footer-btn footer-btn-icon-only" id="tcgDbBtnFooter" aria-label="TCG Database" data-tooltip="TCG Database">
+                    <img
+                        src="{{ url_for('static', filename='images/tcg-icon.png') }}"
+                        alt="TCG Database"
+                        class="footer-tcg-icon"
                     />
                 </button>
 
@@ -845,6 +919,7 @@
     <script src="{{ url_for('static', filename='js/views/PokemonDetailView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/TcgCardsGalleryView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/TcgCardDetailView.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/views/TcgDatabaseView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/PokemonSearchView.js') }}"></script>
     
     <!-- Then load core application -->

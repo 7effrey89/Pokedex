@@ -32,6 +32,9 @@ class PokemonGridView {
         if (this.app.tcgCardDetailView) {
             this.app.tcgCardDetailView.style.display = 'none';
         }
+        if (this.app.tcgDatabaseViewEl) {
+            this.app.tcgDatabaseViewEl.style.display = 'none';
+        }
         this.gridView.style.display = 'block';
         
         // Load Pokemon if not already loaded
@@ -56,6 +59,9 @@ class PokemonGridView {
         this.app.tcgCardsView.style.display = 'none';
         if (this.app.tcgCardDetailView) {
             this.app.tcgCardDetailView.style.display = 'none';
+        }
+        if (this.app.tcgDatabaseViewEl) {
+            this.app.tcgDatabaseViewEl.style.display = 'none';
         }
         this.gridView.style.display = 'block';
         

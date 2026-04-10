@@ -109,12 +109,14 @@ class PokemonChatApp {
         this.pokemonDetailView = document.getElementById('pokemonDetailView');
         this.tcgCardsView = document.getElementById('tcgCardsView');
         this.tcgCardDetailView = document.getElementById('tcgCardDetailView');
+        this.tcgDatabaseViewEl = document.getElementById('tcgDatabaseView');
 
         // Initialize view classes
         this.gridView = new PokemonGridView(this);
         this.detailView = new PokemonDetailView(this);
         this.tcgGallery = new TcgCardsGalleryView(this);
         this.tcgDetail = new TcgCardDetailView(this);
+        this.tcgDatabase = new TcgDatabaseView(this);
 
         // Pokemon data
         this.allPokemons = [];
@@ -184,6 +186,14 @@ class PokemonChatApp {
         
         // Suppress pushState during initial routing to avoid extra history entries
         this._suppressPushState = true;
+        
+        // /tcg/database  →  TCG Database (all sets)
+        if (path === '/tcg/database' || path === '/tcg/database/') {
+            await this.tcgDatabase.show();
+            this._suppressPushState = false;
+            history.replaceState({ viewKey: 'tcg-database' }, '', '/tcg/database');
+            return;
+        }
         
         // /tcg/set/:setId  →  TCG gallery for an expansion/set
         const setMatch = path.match(/^\/tcg\/set\/([^\/]+)\/?$/);
@@ -291,6 +301,12 @@ class PokemonChatApp {
      */
     async handlePopState(e) {
         const path = window.location.pathname;
+        
+        // /tcg/database
+        if (path === '/tcg/database' || path === '/tcg/database/') {
+            this.tcgDatabase.showWithoutHistory();
+            return;
+        }
         
         // /tcg/set/:setId
         const setMatch = path.match(/^\/tcg\/set\/([^\/]+)\/?$/);
@@ -1267,6 +1283,11 @@ class PokemonChatApp {
             indexBtnFooter.addEventListener('click', () => this.gridView.show());
         }
 
+        const tcgDbBtnFooter = document.getElementById('tcgDbBtnFooter');
+        if (tcgDbBtnFooter) {
+            tcgDbBtnFooter.addEventListener('click', () => this.tcgDatabase.show());
+        }
+
         const randomPokemonBtn = document.getElementById('randomPokemonBtn');
         if (randomPokemonBtn) {
             randomPokemonBtn.addEventListener('click', () => this.getRandomPokemon());
@@ -1552,6 +1573,9 @@ class PokemonChatApp {
             if (view === 'grid') {
                 this.gridView.showWithoutHistory();
                 history.replaceState({ viewKey: view }, '', '/');
+            } else if (view === 'tcg-database') {
+                this.tcgDatabase.showWithoutHistory();
+                history.replaceState({ viewKey: view }, '', '/tcg/database');
             } else if (view === 'tcg') {
                 if (this.currentTcgData) {
                     this.tcgGallery.displayWithoutHistory(this.currentTcgData);
@@ -3101,6 +3125,9 @@ class PokemonChatApp {
             if (view === 'grid') {
                 this.gridView.showWithoutHistory();
                 history.replaceState({ viewKey: view }, '', '/');
+            } else if (view === 'tcg-database') {
+                this.tcgDatabase.showWithoutHistory();
+                history.replaceState({ viewKey: view }, '', '/tcg/database');
             } else if (view === 'tcg' && this.currentTcgData) {
                 this.tcgGallery.displayWithoutHistory(this.currentTcgData);
                 const pokemonName = this.currentTcgData.search_query || this.currentTcgData.pokemon_name || this.currentPokemonName;
@@ -4803,6 +4830,8 @@ class PokemonChatApp {
         switch (type) {
             case 'grid':
                 return '/';
+            case 'tcg-database':
+                return '/tcg/database';
             case 'pokemon':
                 if (data?.pokemon?.id) {
                     const name = data.pokemon.name || data.pokemon.id;
@@ -4837,6 +4866,8 @@ class PokemonChatApp {
         switch (type) {
             case 'grid':
                 return 'grid';
+            case 'tcg-database':
+                return 'tcg-database';
             case 'pokemon':
                 return data?.pokemon?.id ? `pokemon-${data.pokemon.id}` : 'pokemon';
             case 'tcg-gallery':
@@ -4857,6 +4888,9 @@ class PokemonChatApp {
         switch (type) {
             case 'grid':
                 return "User is currently viewing the Pokemon index page (grid view) showing all Pokemon. They can select any Pokemon to view details, or ask about specific Pokemon.";
+            
+            case 'tcg-database':
+                return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.`;
             
             case 'pokemon':
                 if (!data || !data.pokemon) return null;

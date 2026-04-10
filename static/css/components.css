@@ -1585,6 +1585,23 @@
     border-color: var(--pokedex-blue);
 }
 
+.search-field select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 2px solid #666;
+    border-radius: 8px;
+    background: #3a3a3a;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.search-field select:focus {
+    border-color: var(--pokedex-blue);
+}
+
 /* Type chips grid */
 .search-type-grid {
     display: flex;

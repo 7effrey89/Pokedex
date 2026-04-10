@@ -18,6 +18,7 @@ class TcgCardDetailView {
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         this.app.tcgCardsView.style.display = 'none';
+        if (this.app.tcgDatabaseViewEl) this.app.tcgDatabaseViewEl.style.display = 'none';
         this.detailView.style.display = 'block';
         
         // Mark TCG card detail as viewed for current Pokemon
@@ -45,6 +46,7 @@ class TcgCardDetailView {
         this.app.pokemonGridView.style.display = 'none';
         this.app.pokemonDetailView.style.display = 'none';
         this.app.tcgCardsView.style.display = 'none';
+        if (this.app.tcgDatabaseViewEl) this.app.tcgDatabaseViewEl.style.display = 'none';
         this.detailView.style.display = 'block';
         
         // Update canvas state without adding to history

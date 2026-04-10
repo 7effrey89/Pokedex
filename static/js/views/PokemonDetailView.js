@@ -324,6 +324,9 @@ class PokemonDetailView {
             // Hide grid, show detail view (without adding to history)
             this.app.gridView.saveScrollPosition();
             this.app.pokemonGridView.style.display = 'none';
+            this.app.tcgCardsView.style.display = 'none';
+            if (this.app.tcgCardDetailView) this.app.tcgCardDetailView.style.display = 'none';
+            if (this.app.tcgDatabaseViewEl) this.app.tcgDatabaseViewEl.style.display = 'none';
             this.detailView.style.display = 'block';
             
             // Update canvas state with Pokemon data (without adding to history)
@@ -357,6 +360,9 @@ class PokemonDetailView {
         // Hide grid, show detail view
         this.app.gridView.saveScrollPosition();
         this.app.pokemonGridView.style.display = 'none';
+        this.app.tcgCardsView.style.display = 'none';
+        if (this.app.tcgCardDetailView) this.app.tcgCardDetailView.style.display = 'none';
+        if (this.app.tcgDatabaseViewEl) this.app.tcgDatabaseViewEl.style.display = 'none';
         this.detailView.style.display = 'block';
         
         // Store current Pokemon name for card searches

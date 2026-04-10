@@ -43,6 +43,7 @@ class CacheService:
             "get_card_price",
             "get_card_details",
             "search_cards_by_set",
+            "get_tcg_sets",
         }
     
     def _load_config(self) -> Dict[str, Any]:
