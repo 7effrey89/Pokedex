@@ -698,8 +698,12 @@ class PokemonDetailView {
     async buildEvolutionChainHTML(chain, currentName) {
         if (!chain) return '';
 
-        const html = await this.renderEvolutionNode(chain, currentName);
-        return html || '<p class="no-evolutions">This Pokémon does not evolve.</p>';
+        const chainHtml = await this.renderEvolutionNode(chain, currentName);
+        if (!chainHtml) {
+            return '<p class="no-evolutions">This Pokémon does not evolve.</p>';
+        }
+
+        return chainHtml;
     }
 
     async renderEvolutionNode(node, currentName) {
@@ -710,9 +714,14 @@ class PokemonDetailView {
         if (!pokemonId) return '';
 
         let pokemon;
+        let species;
         try {
-            const result = await this.fetchResourceWithFallback('pokemon', pokemonId);
-            pokemon = result.data;
+            const [pokemonResult, speciesResult] = await Promise.all([
+                this.fetchResourceWithFallback('pokemon', pokemonId),
+                this.fetchResourceWithFallback('species', pokemonId)
+            ]);
+            pokemon = pokemonResult.data;
+            species = speciesResult.data;
         } catch (error) {
             console.error('Error fetching evolution Pokemon:', error);
             return '';
@@ -721,28 +730,87 @@ class PokemonDetailView {
         const itemHtml = this.renderEvolutionItem(pokemon, node.species.name, pokemonId, currentName);
         const children = node.evolves_to || [];
 
+        // Leaf node: only show mega/gmax forms inline after with arrows
         if (children.length === 0) {
+            const variants = await this.getEvolutionVariants(species, pokemon?.name);
+            const megaGmax = variants.filter(v => this.isMegaOrGmaxVariant(v.rawName));
+
+            if (megaGmax.length === 1) {
+                return `${itemHtml}${this.renderEvolutionArrow('')}${this.renderEvolutionVariantItem(megaGmax[0])}`;
+            }
+            if (megaGmax.length > 1) {
+                const branches = megaGmax.map(v => `
+                    <div class="evolution-branch-leaf">
+                        ${this.renderEvolutionArrow('')}
+                        ${this.renderEvolutionVariantItem(v)}
+                    </div>
+                `).join('');
+                return `
+                    <div class="evolution-branch-row">
+                        ${itemHtml}
+                        <div class="evolution-branch-column evolution-variant-column">
+                            ${branches}
+                        </div>
+                    </div>
+                `;
+            }
             return itemHtml;
         }
 
-        if (children.length === 1) {
-            const child = children[0];
+        // Non-leaf: build effective children (real children + regional variants of leaf children)
+        const effectiveChildren = [];
+        for (const child of children) {
             const detail = child.evolution_details && child.evolution_details[0];
             const method = this.formatEvolutionDetails(detail);
+            effectiveChildren.push({ type: 'evolution', node: child, method });
+
+            // If child is a leaf, peek for regional variants to inject as branches
+            if (!child.evolves_to || child.evolves_to.length === 0) {
+                try {
+                    const childSpeciesUrl = child.species?.url || '';
+                    const childPokemonId = childSpeciesUrl.split('/').filter(Boolean).pop();
+                    if (childPokemonId) {
+                        const [childPokemonResult, childSpeciesResult] = await Promise.all([
+                            this.fetchResourceWithFallback('pokemon', childPokemonId),
+                            this.fetchResourceWithFallback('species', childPokemonId)
+                        ]);
+                        const childVariants = await this.getEvolutionVariants(childSpeciesResult.data, childPokemonResult.data?.name);
+                        const regional = childVariants.filter(v => !this.isMegaOrGmaxVariant(v.rawName));
+                        for (const rv of regional) {
+                            effectiveChildren.push({ type: 'regional', variant: rv });
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error fetching regional variants:', e);
+                }
+            }
+        }
+
+        // Single effective child with no regional variants: render inline
+        if (effectiveChildren.length === 1 && effectiveChildren[0].type === 'evolution') {
+            const { node: child, method } = effectiveChildren[0];
             const childHtml = await this.renderEvolutionNode(child, currentName);
             return `${itemHtml}${this.renderEvolutionArrow(method)}${childHtml}`;
         }
 
-        const childRows = await Promise.all(children.map(async (child) => {
-            const detail = child.evolution_details && child.evolution_details[0];
-            const method = this.formatEvolutionDetails(detail);
-            const childHtml = await this.renderEvolutionNode(child, currentName);
-            return `
-                <div class="evolution-branch-leaf">
-                    ${this.renderEvolutionArrow(method)}
-                    ${childHtml}
-                </div>
-            `;
+        // Multiple effective children: branch layout
+        const childRows = await Promise.all(effectiveChildren.map(async (entry) => {
+            if (entry.type === 'evolution') {
+                const childHtml = await this.renderEvolutionNode(entry.node, currentName);
+                return `
+                    <div class="evolution-branch-leaf">
+                        ${this.renderEvolutionArrow(entry.method)}
+                        ${childHtml}
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="evolution-branch-leaf">
+                        ${this.renderEvolutionArrow('')}
+                        ${this.renderEvolutionVariantItem(entry.variant)}
+                    </div>
+                `;
+            }
         }));
 
         return `
@@ -772,6 +840,61 @@ class PokemonDetailView {
                 <div class="evolution-types">${typeBadges}</div>
             </div>
         `;
+    }
+
+    renderEvolutionVariantItem(variant) {
+        return `
+            <div class="evolution-item evolution-variant-item" data-pokemon-id="${variant.id}">
+                <div class="evolution-image-wrapper">
+                    <img src="${variant.image}" alt="${variant.label}" class="evolution-image">
+                </div>
+                <p class="evolution-name">${variant.label}</p>
+                <p class="evolution-id">#${String(variant.id).padStart(3, '0')}</p>
+                <div class="evolution-types">${variant.typeBadges}</div>
+            </div>
+        `;
+    }
+
+    async getEvolutionVariants(species, defaultName) {
+        if (!species || !Array.isArray(species.varieties)) return [];
+
+        const variantNames = species.varieties
+            .filter(v => !v.is_default)
+            .map(v => v.pokemon?.name)
+            .filter(name => name && name !== defaultName);
+
+        const variants = await Promise.all(variantNames.map(async (name) => {
+            try {
+                const { data: pokemon } = await this.fetchResourceWithFallback('pokemon', name);
+                const typeBadges = pokemon.types ? pokemon.types.map(type =>
+                    `<span class="type-badge type-${type.type.name.toLowerCase()}">${type.type.name}</span>`
+                ).join('') : '';
+
+                return {
+                    id: pokemon.id,
+                    rawName: name,
+                    label: name
+                        .replace(/-gmax$/, ' Gigantamax')
+                        .replace(/-mega-x$/, ' Mega X')
+                        .replace(/-mega-y$/, ' Mega Y')
+                        .replace(/-mega$/, ' Mega')
+                        .split('-')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' '),
+                    image: this.getSpriteUrl(pokemon),
+                    typeBadges
+                };
+            } catch (error) {
+                console.error('Error fetching variant pokemon:', error);
+                return null;
+            }
+        }));
+
+        return variants.filter(Boolean);
+    }
+
+    isMegaOrGmaxVariant(rawName) {
+        return /-mega(-[xy])?$/.test(rawName) || /-gmax$/.test(rawName);
     }
 
     renderEvolutionArrow(method) {
