@@ -21,10 +21,74 @@
 }
 
 .tcg-cards-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     width: 100%;
     gap: 2rem;
+}
+
+.tcg-card-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: transparent;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tcg-card-item:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.tcg-card-item img {
+    width: 100%;
+    aspect-ratio: 3 / 4.2;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tcg-card-item:hover img {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.tcg-card-item .tcg-card-info {
+    padding: 0.5rem 0.25rem;
+    background: transparent;
+}
+
+.tcg-card-item .tcg-card-info h3 {
+    font-size: 0.95rem;
+    margin: 0 0 0.2rem;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tcg-card-item .tcg-card-info .tcg-card-set {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 0.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tcg-card-item .card-index-badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 6px;
+    z-index: 1;
 }
 
 .tcg-card-preview {
@@ -760,6 +824,70 @@
     color: #667eea;
 }
 
+/* TCG Gallery Sort Controls */
+.tcg-sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.tcg-sort-controls label {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.tcg-sort-controls select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.2s, background 0.2s;
+    appearance: auto;
+}
+
+.tcg-sort-controls select:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.tcg-sort-controls select:focus {
+    outline: none;
+    border-color: #ffcb05;
+    box-shadow: 0 0 0 3px rgba(255, 203, 5, 0.3);
+}
+
+.tcg-sort-controls select option {
+    background: #3a3a6e;
+    color: white;
+}
+
+/* TCG Gallery Card Price Tag */
+.tcg-card-price-tag {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.25rem;
+    font-weight: 600;
+}
+
+.tcg-card-price-tag .has-price {
+    color: #28a745;
+    font-weight: 700;
+}
+
+.tcg-card-price-tag .no-price {
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.7;
+}
+
 .tcg-chat-preview .tcg-icon {
     font-size: 1.2rem;
     margin-right: 0.5rem;
@@ -792,6 +920,20 @@
     
     .tcg-canvas-title h1 {
         font-size: 2rem;
+    }
+    
+    .tcg-canvas-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .tcg-sort-controls {
+        width: 100%;
+    }
+    
+    .tcg-sort-controls select {
+        flex: 1;
     }
     
     .tcg-canvas-grid {
