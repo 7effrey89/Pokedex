@@ -42,6 +42,7 @@ class CacheService:
             "search_pokemon_cards",
             "get_card_price",
             "get_card_details",
+            "search_cards_by_set",
         }
     
     def _load_config(self) -> Dict[str, Any]:

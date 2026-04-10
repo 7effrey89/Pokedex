@@ -891,6 +891,23 @@
     color: white;
 }
 
+.tcg-refresh-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    line-height: 1;
+}
+
+.tcg-refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: rotate(90deg);
+}
+
 /* TCG Gallery Card Price Tag */
 .tcg-card-price-tag {
     font-size: 0.8rem;

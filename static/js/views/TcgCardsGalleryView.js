@@ -109,6 +109,7 @@ class TcgCardsGalleryView {
                     <option value="set-asc"${this.currentSort === 'set-asc' ? ' selected' : ''}>Expansion: A → Z</option>
                     <option value="set-desc"${this.currentSort === 'set-desc' ? ' selected' : ''}>Expansion: Z → A</option>
                 </select>
+                <button id="tcg-refresh-btn" class="tcg-refresh-btn" title="Refresh cards from API">🔄</button>
             </div>
         `;
         this.galleryView.appendChild(header);
@@ -118,6 +119,12 @@ class TcgCardsGalleryView {
         sortSelect.addEventListener('change', () => {
             this.currentSort = sortSelect.value;
             this.renderCards(tcgData);
+        });
+
+        // Attach refresh listener
+        const refreshBtn = header.querySelector('#tcg-refresh-btn');
+        refreshBtn.addEventListener('click', () => {
+            this.forceRefresh(tcgData);
         });
         
         // Sort cards
@@ -284,6 +291,41 @@ class TcgCardsGalleryView {
             console.error('❌ Error searching set:', error);
             this.app.setLoading(false);
             this.app.addMessage('assistant', `Error searching expansion "${setName}".`);
+        }
+    }
+
+    async forceRefresh(tcgData) {
+        console.log('🔄 Force refreshing TCG gallery');
+        this.app.setLoading(true);
+        try {
+            // Determine tool + args based on whether this is a set browse or pokemon search
+            const toolName = tcgData.set_id ? 'search_cards_by_set' : 'search_pokemon_cards';
+            const args = tcgData.set_id
+                ? { set_id: tcgData.set_id, force_refresh: true }
+                : { pokemon_name: tcgData.search_query || tcgData.pokemon_name, force_refresh: true };
+
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tool_name: toolName, arguments: args })
+            });
+
+            if (!response.ok) throw new Error('Failed to refresh cards');
+
+            const data = await response.json();
+            this.app.setLoading(false);
+
+            if (data.result && data.result.cards && data.result.cards.length > 0) {
+                this.currentSort = 'default';
+                this.display(data.result);
+                console.log('✅ Gallery refreshed with', data.result.cards.length, 'cards');
+            } else {
+                this.app.addMessage('assistant', 'Refresh returned no cards.');
+            }
+        } catch (error) {
+            console.error('❌ Error refreshing gallery:', error);
+            this.app.setLoading(false);
+            this.app.addMessage('assistant', 'Error refreshing cards.');
         }
     }
 }
