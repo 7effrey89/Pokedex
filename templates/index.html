@@ -83,25 +83,6 @@
 
             <!-- Pokemon Detail View -->
             <div class="pokemon-detail-view" id="pokemonDetailView" style="display: none;">
-                <!-- Previous Pokemon Preview -->
-                <div class="pokemon-nav-preview pokemon-nav-prev" id="pokemonNavPrev" style="display: none;">
-                    <img class="nav-preview-image" src="" alt="Previous Pokemon">
-                    <p class="nav-preview-name"></p>
-                    <p class="nav-preview-number"></p>
-                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                
-                <!-- Next Pokemon Preview -->
-                <div class="pokemon-nav-preview pokemon-nav-next" id="pokemonNavNext" style="display: none;">
-                    <img class="nav-preview-image" src="" alt="Next Pokemon">
-                    <p class="nav-preview-name"></p>
-                    <p class="nav-preview-number"></p>
-                    <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
                 
                 <div class="detail-header">
                     <div class="pokemon-name-wrap">
@@ -131,8 +112,28 @@
                 </div>
                 
                 <div class="pokemon-image-section">
+                    <!-- Previous Pokemon Preview -->
+                    <div class="pokemon-nav-preview pokemon-nav-prev" id="pokemonNavPrev">
+                        <img class="nav-preview-image" src="" alt="Previous Pokemon">
+                        <p class="nav-preview-name"></p>
+                        <p class="nav-preview-number"></p>
+                        <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    
                     <img class="pokedex-decoration" src="/static/images/pokedex.svg" alt="">
                     <img class="pokemon-main-image" src="" alt="Pokemon" />
+                    
+                    <!-- Next Pokemon Preview -->
+                    <div class="pokemon-nav-preview pokemon-nav-next" id="pokemonNavNext">
+                        <img class="nav-preview-image" src="" alt="Next Pokemon">
+                        <p class="nav-preview-name"></p>
+                        <p class="nav-preview-number"></p>
+                        <svg class="nav-preview-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                 </div>
                 
                 <div class="pokemon-info-card">

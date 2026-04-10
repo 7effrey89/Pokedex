@@ -113,7 +113,7 @@ class PokemonDetailView {
         if (prevBtn && currentId > 1) {
             const prevPokemon = this.app.allPokemons.find(p => p.id === currentId - 1);
             if (prevPokemon) {
-                prevBtn.style.display = 'block';
+                prevBtn.style.visibility = 'visible';
                 const img = prevBtn.querySelector('.nav-preview-image');
                 const name = prevBtn.querySelector('.nav-preview-name');
                 const number = prevBtn.querySelector('.nav-preview-number');
@@ -122,14 +122,14 @@ class PokemonDetailView {
                 number.textContent = `#${String(prevPokemon.id).padStart(3, '0')}`;
             }
         } else if (prevBtn) {
-            prevBtn.style.display = 'none';
+            prevBtn.style.visibility = 'hidden';
         }
         
         // Update next Pokemon preview
         if (nextBtn && currentId < this.app.allPokemons.length) {
             const nextPokemon = this.app.allPokemons.find(p => p.id === currentId + 1);
             if (nextPokemon) {
-                nextBtn.style.display = 'block';
+                nextBtn.style.visibility = 'visible';
                 const img = nextBtn.querySelector('.nav-preview-image');
                 const name = nextBtn.querySelector('.nav-preview-name');
                 const number = nextBtn.querySelector('.nav-preview-number');
@@ -138,7 +138,7 @@ class PokemonDetailView {
                 number.textContent = `#${String(nextPokemon.id).padStart(3, '0')}`;
             }
         } else if (nextBtn) {
-            nextBtn.style.display = 'none';
+            nextBtn.style.visibility = 'hidden';
         }
     }
 

@@ -110,20 +110,17 @@
 
 /* Pokemon Navigation Previews */
 .pokemon-nav-preview {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 180px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
     padding: 1rem;
-    display: block;
+    position: relative;
 }
 
 .pokemon-nav-preview:hover {
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.1);
 }
 
 .nav-preview-image {
@@ -176,20 +173,24 @@
     stroke: rgba(0, 0, 0, 0.7);
 }
 
-.pokemon-nav-prev {
-    left: 8rem;
-}
-
 .pokemon-nav-prev .nav-preview-arrow {
     left: -25px;
 }
 
-.pokemon-nav-next {
-    right: 8rem;
+.pokemon-nav-prev {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
 }
 
 .pokemon-nav-next .nav-preview-arrow {
     right: -25px;
+}
+
+.pokemon-nav-next {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
 }
 
 .detail-header {
@@ -256,8 +257,8 @@
 }
 
 .pokemon-image-section {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 2rem 0;
     position: relative;
@@ -283,6 +284,9 @@
     animation: float 3s ease-in-out infinite;
     position: relative;
     z-index: 1;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
 }
 
 @keyframes float {
@@ -923,16 +927,6 @@
         align-items: center;
         justify-content: center;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        top: 200px;
-        transform: translateY(0);
-    }
-    
-    .pokemon-nav-prev {
-        left: 1rem;
-    }
-    
-    .pokemon-nav-next {
-        right: 1rem;
     }
     
     .nav-preview-image,
@@ -943,7 +937,7 @@
     
     .nav-preview-arrow {
         position: static;
-        transform: translateY(11px);
+        transform: none;
         stroke: rgba(0, 0, 0, 0.7);
         margin: 0 auto;
         width: 24px;
@@ -951,7 +945,7 @@
     }
     
     .pokemon-nav-preview:hover {
-        transform: translateY(0) scale(1.1);
+        transform: scale(1.1);
         background: rgba(255, 255, 255, 0.9);
     }
     
