@@ -120,6 +120,7 @@ class PokemonChatApp {
         this.allPokemons = [];
         this.MAX_POKEMON = 1025; // All Pokemon up to Gen 9
         this.currentPokemonName = null; // Store current Pokemon name for card searches
+        this.currentSpeciesName = null; // Base species name (e.g. 'charizard' even for mega forms)
 
         // Pokemon generations for separators
         this.generations = [
@@ -1222,6 +1223,11 @@ class PokemonChatApp {
             helpBtn.addEventListener('click', () => this.showHelpModal());
         }
         
+        const indexBtnFooter = document.getElementById('indexBtnFooter');
+        if (indexBtnFooter) {
+            indexBtnFooter.addEventListener('click', () => this.gridView.show());
+        }
+
         const randomPokemonBtn = document.getElementById('randomPokemonBtn');
         if (randomPokemonBtn) {
             randomPokemonBtn.addEventListener('click', () => this.getRandomPokemon());
@@ -3086,13 +3092,15 @@ class PokemonChatApp {
     
     // View Pokemon Cards
     async viewPokemonCards() {
-        if (!this.currentPokemonName) {
+        // Use species name for card searches (forms like megas share the base species name)
+        const searchName = this.currentSpeciesName || this.currentPokemonName;
+        if (!searchName) {
             console.error('No Pokemon selected');
             return;
         }
         
         try {
-            console.log('🃏 Searching cards for:', this.currentPokemonName);
+            console.log('🃏 Searching cards for:', searchName);
             this.setLoading(true);
             
             const response = await fetch('/api/realtime/tool', {
@@ -3100,7 +3108,7 @@ class PokemonChatApp {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool_name: 'search_pokemon_cards',
-                    arguments: { pokemon_name: this.currentPokemonName }
+                    arguments: { pokemon_name: searchName }
                 })
             });
             
@@ -3117,7 +3125,7 @@ class PokemonChatApp {
                 // Display cards in canvas
                 this.displayTcgCardsInCanvas(data.result);
             } else {
-                this.addMessage('assistant', `No trading cards found for ${this.currentPokemonName}.`);
+                this.addMessage('assistant', `No trading cards found for ${searchName}.`);
             }
         } catch (error) {
             console.error('Error searching cards:', error);
@@ -3889,12 +3897,13 @@ class PokemonChatApp {
     }
     
     async forceRefreshTcgCards() {
-        if (!this.currentPokemonName) {
+        const searchName = this.currentSpeciesName || this.currentPokemonName;
+        if (!searchName) {
             console.error('No current Pokemon to refresh cards for');
             return;
         }
         
-        console.log('🔄 Force refreshing TCG cards for:', this.currentPokemonName);
+        console.log('🔄 Force refreshing TCG cards for:', searchName);
         
         try {
             // Clear cache for TCG cards
@@ -3904,7 +3913,7 @@ class PokemonChatApp {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool: 'search_pokemon_cards',
-                    params: { pokemon_name: this.currentPokemonName.toLowerCase() }
+                    params: { pokemon_name: searchName.toLowerCase() }
                 })
             });
             

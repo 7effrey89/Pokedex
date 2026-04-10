@@ -69,7 +69,10 @@ class PokemonDetailView {
             await this.app.loadCacheConfig();
         }
 
-        if (this.app.shouldUsePokemonProxy()) {
+        // Always use proxy for form variants (IDs > 10000) so they get cached
+        const isFormVariant = /^\d+$/.test(String(identifier)) && parseInt(identifier) > 10000;
+
+        if (this.app.shouldUsePokemonProxy() || isFormVariant) {
             return this.fetchPokemonResource(resource, identifier, 'proxy');
         }
         try {
@@ -109,6 +112,29 @@ class PokemonDetailView {
         const prevBtn = document.getElementById('pokemonNavPrev');
         const nextBtn = document.getElementById('pokemonNavNext');
         
+        // For form variants (IDs > MAX_POKEMON), show base species as prev and hide next
+        const isFormVariant = currentId > this.app.MAX_POKEMON;
+        
+        if (isFormVariant) {
+            // Show the base species as "previous" so users can navigate back
+            const baseSpecies = this.app.allPokemons.find(p => p.name === this.app.currentSpeciesName);
+            if (prevBtn && baseSpecies) {
+                prevBtn.style.visibility = 'visible';
+                const img = prevBtn.querySelector('.nav-preview-image');
+                const name = prevBtn.querySelector('.nav-preview-name');
+                const number = prevBtn.querySelector('.nav-preview-number');
+                img.src = this.app.gridView.getArtworkUrl(baseSpecies.id);
+                name.textContent = baseSpecies.name;
+                number.textContent = `#${String(baseSpecies.id).padStart(3, '0')}`;
+            } else if (prevBtn) {
+                prevBtn.style.visibility = 'hidden';
+            }
+            if (nextBtn) {
+                nextBtn.style.visibility = 'hidden';
+            }
+            return;
+        }
+        
         // Update previous Pokemon preview
         if (prevBtn && currentId > 1) {
             const prevPokemon = this.app.allPokemons.find(p => p.id === currentId - 1);
@@ -143,6 +169,17 @@ class PokemonDetailView {
     }
 
     async navigateToPreviousPokemon() {
+        // For form variants, navigate to the base species
+        const currentState = this.app.currentCanvasState;
+        const currentPokemonId = currentState?.data?.pokemon?.id;
+        if (currentPokemonId && currentPokemonId > this.app.MAX_POKEMON) {
+            const baseSpecies = this.app.allPokemons.find(p => p.name === this.app.currentSpeciesName);
+            if (baseSpecies) {
+                await this.loadPokemon(baseSpecies.id);
+            }
+            return;
+        }
+        
         const currentId = this.app.currentPokemonName ? 
             this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id : null;
         
@@ -152,6 +189,13 @@ class PokemonDetailView {
     }
 
     async navigateToNextPokemon() {
+        // Form variants have no "next" in the sequential grid
+        const currentState = this.app.currentCanvasState;
+        const currentPokemonId = currentState?.data?.pokemon?.id;
+        if (currentPokemonId && currentPokemonId > this.app.MAX_POKEMON) {
+            return;
+        }
+        
         const currentId = this.app.currentPokemonName ? 
             this.app.allPokemons.find(p => p.name === this.app.currentPokemonName)?.id : null;
         
@@ -162,12 +206,15 @@ class PokemonDetailView {
 
     async loadPokemon(identifier) {
         try {
-            const [pokemonResult, speciesResult] = await Promise.all([
-                this.fetchResourceWithFallback('pokemon', identifier),
-                this.fetchResourceWithFallback('species', identifier)
-            ]);
-
+            // Fetch pokemon first, then derive species from its species URL
+            // (form variants like megas/gmax have different pokemon IDs but share a species)
+            const pokemonResult = await this.fetchResourceWithFallback('pokemon', identifier);
             const pokemon = pokemonResult.data;
+            const speciesId = pokemon.species?.url
+                ? pokemon.species.url.split('/').filter(Boolean).pop()
+                : identifier;
+
+            const speciesResult = await this.fetchResourceWithFallback('species', speciesId);
             const species = speciesResult.data;
             const anyStale = pokemonResult.isStale || speciesResult.isStale;
 
@@ -185,7 +232,7 @@ class PokemonDetailView {
 
             // Stale-while-revalidate: refresh in background, re-render if data changed
             if (anyStale || evolutionStale) {
-                this._revalidateAndRerender(identifier, pokemon, species, evolutionChain,
+                this._revalidateAndRerender(identifier, speciesId, pokemon, species, evolutionChain,
                     pokemonResult.isStale, speciesResult.isStale, evolutionStale);
             }
         } catch (error) {
@@ -193,7 +240,7 @@ class PokemonDetailView {
         }
     }
 
-    async _revalidateAndRerender(identifier, oldPokemon, oldSpecies, oldEvolution,
+    async _revalidateAndRerender(identifier, speciesIdentifier, oldPokemon, oldSpecies, oldEvolution,
                                   pokemonStale, speciesStale, evolutionStale) {
         console.log(`🔄 Revalidating stale cache for: ${identifier}`);
         try {
@@ -202,7 +249,7 @@ class PokemonDetailView {
                 ? this._revalidateResource('pokemon', identifier)
                 : Promise.resolve(null));
             promises.push(speciesStale
-                ? this._revalidateResource('species', identifier)
+                ? this._revalidateResource('species', speciesIdentifier)
                 : Promise.resolve(null));
 
             const [freshPokemon, freshSpecies] = await Promise.all(promises);
@@ -242,12 +289,14 @@ class PokemonDetailView {
 
     async loadPokemonWithoutHistory(identifier) {
         try {
-            const [pokemonResult, speciesResult] = await Promise.all([
-                this.fetchResourceWithFallback('pokemon', identifier),
-                this.fetchResourceWithFallback('species', identifier)
-            ]);
-
+            // Fetch pokemon first, then derive species from its species URL
+            const pokemonResult = await this.fetchResourceWithFallback('pokemon', identifier);
             const pokemon = pokemonResult.data;
+            const speciesId = pokemon.species?.url
+                ? pokemon.species.url.split('/').filter(Boolean).pop()
+                : identifier;
+
+            const speciesResult = await this.fetchResourceWithFallback('species', speciesId);
             const species = speciesResult.data;
             const anyStale = pokemonResult.isStale || speciesResult.isStale;
 
@@ -285,7 +334,7 @@ class PokemonDetailView {
 
             // Stale-while-revalidate
             if (anyStale || evolutionStale) {
-                this._revalidateAndRerender(identifier, pokemon, species, evolutionChain,
+                this._revalidateAndRerender(identifier, speciesId, pokemon, species, evolutionChain,
                     pokemonResult.isStale, speciesResult.isStale, evolutionStale);
             }
         } catch (error) {
@@ -312,6 +361,8 @@ class PokemonDetailView {
         
         // Store current Pokemon name for card searches
         this.app.currentPokemonName = pokemon.name;
+        // Store species name (base name for forms — e.g. 'charizard' for mega/gmax variants)
+        this.app.currentSpeciesName = species?.name || pokemon.name;
         
         // Mark Pokemon as viewed
         this.app.markPokemonViewed(pokemon.id, 'detail');

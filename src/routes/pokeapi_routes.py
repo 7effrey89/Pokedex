@@ -141,12 +141,28 @@ def _is_pokeapi_cache_enabled() -> bool:
     return config.get("enabled", True)
 
 
+def _is_form_variant(name_or_id: str) -> bool:
+    """Check if a Pokemon identifier refers to a form variant (mega, gmax, regional).
+
+    Form variants have numeric IDs > 10000 or hyphenated names like
+    ``charizard-mega-x``, ``charizard-gmax``, ``pikachu-alola``.
+    """
+    text = name_or_id.strip().lower()
+    if text.isdigit() and int(text) > 10000:
+        return True
+    # Hyphenated names with form suffixes
+    return bool(re.search(
+        r'-(mega|gmax|alola|galar|hisui|paldea|totem|(?:mega-[xy]))$', text
+    ))
+
+
 def _fetch_with_cache(
     cache_key: str,
     params: Dict[str, str],
     resource_path: str,
     refresh: bool,
     use_cache: bool,
+    force_cache: bool = False,
 ) -> Tuple[Optional[Dict], str]:
     """Fetch a PokeAPI resource with CacheService backing.
 
@@ -158,7 +174,7 @@ def _fetch_with_cache(
     if use_cache:
         cache_label = "refresh" if refresh else "miss"
         if not refresh:
-            data, status = cache_service.get_with_stale(cache_key, params)
+            data, status = cache_service.get_with_stale(cache_key, params, force=force_cache)
             if data is not None:
                 return data, status  # 'hit' or 'stale'
 
@@ -180,15 +196,18 @@ def _fetch_with_cache(
 
     data = resp.json()
     if use_cache:
-        cache_service.set(cache_key, params, data)
+        cache_service.set(cache_key, params, data, force=force_cache)
     return data, cache_label
 
 
-def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str):
+def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
+                    force_cache: bool = False):
     refresh = _should_refresh()
-    use_cache = _is_pokeapi_cache_enabled()
+    use_cache = _is_pokeapi_cache_enabled() or force_cache
     try:
-        data, cache_status = _fetch_with_cache(cache_key, params, resource_path, refresh, use_cache)
+        data, cache_status = _fetch_with_cache(
+            cache_key, params, resource_path, refresh, use_cache,
+            force_cache=force_cache)
     except requests.RequestException:
         error_response = jsonify({"error": "Failed to reach PokeAPI"})
         error_response.status_code = 502
@@ -221,7 +240,8 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str):
 def get_pokemon(name_or_id: str):
     """Return Pokemon data by name or ID via cache-aware proxy."""
     params = {"pokemon": name_or_id.lower()}
-    return _proxy_resource("pokeapi_pokemon", params, f"pokemon/{name_or_id}")
+    return _proxy_resource("pokeapi_pokemon", params, f"pokemon/{name_or_id}",
+                           force_cache=_is_form_variant(name_or_id))
 
 
 @pokeapi_bp.route("/species/<string:name_or_id>", methods=["GET"])

@@ -41,6 +41,7 @@ class CacheService:
         self._tcg_cache_keys = {
             "search_pokemon_cards",
             "get_card_price",
+            "get_card_details",
         }
     
     def _load_config(self) -> Dict[str, Any]:
@@ -143,13 +144,53 @@ class CacheService:
         # Hash it for a clean filename
         return hashlib.md5(key_data.encode()).hexdigest()
 
-    def _get_cache_path(self, endpoint: str, params: Dict[str, Any], cache_key: str) -> Path:
+    def _get_cache_path(self, endpoint: str, params: Dict[str, Any], cache_key: str, response: Dict[str, Any] = None) -> Path:
         """Resolve the descriptive cache filename for this entry"""
         descriptor = self._build_descriptor(endpoint, params)
+        # For numeric-only lookups (e.g. form variants like 10034), enrich with
+        # the name from the API response so the file is descriptive.
+        if response and descriptor:
+            name = response.get("name")
+            if name and isinstance(name, str):
+                slug = self._slugify(name)
+                # If descriptor ends with a bare number slug, replace it with the real name
+                # e.g. "pokeapi-10034-10034" → "pokeapi-10034-charizard-mega-x"
+                parts = descriptor.rsplit("-", 1)
+                if len(parts) == 2 and parts[1].isdigit() and slug and slug != parts[1]:
+                    descriptor = f"{parts[0]}-{slug}"
         if descriptor:
             safe_name = descriptor[:120]
             return self.cache_dir / f"{safe_name}.json"
         return self.cache_dir / f"{cache_key}.json"
+
+    def _find_cache_file(self, endpoint: str, params: Dict[str, Any], cache_key: str) -> Optional[Path]:
+        """Find an existing cache file, accounting for enriched filenames.
+
+        When ``set()`` enriches a numeric slug with the real Pokemon name,
+        the path produced by ``_get_cache_path`` (without a response) won't
+        match the enriched filename.  This helper tries the base path first,
+        then falls back to a glob pattern to locate the enriched file.
+        """
+        base_path = self._get_cache_path(endpoint, params, cache_key)
+        if base_path.exists():
+            return base_path
+
+        # Legacy MD5-based path
+        legacy_path = self.cache_dir / f"{cache_key}.json"
+        if legacy_path != base_path and legacy_path.exists():
+            return legacy_path
+
+        # Glob for enriched descriptors: e.g. pokeapi-10034-*.json
+        descriptor = self._build_descriptor(endpoint, params)
+        if descriptor:
+            parts = descriptor.rsplit("-", 1)
+            if len(parts) == 2 and parts[1].isdigit():
+                pattern = f"{parts[0]}-*.json"
+                matches = list(self.cache_dir.glob(pattern))
+                if len(matches) == 1:
+                    return matches[0]
+
+        return None
     
     def get(self, endpoint: str, params: Dict[str, Any] = None) -> Optional[Dict[str, Any]]:
         """
@@ -169,13 +210,7 @@ class CacheService:
             params = {}
         
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(endpoint, params, cache_key)
-        candidate_paths = [cache_path]
-        legacy_path = self.cache_dir / f"{cache_key}.json"
-        if legacy_path != cache_path:
-            candidate_paths.append(legacy_path)
-        
-        target_path = next((p for p in candidate_paths if p.exists()), None)
+        target_path = self._find_cache_file(endpoint, params, cache_key)
         if not target_path:
             return None
         
@@ -200,7 +235,7 @@ class CacheService:
             logger.error(f"Error reading cache: {e}")
             return None
 
-    def get_with_stale(self, endpoint: str, params: Dict[str, Any] = None) -> Tuple[Optional[Dict[str, Any]], str]:
+    def get_with_stale(self, endpoint: str, params: Dict[str, Any] = None, force: bool = False) -> Tuple[Optional[Dict[str, Any]], str]:
         """
         Get cached response, returning stale data instead of discarding it.
 
@@ -209,20 +244,14 @@ class CacheService:
             'stale' means the data is expired but still usable while a background
             refresh happens.
         """
-        if not self._is_endpoint_cacheable(endpoint):
+        if not force and not self._is_endpoint_cacheable(endpoint):
             return None, "miss"
 
         if params is None:
             params = {}
 
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(endpoint, params, cache_key)
-        candidate_paths = [cache_path]
-        legacy_path = self.cache_dir / f"{cache_key}.json"
-        if legacy_path != cache_path:
-            candidate_paths.append(legacy_path)
-
-        target_path = next((p for p in candidate_paths if p.exists()), None)
+        target_path = self._find_cache_file(endpoint, params, cache_key)
         if not target_path:
             return None, "miss"
 
@@ -245,7 +274,7 @@ class CacheService:
             logger.error(f"Error reading cache: {e}")
             return None, "miss"
     
-    def set(self, endpoint: str, params: Dict[str, Any], response: Dict[str, Any]):
+    def set(self, endpoint: str, params: Dict[str, Any], response: Dict[str, Any], force: bool = False):
         """
         Store response in cache
         
@@ -253,15 +282,16 @@ class CacheService:
             endpoint: API endpoint
             params: Request parameters
             response: API response to cache
+            force: If True, bypass the endpoint-enabled check
         """
-        if not self._is_endpoint_cacheable(endpoint):
+        if not force and not self._is_endpoint_cacheable(endpoint):
             return
         
         if params is None:
             params = {}
         
         cache_key = self._get_cache_key(endpoint, params)
-        cache_path = self._get_cache_path(endpoint, params, cache_key)
+        cache_path = self._get_cache_path(endpoint, params, cache_key, response)
         
         try:
             cached_data = {
@@ -419,6 +449,7 @@ class CacheService:
             "pokeapi_evolution_chain": self._describe_pokeapi_chain,
             "search_pokemon_cards": self._describe_tcg_search,
             "get_card_price": self._describe_card_price,
+            "get_card_details": self._describe_card_price,
         }
         builder = builder_map.get(endpoint)
         descriptor = builder(params) if builder else None

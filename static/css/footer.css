@@ -141,6 +141,19 @@
     transform: scale(1.06);
 }
 
+.footer-index-icon {
+    width: 50px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    transition: transform 0.2s ease;
+}
+
+.footer-btn-icon-only:hover .footer-index-icon,
+.footer-btn-icon-only:focus-visible .footer-index-icon {
+    transform: scale(1.06);
+}
+
 .footer-help-icon {
     width: 50px;
     height: auto;
