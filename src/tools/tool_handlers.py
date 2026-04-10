@@ -21,7 +21,8 @@ from src.tools.handlers import (
     handle_get_random_pokemon_by_type,
     handle_get_pokemon_list,
     handle_search_pokemon_cards,
-    handle_get_card_price
+    handle_get_card_price,
+    handle_get_card_details
 )
 
 logger = logging.getLogger(__name__)
@@ -80,6 +81,10 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         elif tool_name == 'get_card_price':
             card_id = arguments.get('card_id', '')
             return handle_get_card_price(card_id, force_refresh=arguments.get('force_refresh', False))
+        
+        elif tool_name == 'get_card_details':
+            card_id = arguments.get('card_id', '')
+            return handle_get_card_details(card_id)
         
         else:
             logger.warning(f"❓ Unknown tool: {tool_name}")

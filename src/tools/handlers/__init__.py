@@ -17,7 +17,8 @@ from .pokemon_handlers import (
 
 from .tcg_handlers import (
     handle_search_pokemon_cards,
-    handle_get_card_price
+    handle_get_card_price,
+    handle_get_card_details
 )
 
 __all__ = [
@@ -31,4 +32,5 @@ __all__ = [
     # TCG handlers
     'handle_search_pokemon_cards',
     'handle_get_card_price',
+    'handle_get_card_details',
 ]

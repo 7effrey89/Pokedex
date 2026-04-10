@@ -171,7 +171,124 @@ class PokemonChatApp {
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
-        this.gridView.show(); // Use gridView instead of loadPokemonGrid
+        this.routeFromUrl(); // Route based on current URL instead of always showing grid
+    }
+    
+    /**
+     * Route to the correct view based on the current browser URL.
+     * Called once on startup so refresh/direct links restore the right screen.
+     */
+    async routeFromUrl() {
+        const path = window.location.pathname;
+        
+        // Suppress pushState during initial routing to avoid extra history entries
+        this._suppressPushState = true;
+        
+        // /pokemon/:name/cards  →  TCG gallery for that Pokemon
+        const cardsMatch = path.match(/^\/pokemon\/([^\/]+)\/cards\/?$/);
+        if (cardsMatch) {
+            const pokemonName = decodeURIComponent(cardsMatch[1]);
+            // Show grid first to ensure Pokemon list is loaded
+            await this.gridView.show();
+            // Find the Pokemon to set context
+            const pokemon = this.allPokemons?.find(p => p.name === pokemonName);
+            if (pokemon) {
+                this.currentPokemonName = pokemonName;
+                await this.viewPokemonCards();
+            } else {
+                this.currentPokemonName = pokemonName;
+                await this.viewPokemonCards();
+            }
+            this._suppressPushState = false;
+            history.replaceState({ viewKey: 'tcg' }, '', path);
+            return;
+        }
+        
+        // /tcg/:cardId  →  TCG card detail
+        const tcgMatch = path.match(/^\/tcg\/([^\/]+)\/?$/);
+        if (tcgMatch) {
+            const cardId = decodeURIComponent(tcgMatch[1]);
+            await this.gridView.show();
+            try {
+                const response = await fetch('/api/realtime/tool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tool_name: 'get_card_details',
+                        arguments: { card_id: cardId }
+                    })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.result && !data.result.error) {
+                        await this.tcgDetail.show(data.result);
+                        this._suppressPushState = false;
+                        history.replaceState({ viewKey: `tcg-detail-${cardId}` }, '', path);
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Failed to load TCG card from URL:', err);
+            }
+            this._suppressPushState = false;
+            history.replaceState({ viewKey: 'grid' }, '', '/');
+            return;
+        }
+        
+        // /pokemon/:nameOrId  →  Pokemon detail
+        const pokemonMatch = path.match(/^\/pokemon\/([^\/]+)\/?$/);
+        if (pokemonMatch) {
+            const identifier = decodeURIComponent(pokemonMatch[1]);
+            await this.gridView.show();
+            await this.detailView.loadPokemon(identifier);
+            this._suppressPushState = false;
+            history.replaceState({ viewKey: `pokemon-${identifier}` }, '', path);
+            return;
+        }
+        
+        // Default: show grid
+        this._suppressPushState = false;
+        this.gridView.show();
+        history.replaceState({ viewKey: 'grid' }, '', '/');
+    }
+    
+    /**
+     * Handle browser back/forward button (popstate event).
+     * Re-routes based on the URL the browser navigated to.
+     */
+    async handlePopState(e) {
+        const path = window.location.pathname;
+        
+        // /pokemon/:name/cards
+        const cardsMatch = path.match(/^\/pokemon\/([^\/]+)\/cards\/?$/);
+        if (cardsMatch && this.currentTcgData) {
+            this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+            return;
+        }
+        
+        // /tcg/:cardId
+        const tcgMatch = path.match(/^\/tcg\/([^\/]+)\/?$/);
+        if (tcgMatch && this.currentTcgData?.cards) {
+            const cardId = decodeURIComponent(tcgMatch[1]);
+            const card = this.currentTcgData.cards.find(c => c.id === cardId);
+            if (card) {
+                await this.tcgDetail.showWithoutHistory(card);
+                return;
+            }
+        }
+        
+        // /pokemon/:nameOrId
+        const pokemonMatch = path.match(/^\/pokemon\/([^\/]+)\/?$/);
+        if (pokemonMatch) {
+            const identifier = decodeURIComponent(pokemonMatch[1]);
+            // Try numeric first, then name
+            const numId = parseInt(identifier);
+            await this.detailView.loadPokemonWithoutHistory(isNaN(numId) ? identifier : numId);
+            return;
+        }
+        
+        // Default: grid
+        this.gridView.showWithoutHistory();
     }
 
     generateUserId() {
@@ -976,6 +1093,9 @@ class PokemonChatApp {
     }
     
     initializeEventListeners() {
+        // Browser back/forward button support
+        window.addEventListener('popstate', (e) => this.handlePopState(e));
+        
         // Send button click
         if (this.sendButton) {
             this.sendButton.addEventListener('click', () => this.sendMessage());
@@ -1386,9 +1506,12 @@ class PokemonChatApp {
             
             if (view === 'grid') {
                 this.gridView.showWithoutHistory();
+                history.replaceState({ viewKey: view }, '', '/');
             } else if (view === 'tcg') {
                 if (this.currentTcgData) {
                     this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+                    const pokemonName = this.currentTcgData.search_query || this.currentTcgData.pokemon_name || this.currentPokemonName;
+                    if (pokemonName) history.replaceState({ viewKey: view }, '', `/pokemon/${pokemonName.toLowerCase()}/cards`);
                 }
             } else if (view.startsWith('tcg-detail-')) {
                 // For TCG detail, find and show the specific card
@@ -1397,6 +1520,7 @@ class PokemonChatApp {
                     const card = this.currentTcgData.cards.find(c => c.id === cardId);
                     if (card) {
                         await this.tcgDetail.showWithoutHistory(card);
+                        history.replaceState({ viewKey: view }, '', `/tcg/${cardId}`);
                     } else {
                         console.log('Card not found in current TCG data:', cardId);
                     }
@@ -1406,6 +1530,8 @@ class PokemonChatApp {
             } else if (view.startsWith('pokemon-')) {
                 const pokemonId = parseInt(view.split('-')[1]);
                 this.detailView.loadPokemonWithoutHistory(pokemonId);
+                const pokemon = this.allPokemons?.find(p => p.id === pokemonId);
+                history.replaceState({ viewKey: view }, '', `/pokemon/${pokemon?.name || pokemonId}`);
             }
             this.updateNavigationButtons();
         }
@@ -2929,8 +3055,11 @@ class PokemonChatApp {
             
             if (view === 'grid') {
                 this.gridView.showWithoutHistory();
+                history.replaceState({ viewKey: view }, '', '/');
             } else if (view === 'tcg' && this.currentTcgData) {
                 this.tcgGallery.displayWithoutHistory(this.currentTcgData);
+                const pokemonName = this.currentTcgData.search_query || this.currentTcgData.pokemon_name || this.currentPokemonName;
+                if (pokemonName) history.replaceState({ viewKey: view }, '', `/pokemon/${pokemonName.toLowerCase()}/cards`);
             } else if (view.startsWith('tcg-detail-')) {
                 // For TCG detail, find and show the specific card
                 const cardId = view.replace('tcg-detail-', '');
@@ -2938,6 +3067,7 @@ class PokemonChatApp {
                     const card = this.currentTcgData.cards.find(c => c.id === cardId);
                     if (card) {
                         await this.tcgDetail.showWithoutHistory(card);
+                        history.replaceState({ viewKey: view }, '', `/tcg/${cardId}`);
                     } else {
                         console.log('Card not found in current TCG data:', cardId);
                     }
@@ -2947,6 +3077,8 @@ class PokemonChatApp {
             } else if (view.startsWith('pokemon-')) {
                 const pokemonId = parseInt(view.split('-')[1]);
                 this.detailView.loadPokemonWithoutHistory(pokemonId);
+                const pokemon = this.allPokemons?.find(p => p.id === pokemonId);
+                history.replaceState({ viewKey: view }, '', `/pokemon/${pokemon?.name || pokemonId}`);
             }
             this.updateNavigationButtons();
         }
@@ -4584,6 +4716,14 @@ class PokemonChatApp {
             
             // Update navigation buttons
             this.updateNavigationButtons();
+            
+            // Update browser URL
+            if (!this._suppressPushState) {
+                const url = this.buildUrl(type, data);
+                if (url !== null) {
+                    history.pushState({ viewKey }, '', url);
+                }
+            }
         }
         
         // Generate context description based on canvas state
@@ -4605,6 +4745,36 @@ class PokemonChatApp {
         } else {
             this.currentCardContext = null;
             this.currentPokemonContext = null;
+        }
+    }
+    
+    /**
+     * Build a URL path for the given canvas state
+     */
+    buildUrl(type, data) {
+        switch (type) {
+            case 'grid':
+                return '/';
+            case 'pokemon':
+                if (data?.pokemon?.id) {
+                    const name = data.pokemon.name || data.pokemon.id;
+                    return `/pokemon/${name}`;
+                }
+                return '/';
+            case 'tcg-gallery': {
+                const pokemonName = data?.pokemon_name || this.currentPokemonName;
+                if (pokemonName) {
+                    return `/pokemon/${pokemonName.toLowerCase()}/cards`;
+                }
+                return '/';
+            }
+            case 'tcg-detail':
+                if (data?.id) {
+                    return `/tcg/${data.id}`;
+                }
+                return '/';
+            default:
+                return null;
         }
     }
     

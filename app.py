@@ -37,8 +37,10 @@ app.register_blueprint(pokeapi_bp)
 
 
 @app.route('/')
-def index():
-    """Serve the main page"""
+@app.route('/pokemon/<path:subpath>')
+@app.route('/tcg/<path:subpath>')
+def index(subpath=None):
+    """Serve the main page — SPA catch-all for client-side routing"""
     return render_template('index.html')
 
 

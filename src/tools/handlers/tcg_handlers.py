@@ -242,3 +242,34 @@ def handle_get_card_price(card_id: str, force_refresh: bool = False) -> Dict[str
     except Exception as e:
         logger.warning(f"⚠️ Error fetching card price: {e}")
         return {"error": str(e)}
+
+
+def handle_get_card_details(card_id: str) -> Dict[str, Any]:
+    """
+    Get full card details for a Pokemon TCG card by ID (for URL-based routing).
+    
+    Args:
+        card_id: Card ID in format 'set-number' (e.g., 'sv3-25')
+        
+    Returns:
+        Dict containing formatted card data suitable for the detail view
+    """
+    cache_key_params = {"card_id": card_id}
+    cached_response, cache_status = cache_service.get_with_stale("get_card_details", cache_key_params)
+    if cached_response:
+        logger.info(f"🎯 Returning cached card details for: {card_id}")
+        return cached_response
+
+    logger.info(f"🎴 Fetching card details for: {card_id}")
+
+    client = _get_tcg_client()
+    try:
+        card_data = client.get_card(card_id)
+        if card_data and 'data' in card_data:
+            formatted = client.format_card_info(card_data['data'])
+            cache_service.set("get_card_details", cache_key_params, formatted)
+            return formatted
+        return {"error": f"Card not found: {card_id}"}
+    except Exception as e:
+        logger.warning(f"⚠️ Error fetching card details: {e}")
+        return {"error": str(e)}
