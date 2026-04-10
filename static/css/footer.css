@@ -93,7 +93,7 @@
     bottom: calc(100% + 0.4rem);
     left: 50%;
     transform: translate(-50%, 6px);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 1);
     color: #fff;
     font-size: 0.65rem;
     padding: 0.2rem 0.45rem;
@@ -145,12 +145,14 @@
     width: 50px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-    transition: transform 0.2s ease;
+    filter: brightness(0) saturate(100%) invert(16%) sepia(5%) saturate(9%) hue-rotate(316deg) brightness(94%) contrast(93%);
+    opacity: 0.35;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .footer-btn-icon-only:hover .footer-index-icon,
 .footer-btn-icon-only:focus-visible .footer-index-icon {
+    opacity: 1;
     transform: scale(1.06);
 }
 
