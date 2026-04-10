@@ -158,6 +158,11 @@ class TcgDatabaseView {
                 this._updateSetCount();
                 this._wireControls();
                 this._renderDatabase();
+
+                // Stale-while-revalidate: refresh sets list in background if stale
+                if (data.result._cache_stale) {
+                    this._revalidateSets();
+                }
             } else {
                 this.cardList.innerHTML = '<div class="error-state">Unable to load TCG sets.</div>';
             }
@@ -166,6 +171,37 @@ class TcgDatabaseView {
             this.cardList.innerHTML = '<div class="error-state">Unable to load TCG sets. Please refresh.</div>';
         } finally {
             this.app.setLoading(false);
+        }
+    }
+
+    /** Background revalidation for stale TCG sets list */
+    async _revalidateSets() {
+        console.log('🔄 Revalidating stale TCG sets list...');
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'get_tcg_sets',
+                    arguments: { force_refresh: true }
+                })
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (data?.result?.sets) {
+                const oldCount = this.allSets.length;
+                if (data.result.sets.length !== oldCount) {
+                    this.allSets = data.result.sets;
+                    this._updateSetCount();
+                    this._renderDatabase();
+                    console.log(`✅ Sets revalidated: ${oldCount} → ${data.result.sets.length} sets`);
+                } else {
+                    this.allSets = data.result.sets; // Update data silently
+                    console.log('✅ Sets revalidated: count unchanged');
+                }
+            }
+        } catch (err) {
+            console.warn('⚠️ Sets revalidation failed:', err);
         }
     }
 
@@ -273,7 +309,7 @@ class TcgDatabaseView {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool_name: 'search_cards_by_set',
-                    arguments: { set_id: setId }
+                    arguments: { set_id: setId, slim: true }
                 })
             });
 
@@ -282,12 +318,40 @@ class TcgDatabaseView {
             const data = await response.json();
             if (data.result && data.result.cards && data.result.cards.length > 0) {
                 this._renderSetCards(placeholderEl, data.result.cards);
+
+                // Stale-while-revalidate: refresh in background if stale
+                if (data.result._cache_stale) {
+                    this._revalidateSetCards(setId, placeholderEl);
+                }
             } else {
                 placeholderEl.innerHTML = '<div class="tcg-set-loading">No cards found</div>';
             }
         } catch (err) {
             console.warn(`Failed to load cards for set ${setId}:`, err);
             placeholderEl.innerHTML = '<div class="tcg-set-loading">Failed to load cards</div>';
+        }
+    }
+
+    /** Background revalidation for stale expansion preview cards */
+    async _revalidateSetCards(setId, placeholderEl) {
+        console.log(`🔄 Revalidating stale set cards: ${setId}`);
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_cards_by_set',
+                    arguments: { set_id: setId, slim: true, force_refresh: true }
+                })
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (data?.result?.cards?.length > 0) {
+                this._renderSetCards(placeholderEl, data.result.cards);
+                console.log(`✅ Revalidated set ${setId}`);
+            }
+        } catch (err) {
+            console.warn(`⚠️ Set revalidation failed for ${setId}:`, err);
         }
     }
 
@@ -527,7 +591,7 @@ class TcgDatabaseView {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tool_name: 'search_cards_by_set',
-                    arguments: { set_id: setId }
+                    arguments: { set_id: setId, slim: true }
                 })
             });
             if (!response.ok) throw new Error('Failed');
@@ -535,11 +599,44 @@ class TcgDatabaseView {
             if (data?.result?.cards) {
                 this.allCards = this.allCards.concat(data.result.cards);
                 this.loadedSetIds.add(setId);
+
+                // Stale-while-revalidate: refresh in background if stale
+                if (data.result._cache_stale) {
+                    this._revalidateAllCardsSet(setId, data.result.cards.length);
+                }
             }
             if (statusEl) statusEl.textContent = '✓';
         } catch (err) {
             console.warn(`Failed to load cards for set ${setId}:`, err);
             if (statusEl) statusEl.textContent = '✗';
+        }
+    }
+
+    /** Background revalidation for stale All Cards set data */
+    async _revalidateAllCardsSet(setId, oldCount) {
+        console.log(`🔄 Revalidating stale All Cards set: ${setId}`);
+        try {
+            const response = await fetch('/api/realtime/tool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tool_name: 'search_cards_by_set',
+                    arguments: { set_id: setId, slim: true, force_refresh: true }
+                })
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (data?.result?.cards) {
+                // Replace old cards for this set with fresh ones
+                this.allCards = this.allCards.filter(c => (c.set?.id || '') !== setId);
+                this.allCards = this.allCards.concat(data.result.cards);
+                this.filteredCards = null; // Reset filters to include fresh data
+                this._updateCardCount();
+                this._renderCardGrid();
+                console.log(`✅ Revalidated All Cards set ${setId} (${oldCount} → ${data.result.cards.length} cards)`);
+            }
+        } catch (err) {
+            console.warn(`⚠️ All Cards set revalidation failed for ${setId}:`, err);
         }
     }
 
@@ -741,17 +838,57 @@ class TcgDatabaseView {
     _renderCardGrid() {
         const container = document.getElementById('tcgAllCardsGrid');
         if (!container) return;
+
+        // Clean up previous observer
+        if (this._gridObserver) {
+            this._gridObserver.disconnect();
+            this._gridObserver = null;
+        }
         container.innerHTML = '';
 
         const cards = this._getDisplayCards();
         const sorted = this._sortCards(cards, this.cardSort);
 
+        // Progressive rendering: render first batch immediately, rest via IntersectionObserver
+        const BATCH_SIZE = 60;
         const grid = document.createElement('div');
         grid.className = 'tcg-all-cards-set-grid';
-        sorted.forEach(card => {
+
+        // Render first batch immediately
+        const firstBatch = sorted.slice(0, BATCH_SIZE);
+        firstBatch.forEach(card => {
             grid.appendChild(this._createFlatCardElement(card));
         });
         container.appendChild(grid);
+
+        // If more cards, render remaining in batches as user scrolls
+        if (sorted.length > BATCH_SIZE) {
+            let rendered = BATCH_SIZE;
+            const sentinel = document.createElement('div');
+            sentinel.className = 'tcg-grid-sentinel';
+            container.appendChild(sentinel);
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && rendered < sorted.length) {
+                    const nextBatch = sorted.slice(rendered, rendered + BATCH_SIZE);
+                    const fragment = document.createDocumentFragment();
+                    nextBatch.forEach(card => {
+                        fragment.appendChild(this._createFlatCardElement(card));
+                    });
+                    grid.appendChild(fragment);
+                    rendered += nextBatch.length;
+
+                    if (rendered >= sorted.length) {
+                        observer.disconnect();
+                        sentinel.remove();
+                    }
+                }
+            }, { rootMargin: '600px' });
+            observer.observe(sentinel);
+
+            // Store observer reference for cleanup
+            this._gridObserver = observer;
+        }
     }
 
     /** Rarity rank: lower = more common */
@@ -792,7 +929,25 @@ class TcgDatabaseView {
             </div>
         `;
 
-        el.addEventListener('click', () => {
+        el.addEventListener('click', async () => {
+            // Fetch full card details for the detail view
+            try {
+                const resp = await fetch('/api/realtime/tool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tool_name: 'get_card_details', arguments: { card_id: card.id } })
+                });
+                if (resp.ok) {
+                    const data = await resp.json();
+                    if (data?.result) {
+                        this.app.tcgDetail.show(data.result);
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Failed to fetch card details, using slim data:', err);
+            }
+            // Fallback to slim data
             this.app.tcgDetail.show(card);
         });
 

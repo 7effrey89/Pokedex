@@ -92,7 +92,8 @@ def execute_tool(tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
             set_id = arguments.get('set_id', '')
             return handle_search_cards_by_set(
                 set_id=set_id,
-                force_refresh=arguments.get('force_refresh', False)
+                force_refresh=arguments.get('force_refresh', False),
+                slim=arguments.get('slim', False)
             )
         
         elif tool_name == 'get_tcg_sets':

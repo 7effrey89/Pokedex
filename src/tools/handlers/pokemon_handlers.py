@@ -34,11 +34,16 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
     Returns:
         Dictionary with Pokemon data or error
     """
-    # Check cache first
+    # Check cache first (stale-while-revalidate)
     cache_key_params = {"pokemon_name": pokemon_name.lower()}
-    cached_response = cache_service.get("get_pokemon", cache_key_params)
+    cached_response, cache_status = cache_service.get_with_stale("get_pokemon", cache_key_params)
     if cached_response:
-        logger.info(f"🎯 Returning cached Pokemon data for: {pokemon_name}")
+        if cache_status == 'stale':
+            logger.info(f"⏳ Returning STALE cached Pokemon data for: {pokemon_name}")
+            if isinstance(cached_response, dict):
+                cached_response['_cache_stale'] = True
+        else:
+            logger.info(f"🎯 Returning cached Pokemon data for: {pokemon_name}")
         return cached_response
     
     use_pokeapi = tool_manager.is_tool_enabled("pokeapi")

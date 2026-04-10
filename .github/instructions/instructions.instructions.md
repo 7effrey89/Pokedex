@@ -161,3 +161,30 @@ case 'your-screen-type':
 - The proxy already exposes `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/type/<type_name>`, and `/evolution-chain/<chain_id>` and transparently stores results via `CacheService`. Add new proxy endpoints (instead of raw fetches) if you need more PokéAPI resources.
 - Use the `?refresh=1` query string when you intentionally want to bypass the cache (force refresh buttons, admin workflows, etc.). Do **not** delete cache files manually.
 - Keep proxy routes lightweight (<300 lines) and reuse shared helpers for cache key generation so filenames stay descriptive in the `/cache` directory.
+
+## Feature Documentation
+
+Every new feature MUST be documented in `docs/features.md`:
+- Add a row to the appropriate category table (Pokemon, TCG, Navigation, Chat & Voice, Caching, UI/UX)
+- Include: Feature name, one-line description, and GPT Realtime support status (✅ with tool name, ❌, or N/A)
+- If a new category is needed, create a new section with the same table format
+
+Architecture decisions (caching patterns, rendering strategies, data flow changes) should be documented in `docs/architecture.md`.
+
+## GPT Realtime AI Integration
+
+Every user-facing feature that involves **navigation or data display** MUST be callable by the GPT realtime voice assistant. This means:
+
+1. **Register a tool** in `realtime_chat.py` with a clear name and description so the AI can invoke it
+2. **Wire the tool** in `app.js` so it triggers the correct view/action (e.g., `showPokemonInCanvas()`, `tcgGallery.display()`)
+3. **Update the GPT Realtime Tool Summary** in `docs/features.md` with the new tool name and action
+4. **Test by voice**: The user should be able to say something like "show me [feature]" and the AI navigates there
+
+Examples of what the AI should be able to do:
+- "Show me Pikachu" → navigates to Pokemon detail
+- "Show me Pikachu's trading cards" → opens TCG gallery
+- "Show card number 3" → opens that card's detail view
+- "Go back to the index" → returns to Pokemon grid
+- "Give me a random water type" → shows random water Pokemon
+
+If a feature is purely internal (caching, performance, CSS) mark it as `N/A` in the features table. But any screen the user can see should be reachable by voice.

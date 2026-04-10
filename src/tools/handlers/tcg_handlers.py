@@ -244,9 +244,36 @@ def handle_get_card_price(card_id: str, force_refresh: bool = False) -> Dict[str
         return {"error": str(e)}
 
 
+def _slim_card(card: Dict[str, Any]) -> Dict[str, Any]:
+    """Return only the fields needed for grid display, sorting, and filtering."""
+    prices = card.get("tcgplayer", {}).get("prices", {})
+    slim_prices = {}
+    for variant, vals in prices.items():
+        if isinstance(vals, dict):
+            slim_prices[variant] = {k: vals[k] for k in ("market", "mid") if k in vals}
+    return {
+        "id": card.get("id"),
+        "name": card.get("name"),
+        "number": card.get("number"),
+        "supertype": card.get("supertype"),
+        "subtypes": card.get("subtypes", []),
+        "types": card.get("types", []),
+        "rarity": card.get("rarity"),
+        "nationalPokedexNumbers": card.get("nationalPokedexNumbers", []),
+        "images": {"small": (card.get("images") or {}).get("small")},
+        "set": {
+            "id": (card.get("set") or {}).get("id"),
+            "name": (card.get("set") or {}).get("name"),
+            "releaseDate": (card.get("set") or {}).get("releaseDate"),
+        },
+        "tcgplayer": {"prices": slim_prices} if slim_prices else {},
+    }
+
+
 def handle_search_cards_by_set(
     set_id: str,
-    force_refresh: bool = False
+    force_refresh: bool = False,
+    slim: bool = False
 ) -> Dict[str, Any]:
     """
     Search for all cards in a specific TCG set/expansion.
@@ -254,6 +281,7 @@ def handle_search_cards_by_set(
     Args:
         set_id: The set ID (e.g., "sv3pt5", "base1")
         force_refresh: If True, skip cache
+        slim: If True, return only fields needed for grid display
         
     Returns:
         Dictionary with cards array and total_count
@@ -268,23 +296,45 @@ def handle_search_cards_by_set(
                     cached_response['_cache_stale'] = True
             else:
                 logger.info("🎯 Returning cached set cards for: %s", set_id)
+            if slim and isinstance(cached_response, dict) and "cards" in cached_response:
+                return {
+                    **cached_response,
+                    "cards": [_slim_card(c) for c in cached_response["cards"]],
+                }
             return cached_response
 
     logger.info(f"🃏 Fetching cards for set: {set_id}")
 
     client = _get_tcg_client()
     try:
-        cards_data = client.search_cards_by_set(set_id)
-        if cards_data and cards_data.get("data"):
-            formatted_cards = client.format_cards_response(cards_data)
+        # Paginate to get ALL cards (some sets have >250)
+        all_raw = []
+        page = 1
+        while True:
+            cards_data = client.search_cards_by_set(set_id, page=page, page_size=TCG_PAGE_SIZE)
+            if not cards_data or not cards_data.get("data"):
+                break
+            all_raw.extend(cards_data["data"])
+            total_count = cards_data.get("totalCount", 0)
+            if page * TCG_PAGE_SIZE >= total_count:
+                break
+            page += 1
+
+        if all_raw:
+            formatted_cards = [client.format_card_info(c) for c in all_raw]
             set_name = formatted_cards[0].get("set", {}).get("name", set_id) if formatted_cards else set_id
             result = {
                 "cards": formatted_cards,
-                "total_count": cards_data.get("totalCount", len(formatted_cards)),
+                "total_count": len(formatted_cards),
                 "search_query": set_name,
                 "set_id": set_id
             }
             cache_service.set("search_cards_by_set", cache_key_params, result)
+            if slim:
+                return {
+                    **result,
+                    "cards": [_slim_card(c) for c in formatted_cards],
+                }
             return result
     except Exception as e:
         logger.warning(f"⚠️ Error fetching set cards: {e}")
@@ -306,7 +356,12 @@ def handle_get_card_details(card_id: str) -> Dict[str, Any]:
     cache_key_params = {"card_id": card_id}
     cached_response, cache_status = cache_service.get_with_stale("get_card_details", cache_key_params)
     if cached_response:
-        logger.info(f"🎯 Returning cached card details for: {card_id}")
+        if cache_status == 'stale':
+            logger.info(f"⏳ Returning STALE cached card details for: {card_id}")
+            if isinstance(cached_response, dict):
+                cached_response['_cache_stale'] = True
+        else:
+            logger.info(f"🎯 Returning cached card details for: {card_id}")
         return cached_response
 
     logger.info(f"🎴 Fetching card details for: {card_id}")
