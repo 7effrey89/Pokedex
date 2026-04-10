@@ -522,8 +522,17 @@ class TcgDatabaseView {
         list.id = 'tcgPickerList';
         list.style.display = 'none';
 
+        // Select All / Deselect All controls
+        const bulkBar = document.createElement('div');
+        bulkBar.className = 'tcg-picker-bulk-bar';
+        bulkBar.innerHTML = `
+            <button class="tcg-picker-bulk-btn" id="tcgPickerSelectAll">Select All</button>
+            <button class="tcg-picker-bulk-btn" id="tcgPickerDeselectAll">Deselect All</button>
+        `;
+        list.appendChild(bulkBar);
+
         const sorted = this._sortSets(this.allSets, 'release-desc');
-        list.innerHTML = sorted.map(set => {
+        list.innerHTML += sorted.map(set => {
             const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
             const symbolUrl = set.images?.symbol || '';
             const checked = this._selectedSetIds.has(set.id) ? 'checked' : '';
@@ -555,6 +564,28 @@ class TcgDatabaseView {
             const setId = e.target.value;
             const checked = e.target.checked;
             await this._toggleSetSelection(setId, checked);
+        });
+
+        // Wire Select All / Deselect All
+        document.getElementById('tcgPickerSelectAll').addEventListener('click', async () => {
+            const allSetIds = sorted.map(s => s.id);
+            const toSelect = allSetIds.filter(id => !this._selectedSetIds.has(id));
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+            if (toSelect.length > 0) {
+                await this._loadMultipleSets(toSelect);
+            }
+            this._updatePickerCount();
+        });
+
+        document.getElementById('tcgPickerDeselectAll').addEventListener('click', () => {
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            this._selectedSetIds.clear();
+            this.allCards = [];
+            this.loadedSetIds.clear();
+            this.filteredCards = null;
+            this._updateCardCount();
+            this._renderCardGrid();
+            this._updatePickerCount();
         });
     }
 
