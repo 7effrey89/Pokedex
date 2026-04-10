@@ -245,6 +245,16 @@ To enable automated Docker builds and deployments via GitHub Actions, you need t
 6. Copy the **entire XML content**
 7. Paste it as the value for `AZURE_WEBAPP_PUBLISH_PROFILE` secret in GitHub
 
+#### Troubleshooting:
+If Downloading Publish Profile gives you this error: **“Basic authentication is disabled”** then in the webapp go to:
+
+Webapp
+   → Settings
+       → Configuration
+           → General settings
+
+SCM Basic Auth Publishing Credentials. **Turn On**
+
 ### Example Values
 
 ```bash
