@@ -7,6 +7,7 @@
     position: relative;
     z-index: 50;
     flex-shrink: 0;
+    overflow: visible;
 }
 
 .footer-actions {
@@ -90,26 +91,30 @@
 .footer-btn-image-only[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 0.4rem);
+    bottom: calc(100% + 0.5rem);
     left: 50%;
     transform: translate(-50%, 6px);
-    background: rgba(0, 0, 0, 1);
+    background: #1a1a1a;
     color: #fff;
-    font-size: 0.65rem;
-    padding: 0.2rem 0.45rem;
-    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
     white-space: nowrap;
-    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: visibility 0s linear 0.1s, transform 0.2s ease;
 }
 
 .footer-btn-icon-only[data-tooltip]:hover::after,
 .footer-btn-icon-only[data-tooltip]:focus-visible::after,
 .footer-btn-image-only[data-tooltip]:hover::after,
 .footer-btn-image-only[data-tooltip]:focus-visible::after {
-    opacity: 1;
+    visibility: visible;
     transform: translate(-50%, 0);
+    transition-delay: 0s;
 }
 
 .footer-random-img {
@@ -176,6 +181,14 @@
 
 .footer-btn-icon-only.footer-btn-active .footer-btn-icon {
     opacity: 1;
+}
+
+.footer-btn-icon-only.footer-btn-disabled .footer-btn-icon {
+    opacity: 0.35;
+}
+
+.footer-btn-icon-only.footer-btn-disabled:hover .footer-btn-icon {
+    opacity: 0.5;
 }
 
 .footer-btn svg.footer-btn-icon-simple {

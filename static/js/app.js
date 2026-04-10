@@ -1550,15 +1550,15 @@ class PokemonChatApp {
         if (backBtn) {
             const canGoBack = this.currentViewIndex > 0;
             backBtn.disabled = !canGoBack;
-            backBtn.style.opacity = canGoBack ? '1' : '0.4';
             backBtn.classList.toggle('footer-btn-active', canGoBack);
+            backBtn.classList.toggle('footer-btn-disabled', !canGoBack);
         }
         
         if (forwardBtn) {
             const canGoForward = this.currentViewIndex < this.viewHistory.length - 1;
             forwardBtn.disabled = !canGoForward;
-            forwardBtn.style.opacity = canGoForward ? '1' : '0.4';
             forwardBtn.classList.toggle('footer-btn-active', canGoForward);
+            forwardBtn.classList.toggle('footer-btn-disabled', !canGoForward);
         }
     }
     
