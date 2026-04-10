@@ -33,6 +33,7 @@ class PokemonGridView {
             this.app.tcgCardDetailView.style.display = 'none';
         }
         if (this.app.tcgDatabaseViewEl) {
+            if (this.app.tcgDatabase) this.app.tcgDatabase.saveScrollPosition();
             this.app.tcgDatabaseViewEl.style.display = 'none';
         }
         this.gridView.style.display = 'block';
@@ -61,6 +62,7 @@ class PokemonGridView {
             this.app.tcgCardDetailView.style.display = 'none';
         }
         if (this.app.tcgDatabaseViewEl) {
+            if (this.app.tcgDatabase) this.app.tcgDatabase.saveScrollPosition();
             this.app.tcgDatabaseViewEl.style.display = 'none';
         }
         this.gridView.style.display = 'block';
