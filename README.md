@@ -875,6 +875,30 @@ If you encounter any issues or have questions:
 2. Create a new issue with details about your problem
 3. Include your Python version and any error messages
 
+## Troubleshooting for github Action
+
+if release pipeline gives following error:
+
+Run azure/webapps-deploy@v3
+(node:9551) [DEP0040] DeprecationWarning: The punycode module is deprecated. Please use a userland alternative instead.
+(Use node --trace-deprecation ... to show where the warning was created)
+(node:9551) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(node:9551) [DEP0169] DeprecationWarning: url.parse() behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for url.parse() vulnerabilities.
+Error: Deployment Failed, Error: Failed to get app runtime OS
+
+This is likely caused by an expired or invalid AZURE_WEBAPP_PUBLISH_PROFILE secret. Common causes:
+
+Expired publish profile — Azure rotates these. Re-download it from the Azure Portal.
+Missing/wrong AZURE_WEBAPP_NAME secret.
+To fix:
+
+Go to Azure Portal → your Web App → Deployment Center → Manage publish profile → Download publish profile
+Copy the entire XML content
+Go to your GitHub repo → Settings → Secrets and variables → Actions
+Update AZURE_WEBAPP_PUBLISH_PROFILE with the new XML
+Also verify AZURE_WEBAPP_NAME matches your Azure Web App's exact name
+Alternatively, you can switch to using azure/login@v2 with a service principal (OIDC), which is more robust than publish profile
+
 ## Credits
 
 Developed as a mobile-friendly Pokemon chat demonstration with future integration capabilities for Azure OpenAI and MCP servers.
