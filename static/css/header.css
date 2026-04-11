@@ -215,49 +215,7 @@
     font-size: 0.875rem;
 }
 
-.voice-backend-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.42rem 0.7rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    background: rgba(255, 255, 255, 0.14);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    backdrop-filter: blur(8px);
-}
-
-.voice-backend-label {
-    opacity: 0.72;
-    text-transform: uppercase;
-}
-
-.voice-backend-value {
-    white-space: nowrap;
-}
-
-.voice-backend-indicator.is-realtime {
-    background: rgba(80, 200, 120, 0.18);
-    border-color: rgba(134, 239, 172, 0.45);
-}
-
-.voice-backend-indicator.is-browser {
-    background: rgba(251, 191, 36, 0.18);
-    border-color: rgba(253, 224, 71, 0.45);
-}
-
-.voice-backend-indicator.is-checking {
-    background: rgba(125, 211, 252, 0.16);
-    border-color: rgba(147, 197, 253, 0.38);
-}
-
-.voice-backend-indicator.is-error {
-    background: rgba(248, 113, 113, 0.18);
-    border-color: rgba(252, 165, 165, 0.45);
-}
+/* Voice backend indicator - moved to chat.css */
 
 .status-dot {
     width: 8px;

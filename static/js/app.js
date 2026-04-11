@@ -1503,6 +1503,25 @@ class PokemonChatApp {
     }
 
     /**
+     * Detect a Pokemon name mentioned in a user message.
+     * Returns the matching Pokemon object or null.
+     */
+    detectPokemonInMessage(message) {
+        if (!message || this.allPokemons.length === 0) return null;
+        const lower = message.toLowerCase();
+        // Sort by name length descending so "mr. mime" matches before "mr"
+        const sorted = [...this.allPokemons].sort((a, b) => b.name.length - a.name.length);
+        for (const p of sorted) {
+            // Match whole-word (word boundary) to avoid partial matches like "odd" in "oddish"
+            const escaped = p.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            if (new RegExp(`\\b${escaped}\\b`, 'i').test(lower)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Public API: Show a TCG card by its index in the current gallery
      * Used by GPT realtime to show cards by number (e.g., "show card 5")
      * @param {number} cardIndex - 1-based card number
@@ -4213,6 +4232,13 @@ class PokemonChatApp {
             const assistantText = toolResult.assistant_text || `Here's a random Pokémon!`;
             this.addMessage('assistant', assistantText, toolResult);
             await this.recordQuickActionContext(userMessage, assistantText, toolResult);
+
+            // Auto-display in canvas
+            const identifier = toolResult.id || toolResult.name;
+            if (identifier) {
+                console.log('🎯 Auto-displaying random Pokemon:', identifier);
+                this.showPokemonInCanvas(identifier);
+            }
         } catch (error) {
             console.error('Random quick action failed:', error);
             this.addMessage('assistant', 'Sorry, I could not fetch a random Pokémon right now. Try again later.');
@@ -4292,6 +4318,22 @@ class PokemonChatApp {
             
             // Add assistant message
             this.addMessage('assistant', data.message, data.pokemon_data, data.tcg_data);
+            
+            // Auto-display Pokemon in canvas if pokemon_data returned
+            if (data.pokemon_data && !data.pokemon_data.error) {
+                const identifier = data.pokemon_data.id || data.pokemon_data.name;
+                if (identifier) {
+                    console.log('🎯 Auto-displaying Pokemon from chat:', identifier);
+                    this.showPokemonInCanvas(identifier);
+                }
+            } else {
+                // No pokemon_data from backend — detect Pokemon name in the user message
+                const detected = this.detectPokemonInMessage(message);
+                if (detected) {
+                    console.log('🎯 Detected Pokemon in message, showing:', detected.name);
+                    this.showPokemonInCanvas(detected.id || detected.name);
+                }
+            }
             
         } catch (error) {
             console.error('Error sending message:', error);

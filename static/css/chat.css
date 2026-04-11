@@ -460,6 +460,58 @@
     transform: scale(1.1);
 }
 
+/* Voice backend indicator (inside chat messages area) */
+.voice-backend-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    background: #f0f4f8;
+    color: #555;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #dce3ea;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.voice-backend-label {
+    opacity: 0.55;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+}
+
+.voice-backend-value {
+    white-space: nowrap;
+}
+
+.voice-backend-indicator.is-realtime {
+    background: #e8f5ec;
+    color: #15803d;
+    border-bottom-color: #bbf0ca;
+}
+
+.voice-backend-indicator.is-browser {
+    background: #fef9ec;
+    color: #92400e;
+    border-bottom-color: #fde68a;
+}
+
+.voice-backend-indicator.is-checking {
+    background: #eff6ff;
+    color: #1e40af;
+    border-bottom-color: #bfdbfe;
+}
+
+.voice-backend-indicator.is-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border-bottom-color: #fecaca;
+}
+
 .chat-sidebar .chat-container {
     flex: 1;
     overflow-y: auto;
