@@ -67,7 +67,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Feature | Description | GPT Realtime |
 |---------|-------------|:------------:|
 | Help Overlay | Interactive guide showing available commands | ❌ |
-| Loading Indicator | "Thinking..." spinner during API calls | N/A |
+| Loading Indicator | Rotom loading bubble with hover tooltip describing the active request reason | N/A |
 | Status Indicator | Online/Offline connection status | N/A |
 | Purple Gradient Theme | TCG views use consistent purple gradient background | N/A |
 | Transparent Card Backgrounds | TCG cards display with transparent backgrounds | N/A |

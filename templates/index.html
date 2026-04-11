@@ -506,8 +506,17 @@
 
         <!-- Loading Indicator -->
         <div class="loading-indicator" id="loadingIndicator">
-            <img src="{{ url_for('static', filename='images/rotomdex.gif') }}" alt="Loading" class="loading-rotom">
-            <span>Thinking...</span>
+            <div
+                class="loading-rotom-tooltip-target"
+                id="loadingRotomTooltipTarget"
+                tabindex="0"
+                role="img"
+                aria-label="Rotom is working on a request"
+                data-tooltip="Rotom is waiting for the next request to finish."
+            >
+                <img src="{{ url_for('static', filename='images/rotomdex.gif') }}" alt="Loading" class="loading-rotom">
+            </div>
+            <span class="loading-indicator-label" id="loadingIndicatorLabel">Thinking...</span>
         </div>
 
         <!-- Help Modal -->

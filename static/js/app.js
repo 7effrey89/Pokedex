@@ -38,12 +38,17 @@ class PokemonChatApp {
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
         this.loadingIndicator = document.getElementById('loadingIndicator');
+        this.loadingIndicatorLabel = document.getElementById('loadingIndicatorLabel');
+        this.loadingRotomTooltipTarget = document.getElementById('loadingRotomTooltipTarget');
         this.pokemonCardOverlay = document.getElementById('pokemonCardOverlay');
         this.pokemonCardContent = document.getElementById('pokemonCardContent');
         this.closeCardBtn = document.getElementById('closeCard');
         this.voiceButton = document.getElementById('voiceButton');
         this.statusText = document.querySelector('.status-text');
         this.activeLoadingCount = 0;
+        this.activeLoadingRequests = new Map();
+        this.loadingRequestSequence = 0;
+        this.manualLoadingToken = null;
         this.fetchInterceptorInstalled = false;
         this.initializeHeaderLights();
 
@@ -5069,15 +5074,13 @@ class PokemonChatApp {
         const originalFetch = window.fetch.bind(window);
         window.fetch = async (...args) => {
             const shouldTrack = this.shouldTrackLoadingRequest(args[0]);
-            if (shouldTrack) {
-                this.beginGlobalLoading();
-            }
+            const loadingToken = shouldTrack ? this.beginGlobalLoading(this.buildLoadingDescriptor(args[0], args[1])) : null;
 
             try {
                 return await originalFetch(...args);
             } finally {
                 if (shouldTrack) {
-                    this.endGlobalLoading();
+                    this.endGlobalLoading(loadingToken);
                 }
             }
         };
@@ -5129,20 +5132,246 @@ class PokemonChatApp {
         return null;
     }
 
-    beginGlobalLoading() {
-        this.activeLoadingCount += 1;
+    buildLoadingDescriptor(resource, init = null) {
+        const fallback = {
+            label: 'Working...',
+            detail: 'Rotom is waiting for the current request to finish.'
+        };
+
+        const url = this.extractRequestUrl(resource);
+        if (!url) {
+            return fallback;
+        }
+
+        try {
+            const parsed = new URL(url, window.location.origin);
+            const pathname = parsed.pathname || '';
+
+            if (pathname === '/api/pokemon/list') {
+                return {
+                    label: 'Loading Pokedex...',
+                    detail: 'Rotom is fetching the Pokemon index for the first screen.'
+                };
+            }
+
+            if (pathname === '/api/tools') {
+                return {
+                    label: 'Loading tools...',
+                    detail: 'Rotom is checking which assistant tools are enabled for this session.'
+                };
+            }
+
+            if (pathname === '/api/cache/config') {
+                return {
+                    label: 'Loading cache settings...',
+                    detail: 'Rotom is reading cache settings before opening the app controls.'
+                };
+            }
+
+            if (pathname === '/api/chat') {
+                return {
+                    label: 'Answering...',
+                    detail: 'Rotom is sending your message to the assistant and waiting for a reply.'
+                };
+            }
+
+            if (pathname === '/api/chat/record') {
+                return {
+                    label: 'Saving context...',
+                    detail: 'Rotom is saving the latest chat turn so text and voice stay in sync.'
+                };
+            }
+
+            if (pathname === '/api/random-pokemon') {
+                return {
+                    label: 'Picking a random Pokemon...',
+                    detail: 'Rotom is choosing a random entry from the Pokedex for you.'
+                };
+            }
+
+            if (pathname === '/api/realtime/status') {
+                return {
+                    label: 'Checking voice status...',
+                    detail: 'Rotom is checking the realtime voice connection state.'
+                };
+            }
+
+            if (pathname === '/api/face/identify') {
+                return {
+                    label: 'Identifying...',
+                    detail: 'Rotom is matching the camera snapshot against saved face profiles.'
+                };
+            }
+
+            if (pathname === '/api/cache/invalidate') {
+                return {
+                    label: 'Refreshing cache...',
+                    detail: 'Rotom is clearing cached data so the next result is freshly loaded.'
+                };
+            }
+
+            if (pathname === '/api/realtime/tool') {
+                const payload = this.parseLoadingRequestBody(init?.body);
+                return this.describeRealtimeToolLoading(payload?.tool_name, payload?.arguments);
+            }
+
+            if (pathname.startsWith('/api/pokemon/')) {
+                return {
+                    label: 'Loading Pokemon data...',
+                    detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
+                };
+            }
+        } catch (error) {
+            return fallback;
+        }
+
+        return fallback;
+    }
+
+    parseLoadingRequestBody(body) {
+        if (!body || typeof body !== 'string') {
+            return null;
+        }
+
+        try {
+            return JSON.parse(body);
+        } catch (error) {
+            return null;
+        }
+    }
+
+    describeRealtimeToolLoading(toolName, toolArgs = {}) {
+        if (!toolName) {
+            return {
+                label: 'Running tool...',
+                detail: 'Rotom is waiting for an assistant tool to finish.'
+            };
+        }
+
+        const name = this.humanizeLoadingToolName(toolName);
+
+        if (toolName === 'get_tcg_sets') {
+            return {
+                label: toolArgs?.force_refresh ? 'Refreshing TCG sets...' : 'Loading TCG sets...',
+                detail: toolArgs?.force_refresh
+                    ? 'Rotom is refreshing the trading card set list in the background.'
+                    : 'Rotom is loading trading card expansions so the TCG views open faster.'
+            };
+        }
+
+        if (toolName === 'search_pokemon_cards') {
+            const pokemonName = toolArgs?.pokemon_name || toolArgs?.pokemon || 'this Pokemon';
+            return {
+                label: 'Loading card gallery...',
+                detail: `Rotom is searching trading cards for ${pokemonName}.`
+            };
+        }
+
+        if (toolName === 'search_cards_by_set') {
+            const setId = toolArgs?.set_id || 'the selected set';
+            return {
+                label: 'Loading expansion cards...',
+                detail: `Rotom is fetching cards from ${setId}.`
+            };
+        }
+
+        if (toolName === 'get_card_details') {
+            return {
+                label: 'Loading card details...',
+                detail: 'Rotom is fetching the full details and pricing for the selected card.'
+            };
+        }
+
+        if (toolName === 'get_random_pokemon') {
+            return {
+                label: 'Picking a random Pokemon...',
+                detail: 'Rotom is choosing a random Pokemon to show on the canvas.'
+            };
+        }
+
+        if (toolName === 'get_pokemon_info') {
+            const pokemonName = toolArgs?.name || toolArgs?.pokemon || toolArgs?.pokemon_name || 'that Pokemon';
+            return {
+                label: 'Loading Pokemon...',
+                detail: `Rotom is looking up details for ${pokemonName}.`
+            };
+        }
+
+        return {
+            label: `${name}...`,
+            detail: `Rotom is waiting for ${name.toLowerCase()} to finish.`
+        };
+    }
+
+    humanizeLoadingToolName(toolName) {
+        return toolName
+            .replace(/_/g, ' ')
+            .replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    beginGlobalLoading(descriptor = null) {
+        const token = `loading-${++this.loadingRequestSequence}`;
+        this.activeLoadingRequests.set(token, descriptor || {
+            label: 'Working...',
+            detail: 'Rotom is waiting for the current request to finish.'
+        });
+        this.activeLoadingCount = this.activeLoadingRequests.size;
+        this.updateLoadingIndicator();
+        return token;
+    }
+
+    endGlobalLoading(token = null) {
+        if (token && this.activeLoadingRequests.has(token)) {
+            this.activeLoadingRequests.delete(token);
+        } else if (this.activeLoadingRequests.size > 0) {
+            const lastToken = Array.from(this.activeLoadingRequests.keys()).pop();
+            this.activeLoadingRequests.delete(lastToken);
+        }
+
+        this.activeLoadingCount = this.activeLoadingRequests.size;
         this.updateLoadingIndicator();
     }
 
-    endGlobalLoading() {
-        this.activeLoadingCount = Math.max(0, this.activeLoadingCount - 1);
-        this.updateLoadingIndicator();
+    getActiveLoadingDescriptor() {
+        const descriptors = Array.from(this.activeLoadingRequests.values());
+        if (descriptors.length === 0) {
+            return {
+                label: 'Thinking...',
+                detail: 'Rotom is waiting for the next request to finish.'
+            };
+        }
+
+        const primary = descriptors[descriptors.length - 1];
+        const extraCount = descriptors.length - 1;
+        if (extraCount <= 0) {
+            return primary;
+        }
+
+        return {
+            label: primary.label,
+            detail: `${primary.detail} ${extraCount} other ${extraCount === 1 ? 'task is' : 'tasks are'} still running in the background.`
+        };
+    }
+
+    syncLoadingIndicatorContent() {
+        const descriptor = this.getActiveLoadingDescriptor();
+
+        if (this.loadingIndicatorLabel) {
+            this.loadingIndicatorLabel.textContent = descriptor.label;
+        }
+
+        if (this.loadingRotomTooltipTarget) {
+            this.loadingRotomTooltipTarget.dataset.tooltip = descriptor.detail;
+            this.loadingRotomTooltipTarget.setAttribute('title', descriptor.detail);
+            this.loadingRotomTooltipTarget.setAttribute('aria-label', `${descriptor.label} ${descriptor.detail}`);
+        }
     }
 
     updateLoadingIndicator() {
         if (!this.loadingIndicator) {
             return;
         }
+        this.syncLoadingIndicatorContent();
         if (this.activeLoadingCount > 0) {
             this.loadingIndicator.classList.add('active');
             this.startIndicatorLoadingEffects();
@@ -5278,9 +5507,13 @@ class PokemonChatApp {
         }
 
         if (loading && !previousState) {
-            this.beginGlobalLoading();
+            this.manualLoadingToken = this.beginGlobalLoading({
+                label: 'Working...',
+                detail: 'Rotom is waiting for the current action to finish.'
+            });
         } else if (!loading && previousState) {
-            this.endGlobalLoading();
+            this.endGlobalLoading(this.manualLoadingToken);
+            this.manualLoadingToken = null;
         }
     }
     

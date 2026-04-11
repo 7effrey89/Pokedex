@@ -24,6 +24,56 @@
     animation: float 1.5s ease-in-out infinite;
 }
 
+.loading-rotom-tooltip-target {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    cursor: help;
+    outline: none;
+}
+
+.loading-rotom-tooltip-target:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.loading-rotom-tooltip-target[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.75rem);
+    transform: translate(-50%, 6px);
+    width: min(280px, 70vw);
+    background: rgba(18, 24, 38, 0.96);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.35;
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    white-space: normal;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 60;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.32);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+
+.loading-rotom-tooltip-target[data-tooltip]:hover::after,
+.loading-rotom-tooltip-target[data-tooltip]:focus-visible::after {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition-delay: 0s;
+}
+
+.loading-indicator-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
 @keyframes float {
     0%, 100% { 
         transform: translateY(0px);
