@@ -23,6 +23,7 @@ class PokemonChatApp {
         this.faceIdOverlayEnabled = this.loadFaceIdOverlayPreference();
         this.voicePreference = this.loadVoiceActorPreference();
         this.criesEnabled = this.loadCryPreference();
+        this.scrollResetEnabled = this.loadScrollResetPreference();
         this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
 
@@ -2032,6 +2033,34 @@ class PokemonChatApp {
         }
     }
 
+    loadScrollResetPreference() {
+        try {
+            const raw = localStorage.getItem('pokedex_scroll_reset');
+            if (raw === null) return true;
+            return raw === 'true';
+        } catch {
+            return true;
+        }
+    }
+
+    saveScrollResetPreference(enabled) {
+        this.scrollResetEnabled = Boolean(enabled);
+        try {
+            localStorage.setItem('pokedex_scroll_reset', String(this.scrollResetEnabled));
+        } catch { /* ignore */ }
+    }
+
+    setupScrollResetControls() {
+        const toggle = document.getElementById('scrollResetToggle');
+        if (!toggle) return;
+        toggle.checked = this.scrollResetEnabled;
+        if (toggle.dataset.listenerAttached === 'true') return;
+        toggle.addEventListener('change', (event) => {
+            this.saveScrollResetPreference(event.target.checked);
+        });
+        toggle.dataset.listenerAttached = 'true';
+    }
+
     setupCryControls() {
         const toggle = document.getElementById('cryToggle');
         if (!toggle) return;
@@ -2458,6 +2487,7 @@ class PokemonChatApp {
         this.setupVoiceControls();
         this.setupSpriteStyleControls();
         this.setupCryControls();
+        this.setupScrollResetControls();
     }
     
     async loadCacheConfig() {

@@ -41,6 +41,11 @@ class PokemonGridView {
         // Load Pokemon if not already loaded
         await this.loadPokemonGrid();
         
+        // Re-apply active filters (preserves filter state after navigation)
+        if (this.app.searchView?.hasActiveFilter) {
+            this.app.searchView.applyFilters({ silent: true });
+        }
+        
         // Restore scroll position
         this.restoreScrollPosition();
         
@@ -66,6 +71,11 @@ class PokemonGridView {
             this.app.tcgDatabaseViewEl.style.display = 'none';
         }
         this.gridView.style.display = 'block';
+        
+        // Re-apply active filters (preserves filter state after navigation)
+        if (this.app.searchView?.hasActiveFilter) {
+            this.app.searchView.applyFilters({ silent: true });
+        }
         
         // Restore scroll position
         this.restoreScrollPosition();

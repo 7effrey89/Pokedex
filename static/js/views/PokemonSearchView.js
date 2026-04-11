@@ -28,6 +28,7 @@ class PokemonSearchView {
         this.tcgNameInput = document.getElementById('tcgSearchNameInput');
         this.tcgTypeGrid = document.getElementById('tcgSearchTypeGrid');
         this.tcgCategoryGrid = document.getElementById('tcgCategoryGrid');
+        this.tcgExpansionSection = document.getElementById('tcgExpansionSection');
         this.tcgExpansionList = document.getElementById('tcgExpansionList');
         this.tcgExpansionToggle = document.getElementById('tcgExpansionToggle');
         this.tcgPriceMin = document.getElementById('tcgPriceMin');
@@ -298,13 +299,19 @@ class PokemonSearchView {
 
     _detectContext() {
         const tcgDbVisible = this.app.tcgDatabaseViewEl && this.app.tcgDatabaseViewEl.style.display !== 'none';
-        this._currentContext = tcgDbVisible ? 'tcg' : 'pokemon';
+        const tcgGalleryVisible = this.app.tcgCardsView && this.app.tcgCardsView.style.display !== 'none';
+        this._currentContext = (tcgDbVisible || tcgGalleryVisible) ? 'tcg' : 'pokemon';
+        this._isTcgGallery = tcgGalleryVisible && !tcgDbVisible;
 
         const headerEl = this.panel?.querySelector('.search-panel-header h3');
         if (this._currentContext === 'tcg') {
             if (this.pokemonFiltersEl) this.pokemonFiltersEl.style.display = 'none';
             if (this.tcgFiltersEl) this.tcgFiltersEl.style.display = '';
             if (headerEl) headerEl.textContent = 'TCG Search & Filter';
+            // Hide expansion section in gallery mode (cards are already scoped)
+            if (this.tcgExpansionSection) {
+                this.tcgExpansionSection.style.display = this._isTcgGallery ? 'none' : '';
+            }
         } else {
             if (this.pokemonFiltersEl) this.pokemonFiltersEl.style.display = '';
             if (this.tcgFiltersEl) this.tcgFiltersEl.style.display = 'none';
@@ -312,30 +319,92 @@ class PokemonSearchView {
         }
     }
 
+    _buildTcgFilterCriteria() {
+        const filters = {};
+        const nameQuery = (this.tcgNameInput?.value || '').trim().toLowerCase();
+        if (nameQuery) filters.name = nameQuery;
+        if (this.tcgSelectedTypes.size > 0) filters.types = new Set(this.tcgSelectedTypes);
+        if (this.tcgSelectedCategories.size > 0) filters.categories = new Set(this.tcgSelectedCategories);
+        const priceMin = this.tcgPriceMin?.value?.trim();
+        const priceMax = this.tcgPriceMax?.value?.trim();
+        if (priceMin) filters.priceMin = priceMin;
+        if (priceMax) filters.priceMax = priceMax;
+        const rarity = this.tcgRaritySelect?.value;
+        if (rarity) filters.rarity = rarity;
+        return Object.keys(filters).length > 0 ? filters : null;
+    }
+
     _applyTcgFilters() {
+        // Gallery view: filter cards in the gallery DOM
+        if (this._isTcgGallery) {
+            this._applyGalleryFilters();
+            return;
+        }
+
         const nameQuery = (this.tcgNameInput?.value || '').trim().toLowerCase();
         const db = this.app.tcgDatabase;
         if (!db) return;
 
         if (db.viewMode === 'all-cards') {
-            // Build filter criteria for card-level filtering
-            // Note: expansion selection controls which sets are loaded (via syncFromFilterPanel),
-            // so we don't include sets in card-level filters
-            const filters = {};
-            if (nameQuery) filters.name = nameQuery;
-            if (this.tcgSelectedTypes.size > 0) filters.types = new Set(this.tcgSelectedTypes);
-            if (this.tcgSelectedCategories.size > 0) filters.categories = new Set(this.tcgSelectedCategories);
-            const priceMin = this.tcgPriceMin?.value?.trim();
-            const priceMax = this.tcgPriceMax?.value?.trim();
-            if (priceMin) filters.priceMin = priceMin;
-            if (priceMax) filters.priceMax = priceMax;
-            const rarity = this.tcgRaritySelect?.value;
-            if (rarity) filters.rarity = rarity;
-
-            db.filterCards(Object.keys(filters).length > 0 ? filters : null);
+            db.filterCards(this._buildTcgFilterCriteria());
         } else {
             // Expansions mode: filter sets by name + selected sets
             db.filterSets(nameQuery, this.tcgSelectedSets);
+        }
+    }
+
+    _applyGalleryFilters() {
+        const gallery = this.app.tcgCardsView;
+        if (!gallery) return;
+        const filters = this._buildTcgFilterCriteria();
+        const cards = gallery.querySelectorAll('.tcg-card-item');
+        const allCards = this.app.currentTcgCards || [];
+        let visibleCount = 0;
+
+        cards.forEach((cardEl, i) => {
+            const card = allCards[i];
+            if (!card) { cardEl.style.display = ''; visibleCount++; return; }
+
+            let show = true;
+            if (filters) {
+                // Name filter
+                if (filters.name && !(card.name || '').toLowerCase().includes(filters.name)) {
+                    show = false;
+                }
+                // Energy type filter
+                if (show && filters.types) {
+                    const cardTypes = card.types || [];
+                    const match = [...filters.types].some(t => cardTypes.includes(t));
+                    if (!match) show = false;
+                }
+                // Category filter (supertype + subtypes)
+                if (show && filters.categories) {
+                    const supertypeMatch = filters.categories.has(card.supertype);
+                    const subtypeMatch = (card.subtypes || []).some(s => filters.categories.has(s));
+                    if (!supertypeMatch && !subtypeMatch) show = false;
+                }
+                // Price filter
+                if (show && (filters.priceMin || filters.priceMax)) {
+                    const avg = this.app.tcgGallery?.getCardAvgPrice(card) ?? null;
+                    const min = filters.priceMin ? parseFloat(filters.priceMin) : 0;
+                    const max = filters.priceMax ? parseFloat(filters.priceMax) : Infinity;
+                    if (avg === null || avg < min || avg > max) show = false;
+                }
+                // Rarity filter
+                if (show && filters.rarity) {
+                    if ((card.rarity || '') !== filters.rarity) show = false;
+                }
+            }
+
+            cardEl.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
+        });
+
+        // Update the header count
+        const countEl = gallery.querySelector('.tcg-canvas-title p:last-child');
+        if (countEl) {
+            const total = allCards.length;
+            countEl.textContent = filters ? `${visibleCount} of ${total} cards` : `${total} cards found`;
         }
     }
 
@@ -367,7 +436,7 @@ class PokemonSearchView {
         ).join('');
     }
 
-    applyFilters() {
+    applyFilters({ silent = false } = {}) {
         // TCG context uses its own filter logic
         if (this._currentContext === 'tcg') {
             this._applyTcgFilters();
@@ -442,12 +511,12 @@ class PokemonSearchView {
                 if (!inGen) visible = false;
             }
 
-            // Type filter (requires metadata)
+            // Type filter – AND logic: must have ALL selected types (requires metadata)
             if (visible && hasTypeFilter && this.metadata) {
                 const meta = this.metadata[String(id)];
                 if (meta && meta.types) {
-                    const hasMatchingType = meta.types.some(t => this.selectedTypes.has(t));
-                    if (!hasMatchingType) visible = false;
+                    const hasAllTypes = [...this.selectedTypes].every(t => meta.types.includes(t));
+                    if (!hasAllTypes) visible = false;
                 } else {
                     // No cached data — keep visible if only type filter is active
                     // (don't hide Pokemon we have no data for)
@@ -506,14 +575,16 @@ class PokemonSearchView {
         this._updateResultBar(matchCount);
         this._updateSearchIndicator();
 
-        // Scroll to top of grid
-        const canvas = document.getElementById('mainCanvas');
-        if (canvas) canvas.scrollTop = 0;
+        if (!silent) {
+            // Scroll to top of grid
+            const canvas = document.getElementById('mainCanvas');
+            if (canvas) canvas.scrollTop = 0;
 
-        // Make sure we're on the grid view
-        if (this.app.pokemonDetailView.style.display !== 'none' ||
-            this.app.tcgCardsView.style.display !== 'none') {
-            this.app.gridView.showWithoutHistory();
+            // Make sure we're on the grid view
+            if (this.app.pokemonDetailView.style.display !== 'none' ||
+                this.app.tcgCardsView.style.display !== 'none') {
+                this.app.gridView.showWithoutHistory();
+            }
         }
     }
 
@@ -559,7 +630,13 @@ class PokemonSearchView {
         if (this.tcgPriceMax) this.tcgPriceMax.value = '';
         if (this.tcgRaritySelect) this.tcgRaritySelect.value = '';
         this.tcgSelectedTypes.clear();
+        this.tcgSelectedCategories.clear();
         this.tcgTypeGrid?.querySelectorAll('.search-type-chip.selected').forEach(c => c.classList.remove('selected'));
+        this.tcgCategoryGrid?.querySelectorAll('.tcg-cat-chip.selected').forEach(c => c.classList.remove('selected'));
+        if (this._isTcgGallery) {
+            this._applyGalleryFilters();
+            return;
+        }
         if (this.app.tcgDatabase) this.app.tcgDatabase.filterSets('');
     }
 

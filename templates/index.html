@@ -363,7 +363,7 @@
                         <input type="text" id="tcgSearchNameInput" placeholder="Card name or expansion..." autocomplete="off">
                     </div>
 
-                    <div class="search-field">
+                    <div class="search-field" id="tcgExpansionSection">
                         <label>Expansion <small class="search-unit tcg-expansion-toggle" id="tcgExpansionToggle">▸ show list</small></label>
                         <div class="tcg-expansion-list" id="tcgExpansionList" style="display: none;">
                             <!-- Populated dynamically -->
@@ -842,6 +842,26 @@
                                 </label>
                                 <label class="toggle-switch">
                                     <input type="checkbox" id="cryToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll Reset Section -->
+                    <div class="settings-section">
+                        <h3>📜 Detail Scroll</h3>
+                        <p class="section-description">
+                            Reset scroll position when opening a new Pokemon detail page.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="scrollResetToggle" class="control-label">
+                                    <span>Reset Scroll Position</span>
+                                    <small>Turn off to keep scroll position across Pokemon</small>
+                                </label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="scrollResetToggle" checked>
                                     <span class="toggle-slider"></span>
                                 </label>
                             </div>

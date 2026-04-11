@@ -366,6 +366,12 @@ class PokemonDetailView {
         if (this.app.tcgCardDetailView) this.app.tcgCardDetailView.style.display = 'none';
         if (this.app.tcgDatabaseViewEl) this.app.tcgDatabaseViewEl.style.display = 'none';
         this.detailView.style.display = 'block';
+
+        // Reset scroll position for new Pokemon (if enabled in settings)
+        if (this.app.scrollResetEnabled) {
+            this.detailView.scrollTop = 0;
+            window.scrollTo(0, 0);
+        }
         
         // Store current Pokemon name for card searches
         this.app.currentPokemonName = pokemon.name;
