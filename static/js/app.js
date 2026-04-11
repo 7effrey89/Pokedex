@@ -11,6 +11,9 @@ class PokemonChatApp {
         // Chain of thought tracking for current response
         this.currentToolCalls = [];
         this.currentToolCallStartTime = null;
+        // Context viewer: accumulate all tool calls across turns (last 50)
+        this._contextViewerToolCalls = [];
+        this._contextViewerChatHistory = null;
 
         // Face recognition tracking
         this.faceRecognitionEnabled = false;
@@ -3447,6 +3450,9 @@ class PokemonChatApp {
                     timestamp: new Date().toISOString()
                 };
                 this.currentToolCalls.push(toolCallEntry);
+                // Also track for context viewer (keep last 50)
+                this._contextViewerToolCalls.push(toolCallEntry);
+                if (this._contextViewerToolCalls.length > 50) this._contextViewerToolCalls.shift();
                 
                 // Format tool name for display
                 const displayName = toolName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -4038,6 +4044,11 @@ class PokemonChatApp {
     async handleQuickAction(action) {
         if (action === 'random') {
             await this.triggerRandomQuickAction();
+            return;
+        }
+
+        if (action === 'context') {
+            this.toggleContextViewer();
             return;
         }
 
@@ -5269,6 +5280,161 @@ class PokemonChatApp {
     
     scrollToBottom() {
         this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+    }
+
+    // ─── AI Context Viewer ─────────────────────────────────────────────
+
+    toggleContextViewer() {
+        const panel = document.getElementById('contextViewerPanel');
+        if (!panel) return;
+        const isVisible = panel.style.display !== 'none';
+        if (isVisible) {
+            this.closeContextViewer();
+        } else {
+            this.openContextViewer();
+        }
+    }
+
+    openContextViewer() {
+        const panel = document.getElementById('contextViewerPanel');
+        if (!panel) return;
+        panel.style.display = 'flex';
+        this.refreshContextViewer();
+        // Start live refresh
+        this._contextViewerInterval = setInterval(() => this.refreshContextViewer(), 1500);
+        // Wire close button
+        const closeBtn = document.getElementById('contextViewerClose');
+        if (closeBtn && !closeBtn.dataset.bound) {
+            closeBtn.addEventListener('click', () => this.closeContextViewer());
+            closeBtn.dataset.bound = 'true';
+        }
+    }
+
+    closeContextViewer() {
+        const panel = document.getElementById('contextViewerPanel');
+        if (panel) panel.style.display = 'none';
+        if (this._contextViewerInterval) {
+            clearInterval(this._contextViewerInterval);
+            this._contextViewerInterval = null;
+        }
+    }
+
+    refreshContextViewer() {
+        const body = document.getElementById('contextViewerBody');
+        if (!body) return;
+
+        const sections = [];
+
+        // 1. Connection status
+        const voiceConnected = this.realtimeVoice?.isConnected || false;
+        const voiceStatus = voiceConnected ? '🟢 Connected' : '🔴 Disconnected';
+        sections.push(this._ctxSection('Voice Connection', voiceStatus));
+
+        // 2. System prompt (realtime)
+        const instructions = this.realtimeVoice?.sessionConfig?.session?.instructions;
+        if (instructions) {
+            sections.push(this._ctxSection('System Prompt (Realtime)', this._ctxCode(instructions)));
+        } else {
+            sections.push(this._ctxSection('System Prompt (Realtime)', '<em>Not loaded — connect voice to see</em>'));
+        }
+
+        // 3. Canvas context (what AI sees right now)
+        const canvasCtx = this.buildCanvasContextDescription();
+        sections.push(this._ctxSection('Current Canvas Context',
+            canvasCtx ? this._ctxCode(canvasCtx) : '<em>No context</em>'));
+
+        // 4. Canvas state
+        const state = this.currentCanvasState;
+        sections.push(this._ctxSection('Canvas State',
+            `<code>type:</code> ${state?.type || 'none'}<br><code>viewHistory:</code> [${(this.viewHistory || []).join(' → ')}] (idx: ${this.currentViewIndex ?? 0})`));
+
+        // 5. Registered tools
+        const tools = this.realtimeVoice?.tools || [];
+        if (tools.length > 0) {
+            const toolList = tools.map(t => {
+                const name = t.name || '?';
+                const desc = t.description || '';
+                return `<div class="ctx-tool-item"><code>${name}</code><span class="ctx-tool-desc">${desc}</span></div>`;
+            }).join('');
+            sections.push(this._ctxSection(`Registered Tools (${tools.length})`, `<div class="ctx-tool-list">${toolList}</div>`));
+        } else {
+            sections.push(this._ctxSection('Registered Tools', '<em>None loaded</em>'));
+        }
+
+        // 6. Recent tool calls
+        const toolCalls = this._contextViewerToolCalls || [];
+        if (toolCalls.length > 0) {
+            const callsHtml = toolCalls.map(tc => {
+                const status = tc.success === true ? '✅' : tc.success === false ? '❌' : '⏳';
+                const dur = tc.duration ? ` (${tc.duration}ms)` : '';
+                const args = tc.args ? JSON.stringify(tc.args) : '{}';
+                let resultSnippet = '';
+                if (tc.result) {
+                    const str = JSON.stringify(tc.result);
+                    resultSnippet = str.length > 200 ? str.substring(0, 200) + '…' : str;
+                }
+                return `<div class="ctx-toolcall-item">
+                    <div>${status} <code>${tc.toolName}</code>${dur}</div>
+                    <div class="ctx-toolcall-args">Args: ${this._escapeHtml(args)}</div>
+                    ${resultSnippet ? `<div class="ctx-toolcall-result">Result: ${this._escapeHtml(resultSnippet)}</div>` : ''}
+                </div>`;
+            }).join('');
+            sections.push(this._ctxSection(`Recent Tool Calls (${toolCalls.length})`, callsHtml));
+        } else {
+            sections.push(this._ctxSection('Recent Tool Calls', '<em>None yet</em>'));
+        }
+
+        // 7. Text chat conversation history (server-side)
+        const chatHistory = this._contextViewerChatHistory;
+        if (chatHistory && chatHistory.length > 0) {
+            const histHtml = chatHistory.map(msg => {
+                const role = msg.role || '?';
+                const content = (msg.content || '').substring(0, 300);
+                const badge = role === 'system' ? '🔧' : role === 'user' ? '👤' : role === 'assistant' ? '🤖' : '📎';
+                return `<div class="ctx-hist-item"><span class="ctx-hist-role">${badge} ${role}</span><div class="ctx-hist-content">${this._escapeHtml(content)}${msg.content && msg.content.length > 300 ? '…' : ''}</div></div>`;
+            }).join('');
+            sections.push(this._ctxSection(`Chat History (${chatHistory.length} messages)`, histHtml));
+        } else {
+            sections.push(this._ctxSection('Chat History', '<em>Empty</em>'));
+        }
+
+        // 8. Session info
+        const sessionInfo = [];
+        sessionInfo.push(`<code>userId:</code> ${this.userId || 'unknown'}`);
+        sessionInfo.push(`<code>voice:</code> ${this.realtimeVoice?.preferredVoice || this.voicePreference || 'alloy'}`);
+        sessionInfo.push(`<code>identifiedUser:</code> ${this.currentIdentifiedUser || 'none'}`);
+        sessionInfo.push(`<code>currentPokemon:</code> ${this.currentPokemonName || 'none'}`);
+        sessionInfo.push(`<code>spriteStyle:</code> ${this.spriteStyle || 'official-artwork'}`);
+        sections.push(this._ctxSection('Session Info', sessionInfo.join('<br>')));
+
+        body.innerHTML = sections.join('');
+
+        // Fetch chat history in background (don't block render)
+        this._fetchChatHistoryForViewer();
+    }
+
+    async _fetchChatHistoryForViewer() {
+        try {
+            const resp = await fetch(`/api/chat/history/${encodeURIComponent(this.userId)}`);
+            if (resp.ok) {
+                const data = await resp.json();
+                this._contextViewerChatHistory = data.history || [];
+            }
+        } catch { /* ignore */ }
+    }
+
+    _ctxSection(title, content) {
+        return `<details class="ctx-section" open><summary class="ctx-section-title">${title}</summary><div class="ctx-section-body">${content}</div></details>`;
+    }
+
+    _ctxCode(text) {
+        return `<pre class="ctx-code">${this._escapeHtml(text)}</pre>`;
+    }
+
+    _escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
     }
 }
 

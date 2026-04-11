@@ -286,6 +286,23 @@
                         <button class="quick-action-btn" data-action="popular">
                             <span>⭐</span> Popular
                         </button>
+                        <button class="quick-action-btn" data-action="context" id="contextViewerBtn" title="View AI context">
+                            <span>🧠</span> Context
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Context Viewer Panel (overlays the entire chat sidebar content) -->
+                <div class="context-viewer-panel" id="contextViewerPanel" style="display: none;">
+                    <div class="context-viewer-header">
+                        <h4>🧠 AI Context Viewer</h4>
+                        <div class="context-viewer-actions">
+                            <span class="context-viewer-live" id="contextViewerLive">● LIVE</span>
+                            <button class="context-viewer-close" id="contextViewerClose">&times;</button>
+                        </div>
+                    </div>
+                    <div class="context-viewer-body" id="contextViewerBody">
+                        <!-- Populated dynamically -->
                     </div>
                 </div>
             </div>
