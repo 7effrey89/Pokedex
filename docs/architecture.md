@@ -101,3 +101,81 @@ See the main instructions file (`.github/instructions/instructions.instructions.
 - GPT realtime context injection
 - Navigation history (back/forward)
 - View key deduplication
+
+---
+
+## URL Routing & Virtual Pages
+
+The app is a **single-page application** with URL support for every virtual page. Users can bookmark, share, and refresh any view without losing state.
+
+### SPA Catch-All (Flask)
+
+Three Flask routes in `app.py` serve the same `index.html` shell:
+
+```python
+@app.route('/')
+@app.route('/pokemon/<path:subpath>')
+@app.route('/tcg/<path:subpath>')
+def index(subpath=None):
+    return render_template('index.html')
+```
+
+### URL Patterns
+
+| View | Canvas Type | URL Pattern | View Key | Example |
+|------|-------------|-------------|----------|---------|
+| Pokemon Grid | `grid` | `/` | `grid` | `/` |
+| Pokemon Detail | `pokemon` | `/pokemon/{name}` | `pokemon-{id}` | `/pokemon/pikachu` |
+| TCG Gallery (by Pokemon) | `tcg-gallery` | `/pokemon/{name}/cards` | `tcg` | `/pokemon/charizard/cards` |
+| TCG Gallery (by Set) | `tcg-gallery` | `/tcg/set/{setId}` | `tcg` | `/tcg/set/sv3pt5` |
+| TCG Card Detail | `tcg-detail` | `/tcg/{cardId}` | `tcg-detail-{cardId}` | `/tcg/sv3pt5-25` |
+| TCG Database | `tcg-database` | `/tcg/database` | `tcg-database` | `/tcg/database` |
+
+### How It Works
+
+#### Page Load: `routeFromUrl()`
+
+Called once in the `app.js` constructor. Reads `window.location.pathname`, matches against the URL patterns above, and renders the correct view. Sets `_suppressPushState = true` during load so `updateCanvasState()` won't push a duplicate history entry, then calls `history.replaceState()` to set the correct state object.
+
+#### View Navigation → URL Update
+
+```
+View.show()
+  → app.updateCanvasState(type, data)
+      ├── buildViewKey(type, data)     → deduplicate history entries
+      ├── viewHistory[] push           → internal back/forward tracking
+      ├── buildUrl(type, data)         → compute URL path
+      ├── history.pushState(state, '', url)  → update browser URL bar
+      ├── buildCanvasContextDescription()    → GPT realtime context
+      └── updateNavigationButtons()          → enable/disable back/forward
+```
+
+`buildUrl()` in `app.js` maps canvas types to URL paths:
+- `grid` → `/`
+- `pokemon` → `/pokemon/{name}`
+- `tcg-gallery` → `/tcg/set/{setId}` or `/pokemon/{name}/cards`
+- `tcg-detail` → `/tcg/{cardId}`
+- `tcg-database` → `/tcg/database`
+
+#### Browser Back/Forward: `handlePopState()`
+
+Listens to `window.popstate`. Re-reads `window.location.pathname` and renders the matching view using `*WithoutHistory` variants (to avoid re-pushing history entries).
+
+### Dual Navigation System
+
+Two parallel systems are kept in sync:
+
+1. **Browser history** (`pushState` / `popstate`) — real browser back/forward, URL bar updates
+2. **Internal `viewHistory[]` array** — powers the app's custom back/forward footer buttons via `navigateBack()` / `navigateForward()`, uses `replaceState` to sync URLs
+
+Both are managed centrally through `updateCanvasState()`.
+
+### Adding a New Virtual Page
+
+1. **Flask**: Add catch-all route if the URL prefix is new (existing `/pokemon/` and `/tcg/` prefixes are already covered)
+2. **`buildUrl()`**: Map the new canvas type → URL path
+3. **`routeFromUrl()`**: Add regex match for the new path → call the view's `show()` method
+4. **`handlePopState()`**: Add the same match → call the view's `showWithoutHistory()` method
+5. **`navigateBack()` / `navigateForward()`**: Add restoration logic using the view key
+6. **`buildViewKey()`**: Define a unique key pattern for deduplication
+7. **`buildCanvasContextDescription()`**: Add a description for GPT realtime context
