@@ -4892,6 +4892,11 @@ class PokemonChatApp {
                 return "User is currently viewing the Pokemon index page (grid view) showing all Pokemon. They can select any Pokemon to view details, or ask about specific Pokemon.";
             
             case 'tcg-database':
+                if (data?.viewMode === 'all-cards') {
+                    const cardCount = this.currentTcgCards?.length || 0;
+                    const setCount = data?.selectedSets || 0;
+                    return `User is viewing the TCG Card Database in All Cards mode with ${cardCount} cards loaded from ${setCount} expansion(s). Cards are numbered #1 through #${cardCount}. User can say "show card 5" or "open card number 12" to view a specific card's details.`;
+                }
                 return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.`;
             
             case 'pokemon':

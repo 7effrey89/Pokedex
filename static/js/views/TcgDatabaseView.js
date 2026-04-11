@@ -77,7 +77,11 @@ class TcgDatabaseView {
         if (mode === 'all-cards') {
             await this._renderAllCardsView();
         } else {
+            this.app.currentTcgCards = null;
             this._renderDatabase();
+            this.app.updateCanvasState('tcg-database', {
+                total_sets: this.allSets.length
+            }, false);
         }
     }
 
@@ -421,13 +425,15 @@ class TcgDatabaseView {
         const grid = document.createElement('div');
         grid.className = 'tcg-set-cards-row';
 
-        previewCards.forEach(card => {
+        previewCards.forEach((card, i) => {
             const cardEl = document.createElement('div');
             cardEl.className = 'tcg-db-card-item';
+            cardEl.style.position = 'relative';
             const imageUrl = card.images?.small || card.imageSmall || '';
             const cardName = card.name || 'Unknown';
 
             cardEl.innerHTML = `
+                <div class="card-index-badge">#${i + 1}</div>
                 <img src="${imageUrl}" alt="${cardName}" loading="lazy">
                 <span class="tcg-db-card-name">${cardName}</span>
             `;
@@ -818,6 +824,15 @@ class TcgDatabaseView {
         } else {
             countEl.textContent = `${this.allCards.length} cards · ${this._selectedSetIds.size} expansions`;
         }
+
+        // Keep AI context up to date when in All Cards mode
+        if (this.viewMode === 'all-cards') {
+            this.app.updateCanvasState('tcg-database', {
+                total_sets: this.allSets.length,
+                viewMode: 'all-cards',
+                selectedSets: this._selectedSetIds.size
+            }, false);
+        }
     }
 
     _getDisplayCards() {
@@ -948,10 +963,14 @@ class TcgDatabaseView {
         const grid = document.createElement('div');
         grid.className = 'tcg-all-cards-set-grid';
 
+        // Store sorted cards for AI indexed access
+        this._displayedCards = sorted;
+        this.app.currentTcgCards = sorted;
+
         // Render first batch immediately
         const firstBatch = sorted.slice(0, BATCH_SIZE);
-        firstBatch.forEach(card => {
-            grid.appendChild(this._createFlatCardElement(card));
+        firstBatch.forEach((card, i) => {
+            grid.appendChild(this._createFlatCardElement(card, i + 1));
         });
         container.appendChild(grid);
 
@@ -966,8 +985,8 @@ class TcgDatabaseView {
                 if (entries[0].isIntersecting && rendered < sorted.length) {
                     const nextBatch = sorted.slice(rendered, rendered + BATCH_SIZE);
                     const fragment = document.createDocumentFragment();
-                    nextBatch.forEach(card => {
-                        fragment.appendChild(this._createFlatCardElement(card));
+                    nextBatch.forEach((card, i) => {
+                        fragment.appendChild(this._createFlatCardElement(card, rendered + i + 1));
                     });
                     grid.appendChild(fragment);
                     rendered += nextBatch.length;
@@ -1003,9 +1022,10 @@ class TcgDatabaseView {
         return order[rarity] || 10;
     }
 
-    _createFlatCardElement(card) {
+    _createFlatCardElement(card, displayIndex) {
         const el = document.createElement('div');
         el.className = 'tcg-card-item';
+        el.style.position = 'relative';
 
         const imageUrl = card.images?.small || card.imageSmall || '';
         const name = card.name || 'Unknown';
@@ -1013,8 +1033,10 @@ class TcgDatabaseView {
         const price = this._getCardPrice(card);
         const priceStr = price > 0 ? `$${price.toFixed(2)}` : '';
         const rarity = card.rarity || '';
+        const badge = displayIndex ? `<div class="card-index-badge">#${displayIndex}</div>` : '';
 
         el.innerHTML = `
+            ${badge}
             <img src="${imageUrl}" alt="${name}" loading="lazy">
             <div class="tcg-card-info">
                 <span class="tcg-card-name">${name}</span>
