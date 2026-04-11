@@ -653,6 +653,17 @@
     font-size: 0.875rem;
     color: var(--text-primary);
     border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.price-item {
+    cursor: pointer;
+}
+
+a.price-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .price-item.price-market {
@@ -660,6 +671,10 @@
     color: white;
     font-weight: 600;
     border: none;
+}
+
+a.price-item.price-market:hover {
+    box-shadow: 0 2px 8px rgba(40,167,69,0.4);
 }
 
 .price-updated {

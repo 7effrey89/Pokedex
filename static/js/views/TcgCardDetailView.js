@@ -338,14 +338,17 @@ class TcgCardDetailView {
         
         // TCGPlayer prices
         if (card.tcgplayer?.prices) {
-            pricesHTML += '<div class="price-section"><h4>💳 TCGPlayer</h4>';
+            const tcgUrl = card.tcgplayer.url || '';
+            pricesHTML += `<div class="price-section"><h4>💳 TCGPlayer</h4>`;
             for (const [variant, prices] of Object.entries(card.tcgplayer.prices)) {
                 if (typeof prices === 'object' && prices !== null) {
                     pricesHTML += `<div class="price-variant"><strong>${variant}:</strong><div class="price-list">`;
-                    if (prices.low) pricesHTML += `<span class="price-item">Low: $${prices.low.toFixed(2)}</span>`;
-                    if (prices.mid) pricesHTML += `<span class="price-item">Mid: $${prices.mid.toFixed(2)}</span>`;
-                    if (prices.high) pricesHTML += `<span class="price-item">High: $${prices.high.toFixed(2)}</span>`;
-                    if (prices.market) pricesHTML += `<span class="price-item price-market">Market: $${prices.market.toFixed(2)}</span>`;
+                    const tag = tcgUrl ? 'a' : 'span';
+                    const attrs = tcgUrl ? ` href="${tcgUrl}" target="_blank" rel="noopener noreferrer"` : '';
+                    if (prices.low) pricesHTML += `<${tag}${attrs} class="price-item">Low: $${prices.low.toFixed(2)}</${tag}>`;
+                    if (prices.mid) pricesHTML += `<${tag}${attrs} class="price-item">Mid: $${prices.mid.toFixed(2)}</${tag}>`;
+                    if (prices.high) pricesHTML += `<${tag}${attrs} class="price-item">High: $${prices.high.toFixed(2)}</${tag}>`;
+                    if (prices.market) pricesHTML += `<${tag}${attrs} class="price-item price-market">Market: $${prices.market.toFixed(2)}</${tag}>`;
                     pricesHTML += '</div></div>';
                 }
             }
@@ -354,11 +357,14 @@ class TcgCardDetailView {
         
         // Cardmarket prices
         if (card.cardmarket?.prices) {
-            pricesHTML += '<div class="price-section"><h4>🇪🇺 Cardmarket</h4><div class="price-list">';
+            const cmUrl = card.cardmarket.url || '';
+            const tag = cmUrl ? 'a' : 'span';
+            const attrs = cmUrl ? ` href="${cmUrl}" target="_blank" rel="noopener noreferrer"` : '';
+            pricesHTML += `<div class="price-section"><h4>🇪🇺 Cardmarket</h4><div class="price-list">`;
             const cm = card.cardmarket.prices;
-            if (cm.averageSellPrice) pricesHTML += `<span class="price-item">Avg: €${cm.averageSellPrice.toFixed(2)}</span>`;
-            if (cm.lowPrice) pricesHTML += `<span class="price-item">Low: €${cm.lowPrice.toFixed(2)}</span>`;
-            if (cm.trendPrice) pricesHTML += `<span class="price-item price-market">Trend: €${cm.trendPrice.toFixed(2)}</span>`;
+            if (cm.averageSellPrice) pricesHTML += `<${tag}${attrs} class="price-item">Avg: €${cm.averageSellPrice.toFixed(2)}</${tag}>`;
+            if (cm.lowPrice) pricesHTML += `<${tag}${attrs} class="price-item">Low: €${cm.lowPrice.toFixed(2)}</${tag}>`;
+            if (cm.trendPrice) pricesHTML += `<${tag}${attrs} class="price-item price-market">Trend: €${cm.trendPrice.toFixed(2)}</${tag}>`;
             pricesHTML += '</div></div>';
         }
         
