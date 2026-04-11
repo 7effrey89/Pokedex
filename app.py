@@ -14,6 +14,7 @@ import logging
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+from src.routes.realtime_socket_routes import init_realtime_socket_routes
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -24,6 +25,7 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
+init_realtime_socket_routes(app)
 
 # Register blueprints
 from src.routes import chat_bp, realtime_bp, tool_bp, cache_bp, face_bp, pokeapi_bp

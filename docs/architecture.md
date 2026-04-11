@@ -170,6 +170,28 @@ Two parallel systems are kept in sync:
 
 Both are managed centrally through `updateCanvasState()`.
 
+---
+
+## Azure OpenAI Endpoint Strategy
+
+The app now targets the Azure OpenAI resource endpoint instead of Azure AI Foundry project URLs for both chat and realtime voice.
+
+### Preferred Environment Variables
+
+- `AZURE_OPENAI_ENDPOINT` → Azure OpenAI resource endpoint for chat and default realtime fallback
+- `AZURE_OPENAI_REALTIME_ENDPOINT` → optional explicit Azure OpenAI resource endpoint for realtime voice
+- `AZURE_OPENAI_DEPLOYMENT` → chat/text deployment name
+- `AZURE_OPENAI_REALTIME_DEPLOYMENT` → realtime deployment name
+- `AZURE_TOKEN_SCOPE=https://cognitiveservices.azure.com/.default` when using service principal auth
+
+### Compatibility Behavior
+
+- Legacy Foundry-style values such as `https://...services.ai.azure.com/api/projects/...` are still accepted during transition.
+- Endpoints that include `/openai` or `/openai/v1` are normalized back to the Azure OpenAI resource root before SDK or WebSocket use.
+- Chat uses the Azure OpenAI SDK with `azure_ad_token_provider` for app registration auth.
+- Realtime voice builds the WebSocket URL from the same Azure OpenAI resource host and deployment.
+- Realtime WebSocket URL format depends on API generation: preview API versions use `/openai/realtime?api-version=...&deployment=...`, while GA API versions use `/openai/v1/realtime?model=...`. Mixing those formats returns HTTP 404 from Azure.
+
 ### Adding a New Virtual Page
 
 1. **Flask**: Add catch-all route if the URL prefix is new (existing `/pokemon/` and `/tcg/` prefixes are already covered)

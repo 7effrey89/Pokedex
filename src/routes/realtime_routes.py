@@ -6,6 +6,7 @@ import logging
 from flask import Blueprint, request, jsonify
 
 from src.utils.api_settings import resolve_api_settings
+from src.routes.realtime_socket_routes import create_relay_session
 
 logger = logging.getLogger(__name__)
 
@@ -44,17 +45,23 @@ def get_realtime_connection_config():
         session_config = get_session_config(preferred_language)
         if preferred_voice:
             session = session_config.get('session', {})
-            session['voice'] = preferred_voice
+            session.setdefault('audio', {}).setdefault('output', {})['voice'] = preferred_voice
         tools = get_available_tools()
 
         response_data = {
             "available": True,
             "ws_url": config['ws_url'],
             "auth_mode": config.get('auth_mode', 'api_key'),
+            "deployment": config.get('deployment'),
+            "api_version": config.get('api_version'),
             "session_config": session_config,
             "tools": tools,
             "supports_image_input": True
         }
+        if config.get('auth_mode') == 'service_principal':
+            relay_session_id = create_relay_session(realtime_config, preferred_language, preferred_voice)
+            response_data["relay_url"] = f"/api/realtime/ws/{relay_session_id}"
+            response_data["transport"] = "relay"
         # Include the appropriate credential
         if config.get('auth_mode') == 'service_principal':
             response_data["access_token"] = config['access_token']

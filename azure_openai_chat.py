@@ -5,10 +5,26 @@ Uses LLM to understand natural language and call appropriate tools
 import os
 import json
 from typing import Optional, Dict, Any, List
-from openai import AzureOpenAI, OpenAI
+from openai import AzureOpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
+
+
+def _sanitize_endpoint(value: str) -> str:
+    endpoint = (value or '').strip().rstrip('/')
+
+    project_marker = '/api/projects/'
+    project_idx = endpoint.find(project_marker)
+    if project_idx != -1:
+        endpoint = endpoint[:project_idx]
+
+    if endpoint.endswith('/openai'):
+        endpoint = endpoint[:-len('/openai')]
+    elif '/openai/' in endpoint:
+        endpoint = endpoint.split('/openai/', 1)[0]
+
+    return endpoint.rstrip('/')
 
 # --- Authentication helpers ---------------------------------------------------
 
@@ -39,10 +55,11 @@ class AzureOpenAIChat:
     def __init__(self):
         self.use_sp = _is_service_principal_mode()
         self.default_config = {
-            "endpoint": (os.getenv("FOUNDRY_PROJECT_ENDPOINT", "") or "").rstrip('/'),
+            "endpoint": _sanitize_endpoint(os.getenv("AZURE_OPENAI_ENDPOINT") or os.getenv("FOUNDRY_PROJECT_ENDPOINT", "")),
             "api_key": os.getenv("AZURE_OPENAI_API_KEY", "") if not self.use_sp else "",
             "deployment": os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4"),
-            "api_version": os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21")
+            "api_version": os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21"),
+            "auth_mode": 'service_principal' if self.use_sp else 'api_key'
         }
         self.default_client: Optional[AzureOpenAI] = None
         self.conversation_history: Dict[str, List[Dict]] = {}
@@ -234,12 +251,14 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
     
     def _get_client(self, override_config: Optional[Dict[str, str]] = None):
         cfg = (override_config or self.default_config).copy()
-        cfg["endpoint"] = (cfg.get("endpoint") or "").rstrip('/')
+        cfg["endpoint"] = _sanitize_endpoint(cfg.get("endpoint") or "")
         has_api_key = bool(cfg.get("api_key"))
+        auth_mode = str(cfg.get("auth_mode") or ('service_principal' if self.use_sp and not has_api_key else 'api_key')).strip().lower()
 
         # Determine whether to use service principal for this call:
-        # - Use SP when globally enabled AND the config has no api_key
-        use_sp_for_call = self.use_sp and not has_api_key
+        # - Prefer the explicit auth_mode when supplied
+        # - Otherwise, use SP when globally enabled and no API key is present
+        use_sp_for_call = auth_mode == 'service_principal'
 
         if use_sp_for_call:
             if not cfg.get("endpoint") or not cfg.get("deployment"):
@@ -252,25 +271,21 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
         api_version = cfg.get("api_version") or "2024-10-21"
 
         if use_sp_for_call:
-            # Foundry v1 API: use OpenAI() with base_url at resource level
-            # Strip /api/projects/... from the endpoint to get resource-level URL
-            endpoint = cfg['endpoint']
-            project_idx = endpoint.find('/api/projects/')
-            resource_url = endpoint[:project_idx] if project_idx != -1 else endpoint
-            base_url = f"{resource_url}/openai/v1/"
             token_provider = _get_token_provider()
 
             if override_config:
-                client = OpenAI(
-                    base_url=base_url,
-                    api_key=token_provider(),
+                client = AzureOpenAI(
+                    azure_endpoint=cfg["endpoint"],
+                    azure_ad_token_provider=token_provider,
+                    api_version=api_version
                 )
                 return client, cfg["deployment"]
 
             if self.default_client is None:
-                self.default_client = OpenAI(
-                    base_url=base_url,
-                    api_key=token_provider(),
+                self.default_client = AzureOpenAI(
+                    azure_endpoint=cfg["endpoint"],
+                    azure_ad_token_provider=token_provider,
+                    api_version=api_version
                 )
             return self.default_client, cfg["deployment"]
 
@@ -403,7 +418,7 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
                 self.add_message(user_id, "assistant", result["message"])
                 
         except Exception as e:
-            error_msg = str(e)
+            error_msg = self._format_user_facing_error(e)
             result["message"] = f"I'm sorry, I encountered an error: {error_msg}. Please try again!"
             print(f"Azure OpenAI error: {e}")
             
@@ -420,6 +435,26 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
             self.conversation_history[user_id] = [
                 {"role": "system", "content": self.system_prompt}
             ]
+
+    def _format_user_facing_error(self, error: Exception) -> str:
+        raw_message = str(error)
+        lowered = raw_message.lower()
+
+        if 'permissiondenied' in lowered and 'chat/completions' in lowered:
+            return (
+                'The current Azure service principal can access realtime voice, but it is not allowed to use chat completions. '
+                'Grant this principal a role on the target Azure AI Foundry or Azure OpenAI resource that includes '
+                '`Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action`, '
+                'or switch chat auth to an API key in Settings.'
+            )
+
+        if 'permissiondenied' in lowered or 'principal does not have access to api/operation' in lowered:
+            return (
+                'Azure accepted the request but denied this principal for the requested model operation. '
+                'Check the role assignment for the configured service principal, or switch to API-key auth for chat.'
+            )
+
+        return raw_message
 
 
 # Singleton instance

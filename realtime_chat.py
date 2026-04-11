@@ -12,7 +12,19 @@ load_dotenv()
 
 
 def _sanitize_endpoint(value: str) -> str:
-    return (value or '').rstrip('/')
+    endpoint = (value or '').strip().rstrip('/')
+
+    project_marker = '/api/projects/'
+    project_idx = endpoint.find(project_marker)
+    if project_idx != -1:
+        endpoint = endpoint[:project_idx]
+
+    if endpoint.endswith('/openai'):
+        endpoint = endpoint[:-len('/openai')]
+    elif '/openai/' in endpoint:
+        endpoint = endpoint.split('/openai/', 1)[0]
+
+    return endpoint.rstrip('/')
 
 
 def _is_service_principal_mode() -> bool:
@@ -36,11 +48,25 @@ def _get_sp_access_token() -> str:
 
 
 DEFAULT_REALTIME_CONFIG = {
-    'endpoint': _sanitize_endpoint(os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))),
+    'endpoint': _sanitize_endpoint(
+        os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT')
+        or os.getenv('AZURE_OPENAI_ENDPOINT')
+        or os.getenv('FOUNDRY_PROJECT_ENDPOINT', '')
+    ),
     'api_key': os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')),
     'deployment': os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', 'gpt-realtime'),
     'api_version': os.getenv('AZURE_OPENAI_REALTIME_API_VERSION', '2024-10-01-preview')
 }
+
+
+def _build_realtime_ws_url(endpoint: str, deployment: str, api_version: str) -> str:
+    endpoint_host = endpoint.replace('https://', '').replace('http://', '')
+    normalized_api_version = (api_version or '').strip().lower()
+
+    if normalized_api_version.endswith('preview'):
+        return f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
+
+    return f"wss://{endpoint_host}/openai/v1/realtime?model={deployment}"
 
 def get_realtime_config(overrides=None):
     """
@@ -51,18 +77,14 @@ def get_realtime_config(overrides=None):
     endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
     deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
     api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
-
-    use_sp = _is_service_principal_mode() and not overrides
+    auth_mode = str(cfg.get('auth_mode') or ('service_principal' if _is_service_principal_mode() and not overrides else 'api_key')).strip().lower()
+    use_sp = auth_mode == 'service_principal'
 
     if use_sp:
         if not endpoint or not deployment:
             raise ValueError("Azure OpenAI credentials not configured")
         access_token = _get_sp_access_token()
-        # Strip /api/projects/... to get resource-level host for WebSocket
-        project_idx = endpoint.find('/api/projects/')
-        resource_url = endpoint[:project_idx] if project_idx != -1 else endpoint
-        endpoint_host = resource_url.replace('https://', '').replace('http://', '')
-        ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
+        ws_url = _build_realtime_ws_url(endpoint, deployment, api_version)
         return {
             'ws_url': ws_url,
             'access_token': access_token,
@@ -74,9 +96,8 @@ def get_realtime_config(overrides=None):
     api_key = cfg.get('api_key', '')
     if not endpoint or not api_key or not deployment:
         raise ValueError("Azure OpenAI credentials not configured")
-    
-    endpoint_host = endpoint.replace('https://', '').replace('http://', '')
-    ws_url = f"wss://{endpoint_host}/openai/realtime?api-version={api_version}&deployment={deployment}"
+
+    ws_url = _build_realtime_ws_url(endpoint, deployment, api_version)
     
     return {
         'ws_url': ws_url,
@@ -112,7 +133,7 @@ def get_session_config(preferred_language=None):
     session_config = {
         "type": "session.update",
         "session": {
-            "modalities": ["text", "audio"],
+            "type": "realtime",
             "instructions": f"""You are Pokédex, a friendly and knowledgeable Pokemon assistant. 
 You help users learn about Pokemon, their abilities, types, evolutions, and more.
 Keep responses conversational and concise since this is a voice conversation.
@@ -130,24 +151,35 @@ CONTEXT AWARENESS - YOU CAN SEE WHAT THE USER IS VIEWING:
 - The canvas content updates automatically as users navigate - you always know whether they're viewing the index page, a specific Pokemon, or a Pokemon card.
 - When users send you images via the camera scanner, analyze what you see - this is for identifying physical Pokemon cards.
 - Do NOT make up or hallucinate content that isn't in the CURRENT CANVAS CONTENT section.""",
-            "voice": "alloy",  # Options: alloy, ash, ballad, cedar, coral, echo, ember, luna, marin, pearl, sage, shimmer, sol, verse
-            "input_audio_format": "pcm16",
-            "output_audio_format": "pcm16",
-            "input_audio_transcription": {
-                "model": "whisper-1"
+            "audio": {
+                "input": {
+                    "format": {
+                        "type": "audio/pcm",
+                        "rate": 24000
+                    },
+                    "transcription": {
+                        "model": "whisper-1"
+                    },
+                    "turn_detection": {
+                        "type": "server_vad",
+                        "threshold": 0.5,
+                        "prefix_padding_ms": 300,
+                        "silence_duration_ms": 500,
+                        "create_response": True,
+                        "interrupt_response": True
+                    }
+                },
+                "output": {
+                    "format": {
+                        "type": "audio/pcm",
+                        "rate": 24000
+                    },
+                    "voice": "alloy"
+                }
             },
-            "turn_detection": {
-                "type": "server_vad",
-                "threshold": 0.5,
-                "prefix_padding_ms": 300,
-                "silence_duration_ms": 500
-            },
-            "temperature": 0.8,
-            "max_response_output_tokens": 4096
         }
     }
-    
-    session_config["session"]["language_preference"] = readable_language
+
     # Use function-based tools
     session_config["session"]["tools"] = get_available_tools()
     
@@ -410,11 +442,12 @@ def check_realtime_availability(overrides=None):
     endpoint = _sanitize_endpoint(cfg.get('endpoint', ''))
     deployment = cfg.get('deployment', DEFAULT_REALTIME_CONFIG['deployment'])
     api_version = cfg.get('api_version', DEFAULT_REALTIME_CONFIG['api_version'])
+    auth_mode = str(cfg.get('auth_mode') or ('service_principal' if _is_service_principal_mode() and not overrides else 'api_key')).strip().lower()
 
     if not endpoint:
         return {'available': False, 'message': 'Azure OpenAI endpoint not configured', 'details': {}}
 
-    use_sp = _is_service_principal_mode() and not overrides
+    use_sp = auth_mode == 'service_principal'
     if not use_sp:
         api_key = cfg.get('api_key', '')
         if not api_key:

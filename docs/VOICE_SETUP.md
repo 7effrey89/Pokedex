@@ -19,9 +19,9 @@ The Realtime API provides a true conversational experience with:
 
 ### Prerequisites
 
-1. Azure account with OpenAI service
+1. Azure account with an Azure OpenAI resource
 2. A **gpt-4o-realtime-preview** or **gpt-realtime** model deployment
-3. API key and endpoint
+3. Either an API key or Microsoft Entra app registration credentials
 
 ### Step 1: Deploy a Realtime Model
 
@@ -39,13 +39,28 @@ Add to your `.env` file:
 
 ```bash
 # Existing variables
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/openai/v1
 AZURE_OPENAI_API_KEY=your_api_key_here
 
 # Add this for Realtime API
+AZURE_OPENAI_REALTIME_ENDPOINT=https://your-resource.openai.azure.com/openai/v1
 AZURE_OPENAI_REALTIME_DEPLOYMENT=gpt-4o-realtime-preview
 AZURE_OPENAI_REALTIME_API_VERSION=2024-10-01-preview
 ```
+
+For app registration auth, use:
+
+```bash
+AZURE_AUTH_MODE=service_principal
+AZURE_CLIENT_ID=your_app_registration_client_id
+AZURE_TENANT_ID=your_tenant_id
+AZURE_CLIENT_SECRET=your_client_secret
+AZURE_TOKEN_SCOPE=https://cognitiveservices.azure.com/.default
+```
+
+The app normalizes `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_REALTIME_ENDPOINT`, so values with `/openai/v1` are accepted and reduced to the Azure OpenAI resource root internally.
+
+When using service principal auth in the browser, the app uses a same-origin Flask WebSocket relay so Azure bearer tokens stay server-side. The relay also switches between preview and GA realtime URL formats automatically based on `AZURE_OPENAI_REALTIME_API_VERSION`.
 
 ### Step 3: Test the Connection
 
@@ -58,13 +73,13 @@ AZURE_OPENAI_REALTIME_API_VERSION=2024-10-01-preview
 ### How It Works
 
 ```
-Browser (Mic) → WebSocket → Azure OpenAI Realtime API
-                    ↓
-              Voice Activity Detection
-                    ↓
-              Speech-to-Text (Whisper)
-                    ↓
-              GPT-4o Response Generation
+Browser (Mic) → WebSocket → Flask relay → Azure OpenAI Realtime API
+                     ↓
+                 Voice Activity Detection
+                     ↓
+                 Speech-to-Text (Whisper)
+                     ↓
+                 GPT Realtime Response Generation
                     ↓
               Text-to-Speech
                     ↓

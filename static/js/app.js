@@ -45,10 +45,17 @@ class PokemonChatApp {
         this.closeCardBtn = document.getElementById('closeCard');
         this.voiceButton = document.getElementById('voiceButton');
         this.statusText = document.querySelector('.status-text');
+        this.voiceBackendIndicator = document.getElementById('voiceBackendIndicator');
+        this.voiceBackendValue = document.getElementById('voiceBackendValue');
         this.activeLoadingCount = 0;
         this.activeLoadingRequests = new Map();
         this.loadingRequestSequence = 0;
         this.manualLoadingToken = null;
+        this.voiceBackendState = {
+            mode: 'checking',
+            label: 'Checking...',
+            detail: 'Checking whether GPT Realtime voice is available.'
+        };
         this.fetchInterceptorInstalled = false;
         this.initializeHeaderLights();
 
@@ -3249,6 +3256,12 @@ class PokemonChatApp {
      * Initialize voice - try Realtime API first, fall back to browser Speech Recognition
      */
     async initializeVoice() {
+        this.setVoiceBackendState({
+            mode: 'checking',
+            label: 'Checking...',
+            detail: 'Checking whether GPT Realtime voice is available for this browser and API configuration.'
+        });
+
         // First, check if Azure OpenAI Realtime API is available
         if (window.RealtimeVoiceClient && RealtimeVoiceClient.isSupported()) {
             const realtimeSettings = this.buildApiSettingsPayload('realtime');
@@ -3271,17 +3284,43 @@ class PokemonChatApp {
                     const status = await statusResponse.json();
                     
                     if (status.available) {
+                        this.setVoiceBackendState({
+                            mode: 'realtime',
+                            label: 'GPT Realtime',
+                            detail: this.describeRealtimeStatusDetails(status.details || {})
+                        });
                         console.log('Azure OpenAI Realtime API available, initializing...');
                         this.initializeRealtimeVoice();
                         return;
                     }
+                    this.setVoiceBackendState({
+                        mode: 'browser',
+                        label: 'Browser Fallback',
+                        detail: status.message || 'Realtime voice is unavailable, so browser speech recognition will be used.'
+                    });
                     console.log('Realtime API not available:', status.message || 'Unknown reason');
                 } catch (error) {
+                    this.setVoiceBackendState({
+                        mode: 'browser',
+                        label: 'Browser Fallback',
+                        detail: `Realtime check failed: ${error.message || error}. Using browser speech recognition instead.`
+                    });
                     console.log('Could not check Realtime API status:', error);
                 }
             } else {
+                this.setVoiceBackendState({
+                    mode: 'browser',
+                    label: 'Browser Fallback',
+                    detail: 'Realtime credentials are not configured, so browser speech recognition will be used.'
+                });
                 console.log('Realtime API locked until credentials are configured.');
             }
+        } else {
+            this.setVoiceBackendState({
+                mode: 'browser',
+                label: 'Browser Fallback',
+                detail: 'This browser does not support the media and WebSocket APIs required for GPT Realtime voice.'
+            });
         }
         
         // Fall back to browser Speech Recognition
@@ -3298,6 +3337,13 @@ class PokemonChatApp {
             preferredVoice: this.voicePreference,
             apiSettingsProvider: () => this.buildApiSettingsPayload('realtime', { notifyOnError: true }),
             languagePreferenceProvider: () => this.getRealtimeLanguagePreference(),
+            onConfigLoaded: (meta) => {
+                this.setVoiceBackendState({
+                    mode: 'realtime',
+                    label: 'GPT Realtime',
+                    detail: this.describeRealtimeConfigMeta(meta)
+                });
+            },
             
             onStatusChange: (status, message) => {
                 console.log('Realtime status:', status, message);
@@ -3423,6 +3469,11 @@ class PokemonChatApp {
             
             onError: (error) => {
                 console.error('Realtime voice error:', error);
+                this.setVoiceBackendState({
+                    mode: 'error',
+                    label: 'Realtime Error',
+                    detail: `GPT Realtime reported an error: ${error}`
+                });
                 this.addMessage('assistant', `⚠️ Voice error: ${error}`);
             },
             
@@ -3595,12 +3646,78 @@ class PokemonChatApp {
         this.setPowerLightVoiceMode(this.isVoiceActive || activeStatuses.has(status));
     }
 
+    setVoiceBackendState({ mode = 'checking', label = 'Checking...', detail = '' } = {}) {
+        this.voiceBackendState = { mode, label, detail };
+
+        if (this.voiceBackendValue) {
+            this.voiceBackendValue.textContent = label;
+        }
+
+        if (this.voiceBackendIndicator) {
+            this.voiceBackendIndicator.classList.remove('is-realtime', 'is-browser', 'is-checking', 'is-error');
+            this.voiceBackendIndicator.classList.add(`is-${mode}`);
+            const tooltip = detail || label;
+            this.voiceBackendIndicator.setAttribute('title', tooltip);
+            this.voiceBackendIndicator.setAttribute('aria-label', `Voice backend: ${label}. ${tooltip}`);
+        }
+    }
+
+    describeRealtimeStatusDetails(details = {}) {
+        const parts = ['GPT Realtime is available for voice mode.'];
+        if (details.deployment) {
+            parts.push(`Deployment: ${details.deployment}.`);
+        }
+        if (details.auth_mode) {
+            parts.push(`Auth: ${details.auth_mode.replace(/_/g, ' ')}.`);
+        }
+        if (details.api_version) {
+            parts.push(`API version: ${details.api_version}.`);
+        }
+        parts.push('The app will open a WebSocket session when you press Voice.');
+        return parts.join(' ');
+    }
+
+    describeRealtimeConfigMeta(meta = {}) {
+        const parts = [meta.transport === 'relay'
+            ? 'Using GPT Realtime through the backend relay.'
+            : 'Using GPT Realtime over WebSocket.'];
+        if (meta.deployment) {
+            parts.push(`Deployment: ${meta.deployment}.`);
+        }
+        if (meta.authMode) {
+            parts.push(`Auth: ${meta.authMode.replace(/_/g, ' ')}.`);
+        }
+        if (meta.transport) {
+            parts.push(`Transport: ${meta.transport}.`);
+        }
+        if (meta.apiVersion) {
+            parts.push(`API version: ${meta.apiVersion}.`);
+        }
+        if (meta.relayUrl) {
+            parts.push('Browser audio is relayed through this app because Entra-authenticated Azure Realtime requires server-side authorization headers.');
+        }
+        if (meta.wsUrl) {
+            try {
+                const parsed = new URL(meta.wsUrl);
+                parts.push(`Host: ${parsed.host}.`);
+            } catch (error) {
+                // Ignore malformed tooltip metadata.
+            }
+        }
+        return parts.join(' ');
+    }
+
     initializeVoiceRecognition() {
         // Check if browser supports Speech Recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         
         if (!SpeechRecognition) {
             console.warn('Speech Recognition not supported in this browser');
+            this.setVoiceBackendState({
+                mode: 'error',
+                label: 'Voice Unsupported',
+                detail: 'Neither GPT Realtime nor browser speech recognition is available in this browser.'
+            });
             if (this.voiceButton) {
                 this.voiceButton.style.display = 'none';
             }
@@ -3695,6 +3812,11 @@ class PokemonChatApp {
                 return;
             } catch (error) {
                 console.error('Error starting realtime voice:', error);
+                this.setVoiceBackendState({
+                    mode: 'browser',
+                    label: 'Browser Fallback',
+                    detail: `Realtime voice failed to start: ${error.message}. Browser speech recognition is active instead.`
+                });
                 this.addMessage('assistant', `⚠️ Could not start voice: ${error.message}. Falling back to browser voice...`);
                 this.isVoiceActive = false;
                 this.voiceButton.classList.remove('active');

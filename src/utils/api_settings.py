@@ -8,7 +8,19 @@ APP_API_PASSWORD = os.getenv('APP_API_PASSWORD', 'Password1')
 def _sanitize_endpoint(value: str) -> str:
     if not value:
         return ''
-    return value.strip().rstrip('/')
+    endpoint = value.strip().rstrip('/')
+
+    project_marker = '/api/projects/'
+    project_idx = endpoint.find(project_marker)
+    if project_idx != -1:
+        endpoint = endpoint[:project_idx]
+
+    if endpoint.endswith('/openai'):
+        endpoint = endpoint[:-len('/openai')]
+    elif '/openai/' in endpoint:
+        endpoint = endpoint.split('/openai/', 1)[0]
+
+    return endpoint.rstrip('/')
 
 
 def _is_service_principal_mode() -> bool:
@@ -22,7 +34,9 @@ def _require_fields(values: Dict[str, str], name: str) -> None:
 
 
 def _resolve_env_chat_config() -> Dict[str, str]:
-    chat_endpoint = _sanitize_endpoint(os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))
+    chat_endpoint = _sanitize_endpoint(
+        os.getenv('AZURE_OPENAI_ENDPOINT') or os.getenv('FOUNDRY_PROJECT_ENDPOINT', '')
+    )
     chat_key = os.getenv('AZURE_OPENAI_API_KEY', '').strip()
     chat_deployment = os.getenv('AZURE_OPENAI_DEPLOYMENT', '').strip()
     chat_api_version = os.getenv('AZURE_OPENAI_API_VERSION', '2024-10-21').strip()
@@ -30,7 +44,7 @@ def _resolve_env_chat_config() -> Dict[str, str]:
     if _is_service_principal_mode():
         _require_fields(
             {
-                'FOUNDRY_PROJECT_ENDPOINT': chat_endpoint,
+                'AZURE_OPENAI_ENDPOINT': chat_endpoint,
                 'AZURE_OPENAI_DEPLOYMENT': chat_deployment
             },
             'environment'
@@ -38,7 +52,7 @@ def _resolve_env_chat_config() -> Dict[str, str]:
     else:
         _require_fields(
             {
-                'FOUNDRY_PROJECT_ENDPOINT': chat_endpoint,
+                'AZURE_OPENAI_ENDPOINT': chat_endpoint,
                 'AZURE_OPENAI_API_KEY': chat_key,
                 'AZURE_OPENAI_DEPLOYMENT': chat_deployment
             },
@@ -48,13 +62,16 @@ def _resolve_env_chat_config() -> Dict[str, str]:
         'endpoint': chat_endpoint,
         'api_key': chat_key,
         'deployment': chat_deployment,
-        'api_version': chat_api_version or '2024-10-21'
+        'api_version': chat_api_version or '2024-10-21',
+        'auth_mode': 'service_principal' if _is_service_principal_mode() else 'api_key'
     }
 
 
 def _resolve_env_realtime_config() -> Dict[str, str]:
     realtime_endpoint = _sanitize_endpoint(
-        os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT', os.getenv('FOUNDRY_PROJECT_ENDPOINT', ''))
+        os.getenv('AZURE_OPENAI_REALTIME_ENDPOINT')
+        or os.getenv('AZURE_OPENAI_ENDPOINT')
+        or os.getenv('FOUNDRY_PROJECT_ENDPOINT', '')
     )
     realtime_key = os.getenv('AZURE_OPENAI_REALTIME_KEY', os.getenv('AZURE_OPENAI_API_KEY', '')).strip()
     deployment = os.getenv('AZURE_OPENAI_REALTIME_DEPLOYMENT', '').strip()
@@ -63,7 +80,7 @@ def _resolve_env_realtime_config() -> Dict[str, str]:
     if _is_service_principal_mode():
         _require_fields(
             {
-                'FOUNDRY_PROJECT_ENDPOINT': realtime_endpoint,
+                'AZURE_OPENAI_REALTIME_ENDPOINT': realtime_endpoint,
                 'AZURE_OPENAI_REALTIME_DEPLOYMENT': deployment
             },
             'environment'
@@ -71,7 +88,7 @@ def _resolve_env_realtime_config() -> Dict[str, str]:
     else:
         _require_fields(
             {
-                'FOUNDRY_PROJECT_ENDPOINT': realtime_endpoint,
+                'AZURE_OPENAI_REALTIME_ENDPOINT': realtime_endpoint,
                 'AZURE_OPENAI_API_KEY': realtime_key,
                 'AZURE_OPENAI_REALTIME_DEPLOYMENT': deployment
             },
@@ -81,7 +98,8 @@ def _resolve_env_realtime_config() -> Dict[str, str]:
         'endpoint': realtime_endpoint,
         'api_key': realtime_key,
         'deployment': deployment,
-        'api_version': api_version or '2024-10-01-preview'
+        'api_version': api_version or '2024-10-01-preview',
+        'auth_mode': 'service_principal' if _is_service_principal_mode() else 'api_key'
     }
 
 
@@ -101,7 +119,8 @@ def _resolve_custom_chat_config(custom: Dict[str, Any]) -> Dict[str, str]:
         'endpoint': chat_endpoint,
         'api_key': chat_key,
         'deployment': chat_deployment,
-        'api_version': str(custom.get('chat_api_version', '2024-10-21')).strip() or '2024-10-21'
+        'api_version': str(custom.get('chat_api_version', '2024-10-21')).strip() or '2024-10-21',
+        'auth_mode': 'api_key'
     }
 
 
@@ -122,7 +141,8 @@ def _resolve_custom_realtime_config(custom: Dict[str, Any], chat_config: Dict[st
         'endpoint': realtime_endpoint,
         'api_key': realtime_key,
         'deployment': realtime_deployment,
-        'api_version': realtime_api_version
+        'api_version': realtime_api_version,
+        'auth_mode': 'api_key'
     }
 
 

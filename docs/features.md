@@ -68,6 +68,7 @@ All implemented features, categorized. Every new feature must be added here.
 |---------|-------------|:------------:|
 | Help Overlay | Interactive guide showing available commands | ❌ |
 | Loading Indicator | Rotom loading bubble with hover tooltip describing the active request reason | N/A |
+| Voice Backend Badge | Header badge shows whether voice is using GPT Realtime or browser fallback with connection details on hover | N/A |
 | Status Indicator | Online/Offline connection status | N/A |
 | Purple Gradient Theme | TCG views use consistent purple gradient background | N/A |
 | Transparent Card Backgrounds | TCG cards display with transparent backgrounds | N/A |

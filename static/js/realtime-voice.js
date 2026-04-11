@@ -6,7 +6,9 @@
 class RealtimeVoiceClient {
     constructor(options = {}) {
         this.wsUrl = null;
+        this.relayUrl = null;
         this.apiKey = null;
+        this.sessionConfiguredByRelay = false;
         this.ws = null;
         this.audioContext = null;
         this.playbackContext = null; // Separate context for playback
@@ -26,6 +28,7 @@ class RealtimeVoiceClient {
         this.audioQueue = [];
         this.isPlaying = false;
         this.minBufferChunks = 3; // Wait for this many chunks before starting playback
+        this.audioPlaybackStartTimeout = null;
         this.currentAudioSources = []; // Track active audio sources for cancellation
         this.currentResponseId = null; // Track current response for interruption
         this.isResponseActive = false; // Track if AI is currently responding
@@ -37,6 +40,7 @@ class RealtimeVoiceClient {
         this.onTranscript = options.onTranscript || (() => {});
         this.onResponse = options.onResponse || (() => {});
         this.onError = options.onError || (() => {});
+        this.onConfigLoaded = options.onConfigLoaded || (() => {});
         this.onAudioStart = options.onAudioStart || (() => {});
         this.onAudioEnd = options.onAudioEnd || (() => {});
         this.onToolCall = options.onToolCall || (() => {});
@@ -57,6 +61,34 @@ class RealtimeVoiceClient {
         if (this.debug) {
             console.log('[RealtimeVoice]', ...args);
         }
+    }
+
+    ensureSessionAudioConfig(session) {
+        if (!session) {
+            return null;
+        }
+
+        session.type = session.type || 'realtime';
+        session.audio = session.audio || {};
+        session.audio.input = session.audio.input || {};
+        session.audio.output = session.audio.output || {};
+        session.audio.input.format = session.audio.input.format || { type: 'audio/pcm', rate: 24000 };
+        session.audio.output.format = session.audio.output.format || { type: 'audio/pcm', rate: 24000 };
+        session.audio.output.voice = this.preferredVoice || session.audio.output.voice || 'alloy';
+        return session;
+    }
+
+    getSessionVoice(session = this.sessionConfig?.session) {
+        return session?.audio?.output?.voice || this.preferredVoice || 'alloy';
+    }
+
+    setSessionVoice(session, voice) {
+        if (!session || !voice) {
+            return;
+        }
+
+        this.ensureSessionAudioConfig(session);
+        session.audio.output.voice = voice;
     }
 
     getLanguagePreference() {
@@ -108,13 +140,26 @@ class RealtimeVoiceClient {
             }
             
             this.wsUrl = data.ws_url;
+            this.relayUrl = data.relay_url || null;
             this.apiKey = data.api_key || null;
             this.accessToken = data.access_token || null;
             this.authMode = data.auth_mode || 'api_key';
+            this.transport = data.transport || 'direct';
+            this.sessionConfiguredByRelay = this.transport === 'relay';
             this.sessionConfig = data.session_config;
             this.tools = data.tools || [];
             this.useNativeMcp = data.use_native_mcp || false;
             this.supportsImageInput = data.supports_image_input || false;
+            this.onConfigLoaded({
+                wsUrl: this.wsUrl,
+                relayUrl: this.relayUrl,
+                authMode: this.authMode,
+                transport: this.transport,
+                deployment: data.deployment || null,
+                apiVersion: data.api_version || null,
+                hasToken: Boolean(this.accessToken),
+                hasKey: Boolean(this.apiKey)
+            });
             
             this.log('Configuration loaded:', { 
                 wsUrl: this.wsUrl, 
@@ -153,9 +198,13 @@ class RealtimeVoiceClient {
             try {
                 this.onStatusChange('connecting', 'Connecting to Azure OpenAI...');
                 
-                // Build WebSocket URL with appropriate auth parameter
+                // Service-principal auth in browsers must go through the backend relay
                 let wsUrlWithAuth;
-                if (this.authMode === 'service_principal' && this.accessToken) {
+                if (this.relayUrl) {
+                    const relayTarget = new URL(this.relayUrl, window.location.origin);
+                    relayTarget.protocol = relayTarget.protocol === 'https:' ? 'wss:' : 'ws:';
+                    wsUrlWithAuth = relayTarget.toString();
+                } else if (this.authMode === 'service_principal' && this.accessToken) {
                     wsUrlWithAuth = `${this.wsUrl}&access_token=${this.accessToken}`;
                 } else {
                     wsUrlWithAuth = `${this.wsUrl}&api-key=${this.apiKey}`;
@@ -167,8 +216,9 @@ class RealtimeVoiceClient {
                     this.isConnected = true;
                     this.onStatusChange('connected', 'Connected to Azure OpenAI');
                     
-                    // Send session configuration
-                    this.sendSessionConfig();
+                    if (!this.sessionConfiguredByRelay) {
+                        this.sendSessionConfig();
+                    }
                     
                     resolve(true);
                 };
@@ -209,27 +259,38 @@ class RealtimeVoiceClient {
         const config = sourceConfig || {
             type: "session.update",
             session: {
-                modalities: ["text", "audio"],
+                type: 'realtime',
                 instructions: "You are PokéChat, a friendly Pokemon assistant. Keep responses conversational and concise.",
-                voice: this.preferredVoice || "alloy",
-                input_audio_format: "pcm16",
-                output_audio_format: "pcm16",
-                turn_detection: {
-                    type: "server_vad",
-                    threshold: 0.5,
-                    prefix_padding_ms: 300,
-                    silence_duration_ms: 500
+                audio: {
+                    input: {
+                        format: { type: 'audio/pcm', rate: 24000 },
+                        transcription: {
+                            model: 'whisper-1'
+                        },
+                        turn_detection: {
+                            type: 'server_vad',
+                            threshold: 0.5,
+                            prefix_padding_ms: 300,
+                            silence_duration_ms: 500,
+                            create_response: true,
+                            interrupt_response: true
+                        }
+                    },
+                    output: {
+                        format: { type: 'audio/pcm', rate: 24000 },
+                        voice: this.preferredVoice || 'alloy'
+                    }
                 }
             }
         };
         
         config.session = config.session || {};
-        config.session.voice = this.preferredVoice || config.session.voice || 'alloy';
+        this.ensureSessionAudioConfig(config.session);
+        this.setSessionVoice(config.session, this.preferredVoice || this.getSessionVoice(config.session));
 
         // Add tools if available
         if (this.tools.length > 0) {
             config.session.tools = this.tools;
-            config.session.tool_choice = "auto";
         }
         
         this.sessionConfig = config;
@@ -243,13 +304,18 @@ class RealtimeVoiceClient {
         }
         this.preferredVoice = voice;
         if (this.sessionConfig?.session) {
-            this.sessionConfig.session.voice = voice;
+            this.setSessionVoice(this.sessionConfig.session, voice);
         }
 
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
             const payload = {
                 type: 'session.update',
-                session: { voice }
+                session: {
+                    type: 'realtime',
+                    audio: {
+                        output: { voice }
+                    }
+                }
             };
             try {
                 this.ws.send(JSON.stringify(payload));
@@ -334,23 +400,31 @@ class RealtimeVoiceClient {
                     break;
                     
                 case 'response.audio_transcript.delta':
+                case 'response.output_audio_transcript.delta':
                     // Partial transcript of AI response
                     this.onResponse(message.delta, true);
                     break;
                     
                 case 'response.audio_transcript.done':
+                case 'response.output_audio_transcript.done':
                     // Complete transcript of AI response
                     this.log('AI response transcript:', message.transcript);
                     this.onResponse(message.transcript, false);
                     break;
                     
                 case 'response.audio.delta':
+                case 'response.output_audio.delta':
                     // Audio chunk from AI
                     this.handleAudioChunk(message.delta);
                     break;
                     
                 case 'response.audio.done':
+                case 'response.output_audio.done':
                     this.log('Audio response complete');
+                    if (!this.isPlaying && this.audioQueue.length > 0) {
+                        this.onAudioStart();
+                        this.playAudioQueueSmooth();
+                    }
                     this.onAudioEnd();
                     break;
                     
@@ -441,9 +515,23 @@ class RealtimeVoiceClient {
             
             // Queue for playback
             this.audioQueue.push(int16Array);
+
+            if (!this.isPlaying && this.audioQueue.length === 1 && !this.audioPlaybackStartTimeout) {
+                this.audioPlaybackStartTimeout = setTimeout(() => {
+                    this.audioPlaybackStartTimeout = null;
+                    if (!this.isPlaying && this.audioQueue.length > 0) {
+                        this.onAudioStart();
+                        this.playAudioQueueSmooth();
+                    }
+                }, 120);
+            }
             
             // Start playback when we have enough buffered (reduces stuttering)
             if (!this.isPlaying && this.audioQueue.length >= this.minBufferChunks) {
+                if (this.audioPlaybackStartTimeout) {
+                    clearTimeout(this.audioPlaybackStartTimeout);
+                    this.audioPlaybackStartTimeout = null;
+                }
                 this.onAudioStart();
                 this.playAudioQueueSmooth();
             }
@@ -460,6 +548,11 @@ class RealtimeVoiceClient {
         if (this.isPlaying) return;
         
         this.isPlaying = true;
+
+        if (this.audioPlaybackStartTimeout) {
+            clearTimeout(this.audioPlaybackStartTimeout);
+            this.audioPlaybackStartTimeout = null;
+        }
         
         if (!this.playbackContext) {
             this.playbackContext = new (window.AudioContext || window.webkitAudioContext)({
@@ -571,6 +664,10 @@ class RealtimeVoiceClient {
     cancelCurrentResponse() {
         // 1. Clear the audio queue
         this.audioQueue = [];
+        if (this.audioPlaybackStartTimeout) {
+            clearTimeout(this.audioPlaybackStartTimeout);
+            this.audioPlaybackStartTimeout = null;
+        }
         
         this.onPlaybackLevel(0);
         // 2. Stop all playing audio sources
@@ -957,6 +1054,9 @@ class RealtimeVoiceClient {
                 this.ws.send(JSON.stringify({
                     type: 'input_audio_buffer.commit'
                 }));
+                this.ws.send(JSON.stringify({
+                    type: 'response.create'
+                }));
                 this.onStatusChange('processing', 'Processing...');
             } else {
                 // Not enough audio - clear the buffer instead
@@ -1103,6 +1203,10 @@ class RealtimeVoiceClient {
         this.isConnected = false;
         this.audioQueue = [];
         this.isPlaying = false;
+        if (this.audioPlaybackStartTimeout) {
+            clearTimeout(this.audioPlaybackStartTimeout);
+            this.audioPlaybackStartTimeout = null;
+        }
         
         this.onStatusChange('disconnected', 'Disconnected');
         this.log('Disconnected');
@@ -1202,14 +1306,19 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
-            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
-            this.sessionConfig.session.voice = voiceSetting;
+            const voiceSetting = this.getSessionVoice(this.sessionConfig.session);
+            this.setSessionVoice(this.sessionConfig.session, voiceSetting);
 
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
+                    type: 'realtime',
                     instructions: updatedInstructions,
-                    voice: voiceSetting
+                    audio: {
+                        output: {
+                            voice: voiceSetting
+                        }
+                    }
                 }
             };
 
@@ -1293,14 +1402,19 @@ class RealtimeVoiceClient {
 
             this.sessionConfig.session.instructions = updatedInstructions;
 
-            const voiceSetting = this.preferredVoice || this.sessionConfig.session.voice || 'alloy';
-            this.sessionConfig.session.voice = voiceSetting;
+            const voiceSetting = this.getSessionVoice(this.sessionConfig.session);
+            this.setSessionVoice(this.sessionConfig.session, voiceSetting);
 
             const sessionUpdate = {
                 type: 'session.update',
                 session: {
+                    type: 'realtime',
                     instructions: updatedInstructions,
-                    voice: voiceSetting
+                    audio: {
+                        output: {
+                            voice: voiceSetting
+                        }
+                    }
                 }
             };
 
