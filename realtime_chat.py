@@ -253,11 +253,151 @@ def get_available_tools():
         {
             "type": "function",
             "name": "show_pokemon_index",
-            "description": "Return the canvas to the main Pokemon index/grid view. Use when the user says to go back home or show all Pokemon again.",
+            "description": "Return the canvas to the main Pokemon index/grid view. Use when the user says 'go home', 'go to the home page', 'show the index', 'go back to the main page', or 'show all Pokemon again'.",
             "parameters": {
                 "type": "object",
                 "properties": {},
                 "required": []
+            }
+        },
+        {
+            "type": "function",
+            "name": "show_tcg_database",
+            "description": "Navigate to the TCG Card Database page showing all Pokemon TCG expansions/sets. Use when the user asks to see the card database, browse sets, or explore expansions.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        },
+        {
+            "type": "function",
+            "name": "navigate_back",
+            "description": "Go back to the previous page in the navigation history. Use when the user says 'go back', 'previous page', or 'back'.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        },
+        {
+            "type": "function",
+            "name": "navigate_forward",
+            "description": "Go forward to the next page in the navigation history. Use when the user says 'go forward' or 'next page'.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        },
+        {
+            "type": "function",
+            "name": "filter_pokemon_by_type",
+            "description": "Filter the Pokemon grid to show only Pokemon of specified type(s). Navigates to the grid first if not already there. Use when user says 'show me fire types' or 'filter by water and ice'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"]
+                        },
+                        "description": "One or more Pokemon types to filter by (e.g., ['fire'], ['water', 'ice'])"
+                    }
+                },
+                "required": ["types"]
+            }
+        },
+        {
+            "type": "function",
+            "name": "filter_pokemon_by_generation",
+            "description": "Filter the Pokemon grid to show only Pokemon from specified generation(s). Navigates to the grid first if not already there. Use when user says 'show Gen 1', 'Kanto Pokemon only', or 'show me generation 3 and 4'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "generations": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "enum": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                        },
+                        "description": "Generation numbers to filter by (1=Kanto, 2=Johto, 3=Hoenn, 4=Sinnoh, 5=Unova, 6=Kalos, 7=Alola, 8=Galar, 9=Paldea)"
+                    }
+                },
+                "required": ["generations"]
+            }
+        },
+        {
+            "type": "function",
+            "name": "sort_tcg_cards",
+            "description": "Sort the currently displayed TCG card gallery. Only works when a card gallery is visible. Use when user says 'sort by price', 'show rarest first', or 'sort by name'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "sort_by": {
+                        "type": "string",
+                        "enum": ["default", "number", "dex-asc", "name-asc", "name-desc", "rarity-desc", "rarity-asc", "price-desc", "price-asc", "year-desc", "year-asc", "set-asc", "set-desc"],
+                        "description": "Sort order: default, number (card #), dex-asc (Pokedex #), name-asc/desc, rarity-desc/asc, price-desc/asc, year-desc/asc, set-asc/desc"
+                    }
+                },
+                "required": ["sort_by"]
+            }
+        },
+        {
+            "type": "function",
+            "name": "search_cards_by_set",
+            "description": "Search for all Pokemon TCG cards in a specific expansion/set by set ID. Use when the user asks to see cards from a specific expansion like 'show me Scarlet & Violet cards' or 'browse the base set'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "set_id": {
+                        "type": "string",
+                        "description": "The set ID (e.g., 'sv3', 'base1', 'swsh12pt5'). Use get_tcg_sets to find available set IDs."
+                    }
+                },
+                "required": ["set_id"]
+            }
+        },
+        {
+            "type": "function",
+            "name": "get_tcg_sets",
+            "description": "Get a list of all available Pokemon TCG expansions/sets with their IDs, names, and release dates. Use this to find set IDs for browsing specific expansions.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        },
+        {
+            "type": "function",
+            "name": "sort_tcg_database",
+            "description": "Sort the TCG Database view. In expansions mode: sort by release date or name. In all-cards mode: sort by set, card number, name, rarity, or price. Only works when the TCG Database page is visible.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "sort_by": {
+                        "type": "string",
+                        "enum": ["release-desc", "release-asc", "name-asc", "name-desc", "cards-desc", "set-desc", "set-asc", "number", "dex-asc", "rarity-desc", "rarity-asc", "price-desc", "price-asc"],
+                        "description": "Sort order. Expansions view: release-desc (newest), release-asc (oldest), name-asc/desc, cards-desc (most cards). All-cards view: set-desc/asc, number (card #), dex-asc (Pokedex #), name-asc/desc, rarity-desc/asc, price-desc/asc"
+                    }
+                },
+                "required": ["sort_by"]
+            }
+        },
+        {
+            "type": "function",
+            "name": "get_card_details",
+            "description": "Get detailed information about a specific Pokemon TCG card by its card ID. Use when user references a specific card like 'show me card sv3-25' or asks about a particular card.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "card_id": {
+                        "type": "string",
+                        "description": "The card ID in set-number format (e.g., 'sv3-25', 'base1-4', 'swsh12pt5-160')"
+                    }
+                },
+                "required": ["card_id"]
             }
         }
     ]

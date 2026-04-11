@@ -87,3 +87,13 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `search_pokemon_cards` | Search and display TCG cards for a Pokemon |
 | `show_tcg_card_by_index` | Show a specific card by number in the current gallery |
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
+| `show_tcg_database` | Navigate to the TCG Card Database page |
+| `navigate_back` | Go back to the previous page in history |
+| `navigate_forward` | Go forward to the next page in history |
+| `filter_pokemon_by_type` | Filter the grid by one or more Pokemon types |
+| `filter_pokemon_by_generation` | Filter the grid by one or more generations |
+| `sort_tcg_cards` | Sort the current TCG card gallery (price, rarity, name, etc.) |
+| `sort_tcg_database` | Sort the TCG Database view (by release date, name, card count, etc.) |
+| `search_cards_by_set` | Browse all cards in a specific TCG expansion |
+| `get_tcg_sets` | List all available TCG expansions/sets |
+| `get_card_details` | Show detailed info for a specific TCG card by ID |

@@ -598,6 +598,26 @@ class RealtimeVoiceClient {
         
         this.onAudioEnd();
     }
+
+    /**
+     * Send a frontend-only tool result back to the AI and notify callbacks.
+     */
+    _sendFrontendToolResult(callId, toolName, args, result, success) {
+        this.log('Frontend tool result:', result);
+        this.onToolResult(toolName, args, result, success);
+
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            this.ws.send(JSON.stringify({
+                type: 'conversation.item.create',
+                item: {
+                    type: 'function_call_output',
+                    call_id: callId,
+                    output: JSON.stringify(result)
+                }
+            }));
+            this.ws.send(JSON.stringify({ type: 'response.create' }));
+        }
+    }
     
     /**
      * Handle tool calls from the AI
@@ -697,7 +717,112 @@ class RealtimeVoiceClient {
                 
                 return; // Exit early for frontend-only tools
             }
-            
+
+            // Frontend-only: show_tcg_database
+            if (toolName === 'show_tcg_database') {
+                if (window.showTcgDatabaseCanvas) {
+                    const dbResult = window.showTcgDatabaseCanvas();
+                    result = dbResult?.error
+                        ? { error: dbResult.error }
+                        : { success: true, message: 'Showing the TCG Card Database with all expansions' };
+                    success = !dbResult?.error;
+                } else {
+                    result = { error: 'TCG Database view is not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: navigate_back
+            if (toolName === 'navigate_back') {
+                if (window.navigateBackCanvas) {
+                    const navResult = window.navigateBackCanvas();
+                    result = navResult?.error
+                        ? { error: navResult.error }
+                        : { success: true, message: 'Navigated back to previous page' };
+                    success = !navResult?.error;
+                } else {
+                    result = { error: 'Navigation not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: navigate_forward
+            if (toolName === 'navigate_forward') {
+                if (window.navigateForwardCanvas) {
+                    const navResult = window.navigateForwardCanvas();
+                    result = navResult?.error
+                        ? { error: navResult.error }
+                        : { success: true, message: 'Navigated forward to next page' };
+                    success = !navResult?.error;
+                } else {
+                    result = { error: 'Navigation not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: filter_pokemon_by_type
+            if (toolName === 'filter_pokemon_by_type') {
+                if (window.filterPokemonByType) {
+                    const filterResult = window.filterPokemonByType(args.types || []);
+                    result = filterResult?.error
+                        ? { error: filterResult.error }
+                        : { success: true, message: `Filtering Pokemon grid by type: ${(args.types || []).join(', ')}`, match_count: filterResult.matchCount };
+                    success = !filterResult?.error;
+                } else {
+                    result = { error: 'Filter not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: filter_pokemon_by_generation
+            if (toolName === 'filter_pokemon_by_generation') {
+                if (window.filterPokemonByGeneration) {
+                    const filterResult = window.filterPokemonByGeneration(args.generations || []);
+                    result = filterResult?.error
+                        ? { error: filterResult.error }
+                        : { success: true, message: `Filtering Pokemon grid by generation: ${(args.generations || []).join(', ')}`, match_count: filterResult.matchCount };
+                    success = !filterResult?.error;
+                } else {
+                    result = { error: 'Filter not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: sort_tcg_cards
+            if (toolName === 'sort_tcg_cards') {
+                if (window.sortTcgCardsCanvas) {
+                    const sortResult = window.sortTcgCardsCanvas(args.sort_by || 'default');
+                    result = sortResult?.error
+                        ? { error: sortResult.error }
+                        : { success: true, message: `Sorted TCG cards by: ${args.sort_by}` };
+                    success = !sortResult?.error;
+                } else {
+                    result = { error: 'TCG card sorting not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
+            // Frontend-only: sort_tcg_database
+            if (toolName === 'sort_tcg_database') {
+                if (window.sortTcgDatabaseCanvas) {
+                    const sortResult = window.sortTcgDatabaseCanvas(args.sort_by || 'release-desc');
+                    result = sortResult?.error
+                        ? { error: sortResult.error }
+                        : { success: true, message: `Sorted TCG database by: ${args.sort_by}` };
+                    success = !sortResult?.error;
+                } else {
+                    result = { error: 'TCG database sorting not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
             // Call the dedicated tool execution endpoint for backend tools
             const response = await fetch('/api/realtime/tool', {
                 method: 'POST',

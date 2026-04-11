@@ -3526,6 +3526,12 @@ class PokemonChatApp {
                         this.displayTcgCardsInCanvas(tcgData);
                     }
                     
+                    // Check for single TCG card detail (from get_card_details)
+                    if (!tcgData && result.name && result.set && (result.number || result.hp)) {
+                        console.log('🎴 Single TCG card detected in tool result, displaying detail:', result.name);
+                        this.showTcgCardDetail(result);
+                    }
+                    
                     // Handle legacy assistant_text format
                     if (result.assistant_text) {
                         const displayData = result.pokemon_data || result;
@@ -5455,6 +5461,127 @@ document.addEventListener('DOMContentLoaded', () => {
             return window.pokemonChatApp.showPokemonIndexInCanvas();
         }
         return { error: 'App not initialized' };
+    };
+
+    window.showTcgDatabaseCanvas = () => {
+        if (window.pokemonChatApp?.tcgDatabase) {
+            window.pokemonChatApp.tcgDatabase.show();
+            return { success: true };
+        }
+        return { error: 'TCG Database not available' };
+    };
+
+    window.navigateBackCanvas = () => {
+        if (window.pokemonChatApp) {
+            if (window.pokemonChatApp.currentViewIndex <= 0) {
+                return { error: 'Already at the earliest page in history' };
+            }
+            window.pokemonChatApp.navigateBack();
+            return { success: true };
+        }
+        return { error: 'App not initialized' };
+    };
+
+    window.navigateForwardCanvas = () => {
+        if (window.pokemonChatApp) {
+            if (window.pokemonChatApp.currentViewIndex >= window.pokemonChatApp.viewHistory.length - 1) {
+                return { error: 'Already at the latest page in history' };
+            }
+            window.pokemonChatApp.navigateForward();
+            return { success: true };
+        }
+        return { error: 'App not initialized' };
+    };
+
+    window.filterPokemonByType = (types) => {
+        const app = window.pokemonChatApp;
+        if (!app) return { error: 'App not initialized' };
+        // Navigate to grid first
+        app.showPokemonIndexInCanvas();
+        // Clear existing filters and set new type filters
+        const sv = app.searchView;
+        if (!sv) return { error: 'Search view not available' };
+        sv.selectedTypes.clear();
+        sv.selectedGens.clear();
+        if (sv.nameInput) sv.nameInput.value = '';
+        // Deselect all type chips visually
+        sv.typeGrid?.querySelectorAll('.search-type-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        sv.genGrid?.querySelectorAll('.search-gen-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        // Select requested types
+        (types || []).forEach(t => {
+            const typeLower = t.toLowerCase();
+            sv.selectedTypes.add(typeLower);
+            const chip = sv.typeGrid?.querySelector(`[data-type="${typeLower}"]`);
+            if (chip) chip.classList.add('selected');
+        });
+        sv.applyFilters();
+        const matchCount = document.querySelectorAll('#pokemonList .list-item[style*="display: flex"], #pokemonList .list-item:not([style*="display"])').length;
+        return { success: true, matchCount };
+    };
+
+    window.filterPokemonByGeneration = (generations) => {
+        const app = window.pokemonChatApp;
+        if (!app) return { error: 'App not initialized' };
+        // Navigate to grid first
+        app.showPokemonIndexInCanvas();
+        const sv = app.searchView;
+        if (!sv) return { error: 'Search view not available' };
+        sv.selectedTypes.clear();
+        sv.selectedGens.clear();
+        if (sv.nameInput) sv.nameInput.value = '';
+        // Deselect all chips visually
+        sv.typeGrid?.querySelectorAll('.search-type-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        sv.genGrid?.querySelectorAll('.search-gen-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        // Select requested generations (convert 1-based to 0-based index)
+        (generations || []).forEach(g => {
+            const idx = String(parseInt(g) - 1);
+            sv.selectedGens.add(idx);
+            const chip = sv.genGrid?.querySelector(`[data-gen="${idx}"]`);
+            if (chip) chip.classList.add('selected');
+        });
+        sv.applyFilters();
+        const matchCount = document.querySelectorAll('#pokemonList .list-item[style*="display: flex"], #pokemonList .list-item:not([style*="display"])').length;
+        return { success: true, matchCount };
+    };
+
+    window.sortTcgCardsCanvas = (sortBy) => {
+        const app = window.pokemonChatApp;
+        if (!app) return { error: 'App not initialized' };
+        // Check if TCG gallery is visible
+        if (!app.tcgCardsView || app.tcgCardsView.style.display === 'none') {
+            return { error: 'No TCG card gallery is currently displayed. Search for a Pokemon\'s cards first.' };
+        }
+        if (!app.tcgGallery) return { error: 'TCG gallery not available' };
+        // Update sort and re-render
+        app.tcgGallery.currentSort = sortBy;
+        const sortSelect = app.tcgCardsView.querySelector('#tcg-sort-select');
+        if (sortSelect) sortSelect.value = sortBy;
+        if (app.currentTcgData) {
+            app.tcgGallery.display(app.currentTcgData);
+        }
+        return { success: true };
+    };
+
+    window.sortTcgDatabaseCanvas = (sortBy) => {
+        const app = window.pokemonChatApp;
+        if (!app) return { error: 'App not initialized' };
+        if (!app.tcgDatabaseViewEl || app.tcgDatabaseViewEl.style.display === 'none') {
+            return { error: 'TCG Database is not currently displayed. Navigate there first.' };
+        }
+        if (!app.tcgDatabase) return { error: 'TCG Database not available' };
+        // Update sort select UI and re-sort
+        const sortSelect = app.tcgDatabaseViewEl.querySelector('#tcg-db-sort-select');
+        if (sortSelect) sortSelect.value = sortBy;
+        app.tcgDatabase.changeSort(sortBy);
+        return { success: true };
     };
     
     // Add some helpful console messages
