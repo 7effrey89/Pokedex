@@ -64,173 +64,10 @@ class AzureOpenAIChat:
         self.default_client: Optional[AzureOpenAI] = None
         self.conversation_history: Dict[str, List[Dict]] = {}
         
-        # Define the tools/functions available to the LLM
-        self.tools = [
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_pokemon_info",
-                    "description": "Get detailed information about a Pokemon including stats, types, abilities, and description. Use this when the user asks about a specific Pokemon's data, stats, or general information.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "pokemon_name": {
-                                "type": "string",
-                                "description": "The name or ID of the Pokemon to look up (e.g., 'pikachu', 'charizard', '25')"
-                            }
-                        },
-                        "required": ["pokemon_name"]
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "search_pokemon_cards",
-                    "description": "Search for Pokemon Trading Card Game (TCG) cards. Use this when the user asks about Pokemon cards, trading cards, TCG, card prices, or wants to see card images.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "pokemon_name": {
-                                "type": "string",
-                                "description": "The Pokemon name to search cards for (e.g., 'pikachu', 'charizard')"
-                            },
-                            "card_type": {
-                                "type": "string",
-                                "description": "Filter by energy type: Fire, Water, Grass, Lightning, Psychic, Fighting, Darkness, Metal, Dragon, Fairy, Colorless",
-                                "enum": ["Fire", "Water", "Grass", "Lightning", "Psychic", "Fighting", "Darkness", "Metal", "Dragon", "Fairy", "Colorless"]
-                            },
-                            "hp_min": {
-                                "type": "integer",
-                                "description": "Minimum HP filter (e.g., 100 for cards with at least 100 HP)"
-                            },
-                            "hp_max": {
-                                "type": "integer",
-                                "description": "Maximum HP filter"
-                            },
-                            "rarity": {
-                                "type": "string",
-                                "description": "Card rarity filter (e.g., 'Rare', 'Rare Holo', 'Common')"
-                            }
-                        },
-                        "required": []
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_pokemon_list",
-                    "description": "Get a list of Pokemon. Use this when the user asks for a list, wants to see available Pokemon, or asks for random Pokemon suggestions.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "limit": {
-                                "type": "integer",
-                                "description": "Number of Pokemon to return (default 10, max 50)",
-                                "default": 10
-                            },
-                            "offset": {
-                                "type": "integer",
-                                "description": "Starting position in the Pokemon list (for pagination)",
-                                "default": 0
-                            }
-                        },
-                        "required": []
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_random_pokemon",
-                    "description": "Get a random Pokemon. Use this when the user wants to discover a random Pokemon or says 'surprise me'.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {},
-                        "required": []
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_random_pokemon_from_region",
-                    "description": "Get a random Pokemon from a specific region. Use when user asks for Pokemon from Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, or Paldea.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "region": {
-                                "type": "string",
-                                "description": "The Pokemon region (kanto, johto, hoenn, sinnoh, unova, kalos, alola, galar, paldea)",
-                                "enum": ["kanto", "johto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea"]
-                            }
-                        },
-                        "required": ["region"]
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_random_pokemon_by_type",
-                    "description": "Get a random Pokemon of a specific type. Use when user asks for a random Fire Pokemon, random Water Pokemon, etc.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "pokemon_type": {
-                                "type": "string",
-                                "description": "The Pokemon type",
-                                "enum": ["normal", "fire", "water", "grass", "electric", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"]
-                            }
-                        },
-                        "required": ["pokemon_type"]
-                    }
-                }
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_card_price",
-                    "description": "Get pricing information for a specific Pokemon TCG card by ID. Card ID format is 'set-number' (e.g., 'sv3-25'). Returns TCGPlayer and Cardmarket prices.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "card_id": {
-                                "type": "string",
-                                "description": "Card ID in format 'set-number' (e.g., 'sv3-25', 'base1-4')"
-                            }
-                        },
-                        "required": ["card_id"]
-                    }
-                }
-            }
-        ]
-        
-        self.system_prompt = """You are a friendly and knowledgeable Pokemon assistant. You help users learn about Pokemon, their stats, abilities, and trading cards.
-
-You have access to tools to:
-1. Look up Pokemon information (stats, types, abilities, descriptions) - use get_pokemon_info
-2. Search Pokemon Trading Card Game (TCG) cards - use search_pokemon_cards
-3. Get lists of Pokemon - use get_pokemon_list
-4. Get a random Pokemon - use get_random_pokemon
-5. Get a random Pokemon from a specific region (Kanto, Johto, etc.) - use get_random_pokemon_from_region
-6. Get a random Pokemon of a specific type (Fire, Water, etc.) - use get_random_pokemon_by_type
-
-Guidelines:
-- Be enthusiastic about Pokemon!
-- When users ask about a specific Pokemon by name, use get_pokemon_info
-- When users ask about cards, trading cards, or TCG, use search_pokemon_cards
-- When users ask for lists or suggestions, use get_pokemon_list
-- When users want something random or say "surprise me", use get_random_pokemon
-- When users ask for random Pokemon from a region like "random Kanto Pokemon", use get_random_pokemon_from_region
-- When users ask for random Pokemon by type like "random Fire Pokemon", use get_random_pokemon_by_type
-- If a user's request is ambiguous, ask for clarification
-- Format your responses nicely with the data you receive
-- If a tool returns no results, let the user know kindly and suggest alternatives
-- Remember context from the conversation - if a user says "show me its cards" after asking about Pikachu, search for Pikachu cards
-
-Keep responses concise but informative. Use emoji occasionally to be friendly! ðŸŽ®âš¡"""
+        # Tools and system prompt from shared registry (single source of truth)
+        from src.tools.tool_definitions import get_tools_chat_completions_format, get_system_prompt_chat
+        self.tools = get_tools_chat_completions_format()
+        self.system_prompt = get_system_prompt_chat()
 
     def get_conversation_history(self, user_id: str) -> List[Dict]:
         """Get or initialize conversation history for a user"""
@@ -248,6 +85,22 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
         # Keep history manageable (last 20 messages + system prompt)
         if len(history) > 21:
             self.conversation_history[user_id] = [history[0]] + history[-20:]
+
+    def _update_canvas_context(self, user_id: str, context: str):
+        """Update the canvas context system message in conversation history.
+        Replaces any previous canvas context to keep history clean."""
+        history = self.get_conversation_history(user_id)
+        # Remove any previous canvas context message
+        self.conversation_history[user_id] = [
+            msg for msg in history
+            if not (msg.get('role') == 'system' and msg.get('content', '').startswith('Canvas context:'))
+        ]
+        # Insert canvas context right after the system prompt
+        history = self.get_conversation_history(user_id)
+        history.insert(1, {
+            "role": "system",
+            "content": f"Canvas context: {context}"
+        })
     
     def _get_client(self, override_config: Optional[Dict[str, str]] = None):
         cfg = (override_config or self.default_config).copy()
@@ -306,7 +159,7 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
             )
         return self.default_client, cfg["deployment"]
 
-    def chat(self, message: str, user_id: str, tool_handlers: Dict[str, callable], client_config: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
+    def chat(self, message: str, user_id: str, tool_handlers: Dict[str, callable], client_config: Optional[Dict[str, str]] = None, canvas_context: Optional[str] = None) -> Dict[str, Any]:
         """
         Send a message and get a response, potentially using tools
         
@@ -314,10 +167,15 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
             message: User's message
             user_id: User identifier for conversation tracking
             tool_handlers: Dict mapping tool names to handler functions
+            canvas_context: Optional description of what the user is currently viewing
             
         Returns:
             Dict with response message and any tool data
         """
+        # Inject canvas context so the LLM knows what the user is looking at
+        if canvas_context:
+            self._update_canvas_context(user_id, canvas_context)
+
         # Add user message to history
         self.add_message(user_id, "user", message)
         history = self.get_conversation_history(user_id)
@@ -389,6 +247,11 @@ Keep responses concise but informative. Use emoji occasionally to be friendly! ð
                             result["tcg_data"] = tool_result
                         elif function_name in ["get_random_pokemon", "get_random_pokemon_from_region", "get_random_pokemon_by_type"]:
                             result["pokemon_data"] = tool_result
+                        elif isinstance(tool_result, dict) and "_action" in tool_result:
+                            # Frontend navigation/UI actions â€” collect them all
+                            if "frontend_actions" not in result:
+                                result["frontend_actions"] = []
+                            result["frontend_actions"].append(tool_result)
                         
                         # Add tool result to history
                         history.append({

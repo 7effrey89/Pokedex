@@ -81,6 +81,7 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
     # Check if Azure OpenAI is configured
     try:
         azure_chat = get_azure_chat()
+        from src.tools.tool_definitions import get_frontend_tool_names
 
         # Create wrapper functions that call the unified handlers
         def handle_get_pokemon_info(pokemon_name: str) -> dict:
@@ -113,21 +114,49 @@ def generate_response(message: str, user_id: str = "default", card_context: Opti
         def handle_get_random_pokemon_by_type(pokemon_type: str) -> dict:
             return execute_tool('get_random_pokemon_by_type', {'pokemon_type': pokemon_type})
 
+        def handle_get_card_price(card_id: str) -> dict:
+            return execute_tool('get_card_price', {'card_id': card_id})
+
+        def handle_get_card_details(card_id: str) -> dict:
+            return execute_tool('get_card_details', {'card_id': card_id})
+
+        def handle_get_tcg_sets() -> dict:
+            return execute_tool('get_tcg_sets', {})
+
+        def handle_search_cards_by_set(set_id: str) -> dict:
+            return execute_tool('search_cards_by_set', {'set_id': set_id})
+
+        # Frontend tools return _action markers for the client to handle
+        def _make_frontend_handler(action_name):
+            def handler(**kwargs):
+                return {"_action": action_name, **kwargs}
+            return handler
+
+        frontend_tools = get_frontend_tool_names()
+
         tool_handlers = {
             "get_pokemon_info": handle_get_pokemon_info,
             "search_pokemon_cards": handle_search_pokemon_cards,
             "get_pokemon_list": handle_get_pokemon_list,
             "get_random_pokemon": handle_get_random_pokemon,
             "get_random_pokemon_from_region": handle_get_random_pokemon_from_region,
-            "get_random_pokemon_by_type": handle_get_random_pokemon_by_type
+            "get_random_pokemon_by_type": handle_get_random_pokemon_by_type,
+            "get_card_price": handle_get_card_price,
+            "get_card_details": handle_get_card_details,
+            "get_tcg_sets": handle_get_tcg_sets,
+            "search_cards_by_set": handle_search_cards_by_set,
         }
+        # Auto-register all frontend tools
+        for name in frontend_tools:
+            tool_handlers[name] = _make_frontend_handler(name)
 
         # Call Azure OpenAI with tools
-        result = azure_chat.chat(message, user_id, tool_handlers, client_config=api_config)
+        result = azure_chat.chat(message, user_id, tool_handlers, client_config=api_config, canvas_context=card_context)
 
         response_data["message"] = result["message"]
         response_data["pokemon_data"] = result.get("pokemon_data")
         response_data["tcg_data"] = result.get("tcg_data")
+        response_data["frontend_actions"] = result.get("frontend_actions")
 
     except Exception as e:
         logger.error(f"Azure OpenAI error: {e}")
@@ -235,9 +264,29 @@ def get_history(user_id):
     return jsonify({"history": history})
 
 
+@chat_bp.route('/chat/clear/<user_id>', methods=['DELETE'])
+def clear_history(user_id):
+    """Clear conversation history for a user."""
+    conversations.pop(user_id, None)
+    card_contexts.pop(user_id, None)
+    # Also clear the LLM conversation history so both stores stay in sync
+    try:
+        from azure_openai_chat import get_azure_chat
+        azure_chat = get_azure_chat()
+        azure_chat.conversation_history.pop(user_id, None)
+    except Exception:
+        pass
+    return jsonify({"status": "ok"})
+
+
 @chat_bp.route('/chat/record', methods=['POST'])
 def record_chat_entry():
-    """Store arbitrary chat entries (used by quick actions sharing tool results)."""
+    """Store arbitrary chat entries (used by voice sync and quick actions).
+    
+    Writes to BOTH the route-level conversations dict AND the
+    azure_openai_chat LLM conversation history so text chat has full
+    context of voice interactions.
+    """
     try:
         data = request.get_json() or {}
         user_id = data.get('user_id', 'default')
@@ -250,12 +299,22 @@ def record_chat_entry():
         if card_context:
             generate_response('', user_id, card_context, context_only=True)
 
+        # Get the LLM chat instance for syncing
+        azure_chat = None
+        try:
+            from azure_openai_chat import get_azure_chat
+            azure_chat = get_azure_chat()
+        except Exception:
+            pass
+
         if user_message:
             conversations.setdefault(user_id, []).append({
                 "role": "user",
                 "content": user_message,
                 "timestamp": time.time()
             })
+            if azure_chat:
+                azure_chat.add_message(user_id, "user", user_message)
 
         if assistant_text:
             conversations.setdefault(user_id, []).append({
@@ -265,6 +324,8 @@ def record_chat_entry():
                 "tcg_data": tcg_data,
                 "timestamp": time.time()
             })
+            if azure_chat:
+                azure_chat.add_message(user_id, "assistant", assistant_text)
 
         return jsonify({"status": "ok"})
     except Exception as e:

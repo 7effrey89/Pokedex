@@ -119,6 +119,7 @@ class PokemonChatApp {
         this.chatSidebar = document.getElementById('chatSidebar');
         this.chatToggleBtn = document.getElementById('chatToggleBtn');
         this.chatCloseBtn = document.getElementById('chatCloseBtn');
+        this.chatClearBtn = document.getElementById('chatClearBtn');
         this.mainCanvas = document.getElementById('mainCanvas');
         this.pokemonGridView = document.getElementById('pokemonGridView');
         this.pokemonList = document.getElementById('pokemonList');
@@ -1277,6 +1278,11 @@ class PokemonChatApp {
         if (this.chatCloseBtn) {
             this.chatCloseBtn.addEventListener('click', () => this.closeChatSidebar());
         }
+
+        // Chat clear button
+        if (this.chatClearBtn) {
+            this.chatClearBtn.addEventListener('click', () => this.clearChatHistory());
+        }
         
         // View Cards button in Pokemon detail
         const viewCardsBtn = document.getElementById('viewCardsBtn');
@@ -1577,6 +1583,48 @@ class PokemonChatApp {
     // Deprecated: kept for backwards compatibility, delegates to detailView
     displayPokemonDetails(pokemon, species) {
         this.detailView.display(pokemon, species);
+    }
+
+    /**
+     * Execute a frontend action received from text chat tool calls.
+     * Maps _action names to the same window functions used by realtime voice.
+     */
+    executeFrontendAction(action) {
+        const name = action?._action;
+        if (!name) return;
+        console.log('🔧 Executing frontend action from chat:', name, action);
+
+        switch (name) {
+            case 'navigate_back':
+                this.navigateBack();
+                break;
+            case 'navigate_forward':
+                this.navigateForward();
+                break;
+            case 'show_tcg_card_by_index':
+                this.showTcgCardByIndex(action.card_index, action.pokemon_name);
+                break;
+            case 'show_pokemon_index':
+                this.showPokemonIndexInCanvas();
+                break;
+            case 'show_tcg_database':
+                window.showTcgDatabaseCanvas?.();
+                break;
+            case 'filter_pokemon_by_type':
+                window.filterPokemonByType?.(action.types || []);
+                break;
+            case 'filter_pokemon_by_generation':
+                window.filterPokemonByGeneration?.(action.generations || []);
+                break;
+            case 'sort_tcg_cards':
+                window.sortTcgCardsCanvas?.(action.sort_by || 'default');
+                break;
+            case 'sort_tcg_database':
+                window.sortTcgDatabaseCanvas?.(action.sort_by || 'release-desc');
+                break;
+            default:
+                console.warn('Unknown frontend action:', name);
+        }
     }
     
     // Deprecated: kept for backwards compatibility, delegates to detailView
@@ -3396,6 +3444,8 @@ class PokemonChatApp {
                         this.showPokemonGrid();
                         this.addMessage('user', text);
                         this.addMessage('assistant', 'Going back to the Pokemon grid.');
+                        this.syncVoiceMessageToBackend('user', text);
+                        this.syncVoiceMessageToBackend('assistant', 'Going back to the Pokemon grid.');
                         return;
                     }
                     
@@ -3405,6 +3455,8 @@ class PokemonChatApp {
                         this.navigateForward();
                         this.addMessage('user', text);
                         this.addMessage('assistant', 'Moving forward in history.');
+                        this.syncVoiceMessageToBackend('user', text);
+                        this.syncVoiceMessageToBackend('assistant', 'Moving forward in history.');
                         return;
                     }
                     
@@ -3414,11 +3466,14 @@ class PokemonChatApp {
                         this.showPokemonIndexInCanvas();
                         this.addMessage('user', text);
                         this.addMessage('assistant', 'Showing all Pokemon in the index.');
+                        this.syncVoiceMessageToBackend('user', text);
+                        this.syncVoiceMessageToBackend('assistant', 'Showing all Pokemon in the index.');
                         return;
                     }
                     
                     // Normal processing for other messages
                     this.addMessage('user', text);
+                    this.syncVoiceMessageToBackend('user', text);
                     this.hideWelcomeMessage();
                         void this.maybeSendScanSnapshotForQuestion();
                     // Clear tool calls for new conversation turn
@@ -3483,6 +3538,7 @@ class PokemonChatApp {
                     
                     console.log('📤 Adding message with Pokemon:', !!pokemonData, 'TCG:', !!tcgData);
                     this.addMessage('assistant', text, pokemonData, tcgData);
+                    this.syncVoiceMessageToBackend('assistant', text, pokemonData, tcgData);
                 }
             },
             
@@ -4319,15 +4375,28 @@ class PokemonChatApp {
             // Add assistant message
             this.addMessage('assistant', data.message, data.pokemon_data, data.tcg_data);
             
+            // Handle frontend actions from tool calls
+            if (data.frontend_actions && Array.isArray(data.frontend_actions)) {
+                for (const action of data.frontend_actions) {
+                    this.executeFrontendAction(action);
+                }
+            }
             // Auto-display Pokemon in canvas if pokemon_data returned
-            if (data.pokemon_data && !data.pokemon_data.error) {
+            else if (data.pokemon_data && !data.pokemon_data.error) {
                 const identifier = data.pokemon_data.id || data.pokemon_data.name;
                 if (identifier) {
                     console.log('🎯 Auto-displaying Pokemon from chat:', identifier);
                     this.showPokemonInCanvas(identifier);
                 }
+            } else if (data.tcg_data) {
+                // Auto-display TCG cards in canvas
+                const tcg = data.tcg_data;
+                if (tcg.cards && Array.isArray(tcg.cards) && tcg.cards.length > 0) {
+                    console.log('🃏 Auto-displaying TCG cards from chat:', tcg.cards.length, 'cards');
+                    this.displayTcgCardsInCanvas(tcg);
+                }
             } else {
-                // No pokemon_data from backend — detect Pokemon name in the user message
+                // No pokemon_data or tcg_data from backend — detect Pokemon name in the user message
                 const detected = this.detectPokemonInMessage(message);
                 if (detected) {
                     console.log('🎯 Detected Pokemon in message, showing:', detected.name);
@@ -5122,7 +5191,7 @@ class PokemonChatApp {
             case 'tcg-gallery':
                 if (!data || !data.pokemon_name) return null;
                 const cardCount = data.total_count || (data.cards ? data.cards.length : 0);
-                return `User is viewing a gallery of ${cardCount} Pokemon TCG trading cards for ${data.pokemon_name}. They can click any card to see details and pricing information.`;
+                return `User is viewing a gallery of ${cardCount} Pokemon TCG trading cards for ${data.pokemon_name}. Cards are numbered #1 through #${cardCount} in the gallery grid. When the user says "show card 4" or "open #4", they mean the 4th card in this gallery (not a card's printed set number). Use show_tcg_card_by_index with card_index=4 to open it. Do NOT search for cards again - just navigate to the card by its gallery position number.`;
             
             case 'tcg-detail':
                 if (!data) return null;
@@ -5156,6 +5225,10 @@ class PokemonChatApp {
     }
 
     getCardContextPayload() {
+        // Send canvas context for gallery views so AI knows card numbering
+        if (this.currentCanvasState?.type === 'tcg-gallery' || this.currentCanvasState?.type === 'tcg-database') {
+            return this.buildCanvasContextDescription();
+        }
         return this.currentCardContext?.summary || null;
     }
 
@@ -5658,6 +5731,41 @@ class PokemonChatApp {
         if (welcomeMessage) {
             welcomeMessage.style.display = 'none';
         }
+    }
+
+    /**
+     * Sync a voice message to the backend so text chat LLM has full history.
+     */
+    syncVoiceMessageToBackend(role, text, pokemonData = null, tcgData = null) {
+        const body = { user_id: this.userId };
+        if (role === 'user') {
+            body.user_message = text;
+        } else {
+            body.assistant_text = text;
+            if (pokemonData) body.pokemon_data = pokemonData;
+            if (tcgData) body.tcg_data = tcgData;
+        }
+        fetch('/api/chat/record', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        }).catch(err => console.warn('Failed to sync voice message:', err));
+    }
+
+    clearChatHistory() {
+        // Remove all message bubbles from the chat container
+        const messages = this.chatContainer.querySelectorAll('.message-bubble');
+        messages.forEach(msg => msg.remove());
+
+        // Show the welcome message again
+        const welcomeMessage = this.chatContainer.querySelector('.welcome-message');
+        if (welcomeMessage) {
+            welcomeMessage.style.display = '';
+        }
+
+        // Clear server-side conversation history
+        fetch(`/api/chat/clear/${encodeURIComponent(this.userId)}`, { method: 'DELETE' })
+            .catch(err => console.warn('Failed to clear server history:', err));
     }
     
     setLoading(loading) {

@@ -173,12 +173,48 @@ Architecture decisions (caching patterns, rendering strategies, data flow change
 
 ## GPT Realtime AI Integration
 
-Every user-facing feature that involves **navigation or data display** MUST be callable by the GPT realtime voice assistant. This means:
+Every user-facing feature that involves **navigation or data display** MUST be callable by BOTH the GPT realtime voice assistant AND the text chat. This means:
 
-1. **Register a tool** in `realtime_chat.py` with a clear name and description so the AI can invoke it
+1. **Register the tool** in `src/tools/tool_definitions.py` (the single source of truth for ALL tools)
 2. **Wire the tool** in `app.js` so it triggers the correct view/action (e.g., `showPokemonInCanvas()`, `tcgGallery.display()`)
 3. **Update the GPT Realtime Tool Summary** in `docs/features.md` with the new tool name and action
-4. **Test by voice**: The user should be able to say something like "show me [feature]" and the AI navigates there
+4. **Test by voice AND text chat**: The user should be able to say or type something like "show me [feature]" and the AI navigates there
+
+### Shared Tool Registry (`src/tools/tool_definitions.py`)
+
+**NEVER define tools directly in `azure_openai_chat.py` or `realtime_chat.py`.** Both files import from the shared registry:
+- `get_tools_chat_completions_format()` → used by `azure_openai_chat.py` (text chat)
+- `get_tools_realtime_format()` → used by `realtime_chat.py` (voice)
+- `get_frontend_tool_names()` → returns tools handled by the frontend (UI actions)
+- `get_backend_tool_names()` → returns tools handled by the backend (data fetching)
+
+Each tool has a `handler_type`:
+- `"backend"` → executes server-side via `tool_handlers.execute_tool()`, backend handler in `chat_routes.py`
+- `"frontend"` → returns an `_action` marker to the client, handled by `executeFrontendAction()` in `app.js`
+
+When adding a new tool:
+1. Add the definition to `TOOL_DEFINITIONS` in `src/tools/tool_definitions.py`
+2. If backend: add a handler in `src/routes/chat_routes.py` tool_handlers dict
+3. If frontend: add a case in `executeFrontendAction()` in `app.js` AND in `realtime-voice.js`
+4. Both APIs automatically pick up the new tool — no need to edit `azure_openai_chat.py` or `realtime_chat.py`
+
+### Shared Context Resources
+
+Text chat and realtime voice MUST always share these resources through `src/tools/tool_definitions.py`:
+
+| Resource | Source of Truth | How It's Shared |
+|----------|----------------|-----------------|
+| Tools | `TOOL_DEFINITIONS` list | Format converters produce API-specific shapes |
+| System Prompt | `SYSTEM_PROMPT_CORE` | `get_system_prompt_chat()` / `get_system_prompt_realtime(lang)` |
+| Canvas Context | `buildCanvasContextDescription()` in `app.js` | Text chat: `_update_canvas_context()` / Voice: `updateCanvasContext()` |
+| Chat History | `azure_openai_chat.conversation_history` | Voice syncs via `syncVoiceMessageToBackend()` → `/api/chat/record` |
+
+**Rules:**
+- **NEVER** define system prompts or AI personality inline in `azure_openai_chat.py` or `realtime_chat.py` — always use `tool_definitions.py`
+- **ALWAYS** sync voice messages to the backend so the text chat LLM has full context
+- When editing the AI's personality or guidelines, update `SYSTEM_PROMPT_CORE` in `tool_definitions.py`
+- Channel-specific additions (voice brevity, language preference, tool list) go in the wrapper functions only
+- When clearing chat history, both stores must be cleared (the `/api/chat/clear` endpoint handles this automatically)
 
 Examples of what the AI should be able to do:
 - "Show me Pikachu" → navigates to Pokemon detail

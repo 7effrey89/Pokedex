@@ -626,6 +626,28 @@
     gap: 0.5rem;
 }
 
+.price-source-link {
+    color: #0066cc;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.price-source-link:hover {
+    color: #0044aa;
+    text-decoration-style: solid;
+}
+
+.price-source-link .ext-icon {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
 .price-variant {
     background: var(--chat-bg);
     padding: 0.75rem;
@@ -659,11 +681,17 @@
 
 a.price-item {
     cursor: pointer;
+    text-decoration: none;
 }
 
 a.price-item:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border-color: #0066cc;
+}
+
+a.price-item.price-market:hover {
+    box-shadow: 0 2px 8px rgba(40,167,69,0.4);
 }
 
 .price-item.price-market {
@@ -673,9 +701,7 @@ a.price-item:hover {
     border: none;
 }
 
-a.price-item.price-market:hover {
-    box-shadow: 0 2px 8px rgba(40,167,69,0.4);
-}
+
 
 .price-updated {
     margin-top: 1rem;

@@ -39,6 +39,7 @@ All implemented features, categorized. Every new feature must be added here.
 |---------|-------------|:------------:|
 | Back/Forward Buttons | Navigate through view history | ❌ |
 | Canvas State System | Centralized navigation + GPT context via `updateCanvasState()` | N/A |
+| Canvas Auto-Display | Chat responses auto-navigate the canvas: Pokemon detail, TCG gallery, or name detection fallback | N/A |
 | URL Routing | Direct links: `/pokemon/<name>`, `/tcg/<cardId>`, `/tcg/set/<setId>` | N/A |
 | Index Button | Jump to Pokemon grid from footer | ❌ |
 | TCG Database Button | Jump to TCG database from footer | ❌ |

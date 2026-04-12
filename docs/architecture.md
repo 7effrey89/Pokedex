@@ -104,6 +104,54 @@ See the main instructions file (`.github/instructions/instructions.instructions.
 
 ---
 
+## Shared Tool Registry
+
+All AI tools (for both text chat and realtime voice) are defined in a **single shared registry**: `src/tools/tool_definitions.py`. This guarantees that both APIs always have identical capabilities.
+
+### Why
+
+Previously, tools were defined separately in `azure_openai_chat.py` (text chat) and `realtime_chat.py` (voice), leading to drift where voice had tools that text chat lacked. The shared registry eliminates this.
+
+### Structure
+
+Each tool in `TOOL_DEFINITIONS` has:
+- `name` — tool function name
+- `description` — what the AI sees
+- `parameters` — JSON Schema for arguments
+- `handler_type` — `"backend"` (server-side data) or `"frontend"` (client-side UI action)
+
+### Format Converters
+
+The two APIs need different JSON shapes:
+- `get_tools_chat_completions_format()` → `{"type": "function", "function": {"name": ...}}` for Chat Completions API
+- `get_tools_realtime_format()` → `{"type": "function", "name": ...}` for Realtime API
+
+### Tool Execution Flow
+
+```
+Text Chat:
+  User message → azure_openai_chat.py (tools from registry)
+    → LLM picks tool → chat_routes.py handler
+    → Backend tool: execute_tool() → return data
+    → Frontend tool: return {_action: "name", ...} → frontend_actions[]
+    → app.js executeFrontendAction() dispatches UI action
+
+Realtime Voice:
+  User speech → realtime_chat.py (tools from registry)
+    → LLM picks tool → realtime-voice.js executeToolCall()
+    → Backend tool: POST /api/realtime/tool → return data
+    → Frontend tool: call window.* function directly
+```
+
+### Adding a New Tool
+
+1. Add to `TOOL_DEFINITIONS` in `src/tools/tool_definitions.py`
+2. If backend: add handler in `src/routes/chat_routes.py` tool_handlers dict + `src/tools/tool_handlers.py`
+3. If frontend: add case in `executeFrontendAction()` (app.js) AND in `realtime-voice.js` executeToolCall()
+4. Both APIs auto-pick up the definition — no edits to `azure_openai_chat.py` or `realtime_chat.py`
+
+---
+
 ## URL Routing & Virtual Pages
 
 The app is a **single-page application** with URL support for every virtual page. Users can bookmark, share, and refresh any view without losing state.
@@ -169,6 +217,65 @@ Two parallel systems are kept in sync:
 2. **Internal `viewHistory[]` array** — powers the app's custom back/forward footer buttons via `navigateBack()` / `navigateForward()`, uses `replaceState` to sync URLs
 
 Both are managed centrally through `updateCanvasState()`.
+
+---
+
+## Shared Context Resources (Text Chat ↔ Realtime Voice)
+
+The text chat (Chat Completions API) and realtime voice (Realtime API) share **all** context resources through a single source of truth. This guarantees both interfaces behave identically and stay in sync.
+
+### Shared Resource Map
+
+| Resource | Source of Truth | Text Chat Consumer | Voice Consumer |
+|----------|----------------|-------------------|----------------|
+| Tools | `tool_definitions.py` → `TOOL_DEFINITIONS` | `get_tools_chat_completions_format()` | `get_tools_realtime_format()` |
+| System Prompt | `tool_definitions.py` → `SYSTEM_PROMPT_CORE` | `get_system_prompt_chat()` | `get_system_prompt_realtime(lang)` |
+| Canvas Context | `app.js` → `buildCanvasContextDescription()` | Injected via `_update_canvas_context()` in `azure_openai_chat.py` | Injected via `updateCanvasContext()` in `realtime-voice.js` |
+| Chat History | `azure_openai_chat.py` → `conversation_history` | Direct read/write | Synced via `syncVoiceMessageToBackend()` → `/api/chat/record` |
+| View History | `app.js` → `viewHistory[]` | Same app instance | Same app instance |
+| UI Display | `app.js` → `chatContainer` DOM | `addMessage()` from `sendMessage()` | `addMessage()` from `onResponse`/`onTranscript` |
+
+### System Prompt Architecture
+
+`SYSTEM_PROMPT_CORE` in `tool_definitions.py` contains all shared personality, context awareness rules, and tool usage guidelines. Two wrappers add channel-specific instructions:
+
+- **`get_system_prompt_chat()`** — appends the numbered tool list (since Chat Completions API benefits from explicit tool descriptions in the system message)
+- **`get_system_prompt_realtime(language)`** — appends voice-specific guidance (concise responses, natural speech) and language preference (English/Danish/Cantonese)
+
+When updating the AI's personality, context rules, or tool guidelines, edit `SYSTEM_PROMPT_CORE` only. Channel-specific additions go in the respective wrapper functions.
+
+### Voice ↔ Backend History Sync
+
+Voice messages are synced to the backend so the text chat LLM has full conversation context:
+
+```
+Voice user speaks → onTranscript callback
+  → addMessage('user', text)              ← UI display
+  → syncVoiceMessageToBackend('user', text) ← POST /api/chat/record
+
+Voice AI responds → onResponse callback
+  → addMessage('assistant', text, pokemon, tcg)
+  → syncVoiceMessageToBackend('assistant', text, pokemon, tcg)
+
+/api/chat/record endpoint:
+  → conversations[user_id].append(...)            ← route-level history
+  → azure_chat.add_message(user_id, role, text)   ← LLM conversation history
+```
+
+This means if a user asks Pikachu questions via voice, then switches to text chat, the AI remembers the voice conversation.
+
+### Unified Clear
+
+`DELETE /api/chat/clear/<user_id>` clears both:
+- Route-level `conversations` dict (used for `/api/history`)
+- `azure_openai_chat.conversation_history` (used for LLM context)
+
+### Rules
+
+- **NEVER** define tools, system prompts, or AI personality inline in `azure_openai_chat.py` or `realtime_chat.py`
+- **ALWAYS** update `tool_definitions.py` as the single source of truth
+- **ALWAYS** sync voice messages to backend via `syncVoiceMessageToBackend()`
+- When clearing history, clear **both** stores (already handled by the `/api/chat/clear` endpoint)
 
 ---
 
