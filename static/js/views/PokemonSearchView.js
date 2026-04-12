@@ -338,6 +338,8 @@ class PokemonSearchView {
         // Gallery view: filter cards in the gallery DOM
         if (this._isTcgGallery) {
             this._applyGalleryFilters();
+            this.hasActiveFilter = !!this._buildTcgFilterCriteria();
+            this._updateSearchIndicator();
             return;
         }
 
@@ -351,6 +353,9 @@ class PokemonSearchView {
             // Expansions mode: filter sets by name + selected sets
             db.filterSets(nameQuery, this.tcgSelectedSets);
         }
+
+        this.hasActiveFilter = !!this._buildTcgFilterCriteria();
+        this._updateSearchIndicator();
     }
 
     _applyGalleryFilters() {
@@ -633,6 +638,8 @@ class PokemonSearchView {
         this.tcgSelectedCategories.clear();
         this.tcgTypeGrid?.querySelectorAll('.search-type-chip.selected').forEach(c => c.classList.remove('selected'));
         this.tcgCategoryGrid?.querySelectorAll('.tcg-cat-chip.selected').forEach(c => c.classList.remove('selected'));
+        this.hasActiveFilter = false;
+        this._updateSearchIndicator();
         if (this._isTcgGallery) {
             this._applyGalleryFilters();
             return;
