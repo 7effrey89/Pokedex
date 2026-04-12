@@ -425,6 +425,11 @@ class TcgDatabaseView {
         const grid = document.createElement('div');
         grid.className = 'tcg-set-cards-row';
 
+        // Resolve set info once for hover context and "+N more" count
+        const setId = placeholderEl.dataset.setId;
+        const setInfo = this.allSets.find(s => s.id === setId);
+        const hoverSetName = setInfo?.name || setId || 'unknown set';
+
         previewCards.forEach((card, i) => {
             const cardEl = document.createElement('div');
             cardEl.className = 'tcg-db-card-item';
@@ -440,12 +445,19 @@ class TcgDatabaseView {
             cardEl.addEventListener('click', () => {
                 this.app.tcgDetail.show(card);
             });
+
+            // Hover tracking for AI context
+            cardEl.addEventListener('mouseenter', () => {
+                this.app.updateHoverContext('tcg-card', `TCG card "${cardName}" from ${hoverSetName} (card_id: ${card.id})`, card.id);
+            });
+            cardEl.addEventListener('mouseleave', () => {
+                this.app.clearHoverContext();
+            });
+
             grid.appendChild(cardEl);
         });
 
         // Use set total from allSets for accurate "+N more" count
-        const setId = placeholderEl.dataset.setId;
-        const setInfo = this.allSets.find(s => s.id === setId);
         const totalCards = setInfo?.total || cards.length;
         if (totalCards > 8) {
             const moreEl = document.createElement('div');
@@ -1065,6 +1077,19 @@ class TcgDatabaseView {
             }
             // Fallback to slim data
             this.app.tcgDetail.show(card);
+        });
+
+        // Hover tracking for AI context
+        el.addEventListener('mouseenter', () => {
+            const hoverParts = [`TCG card #${displayIndex} "${name}"`];
+            if (setName) hoverParts.push(`from ${setName}`);
+            if (priceStr) hoverParts.push(`price ${priceStr}`);
+            if (rarity) hoverParts.push(`(${rarity})`);
+            hoverParts.push(`(card_id: ${card.id})`);
+            this.app.updateHoverContext('tcg-card', hoverParts.join(' '), card.id);
+        });
+        el.addEventListener('mouseleave', () => {
+            this.app.clearHoverContext();
         });
 
         return el;

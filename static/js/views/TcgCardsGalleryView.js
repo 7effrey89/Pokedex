@@ -329,6 +329,16 @@ class TcgCardsGalleryView {
                 this.searchBySet(setLinkEl.dataset.setId, setLinkEl.dataset.setName);
             });
         }
+
+        // Hover tracking for AI context
+        const cardId = card.id || '';
+        const hoverSummary = `TCG card #${index + 1}: "${cardName}" from ${setInfo || 'unknown set'}${avgPrice !== null ? `, avg price $${avgPrice.toFixed(2)}` : ''} (card_id: ${cardId})`;
+        cardDiv.addEventListener('mouseenter', () => {
+            this.app.updateHoverContext('tcg-card', hoverSummary, cardId);
+        });
+        cardDiv.addEventListener('mouseleave', () => {
+            this.app.clearHoverContext();
+        });
         
         return cardDiv;
     }

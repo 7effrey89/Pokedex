@@ -95,6 +95,10 @@ class PokemonChatApp {
             data: null
         };
 
+        // Hover context tracking (what the user's mouse is pointing at)
+        this.hoveredItem = null; // { type: 'pokemon'|'tcg-card', summary: '...' }
+        this._hoverContextTimer = null;
+
         // Tools modal elements
         this.toolsButton = document.getElementById('toolsButton');
         this.toolsModalOverlay = document.getElementById('toolsModalOverlay');
@@ -5202,6 +5206,53 @@ class PokemonChatApp {
         }
     }
 
+    /**
+     * Update hover context when user mouses over interactive elements.
+     * Debounced to avoid spamming the voice API with rapid hover changes.
+     */
+    updateHoverContext(type, summary, id) {
+        this.hoveredItem = { type, summary, id: id || null };
+        // Debounce voice context update (300ms)
+        clearTimeout(this._hoverContextTimer);
+        this._hoverContextTimer = setTimeout(() => {
+            if (this.hoveredItem) {
+                this._pushHoverContextToVoice();
+            }
+        }, 300);
+        // Refresh debug panel immediately so hover is visible
+        if (this._contextViewerInterval) this.refreshContextViewer();
+    }
+
+    clearHoverContext() {
+        this.hoveredItem = null;
+        clearTimeout(this._hoverContextTimer);
+        this._hoverContextTimer = setTimeout(() => {
+            if (!this.hoveredItem) {
+                this._pushHoverContextToVoice();
+            }
+        }, 300);
+        // Refresh debug panel immediately
+        if (this._contextViewerInterval) this.refreshContextViewer();
+    }
+
+    _buildHoverContextText() {
+        if (!this.hoveredItem) return '';
+        let text = `\n\nHOVER CONTEXT: The user's mouse is currently hovering over: ${this.hoveredItem.summary}.`;
+        if (this.hoveredItem.id) {
+            text += ` Card ID: "${this.hoveredItem.id}". Use get_card_details with card_id="${this.hoveredItem.id}" to get full info, or get_card_price with card_id="${this.hoveredItem.id}" for pricing.`;
+        }
+        text += ` If the user says "this one", "tell me about this", "what's this?", or asks about value/price, they mean this specific hovered item.`;
+        return text;
+    }
+
+    _pushHoverContextToVoice() {
+        if (!this.realtimeVoice || !this.realtimeVoice.isConnected) return;
+        const base = this.buildCanvasContextDescription();
+        let full = base || '';
+        full += this._buildHoverContextText();
+        this.realtimeVoice.updateCanvasContext(full);
+    }
+
     clearCardContext() {
         this.updateCanvasState('grid', null);
     }
@@ -5225,11 +5276,18 @@ class PokemonChatApp {
     }
 
     getCardContextPayload() {
-        // Send canvas context for gallery views so AI knows card numbering
+        // Build base context
+        let context;
         if (this.currentCanvasState?.type === 'tcg-gallery' || this.currentCanvasState?.type === 'tcg-database') {
-            return this.buildCanvasContextDescription();
+            context = this.buildCanvasContextDescription();
+        } else {
+            context = this.currentCardContext?.summary || this.buildCanvasContextDescription();
         }
-        return this.currentCardContext?.summary || null;
+        // Append hover context if available
+        if (this.hoveredItem) {
+            context = (context || '') + this._buildHoverContextText();
+        }
+        return context || null;
     }
 
     buildCardContextSummary(card) {
@@ -5851,8 +5909,14 @@ class PokemonChatApp {
 
         // 3. Canvas context (what AI sees right now)
         const canvasCtx = this.buildCanvasContextDescription();
-        sections.push(this._ctxSection('Current Canvas Context',
-            canvasCtx ? this._ctxCode(canvasCtx) : '<em>No context</em>'));
+        let canvasDisplay = canvasCtx ? this._ctxCode(canvasCtx) : '<em>No context</em>';
+        if (this.hoveredItem) {
+            canvasDisplay += `<br><br><strong>🎯 Hover:</strong> ${this.hoveredItem.summary}`;
+            if (this.hoveredItem.id) {
+                canvasDisplay += `<br><code>card_id: ${this.hoveredItem.id}</code>`;
+            }
+        }
+        sections.push(this._ctxSection('Current Canvas Context', canvasDisplay));
 
         // 4. Canvas state
         const state = this.currentCanvasState;

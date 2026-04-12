@@ -164,6 +164,14 @@ class PokemonGridView {
             <div class="name-wrap">${pokemon.name}</div>
         `;
 
+        // Hover tracking for AI context
+        card.addEventListener('mouseenter', () => {
+            this.app.updateHoverContext('pokemon', `Pokemon #${pokemon.id} ${pokemon.name}`);
+        });
+        card.addEventListener('mouseleave', () => {
+            this.app.clearHoverContext();
+        });
+
         return card;
     }
 
