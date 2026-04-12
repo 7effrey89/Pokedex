@@ -18,6 +18,7 @@ class TcgDatabaseView {
         this.allCards = [];
         this.loadedSetIds = new Set(); // track which sets have been fetched
         this.filteredCards = null; // null = no filter active
+        this._activeFilters = null; // remember last applied filters
         this.isLoadingCards = false;
         this.cardSort = 'set-desc';
         this._dexLookup = null; // name → dex number map (fetched lazily)
@@ -651,11 +652,13 @@ class TcgDatabaseView {
         document.getElementById('tcgPickerSelectAll').addEventListener('click', async () => {
             const allSetIds = sorted.map(s => s.id);
             const toSelect = allSetIds.filter(id => !this._selectedSetIds.has(id));
+            // Add ALL set IDs to _selectedSetIds first so _updatePickerCount keeps them checked
+            allSetIds.forEach(id => this._selectedSetIds.add(id));
             list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+            this._updatePickerCount();
             if (toSelect.length > 0) {
                 await this._loadMultipleSets(toSelect);
             }
-            this._updatePickerCount();
         });
 
         document.getElementById('tcgPickerDeselectAll').addEventListener('click', () => {
@@ -684,7 +687,7 @@ class TcgDatabaseView {
             this.loadedSetIds.delete(setId);
         }
 
-        this.filteredCards = null;
+        this._reapplyActiveFilters();
         this._updateCardCount();
         this._renderCardGrid();
         this._updatePickerCount();
@@ -742,7 +745,7 @@ class TcgDatabaseView {
                 // Replace old cards for this set with fresh ones
                 this.allCards = this.allCards.filter(c => (c.set?.id || '') !== setId);
                 this.allCards = this.allCards.concat(data.result.cards);
-                this.filteredCards = null; // Reset filters to include fresh data
+                this._reapplyActiveFilters();
                 this._updateCardCount();
                 this._renderCardGrid();
                 console.log(`✅ Revalidated All Cards set ${setId} (${oldCount} → ${data.result.cards.length} cards)`);
@@ -761,11 +764,13 @@ class TcgDatabaseView {
             const batch = toLoad.slice(i, i + 5);
             const promises = batch.map(id => this._loadSetCardsForAllCards(id));
             await Promise.all(promises);
+            this._reapplyActiveFilters();
             this._updateCardCount();
             this._renderCardGrid();
         }
 
         this.isLoadingCards = false;
+        this._reapplyActiveFilters();
         this._updateCardCount();
         this._renderCardGrid();
         this._updatePickerCount();
@@ -820,7 +825,7 @@ class TcgDatabaseView {
         if (added.length > 0) {
             this._loadMultipleSets(added);
         } else {
-            this.filteredCards = null;
+            this._reapplyActiveFilters();
             this._updateCardCount();
             this._renderCardGrid();
             this._updatePickerCount();
@@ -1097,6 +1102,9 @@ class TcgDatabaseView {
 
     /** Filter cards by criteria from the search panel */
     filterCards(filters) {
+        // Remember filters so they can be re-applied when expansions change
+        this._activeFilters = filters;
+
         if (!filters || (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity)) {
             this.filteredCards = null;
         } else {
@@ -1132,5 +1140,40 @@ class TcgDatabaseView {
 
         this._updateCardCount();
         this._renderCardGrid();
+    }
+
+    /** Re-apply the last active filters after the card pool changes (expansion add/remove) */
+    _reapplyActiveFilters() {
+        if (this._activeFilters) {
+            // Re-run filterCards logic without re-saving (already saved)
+            const filters = this._activeFilters;
+            if (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity) {
+                this.filteredCards = null;
+            } else {
+                this.filteredCards = this.allCards.filter(card => {
+                    if (filters.name) {
+                        const name = (card.name || '').toLowerCase();
+                        const setName = (card.set?.name || '').toLowerCase();
+                        if (!name.includes(filters.name) && !setName.includes(filters.name)) return false;
+                    }
+                    if (filters.categories?.size > 0) {
+                        const supertype = card.supertype || '';
+                        const subtypes = card.subtypes || [];
+                        if (!filters.categories.has(supertype) && !subtypes.some(st => filters.categories.has(st))) return false;
+                    }
+                    if (filters.types?.size > 0) {
+                        const cardTypes = card.types || [];
+                        if (!cardTypes.some(t => filters.types.has(t))) return false;
+                    }
+                    const price = this._getCardPrice(card);
+                    if (filters.priceMin && price < parseFloat(filters.priceMin)) return false;
+                    if (filters.priceMax && price > parseFloat(filters.priceMax)) return false;
+                    if (filters.rarity && card.rarity !== filters.rarity) return false;
+                    return true;
+                });
+            }
+        } else {
+            this.filteredCards = null;
+        }
     }
 }
