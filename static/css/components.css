@@ -2131,3 +2131,228 @@
     font-weight: 600;
     z-index: 10;
 }
+
+/* ─── Price Bucket Editor ─────────────────────────────────────── */
+
+.settings-subsection-title {
+    margin: 1.5rem 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.price-buckets-editor {
+    margin-top: 0.75rem;
+}
+
+.price-bucket-bar {
+    position: relative;
+    height: 40px;
+    border-radius: 8px;
+    overflow: visible;
+    margin-bottom: 1.25rem;
+}
+
+.price-bucket-segment {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: width 0.05s ease;
+}
+
+.price-bucket-segment:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.price-bucket-segment:last-of-type {
+    border-radius: 0 8px 8px 0;
+}
+
+.price-bucket-label {
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    padding: 0 0.3rem;
+    pointer-events: none;
+}
+
+.price-bucket-handle {
+    position: absolute;
+    top: -4px;
+    width: 20px;
+    height: 48px;
+    margin-left: -10px;
+    cursor: ew-resize;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-bucket-handle::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: white;
+    border: 3px solid #555;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.price-bucket-handle:hover::before {
+    border-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.handle-value {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.9);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    margin-top: 2px;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.price-bucket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.price-bucket-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price-bucket-color {
+    width: 32px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    flex-shrink: 0;
+}
+
+.price-bucket-color::-webkit-color-swatch-wrapper { padding: 0; }
+.price-bucket-color::-webkit-color-swatch { border: 2px solid rgba(0,0,0,0.15); border-radius: 6px; }
+
+.price-bucket-range {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    min-width: 120px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.price-bucket-max-input {
+    width: 60px;
+    padding: 0.15rem 0.35rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: white;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.price-bucket-max-input::-webkit-outer-spin-button,
+.price-bucket-max-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.price-bucket-max-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.price-bucket-label-input {
+    flex: 1;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: white;
+    max-width: 120px;
+}
+
+.price-bucket-label-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.price-bucket-remove-btn {
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.price-bucket-remove-btn:hover { background: rgba(220, 53, 69, 0.25); }
+
+.price-bucket-remove-spacer { width: 26px; flex-shrink: 0; }
+
+.price-buckets-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.price-bucket-add-btn,
+.price-bucket-reset-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+}
+
+.price-bucket-add-btn {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border-color: rgba(40, 167, 69, 0.3);
+}
+
+.price-bucket-add-btn:hover { background: rgba(40, 167, 69, 0.2); }
+
+.price-bucket-reset-btn {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+.price-bucket-reset-btn:hover { background: rgba(108, 117, 125, 0.2); }
+
+.tcg-card-price { font-weight: 700; }

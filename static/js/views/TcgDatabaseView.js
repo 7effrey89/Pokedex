@@ -1048,7 +1048,10 @@ class TcgDatabaseView {
         const name = card.name || 'Unknown';
         const setName = card.set?.name || '';
         const price = this._getCardPrice(card);
-        const priceStr = price > 0 ? `$${price.toFixed(2)}` : '';
+        const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+        const priceStr = price > 0 ? (cc ? cc.formatUSD(price) : `$${price.toFixed(2)}`) : '';
+        const priceColor = price > 0 && cc ? cc.getPriceColor(price) : '';
+        const priceStyle = priceColor ? `style="color:${priceColor}"` : '';
         const rarity = card.rarity || '';
         const badge = displayIndex ? `<div class="card-index-badge">#${displayIndex}</div>` : '';
 
@@ -1058,7 +1061,7 @@ class TcgDatabaseView {
             <div class="tcg-card-info">
                 <span class="tcg-card-name">${name}</span>
                 <span class="tcg-card-set-label">${setName}</span>
-                ${priceStr || rarity ? `<span class="tcg-card-meta">${priceStr}${priceStr && rarity ? ' · ' : ''}${rarity}</span>` : ''}
+                ${priceStr || rarity ? `<span class="tcg-card-meta">${priceStr ? `<span class="tcg-card-price" ${priceStyle}>${priceStr}</span>` : ''}${priceStr && rarity ? ' · ' : ''}${rarity}</span>` : ''}
             </div>
         `;
 
@@ -1128,10 +1131,12 @@ class TcgDatabaseView {
                     const cardTypes = card.types || [];
                     if (!cardTypes.some(t => filters.types.has(t))) return false;
                 }
-                // Price range filter
-                const price = this._getCardPrice(card);
-                if (filters.priceMin && price < parseFloat(filters.priceMin)) return false;
-                if (filters.priceMax && price > parseFloat(filters.priceMax)) return false;
+                // Price range filter (user enters in display currency, card price is USD)
+                const rawPrice = this._getCardPrice(card);
+                const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+                const displayPrice = cc ? cc.fromUSD(rawPrice) : rawPrice;
+                if (filters.priceMin && displayPrice < parseFloat(filters.priceMin)) return false;
+                if (filters.priceMax && displayPrice > parseFloat(filters.priceMax)) return false;
                 // Rarity filter
                 if (filters.rarity && card.rarity !== filters.rarity) return false;
                 return true;
@@ -1165,9 +1170,11 @@ class TcgDatabaseView {
                         const cardTypes = card.types || [];
                         if (!cardTypes.some(t => filters.types.has(t))) return false;
                     }
-                    const price = this._getCardPrice(card);
-                    if (filters.priceMin && price < parseFloat(filters.priceMin)) return false;
-                    if (filters.priceMax && price > parseFloat(filters.priceMax)) return false;
+                    const rawPrice = this._getCardPrice(card);
+                    const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+                    const displayPrice = cc ? cc.fromUSD(rawPrice) : rawPrice;
+                    if (filters.priceMin && displayPrice < parseFloat(filters.priceMin)) return false;
+                    if (filters.priceMax && displayPrice > parseFloat(filters.priceMax)) return false;
                     if (filters.rarity && card.rarity !== filters.rarity) return false;
                     return true;
                 });

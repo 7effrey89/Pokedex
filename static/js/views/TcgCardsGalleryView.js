@@ -296,9 +296,12 @@ class TcgCardsGalleryView {
         const releaseYear = this.getCardReleaseYear(card);
         const avgPrice = this.getCardAvgPrice(card);
 
+        const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
         const priceDisplay = avgPrice !== null
-            ? `$${avgPrice.toFixed(2)}`
+            ? (cc ? cc.formatUSD(avgPrice) : `$${avgPrice.toFixed(2)}`)
             : 'N/A';
+        const priceColor = avgPrice !== null && cc ? cc.getPriceColor(avgPrice) : '';
+        const priceStyle = priceColor ? ` style="color:${priceColor}"` : '';
 
         const setLink = setId
             ? `<a href="#" class="tcg-set-link" data-set-id="${setId}" data-set-name="${setInfo}">${setInfo}</a>`
@@ -310,7 +313,7 @@ class TcgCardsGalleryView {
             <div class="tcg-card-info">
                 <h3>${cardName}</h3>
                 ${setInfo ? `<p class="tcg-card-set">${setLink}${releaseYear ? ` (${releaseYear})` : ''}</p>` : ''}
-                <p class="tcg-card-price-tag">Avg: <span class="${avgPrice !== null ? 'has-price' : 'no-price'}">${priceDisplay}</span></p>
+                <p class="tcg-card-price-tag">Avg: <span class="${avgPrice !== null ? 'has-price' : 'no-price'}"${priceStyle}>${priceDisplay}</span></p>
             </div>
         `;
         
@@ -332,7 +335,8 @@ class TcgCardsGalleryView {
 
         // Hover tracking for AI context
         const cardId = card.id || '';
-        const hoverSummary = `TCG card #${index + 1}: "${cardName}" from ${setInfo || 'unknown set'}${avgPrice !== null ? `, avg price $${avgPrice.toFixed(2)}` : ''} (card_id: ${cardId})`;
+        const hoverPriceStr = avgPrice !== null ? `, avg price ${priceDisplay}` : '';
+        const hoverSummary = `TCG card #${index + 1}: "${cardName}" from ${setInfo || 'unknown set'}${hoverPriceStr} (card_id: ${cardId})`;
         cardDiv.addEventListener('mouseenter', () => {
             this.app.updateHoverContext('tcg-card', hoverSummary, cardId);
         });

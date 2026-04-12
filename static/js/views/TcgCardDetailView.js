@@ -334,9 +334,11 @@ class TcgCardDetailView {
     }
 
     buildPricesHTML(card) {
-        let pricesHTML = '<h3>Market Prices</h3>';
+        const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+        const curLabel = cc ? cc.getCurrency() : 'USD';
+        let pricesHTML = `<h3>Market Prices <small class="price-currency-label">(${curLabel})</small></h3>`;
         
-        // TCGPlayer prices
+        // TCGPlayer prices (source: USD)
         if (card.tcgplayer?.prices) {
             const tcgUrl = card.tcgplayer.url || '';
             pricesHTML += `<div class="price-section"><h4>💳 TCGPlayer</h4>`;
@@ -345,26 +347,26 @@ class TcgCardDetailView {
                     pricesHTML += `<div class="price-variant"><strong>${variant}:</strong><div class="price-list">`;
                     const tag = tcgUrl ? 'a' : 'span';
                     const attrs = tcgUrl ? ` href="${tcgUrl}" target="_blank" rel="noopener noreferrer"` : '';
-                    if (prices.low) pricesHTML += `<${tag}${attrs} class="price-item">Low: $${prices.low.toFixed(2)}</${tag}>`;
-                    if (prices.mid) pricesHTML += `<${tag}${attrs} class="price-item">Mid: $${prices.mid.toFixed(2)}</${tag}>`;
-                    if (prices.high) pricesHTML += `<${tag}${attrs} class="price-item">High: $${prices.high.toFixed(2)}</${tag}>`;
-                    if (prices.market) pricesHTML += `<${tag}${attrs} class="price-item price-market">Market: $${prices.market.toFixed(2)}</${tag}>`;
+                    if (prices.low) pricesHTML += `<${tag}${attrs} class="price-item">Low: ${cc ? cc.formatUSD(prices.low) : `$${prices.low.toFixed(2)}`}</${tag}>`;
+                    if (prices.mid) pricesHTML += `<${tag}${attrs} class="price-item">Mid: ${cc ? cc.formatUSD(prices.mid) : `$${prices.mid.toFixed(2)}`}</${tag}>`;
+                    if (prices.high) pricesHTML += `<${tag}${attrs} class="price-item">High: ${cc ? cc.formatUSD(prices.high) : `$${prices.high.toFixed(2)}`}</${tag}>`;
+                    if (prices.market) pricesHTML += `<${tag}${attrs} class="price-item price-market">Market: ${cc ? cc.formatUSD(prices.market) : `$${prices.market.toFixed(2)}`}</${tag}>`;
                     pricesHTML += '</div></div>';
                 }
             }
             pricesHTML += '</div>';
         }
         
-        // Cardmarket prices
+        // Cardmarket prices (source: EUR)
         if (card.cardmarket?.prices) {
             const cmUrl = card.cardmarket.url || '';
             const cmTag = cmUrl ? 'a' : 'span';
             const cmAttrs = cmUrl ? ` href="${cmUrl}" target="_blank" rel="noopener noreferrer"` : '';
             pricesHTML += `<div class="price-section"><h4>🇪🇺 Cardmarket</h4><div class="price-list">`;
             const cm = card.cardmarket.prices;
-            if (cm.averageSellPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item">Avg: €${cm.averageSellPrice.toFixed(2)}</${cmTag}>`;
-            if (cm.lowPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item">Low: €${cm.lowPrice.toFixed(2)}</${cmTag}>`;
-            if (cm.trendPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item price-market">Trend: €${cm.trendPrice.toFixed(2)}</${cmTag}>`;
+            if (cm.averageSellPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item">Avg: ${cc ? cc.formatEUR(cm.averageSellPrice) : `€${cm.averageSellPrice.toFixed(2)}`}</${cmTag}>`;
+            if (cm.lowPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item">Low: ${cc ? cc.formatEUR(cm.lowPrice) : `€${cm.lowPrice.toFixed(2)}`}</${cmTag}>`;
+            if (cm.trendPrice) pricesHTML += `<${cmTag}${cmAttrs} class="price-item price-market">Trend: ${cc ? cc.formatEUR(cm.trendPrice) : `€${cm.trendPrice.toFixed(2)}`}</${cmTag}>`;
             pricesHTML += '</div></div>';
         }
         

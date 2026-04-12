@@ -29,6 +29,7 @@ class PokemonChatApp {
         this.scrollResetEnabled = this.loadScrollResetPreference();
         this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
+        this.currency = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter.getCurrency() : 'USD';
 
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -2147,6 +2148,297 @@ class PokemonChatApp {
         toggle.dataset.listenerAttached = 'true';
     }
 
+    setupCurrencyControls() {
+        const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+        if (!cc) return;
+
+        // ── Currency selector ────────────────────────────────────────
+        const select = document.getElementById('currencySelect');
+        if (select) {
+            const currencies = cc.getAvailableCurrencies();
+            const current = cc.getCurrency();
+            select.innerHTML = currencies.map(c =>
+                `<option value="${c.code}" ${c.code === current ? 'selected' : ''}>${c.flag} ${c.code} — ${c.name} (${c.symbol})</option>`
+            ).join('');
+            this._updatePriceUnitLabel();
+            if (select.dataset.listenerAttached !== 'true') {
+                select.addEventListener('change', () => {
+                    cc.setCurrency(select.value);
+                    this.currency = select.value;
+                    this._updatePriceUnitLabel();
+                    this._renderBucketEditor();
+                    this._refreshPriceDisplays();
+                });
+                select.dataset.listenerAttached = 'true';
+            }
+        }
+
+        // ── Number locale selector ───────────────────────────────────
+        const localeSelect = document.getElementById('numberLocaleSelect');
+        if (localeSelect) {
+            const presets = cc.getLocalePresets();
+            const currentLocale = cc.getLocale();
+            localeSelect.innerHTML = presets.map(p =>
+                `<option value="${p.key}" ${p.key === currentLocale ? 'selected' : ''}>${p.name}</option>`
+            ).join('');
+            if (localeSelect.dataset.listenerAttached !== 'true') {
+                localeSelect.addEventListener('change', () => {
+                    cc.setLocale(localeSelect.value);
+                    this._renderBucketEditor();
+                    this._refreshPriceDisplays();
+                });
+                localeSelect.dataset.listenerAttached = 'true';
+            }
+        }
+
+        // ── Price bucket editor ──────────────────────────────────────
+        this._renderBucketEditor();
+
+        const addBtn = document.getElementById('addBucketBtn');
+        if (addBtn && addBtn.dataset.listenerAttached !== 'true') {
+            addBtn.addEventListener('click', () => {
+                const buckets = cc.getBuckets();
+                if (buckets.length >= 8) return; // max 8 buckets
+                // Insert a new bucket before the last one
+                const last = buckets[buckets.length - 1];
+                const prevMax = buckets.length >= 2 ? (buckets[buckets.length - 2].max === Infinity ? 500 : buckets[buckets.length - 2].max) : 50;
+                const newMax = prevMax + Math.round((500 - prevMax) / 2);
+                const colors = ['#17a2b8', '#6f42c1', '#e83e8c', '#20c997', '#6610f2'];
+                const color = colors[buckets.length % colors.length];
+                buckets.splice(buckets.length - 1, 0, { max: newMax, color, label: 'New' });
+                cc.setBuckets(buckets);
+                this._renderBucketEditor();
+                this._refreshPriceDisplays();
+            });
+            addBtn.dataset.listenerAttached = 'true';
+        }
+
+        const resetBtn = document.getElementById('resetBucketsBtn');
+        if (resetBtn && resetBtn.dataset.listenerAttached !== 'true') {
+            resetBtn.addEventListener('click', () => {
+                cc.resetBuckets();
+                this._renderBucketEditor();
+                this._refreshPriceDisplays();
+            });
+            resetBtn.dataset.listenerAttached = 'true';
+        }
+    }
+
+    _renderBucketEditor() {
+        const container = document.getElementById('priceBucketsEditor');
+        const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+        if (!container || !cc) return;
+
+        const buckets = cc.getBuckets();
+        const info = cc.getInfo();
+
+        // Build the color bar + handles
+        let html = '<div class="price-bucket-bar">';
+        // Determine scale max for display (last finite threshold * 2, min 200)
+        const finiteMaxes = buckets.filter(b => b.max !== Infinity).map(b => b.max);
+        const scaleMax = finiteMaxes.length > 0 ? Math.max(finiteMaxes[finiteMaxes.length - 1] * 1.5, 200) : 500;
+
+        buckets.forEach((bucket, i) => {
+            const prevMax = i > 0 ? buckets[i - 1].max : 0;
+            const bMax = bucket.max === Infinity ? scaleMax : bucket.max;
+            const left = (prevMax / scaleMax) * 100;
+            const width = ((bMax - prevMax) / scaleMax) * 100;
+            const label = bucket.max === Infinity ? `${info.symbol}${this._formatBucketVal(prevMax)}+` :
+                `${info.symbol}${this._formatBucketVal(prevMax)} – ${info.symbol}${this._formatBucketVal(bucket.max)}`;
+            html += `<div class="price-bucket-segment" style="left:${left}%;width:${width}%;background:${bucket.color}" title="${label}">
+                <span class="price-bucket-label">${label}</span>
+            </div>`;
+        });
+
+        // Handles between buckets (not for the last bucket)
+        for (let i = 0; i < buckets.length - 1; i++) {
+            const pos = (buckets[i].max / scaleMax) * 100;
+            html += `<div class="price-bucket-handle" data-index="${i}" style="left:${pos}%" title="${info.symbol}${this._formatBucketVal(buckets[i].max)}">
+                <span class="handle-value">${info.symbol}${this._formatBucketVal(buckets[i].max)}</span>
+            </div>`;
+        }
+        html += '</div>';
+
+        // Bucket list with color pickers, editable thresholds, and remove buttons
+        html += '<div class="price-bucket-list">';
+        buckets.forEach((bucket, i) => {
+            const prevMax = i > 0 ? buckets[i - 1].max : 0;
+            const canRemove = buckets.length > 2 && i < buckets.length - 1;
+            let rangeHtml;
+            if (bucket.max === Infinity) {
+                rangeHtml = `<span class="price-bucket-range">${info.symbol}${this._formatBucketVal(prevMax)}+</span>`;
+            } else {
+                rangeHtml = `<span class="price-bucket-range">${info.symbol}${this._formatBucketVal(prevMax)} – ${info.symbol}<input type="number" class="price-bucket-max-input" data-index="${i}" value="${bucket.max}" min="1" step="1"></span>`;
+            }
+            html += `<div class="price-bucket-row">
+                <input type="color" class="price-bucket-color" data-index="${i}" value="${bucket.color}">
+                ${rangeHtml}
+                <input type="text" class="price-bucket-label-input" data-index="${i}" value="${bucket.label}" maxlength="15" placeholder="Label">
+                ${canRemove ? `<button class="price-bucket-remove-btn" data-index="${i}" title="Remove bucket">✕</button>` : '<span class="price-bucket-remove-spacer"></span>'}
+            </div>`;
+        });
+        html += '</div>';
+
+        container.innerHTML = html;
+
+        // Wire drag handles
+        container.querySelectorAll('.price-bucket-handle').forEach(handle => {
+            this._setupBucketHandleDrag(handle, container, buckets, scaleMax);
+        });
+
+        // Wire color pickers
+        container.querySelectorAll('.price-bucket-color').forEach(input => {
+            input.addEventListener('change', () => {
+                const idx = parseInt(input.dataset.index);
+                buckets[idx].color = input.value;
+                cc.setBuckets(buckets);
+                this._renderBucketEditor();
+                this._refreshPriceDisplays();
+            });
+        });
+
+        // Wire label inputs
+        container.querySelectorAll('.price-bucket-label-input').forEach(input => {
+            input.addEventListener('change', () => {
+                const idx = parseInt(input.dataset.index);
+                buckets[idx].label = input.value.trim() || 'Unlabeled';
+                cc.setBuckets(buckets);
+            });
+        });
+
+        // Wire max-value inputs (typed thresholds)
+        container.querySelectorAll('.price-bucket-max-input').forEach(input => {
+            input.addEventListener('change', () => {
+                const idx = parseInt(input.dataset.index);
+                let newVal = parseInt(input.value);
+                if (isNaN(newVal) || newVal < 1) newVal = 1;
+                const minVal = idx > 0 ? buckets[idx - 1].max + 1 : 1;
+                const maxVal = idx < buckets.length - 2 ? buckets[idx + 1].max - 1 : 99999;
+                newVal = Math.max(minVal, Math.min(maxVal, newVal));
+                buckets[idx].max = newVal;
+                cc.setBuckets(buckets);
+                this._renderBucketEditor();
+                this._refreshPriceDisplays();
+            });
+        });
+
+        // Wire remove buttons
+        container.querySelectorAll('.price-bucket-remove-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.dataset.index);
+                buckets.splice(idx, 1);
+                cc.setBuckets(buckets);
+                this._renderBucketEditor();
+                this._refreshPriceDisplays();
+            });
+        });
+    }
+
+    _setupBucketHandleDrag(handle, container, buckets, scaleMax) {
+        const cc = CurrencyConverter;
+        const idx = parseInt(handle.dataset.index);
+        const bar = container.querySelector('.price-bucket-bar');
+        const segments = bar.querySelectorAll('.price-bucket-segment');
+        const handles = bar.querySelectorAll('.price-bucket-handle');
+        const info = cc.getInfo();
+
+        const updateBarVisual = () => {
+            // Update segment positions and labels
+            segments.forEach((seg, i) => {
+                const prevMax = i > 0 ? buckets[i - 1].max : 0;
+                const bMax = buckets[i].max === Infinity ? scaleMax : buckets[i].max;
+                const left = (prevMax / scaleMax) * 100;
+                const width = ((bMax - prevMax) / scaleMax) * 100;
+                seg.style.left = left + '%';
+                seg.style.width = width + '%';
+                const label = buckets[i].max === Infinity
+                    ? `${info.symbol}${this._formatBucketVal(prevMax)}+`
+                    : `${info.symbol}${this._formatBucketVal(prevMax)} – ${info.symbol}${this._formatBucketVal(buckets[i].max)}`;
+                seg.title = label;
+                const labelEl = seg.querySelector('.price-bucket-label');
+                if (labelEl) labelEl.textContent = label;
+            });
+            // Update handle positions and labels
+            handles.forEach((h, i) => {
+                const pos = (buckets[i].max / scaleMax) * 100;
+                h.style.left = pos + '%';
+                h.title = `${info.symbol}${this._formatBucketVal(buckets[i].max)}`;
+                const valEl = h.querySelector('.handle-value');
+                if (valEl) valEl.textContent = `${info.symbol}${this._formatBucketVal(buckets[i].max)}`;
+            });
+        };
+
+        const onMove = (clientX) => {
+            const rect = bar.getBoundingClientRect();
+            let pct = (clientX - rect.left) / rect.width;
+            pct = Math.max(0.01, Math.min(0.99, pct));
+            let newVal = Math.round(pct * scaleMax);
+            const minVal = idx > 0 ? buckets[idx - 1].max + 1 : 1;
+            const maxVal = idx < buckets.length - 2 ? buckets[idx + 1].max - 1 : scaleMax - 1;
+            newVal = Math.max(minVal, Math.min(maxVal, newVal));
+            buckets[idx].max = newVal;
+            updateBarVisual();
+        };
+
+        const onMouseMove = (e) => onMove(e.clientX);
+        const onTouchMove = (e) => { e.preventDefault(); onMove(e.touches[0].clientX); };
+        const onEnd = () => {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onEnd);
+            document.removeEventListener('touchmove', onTouchMove);
+            document.removeEventListener('touchend', onEnd);
+            cc.setBuckets(buckets);
+            this._renderBucketEditor();
+            this._refreshPriceDisplays();
+        };
+
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onEnd);
+        });
+        handle.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            document.addEventListener('touchmove', onTouchMove, { passive: false });
+            document.addEventListener('touchend', onEnd);
+        });
+    }
+
+    _formatBucketVal(val) {
+        if (val >= 1000) return Math.round(val).toLocaleString('en');
+        if (val >= 100) return Math.round(val).toString();
+        return val.toString();
+    }
+
+    _updatePriceUnitLabel() {
+        const el = document.getElementById('tcgPriceUnit');
+        if (!el || typeof CurrencyConverter === 'undefined') return;
+        const cur = CurrencyConverter.getCurrency();
+        el.textContent = `(${cur})`;
+    }
+
+    _refreshPriceDisplays() {
+        // Re-render the currently visible TCG view so prices update
+        if (this.currentCanvasState?.type === 'tcg-detail' && this.tcgDetail) {
+            // Re-render just the price section
+            const card = this.currentTcgCard;
+            if (card) {
+                const pricesEl = this.tcgDetail.detailView?.querySelector('.tcg-card-prices');
+                if (pricesEl) {
+                    pricesEl.innerHTML = this.tcgDetail.buildPricesHTML(card);
+                }
+            }
+        } else if (this.currentCanvasState?.type === 'tcg-database' && this.tcgDatabase) {
+            this.tcgDatabase._renderCardGrid();
+        } else if (this.currentCanvasState?.type === 'tcg-gallery' && this.tcgGallery) {
+            // Gallery needs full re-render
+            const galleryData = this.currentCanvasState.data;
+            if (galleryData?.cards) {
+                this.tcgGallery.displayCards(galleryData.cards, galleryData.pokemon_name);
+            }
+        }
+    }
+
     setupCryControls() {
         const toggle = document.getElementById('cryToggle');
         if (!toggle) return;
@@ -2574,6 +2866,7 @@ class PokemonChatApp {
         this.setupSpriteStyleControls();
         this.setupCryControls();
         this.setupScrollResetControls();
+        this.setupCurrencyControls();
     }
     
     async loadCacheConfig() {
@@ -5173,8 +5466,18 @@ class PokemonChatApp {
     /**
      * Build context description based on current canvas state
      */
+    _getCurrencyContextNote() {
+        if (typeof CurrencyConverter === 'undefined') return '';
+        const cur = CurrencyConverter.getCurrency();
+        if (cur === 'USD') return '';
+        const info = CurrencyConverter.getInfo();
+        const rate = CurrencyConverter.fromUSD(1);
+        return ` Prices on screen are displayed in ${info.name} (${cur}, symbol: ${info.symbol}). IMPORTANT: All tool responses (get_card_details, get_card_price, search_pokemon_cards) return prices in USD. You MUST multiply USD values by ${rate} to convert to ${cur} before presenting them to the user. For example, $1.00 USD = ${info.symbol}${rate.toFixed(2)} ${cur}. Never show raw USD values when the user's currency is ${cur}.`;
+    }
+
     buildCanvasContextDescription() {
         const { type, data } = this.currentCanvasState;
+        const currNote = this._getCurrencyContextNote();
         
         switch (type) {
             case 'grid':
@@ -5184,9 +5487,9 @@ class PokemonChatApp {
                 if (data?.viewMode === 'all-cards') {
                     const cardCount = this.currentTcgCards?.length || 0;
                     const setCount = data?.selectedSets || 0;
-                    return `User is viewing the TCG Card Database in All Cards mode with ${cardCount} cards loaded from ${setCount} expansion(s). Cards are numbered #1 through #${cardCount}. User can say "show card 5" or "open card number 12" to view a specific card's details.`;
+                    return `User is viewing the TCG Card Database in All Cards mode with ${cardCount} cards loaded from ${setCount} expansion(s). Cards are numbered #1 through #${cardCount}. User can say "show card 5" or "open card number 12" to view a specific card's details.${currNote}`;
                 }
-                return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.`;
+                return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.${currNote}`;
             
             case 'pokemon':
                 if (!data || !data.pokemon) return null;
@@ -5195,11 +5498,11 @@ class PokemonChatApp {
             case 'tcg-gallery':
                 if (!data || !data.pokemon_name) return null;
                 const cardCount = data.total_count || (data.cards ? data.cards.length : 0);
-                return `User is viewing a gallery of ${cardCount} Pokemon TCG trading cards for ${data.pokemon_name}. Cards are numbered #1 through #${cardCount} in the gallery grid. When the user says "show card 4" or "open #4", they mean the 4th card in this gallery (not a card's printed set number). Use show_tcg_card_by_index with card_index=4 to open it. Do NOT search for cards again - just navigate to the card by its gallery position number.`;
+                return `User is viewing a gallery of ${cardCount} Pokemon TCG trading cards for ${data.pokemon_name}. Cards are numbered #1 through #${cardCount} in the gallery grid. When the user says "show card 4" or "open #4", they mean the 4th card in this gallery (not a card's printed set number). Use show_tcg_card_by_index with card_index=4 to open it. Do NOT search for cards again - just navigate to the card by its gallery position number.${currNote}`;
             
             case 'tcg-detail':
                 if (!data) return null;
-                return this.buildCardContextSummary(data);
+                return this.buildCardContextSummary(data) + currNote;
             
             default:
                 return null;

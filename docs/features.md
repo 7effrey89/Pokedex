@@ -30,6 +30,9 @@ All implemented features, categorized. Every new feature must be added here.
 | TCG Sort Options | Sort by set, card #, Pokédex #, name, rarity, price (10 options) | ❌ |
 | TCG Gallery Sort | Sort gallery cards by 13 options including dex#, rarity, price, year | ❌ |
 | TCG Filters | Filter by card name/set, category, energy type, price range, rarity | ❌ |
+| Currency Conversion | Convert all TCG prices to 22 currencies (USD, EUR, GBP, SEK, etc.) via settings | N/A |
+| Number Locale Formatting | Thousand separator style: English (1,000.00), European (1.000,00), Swiss (1'000.00), Space (1 000,00) | N/A |
+| Price Color Buckets | Color-coded prices (green/yellow/orange/red) with configurable thresholds via draggable slider or typed input | N/A |
 | Slim Payloads | Grid views receive ~80% smaller card data for faster loading | N/A |
 | Progressive Rendering | Cards render in batches of 60 via IntersectionObserver | N/A |
 

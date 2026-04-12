@@ -411,7 +411,7 @@
                     </div>
 
                     <div class="search-field search-range-row">
-                        <label>Price Range <small class="search-unit">(USD)</small></label>
+                        <label>Price Range <small class="search-unit" id="tcgPriceUnit">(USD)</small></label>
                         <div class="search-range-inputs">
                             <input type="number" id="tcgPriceMin" min="0" step="0.01" placeholder="Min">
                             <span class="search-range-sep">&ndash;</span>
@@ -940,6 +940,48 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Currency Section -->
+                    <div class="settings-section">
+                        <h3>💱 Price &amp; Currency</h3>
+                        <p class="section-description">
+                            Convert TCG card prices to your preferred currency. Rates are approximate.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label for="currencySelect" class="control-label">
+                                    <span>Display Currency</span>
+                                    <small>All prices will be converted from USD</small>
+                                </label>
+                                <div class="control-input">
+                                    <select id="currencySelect" class="settings-select">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-row">
+                                <label for="numberLocaleSelect" class="control-label">
+                                    <span>Number Format</span>
+                                    <small>Thousand &amp; decimal separator style</small>
+                                </label>
+                                <div class="control-input">
+                                    <select id="numberLocaleSelect" class="settings-select">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="settings-subsection-title">🎨 Price Color Thresholds</h4>
+                        <p class="section-description">
+                            Color-code prices in gallery and database views. Drag handles to adjust thresholds. Values are in your display currency.
+                        </p>
+                        <div id="priceBucketsEditor" class="price-buckets-editor">
+                            <!-- Built dynamically by JS -->
+                        </div>
+                        <div class="price-buckets-actions">
+                            <button class="price-bucket-add-btn" id="addBucketBtn">+ Add Bucket</button>
+                            <button class="price-bucket-reset-btn" id="resetBucketsBtn">Reset Defaults</button>
+                        </div>
+                    </div>
                     
                     <!-- Tools Section -->
                     <div class="settings-section">
@@ -999,6 +1041,9 @@
     <script src="{{ url_for('static', filename='js/views/TcgDatabaseView.js') }}"></script>
     <script src="{{ url_for('static', filename='js/views/PokemonSearchView.js') }}"></script>
     
+    <!-- Currency utility (must load before app.js) -->
+    <script src="{{ url_for('static', filename='js/currency.js') }}"></script>
+
     <!-- Then load core application -->
     <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>

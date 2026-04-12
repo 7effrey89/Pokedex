@@ -388,12 +388,14 @@ class PokemonSearchView {
                     const subtypeMatch = (card.subtypes || []).some(s => filters.categories.has(s));
                     if (!supertypeMatch && !subtypeMatch) show = false;
                 }
-                // Price filter
+                // Price filter (user enters in display currency, card price is USD)
                 if (show && (filters.priceMin || filters.priceMax)) {
                     const avg = this.app.tcgGallery?.getCardAvgPrice(card) ?? null;
+                    const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
+                    const displayAvg = avg !== null && cc ? cc.fromUSD(avg) : avg;
                     const min = filters.priceMin ? parseFloat(filters.priceMin) : 0;
                     const max = filters.priceMax ? parseFloat(filters.priceMax) : Infinity;
-                    if (avg === null || avg < min || avg > max) show = false;
+                    if (displayAvg === null || displayAvg < min || displayAvg > max) show = false;
                 }
                 // Rarity filter
                 if (show && filters.rarity) {

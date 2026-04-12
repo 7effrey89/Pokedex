@@ -8,49 +8,44 @@
     "rarity": null
   },
   "cache_key": "3323b5b183f413f7c89ebcfb724db49c",
-  "cached_at": 1765880690.986412,
   "response": {
     "cards": [
       {
-        "id": "base5-2",
-        "name": "Dark Arbok",
+        "id": "sv10-113",
+        "name": "Team Rocket's Arbok",
         "supertype": "Pokémon",
         "subtypes": [
           "Stage 1"
         ],
         "types": [
-          "Grass"
+          "Darkness"
         ],
-        "hp": "60",
-        "evolvesFrom": "Ekans",
+        "hp": "130",
+        "evolvesFrom": "Team Rocket's Ekans",
         "evolvesTo": [],
-        "abilities": [],
+        "abilities": [
+          {
+            "name": "Potent Glare",
+            "text": "As long as this Pokémon is in the Active Spot, your opponent can't play any Pokémon that has an Ability from their hand, except for Team Rocket's Pokémon.",
+            "type": "Ability"
+          }
+        ],
         "attacks": [
           {
-            "name": "Stare",
+            "name": "Spinning Tail",
             "cost": [
-              "Grass",
-              "Grass"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "",
-            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.) If that Pokémon has a Pokémon Power, that power stops working until the end of your opponent's next turn."
-          },
-          {
-            "name": "Poison Vapor",
-            "cost": [
-              "Grass",
-              "Grass",
-              "Grass"
+              "Darkness",
+              "Darkness",
+              "Darkness"
             ],
             "convertedEnergyCost": 3,
-            "damage": "10",
-            "text": "The Defending Pokémon is now Poisoned. This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+            "damage": "",
+            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
           }
         ],
         "weaknesses": [
           {
-            "type": "Psychic",
+            "type": "Fighting",
             "value": "×2"
           }
         ],
@@ -61,817 +56,78 @@
         ],
         "convertedRetreatCost": 2,
         "set": {
-          "name": "Team Rocket",
-          "series": "Base",
-          "releaseDate": "2000/04/24",
-          "logo": "https://images.pokemontcg.io/base5/logo.png",
-          "symbol": "https://images.pokemontcg.io/base5/symbol.png"
-        },
-        "number": "2",
-        "rarity": "Rare Holo",
-        "flavorText": "Freezes its prey with its stare. If you should encounter one, remember not to look into its eyes.",
-        "artist": "Mitsuhiro Arita",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/base5/2.png",
-          "large": "https://images.pokemontcg.io/base5/2_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/base5-2",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "1stEditionHolofoil": {
-              "low": 28.4,
-              "mid": 36.25,
-              "high": 46.7,
-              "market": 46.66,
-              "directLow": null
-            },
-            "unlimitedHolofoil": {
-              "low": 4.9,
-              "mid": 11.92,
-              "high": 200.0,
-              "market": 12.01,
-              "directLow": 14.99
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/base5-2",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 8.27,
-            "lowPrice": 0.9,
-            "trendPrice": 6.72,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 8.04,
-            "lowPriceExPlus": 5.0,
-            "avg1": 3.94,
-            "avg7": 6.33,
-            "avg30": 7.49,
-            "reverseHoloAvg1": 13.5,
-            "reverseHoloAvg7": 7.18,
-            "reverseHoloAvg30": 8.33
-          }
-        }
-      },
-      {
-        "id": "ecard1-3",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "70",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Poison Spray",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "The Defending Pokémon is now Poisoned."
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "releaseDate": "2025/05/30",
+          "total": 244,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
           },
-          {
-            "name": "Poison Reaction",
-            "cost": [
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "20+",
-            "text": "If the Defending Pokémon is Poisoned, this attack does 20 damage plus 20 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Expedition Base Set",
-          "series": "E-Card",
-          "releaseDate": "2002/09/15",
-          "logo": "https://images.pokemontcg.io/ecard1/logo.png",
-          "symbol": "https://images.pokemontcg.io/ecard1/symbol.png"
+          "logo": "https://images.pokemontcg.io/sv10/logo.png",
+          "symbol": "https://images.pokemontcg.io/sv10/symbol.png"
         },
-        "number": "3",
-        "rarity": "Rare Holo",
-        "flavorText": null,
-        "artist": "Kyoko Umemoto",
+        "number": "113",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
+        "artist": "Teeziro",
         "legalities": {
-          "unlimited": "Legal"
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.pokemontcg.io/ecard1/3.png",
-          "large": "https://images.pokemontcg.io/ecard1/3_hires.png"
+          "small": "https://images.pokemontcg.io/sv10/113.png",
+          "large": "https://images.pokemontcg.io/sv10/113_hires.png"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-3",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "holofoil": {
-              "low": 40.98,
-              "mid": 103.37,
-              "high": 150.0,
-              "market": 46.29,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 21.12,
-              "mid": 21.12,
-              "high": 40.99,
-              "market": 24.78,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-3",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 29.7,
-            "lowPrice": 2.99,
-            "trendPrice": 28.61,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 14.71,
-            "reverseHoloLow": 2.99,
-            "reverseHoloTrend": 11.41,
-            "lowPriceExPlus": 7.99,
-            "avg1": 14.88,
-            "avg7": 35.4,
-            "avg30": 22.85,
-            "reverseHoloAvg1": 28.0,
-            "reverseHoloAvg7": 10.23,
-            "reverseHoloAvg30": 10.56
-          }
-        }
-      },
-      {
-        "id": "base5-19",
-        "name": "Dark Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "60",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Stare",
-            "cost": [
-              "Grass",
-              "Grass"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "",
-            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.) If that Pokémon has a Pokémon Power, that power stops working until the end of your opponent's next turn."
-          },
-          {
-            "name": "Poison Vapor",
-            "cost": [
-              "Grass",
-              "Grass",
-              "Grass"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "10",
-            "text": "The Defending Pokémon is now Poisoned. This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Team Rocket",
-          "series": "Base",
-          "releaseDate": "2000/04/24",
-          "logo": "https://images.pokemontcg.io/base5/logo.png",
-          "symbol": "https://images.pokemontcg.io/base5/symbol.png"
-        },
-        "number": "19",
-        "rarity": "Rare",
-        "flavorText": "Freezes its prey with its stare. If you should encounter one, remember not to look into its eyes.",
-        "artist": "Mitsuhiro Arita",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/base5/19.png",
-          "large": "https://images.pokemontcg.io/base5/19_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/base5-19",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "1stEdition": {
-              "low": 6.58,
-              "mid": 9.0,
-              "high": 18.75,
-              "market": 9.97,
-              "directLow": null
-            },
-            "unlimited": {
-              "low": 2.99,
-              "mid": 5.25,
-              "high": 23.0,
-              "market": 6.39,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/base5-19",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 8.38,
-            "lowPrice": 0.5,
-            "trendPrice": 10.19,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 6.74,
-            "lowPriceExPlus": 5.0,
-            "avg1": 18.0,
-            "avg7": 8.85,
-            "avg30": 7.88,
-            "reverseHoloAvg1": 6.5,
-            "reverseHoloAvg7": 8.64,
-            "reverseHoloAvg30": 5.48
-          }
-        }
-      },
-      {
-        "id": "gym2-25",
-        "name": "Koga's Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "90",
-        "evolvesFrom": "Koga's Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Poison Buildup",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Koga's Arbok is now Poisoned."
-          },
-          {
-            "name": "Poison Power",
-            "cost": [
-              "Grass",
-              "Grass"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "20",
-            "text": "If Koga's Arbok is Poisoned, this attack's base damage is 40 instead of 20 and the Defending Pokémon is now Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Gym Challenge",
-          "series": "Gym",
-          "releaseDate": "2000/10/16",
-          "logo": "https://images.pokemontcg.io/gym2/logo.png",
-          "symbol": "https://images.pokemontcg.io/gym2/symbol.png"
-        },
-        "number": "25",
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": "Ken Sugimori",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/gym2/25.png",
-          "large": "https://images.pokemontcg.io/gym2/25_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-25",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "1stEdition": {
-              "low": 10.31,
-              "mid": 13.62,
-              "high": 25.0,
-              "market": 12.48,
-              "directLow": null
-            },
-            "unlimited": {
-              "low": 7.0,
-              "mid": 8.54,
-              "high": 50.0,
-              "market": 8.44,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/gym2-25",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 6.93,
-            "lowPrice": 1.5,
-            "trendPrice": 8.32,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 2.9,
-            "lowPriceExPlus": 7.0,
-            "avg1": 9.99,
-            "avg7": 9.81,
-            "avg30": 8.9,
-            "reverseHoloAvg1": 2.9,
-            "reverseHoloAvg7": 2.9,
-            "reverseHoloAvg30": 2.9
-          }
-        }
-      },
-      {
-        "id": "ex15-13",
-        "name": "Arbok δ",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Fire"
-        ],
-        "hp": "80",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Burning Venom",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "The Defending Pokémon is now Burned and Poisoned."
-          },
-          {
-            "name": "Strangle",
-            "cost": [
-              "Fire",
-              "Fire",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "50+",
-            "text": "If the Defending Pokémon has δ on its card, this attack does 50 damage plus 30 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Dragon Frontiers",
-          "series": "EX",
-          "releaseDate": "2006/11/01",
-          "logo": "https://images.pokemontcg.io/ex15/logo.png",
-          "symbol": "https://images.pokemontcg.io/ex15/symbol.png"
-        },
-        "number": "13",
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": "Hisao Nakamura",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/ex15/13.png",
-          "large": "https://images.pokemontcg.io/ex15/13_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-13",
-          "updatedAt": "2025/12/16",
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-113",
+          "updatedAt": "2026/04/12",
           "prices": {
             "normal": {
-              "low": 0.99,
-              "mid": 1.5,
-              "high": 2.5,
-              "market": 1.75,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 10.0,
-              "mid": 11.63,
+              "low": 0.01,
+              "mid": 0.19,
               "high": 20.0,
-              "market": 18.9,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/ex15-13",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 1.4,
-            "lowPrice": 0.16,
-            "trendPrice": 1.39,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 6.96,
-            "reverseHoloLow": 2.0,
-            "reverseHoloTrend": 7.7,
-            "lowPriceExPlus": 0.5,
-            "avg1": 0.58,
-            "avg7": 1.6,
-            "avg30": 1.34,
-            "reverseHoloAvg1": 14.99,
-            "reverseHoloAvg7": 6.96,
-            "reverseHoloAvg30": 8.04
-          }
-        }
-      },
-      {
-        "id": "sm115-27",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "120",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Last Pattern",
-            "text": "If this Pokémon is Knocked Out by damage from an opponent's attack, discard 2 random cards from your opponent's hand.",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Rocket Tail",
-            "cost": [
-              "Psychic",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "50+",
-            "text": "If Jessie & James is in your discard pile, this attack does 80 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Hidden Fates",
-          "series": "Sun & Moon",
-          "releaseDate": "2019/08/23",
-          "logo": "https://images.pokemontcg.io/sm115/logo.png",
-          "symbol": "https://images.pokemontcg.io/sm115/symbol.png"
-        },
-        "number": "27",
-        "rarity": "Rare",
-        "flavorText": "The latest research has determined that there are over 20 possible arrangements of the patterns on its stomach.",
-        "artist": "kirisAki",
-        "legalities": {
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/sm115/27.png",
-          "large": "https://images.pokemontcg.io/sm115/27_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sm115-27",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "reverseHolofoil": {
-              "low": 0.25,
-              "mid": 0.7,
-              "high": 5.9,
-              "market": 0.57,
-              "directLow": null
+              "market": 0.21,
+              "directLow": 0.14
             },
-            "normal": {
-              "low": 0.1,
-              "mid": 0.27,
-              "high": 4.0,
-              "market": 0.2,
-              "directLow": null
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.31,
+              "high": 20.0,
+              "market": 0.28,
+              "directLow": 0.3
             }
           }
         },
         "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sm115-27",
-          "updatedAt": "2025/12/16",
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-113",
+          "updatedAt": "2025/11/25",
           "prices": {
-            "averageSellPrice": 0.33,
+            "averageSellPrice": 0.04,
             "lowPrice": 0.02,
-            "trendPrice": 0.27,
+            "trendPrice": 0.05,
             "germanProLow": 0.0,
             "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.66,
-            "reverseHoloLow": 0.18,
-            "reverseHoloTrend": 0.5,
+            "reverseHoloSell": 0.28,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.29,
             "lowPriceExPlus": 0.02,
-            "avg1": 0.15,
-            "avg7": 0.14,
-            "avg30": 0.29,
-            "reverseHoloAvg1": 0.19,
-            "reverseHoloAvg7": 0.72,
-            "reverseHoloAvg30": 0.54
+            "avg1": 0.06,
+            "avg7": 0.06,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.51,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.26
           }
         }
       },
       {
-        "id": "base3-31",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "60",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Terror Strike",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10",
-            "text": "Flip a coin. If heads and if your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon.)"
-          },
-          {
-            "name": "Poison Fang",
-            "cost": [
-              "Grass",
-              "Grass",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "20",
-            "text": "The Defending Pokémon is now Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Fossil",
-          "series": "Base",
-          "releaseDate": "1999/10/10",
-          "logo": "https://images.pokemontcg.io/base3/logo.png",
-          "symbol": "https://images.pokemontcg.io/base3/symbol.png"
-        },
-        "number": "31",
-        "rarity": "Uncommon",
-        "flavorText": "It is rumored that the ferocious warning markings on its belly differ from area to area.",
-        "artist": "Ken Sugimori",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/base3/31.png",
-          "large": "https://images.pokemontcg.io/base3/31_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/base3-31",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "1stEdition": {
-              "low": 0.72,
-              "mid": 2.39,
-              "high": 236.0,
-              "market": 2.64,
-              "directLow": 19.99
-            },
-            "unlimited": {
-              "low": 0.24,
-              "mid": 0.6,
-              "high": 5.99,
-              "market": 0.74,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/base3-31",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 1.91,
-            "lowPrice": 0.02,
-            "trendPrice": 2.87,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 2.51,
-            "lowPriceExPlus": 0.15,
-            "avg1": 3.25,
-            "avg7": 4.19,
-            "avg30": 2.59,
-            "reverseHoloAvg1": 4.0,
-            "reverseHoloAvg7": 1.83,
-            "reverseHoloAvg30": 1.83
-          }
-        }
-      },
-      {
-        "id": "ex7-29",
-        "name": "Dark Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass",
-          "Darkness"
-        ],
-        "hp": "90",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Swallow Up",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10+",
-            "text": "Before doing damage, count the remaining HP of the Defending Pokémon and Dark Arbok. If the Defending Pokémon has fewer remaining HP than Dark Arbok's, this attack does 10 damage plus 30 more damage."
-          },
-          {
-            "name": "Extra Poison",
-            "cost": [
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "30",
-            "text": "If the Defending Pokémon is Pokémon-ex, the Defending Pokémon is now Asleep and Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Team Rocket Returns",
-          "series": "EX",
-          "releaseDate": "2004/11/01",
-          "logo": "https://images.pokemontcg.io/ex7/logo.png",
-          "symbol": "https://images.pokemontcg.io/ex7/symbol.png"
-        },
-        "number": "29",
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": "Nakaoka",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/ex7/29.png",
-          "large": "https://images.pokemontcg.io/ex7/29_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-29",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 1.37,
-              "mid": 3.46,
-              "high": 6.0,
-              "market": 4.1,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 42.4,
-              "mid": 59.99,
-              "high": 89.99,
-              "market": 42.73,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/ex7-29",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 1.41,
-            "lowPrice": 0.15,
-            "trendPrice": 0.92,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 22.98,
-            "reverseHoloLow": 7.0,
-            "reverseHoloTrend": 15.86,
-            "lowPriceExPlus": 1.49,
-            "avg1": 1.45,
-            "avg7": 1.42,
-            "avg30": 1.74,
-            "reverseHoloAvg1": 6.0,
-            "reverseHoloAvg7": 17.34,
-            "reverseHoloAvg30": 12.83
-          }
-        }
-      },
-      {
-        "id": "swsh35-34",
+        "id": "sv5-176",
         "name": "Arbok",
         "supertype": "Pokémon",
         "subtypes": [
@@ -880,780 +136,29 @@
         "types": [
           "Darkness"
         ],
-        "hp": "120",
+        "hp": "130",
         "evolvesFrom": "Ekans",
         "evolvesTo": [],
         "abilities": [],
         "attacks": [
           {
-            "name": "Sharp Fang",
+            "name": "Panic Poison",
             "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "30",
-            "text": ""
-          },
-          {
-            "name": "Tail Snap",
-            "cost": [
-              "Darkness",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "70",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Champion's Path",
-          "series": "Sword & Shield",
-          "releaseDate": "2020/09/25",
-          "logo": "https://images.pokemontcg.io/swsh35/logo.png",
-          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png"
-        },
-        "number": "34",
-        "rarity": "Uncommon",
-        "flavorText": "After stunning its opponents with the pattern on its stomach, it quickly wraps them up in its body and waits for them to stop moving.",
-        "artist": "nagimiso",
-        "legalities": {
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/swsh35/34.png",
-          "large": "https://images.pokemontcg.io/swsh35/34_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-34",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "reverseHolofoil": {
-              "low": 0.03,
-              "mid": 0.25,
-              "high": 2.0,
-              "market": 0.19,
-              "directLow": null
-            },
-            "normal": {
-              "low": 0.04,
-              "mid": 0.15,
-              "high": 1.49,
-              "market": 0.12,
-              "directLow": 0.1
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-34",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 0.09,
-            "lowPrice": 0.02,
-            "trendPrice": 0.11,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.34,
-            "reverseHoloLow": 0.1,
-            "reverseHoloTrend": 0.32,
-            "lowPriceExPlus": 0.02,
-            "avg1": 0.02,
-            "avg7": 0.1,
-            "avg30": 0.1,
-            "reverseHoloAvg1": 0.29,
-            "reverseHoloAvg7": 0.38,
-            "reverseHoloAvg30": 0.29
-          }
-        }
-      },
-      {
-        "id": "ex2-29",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "70",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Intimidating Fang",
-            "text": "As long as Arbok is your Active Pokémon, any damage done to your Pokémon by an opponent's attack is reduced by 10 (before applying Weakness and Resistance).",
-            "type": "Poké-Body"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Toxic",
-            "cost": [
-              "Grass",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "20",
-            "text": "The Defending Pokémon is now Poisoned. Put 2 damage counters instead of 1 on the Defending Pokémon between turns."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Sandstorm",
-          "series": "EX",
-          "releaseDate": "2003/09/18",
-          "logo": "https://images.pokemontcg.io/ex2/logo.png",
-          "symbol": "https://images.pokemontcg.io/ex2/symbol.png"
-        },
-        "number": "29",
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": "Midori Harada",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/ex2/29.png",
-          "large": "https://images.pokemontcg.io/ex2/29_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-29",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 1.0,
-              "mid": 1.49,
-              "high": 2.99,
-              "market": 1.65,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 9.0,
-              "mid": 13.2,
-              "high": 19.41,
-              "market": 13.16,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/ex2-29",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 1.54,
-            "lowPrice": 0.02,
-            "trendPrice": 1.38,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 1.5,
-            "reverseHoloTrend": 5.21,
-            "lowPriceExPlus": 1.0,
-            "avg1": 2.0,
-            "avg7": 1.4,
-            "avg30": 1.46,
-            "reverseHoloAvg1": 7.95,
-            "reverseHoloAvg7": 4.07,
-            "reverseHoloAvg30": 4.64
-          }
-        }
-      },
-      {
-        "id": "dp4-33",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "80",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Deadly Poison",
-            "cost": [
-              "Psychic"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10+",
-            "text": "If the Defending Pokémon is Poisoned, this attack does 10 damage plus 40 more damage. If the Defending Pokémon is not Poisoned, that Pokémon is now Poisoned."
-          },
-          {
-            "name": "Wrap",
-            "cost": [
-              "Colorless",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "50",
-            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "+20"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Great Encounters",
-          "series": "Diamond & Pearl",
-          "releaseDate": "2008/02/01",
-          "logo": "https://images.pokemontcg.io/dp4/logo.png",
-          "symbol": "https://images.pokemontcg.io/dp4/symbol.png"
-        },
-        "number": "33",
-        "rarity": "Uncommon",
-        "flavorText": "The pattern on its belly is for intimidation. It constricts foes while they are frozen in fear.",
-        "artist": "Ken Sugimori",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/dp4/33.png",
-          "large": "https://images.pokemontcg.io/dp4/33_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-33",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 0.2,
-              "mid": 0.45,
-              "high": 1.73,
-              "market": 0.58,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 2.25,
-              "mid": 3.72,
-              "high": 5.0,
-              "market": 2.06,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/dp4-33",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 0.2,
-            "lowPrice": 0.02,
-            "trendPrice": 0.22,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 1.25,
-            "reverseHoloLow": 0.5,
-            "reverseHoloTrend": 0.53,
-            "lowPriceExPlus": 0.09,
-            "avg1": 0.1,
-            "avg7": 0.21,
-            "avg30": 0.19,
-            "reverseHoloAvg1": 1.5,
-            "reverseHoloAvg7": 0.92,
-            "reverseHoloAvg30": 1.51
-          }
-        }
-      },
-      {
-        "id": "ecard1-35",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "70",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Poison Spray",
-            "cost": [
-              "Grass"
+              "Darkness"
             ],
             "convertedEnergyCost": 1,
             "damage": "",
-            "text": "The Defending Pokémon is now Poisoned."
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
           },
           {
-            "name": "Poison Reaction",
-            "cost": [
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "20+",
-            "text": "If the Defending Pokémon is Poisoned, this attack does 20 damage plus 20 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "Expedition Base Set",
-          "series": "E-Card",
-          "releaseDate": "2002/09/15",
-          "logo": "https://images.pokemontcg.io/ecard1/logo.png",
-          "symbol": "https://images.pokemontcg.io/ecard1/symbol.png"
-        },
-        "number": "35",
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": "Kyoko Umemoto",
-        "legalities": {
-          "unlimited": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/ecard1/35.png",
-          "large": "https://images.pokemontcg.io/ecard1/35_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-35",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 5.0,
-              "mid": 8.75,
-              "high": 15.0,
-              "market": 7.71,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 8.44,
-              "mid": 13.03,
-              "high": 30.0,
-              "market": 21.11,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-35",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 4.03,
-            "lowPrice": 0.45,
-            "trendPrice": 3.21,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 4.62,
-            "reverseHoloLow": 0.8,
-            "reverseHoloTrend": 5.3,
-            "lowPriceExPlus": 1.0,
-            "avg1": 1.2,
-            "avg7": 3.0,
-            "avg30": 2.85,
-            "reverseHoloAvg1": 1.2,
-            "reverseHoloAvg7": 5.95,
-            "reverseHoloAvg30": 5.32
-          }
-        }
-      },
-      {
-        "id": "sm35-37",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "120",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Intimidating Pattern",
-            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Active Pokémon's attacks do 30 less damage (before applying Weakness and Resistance).",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Venomous Fang",
-            "cost": [
-              "Psychic",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "70",
-            "text": "Your opponent's Active Pokémon is now Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 3,
-        "set": {
-          "name": "Shining Legends",
-          "series": "Sun & Moon",
-          "releaseDate": "2017/10/06",
-          "logo": "https://images.pokemontcg.io/sm35/logo.png",
-          "symbol": "https://images.pokemontcg.io/sm35/symbol.png"
-        },
-        "number": "37",
-        "rarity": "Uncommon",
-        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
-        "artist": "kodama",
-        "legalities": {
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/sm35/37.png",
-          "large": "https://images.pokemontcg.io/sm35/37_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-37",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 0.08,
-              "mid": 0.23,
-              "high": 4.28,
-              "market": 0.19,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 0.12,
-              "mid": 0.74,
-              "high": 3.95,
-              "market": 0.75,
-              "directLow": 0.77
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sm35-37",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 0.11,
-            "lowPrice": 0.02,
-            "trendPrice": 0.22,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.38,
-            "reverseHoloLow": 0.08,
-            "reverseHoloTrend": 0.48,
-            "lowPriceExPlus": 0.02,
-            "avg1": 0.05,
-            "avg7": 0.26,
-            "avg30": 0.13,
-            "reverseHoloAvg1": 0.4,
-            "reverseHoloAvg7": 0.44,
-            "reverseHoloAvg30": 0.4
-          }
-        }
-      },
-      {
-        "id": "xy1-48",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "90",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Gastro Acid",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": "The Defending Pokémon has no Abilities until the end of your next turn."
-          },
-          {
-            "name": "Poison Jab",
-            "cost": [
-              "Psychic",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "50",
-            "text": "Your opponent's Active Pokémon is now Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "name": "XY",
-          "series": "XY",
-          "releaseDate": "2014/02/05",
-          "logo": "https://images.pokemontcg.io/xy1/logo.png",
-          "symbol": "https://images.pokemontcg.io/xy1/symbol.png"
-        },
-        "number": "48",
-        "rarity": "Rare",
-        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
-        "artist": "Naoki Saito",
-        "legalities": {
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/xy1/48.png",
-          "large": "https://images.pokemontcg.io/xy1/48_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-48",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 0.2,
-              "mid": 0.7,
-              "high": 5.0,
-              "market": 0.69,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 0.5,
-              "mid": 0.75,
-              "high": 1.0,
-              "market": 0.75,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/xy1-48",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 0.64,
-            "lowPrice": 0.1,
-            "trendPrice": 0.62,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.74,
-            "reverseHoloLow": 0.1,
-            "reverseHoloTrend": 1.55,
-            "lowPriceExPlus": 0.4,
-            "avg1": 0.59,
-            "avg7": 0.65,
-            "avg30": 0.81,
-            "reverseHoloAvg1": 0.49,
-            "reverseHoloAvg7": 1.56,
-            "reverseHoloAvg30": 1.47
-          }
-        }
-      },
-      {
-        "id": "sm10-63",
-        "name": "Arbok",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "120",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Wrap",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "30",
-            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
-          },
-          {
-            "name": "Heavy Choke",
-            "cost": [
-              "Psychic",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "50+",
-            "text": "If this Pokémon used Wrap during your last turn, this attack does 120 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Psychic",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "Unbroken Bonds",
-          "series": "Sun & Moon",
-          "releaseDate": "2019/05/03",
-          "logo": "https://images.pokemontcg.io/sm10/logo.png",
-          "symbol": "https://images.pokemontcg.io/sm10/symbol.png"
-        },
-        "number": "63",
-        "rarity": "Rare",
-        "flavorText": "The latest research has determined that there are over 20 possible arrangements of the patterns on its stomach.",
-        "artist": "Yukiko Baba",
-        "legalities": {
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/sm10/63.png",
-          "large": "https://images.pokemontcg.io/sm10/63_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-63",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "normal": {
-              "low": 0.1,
-              "mid": 0.36,
-              "high": 2.0,
-              "market": 0.32,
-              "directLow": null
-            },
-            "reverseHolofoil": {
-              "low": 0.25,
-              "mid": 0.5,
-              "high": 10.0,
-              "market": 0.52,
-              "directLow": null
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sm10-63",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 0.37,
-            "lowPrice": 0.09,
-            "trendPrice": 0.41,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.3,
-            "reverseHoloLow": 0.2,
-            "reverseHoloTrend": 0.69,
-            "lowPriceExPlus": 0.1,
-            "avg1": 0.4,
-            "avg7": 0.34,
-            "avg30": 0.31,
-            "reverseHoloAvg1": 0.28,
-            "reverseHoloAvg7": 0.59,
-            "reverseHoloAvg30": 0.72
-          }
-        }
-      },
-      {
-        "id": "sv3pt5-24",
-        "name": "Arbok ex",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1",
-          "ex"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "270",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Bind Down",
+            "name": "Darkness Fang",
             "cost": [
               "Darkness",
               "Darkness"
             ],
             "convertedEnergyCost": 2,
             "damage": "70",
-            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
-          },
-          {
-            "name": "Menacing Fangs",
-            "cost": [
-              "Darkness",
-              "Darkness",
-              "Darkness"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "150",
-            "text": "Your opponent discards 2 cards from their hand."
+            "text": ""
           }
         ],
         "weaknesses": [
@@ -1669,159 +174,63 @@
         ],
         "convertedRetreatCost": 2,
         "set": {
-          "name": "151",
+          "id": "sv5",
+          "name": "Temporal Forces",
           "series": "Scarlet & Violet",
-          "releaseDate": "2023/09/22",
-          "logo": "https://images.pokemontcg.io/sv3pt5/logo.png",
-          "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png"
-        },
-        "number": "24",
-        "rarity": "Double Rare",
-        "flavorText": null,
-        "artist": "Eske Yoshinob",
-        "legalities": {
-          "unlimited": "Legal",
-          "standard": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.pokemontcg.io/sv3pt5/24.png",
-          "large": "https://images.pokemontcg.io/sv3pt5/24_hires.png"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-24",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "holofoil": {
-              "low": 0.57,
-              "mid": 1.03,
-              "high": 22.0,
-              "market": 0.94,
-              "directLow": 1.29
-            }
-          }
-        },
-        "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-24",
-          "updatedAt": "2025/12/16",
-          "prices": {
-            "averageSellPrice": 1.69,
-            "lowPrice": 0.41,
-            "trendPrice": 1.78,
-            "germanProLow": 0.0,
-            "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 0.0,
-            "lowPriceExPlus": 0.41,
-            "avg1": 1.43,
-            "avg7": 1.68,
-            "avg30": 1.7,
-            "reverseHoloAvg1": 0.0,
-            "reverseHoloAvg7": 0.0,
-            "reverseHoloAvg30": 0.0
-          }
-        }
-      },
-      {
-        "id": "sv3pt5-185",
-        "name": "Arbok ex",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1",
-          "ex"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "270",
-        "evolvesFrom": "Ekans",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Bind Down",
-            "cost": [
-              "Darkness",
-              "Darkness"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "70",
-            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          "releaseDate": "2024/03/22",
+          "total": 218,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
           },
-          {
-            "name": "Menacing Fangs",
-            "cost": [
-              "Darkness",
-              "Darkness",
-              "Darkness"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "150",
-            "text": "Your opponent discards 2 cards from their hand."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "name": "151",
-          "series": "Scarlet & Violet",
-          "releaseDate": "2023/09/22",
-          "logo": "https://images.pokemontcg.io/sv3pt5/logo.png",
-          "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png"
+          "logo": "https://images.pokemontcg.io/sv5/logo.png",
+          "symbol": "https://images.pokemontcg.io/sv5/symbol.png"
         },
-        "number": "185",
-        "rarity": "Ultra Rare",
-        "flavorText": null,
-        "artist": "Eske Yoshinob",
+        "number": "176",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Illustration Rare",
+        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
+        "artist": "OKUBO",
         "legalities": {
           "unlimited": "Legal",
           "standard": "Legal",
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.pokemontcg.io/sv3pt5/185.png",
-          "large": "https://images.pokemontcg.io/sv3pt5/185_hires.png"
+          "small": "https://images.pokemontcg.io/sv5/176.png",
+          "large": "https://images.pokemontcg.io/sv5/176_hires.png"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-185",
-          "updatedAt": "2025/12/16",
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-176",
+          "updatedAt": "2026/04/12",
           "prices": {
             "holofoil": {
-              "low": 3.5,
-              "mid": 5.55,
-              "high": 50.0,
-              "market": 4.82,
-              "directLow": null
+              "low": 14.88,
+              "mid": 19.19,
+              "high": 180.93,
+              "market": 17.45,
+              "directLow": 14.88
             }
           }
         },
         "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-185",
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-176",
           "updatedAt": "2025/11/18",
           "prices": {
-            "averageSellPrice": 9.56,
-            "lowPrice": 7.0,
-            "trendPrice": 9.59,
+            "averageSellPrice": 14.27,
+            "lowPrice": 6.99,
+            "trendPrice": 14.5,
             "germanProLow": 0.0,
             "suggestedPrice": 0.0,
             "reverseHoloSell": 0.0,
             "reverseHoloLow": 0.0,
             "reverseHoloTrend": 0.0,
-            "lowPriceExPlus": 7.0,
-            "avg1": 10.15,
-            "avg7": 9.53,
-            "avg30": 9.44,
+            "lowPriceExPlus": 8.0,
+            "avg1": 11.86,
+            "avg7": 13.57,
+            "avg30": 13.9,
             "reverseHoloAvg1": 0.0,
             "reverseHoloAvg7": 0.0,
             "reverseHoloAvg30": 0.0
@@ -1876,13 +285,22 @@
         ],
         "convertedRetreatCost": 2,
         "set": {
+          "id": "sv5",
           "name": "Temporal Forces",
           "series": "Scarlet & Violet",
           "releaseDate": "2024/03/22",
+          "total": 218,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          },
           "logo": "https://images.pokemontcg.io/sv5/logo.png",
           "symbol": "https://images.pokemontcg.io/sv5/symbol.png"
         },
         "number": "101",
+        "nationalPokedexNumbers": [
+          24
+        ],
         "rarity": "Common",
         "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
         "artist": "Minato",
@@ -1897,48 +315,276 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/sv5-101",
-          "updatedAt": "2025/12/16",
+          "updatedAt": "2026/04/12",
           "prices": {
             "reverseHolofoil": {
               "low": 0.02,
-              "mid": 0.17,
-              "high": 2.0,
-              "market": 0.14,
-              "directLow": 0.06
+              "mid": 0.2,
+              "high": 19.98,
+              "market": 0.19,
+              "directLow": 0.14
             },
             "normal": {
               "low": 0.01,
-              "mid": 0.1,
-              "high": 1.53,
-              "market": 0.07,
-              "directLow": null
+              "mid": 0.15,
+              "high": 19.98,
+              "market": 0.14,
+              "directLow": 0.09
             }
           }
         },
         "cardmarket": {
           "url": "https://prices.pokemontcg.io/cardmarket/sv5-101",
-          "updatedAt": "2025/12/13",
+          "updatedAt": "2026/01/16",
           "prices": {
-            "averageSellPrice": 0.05,
+            "averageSellPrice": 0.09,
             "lowPrice": 0.02,
-            "trendPrice": 0.06,
+            "trendPrice": 0.1,
             "germanProLow": 0.0,
             "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.12,
+            "reverseHoloSell": 0.11,
             "reverseHoloLow": 0.02,
-            "reverseHoloTrend": 0.15,
+            "reverseHoloTrend": 0.14,
             "lowPriceExPlus": 0.02,
-            "avg1": 0.04,
-            "avg7": 0.07,
-            "avg30": 0.06,
-            "reverseHoloAvg1": 0.09,
+            "avg1": 0.03,
+            "avg7": 0.18,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.11,
             "reverseHoloAvg7": 0.13,
-            "reverseHoloAvg30": 0.12
+            "reverseHoloAvg30": 0.11
           }
         }
       },
       {
-        "id": "sv5-176",
+        "id": "sv3pt5-185",
+        "name": "Arbok ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "270",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Bind Down",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Menacing Fangs",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent discards 2 cards from their hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "releaseDate": "2023/09/22",
+          "total": 207,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/sv3pt5/logo.png",
+          "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png"
+        },
+        "number": "185",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Ultra Rare",
+        "flavorText": null,
+        "artist": "Eske Yoshinob",
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/185.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-185",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 8.83,
+              "high": 139.8,
+              "market": 8.28,
+              "directLow": 11.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 9.56,
+            "lowPrice": 7.0,
+            "trendPrice": 9.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 7.0,
+            "avg1": 10.15,
+            "avg7": 9.53,
+            "avg30": 9.44,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-24",
+        "name": "Arbok ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "270",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Bind Down",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": "During your opponent's next turn, the Defending Pokémon can't retreat."
+          },
+          {
+            "name": "Menacing Fangs",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent discards 2 cards from their hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "releaseDate": "2023/09/22",
+          "total": 207,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/sv3pt5/logo.png",
+          "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png"
+        },
+        "number": "24",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Double Rare",
+        "flavorText": null,
+        "artist": "Eske Yoshinob",
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/24.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-24",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "holofoil": {
+              "low": 0.6,
+              "mid": 1.37,
+              "high": 20.0,
+              "market": 1.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-24",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 1.97,
+            "lowPrice": 0.35,
+            "trendPrice": 2.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 2.35,
+            "avg7": 2.17,
+            "avg30": 2.06,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh35-34",
         "name": "Arbok",
         "supertype": "Pokémon",
         "subtypes": [
@@ -1947,25 +593,25 @@
         "types": [
           "Darkness"
         ],
-        "hp": "130",
+        "hp": "120",
         "evolvesFrom": "Ekans",
         "evolvesTo": [],
         "abilities": [],
         "attacks": [
           {
-            "name": "Panic Poison",
+            "name": "Sharp Fang",
             "cost": [
-              "Darkness"
+              "Colorless"
             ],
             "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+            "damage": "30",
+            "text": ""
           },
           {
-            "name": "Darkness Fang",
+            "name": "Tail Snap",
             "cost": [
               "Darkness",
-              "Darkness"
+              "Colorless"
             ],
             "convertedEnergyCost": 2,
             "damage": "70",
@@ -1980,101 +626,115 @@
         ],
         "resistances": [],
         "retreatCost": [
-          "Colorless",
           "Colorless"
         ],
-        "convertedRetreatCost": 2,
+        "convertedRetreatCost": 1,
         "set": {
-          "name": "Temporal Forces",
-          "series": "Scarlet & Violet",
-          "releaseDate": "2024/03/22",
-          "logo": "https://images.pokemontcg.io/sv5/logo.png",
-          "symbol": "https://images.pokemontcg.io/sv5/symbol.png"
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "releaseDate": "2020/09/25",
+          "total": 80,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/swsh35/logo.png",
+          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png"
         },
-        "number": "176",
-        "rarity": "Illustration Rare",
-        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
-        "artist": "OKUBO",
+        "number": "34",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": "After stunning its opponents with the pattern on its stomach, it quickly wraps them up in its body and waits for them to stop moving.",
+        "artist": "nagimiso",
         "legalities": {
           "unlimited": "Legal",
-          "standard": "Legal",
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.pokemontcg.io/sv5/176.png",
-          "large": "https://images.pokemontcg.io/sv5/176_hires.png"
+          "small": "https://images.pokemontcg.io/swsh35/34.png",
+          "large": "https://images.pokemontcg.io/swsh35/34_hires.png"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-176",
-          "updatedAt": "2025/12/16",
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-34",
+          "updatedAt": "2026/04/12",
           "prices": {
-            "holofoil": {
-              "low": 12.0,
-              "mid": 15.0,
-              "high": 100.0,
-              "market": 13.58,
-              "directLow": 13.96
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.31,
+              "high": 19.98,
+              "market": 0.3,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 19.98,
+              "market": 0.17,
+              "directLow": 0.1
             }
           }
         },
         "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sv5-176",
-          "updatedAt": "2025/11/18",
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-34",
+          "updatedAt": "2026/03/11",
           "prices": {
-            "averageSellPrice": 14.27,
-            "lowPrice": 6.99,
-            "trendPrice": 14.5,
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.09,
             "germanProLow": 0.0,
             "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.0,
-            "reverseHoloLow": 0.0,
-            "reverseHoloTrend": 0.0,
-            "lowPriceExPlus": 8.0,
-            "avg1": 11.86,
-            "avg7": 13.57,
-            "avg30": 13.9,
-            "reverseHoloAvg1": 0.0,
-            "reverseHoloAvg7": 0.0,
-            "reverseHoloAvg30": 0.0
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.32,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.27,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.29
           }
         }
       },
       {
-        "id": "sv10-113",
-        "name": "Team Rocket's Arbok",
+        "id": "sm115-27",
+        "name": "Arbok",
         "supertype": "Pokémon",
         "subtypes": [
           "Stage 1"
         ],
         "types": [
-          "Darkness"
+          "Psychic"
         ],
-        "hp": "130",
-        "evolvesFrom": "Team Rocket's Ekans",
+        "hp": "120",
+        "evolvesFrom": "Ekans",
         "evolvesTo": [],
         "abilities": [
           {
-            "name": "Potent Glare",
-            "text": "As long as this Pokémon is in the Active Spot, your opponent can't play any Pokémon that has an Ability from their hand, except for Team Rocket's Pokémon.",
+            "name": "Last Pattern",
+            "text": "If this Pokémon is Knocked Out by damage from an opponent's attack, discard 2 random cards from your opponent's hand.",
             "type": "Ability"
           }
         ],
         "attacks": [
           {
-            "name": "Spinning Tail",
+            "name": "Rocket Tail",
             "cost": [
-              "Darkness",
-              "Darkness",
-              "Darkness"
+              "Psychic",
+              "Colorless",
+              "Colorless"
             ],
             "convertedEnergyCost": 3,
-            "damage": "",
-            "text": "This attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+            "damage": "50+",
+            "text": "If Jessie & James is in your discard pile, this attack does 80 more damage."
           }
         ],
         "weaknesses": [
           {
-            "type": "Fighting",
+            "type": "Psychic",
             "value": "×2"
           }
         ],
@@ -2085,69 +745,1589 @@
         ],
         "convertedRetreatCost": 2,
         "set": {
-          "name": "Destined Rivals",
-          "series": "Scarlet & Violet",
-          "releaseDate": "2025/05/30",
-          "logo": "https://images.pokemontcg.io/sv10/logo.png",
-          "symbol": "https://images.pokemontcg.io/sv10/symbol.png"
+          "id": "sm115",
+          "name": "Hidden Fates",
+          "series": "Sun & Moon",
+          "releaseDate": "2019/08/23",
+          "total": 69,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm115/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm115/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/sm115/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm115/symbol.png"
         },
-        "number": "113",
-        "rarity": "Uncommon",
-        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
-        "artist": "Teeziro",
+        "number": "27",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": "The latest research has determined that there are over 20 possible arrangements of the patterns on its stomach.",
+        "artist": "kirisAki",
         "legalities": {
           "unlimited": "Legal",
-          "standard": "Legal",
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.pokemontcg.io/sv10/113.png",
-          "large": "https://images.pokemontcg.io/sv10/113_hires.png"
+          "small": "https://images.pokemontcg.io/sm115/27.png",
+          "large": "https://images.pokemontcg.io/sm115/27_hires.png"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-113",
-          "updatedAt": "2025/12/16",
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm115-27",
+          "updatedAt": "2026/04/12",
           "prices": {
-            "normal": {
-              "low": 0.01,
-              "mid": 0.11,
-              "high": 20.0,
-              "market": 0.06,
-              "directLow": 0.04
-            },
             "reverseHolofoil": {
-              "low": 0.05,
-              "mid": 0.35,
-              "high": 20.0,
+              "low": 0.25,
+              "mid": 0.7,
+              "high": 5.9,
+              "market": 0.55,
+              "directLow": 0.68
+            },
+            "normal": {
+              "low": 0.09,
+              "mid": 0.3,
+              "high": 25.0,
               "market": 0.3,
               "directLow": 0.25
             }
           }
         },
         "cardmarket": {
-          "url": "https://prices.pokemontcg.io/cardmarket/sv10-113",
-          "updatedAt": "2025/11/25",
+          "url": "https://prices.pokemontcg.io/cardmarket/sm115-27",
+          "updatedAt": "2026/04/11",
           "prices": {
-            "averageSellPrice": 0.04,
-            "lowPrice": 0.02,
-            "trendPrice": 0.05,
+            "averageSellPrice": 0.28,
+            "lowPrice": 0.05,
+            "trendPrice": 0.74,
             "germanProLow": 0.0,
             "suggestedPrice": 0.0,
-            "reverseHoloSell": 0.28,
-            "reverseHoloLow": 0.02,
-            "reverseHoloTrend": 0.29,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.18,
+            "reverseHoloTrend": 0.66,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.95,
+            "avg7": 0.96,
+            "avg30": 0.5,
+            "reverseHoloAvg1": 1.42,
+            "reverseHoloAvg7": 0.73,
+            "reverseHoloAvg30": 0.7
+          }
+        }
+      },
+      {
+        "id": "sm10-63",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "120",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Wrap",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Heavy Choke",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If this Pokémon used Wrap during your last turn, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "releaseDate": "2019/05/03",
+          "total": 234,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/sm10/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png"
+        },
+        "number": "63",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": "The latest research has determined that there are over 20 possible arrangements of the patterns on its stomach.",
+        "artist": "Yukiko Baba",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/63.png",
+          "large": "https://images.pokemontcg.io/sm10/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-63",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 0.24,
+              "mid": 0.38,
+              "high": 19.98,
+              "market": 0.35,
+              "directLow": 0.35
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.56,
+              "high": 19.98,
+              "market": 0.5,
+              "directLow": 0.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-63",
+          "updatedAt": "2026/01/26",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.1,
+            "trendPrice": 0.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.43,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.09,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.39,
+            "avg7": 0.3,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.17,
+            "reverseHoloAvg30": 0.84
+          }
+        }
+      },
+      {
+        "id": "sm35-37",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "120",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Intimidating Pattern",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Active Pokémon's attacks do 30 less damage (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Venomous Fang",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "releaseDate": "2017/10/06",
+          "total": 81,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/sm35/logo.png",
+          "symbol": "https://images.pokemontcg.io/sm35/symbol.png"
+        },
+        "number": "37",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
+        "artist": "kodama",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/37.png",
+          "large": "https://images.pokemontcg.io/sm35/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-37",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.23,
+              "high": 19.98,
+              "market": 0.22,
+              "directLow": 0.22
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.75,
+              "high": 19.98,
+              "market": 0.72,
+              "directLow": 0.77
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-37",
+          "updatedAt": "2026/03/07",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.45,
+            "reverseHoloLow": 0.06,
+            "reverseHoloTrend": 0.45,
             "lowPriceExPlus": 0.02,
-            "avg1": 0.06,
-            "avg7": 0.06,
-            "avg30": 0.04,
-            "reverseHoloAvg1": 0.51,
-            "reverseHoloAvg7": 0.26,
-            "reverseHoloAvg30": 0.26
+            "avg1": 0.05,
+            "avg7": 0.07,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.48,
+            "reverseHoloAvg30": 0.43
+          }
+        }
+      },
+      {
+        "id": "xy1-48",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "90",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Gastro Acid",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "The Defending Pokémon has no Abilities until the end of your next turn."
+          },
+          {
+            "name": "Poison Jab",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "releaseDate": "2014/02/05",
+          "total": 146,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/xy1/logo.png",
+          "symbol": "https://images.pokemontcg.io/xy1/symbol.png"
+        },
+        "number": "48",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": "The pattern on its belly appears to be a frightening face. Weak foes will flee just at the sight of the pattern.",
+        "artist": "Naoki Saito",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/48.png",
+          "large": "https://images.pokemontcg.io/xy1/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-48",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.69,
+              "high": 19.98,
+              "market": 0.68,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 0.95,
+              "high": 19.98,
+              "market": 0.8,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-48",
+          "updatedAt": "2026/02/22",
+          "prices": {
+            "averageSellPrice": 0.73,
+            "lowPrice": 0.1,
+            "trendPrice": 0.7,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.99,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.7,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.8,
+            "avg7": 0.81,
+            "avg30": 0.72,
+            "reverseHoloAvg1": 3.75,
+            "reverseHoloAvg7": 1.61,
+            "reverseHoloAvg30": 1.59
+          }
+        }
+      },
+      {
+        "id": "dp4-33",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "80",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Deadly Poison",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If the Defending Pokémon is Poisoned, this attack does 10 damage plus 40 more damage. If the Defending Pokémon is not Poisoned, that Pokémon is now Poisoned."
+          },
+          {
+            "name": "Wrap",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "releaseDate": "2008/02/01",
+          "total": 106,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/dp4/logo.png",
+          "symbol": "https://images.pokemontcg.io/dp4/symbol.png"
+        },
+        "number": "33",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": "The pattern on its belly is for intimidation. It constricts foes while they are frozen in fear.",
+        "artist": "Ken Sugimori",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/33.png",
+          "large": "https://images.pokemontcg.io/dp4/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-33",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.5,
+              "high": 19.98,
+              "market": 0.6,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.99,
+              "mid": 27.68,
+              "high": 100.5,
+              "market": 5.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-33",
+          "updatedAt": "2026/03/11",
+          "prices": {
+            "averageSellPrice": 0.3,
+            "lowPrice": 0.02,
+            "trendPrice": 0.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.12,
+            "reverseHoloLow": 0.69,
+            "reverseHoloTrend": 0.96,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.3,
+            "avg7": 0.24,
+            "avg30": 0.28,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.38,
+            "reverseHoloAvg30": 1.45
+          }
+        }
+      },
+      {
+        "id": "ex15-13",
+        "name": "Arbok δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "80",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Burning Venom",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Burned and Poisoned."
+          },
+          {
+            "name": "Strangle",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If the Defending Pokémon has δ on its card, this attack does 50 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "releaseDate": "2006/11/01",
+          "total": 101,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/ex15/logo.png",
+          "symbol": "https://images.pokemontcg.io/ex15/symbol.png"
+        },
+        "number": "13",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": "Hisao Nakamura",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/13.png",
+          "large": "https://images.pokemontcg.io/ex15/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-13",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 0.96,
+              "mid": 1.63,
+              "high": 37.9,
+              "market": 1.89,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 29.0,
+              "mid": 56.0,
+              "high": 572.5,
+              "market": 26.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-13",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 0.81,
+            "lowPrice": 0.1,
+            "trendPrice": 1.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.7,
+            "reverseHoloLow": 3.29,
+            "reverseHoloTrend": 12.04,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.2,
+            "avg7": 1.18,
+            "avg30": 0.84,
+            "reverseHoloAvg1": 5.5,
+            "reverseHoloAvg7": 11.91,
+            "reverseHoloAvg30": 9.7
+          }
+        }
+      },
+      {
+        "id": "ex7-29",
+        "name": "Dark Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass",
+          "Darkness"
+        ],
+        "hp": "90",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Swallow Up",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Before doing damage, count the remaining HP of the Defending Pokémon and Dark Arbok. If the Defending Pokémon has fewer remaining HP than Dark Arbok's, this attack does 10 damage plus 30 more damage."
+          },
+          {
+            "name": "Extra Poison",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "If the Defending Pokémon is Pokémon-ex, the Defending Pokémon is now Asleep and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "releaseDate": "2004/11/01",
+          "total": 111,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/ex7/logo.png",
+          "symbol": "https://images.pokemontcg.io/ex7/symbol.png"
+        },
+        "number": "29",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": "Nakaoka",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/29.png",
+          "large": "https://images.pokemontcg.io/ex7/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-29",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 3.0,
+              "mid": 5.22,
+              "high": 56.0,
+              "market": 4.47,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 39.99,
+              "mid": 71.02,
+              "high": 696.9,
+              "market": 69.79,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-29",
+          "updatedAt": "2026/04/11",
+          "prices": {
+            "averageSellPrice": 2.01,
+            "lowPrice": 0.25,
+            "trendPrice": 2.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 55.99,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 38.12,
+            "lowPriceExPlus": 1.5,
+            "avg1": 3.5,
+            "avg7": 2.47,
+            "avg30": 1.78,
+            "reverseHoloAvg1": 165.0,
+            "reverseHoloAvg7": 45.92,
+            "reverseHoloAvg30": 20.78
+          }
+        }
+      },
+      {
+        "id": "ex2-29",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "70",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Intimidating Fang",
+            "text": "As long as Arbok is your Active Pokémon, any damage done to your Pokémon by an opponent's attack is reduced by 10 (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Toxic",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned. Put 2 damage counters instead of 1 on the Defending Pokémon between turns."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex2",
+          "name": "Sandstorm",
+          "series": "EX",
+          "releaseDate": "2003/09/18",
+          "total": 100,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex2/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/ex2/logo.png",
+          "symbol": "https://images.pokemontcg.io/ex2/symbol.png"
+        },
+        "number": "29",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": "Midori Harada",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex2/29.png",
+          "large": "https://images.pokemontcg.io/ex2/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-29",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 1.36,
+              "mid": 2.25,
+              "high": 28.0,
+              "market": 2.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 13.2,
+              "mid": 19.41,
+              "high": 137.4,
+              "market": 13.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex2-29",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 1.94,
+            "lowPrice": 0.02,
+            "trendPrice": 2.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.5,
+            "reverseHoloLow": 1.3,
+            "reverseHoloTrend": 8.73,
+            "lowPriceExPlus": 1.16,
+            "avg1": 1.25,
+            "avg7": 1.35,
+            "avg30": 1.93,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 5.97,
+            "reverseHoloAvg30": 6.58
+          }
+        }
+      },
+      {
+        "id": "ecard1-35",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "70",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Poison Spray",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Poison Reaction",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "If the Defending Pokémon is Poisoned, this attack does 20 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "releaseDate": "2002/09/15",
+          "total": 165,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/ecard1/logo.png",
+          "symbol": "https://images.pokemontcg.io/ecard1/symbol.png"
+        },
+        "number": "35",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": "Kyoko Umemoto",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/35.png",
+          "large": "https://images.pokemontcg.io/ecard1/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-35",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "normal": {
+              "low": 6.49,
+              "mid": 17.5,
+              "high": 192.0,
+              "market": 9.89,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 50.0,
+              "mid": 394.7,
+              "high": 509.9,
+              "market": 42.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-35",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 8.32,
+            "lowPrice": 0.7,
+            "trendPrice": 5.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.5,
+            "reverseHoloLow": 0.8,
+            "reverseHoloTrend": 16.75,
+            "lowPriceExPlus": 1.1,
+            "avg1": 1.5,
+            "avg7": 4.01,
+            "avg30": 5.94,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 3.27,
+            "reverseHoloAvg30": 12.9
+          }
+        }
+      },
+      {
+        "id": "ecard1-3",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "70",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Poison Spray",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Poison Reaction",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "If the Defending Pokémon is Poisoned, this attack does 20 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "releaseDate": "2002/09/15",
+          "total": 165,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/ecard1/logo.png",
+          "symbol": "https://images.pokemontcg.io/ecard1/symbol.png"
+        },
+        "number": "3",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare Holo",
+        "flavorText": null,
+        "artist": "Kyoko Umemoto",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/3.png",
+          "large": "https://images.pokemontcg.io/ecard1/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-3",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "holofoil": {
+              "low": 99.99,
+              "mid": 140.25,
+              "high": 1463.1,
+              "market": 72.22,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 38.0,
+              "mid": 240.15,
+              "high": 650.0,
+              "market": 31.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-3",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 34.51,
+            "lowPrice": 4.0,
+            "trendPrice": 40.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.98,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 9.56,
+            "lowPriceExPlus": 7.99,
+            "avg1": 84.0,
+            "avg7": 28.36,
+            "avg30": 38.19,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 9.68,
+            "reverseHoloAvg30": 10.44
+          }
+        }
+      },
+      {
+        "id": "gym2-25",
+        "name": "Koga's Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "90",
+        "evolvesFrom": "Koga's Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Poison Buildup",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Koga's Arbok is now Poisoned."
+          },
+          {
+            "name": "Poison Power",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "If Koga's Arbok is Poisoned, this attack's base damage is 40 instead of 20 and the Defending Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "releaseDate": "2000/10/16",
+          "total": 132,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/gym2/logo.png",
+          "symbol": "https://images.pokemontcg.io/gym2/symbol.png"
+        },
+        "number": "25",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": "Ken Sugimori",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/25.png",
+          "large": "https://images.pokemontcg.io/gym2/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-25",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "1stEdition": {
+              "low": 13.5,
+              "mid": 17.29,
+              "high": 185.9,
+              "market": 16.48,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 5.99,
+              "mid": 8.52,
+              "high": 88.12,
+              "market": 9.0,
+              "directLow": 10.54
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-25",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 8.58,
+            "lowPrice": 2.5,
+            "trendPrice": 7.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.9,
+            "lowPriceExPlus": 7.0,
+            "avg1": 4.5,
+            "avg7": 9.88,
+            "avg30": 10.64,
+            "reverseHoloAvg1": 2.9,
+            "reverseHoloAvg7": 2.9,
+            "reverseHoloAvg30": 2.9
+          }
+        }
+      },
+      {
+        "id": "base5-19",
+        "name": "Dark Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "60",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Stare",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.) If that Pokémon has a Pokémon Power, that power stops working until the end of your opponent's next turn."
+          },
+          {
+            "name": "Poison Vapor",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10",
+            "text": "The Defending Pokémon is now Poisoned. This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "releaseDate": "2000/04/24",
+          "total": 83,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/base5/logo.png",
+          "symbol": "https://images.pokemontcg.io/base5/symbol.png"
+        },
+        "number": "19",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare",
+        "flavorText": "Freezes its prey with its stare. If you should encounter one, remember not to look into its eyes.",
+        "artist": "Mitsuhiro Arita",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/19.png",
+          "large": "https://images.pokemontcg.io/base5/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-19",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "1stEdition": {
+              "low": 6.99,
+              "mid": 9.61,
+              "high": 119.98,
+              "market": 9.61,
+              "directLow": 7.14
+            },
+            "unlimited": {
+              "low": 4.0,
+              "mid": 6.5,
+              "high": 89.42,
+              "market": 6.76,
+              "directLow": 89.39
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-19",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 8.18,
+            "lowPrice": 1.4,
+            "trendPrice": 5.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.74,
+            "lowPriceExPlus": 5.0,
+            "avg1": 9.74,
+            "avg7": 6.06,
+            "avg30": 7.46,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 8.64,
+            "reverseHoloAvg30": 5.48
+          }
+        }
+      },
+      {
+        "id": "base5-2",
+        "name": "Dark Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "60",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Stare",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage to that Pokémon. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.) If that Pokémon has a Pokémon Power, that power stops working until the end of your opponent's next turn."
+          },
+          {
+            "name": "Poison Vapor",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10",
+            "text": "The Defending Pokémon is now Poisoned. This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "releaseDate": "2000/04/24",
+          "total": 83,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/base5/logo.png",
+          "symbol": "https://images.pokemontcg.io/base5/symbol.png"
+        },
+        "number": "2",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Rare Holo",
+        "flavorText": "Freezes its prey with its stare. If you should encounter one, remember not to look into its eyes.",
+        "artist": "Mitsuhiro Arita",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/2.png",
+          "large": "https://images.pokemontcg.io/base5/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-2",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 75.0,
+              "mid": 289.9,
+              "high": 799.8,
+              "market": 47.01,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 9.0,
+              "mid": 12.58,
+              "high": 200.0,
+              "market": 12.1,
+              "directLow": 9.47
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-2",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 12.34,
+            "lowPrice": 0.9,
+            "trendPrice": 18.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.04,
+            "lowPriceExPlus": 3.0,
+            "avg1": 8.56,
+            "avg7": 13.99,
+            "avg30": 12.68,
+            "reverseHoloAvg1": 13.5,
+            "reverseHoloAvg7": 7.18,
+            "reverseHoloAvg30": 8.33
+          }
+        }
+      },
+      {
+        "id": "base3-31",
+        "name": "Arbok",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "60",
+        "evolvesFrom": "Ekans",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Terror Strike",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads and if your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon.)"
+          },
+          {
+            "name": "Poison Fang",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "releaseDate": "1999/10/10",
+          "total": 62,
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          },
+          "logo": "https://images.pokemontcg.io/base3/logo.png",
+          "symbol": "https://images.pokemontcg.io/base3/symbol.png"
+        },
+        "number": "31",
+        "nationalPokedexNumbers": [
+          24
+        ],
+        "rarity": "Uncommon",
+        "flavorText": "It is rumored that the ferocious warning markings on its belly differ from area to area.",
+        "artist": "Ken Sugimori",
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/31.png",
+          "large": "https://images.pokemontcg.io/base3/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-31",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "1stEdition": {
+              "low": 1.49,
+              "mid": 4.16,
+              "high": 29.99,
+              "market": 5.8,
+              "directLow": 6.47
+            },
+            "unlimited": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 4321.0,
+              "market": 0.87,
+              "directLow": 1.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-31",
+          "updatedAt": "2026/04/12",
+          "prices": {
+            "averageSellPrice": 1.98,
+            "lowPrice": 0.05,
+            "trendPrice": 1.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.51,
+            "lowPriceExPlus": 0.15,
+            "avg1": 1.82,
+            "avg7": 1.68,
+            "avg30": 2.05,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 1.83,
+            "reverseHoloAvg30": 1.83
           }
         }
       }
     ],
     "total_count": 20,
     "search_query": "arbok"
-  }
+  },
+  "cached_at": 1775989308.2332797
 }
