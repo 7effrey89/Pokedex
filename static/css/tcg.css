@@ -958,9 +958,15 @@ a.price-item.price-market:hover {
 
 /* TCG Gallery Card Price Tag */
 .tcg-card-price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.7);
     margin-top: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 999px;
     font-weight: 600;
 }
 
