@@ -282,7 +282,7 @@ class TcgCardDetailView {
         const setPath = setId ? `/tcg/set/${encodeURIComponent(setId)}` : '';
         const setLogoHTML = setLogo
             ? (setPath
-                ? `<a href="${setPath}" class="tcg-set-logo-link" aria-label="View ${setName} expansion">
+                ? `<a href="${setPath}" class="tcg-set-logo-link" aria-label="View cards from ${setName} expansion">
                         <img src="${setLogo}" alt="${setName}" class="tcg-set-logo">
                    </a>`
                 : `<img src="${setLogo}" alt="${setName}" class="tcg-set-logo">`)
