@@ -279,17 +279,19 @@ class TcgCardDetailView {
         const setName = card.set?.name || card.set || 'Unknown Set';
         const setId = card.set?.id;
         const setLogo = card.set?.images?.logo;
+        const safeSetName = this.escapeHTML(setName);
+        const safeSetLogo = setLogo ? this.escapeHTML(setLogo) : '';
         const setPath = setId ? `/tcg/set/${encodeURIComponent(setId)}` : '';
         const setLogoHTML = setLogo
             ? (setPath
-                ? `<a href="${setPath}" class="tcg-set-logo-link" aria-label="View cards from ${setName} expansion">
-                        <img src="${setLogo}" alt="${setName}" class="tcg-set-logo">
+                ? `<a href="${setPath}" class="tcg-set-logo-link" aria-label="View cards from ${safeSetName} expansion">
+                        <img src="${safeSetLogo}" alt="${safeSetName}" class="tcg-set-logo">
                    </a>`
-                : `<img src="${setLogo}" alt="${setName}" class="tcg-set-logo">`)
+                : `<img src="${safeSetLogo}" alt="${safeSetName}" class="tcg-set-logo">`)
             : '';
         return `
             <div class="tcg-card-set-info">
-                <strong>${setName}</strong>
+                <strong>${safeSetName}</strong>
                 <span class="tcg-card-number">${card.number}/${card.set?.total || '?'}</span>
                 ${card.rarity ? `<span class="tcg-rarity-badge">${card.rarity}</span>` : ''}
                 ${setLogoHTML}
@@ -340,6 +342,15 @@ class TcgCardDetailView {
         const iconFile = typeIcons[type] || 'colorless_280.png';
         const iconPath = `/static/images/energy/${iconFile}`;
         return `<img src="${iconPath}" alt="${type}" class="energy-icon type-${type?.toLowerCase() || 'colorless'}" title="${type}">`;
+    }
+
+    escapeHTML(value) {
+        return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
     }
 
     buildPricesHTML(card) {
