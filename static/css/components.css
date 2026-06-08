@@ -1684,14 +1684,16 @@
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Generation chips */
-.search-gen-grid {
+/* Generation and classification chips */
+.search-gen-grid,
+.search-class-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
 }
 
-.search-gen-chip {
+.search-gen-chip,
+.search-class-chip {
     padding: 0.3rem 0.65rem;
     border-radius: 1rem;
     font-size: 0.75rem;
@@ -1705,11 +1707,13 @@
     user-select: none;
 }
 
-.search-gen-chip:hover {
+.search-gen-chip:hover,
+.search-class-chip:hover {
     opacity: 0.85;
 }
 
-.search-gen-chip.selected {
+.search-gen-chip.selected,
+.search-class-chip.selected {
     opacity: 1;
     background: var(--pokedex-blue);
     border-color: #fff;

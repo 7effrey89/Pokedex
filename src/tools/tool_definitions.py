@@ -287,6 +287,25 @@ TOOL_DEFINITIONS = [
         "handler_type": "frontend"
     },
     {
+        "name": "filter_pokemon_by_classification",
+        "description": "Filter the Pokemon grid to show legendary and/or mythical Pokemon. Navigates to the grid first if not already there. Use when user says 'show legendary Pokemon', 'mythical Pokemon only', or 'show legendary and mythical Pokemon'.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "classifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": ["legendary", "mythical"]
+                    },
+                    "description": "One or more classifications to filter by: legendary, mythical, or both"
+                }
+            },
+            "required": ["classifications"]
+        },
+        "handler_type": "frontend"
+    },
+    {
         "name": "sort_tcg_cards",
         "description": "Sort the currently displayed TCG card gallery. Only works when a card gallery is visible. Use when user says 'sort by price', 'show rarest first', or 'sort by name'.",
         "parameters": {
@@ -403,6 +422,7 @@ Guidelines:
 - When users want to browse TCG sets/expansions, use show_tcg_database
 - When users want to filter Pokemon by type, use filter_pokemon_by_type
 - When users want to filter by generation, use filter_pokemon_by_generation
+- When users want to filter legendary or mythical Pokemon, use filter_pokemon_by_classification
 - When users want to sort cards, use sort_tcg_cards or sort_tcg_database
 - If a user's request is ambiguous, ask for clarification
 - Format your responses nicely with the data you receive

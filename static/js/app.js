@@ -1594,7 +1594,7 @@ class PokemonChatApp {
      * Execute a frontend action received from text chat tool calls.
      * Maps _action names to the same window functions used by realtime voice.
      */
-    executeFrontendAction(action) {
+    async executeFrontendAction(action) {
         const name = action?._action;
         if (!name) return;
         console.log('🔧 Executing frontend action from chat:', name, action);
@@ -1620,6 +1620,9 @@ class PokemonChatApp {
                 break;
             case 'filter_pokemon_by_generation':
                 window.filterPokemonByGeneration?.(action.generations || []);
+                break;
+            case 'filter_pokemon_by_classification':
+                await window.filterPokemonByClassification?.(action.classifications || []);
                 break;
             case 'sort_tcg_cards':
                 window.sortTcgCardsCanvas?.(action.sort_by || 'default');
@@ -4675,7 +4678,7 @@ class PokemonChatApp {
             // Handle frontend actions from tool calls
             if (data.frontend_actions && Array.isArray(data.frontend_actions)) {
                 for (const action of data.frontend_actions) {
-                    this.executeFrontendAction(action);
+                    await this.executeFrontendAction(action);
                 }
             }
             // Auto-display Pokemon in canvas if pokemon_data returned
@@ -6375,12 +6378,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!sv) return { error: 'Search view not available' };
         sv.selectedTypes.clear();
         sv.selectedGens.clear();
+        sv.selectedClasses?.clear();
         if (sv.nameInput) sv.nameInput.value = '';
         // Deselect all type chips visually
         sv.typeGrid?.querySelectorAll('.search-type-chip').forEach(chip => {
             chip.classList.remove('selected');
         });
         sv.genGrid?.querySelectorAll('.search-gen-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        sv.classGrid?.querySelectorAll('.search-class-chip').forEach(chip => {
             chip.classList.remove('selected');
         });
         // Select requested types
@@ -6404,6 +6411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!sv) return { error: 'Search view not available' };
         sv.selectedTypes.clear();
         sv.selectedGens.clear();
+        sv.selectedClasses?.clear();
         if (sv.nameInput) sv.nameInput.value = '';
         // Deselect all chips visually
         sv.typeGrid?.querySelectorAll('.search-type-chip').forEach(chip => {
@@ -6412,11 +6420,51 @@ document.addEventListener('DOMContentLoaded', () => {
         sv.genGrid?.querySelectorAll('.search-gen-chip').forEach(chip => {
             chip.classList.remove('selected');
         });
+        sv.classGrid?.querySelectorAll('.search-class-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
         // Select requested generations (convert 1-based to 0-based index)
         (generations || []).forEach(g => {
             const idx = String(parseInt(g) - 1);
             sv.selectedGens.add(idx);
             const chip = sv.genGrid?.querySelector(`[data-gen="${idx}"]`);
+            if (chip) chip.classList.add('selected');
+        });
+        sv.applyFilters();
+        const matchCount = document.querySelectorAll('#pokemonList .list-item[style*="display: flex"], #pokemonList .list-item:not([style*="display"])').length;
+        return { success: true, matchCount };
+    };
+
+    window.filterPokemonByClassification = async (classifications) => {
+        const app = window.pokemonChatApp;
+        if (!app) return { error: 'App not initialized' };
+        app.showPokemonIndexInCanvas();
+        const sv = app.searchView;
+        if (!sv) return { error: 'Search view not available' };
+
+        if (!sv.metadata) {
+            await sv._loadMetadata();
+        }
+
+        sv.selectedTypes.clear();
+        sv.selectedGens.clear();
+        sv.selectedClasses.clear();
+        if (sv.nameInput) sv.nameInput.value = '';
+        sv.typeGrid?.querySelectorAll('.search-type-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        sv.genGrid?.querySelectorAll('.search-gen-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+        sv.classGrid?.querySelectorAll('.search-class-chip').forEach(chip => {
+            chip.classList.remove('selected');
+        });
+
+        (classifications || []).forEach(classification => {
+            const normalized = String(classification).toLowerCase();
+            if (!['legendary', 'mythical'].includes(normalized)) return;
+            sv.selectedClasses.add(normalized);
+            const chip = sv.classGrid?.querySelector(`[data-class="${normalized}"]`);
             if (chip) chip.classList.add('selected');
         });
         sv.applyFilters();

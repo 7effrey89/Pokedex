@@ -43,6 +43,7 @@ def get_pokemon_list():
 
 
 _CACHE_FILE_RE = re.compile(r"^pokeapi-(\d+)-(.+)\.json$")
+_SPECIES_CACHE_FILE_RE = re.compile(r"^pokeapi-species-(\d+)-(.+)\.json$")
 
 # In-memory metadata cache (built lazily on first request)
 _metadata_cache: Optional[Dict] = None
@@ -100,6 +101,41 @@ def _build_metadata() -> Dict[str, dict]:
         except (OSError, ValueError):
             continue
 
+    for filename in os.listdir(CACHE_DIR):
+        m = _SPECIES_CACHE_FILE_RE.match(filename)
+        if not m:
+            continue
+        poke_id = m.group(1).lstrip("0") or "0"
+        filepath = CACHE_DIR / filename
+        try:
+            file_size = filepath.stat().st_size
+            with filepath.open("rb") as fh:
+                if file_size > 48000:
+                    fh.seek(file_size - 48000)
+                content = fh.read().decode("utf-8", errors="ignore")
+
+            is_legendary_m = re.search(r'"is_legendary":\s*(true|false)', content)
+            is_mythical_m = re.search(r'"is_mythical":\s*(true|false)', content)
+
+            species_meta = metadata.setdefault(
+                poke_id,
+                {
+                    "name": m.group(2),
+                    "types": [],
+                    "abilities": [],
+                    "height": None,
+                    "weight": None,
+                },
+            )
+            species_meta["is_legendary"] = (
+                is_legendary_m.group(1) == "true" if is_legendary_m else False
+            )
+            species_meta["is_mythical"] = (
+                is_mythical_m.group(1) == "true" if is_mythical_m else False
+            )
+        except OSError:
+            continue
+
     return metadata
 
 
@@ -112,7 +148,8 @@ def get_pokemon_metadata():
     current_count = 0
     if CACHE_DIR.is_dir():
         current_count = sum(
-            1 for f in os.listdir(CACHE_DIR) if _CACHE_FILE_RE.match(f)
+            1 for f in os.listdir(CACHE_DIR)
+            if _CACHE_FILE_RE.match(f) or _SPECIES_CACHE_FILE_RE.match(f)
         )
 
     # Rebuild if first request or cache file count changed

@@ -890,6 +890,21 @@ class RealtimeVoiceClient {
                 return;
             }
 
+            // Frontend-only: filter_pokemon_by_classification
+            if (toolName === 'filter_pokemon_by_classification') {
+                if (window.filterPokemonByClassification) {
+                    const filterResult = await window.filterPokemonByClassification(args.classifications || []);
+                    result = filterResult?.error
+                        ? { error: filterResult.error }
+                        : { success: true, message: `Filtering Pokemon grid by classification: ${(args.classifications || []).join(', ')}`, match_count: filterResult.matchCount };
+                    success = !filterResult?.error;
+                } else {
+                    result = { error: 'Filter not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
             // Frontend-only: sort_tcg_cards
             if (toolName === 'sort_tcg_cards') {
                 if (window.sortTcgCardsCanvas) {

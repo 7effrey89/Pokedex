@@ -10,7 +10,7 @@ All implemented features, categorized. Every new feature must be added here.
 |---------|-------------|:------------:|
 | Pokemon Grid/Index | Browse all Pokemon in a visual grid with sprites | ✅ `show_pokemon_index` |
 | Pokemon Detail View | Full stats, abilities, evolution chain, typing, flavor text | ✅ `get_pokemon_info` |
-| Pokemon Search & Filter | Search by name, type, generation, number range, height/weight, ability | ❌ |
+| Pokemon Search & Filter | Search by name, type, generation, legendary/mythical status, number range, height/weight, ability | ❌ |
 | Random Pokemon | Get a random Pokemon from the entire Pokedex | ✅ `get_random_pokemon` |
 | Random by Region | Get a random Pokemon from a specific region (Kanto, Johto, etc.) | ✅ `get_random_pokemon_from_region` |
 | Random by Type | Get a random Pokemon of a specific type | ✅ `get_random_pokemon_by_type` |
@@ -97,6 +97,7 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `navigate_forward` | Go forward to the next page in history |
 | `filter_pokemon_by_type` | Filter the grid by one or more Pokemon types |
 | `filter_pokemon_by_generation` | Filter the grid by one or more generations |
+| `filter_pokemon_by_classification` | Filter the grid by legendary and/or mythical status |
 | `sort_tcg_cards` | Sort the current TCG card gallery (price, rarity, name, etc.) |
 | `sort_tcg_database` | Sort the TCG Database view (by release date, name, card count, etc.) |
 | `search_cards_by_set` | Browse all cards in a specific TCG expansion |

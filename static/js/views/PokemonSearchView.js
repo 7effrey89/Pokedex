@@ -9,6 +9,7 @@ class PokemonSearchView {
         this.nameInput = document.getElementById('searchNameInput');
         this.typeGrid = document.getElementById('searchTypeGrid');
         this.genGrid = document.getElementById('searchGenGrid');
+        this.classGrid = document.getElementById('searchClassGrid');
         this.numMin = document.getElementById('searchNumMin');
         this.numMax = document.getElementById('searchNumMax');
         this.heightMin = document.getElementById('searchHeightMin');
@@ -43,6 +44,7 @@ class PokemonSearchView {
         this.metadata = null; // { "25": { name, types, ... } }
         this.selectedTypes = new Set();
         this.selectedGens = new Set();
+        this.selectedClasses = new Set();
         this.isOpen = false;
         this.hasActiveFilter = false;
 
@@ -160,6 +162,23 @@ class PokemonSearchView {
                     chip.classList.remove('selected');
                 } else {
                     this.selectedGens.add(gen);
+                    chip.classList.add('selected');
+                }
+                this.applyFilters();
+            });
+        }
+
+        // Classification chip selection — apply immediately
+        if (this.classGrid) {
+            this.classGrid.addEventListener('click', (e) => {
+                const chip = e.target.closest('.search-class-chip');
+                if (!chip) return;
+                const classification = chip.dataset.class;
+                if (this.selectedClasses.has(classification)) {
+                    this.selectedClasses.delete(classification);
+                    chip.classList.remove('selected');
+                } else {
+                    this.selectedClasses.add(classification);
                     chip.classList.add('selected');
                 }
                 this.applyFilters();
@@ -454,6 +473,7 @@ class PokemonSearchView {
         const maxNum = parseInt(this.numMax?.value) || 1025;
         const hasTypeFilter = this.selectedTypes.size > 0;
         const hasGenFilter = this.selectedGens.size > 0;
+        const hasClassFilter = this.selectedClasses.size > 0;
         const hasNameFilter = nameQuery.length > 0;
         const hasRangeFilter = minNum > 1 || maxNum < 1025;
 
@@ -475,7 +495,7 @@ class PokemonSearchView {
         const abilityQuery = (this.abilityInput?.value || '').trim().toLowerCase();
         const hasAbilityFilter = abilityQuery.length > 0;
 
-        this.hasActiveFilter = hasTypeFilter || hasGenFilter || hasNameFilter || hasRangeFilter
+        this.hasActiveFilter = hasTypeFilter || hasGenFilter || hasClassFilter || hasNameFilter || hasRangeFilter
             || hasHeightFilter || hasWeightFilter || hasAbilityFilter;
 
         // Build allowed generation ranges
@@ -516,6 +536,14 @@ class PokemonSearchView {
             if (visible && hasGenFilter) {
                 const inGen = genRanges.some(g => id >= g.start && id <= g.end);
                 if (!inGen) visible = false;
+            }
+
+            // Classification filter – OR logic: legendary and/or mythical (requires species metadata)
+            if (visible && hasClassFilter && this.metadata) {
+                const meta = this.metadata[String(id)];
+                const matchesLegendary = this.selectedClasses.has('legendary') && meta?.is_legendary === true;
+                const matchesMythical = this.selectedClasses.has('mythical') && meta?.is_mythical === true;
+                if (!matchesLegendary && !matchesMythical) visible = false;
             }
 
             // Type filter – AND logic: must have ALL selected types (requires metadata)
@@ -617,6 +645,10 @@ class PokemonSearchView {
         // Clear gen selections
         this.selectedGens.clear();
         this.genGrid?.querySelectorAll('.search-gen-chip.selected').forEach(c => c.classList.remove('selected'));
+
+        // Clear classification selections
+        this.selectedClasses.clear();
+        this.classGrid?.querySelectorAll('.search-class-chip.selected').forEach(c => c.classList.remove('selected'));
 
         this.hasActiveFilter = false;
 
