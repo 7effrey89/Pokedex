@@ -277,13 +277,22 @@ class TcgCardDetailView {
 
     buildSetInfoHTML(card) {
         const setName = card.set?.name || card.set || 'Unknown Set';
+        const setId = card.set?.id;
         const setLogo = card.set?.images?.logo;
+        const setPath = setId ? `/tcg/set/${encodeURIComponent(setId)}` : '';
+        const setLogoHTML = setLogo
+            ? (setPath
+                ? `<a href="${setPath}" class="tcg-set-logo-link" aria-label="View ${setName} expansion">
+                        <img src="${setLogo}" alt="${setName}" class="tcg-set-logo">
+                   </a>`
+                : `<img src="${setLogo}" alt="${setName}" class="tcg-set-logo">`)
+            : '';
         return `
             <div class="tcg-card-set-info">
                 <strong>${setName}</strong>
                 <span class="tcg-card-number">${card.number}/${card.set?.total || '?'}</span>
                 ${card.rarity ? `<span class="tcg-rarity-badge">${card.rarity}</span>` : ''}
-                ${setLogo ? `<img src="${setLogo}" alt="${setName}" class="tcg-set-logo">` : ''}
+                ${setLogoHTML}
             </div>
         `;
     }
