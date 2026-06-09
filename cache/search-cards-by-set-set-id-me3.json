@@ -7,11 +7,11 @@
   "response": {
     "cards": [
       {
-        "id": "me3-79",
-        "name": "Naveen",
+        "id": "me3-78",
+        "name": "Lumiose Galette",
         "supertype": "Trainer",
         "subtypes": [
-          "Supporter"
+          "Item"
         ],
         "types": [],
         "hp": null,
@@ -36,7 +36,7 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "79",
+        "number": "78",
         "nationalPokedexNumbers": [],
         "rarity": "Uncommon",
         "flavorText": null,
@@ -47,11 +47,11 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-79/small",
-          "large": "https://images.scrydex.com/pokemon/me3-79/large"
+          "small": "https://images.scrydex.com/pokemon/me3-78/small",
+          "large": "https://images.scrydex.com/pokemon/me3-78/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-79"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-78"
         },
         "cardmarket": {}
       },
@@ -893,11 +893,11 @@
         "cardmarket": {}
       },
       {
-        "id": "me3-78",
-        "name": "Lumiose Galette",
+        "id": "me3-79",
+        "name": "Naveen",
         "supertype": "Trainer",
         "subtypes": [
-          "Item"
+          "Supporter"
         ],
         "types": [],
         "hp": null,
@@ -922,7 +922,7 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "78",
+        "number": "79",
         "nationalPokedexNumbers": [],
         "rarity": "Uncommon",
         "flavorText": null,
@@ -933,11 +933,11 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-78/small",
-          "large": "https://images.scrydex.com/pokemon/me3-78/large"
+          "small": "https://images.scrydex.com/pokemon/me3-79/small",
+          "large": "https://images.scrydex.com/pokemon/me3-79/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-78"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-79"
         },
         "cardmarket": {}
       },
@@ -4013,110 +4013,44 @@
         "cardmarket": {}
       },
       {
-        "id": "me3-3",
-        "name": "Shaymin",
+        "id": "me3-16",
+        "name": "Salazzle ex",
         "supertype": "Pokémon",
         "subtypes": [
-          "Basic"
+          "Stage 1",
+          "ex"
         ],
         "types": [
-          "Grass"
+          "Fire"
         ],
-        "hp": "70",
-        "evolvesFrom": null,
+        "hp": "260",
+        "evolvesFrom": "Salandit",
         "evolvesTo": [],
         "abilities": [],
         "attacks": [
           {
-            "name": "Send Flowers",
+            "name": "Nasty Plot",
             "cost": [
-              "Grass"
+              "Fire"
             ],
             "convertedEnergyCost": 1,
             "damage": "",
-            "text": "Search your deck for an Energy card and attach it to 1 of your Benched Grass Pokémon. Then, shuffle your deck."
+            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
           },
           {
-            "name": "Leaf Step",
+            "name": "Dire Nails",
             "cost": [
-              "Grass"
+              "Fire",
+              "Fire"
             ],
-            "convertedEnergyCost": 1,
-            "damage": "30",
-            "text": ""
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "Your opponent's Active Pokémon is now Burned and Poisoned. Switch this Pokémon with 1 of your Benched Pokémon."
           }
         ],
         "weaknesses": [
           {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [],
-        "convertedRetreatCost": 0,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "3",
-        "nationalPokedexNumbers": [
-          492
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-3/small",
-          "large": "https://images.scrydex.com/pokemon/me3-3/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-3"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-2",
-        "name": "Ariados",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "110",
-        "evolvesFrom": "Spinarak",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Poison Ring",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "50",
-            "text": "Your opponent's Active Pokémon is now Poisoned. During your opponent's next turn, that Pokémon can't retreat."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
+            "type": "Water",
             "value": "×2"
           }
         ],
@@ -4138,11 +4072,11 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "2",
+        "number": "16",
         "nationalPokedexNumbers": [
-          168
+          758
         ],
-        "rarity": "Common",
+        "rarity": "Double Rare",
         "flavorText": null,
         "artist": null,
         "legalities": {
@@ -4151,11 +4085,90 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-2/small",
-          "large": "https://images.scrydex.com/pokemon/me3-2/large"
+          "small": "https://images.scrydex.com/pokemon/me3-16/small",
+          "large": "https://images.scrydex.com/pokemon/me3-16/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-2"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-16"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-31",
+        "name": "Mega Clefable ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "MEGA",
+          "ex"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "320",
+        "evolvesFrom": "Clefairy",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Luminous Wing",
+            "text": "Prevent all effects of your opponent's Pokémon's Abilities done to this Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shooting Moons",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120+",
+            "text": "You may discard up to 4 Energy cards from your hand, and this attack does 40 more damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "31",
+        "nationalPokedexNumbers": [
+          36
+        ],
+        "rarity": "Double Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-31/small",
+          "large": "https://images.scrydex.com/pokemon/me3-31/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-31"
         },
         "cardmarket": {}
       },
@@ -4316,6 +4329,233 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-29"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-28",
+        "name": "Luxray",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "types": [
+          "Lightning"
+        ],
+        "hp": "150",
+        "evolvesFrom": "Luxio",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Incessant Onslaught",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70×",
+            "text": "This attack does 70 damage for each Prize card you have taken."
+          },
+          {
+            "name": "Strong Volt",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [],
+        "convertedRetreatCost": 0,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "28",
+        "nationalPokedexNumbers": [
+          405
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-28/small",
+          "large": "https://images.scrydex.com/pokemon/me3-28/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-28"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-27",
+        "name": "Luxio",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Lightning"
+        ],
+        "hp": "90",
+        "evolvesFrom": "Shinx",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Fighting Roar",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex, this Pokémon can evolve during your first turn or the turn you play it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Static Shock",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "27",
+        "nationalPokedexNumbers": [
+          404
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-27/small",
+          "large": "https://images.scrydex.com/pokemon/me3-27/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-27"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-26",
+        "name": "Shinx",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Lightning"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Double Scratch",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10×",
+            "text": "Flip 2 coins. This attack does 10 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "26",
+        "nationalPokedexNumbers": [
+          403
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-26/small",
+          "large": "https://images.scrydex.com/pokemon/me3-26/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-26"
         },
         "cardmarket": {}
       },
@@ -4484,6 +4724,79 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-23",
+        "name": "Amaura",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Water"
+        ],
+        "hp": "100",
+        "evolvesFrom": "Antique Sail Fossil",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Icy Wind",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "23",
+        "nationalPokedexNumbers": [
+          698
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-23/small",
+          "large": "https://images.scrydex.com/pokemon/me3-23/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-23"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-22",
         "name": "Lapras ex",
         "supertype": "Pokémon",
@@ -4567,6 +4880,160 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-21",
+        "name": "Mega Starmie ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "MEGA",
+          "ex"
+        ],
+        "types": [
+          "Water"
+        ],
+        "hp": "330",
+        "evolvesFrom": "Staryu",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Jetting Blow",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "120",
+            "text": "This attack also does 50 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Nebula Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "210",
+            "text": "This attack's damage isn't affected by Weakness or Resistance, or by any effects on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "21",
+        "nationalPokedexNumbers": [
+          121
+        ],
+        "rarity": "Double Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-21/small",
+          "large": "https://images.scrydex.com/pokemon/me3-21/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-21"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-20",
+        "name": "Staryu",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Water"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Water Gun",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "20",
+        "nationalPokedexNumbers": [
+          120
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-20/small",
+          "large": "https://images.scrydex.com/pokemon/me3-20/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-20"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-19",
         "name": "Dewgong",
         "supertype": "Pokémon",
@@ -4641,231 +5108,6 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-19"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-9",
-        "name": "Vivillon",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 2"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "120",
-        "evolvesFrom": "Spewpa",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Grand Wing",
-            "text": "Once during your turn, you may use this Ability. Your opponent shuffles their hand and puts it on the bottom of their deck. If they put any cards on the bottom of their deck in this way, they draw 4 cards.",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Blow Through",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "60+",
-            "text": "If a Stadium is in play, this attack does 60 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "9",
-        "nationalPokedexNumbers": [
-          666
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-9/small",
-          "large": "https://images.scrydex.com/pokemon/me3-9/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-9"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-35",
-        "name": "Spritzee",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Sweet Scent",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Heal 30 damage from 1 of your Pokémon."
-          },
-          {
-            "name": "Ram",
-            "cost": [
-              "Psychic"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Metal",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "35",
-        "nationalPokedexNumbers": [
-          682
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-35/small",
-          "large": "https://images.scrydex.com/pokemon/me3-35/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-35"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-26",
-        "name": "Shinx",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Lightning"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Double Scratch",
-            "cost": [
-              "Lightning"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10×",
-            "text": "Flip 2 coins. This attack does 10 damage for each heads."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "26",
-        "nationalPokedexNumbers": [
-          403
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-26/small",
-          "large": "https://images.scrydex.com/pokemon/me3-26/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-26"
         },
         "cardmarket": {}
       },
@@ -4947,6 +5189,227 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-18"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-17",
+        "name": "Turtonator",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "120",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Shell Spikes",
+            "text": "If this Pokémon is in the Active Spot and is damaged by an attack from your opponent's Pokémon (even if this Pokémon is Knocked Out), discard an Energy from the Attacking Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Heat Breath",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "Flip a coin. If heads, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "17",
+        "nationalPokedexNumbers": [
+          776
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-17/small",
+          "large": "https://images.scrydex.com/pokemon/me3-17/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-17"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-32",
+        "name": "Mawile",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "110",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Double Eater",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Discard up to 2 Energy cards from your hand, and this attack does 60 damage for each card you discarded in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "32",
+        "nationalPokedexNumbers": [
+          303
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-32/small",
+          "large": "https://images.scrydex.com/pokemon/me3-32/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-32"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-15",
+        "name": "Salandit",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Fire"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Fire Claws",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "15",
+        "nationalPokedexNumbers": [
+          757
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-15/small",
+          "large": "https://images.scrydex.com/pokemon/me3-15/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-15"
         },
         "cardmarket": {}
       },
@@ -5109,6 +5572,169 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-12",
+        "name": "Decidueye ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "320",
+        "evolvesFrom": "Dartrix",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Sniper's Eye",
+            "text": "If your opponent has exactly 4 cards in their hand, ignore all Colorless Energy in the costs of attacks used by this Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crushing Arrow",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "12",
+        "nationalPokedexNumbers": [
+          724
+        ],
+        "rarity": "Double Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-12/small",
+          "large": "https://images.scrydex.com/pokemon/me3-12/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-12"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-11",
+        "name": "Dartrix",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "100",
+        "evolvesFrom": "Rowlet",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Leafage",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Feather Shot",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard all Energy from this Pokémon, and this attack does 90 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "11",
+        "nationalPokedexNumbers": [
+          723
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-11/small",
+          "large": "https://images.scrydex.com/pokemon/me3-11/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-11"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-10",
         "name": "Rowlet",
         "supertype": "Pokémon",
@@ -5191,891 +5817,47 @@
         "cardmarket": {}
       },
       {
-        "id": "me3-5",
-        "name": "Servine",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "100",
-        "evolvesFrom": "Snivy",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Solar Cutter",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "40",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "5",
-        "nationalPokedexNumbers": [
-          496
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-5/small",
-          "large": "https://images.scrydex.com/pokemon/me3-5/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-5"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-4",
-        "name": "Snivy",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Reckless Charge",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "30",
-            "text": "This Pokémon also does 10 damage to itself."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "4",
-        "nationalPokedexNumbers": [
-          495
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-4/small",
-          "large": "https://images.scrydex.com/pokemon/me3-4/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-4"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-37",
-        "name": "Nosepass",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Fighting"
-        ],
-        "hp": "90",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Rolling Rocks",
-            "cost": [
-              "Fighting",
-              "Fighting"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "40",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Grass",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 3,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "37",
-        "nationalPokedexNumbers": [
-          299
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-37/small",
-          "large": "https://images.scrydex.com/pokemon/me3-37/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-37"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-36",
-        "name": "Aromatisse",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "120",
-        "evolvesFrom": "Spritzee",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Scent Collection",
-            "text": "Once during your turn, you may use this Ability. Search your deck for up to 2 Basic Psychic Energy cards, reveal them, and put them into your hand. Then, shuffle your deck.",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Draining Kiss",
-            "cost": [
-              "Psychic",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "50",
-            "text": "Heal 30 damage from this Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Metal",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "36",
-        "nationalPokedexNumbers": [
-          683
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-36/small",
-          "large": "https://images.scrydex.com/pokemon/me3-36/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-36"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-34",
-        "name": "Meowstic",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "100",
-        "evolvesFrom": "Espurr",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Perplex",
-            "cost": [
-              "Psychic"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Your opponent's Active Pokémon is now Confused."
-          },
-          {
-            "name": "Psychic",
-            "cost": [
-              "Psychic"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "30+",
-            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Darkness",
-            "value": "×2"
-          }
-        ],
-        "resistances": [
-          {
-            "type": "Fighting",
-            "value": "-30"
-          }
-        ],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "34",
-        "nationalPokedexNumbers": [
-          678
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-34/small",
-          "large": "https://images.scrydex.com/pokemon/me3-34/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-34"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-33",
-        "name": "Espurr",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "60",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Nap",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Heal 20 damage from this Pokémon."
-          },
-          {
-            "name": "Stampede",
-            "cost": [
-              "Psychic"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Darkness",
-            "value": "×2"
-          }
-        ],
-        "resistances": [
-          {
-            "type": "Fighting",
-            "value": "-30"
-          }
-        ],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "33",
-        "nationalPokedexNumbers": [
-          677
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-33/small",
-          "large": "https://images.scrydex.com/pokemon/me3-33/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-33"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-32",
-        "name": "Mawile",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Psychic"
-        ],
-        "hp": "110",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Double Eater",
-            "cost": [
-              "Psychic",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "60×",
-            "text": "Discard up to 2 Energy cards from your hand, and this attack does 60 damage for each card you discarded in this way."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Metal",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "32",
-        "nationalPokedexNumbers": [
-          303
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-32/small",
-          "large": "https://images.scrydex.com/pokemon/me3-32/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-32"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-28",
-        "name": "Luxray",
+        "id": "me3-9",
+        "name": "Vivillon",
         "supertype": "Pokémon",
         "subtypes": [
           "Stage 2"
         ],
         "types": [
-          "Lightning"
-        ],
-        "hp": "150",
-        "evolvesFrom": "Luxio",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Incessant Onslaught",
-            "cost": [
-              "Lightning",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "70×",
-            "text": "This attack does 70 damage for each Prize card you have taken."
-          },
-          {
-            "name": "Strong Volt",
-            "cost": [
-              "Lightning",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "200",
-            "text": "Discard 2 Energy from this Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [],
-        "convertedRetreatCost": 0,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "28",
-        "nationalPokedexNumbers": [
-          405
-        ],
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-28/small",
-          "large": "https://images.scrydex.com/pokemon/me3-28/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-28"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-27",
-        "name": "Luxio",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Lightning"
-        ],
-        "hp": "90",
-        "evolvesFrom": "Shinx",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Fighting Roar",
-            "text": "If your opponent's Active Pokémon is a Pokémon ex, this Pokémon can evolve during your first turn or the turn you play it.",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Static Shock",
-            "cost": [
-              "Lightning",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "40",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "27",
-        "nationalPokedexNumbers": [
-          404
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-27/small",
-          "large": "https://images.scrydex.com/pokemon/me3-27/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-27"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-21",
-        "name": "Mega Starmie ex",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1",
-          "MEGA",
-          "ex"
-        ],
-        "types": [
-          "Water"
-        ],
-        "hp": "330",
-        "evolvesFrom": "Staryu",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Jetting Blow",
-            "cost": [
-              "Water"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "120",
-            "text": "This attack also does 50 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
-          },
-          {
-            "name": "Nebula Beam",
-            "cost": [
-              "Colorless",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "210",
-            "text": "This attack's damage isn't affected by Weakness or Resistance, or by any effects on your opponent's Active Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Lightning",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "21",
-        "nationalPokedexNumbers": [
-          121
-        ],
-        "rarity": "Double Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-21/small",
-          "large": "https://images.scrydex.com/pokemon/me3-21/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-21"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-20",
-        "name": "Staryu",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Water"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Water Gun",
-            "cost": [
-              "Water"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Lightning",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "20",
-        "nationalPokedexNumbers": [
-          120
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-20/small",
-          "large": "https://images.scrydex.com/pokemon/me3-20/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-20"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-17",
-        "name": "Turtonator",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Fire"
+          "Grass"
         ],
         "hp": "120",
-        "evolvesFrom": null,
+        "evolvesFrom": "Spewpa",
         "evolvesTo": [],
         "abilities": [
           {
-            "name": "Shell Spikes",
-            "text": "If this Pokémon is in the Active Spot and is damaged by an attack from your opponent's Pokémon (even if this Pokémon is Knocked Out), discard an Energy from the Attacking Pokémon.",
+            "name": "Grand Wing",
+            "text": "Once during your turn, you may use this Ability. Your opponent shuffles their hand and puts it on the bottom of their deck. If they put any cards on the bottom of their deck in this way, they draw 4 cards.",
             "type": "Ability"
           }
         ],
         "attacks": [
           {
-            "name": "Heat Breath",
+            "name": "Blow Through",
             "cost": [
-              "Fire",
-              "Fire",
-              "Colorless"
+              "Grass"
             ],
-            "convertedEnergyCost": 3,
-            "damage": "80+",
-            "text": "Flip a coin. If heads, this attack does 80 more damage."
+            "convertedEnergyCost": 1,
+            "damage": "60+",
+            "text": "If a Stadium is in play, this attack does 60 more damage."
           }
         ],
         "weaknesses": [
           {
-            "type": "Water",
+            "type": "Fire",
             "value": "×2"
           }
         ],
         "resistances": [],
         "retreatCost": [
-          "Colorless",
           "Colorless"
         ],
-        "convertedRetreatCost": 2,
+        "convertedRetreatCost": 1,
         "set": {
           "id": "me3",
           "name": "Perfect Order",
@@ -6089,9 +5871,9 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "17",
+        "number": "9",
         "nationalPokedexNumbers": [
-          776
+          666
         ],
         "rarity": "Uncommon",
         "flavorText": null,
@@ -6102,162 +5884,11 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-17/small",
-          "large": "https://images.scrydex.com/pokemon/me3-17/large"
+          "small": "https://images.scrydex.com/pokemon/me3-9/small",
+          "large": "https://images.scrydex.com/pokemon/me3-9/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-17"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-16",
-        "name": "Salazzle ex",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1",
-          "ex"
-        ],
-        "types": [
-          "Fire"
-        ],
-        "hp": "260",
-        "evolvesFrom": "Salandit",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Nasty Plot",
-            "cost": [
-              "Fire"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Search your deck for up to 2 cards and put them into your hand. Then, shuffle your deck."
-          },
-          {
-            "name": "Dire Nails",
-            "cost": [
-              "Fire",
-              "Fire"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "100",
-            "text": "Your opponent's Active Pokémon is now Burned and Poisoned. Switch this Pokémon with 1 of your Benched Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Water",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "16",
-        "nationalPokedexNumbers": [
-          758
-        ],
-        "rarity": "Double Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-16/small",
-          "large": "https://images.scrydex.com/pokemon/me3-16/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-16"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-15",
-        "name": "Salandit",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Fire"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Fire Claws",
-            "cost": [
-              "Fire"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": ""
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Water",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "15",
-        "nationalPokedexNumbers": [
-          757
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-15/small",
-          "large": "https://images.scrydex.com/pokemon/me3-15/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-15"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-9"
         },
         "cardmarket": {}
       },
@@ -6404,6 +6035,375 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-6",
+        "name": "Serperior",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "160",
+        "evolvesFrom": "Servine",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Regal Command",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          },
+          {
+            "name": "Solar Coiling",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If Rosa's Encouragement is in your discard pile, this attack does 150 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "6",
+        "nationalPokedexNumbers": [
+          497
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-6/small",
+          "large": "https://images.scrydex.com/pokemon/me3-6/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-6"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-5",
+        "name": "Servine",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "100",
+        "evolvesFrom": "Snivy",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Solar Cutter",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "5",
+        "nationalPokedexNumbers": [
+          496
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-5/small",
+          "large": "https://images.scrydex.com/pokemon/me3-5/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-5"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-4",
+        "name": "Snivy",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Reckless Charge",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This Pokémon also does 10 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "4",
+        "nationalPokedexNumbers": [
+          495
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-4/small",
+          "large": "https://images.scrydex.com/pokemon/me3-4/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-4"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-3",
+        "name": "Shaymin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Send Flowers",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for an Energy card and attach it to 1 of your Benched Grass Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "Leaf Step",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [],
+        "convertedRetreatCost": 0,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "3",
+        "nationalPokedexNumbers": [
+          492
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-3/small",
+          "large": "https://images.scrydex.com/pokemon/me3-3/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-3"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-2",
+        "name": "Ariados",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Grass"
+        ],
+        "hp": "110",
+        "evolvesFrom": "Spinarak",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Poison Ring",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Poisoned. During your opponent's next turn, that Pokémon can't retreat."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "2",
+        "nationalPokedexNumbers": [
+          168
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-2/small",
+          "large": "https://images.scrydex.com/pokemon/me3-2/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-2"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-47",
         "name": "Mega Zygarde ex",
         "supertype": "Pokémon",
@@ -6492,85 +6492,6 @@
         "cardmarket": {}
       },
       {
-        "id": "me3-61",
-        "name": "Raticate",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Colorless"
-        ],
-        "hp": "90",
-        "evolvesFrom": "Rattata",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Scrape Off",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": "Before doing damage, discard all Pokémon Tools from your opponent's Active Pokémon."
-          },
-          {
-            "name": "Retaliatory Incisors",
-            "cost": [
-              "Colorless"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "40×",
-            "text": "This attack does 40 damage for each damage counter on all of your Benched Rattata."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "61",
-        "nationalPokedexNumbers": [
-          20
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-61/small",
-          "large": "https://images.scrydex.com/pokemon/me3-61/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-61"
-        },
-        "cardmarket": {}
-      },
-      {
         "id": "me3-62",
         "name": "Meowth ex",
         "supertype": "Pokémon",
@@ -6650,6 +6571,85 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-61",
+        "name": "Raticate",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Colorless"
+        ],
+        "hp": "90",
+        "evolvesFrom": "Rattata",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Scrape Off",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Before doing damage, discard all Pokémon Tools from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Retaliatory Incisors",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each damage counter on all of your Benched Rattata."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "61",
+        "nationalPokedexNumbers": [
+          20
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-61/small",
+          "large": "https://images.scrydex.com/pokemon/me3-61/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-61"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-60",
         "name": "Rattata",
         "supertype": "Pokémon",
@@ -6716,163 +6716,6 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-60"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-54",
-        "name": "Chien-Pao",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "120",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Strafe",
-            "cost": [
-              "Darkness"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
-          },
-          {
-            "name": "Rising Blade",
-            "cost": [
-              "Darkness",
-              "Darkness",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "80+",
-            "text": "If your opponent's Active Pokémon is a Pokémon ex, this attack does 80 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Grass",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "54",
-        "nationalPokedexNumbers": [
-          1002
-        ],
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-54/small",
-          "large": "https://images.scrydex.com/pokemon/me3-54/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-54"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-50",
-        "name": "Gengar",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 2"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "130",
-        "evolvesFrom": "Haunter",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Infinite Shadow",
-            "text": "If this Pokémon is Knocked Out by damage from an attack from your opponent's Pokémon, put it into your hand instead of the discard pile. (Discard all attached cards.)",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Mind Jack",
-            "cost": [
-              "Darkness"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "10+",
-            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "50",
-        "nationalPokedexNumbers": [
-          94
-        ],
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-50/small",
-          "large": "https://images.scrydex.com/pokemon/me3-50/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-50"
         },
         "cardmarket": {}
       },
@@ -7039,230 +6882,6 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-58"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-52",
-        "name": "Drapion",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "140",
-        "evolvesFrom": "Skorupi",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Wrack Down",
-            "cost": [
-              "Darkness",
-              "Darkness"
-            ],
-            "convertedEnergyCost": 2,
-            "damage": "60",
-            "text": ""
-          },
-          {
-            "name": "Hazardous Tail",
-            "cost": [
-              "Darkness",
-              "Darkness",
-              "Darkness"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "100",
-            "text": "This Pokémon also does 70 damage to itself. Your opponent's Active Pokémon is now Paralyzed and Poisoned."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 3,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "52",
-        "nationalPokedexNumbers": [
-          452
-        ],
-        "rarity": "Uncommon",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-52/small",
-          "large": "https://images.scrydex.com/pokemon/me3-52/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-52"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-49",
-        "name": "Haunter",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 1"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "100",
-        "evolvesFrom": "Gastly",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Haunt",
-            "cost": [
-              "Darkness"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "",
-            "text": "Place 3 damage counters on your opponent's Active Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "49",
-        "nationalPokedexNumbers": [
-          93
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-49/small",
-          "large": "https://images.scrydex.com/pokemon/me3-49/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-49"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-48",
-        "name": "Gastly",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Basic"
-        ],
-        "types": [
-          "Darkness"
-        ],
-        "hp": "70",
-        "evolvesFrom": null,
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Surprise Attack",
-            "cost": [
-              "Darkness"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "30",
-            "text": "Flip a coin. If tails, this attack does nothing."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fighting",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless"
-        ],
-        "convertedRetreatCost": 1,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "48",
-        "nationalPokedexNumbers": [
-          92
-        ],
-        "rarity": "Common",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-48/small",
-          "large": "https://images.scrydex.com/pokemon/me3-48/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-48"
         },
         "cardmarket": {}
       },
@@ -7497,6 +7116,87 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-54",
+        "name": "Chien-Pao",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "120",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Rising Blade",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "54",
+        "nationalPokedexNumbers": [
+          1002
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-54/small",
+          "large": "https://images.scrydex.com/pokemon/me3-54/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-54"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-53",
         "name": "Yveltal ex",
         "supertype": "Pokémon",
@@ -7586,6 +7286,90 @@
         "cardmarket": {}
       },
       {
+        "id": "me3-52",
+        "name": "Drapion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "140",
+        "evolvesFrom": "Skorupi",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Wrack Down",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Hazardous Tail",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "This Pokémon also does 70 damage to itself. Your opponent's Active Pokémon is now Paralyzed and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "52",
+        "nationalPokedexNumbers": [
+          452
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-52/small",
+          "large": "https://images.scrydex.com/pokemon/me3-52/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-52"
+        },
+        "cardmarket": {}
+      },
+      {
         "id": "me3-51",
         "name": "Skorupi",
         "supertype": "Pokémon",
@@ -7654,6 +7438,222 @@
         },
         "tcgplayer": {
           "url": "https://prices.pokemontcg.io/tcgplayer/me3-51"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-50",
+        "name": "Gengar",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "130",
+        "evolvesFrom": "Haunter",
+        "evolvesTo": [],
+        "abilities": [
+          {
+            "name": "Infinite Shadow",
+            "text": "If this Pokémon is Knocked Out by damage from an attack from your opponent's Pokémon, put it into your hand instead of the discard pile. (Discard all attached cards.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "50",
+        "nationalPokedexNumbers": [
+          94
+        ],
+        "rarity": "Rare",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-50/small",
+          "large": "https://images.scrydex.com/pokemon/me3-50/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-50"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-49",
+        "name": "Haunter",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "100",
+        "evolvesFrom": "Gastly",
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Haunt",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Place 3 damage counters on your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "49",
+        "nationalPokedexNumbers": [
+          93
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-49/small",
+          "large": "https://images.scrydex.com/pokemon/me3-49/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-49"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-48",
+        "name": "Gastly",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Darkness"
+        ],
+        "hp": "70",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Surprise Attack",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "48",
+        "nationalPokedexNumbers": [
+          92
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-48/small",
+          "large": "https://images.scrydex.com/pokemon/me3-48/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-48"
         },
         "cardmarket": {}
       },
@@ -8446,37 +8446,108 @@
         "cardmarket": {}
       },
       {
-        "id": "me3-31",
-        "name": "Mega Clefable ex",
+        "id": "me3-37",
+        "name": "Nosepass",
         "supertype": "Pokémon",
         "subtypes": [
-          "Stage 1",
-          "MEGA",
-          "ex"
+          "Basic"
+        ],
+        "types": [
+          "Fighting"
+        ],
+        "hp": "90",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Rolling Rocks",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "37",
+        "nationalPokedexNumbers": [
+          299
+        ],
+        "rarity": "Common",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-37/small",
+          "large": "https://images.scrydex.com/pokemon/me3-37/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-37"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-36",
+        "name": "Aromatisse",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
         ],
         "types": [
           "Psychic"
         ],
-        "hp": "320",
-        "evolvesFrom": "Clefairy",
+        "hp": "120",
+        "evolvesFrom": "Spritzee",
         "evolvesTo": [],
         "abilities": [
           {
-            "name": "Luminous Wing",
-            "text": "Prevent all effects of your opponent's Pokémon's Abilities done to this Pokémon.",
+            "name": "Scent Collection",
+            "text": "Once during your turn, you may use this Ability. Search your deck for up to 2 Basic Psychic Energy cards, reveal them, and put them into your hand. Then, shuffle your deck.",
             "type": "Ability"
           }
         ],
         "attacks": [
           {
-            "name": "Shooting Moons",
+            "name": "Draining Kiss",
             "cost": [
               "Psychic",
-              "Psychic"
+              "Colorless"
             ],
             "convertedEnergyCost": 2,
-            "damage": "120+",
-            "text": "You may discard up to 4 Energy cards from your hand, and this attack does 40 more damage for each card you discarded in this way."
+            "damage": "50",
+            "text": "Heal 30 damage from this Pokémon."
           }
         ],
         "weaknesses": [
@@ -8503,11 +8574,11 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "31",
+        "number": "36",
         "nationalPokedexNumbers": [
-          36
+          683
         ],
-        "rarity": "Double Rare",
+        "rarity": "Uncommon",
         "flavorText": null,
         "artist": null,
         "legalities": {
@@ -8516,38 +8587,46 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-31/small",
-          "large": "https://images.scrydex.com/pokemon/me3-31/large"
+          "small": "https://images.scrydex.com/pokemon/me3-36/small",
+          "large": "https://images.scrydex.com/pokemon/me3-36/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-31"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-36"
         },
         "cardmarket": {}
       },
       {
-        "id": "me3-23",
-        "name": "Amaura",
+        "id": "me3-35",
+        "name": "Spritzee",
         "supertype": "Pokémon",
         "subtypes": [
-          "Stage 1"
+          "Basic"
         ],
         "types": [
-          "Water"
+          "Psychic"
         ],
-        "hp": "100",
-        "evolvesFrom": "Antique Sail Fossil",
+        "hp": "70",
+        "evolvesFrom": null,
         "evolvesTo": [],
         "abilities": [],
         "attacks": [
           {
-            "name": "Icy Wind",
+            "name": "Sweet Scent",
             "cost": [
-              "Water",
               "Colorless"
             ],
-            "convertedEnergyCost": 2,
-            "damage": "50",
-            "text": "Your opponent's Active Pokémon is now Asleep."
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal 30 damage from 1 of your Pokémon."
+          },
+          {
+            "name": "Ram",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
           }
         ],
         "weaknesses": [
@@ -8558,11 +8637,9 @@
         ],
         "resistances": [],
         "retreatCost": [
-          "Colorless",
-          "Colorless",
           "Colorless"
         ],
-        "convertedRetreatCost": 3,
+        "convertedRetreatCost": 1,
         "set": {
           "id": "me3",
           "name": "Perfect Order",
@@ -8576,9 +8653,9 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "23",
+        "number": "35",
         "nationalPokedexNumbers": [
-          698
+          682
         ],
         "rarity": "Common",
         "flavorText": null,
@@ -8589,143 +8666,64 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-23/small",
-          "large": "https://images.scrydex.com/pokemon/me3-23/large"
+          "small": "https://images.scrydex.com/pokemon/me3-35/small",
+          "large": "https://images.scrydex.com/pokemon/me3-35/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-23"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-35"
         },
         "cardmarket": {}
       },
       {
-        "id": "me3-12",
-        "name": "Decidueye ex",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 2",
-          "ex"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "320",
-        "evolvesFrom": "Dartrix",
-        "evolvesTo": [],
-        "abilities": [
-          {
-            "name": "Sniper's Eye",
-            "text": "If your opponent has exactly 4 cards in their hand, ignore all Colorless Energy in the costs of attacks used by this Pokémon.",
-            "type": "Ability"
-          }
-        ],
-        "attacks": [
-          {
-            "name": "Crushing Arrow",
-            "cost": [
-              "Grass",
-              "Colorless",
-              "Colorless",
-              "Colorless"
-            ],
-            "convertedEnergyCost": 4,
-            "damage": "240",
-            "text": "Discard an Energy from your opponent's Active Pokémon."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "12",
-        "nationalPokedexNumbers": [
-          724
-        ],
-        "rarity": "Double Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-12/small",
-          "large": "https://images.scrydex.com/pokemon/me3-12/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-12"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-11",
-        "name": "Dartrix",
+        "id": "me3-34",
+        "name": "Meowstic",
         "supertype": "Pokémon",
         "subtypes": [
           "Stage 1"
         ],
         "types": [
-          "Grass"
+          "Psychic"
         ],
         "hp": "100",
-        "evolvesFrom": "Rowlet",
+        "evolvesFrom": "Espurr",
         "evolvesTo": [],
         "abilities": [],
         "attacks": [
           {
-            "name": "Leafage",
+            "name": "Perplex",
             "cost": [
-              "Grass"
+              "Psychic"
             ],
             "convertedEnergyCost": 1,
-            "damage": "20",
-            "text": ""
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused."
           },
           {
-            "name": "Feather Shot",
+            "name": "Psychic",
             "cost": [
-              "Colorless",
-              "Colorless",
-              "Colorless"
+              "Psychic"
             ],
-            "convertedEnergyCost": 3,
-            "damage": "",
-            "text": "Discard all Energy from this Pokémon, and this attack does 90 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+            "convertedEnergyCost": 1,
+            "damage": "30+",
+            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
           }
         ],
         "weaknesses": [
           {
-            "type": "Fire",
+            "type": "Darkness",
             "value": "×2"
           }
         ],
-        "resistances": [],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
         "retreatCost": [
-          "Colorless",
           "Colorless"
         ],
-        "convertedRetreatCost": 2,
+        "convertedRetreatCost": 1,
         "set": {
           "id": "me3",
           "name": "Perfect Order",
@@ -8739,9 +8737,93 @@
           "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
           "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
         },
-        "number": "11",
+        "number": "34",
         "nationalPokedexNumbers": [
-          723
+          678
+        ],
+        "rarity": "Uncommon",
+        "flavorText": null,
+        "artist": null,
+        "legalities": {
+          "standard": "Not Legal",
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.scrydex.com/pokemon/me3-34/small",
+          "large": "https://images.scrydex.com/pokemon/me3-34/large"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-34"
+        },
+        "cardmarket": {}
+      },
+      {
+        "id": "me3-33",
+        "name": "Espurr",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "types": [
+          "Psychic"
+        ],
+        "hp": "60",
+        "evolvesFrom": null,
+        "evolvesTo": [],
+        "abilities": [],
+        "attacks": [
+          {
+            "name": "Nap",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal 20 damage from this Pokémon."
+          },
+          {
+            "name": "Stampede",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me3",
+          "name": "Perfect Order",
+          "series": "Mega Evolution",
+          "releaseDate": "2026/03/27",
+          "total": 124,
+          "images": {
+            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
+            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
+          },
+          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
+          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
+        },
+        "number": "33",
+        "nationalPokedexNumbers": [
+          677
         ],
         "rarity": "Common",
         "flavorText": null,
@@ -8752,93 +8834,11 @@
           "expanded": "Legal"
         },
         "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-11/small",
-          "large": "https://images.scrydex.com/pokemon/me3-11/large"
+          "small": "https://images.scrydex.com/pokemon/me3-33/small",
+          "large": "https://images.scrydex.com/pokemon/me3-33/large"
         },
         "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-11"
-        },
-        "cardmarket": {}
-      },
-      {
-        "id": "me3-6",
-        "name": "Serperior",
-        "supertype": "Pokémon",
-        "subtypes": [
-          "Stage 2"
-        ],
-        "types": [
-          "Grass"
-        ],
-        "hp": "160",
-        "evolvesFrom": "Servine",
-        "evolvesTo": [],
-        "abilities": [],
-        "attacks": [
-          {
-            "name": "Regal Command",
-            "cost": [
-              "Grass"
-            ],
-            "convertedEnergyCost": 1,
-            "damage": "20×",
-            "text": "This attack does 20 damage for each of your Pokémon in play."
-          },
-          {
-            "name": "Solar Coiling",
-            "cost": [
-              "Grass",
-              "Grass",
-              "Grass"
-            ],
-            "convertedEnergyCost": 3,
-            "damage": "100+",
-            "text": "If Rosa's Encouragement is in your discard pile, this attack does 150 more damage."
-          }
-        ],
-        "weaknesses": [
-          {
-            "type": "Fire",
-            "value": "×2"
-          }
-        ],
-        "resistances": [],
-        "retreatCost": [
-          "Colorless",
-          "Colorless"
-        ],
-        "convertedRetreatCost": 2,
-        "set": {
-          "id": "me3",
-          "name": "Perfect Order",
-          "series": "Mega Evolution",
-          "releaseDate": "2026/03/27",
-          "total": 124,
-          "images": {
-            "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
-            "logo": "https://images.scrydex.com/pokemon/me3-logo/logo"
-          },
-          "logo": "https://images.scrydex.com/pokemon/me3-logo/logo",
-          "symbol": "https://images.scrydex.com/pokemon/me3-symbol/symbol"
-        },
-        "number": "6",
-        "nationalPokedexNumbers": [
-          497
-        ],
-        "rarity": "Rare",
-        "flavorText": null,
-        "artist": null,
-        "legalities": {
-          "standard": "Not Legal",
-          "unlimited": "Legal",
-          "expanded": "Legal"
-        },
-        "images": {
-          "small": "https://images.scrydex.com/pokemon/me3-6/small",
-          "large": "https://images.scrydex.com/pokemon/me3-6/large"
-        },
-        "tcgplayer": {
-          "url": "https://prices.pokemontcg.io/tcgplayer/me3-6"
+          "url": "https://prices.pokemontcg.io/tcgplayer/me3-33"
         },
         "cardmarket": {}
       }
@@ -8847,5 +8847,5 @@
     "search_query": "Perfect Order",
     "set_id": "me3"
   },
-  "cached_at": 1777368810.9462254
+  "cached_at": 1780991657.4679668
 }
