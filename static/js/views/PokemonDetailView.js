@@ -2,6 +2,9 @@
  * Pokemon Detail View - Displays detailed information about a specific Pokemon
  */
 const MAX_BASE_STAT = 255;
+const PLACEHOLDER_POKEMON_ID = 248;
+const MAX_COMPARE_SUGGESTIONS = 8;
+const POKEMON_ID_PADDING = 3;
 
 class PokemonDetailView {
     constructor(app) {
@@ -551,7 +554,7 @@ class PokemonDetailView {
     }
 
     renderCompareSelector() {
-        const tyranitarSprite = this.app.gridView.getArtworkUrl(248);
+        const tyranitarSprite = this.app.gridView.getArtworkUrl(PLACEHOLDER_POKEMON_ID);
         return `
             <div class="compare-selector-card">
                 <img
@@ -606,9 +609,9 @@ class PokemonDetailView {
             .filter(candidate => {
                 if (!normalizedQuery) return true;
                 return candidate.name.includes(normalizedQuery)
-                    || String(candidate.id).padStart(3, '0').includes(normalizedQuery);
+                    || String(candidate.id).padStart(POKEMON_ID_PADDING, '0').includes(normalizedQuery);
             })
-            .slice(0, 8);
+            .slice(0, MAX_COMPARE_SUGGESTIONS);
 
         if (matches.length === 0) {
             results.innerHTML = '<div class="compare-empty-state">No Pokémon found.</div>';
@@ -624,7 +627,7 @@ class PokemonDetailView {
                 <img src="${this.app.gridView.getArtworkUrl(candidate.id)}" alt="${candidate.name}" class="compare-result-image">
                 <div class="compare-result-copy">
                     <span class="compare-result-name">${this.formatDisplayName(candidate.name)}</span>
-                    <span class="compare-result-id">#${String(candidate.id).padStart(3, '0')}</span>
+                    <span class="compare-result-id">#${String(candidate.id).padStart(POKEMON_ID_PADDING, '0')}</span>
                 </div>
             </button>
         `).join('');
@@ -743,7 +746,7 @@ class PokemonDetailView {
                     <img src="${this.getSpriteUrl(pokemon) || this.app.gridView.getArtworkUrl(pokemon.id)}" alt="${pokemon.name}" class="compare-card-image">
                     <div class="compare-card-heading">
                         <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
-                        <p class="compare-card-id">#${String(pokemon.id).padStart(3, '0')}</p>
+                        <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
                     </div>
                 </div>
                 <div class="pokemon-types compare-card-types">
