@@ -343,21 +343,11 @@ class TcgDatabaseView {
                         <span class="tcg-set-meta">${year} · ${set.total} cards${symbolUrl ? ` <img src="${symbolUrl}" alt="" class="tcg-set-symbol">` : ''}</span>
                     </div>
                 </div>
-                <button class="tcg-set-browse-btn" data-set-id="${set.id}" data-set-name="${set.name}" title="Browse all cards">
-                    Browse →
-                </button>
             </div>
             <div class="tcg-set-cards-placeholder" data-set-id="${set.id}">
                 <div class="tcg-set-loading">Loading cards...</div>
             </div>
         `;
-
-        // Browse button → open full gallery for this set
-        const browseBtn = section.querySelector('.tcg-set-browse-btn');
-        browseBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.app.tcgGallery.searchBySet(set.id, set.name);
-        });
 
         // Lazy-load cards when section enters viewport
         const placeholder = section.querySelector('.tcg-set-cards-placeholder');
@@ -421,7 +411,7 @@ class TcgDatabaseView {
     }
 
     _renderSetCards(placeholderEl, cards) {
-        // Show a preview row of cards (max 8), rest accessible via Browse
+        // Show a preview row of cards (max 8), rest accessible via the more tile
         const previewCards = cards.slice(0, 8);
         const grid = document.createElement('div');
         grid.className = 'tcg-set-cards-row';
