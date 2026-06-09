@@ -653,12 +653,15 @@ class PokemonDetailView {
         const currentSpecies = currentData?.species;
         if (!currentPokemon || !currentSpecies) {
             this.app.showToast?.('VS Mode', 'Open a Pokémon before starting a comparison.', 'info', 3000);
-            return;
+            return { error: 'Open a Pokemon before starting a comparison.' };
         }
 
-        if (identifier === currentPokemon.id) {
+        const normalizedIdentifier = String(identifier ?? '').trim().toLowerCase();
+        const normalizedCurrentName = String(currentPokemon.name ?? '').toLowerCase();
+        const normalizedCurrentId = String(currentPokemon.id);
+        if (normalizedIdentifier === normalizedCurrentId || normalizedIdentifier === normalizedCurrentName) {
             this.app.showToast?.('VS Mode', 'Choose a different Pokémon to compare against.', 'info', 3000);
-            return;
+            return { error: 'Choose a different Pokemon to compare against.' };
         }
 
         const selectionToken = ++this.compareSelectionToken;
@@ -683,9 +686,14 @@ class PokemonDetailView {
                 species: speciesResult.data
             };
             this.syncCompareCanvasState(currentPokemon, currentSpecies);
+            return {
+                success: true,
+                pokemon: pokemonResult.data.name
+            };
         } catch (error) {
             console.error('Error loading compare Pokemon:', error);
             this.app.showToast?.('VS Mode', 'Unable to load Pokémon for comparison.', 'error', 3000);
+            return { error: 'Unable to load Pokemon for comparison.' };
         } finally {
             if (selectionToken !== this.compareSelectionToken) {
                 return;
@@ -715,7 +723,47 @@ class PokemonDetailView {
             return { error: 'Compare section is not available.' };
         }
 
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const alignCompareTitle = (behavior = 'smooth') => {
+            const title = section.querySelector('.section-title') || section;
+            const scrollContainer = (() => {
+                let element = title.parentElement;
+                while (element) {
+                    const overflowY = window.getComputedStyle(element).overflowY;
+                    const isScrollable = ['auto', 'scroll', 'overlay'].includes(overflowY)
+                        && element.scrollHeight > element.clientHeight;
+                    if (isScrollable) {
+                        return element;
+                    }
+                    element = element.parentElement;
+                }
+                return document.scrollingElement;
+            })();
+            const header = document.querySelector('.app-header');
+            const headerBottom = header?.getBoundingClientRect().bottom || 0;
+            const titleTopGap = 24;
+
+            if (scrollContainer && scrollContainer !== document.scrollingElement && scrollContainer.contains(title)) {
+                const titleRect = title.getBoundingClientRect();
+                const containerRect = scrollContainer.getBoundingClientRect();
+                const visibleTop = Math.max(containerRect.top, headerBottom);
+                const targetTop = scrollContainer.scrollTop + titleRect.top - visibleTop - titleTopGap;
+                scrollContainer.scrollTo({
+                    top: Math.max(0, targetTop),
+                    behavior
+                });
+                return;
+            }
+
+            const titleRect = title.getBoundingClientRect();
+            const visibleTop = Math.max(0, headerBottom);
+            window.scrollTo({
+                top: Math.max(0, window.scrollY + titleRect.top - visibleTop - titleTopGap),
+                behavior
+            });
+        };
+
+        alignCompareTitle('smooth');
+        window.setTimeout(() => alignCompareTitle('auto'), 650);
         section.classList.remove('compare-section-highlight');
         void section.offsetWidth;
         section.classList.add('compare-section-highlight');
@@ -744,7 +792,10 @@ class PokemonDetailView {
         }
 
         if (compareIdentifier) {
-            await this.selectComparePokemon(compareIdentifier);
+            const selectionResult = await this.selectComparePokemon(compareIdentifier);
+            if (selectionResult?.error) {
+                return selectionResult;
+            }
         }
 
         const focusResult = this.focusCompareSection();
@@ -755,7 +806,7 @@ class PokemonDetailView {
         return {
             success: true,
             pokemon: currentPokemon.name,
-            compare_pokemon: compareIdentifier || this.compareSelection?.pokemon?.name || null
+            compare_pokemon: this.compareSelection?.pokemon?.name || compareIdentifier || null
         };
     }
 

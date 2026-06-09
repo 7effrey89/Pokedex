@@ -94,7 +94,7 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `show_tcg_card_by_index` | Show a specific card by number in the current gallery |
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
 | `show_tcg_database` | Navigate to the TCG Card Database page |
-| `compare_pokemon` | Open Compare Pokemon mode for the current Pokemon or compare two named Pokemon |
+| `compare_pokemon` | Navigate to the first named Pokemon, scroll to Compare Pokemon, and compare against the second named Pokemon |
 | `navigate_back` | Go back to the previous page in history |
 | `navigate_forward` | Go forward to the next page in history |
 | `filter_pokemon_by_type` | Filter the grid by one or more Pokemon types |
