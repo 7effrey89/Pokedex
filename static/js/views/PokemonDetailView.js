@@ -1,6 +1,8 @@
 /**
  * Pokemon Detail View - Displays detailed information about a specific Pokemon
  */
+const MAX_BASE_STAT = 255;
+
 class PokemonDetailView {
     constructor(app) {
         this.app = app;
@@ -507,6 +509,8 @@ class PokemonDetailView {
         const opponentEl = this.detailView.querySelector('#pokemonCompareOpponent');
         if (!currentEl || !opponentEl) return;
 
+        this.syncCompareCanvasState(pokemon, species);
+
         const renderToken = ++this.compareRenderToken;
 
         currentEl.innerHTML = '<div class="compare-pokemon-card compare-loading-card">Loading comparison...</div>';
@@ -562,7 +566,6 @@ class PokemonDetailView {
                     class="compare-selector-input"
                     placeholder="Search Pokémon..."
                     autocomplete="off"
-                    value="${this.compareSearchTerm}"
                 >
                 <div class="compare-selector-results" id="pokemonCompareResults"></div>
             </div>
@@ -640,7 +643,13 @@ class PokemonDetailView {
         const currentData = this.app.currentCanvasState?.data;
         const currentPokemon = currentData?.pokemon;
         const currentSpecies = currentData?.species;
-        if (!currentPokemon || !currentSpecies || identifier === currentPokemon.id) {
+        if (!currentPokemon || !currentSpecies) {
+            this.app.showToast?.('VS Mode', 'Open a Pokémon before starting a comparison.', 'info', 3000);
+            return;
+        }
+
+        if (identifier === currentPokemon.id) {
+            this.app.showToast?.('VS Mode', 'Choose a different Pokémon to compare against.', 'info', 3000);
             return;
         }
 
@@ -648,6 +657,7 @@ class PokemonDetailView {
         this.compareLoading = true;
         this.compareSelection = null;
         this.compareSearchTerm = '';
+        this.syncCompareCanvasState(currentPokemon, currentSpecies);
         this.renderCompareSection(currentPokemon, currentSpecies);
 
         try {
@@ -664,6 +674,7 @@ class PokemonDetailView {
                 pokemon: pokemonResult.data,
                 species: speciesResult.data
             };
+            this.syncCompareCanvasState(currentPokemon, currentSpecies);
         } catch (error) {
             console.error('Error loading compare Pokemon:', error);
             this.app.showToast?.('VS Mode', 'Unable to load Pokémon for comparison.', 'error', 3000);
@@ -685,7 +696,27 @@ class PokemonDetailView {
 
         const currentData = this.app.currentCanvasState?.data;
         if (currentData?.pokemon && currentData?.species) {
+            this.syncCompareCanvasState(currentData.pokemon, currentData.species);
             this.renderCompareSection(currentData.pokemon, currentData.species);
+        }
+    }
+
+    syncCompareCanvasState(pokemon, species) {
+        const currentData = this.app.currentCanvasState?.data || {};
+        const nextData = {
+            pokemon,
+            species,
+            evolutionChain: currentData.evolutionChain || null,
+            comparePokemon: this.compareSelection?.pokemon || null,
+            compareSpecies: this.compareSelection?.species || null
+        };
+
+        this.app.currentCanvasState = { type: 'pokemon', data: nextData };
+        this.app.currentPokemonContext = nextData;
+        this.app.currentCardContext = null;
+
+        if (this.app.realtimeVoice?.isConnected) {
+            this.app.realtimeVoice.updateCanvasContext(this.app.buildCanvasContextDescription());
         }
     }
 
@@ -779,7 +810,7 @@ class PokemonDetailView {
             const statName = stat.stat.name;
             const statValue = stat.base_stat;
             const displayName = statNames[statName] || statName;
-            const percentage = Math.min((statValue / 255) * 100, 100);
+            const percentage = Math.min((statValue / MAX_BASE_STAT) * 100, 100);
 
             return `
                 <div class="compare-stat-row">
@@ -1012,7 +1043,7 @@ class PokemonDetailView {
             const statRow = document.createElement('div');
             statRow.className = 'stat-row';
             
-            const percentage = Math.min((statValue / 255) * 100, 100);
+            const percentage = Math.min((statValue / MAX_BASE_STAT) * 100, 100);
             
             statRow.innerHTML = `
                 <div class="stat-name">${displayName}</div>

@@ -5300,7 +5300,7 @@ class PokemonChatApp {
         }
     }
 
-    buildPokemonContextSummary(pokemon, species) {
+    buildPokemonContextSummary(pokemon, species, comparePokemon = null, compareSpecies = null) {
         if (!pokemon) return null;
 
         const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
@@ -5346,6 +5346,20 @@ class PokemonChatApp {
                 const description = flavorText.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim();
                 descriptors.push(`Description: ${description}`);
             }
+        }
+
+        if (comparePokemon) {
+            const compareName = comparePokemon.name.charAt(0).toUpperCase() + comparePokemon.name.slice(1);
+            const compareHeader = `${compareName} #${String(comparePokemon.id).padStart(3, '0')}`;
+            const compareTypes = comparePokemon.types && comparePokemon.types.length
+                ? comparePokemon.types.map(t => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1)).join('/')
+                : 'Unknown';
+            const compareFlavorText = compareSpecies?.flavor_text_entries?.find(entry => entry.language.name === 'en');
+            const compareDescription = compareFlavorText?.flavor_text
+                ? compareFlavorText.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim()
+                : '';
+
+            descriptors.push(`Currently comparing against ${compareHeader} (Types: ${compareTypes})${compareDescription ? ` | Compare Description: ${compareDescription}` : ''}`);
         }
 
         const summaryParts = [`User is viewing the Pokemon ${header}.`];
@@ -5496,7 +5510,7 @@ class PokemonChatApp {
             
             case 'pokemon':
                 if (!data || !data.pokemon) return null;
-                return this.buildPokemonContextSummary(data.pokemon, data.species);
+                return this.buildPokemonContextSummary(data.pokemon, data.species, data.comparePokemon, data.compareSpecies);
             
             case 'tcg-gallery':
                 if (!data || !data.pokemon_name) return null;
