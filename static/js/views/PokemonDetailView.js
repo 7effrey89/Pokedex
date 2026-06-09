@@ -7,6 +7,12 @@ class PokemonDetailView {
         this.detailView = document.getElementById('pokemonDetailView');
         this.lastCryPokemonId = null;
         this.currentCryAudio = null;
+        this.compareBasePokemonId = null;
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.compareLoading = false;
+        this.compareRenderToken = 0;
+        this.compareSelectionToken = 0;
         this.setupNavigationArrows();
     }
 
@@ -391,6 +397,14 @@ class PokemonDetailView {
     }
 
     updateDisplay(pokemon, species, evolutionChain = null) {
+        if (this.compareBasePokemonId !== pokemon.id) {
+            this.compareBasePokemonId = pokemon.id;
+            this.compareSelection = null;
+            this.compareSearchTerm = '';
+            this.compareLoading = false;
+            this.compareSelectionToken += 1;
+        }
+
         // Set background color based on primary type
         const primaryType = pokemon.types[0].type.name;
         this.detailView.className = 'pokemon-detail-view';
@@ -422,6 +436,9 @@ class PokemonDetailView {
 
         // Update about section with enhanced details
         this.updateAboutSection(pokemon, species);
+
+        // Update VS mode
+        this.renderCompareSection(pokemon, species);
         
         // Update base stats
         this.updateBaseStats(pokemon);
@@ -469,6 +486,311 @@ class PokemonDetailView {
         
         // Add weaknesses
         this.addWeaknesses(pokemon);
+    }
+
+    formatDisplayName(name) {
+        return String(name || '')
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    getFlavorText(species) {
+        if (!species?.flavor_text_entries) return '';
+        const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
+        if (!flavorText?.flavor_text) return '';
+        return flavorText.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    async renderCompareSection(pokemon, species) {
+        const currentEl = this.detailView.querySelector('#pokemonCompareCurrent');
+        const opponentEl = this.detailView.querySelector('#pokemonCompareOpponent');
+        if (!currentEl || !opponentEl) return;
+
+        const renderToken = ++this.compareRenderToken;
+
+        currentEl.innerHTML = '<div class="compare-pokemon-card compare-loading-card">Loading comparison...</div>';
+        opponentEl.innerHTML = this.compareLoading
+            ? '<div class="compare-pokemon-card compare-loading-card">Loading Pokémon...</div>'
+            : this.renderCompareSelector();
+
+        const [currentHtml, opponentHtml] = await Promise.all([
+            this.buildCompareCardHTML(pokemon, species, { label: 'Current Pokémon' }),
+            this.compareSelection
+                ? this.buildCompareCardHTML(this.compareSelection.pokemon, this.compareSelection.species, {
+                    label: 'Selected Pokémon',
+                    clearable: true
+                })
+                : Promise.resolve(this.compareLoading
+                    ? '<div class="compare-pokemon-card compare-loading-card">Loading Pokémon...</div>'
+                    : this.renderCompareSelector())
+        ]);
+
+        if (renderToken !== this.compareRenderToken || this.compareBasePokemonId !== pokemon.id) {
+            return;
+        }
+
+        currentEl.innerHTML = currentHtml;
+        opponentEl.innerHTML = opponentHtml;
+
+        if (this.compareSelection) {
+            const clearBtn = opponentEl.querySelector('.compare-clear-btn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => this.clearCompareSelection());
+            }
+            return;
+        }
+
+        if (!this.compareLoading) {
+            this.bindCompareSelector(pokemon);
+        }
+    }
+
+    renderCompareSelector() {
+        const tyranitarSprite = this.app.gridView.getArtworkUrl(248);
+        return `
+            <div class="compare-selector-card">
+                <img
+                    src="${tyranitarSprite}"
+                    alt="Tyranitar silhouette"
+                    class="compare-placeholder-image compare-placeholder-silhouette"
+                >
+                <label class="compare-selector-label" for="pokemonCompareInput">Choose a Pokémon to compare</label>
+                <input
+                    type="text"
+                    id="pokemonCompareInput"
+                    class="compare-selector-input"
+                    placeholder="Search Pokémon..."
+                    autocomplete="off"
+                    value="${this.compareSearchTerm}"
+                >
+                <div class="compare-selector-results" id="pokemonCompareResults"></div>
+            </div>
+        `;
+    }
+
+    bindCompareSelector(currentPokemon) {
+        const input = this.detailView.querySelector('#pokemonCompareInput');
+        const results = this.detailView.querySelector('#pokemonCompareResults');
+        if (!input || !results) return;
+
+        const updateResults = () => {
+            this.compareSearchTerm = input.value.trim();
+            this.updateCompareSuggestions(currentPokemon, this.compareSearchTerm);
+        };
+
+        input.addEventListener('focus', updateResults);
+        input.addEventListener('input', updateResults);
+        input.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter') return;
+            const firstResult = results.querySelector('.compare-result-item');
+            if (firstResult) {
+                event.preventDefault();
+                firstResult.click();
+            }
+        });
+
+        updateResults();
+    }
+
+    updateCompareSuggestions(currentPokemon, query = '') {
+        const results = this.detailView.querySelector('#pokemonCompareResults');
+        if (!results) return;
+
+        const normalizedQuery = query.toLowerCase();
+        const matches = this.app.allPokemons
+            .filter(candidate => candidate.id !== currentPokemon.id)
+            .filter(candidate => {
+                if (!normalizedQuery) return true;
+                return candidate.name.includes(normalizedQuery)
+                    || String(candidate.id).padStart(3, '0').includes(normalizedQuery);
+            })
+            .slice(0, 8);
+
+        if (matches.length === 0) {
+            results.innerHTML = '<div class="compare-empty-state">No Pokémon found.</div>';
+            return;
+        }
+
+        results.innerHTML = matches.map(candidate => `
+            <button
+                type="button"
+                class="compare-result-item"
+                data-compare-id="${candidate.id}"
+            >
+                <img src="${this.app.gridView.getArtworkUrl(candidate.id)}" alt="${candidate.name}" class="compare-result-image">
+                <div class="compare-result-copy">
+                    <span class="compare-result-name">${this.formatDisplayName(candidate.name)}</span>
+                    <span class="compare-result-id">#${String(candidate.id).padStart(3, '0')}</span>
+                </div>
+            </button>
+        `).join('');
+
+        results.querySelectorAll('[data-compare-id]').forEach(button => {
+            button.addEventListener('click', () => {
+                const compareId = parseInt(button.dataset.compareId, 10);
+                if (!Number.isNaN(compareId)) {
+                    this.selectComparePokemon(compareId);
+                }
+            });
+        });
+    }
+
+    async selectComparePokemon(identifier) {
+        const currentData = this.app.currentCanvasState?.data;
+        const currentPokemon = currentData?.pokemon;
+        const currentSpecies = currentData?.species;
+        if (!currentPokemon || !currentSpecies || identifier === currentPokemon.id) {
+            return;
+        }
+
+        const selectionToken = ++this.compareSelectionToken;
+        this.compareLoading = true;
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.renderCompareSection(currentPokemon, currentSpecies);
+
+        try {
+            const [pokemonResult, speciesResult] = await Promise.all([
+                this.fetchResourceWithFallback('pokemon', identifier),
+                this.fetchResourceWithFallback('species', identifier)
+            ]);
+
+            if (selectionToken !== this.compareSelectionToken) {
+                return;
+            }
+
+            this.compareSelection = {
+                pokemon: pokemonResult.data,
+                species: speciesResult.data
+            };
+        } catch (error) {
+            console.error('Error loading compare Pokemon:', error);
+            this.app.showToast?.('VS Mode', 'Unable to load Pokémon for comparison.', 'error', 3000);
+        } finally {
+            if (selectionToken !== this.compareSelectionToken) {
+                return;
+            }
+
+            this.compareLoading = false;
+            this.renderCompareSection(currentPokemon, currentSpecies);
+        }
+    }
+
+    clearCompareSelection() {
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.compareLoading = false;
+        this.compareSelectionToken += 1;
+
+        const currentData = this.app.currentCanvasState?.data;
+        if (currentData?.pokemon && currentData?.species) {
+            this.renderCompareSection(currentData.pokemon, currentData.species);
+        }
+    }
+
+    async buildCompareCardHTML(pokemon, species, { label = '', clearable = false } = {}) {
+        const primaryType = pokemon.types?.[0]?.type?.name || 'normal';
+        const abilities = (pokemon.abilities || []).map(entry =>
+            `<span class="ability-badge">${this.formatDisplayName(entry.ability.name)}</span>`
+        ).join('');
+        const weaknesses = await this.calculateWeaknesses(pokemon);
+        const detailItems = [
+            { label: 'Weight', value: `${(pokemon.weight / 10).toFixed(1)} kg` },
+            { label: 'Height', value: `${(pokemon.height / 10).toFixed(1)} m` },
+            species.capture_rate !== undefined ? { label: 'Capture Rate', value: species.capture_rate } : null,
+            species.base_happiness !== undefined ? { label: 'Base Happiness', value: species.base_happiness } : null,
+            species.growth_rate?.name ? { label: 'Growth Rate', value: this.formatDisplayName(species.growth_rate.name) } : null,
+            species.habitat?.name ? { label: 'Habitat', value: this.formatDisplayName(species.habitat.name) } : null
+        ].filter(Boolean);
+
+        return `
+            <div class="compare-pokemon-card compare-type-${primaryType}">
+                <div class="compare-card-header">
+                    <span class="compare-card-label">${label}</span>
+                    ${clearable ? `
+                        <button type="button" class="compare-clear-btn" aria-label="Clear compared Pokémon">
+                            &times;
+                        </button>
+                    ` : ''}
+                </div>
+                <div class="compare-card-hero">
+                    <img src="${this.getSpriteUrl(pokemon) || this.app.gridView.getArtworkUrl(pokemon.id)}" alt="${pokemon.name}" class="compare-card-image">
+                    <div class="compare-card-heading">
+                        <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
+                        <p class="compare-card-id">#${String(pokemon.id).padStart(3, '0')}</p>
+                    </div>
+                </div>
+                <div class="pokemon-types compare-card-types">
+                    ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                </div>
+                <div class="compare-card-meta">
+                    ${detailItems.map(item => `
+                        <div class="compare-card-meta-item">
+                            <span class="compare-card-meta-label">${item.label}</span>
+                            <span class="compare-card-meta-value">${item.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="compare-card-section">
+                    <span class="compare-card-section-title">Abilities</span>
+                    <div class="compare-card-abilities">${abilities || '<span class="compare-card-empty">Unknown</span>'}</div>
+                </div>
+                <div class="compare-card-section">
+                    <span class="compare-card-section-title">Description</span>
+                    <p class="compare-card-description">${this.getFlavorText(species) || 'No description available.'}</p>
+                </div>
+                <div class="compare-card-section">
+                    <span class="compare-card-section-title">Weaknesses</span>
+                    <div class="compare-card-weaknesses">
+                        ${weaknesses.length > 0
+                            ? weaknesses.map(([type, multiplier]) => `
+                                <div class="compare-weakness-item">
+                                    <span class="type-badge type-${type}">${type}</span>
+                                    <span class="compare-weakness-multiplier">${multiplier === 4 ? '4×' : '2×'}</span>
+                                </div>
+                            `).join('')
+                            : '<span class="compare-card-empty">No major weaknesses</span>'}
+                    </div>
+                </div>
+                <div class="compare-card-section">
+                    <span class="compare-card-section-title">Base Stats</span>
+                    <div class="compare-card-stats">
+                        ${this.buildCompareStatsMarkup(pokemon)}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    buildCompareStatsMarkup(pokemon) {
+        if (!pokemon.stats) return '<span class="compare-card-empty">Stats unavailable.</span>';
+
+        const statNames = {
+            'hp': 'HP',
+            'attack': 'Attack',
+            'defense': 'Defense',
+            'special-attack': 'Sp. Atk',
+            'special-defense': 'Sp. Def',
+            'speed': 'Speed'
+        };
+
+        return pokemon.stats.map(stat => {
+            const statName = stat.stat.name;
+            const statValue = stat.base_stat;
+            const displayName = statNames[statName] || statName;
+            const percentage = Math.min((statValue / 255) * 100, 100);
+
+            return `
+                <div class="compare-stat-row">
+                    <span class="compare-stat-name">${displayName}</span>
+                    <span class="compare-stat-value">${statValue}</span>
+                    <div class="compare-stat-bar-container">
+                        <div class="compare-stat-bar" style="width: ${percentage}%;"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
     }
 
     addEnhancedDetails(pokemon, species) {
@@ -575,6 +897,35 @@ class PokemonDetailView {
         enhancedSection.innerHTML = detailsHTML;
     }
 
+    async calculateWeaknesses(pokemon) {
+        const typeResults = await Promise.all(
+            pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
+        );
+        const typeData = typeResults.map(r => r.data);
+        const weaknessMap = {};
+
+        typeData.forEach(type => {
+            type.damage_relations.double_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 2;
+            });
+
+            type.damage_relations.half_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 0.5;
+            });
+
+            type.damage_relations.no_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = 0;
+            });
+        });
+
+        return Object.entries(weaknessMap)
+            .filter(([type, multiplier]) => multiplier > 1)
+            .sort((a, b) => b[1] - a[1]);
+    }
+
     async addWeaknesses(pokemon) {
         // Check if weaknesses section already exists
         let weaknessSection = this.detailView.querySelector('.pokemon-weaknesses-section');
@@ -588,47 +939,15 @@ class PokemonDetailView {
                 enhancedSection.parentNode.insertBefore(weaknessSection, enhancedSection.nextSibling);
             }
         }
-        
-        // Fetch type data for all Pokemon types
-        let typeData = [];
+
+        let weaknesses = [];
         try {
-            const typeResults = await Promise.all(
-                pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
-            );
-            typeData = typeResults.map(r => r.data);
+            weaknesses = await this.calculateWeaknesses(pokemon);
         } catch (error) {
             console.error('Error loading type data for weaknesses:', error);
             return;
         }
-        
-        // Calculate weaknesses (damage multipliers)
-        const weaknessMap = {};
-        
-        typeData.forEach(type => {
-            // Double damage from these types
-            type.damage_relations.double_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 2;
-            });
-            
-            // Half damage from these types
-            type.damage_relations.half_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 0.5;
-            });
-            
-            // No damage from these types
-            type.damage_relations.no_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = 0;
-            });
-        });
-        
-        // Filter for actual weaknesses (2x or 4x damage)
-        const weaknesses = Object.entries(weaknessMap)
-            .filter(([type, multiplier]) => multiplier > 1)
-            .sort((a, b) => b[1] - a[1]); // Sort by multiplier (4x first, then 2x)
-        
+
         if (weaknesses.length === 0) {
             weaknessSection.innerHTML = '';
             return;
