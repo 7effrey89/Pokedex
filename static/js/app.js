@@ -1294,7 +1294,7 @@ class PokemonChatApp {
         if (viewCardsBtn) {
             viewCardsBtn.addEventListener('click', () => this.viewPokemonCards());
         }
-        
+
         // Back to grid from TCG view button
         const backToGridFromTcgBtn = document.getElementById('backToGridFromTcg');
         if (backToGridFromTcgBtn) {
@@ -1614,6 +1614,9 @@ class PokemonChatApp {
                 break;
             case 'show_tcg_database':
                 window.showTcgDatabaseCanvas?.();
+                break;
+            case 'compare_pokemon':
+                await window.comparePokemonCanvas?.(action.pokemon_name || null, action.compare_pokemon_name || null);
                 break;
             case 'filter_pokemon_by_type':
                 window.filterPokemonByType?.(action.types || []);
@@ -6380,6 +6383,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return { success: true };
         }
         return { error: 'App not initialized' };
+    };
+
+    window.comparePokemonCanvas = async (pokemonName = null, comparePokemonName = null) => {
+        const app = window.pokemonChatApp;
+        if (!app?.detailView) {
+            return { error: 'Pokemon detail view is not available' };
+        }
+        return app.detailView.showCompareSection(pokemonName, comparePokemonName);
     };
 
     window.filterPokemonByType = (types) => {

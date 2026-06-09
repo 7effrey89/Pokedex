@@ -15,6 +15,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Random by Region | Get a random Pokemon from a specific region (Kanto, Johto, etc.) | ✅ `get_random_pokemon_from_region` |
 | Random by Type | Get a random Pokemon of a specific type | ✅ `get_random_pokemon_by_type` |
 | Evolution Chain | View full evolution tree with sprites and methods | ❌ (shown in detail) |
+| Pokemon Compare | Compare two Pokemon side by side with stats, traits, abilities, descriptions, and weaknesses | ✅ `compare_pokemon` |
 | Popular Pokemon | Pre-curated list of well-known Pokemon for quick access | ❌ |
 
 ## Trading Card Game (TCG)
@@ -93,6 +94,7 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `show_tcg_card_by_index` | Show a specific card by number in the current gallery |
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
 | `show_tcg_database` | Navigate to the TCG Card Database page |
+| `compare_pokemon` | Open Compare Pokemon mode for the current Pokemon or compare two named Pokemon |
 | `navigate_back` | Go back to the previous page in history |
 | `navigate_forward` | Go forward to the next page in history |
 | `filter_pokemon_by_type` | Filter the grid by one or more Pokemon types |

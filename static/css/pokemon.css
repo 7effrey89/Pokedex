@@ -702,12 +702,31 @@
 
 .pokemon-compare-section {
     margin: 2rem 0;
+    scroll-margin-top: 1rem;
+}
+
+.pokemon-compare-section.compare-section-highlight {
+    animation: compare-section-pulse 1.2s ease;
+}
+
+@keyframes compare-section-pulse {
+    0%, 100% {
+        filter: none;
+    }
+
+    35% {
+        filter: drop-shadow(0 0 18px rgba(43, 114, 184, 0.35));
+    }
 }
 
 .pokemon-compare-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     gap: 1.25rem;
+    align-items: stretch;
+}
+
+.pokemon-compare-layout.compare-active {
     align-items: stretch;
 }
 
@@ -718,6 +737,7 @@
 .pokemon-compare-vs {
     display: flex;
     align-items: center;
+    align-self: stretch;
     justify-content: center;
 }
 
@@ -744,6 +764,23 @@
     border-radius: 20px;
     padding: 1.25rem;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.compare-card-compact {
+    height: auto;
+    padding-bottom: 0.75rem;
+}
+
+.compare-card-compact .compare-card-header {
+    margin-bottom: 0.75rem;
+}
+
+.compare-card-compact .compare-card-hero {
+    margin-bottom: 0.75rem;
+}
+
+.compare-card-compact .compare-card-types {
+    margin-bottom: 0;
 }
 
 .compare-loading-card {
@@ -955,8 +992,8 @@
 }
 
 .compare-selector-results {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
     width: 100%;
     max-height: 280px;
@@ -1231,6 +1268,10 @@
     }
 
     .compare-card-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-selector-results {
         grid-template-columns: 1fr;
     }
 

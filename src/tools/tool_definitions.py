@@ -249,6 +249,25 @@ TOOL_DEFINITIONS = [
         "handler_type": "frontend"
     },
     {
+        "name": "compare_pokemon",
+        "description": "Open the Compare Pokemon section for the current Pokemon, or compare two Pokemon when names are provided. Use when the user says 'compare Pokemon', 'compare Pikachu with Charizard', 'show VS mode', or asks to compare stats, types, weaknesses, abilities, height, or weight.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "pokemon_name": {
+                    "type": "string",
+                    "description": "Optional primary Pokemon name or ID to open first. If omitted, use the currently displayed Pokemon."
+                },
+                "compare_pokemon_name": {
+                    "type": "string",
+                    "description": "Optional Pokemon name or ID to compare against the primary Pokemon."
+                }
+            },
+            "required": []
+        },
+        "handler_type": "frontend"
+    },
+    {
         "name": "filter_pokemon_by_type",
         "description": "Filter the Pokemon grid to show only Pokemon of specified type(s). Navigates to the grid first if not already there. Use when user says 'show me fire types' or 'filter by water and ice'.",
         "parameters": {
@@ -420,6 +439,7 @@ Guidelines:
 - When users say "go forward", "next page", or "forward", use navigate_forward
 - When users want to go home or see all Pokemon, use show_pokemon_index
 - When users want to browse TCG sets/expansions, use show_tcg_database
+- When users want to compare Pokemon or open VS mode, use compare_pokemon
 - When users want to filter Pokemon by type, use filter_pokemon_by_type
 - When users want to filter by generation, use filter_pokemon_by_generation
 - When users want to filter legendary or mythical Pokemon, use filter_pokemon_by_classification

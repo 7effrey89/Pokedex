@@ -510,9 +510,11 @@ class PokemonDetailView {
     async renderCompareSection(pokemon, species) {
         const currentEl = this.detailView.querySelector('#pokemonCompareCurrent');
         const opponentEl = this.detailView.querySelector('#pokemonCompareOpponent');
+        const layoutEl = this.detailView.querySelector('.pokemon-compare-layout');
         if (!currentEl || !opponentEl) return;
 
         this.syncCompareCanvasState(pokemon, species);
+        layoutEl?.classList.add('compare-active');
 
         const renderToken = ++this.compareRenderToken;
 
@@ -522,11 +524,15 @@ class PokemonDetailView {
             : this.renderCompareSelector();
 
         const [currentHtml, opponentHtml] = await Promise.all([
-            this.buildCompareCardHTML(pokemon, species, { label: 'Current Pokémon' }),
+            this.buildCompareCardHTML(pokemon, species, {
+                label: 'Current Pokémon',
+                compact: !this.compareSelection
+            }),
             this.compareSelection
                 ? this.buildCompareCardHTML(this.compareSelection.pokemon, this.compareSelection.species, {
-                    label: 'Selected Pokémon',
-                    clearable: true
+                    label: 'Compared Pokémon',
+                    clearable: true,
+                    compact: false
                 })
                 : Promise.resolve(this.compareLoading
                     ? '<div class="compare-pokemon-card compare-loading-card">Loading Pokémon...</div>'
@@ -586,6 +592,7 @@ class PokemonDetailView {
         };
 
         input.addEventListener('focus', updateResults);
+        input.addEventListener('click', updateResults);
         input.addEventListener('input', updateResults);
         input.addEventListener('keydown', (event) => {
             if (event.key !== 'Enter') return;
@@ -595,8 +602,6 @@ class PokemonDetailView {
                 firstResult.click();
             }
         });
-
-        updateResults();
     }
 
     updateCompareSuggestions(currentPokemon, query = '') {
@@ -704,6 +709,56 @@ class PokemonDetailView {
         }
     }
 
+    focusCompareSection() {
+        const section = this.detailView.querySelector('#pokemonCompareSection');
+        if (!section) {
+            return { error: 'Compare section is not available.' };
+        }
+
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        section.classList.remove('compare-section-highlight');
+        void section.offsetWidth;
+        section.classList.add('compare-section-highlight');
+
+        window.setTimeout(() => {
+            const input = this.detailView.querySelector('#pokemonCompareInput');
+            if (input) {
+                input.focus({ preventScroll: true });
+                input.select();
+            }
+            section.classList.remove('compare-section-highlight');
+        }, 450);
+
+        return { success: true };
+    }
+
+    async showCompareSection(primaryIdentifier = null, compareIdentifier = null) {
+        if (primaryIdentifier) {
+            await this.loadPokemon(primaryIdentifier);
+        }
+
+        const currentData = this.app.currentCanvasState?.data;
+        const currentPokemon = currentData?.pokemon;
+        if (!currentPokemon) {
+            return { error: 'Open a Pokemon before starting a comparison.' };
+        }
+
+        if (compareIdentifier) {
+            await this.selectComparePokemon(compareIdentifier);
+        }
+
+        const focusResult = this.focusCompareSection();
+        if (focusResult.error) {
+            return focusResult;
+        }
+
+        return {
+            success: true,
+            pokemon: currentPokemon.name,
+            compare_pokemon: compareIdentifier || this.compareSelection?.pokemon?.name || null
+        };
+    }
+
     syncCompareCanvasState(pokemon, species) {
         const currentData = this.app.currentCanvasState?.data || {};
         const nextData = {
@@ -717,8 +772,29 @@ class PokemonDetailView {
         this.app.updateCanvasState('pokemon', nextData, false);
     }
 
-    async buildCompareCardHTML(pokemon, species, { label = '', clearable = false } = {}) {
+    async buildCompareCardHTML(pokemon, species, { label = '', clearable = false, compact = false } = {}) {
         const primaryType = pokemon.types?.[0]?.type?.name || 'normal';
+
+        if (compact) {
+            return `
+                <div class="compare-pokemon-card compare-card-compact compare-type-${primaryType}">
+                    <div class="compare-card-header">
+                        <span class="compare-card-label">${label}</span>
+                    </div>
+                    <div class="compare-card-hero">
+                        <img src="${this.getSpriteUrl(pokemon) || this.app.gridView.getArtworkUrl(pokemon.id)}" alt="${pokemon.name}" class="compare-card-image">
+                        <div class="compare-card-heading">
+                            <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
+                            <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
+                        </div>
+                    </div>
+                    <div class="pokemon-types compare-card-types">
+                        ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
         const abilities = (pokemon.abilities || []).map(entry =>
             `<span class="ability-badge">${this.formatDisplayName(entry.ability.name)}</span>`
         ).join('');
