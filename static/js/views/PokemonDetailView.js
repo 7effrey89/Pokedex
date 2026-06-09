@@ -1,12 +1,23 @@
 /**
  * Pokemon Detail View - Displays detailed information about a specific Pokemon
  */
+const MAX_BASE_STAT = 255;
+const PLACEHOLDER_POKEMON_ID = 248;
+const MAX_COMPARE_SUGGESTIONS = 8;
+const POKEMON_ID_PADDING = 3;
+
 class PokemonDetailView {
     constructor(app) {
         this.app = app;
         this.detailView = document.getElementById('pokemonDetailView');
         this.lastCryPokemonId = null;
         this.currentCryAudio = null;
+        this.compareBasePokemonId = null;
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.compareLoading = false;
+        this.compareRenderToken = 0;
+        this.compareSelectionToken = 0;
         this.setupNavigationArrows();
     }
 
@@ -391,6 +402,14 @@ class PokemonDetailView {
     }
 
     updateDisplay(pokemon, species, evolutionChain = null) {
+        if (this.compareBasePokemonId !== pokemon.id) {
+            this.compareBasePokemonId = pokemon.id;
+            this.compareSelection = null;
+            this.compareSearchTerm = '';
+            this.compareLoading = false;
+            this.compareSelectionToken += 1;
+        }
+
         // Set background color based on primary type
         const primaryType = pokemon.types[0].type.name;
         this.detailView.className = 'pokemon-detail-view';
@@ -422,6 +441,9 @@ class PokemonDetailView {
 
         // Update about section with enhanced details
         this.updateAboutSection(pokemon, species);
+
+        // Update VS mode
+        this.renderCompareSection(pokemon, species);
         
         // Update base stats
         this.updateBaseStats(pokemon);
@@ -469,6 +491,463 @@ class PokemonDetailView {
         
         // Add weaknesses
         this.addWeaknesses(pokemon);
+    }
+
+    formatDisplayName(name) {
+        return String(name || '')
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    getFlavorText(species) {
+        if (!species?.flavor_text_entries) return '';
+        const flavorText = species.flavor_text_entries.find(entry => entry.language.name === 'en');
+        if (!flavorText?.flavor_text) return '';
+        return flavorText.flavor_text.replace(/\f/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    async renderCompareSection(pokemon, species) {
+        const currentEl = this.detailView.querySelector('#pokemonCompareCurrent');
+        const opponentEl = this.detailView.querySelector('#pokemonCompareOpponent');
+        const layoutEl = this.detailView.querySelector('.pokemon-compare-layout');
+        if (!currentEl || !opponentEl) return;
+
+        this.syncCompareCanvasState(pokemon, species);
+        layoutEl?.classList.add('compare-active');
+
+        const renderToken = ++this.compareRenderToken;
+
+        currentEl.innerHTML = '<div class="compare-pokemon-card compare-loading-card">Loading comparison...</div>';
+        opponentEl.innerHTML = this.compareLoading
+            ? '<div class="compare-pokemon-card compare-loading-card">Loading Pokémon...</div>'
+            : this.renderCompareSelector();
+
+        const [currentHtml, opponentHtml] = await Promise.all([
+            this.buildCompareCardHTML(pokemon, species, {
+                label: 'Current Pokémon',
+                compact: !this.compareSelection
+            }),
+            this.compareSelection
+                ? this.buildCompareCardHTML(this.compareSelection.pokemon, this.compareSelection.species, {
+                    label: 'Compared Pokémon',
+                    clearable: true,
+                    compact: false
+                })
+                : Promise.resolve(this.compareLoading
+                    ? '<div class="compare-pokemon-card compare-loading-card">Loading Pokémon...</div>'
+                    : this.renderCompareSelector())
+        ]);
+
+        if (renderToken !== this.compareRenderToken || this.compareBasePokemonId !== pokemon.id) {
+            return;
+        }
+
+        currentEl.innerHTML = currentHtml;
+        opponentEl.innerHTML = opponentHtml;
+
+        if (this.compareSelection) {
+            const clearBtn = opponentEl.querySelector('.compare-clear-btn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => this.clearCompareSelection());
+            }
+            return;
+        }
+
+        if (!this.compareLoading) {
+            this.bindCompareSelector(pokemon);
+        }
+    }
+
+    renderCompareSelector() {
+        const tyranitarSprite = this.app.gridView.getArtworkUrl(PLACEHOLDER_POKEMON_ID);
+        return `
+            <div class="compare-selector-card">
+                <img
+                    src="${tyranitarSprite}"
+                    alt="Tyranitar silhouette"
+                    class="compare-placeholder-image compare-placeholder-silhouette"
+                >
+                <label class="compare-selector-label" for="pokemonCompareInput">Choose a Pokémon to compare</label>
+                <input
+                    type="text"
+                    id="pokemonCompareInput"
+                    class="compare-selector-input"
+                    placeholder="Search Pokémon..."
+                    autocomplete="off"
+                >
+                <div class="compare-selector-results" id="pokemonCompareResults"></div>
+            </div>
+        `;
+    }
+
+    bindCompareSelector(currentPokemon) {
+        const input = this.detailView.querySelector('#pokemonCompareInput');
+        const results = this.detailView.querySelector('#pokemonCompareResults');
+        if (!input || !results) return;
+
+        const updateResults = () => {
+            this.compareSearchTerm = input.value.trim();
+            this.updateCompareSuggestions(currentPokemon, this.compareSearchTerm);
+        };
+
+        input.addEventListener('focus', updateResults);
+        input.addEventListener('click', updateResults);
+        input.addEventListener('input', updateResults);
+        input.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter') return;
+            const firstResult = results.querySelector('.compare-result-item');
+            if (firstResult) {
+                event.preventDefault();
+                firstResult.click();
+            }
+        });
+    }
+
+    updateCompareSuggestions(currentPokemon, query = '') {
+        const results = this.detailView.querySelector('#pokemonCompareResults');
+        if (!results) return;
+
+        const normalizedQuery = query.toLowerCase();
+        const matches = this.app.allPokemons
+            .filter(candidate => candidate.id !== currentPokemon.id)
+            .filter(candidate => {
+                if (!normalizedQuery) return true;
+                return candidate.name.includes(normalizedQuery)
+                    || String(candidate.id).padStart(POKEMON_ID_PADDING, '0').includes(normalizedQuery);
+            })
+            .slice(0, MAX_COMPARE_SUGGESTIONS);
+
+        if (matches.length === 0) {
+            results.innerHTML = '<div class="compare-empty-state">No Pokémon found.</div>';
+            return;
+        }
+
+        results.innerHTML = matches.map(candidate => `
+            <button
+                type="button"
+                class="compare-result-item"
+                data-compare-id="${candidate.id}"
+            >
+                <img src="${this.app.gridView.getArtworkUrl(candidate.id)}" alt="${candidate.name}" class="compare-result-image">
+                <div class="compare-result-copy">
+                    <span class="compare-result-name">${this.formatDisplayName(candidate.name)}</span>
+                    <span class="compare-result-id">#${String(candidate.id).padStart(POKEMON_ID_PADDING, '0')}</span>
+                </div>
+            </button>
+        `).join('');
+
+        results.querySelectorAll('[data-compare-id]').forEach(button => {
+            button.addEventListener('click', () => {
+                const compareId = parseInt(button.dataset.compareId, 10);
+                if (!Number.isNaN(compareId)) {
+                    this.selectComparePokemon(compareId);
+                }
+            });
+        });
+    }
+
+    async selectComparePokemon(identifier) {
+        const currentData = this.app.currentCanvasState?.data;
+        const currentPokemon = currentData?.pokemon;
+        const currentSpecies = currentData?.species;
+        if (!currentPokemon || !currentSpecies) {
+            this.app.showToast?.('VS Mode', 'Open a Pokémon before starting a comparison.', 'info', 3000);
+            return { error: 'Open a Pokemon before starting a comparison.' };
+        }
+
+        const normalizedIdentifier = String(identifier ?? '').trim().toLowerCase();
+        const normalizedCurrentName = String(currentPokemon.name ?? '').toLowerCase();
+        const normalizedCurrentId = String(currentPokemon.id);
+        if (normalizedIdentifier === normalizedCurrentId || normalizedIdentifier === normalizedCurrentName) {
+            this.app.showToast?.('VS Mode', 'Choose a different Pokémon to compare against.', 'info', 3000);
+            return { error: 'Choose a different Pokemon to compare against.' };
+        }
+
+        const selectionToken = ++this.compareSelectionToken;
+        this.compareLoading = true;
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.syncCompareCanvasState(currentPokemon, currentSpecies);
+        this.renderCompareSection(currentPokemon, currentSpecies);
+
+        try {
+            const [pokemonResult, speciesResult] = await Promise.all([
+                this.fetchResourceWithFallback('pokemon', identifier),
+                this.fetchResourceWithFallback('species', identifier)
+            ]);
+
+            if (selectionToken !== this.compareSelectionToken) {
+                return;
+            }
+
+            this.compareSelection = {
+                pokemon: pokemonResult.data,
+                species: speciesResult.data
+            };
+            this.syncCompareCanvasState(currentPokemon, currentSpecies);
+            return {
+                success: true,
+                pokemon: pokemonResult.data.name
+            };
+        } catch (error) {
+            console.error('Error loading compare Pokemon:', error);
+            this.app.showToast?.('VS Mode', 'Unable to load Pokémon for comparison.', 'error', 3000);
+            return { error: 'Unable to load Pokemon for comparison.' };
+        } finally {
+            if (selectionToken !== this.compareSelectionToken) {
+                return;
+            }
+
+            this.compareLoading = false;
+            this.renderCompareSection(currentPokemon, currentSpecies);
+        }
+    }
+
+    clearCompareSelection() {
+        this.compareSelection = null;
+        this.compareSearchTerm = '';
+        this.compareLoading = false;
+        this.compareSelectionToken += 1;
+
+        const currentData = this.app.currentCanvasState?.data;
+        if (currentData?.pokemon && currentData?.species) {
+            this.syncCompareCanvasState(currentData.pokemon, currentData.species);
+            this.renderCompareSection(currentData.pokemon, currentData.species);
+        }
+    }
+
+    focusCompareSection() {
+        const section = this.detailView.querySelector('#pokemonCompareSection');
+        if (!section) {
+            return { error: 'Compare section is not available.' };
+        }
+
+        const alignCompareTitle = (behavior = 'smooth') => {
+            const title = section.querySelector('.section-title') || section;
+            const scrollContainer = (() => {
+                let element = title.parentElement;
+                while (element) {
+                    const overflowY = window.getComputedStyle(element).overflowY;
+                    const isScrollable = ['auto', 'scroll', 'overlay'].includes(overflowY)
+                        && element.scrollHeight > element.clientHeight;
+                    if (isScrollable) {
+                        return element;
+                    }
+                    element = element.parentElement;
+                }
+                return document.scrollingElement;
+            })();
+            const header = document.querySelector('.app-header');
+            const headerBottom = header?.getBoundingClientRect().bottom || 0;
+            const titleTopGap = 8;
+
+            if (scrollContainer && scrollContainer !== document.scrollingElement && scrollContainer.contains(title)) {
+                const titleRect = title.getBoundingClientRect();
+                const containerRect = scrollContainer.getBoundingClientRect();
+                const visibleTop = Math.max(containerRect.top, headerBottom);
+                const targetTop = scrollContainer.scrollTop + titleRect.top - visibleTop - titleTopGap;
+                scrollContainer.scrollTo({
+                    top: Math.max(0, targetTop),
+                    behavior
+                });
+                return;
+            }
+
+            const titleRect = title.getBoundingClientRect();
+            const visibleTop = Math.max(0, headerBottom);
+            window.scrollTo({
+                top: Math.max(0, window.scrollY + titleRect.top - visibleTop - titleTopGap),
+                behavior
+            });
+        };
+
+        alignCompareTitle('smooth');
+        window.setTimeout(() => alignCompareTitle('auto'), 650);
+        section.classList.remove('compare-section-highlight');
+        void section.offsetWidth;
+        section.classList.add('compare-section-highlight');
+
+        window.setTimeout(() => {
+            const input = this.detailView.querySelector('#pokemonCompareInput');
+            if (input) {
+                input.focus({ preventScroll: true });
+                input.select();
+            }
+            section.classList.remove('compare-section-highlight');
+        }, 450);
+
+        return { success: true };
+    }
+
+    async showCompareSection(primaryIdentifier = null, compareIdentifier = null) {
+        if (primaryIdentifier) {
+            await this.loadPokemon(primaryIdentifier);
+        }
+
+        const currentData = this.app.currentCanvasState?.data;
+        const currentPokemon = currentData?.pokemon;
+        if (!currentPokemon) {
+            return { error: 'Open a Pokemon before starting a comparison.' };
+        }
+
+        if (compareIdentifier) {
+            const selectionResult = await this.selectComparePokemon(compareIdentifier);
+            if (selectionResult?.error) {
+                return selectionResult;
+            }
+        }
+
+        const focusResult = this.focusCompareSection();
+        if (focusResult.error) {
+            return focusResult;
+        }
+
+        return {
+            success: true,
+            pokemon: currentPokemon.name,
+            compare_pokemon: this.compareSelection?.pokemon?.name || compareIdentifier || null
+        };
+    }
+
+    syncCompareCanvasState(pokemon, species) {
+        const currentData = this.app.currentCanvasState?.data || {};
+        const nextData = {
+            pokemon,
+            species,
+            evolutionChain: currentData.evolutionChain || null,
+            comparePokemon: this.compareSelection?.pokemon || null,
+            compareSpecies: this.compareSelection?.species || null
+        };
+
+        this.app.updateCanvasState('pokemon', nextData, false);
+    }
+
+    async buildCompareCardHTML(pokemon, species, { label = '', clearable = false, compact = false } = {}) {
+        const primaryType = pokemon.types?.[0]?.type?.name || 'normal';
+
+        if (compact) {
+            return `
+                <div class="compare-pokemon-card compare-card-compact compare-type-${primaryType}">
+                    <div class="compare-card-header">
+                        <span class="compare-card-label">${label}</span>
+                    </div>
+                    <div class="compare-card-hero">
+                        <img src="${this.getSpriteUrl(pokemon) || this.app.gridView.getArtworkUrl(pokemon.id)}" alt="${pokemon.name}" class="compare-card-image">
+                        <div class="compare-card-heading">
+                            <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
+                            <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
+                        </div>
+                        <div class="pokemon-types compare-card-types">
+                            ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        const abilities = (pokemon.abilities || []).map(entry =>
+            `<span class="ability-badge">${this.formatDisplayName(entry.ability.name)}</span>`
+        ).join('');
+        const weaknesses = await this.calculateWeaknesses(pokemon);
+        const detailItems = [
+            { label: 'Weight', value: `${(pokemon.weight / 10).toFixed(1)} kg` },
+            { label: 'Height', value: `${(pokemon.height / 10).toFixed(1)} m` },
+            species.capture_rate !== undefined ? { label: 'Capture Rate', value: species.capture_rate } : null,
+            species.base_happiness !== undefined ? { label: 'Base Happiness', value: species.base_happiness } : null,
+            species.growth_rate?.name ? { label: 'Growth Rate', value: this.formatDisplayName(species.growth_rate.name) } : null,
+            species.habitat?.name ? { label: 'Habitat', value: this.formatDisplayName(species.habitat.name) } : null
+        ].filter(Boolean);
+
+        return `
+            <div class="compare-pokemon-card compare-type-${primaryType}">
+                <div class="compare-card-header">
+                    <span class="compare-card-label">${label}</span>
+                    ${clearable ? `
+                        <button type="button" class="compare-clear-btn" aria-label="Clear compared Pokémon">
+                            &times;
+                        </button>
+                    ` : ''}
+                </div>
+                <div class="compare-card-hero">
+                    <img src="${this.getSpriteUrl(pokemon) || this.app.gridView.getArtworkUrl(pokemon.id)}" alt="${pokemon.name}" class="compare-card-image">
+                    <div class="compare-card-heading">
+                        <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
+                        <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
+                    </div>
+                    <div class="pokemon-types compare-card-types">
+                        ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="compare-card-meta">
+                    ${detailItems.map(item => `
+                        <div class="compare-card-meta-item">
+                            <span class="compare-card-meta-label">${item.label}</span>
+                            <span class="compare-card-meta-value">${item.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="compare-card-detail-grid">
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Abilities</span>
+                        <div class="compare-card-abilities">${abilities || '<span class="compare-card-empty">Unknown</span>'}</div>
+                    </div>
+                    <div class="compare-card-section compare-card-section-stats">
+                        <span class="compare-card-section-title">Base Stats</span>
+                        <div class="compare-card-stats">
+                            ${this.buildCompareStatsMarkup(pokemon)}
+                        </div>
+                    </div>
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Description</span>
+                        <p class="compare-card-description">${this.getFlavorText(species) || 'No description available.'}</p>
+                    </div>
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Weaknesses</span>
+                        <div class="compare-card-weaknesses">
+                            ${weaknesses.length > 0
+                                ? weaknesses.map(([type, multiplier]) => `
+                                    <div class="compare-weakness-item">
+                                        <span class="type-badge type-${type}">${type}</span>
+                                        <span class="compare-weakness-multiplier">${multiplier === 4 ? '4×' : '2×'}</span>
+                                    </div>
+                                `).join('')
+                                : '<span class="compare-card-empty">No major weaknesses</span>'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    buildCompareStatsMarkup(pokemon) {
+        if (!pokemon.stats) return '<span class="compare-card-empty">Stats unavailable.</span>';
+
+        const statNames = {
+            'hp': 'HP',
+            'attack': 'Attack',
+            'defense': 'Defense',
+            'special-attack': 'Sp. Atk',
+            'special-defense': 'Sp. Def',
+            'speed': 'Speed'
+        };
+
+        return pokemon.stats.map(stat => {
+            const statName = stat.stat.name;
+            const statValue = stat.base_stat;
+            const displayName = statNames[statName] || statName;
+            const percentage = Math.min((statValue / MAX_BASE_STAT) * 100, 100);
+
+            return `
+                <div class="compare-stat-row">
+                    <span class="compare-stat-name">${displayName}</span>
+                    <span class="compare-stat-value">${statValue}</span>
+                    <div class="compare-stat-bar-container">
+                        <div class="compare-stat-bar" style="width: ${percentage}%;"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
     }
 
     addEnhancedDetails(pokemon, species) {
@@ -575,6 +1054,35 @@ class PokemonDetailView {
         enhancedSection.innerHTML = detailsHTML;
     }
 
+    async calculateWeaknesses(pokemon) {
+        const typeResults = await Promise.all(
+            pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
+        );
+        const typeData = typeResults.map(r => r.data);
+        const weaknessMap = {};
+
+        typeData.forEach(type => {
+            type.damage_relations.double_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 2;
+            });
+
+            type.damage_relations.half_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 0.5;
+            });
+
+            type.damage_relations.no_damage_from.forEach(damageType => {
+                const typeName = damageType.name;
+                weaknessMap[typeName] = 0;
+            });
+        });
+
+        return Object.entries(weaknessMap)
+            .filter(([type, multiplier]) => multiplier > 1)
+            .sort((a, b) => b[1] - a[1]);
+    }
+
     async addWeaknesses(pokemon) {
         // Check if weaknesses section already exists
         let weaknessSection = this.detailView.querySelector('.pokemon-weaknesses-section');
@@ -588,47 +1096,15 @@ class PokemonDetailView {
                 enhancedSection.parentNode.insertBefore(weaknessSection, enhancedSection.nextSibling);
             }
         }
-        
-        // Fetch type data for all Pokemon types
-        let typeData = [];
+
+        let weaknesses = [];
         try {
-            const typeResults = await Promise.all(
-                pokemon.types.map(t => this.fetchResourceWithFallback('type', t.type.name))
-            );
-            typeData = typeResults.map(r => r.data);
+            weaknesses = await this.calculateWeaknesses(pokemon);
         } catch (error) {
             console.error('Error loading type data for weaknesses:', error);
             return;
         }
-        
-        // Calculate weaknesses (damage multipliers)
-        const weaknessMap = {};
-        
-        typeData.forEach(type => {
-            // Double damage from these types
-            type.damage_relations.double_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 2;
-            });
-            
-            // Half damage from these types
-            type.damage_relations.half_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = (weaknessMap[typeName] || 1) * 0.5;
-            });
-            
-            // No damage from these types
-            type.damage_relations.no_damage_from.forEach(damageType => {
-                const typeName = damageType.name;
-                weaknessMap[typeName] = 0;
-            });
-        });
-        
-        // Filter for actual weaknesses (2x or 4x damage)
-        const weaknesses = Object.entries(weaknessMap)
-            .filter(([type, multiplier]) => multiplier > 1)
-            .sort((a, b) => b[1] - a[1]); // Sort by multiplier (4x first, then 2x)
-        
+
         if (weaknesses.length === 0) {
             weaknessSection.innerHTML = '';
             return;
@@ -693,7 +1169,7 @@ class PokemonDetailView {
             const statRow = document.createElement('div');
             statRow.className = 'stat-row';
             
-            const percentage = Math.min((statValue / 255) * 100, 100);
+            const percentage = Math.min((statValue / MAX_BASE_STAT) * 100, 100);
             
             statRow.innerHTML = `
                 <div class="stat-name">${displayName}</div>

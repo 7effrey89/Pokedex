@@ -830,6 +830,26 @@ class RealtimeVoiceClient {
                 return;
             }
 
+            // Frontend-only: compare_pokemon
+            if (toolName === 'compare_pokemon') {
+                if (window.comparePokemonCanvas) {
+                    const compareResult = await window.comparePokemonCanvas(args.pokemon_name || null, args.compare_pokemon_name || null);
+                    result = compareResult?.error
+                        ? { error: compareResult.error }
+                        : {
+                            success: true,
+                            message: compareResult.compare_pokemon
+                                ? `Showing Pokemon comparison: ${compareResult.pokemon} vs ${compareResult.compare_pokemon}`
+                                : `Showing Compare Pokemon section for ${compareResult.pokemon}`
+                        };
+                    success = !compareResult?.error;
+                } else {
+                    result = { error: 'Pokemon comparison is not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
             // Frontend-only: navigate_back
             if (toolName === 'navigate_back') {
                 if (window.navigateBackCanvas) {
