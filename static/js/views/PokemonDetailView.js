@@ -740,7 +740,7 @@ class PokemonDetailView {
             })();
             const header = document.querySelector('.app-header');
             const headerBottom = header?.getBoundingClientRect().bottom || 0;
-            const titleTopGap = 24;
+            const titleTopGap = 8;
 
             if (scrollContainer && scrollContainer !== document.scrollingElement && scrollContainer.contains(title)) {
                 const titleRect = title.getBoundingClientRect();
@@ -838,9 +838,9 @@ class PokemonDetailView {
                             <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
                             <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
                         </div>
-                    </div>
-                    <div class="pokemon-types compare-card-types">
-                        ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                        <div class="pokemon-types compare-card-types">
+                            ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                        </div>
                     </div>
                 </div>
             `;
@@ -875,9 +875,9 @@ class PokemonDetailView {
                         <h4 class="compare-card-name">${this.formatDisplayName(pokemon.name)}</h4>
                         <p class="compare-card-id">#${String(pokemon.id).padStart(POKEMON_ID_PADDING, '0')}</p>
                     </div>
-                </div>
-                <div class="pokemon-types compare-card-types">
-                    ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                    <div class="pokemon-types compare-card-types">
+                        ${pokemon.types.map(type => `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`).join('')}
+                    </div>
                 </div>
                 <div class="compare-card-meta">
                     ${detailItems.map(item => `
@@ -887,31 +887,33 @@ class PokemonDetailView {
                         </div>
                     `).join('')}
                 </div>
-                <div class="compare-card-section">
-                    <span class="compare-card-section-title">Abilities</span>
-                    <div class="compare-card-abilities">${abilities || '<span class="compare-card-empty">Unknown</span>'}</div>
-                </div>
-                <div class="compare-card-section">
-                    <span class="compare-card-section-title">Description</span>
-                    <p class="compare-card-description">${this.getFlavorText(species) || 'No description available.'}</p>
-                </div>
-                <div class="compare-card-section">
-                    <span class="compare-card-section-title">Weaknesses</span>
-                    <div class="compare-card-weaknesses">
-                        ${weaknesses.length > 0
-                            ? weaknesses.map(([type, multiplier]) => `
-                                <div class="compare-weakness-item">
-                                    <span class="type-badge type-${type}">${type}</span>
-                                    <span class="compare-weakness-multiplier">${multiplier === 4 ? '4×' : '2×'}</span>
-                                </div>
-                            `).join('')
-                            : '<span class="compare-card-empty">No major weaknesses</span>'}
+                <div class="compare-card-detail-grid">
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Abilities</span>
+                        <div class="compare-card-abilities">${abilities || '<span class="compare-card-empty">Unknown</span>'}</div>
                     </div>
-                </div>
-                <div class="compare-card-section">
-                    <span class="compare-card-section-title">Base Stats</span>
-                    <div class="compare-card-stats">
-                        ${this.buildCompareStatsMarkup(pokemon)}
+                    <div class="compare-card-section compare-card-section-stats">
+                        <span class="compare-card-section-title">Base Stats</span>
+                        <div class="compare-card-stats">
+                            ${this.buildCompareStatsMarkup(pokemon)}
+                        </div>
+                    </div>
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Description</span>
+                        <p class="compare-card-description">${this.getFlavorText(species) || 'No description available.'}</p>
+                    </div>
+                    <div class="compare-card-section">
+                        <span class="compare-card-section-title">Weaknesses</span>
+                        <div class="compare-card-weaknesses">
+                            ${weaknesses.length > 0
+                                ? weaknesses.map(([type, multiplier]) => `
+                                    <div class="compare-weakness-item">
+                                        <span class="type-badge type-${type}">${type}</span>
+                                        <span class="compare-weakness-multiplier">${multiplier === 4 ? '4×' : '2×'}</span>
+                                    </div>
+                                `).join('')
+                                : '<span class="compare-card-empty">No major weaknesses</span>'}
+                        </div>
                     </div>
                 </div>
             </div>
