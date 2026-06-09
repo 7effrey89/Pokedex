@@ -711,13 +711,7 @@ class PokemonDetailView {
             compareSpecies: this.compareSelection?.species || null
         };
 
-        this.app.currentCanvasState = { type: 'pokemon', data: nextData };
-        this.app.currentPokemonContext = nextData;
-        this.app.currentCardContext = null;
-
-        if (this.app.realtimeVoice?.isConnected) {
-            this.app.realtimeVoice.updateCanvasContext(this.app.buildCanvasContextDescription());
-        }
+        this.app.updateCanvasState('pokemon', nextData, false);
     }
 
     async buildCompareCardHTML(pokemon, species, { label = '', clearable = false } = {}) {
