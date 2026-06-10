@@ -82,6 +82,17 @@ The All Cards grid uses progressive DOM rendering to avoid jank with 1000+ cards
 
 ---
 
+## Local Card Collection Store
+
+Owned card data is stored entirely in the browser via `localStorage` using the `CardCollectionStore` helper (`static/js/card-collection.js`).
+
+- `cards` map stores normalized card snapshots keyed by card ID plus the owned count
+- `history` stores recent accepted scanner events so the scanner modal can show removable scan history
+- TCG database counters update the same store directly, so scanner saves, My Collection, and inline count editing stay in sync
+- Settings export/import simply serialize and restore this local JSON payload
+
+---
+
 ## PokeAPI Proxy & Fair Use
 
 All PokeAPI calls go through the Flask proxy at `/api/pokemon/*` which caches responses locally:

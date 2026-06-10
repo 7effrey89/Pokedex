@@ -14,7 +14,7 @@ class TcgDatabaseView {
         this.observer = null;
 
         // All Cards flat view state
-        this.viewMode = 'expansions'; // 'expansions' or 'all-cards'
+        this.viewMode = 'expansions'; // 'expansions' | 'all-cards' | 'collection'
         this.allCards = [];
         this.loadedSetIds = new Set(); // track which sets have been fetched
         this.filteredCards = null; // null = no filter active
@@ -75,7 +75,7 @@ class TcgDatabaseView {
         // Update sort select options
         this._updateSortOptions();
 
-        if (mode === 'all-cards') {
+        if (mode === 'all-cards' || mode === 'collection') {
             await this._renderAllCardsView();
         } else {
             this.app.currentTcgCards = null;
@@ -90,7 +90,7 @@ class TcgDatabaseView {
         const sortSelect = this.databaseView?.querySelector('#tcg-db-sort-select');
         if (!sortSelect) return;
 
-        if (this.viewMode === 'all-cards') {
+        if (this.viewMode === 'all-cards' || this.viewMode === 'collection') {
             sortSelect.innerHTML = `
                 <option value="set-desc" selected>Newest Set First</option>
                 <option value="set-asc">Oldest Set First</option>
@@ -544,15 +544,20 @@ class TcgDatabaseView {
         if (!this.cardList) return;
         this.cardList.innerHTML = '';
 
-        // Build expansion picker and grid container immediately (no await)
-        this._buildExpansionPicker();
+        if (this.viewMode === 'all-cards') {
+            // Build expansion picker and grid container immediately (no await)
+            this._buildExpansionPicker();
+        }
 
         const grid = document.createElement('div');
         grid.className = 'tcg-all-cards-grid';
         grid.id = 'tcgAllCardsGrid';
         this.cardList.appendChild(grid);
 
-        if (this.allCards.length > 0) {
+        if (this.viewMode === 'collection') {
+            this._loadDexLookup();
+            this._renderCardGrid();
+        } else if (this.allCards.length > 0) {
             // Already have cards — just load dex lookup in background for sorting
             this._loadDexLookup();
             this._renderCardGrid();
@@ -567,6 +572,10 @@ class TcgDatabaseView {
         }
 
         this._updateCardCount();
+    }
+
+    showMyCollection() {
+        return this.toggleViewMode('collection');
     }
 
     /** Build the expansion picker checklist below the header */
@@ -826,23 +835,29 @@ class TcgDatabaseView {
         const countEl = document.getElementById('tcgDbSetCount');
         if (!countEl) return;
         const display = this._getDisplayCards();
-        if (this.filteredCards !== null) {
+        if (this.viewMode === 'collection') {
+            countEl.textContent = `${display.length} owned cards`;
+        } else if (this.filteredCards !== null) {
             countEl.textContent = `${display.length} of ${this.allCards.length} cards`;
         } else {
             countEl.textContent = `${this.allCards.length} cards · ${this._selectedSetIds.size} expansions`;
         }
 
         // Keep AI context up to date when in All Cards mode
-        if (this.viewMode === 'all-cards') {
+        if (this.viewMode === 'all-cards' || this.viewMode === 'collection') {
             this.app.updateCanvasState('tcg-database', {
                 total_sets: this.allSets.length,
-                viewMode: 'all-cards',
+                viewMode: this.viewMode,
                 selectedSets: this._selectedSetIds.size
             }, false);
         }
     }
 
     _getDisplayCards() {
+        if (this.viewMode === 'collection') {
+            const owned = this.app.cardCollection?.getOwnedCards?.() || [];
+            return this.filteredCards !== null ? this.filteredCards : owned;
+        }
         return this.filteredCards !== null ? this.filteredCards : this.allCards;
     }
 
@@ -1044,16 +1059,64 @@ class TcgDatabaseView {
         const priceStyle = priceColor ? `style="color:${priceColor}"` : '';
         const rarity = card.rarity || '';
         const badge = displayIndex ? `<div class="card-index-badge">#${displayIndex}</div>` : '';
+        const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || card._collectionCount || 0;
+
+        el.classList.toggle('is-owned', collectionCount > 0);
+        el.classList.toggle('is-unowned', collectionCount <= 0);
 
         el.innerHTML = `
             ${badge}
             <img src="${imageUrl}" alt="${name}" loading="lazy">
+            <div class="tcg-collection-counter camera-summary-counter" data-card-id="${card.id}">
+                <button class="tcg-collection-counter-btn" type="button" data-action="decrement" aria-label="Decrease ${name} count">−</button>
+                <input class="tcg-collection-counter-input" type="number" min="0" value="${collectionCount}" aria-label="${name} owned count">
+                <button class="tcg-collection-counter-btn" type="button" data-action="increment" aria-label="Increase ${name} count">+</button>
+            </div>
             <div class="tcg-card-info">
                 <span class="tcg-card-name">${name}</span>
                 <span class="tcg-card-set-label">${setName}</span>
                 ${priceStr || rarity ? `<span class="tcg-card-meta">${priceStr ? `<span class="tcg-card-price" ${priceStyle}>${priceStr}</span>` : ''}${priceStr && rarity ? ' · ' : ''}${rarity}</span>` : ''}
+                ${collectionCount > 0 ? `<span class="tcg-card-collection-tag">Owned: ${collectionCount}</span>` : ''}
             </div>
         `;
+
+        const counter = el.querySelector('.tcg-collection-counter');
+        const input = el.querySelector('.tcg-collection-counter-input');
+        const applyCount = (nextValue) => {
+            const safeValue = Math.max(0, Number(nextValue) || 0);
+            this.app.cardCollection?.setCardCount?.(card, safeValue);
+            if (input) input.value = safeValue;
+            el.classList.toggle('is-owned', safeValue > 0);
+            el.classList.toggle('is-unowned', safeValue <= 0);
+            const ownedTag = el.querySelector('.tcg-card-collection-tag');
+            if (safeValue > 0) {
+                if (ownedTag) {
+                    ownedTag.textContent = `Owned: ${safeValue}`;
+                } else {
+                    el.querySelector('.tcg-card-info')?.insertAdjacentHTML('beforeend', `<span class="tcg-card-collection-tag">Owned: ${safeValue}</span>`);
+                }
+            } else if (ownedTag) {
+                ownedTag.remove();
+            }
+            if (this.viewMode === 'collection') {
+                this._renderCardGrid();
+            }
+        };
+
+        counter?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const action = event.target?.dataset?.action;
+            if (!action) return;
+            const currentValue = Number(input?.value || collectionCount || 0);
+            applyCount(action === 'increment' ? currentValue + 1 : currentValue - 1);
+        });
+
+        input?.addEventListener('click', event => event.stopPropagation());
+        input?.addEventListener('change', (event) => {
+            event.stopPropagation();
+            applyCount(event.target.value);
+        });
+        input?.addEventListener('keydown', (event) => event.stopPropagation());
 
         el.addEventListener('click', async () => {
             // Fetch full card details for the detail view
@@ -1093,15 +1156,26 @@ class TcgDatabaseView {
         return el;
     }
 
+    refreshCollectionState() {
+        if (this.viewMode === 'all-cards' || this.viewMode === 'collection') {
+            this._reapplyActiveFilters();
+            this._updateCardCount();
+            this._renderCardGrid();
+        }
+    }
+
     /** Filter cards by criteria from the search panel */
     filterCards(filters) {
         // Remember filters so they can be re-applied when expansions change
         this._activeFilters = filters;
+        const sourceCards = this.viewMode === 'collection'
+            ? (this.app.cardCollection?.getOwnedCards?.() || [])
+            : this.allCards;
 
         if (!filters || (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity)) {
             this.filteredCards = null;
         } else {
-            this.filteredCards = this.allCards.filter(card => {
+            this.filteredCards = sourceCards.filter(card => {
                 // Name filter
                 if (filters.name) {
                     const name = (card.name || '').toLowerCase();
@@ -1142,10 +1216,13 @@ class TcgDatabaseView {
         if (this._activeFilters) {
             // Re-run filterCards logic without re-saving (already saved)
             const filters = this._activeFilters;
+            const sourceCards = this.viewMode === 'collection'
+                ? (this.app.cardCollection?.getOwnedCards?.() || [])
+                : this.allCards;
             if (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity) {
                 this.filteredCards = null;
             } else {
-                this.filteredCards = this.allCards.filter(card => {
+                this.filteredCards = sourceCards.filter(card => {
                     if (filters.name) {
                         const name = (card.name || '').toLowerCase();
                         const setName = (card.set?.name || '').toLowerCase();

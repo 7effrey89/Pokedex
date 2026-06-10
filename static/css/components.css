@@ -797,6 +797,10 @@
     position: relative;
 }
 
+.camera-modal.is-collection-mode {
+    width: min(1040px, 100%);
+}
+
 .camera-modal-header {
     display: flex;
     justify-content: space-between;
@@ -814,6 +818,33 @@
     margin: 0;
     color: var(--text-secondary);
     font-size: 0.85rem;
+}
+
+.camera-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    background: rgba(118, 75, 162, 0.08);
+    padding: 0.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(118, 75, 162, 0.12);
+}
+
+.camera-mode-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.camera-mode-btn.active {
+    background: linear-gradient(135deg, #5f9f59 0%, #3c7f38 100%);
+    color: #fff;
 }
 
 .camera-modal-close {
@@ -837,6 +868,17 @@
     justify-content: center;
 }
 
+.camera-modal-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+}
+
+.camera-modal.is-collection-mode .camera-modal-layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.95fr);
+    align-items: start;
+}
+
 .camera-modal-body video {
     width: 100%;
     height: 100%;
@@ -855,6 +897,236 @@
     color: #fff;
     font-size: 0.85rem;
     text-align: left;
+}
+
+.camera-collection-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.camera-preview-card,
+.camera-collection-history,
+.camera-collection-summary {
+    background: rgba(118, 75, 162, 0.06);
+    border: 1px solid rgba(118, 75, 162, 0.12);
+    border-radius: 18px;
+    padding: 0.9rem;
+}
+
+.camera-preview-card {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+}
+
+.camera-preview-card-media {
+    width: 120px;
+    min-width: 120px;
+    aspect-ratio: 0.72;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(118, 75, 162, 0.18), rgba(118, 75, 162, 0.06));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.camera-preview-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-preview-card-placeholder {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.camera-preview-card-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.camera-preview-label,
+.camera-collection-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5a4a70;
+}
+
+.camera-preview-card-body h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.camera-preview-card-body p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.camera-preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.camera-preview-tag {
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(118, 75, 162, 0.1);
+    color: #6a4a8f;
+    font-size: 0.74rem;
+    font-weight: 600;
+}
+
+.camera-preview-actions {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.camera-accept-button {
+    background: linear-gradient(135deg, #5bbf60 0%, #3f9544 100%);
+}
+
+.camera-reject-button {
+    background: linear-gradient(135deg, #d65f5f 0%, #bb3535 100%);
+}
+
+.camera-hints {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-top: 0.35rem;
+}
+
+.camera-hints label {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+}
+
+.camera-hint-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.camera-hint-row input {
+    flex: 1;
+    min-width: 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 0.9rem;
+    font-size: 0.88rem;
+}
+
+.camera-history-list,
+.camera-summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.camera-history-item,
+.camera-summary-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.camera-history-thumb {
+    width: 42px;
+    height: 58px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: rgba(118, 75, 162, 0.08);
+}
+
+.camera-history-details,
+.camera-summary-details {
+    min-width: 0;
+    flex: 1;
+}
+
+.camera-history-details strong,
+.camera-summary-details strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.86rem;
+}
+
+.camera-history-details span,
+.camera-summary-details span {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+}
+
+.camera-history-remove {
+    border: none;
+    background: transparent;
+    color: #b24343;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.camera-empty-state {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    padding: 0.35rem 0.1rem;
+}
+
+.camera-save-summary-btn {
+    flex: 0 0 auto;
+    min-width: 84px;
+    padding-inline: 0.85rem;
+}
+
+.camera-summary-counter {
+    flex: 0 0 auto;
+}
+
+.collection-settings-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.camera-preview-card.is-saving {
+    animation: scanner-card-drop 500ms ease forwards;
+    transform-origin: center top;
+}
+
+@keyframes scanner-card-drop {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 120px, 0) scale(0.45);
+    }
 }
 
 .camera-prompt {
@@ -1938,7 +2210,28 @@
         padding: 1rem;
     }
 
+    .camera-modal-header {
+        flex-wrap: wrap;
+    }
+
+    .camera-mode-toggle {
+        order: 3;
+    }
+
     .camera-modal-actions {
+        flex-direction: column;
+    }
+
+    .camera-preview-card {
+        flex-direction: column;
+    }
+
+    .camera-preview-card-media {
+        width: min(180px, 100%);
+        min-width: 0;
+    }
+
+    .camera-hint-row {
         flex-direction: column;
     }
 

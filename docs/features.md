@@ -27,6 +27,8 @@ All implemented features, categorized. Every new feature must be added here.
 | TCG Database | Browse all 172+ card expansions/sets | ❌ |
 | Expansions View | Lazy-loaded set previews with card thumbnails | ❌ |
 | All Cards View | Flat grid of all cards across selected expansions | ❌ |
+| My Collection View | Show locally saved owned cards with editable counts and collection-only filtering | ✅ `show_my_collection` |
+| Collection Counters | Adjust owned counts inline from the TCG database and auto-save to browser storage | N/A |
 | Expansion Picker | Collapsible checklist to select which sets to load | ❌ |
 | TCG Sort Options | Sort by set, card #, Pokédex #, name, rarity, price (10 options) | ❌ |
 | TCG Gallery Sort | Sort gallery cards by 13 options including dex#, rarity, price, year | ❌ |
@@ -55,6 +57,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Voice Conversation | Real-time voice chat with AI Pokédex assistant | ✅ (core) |
 | Text Chat Sidebar | Text-based chat with streaming responses | N/A |
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
+| Collection Scanner | Camera collection mode with preview, accept/retry flow, scan history, and local save summary | N/A |
 | Face Recognition | Identify people via camera | ❌ |
 
 ## Caching & Performance
@@ -77,6 +80,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Status Indicator | Online/Offline connection status | N/A |
 | Purple Gradient Theme | TCG views use consistent purple gradient background | N/A |
 | Transparent Card Backgrounds | TCG cards display with transparent backgrounds | N/A |
+| Collection Import/Export | Save and restore the local card collection as JSON from Settings | N/A |
 
 ---
 
@@ -94,6 +98,7 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `show_tcg_card_by_index` | Show a specific card by number in the current gallery |
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
 | `show_tcg_database` | Navigate to the TCG Card Database page |
+| `show_my_collection` | Navigate to the TCG Database and open the locally saved My Collection view |
 | `compare_pokemon` | Navigate to the first named Pokemon, scroll to Compare Pokemon, and compare against the second named Pokemon |
 | `navigate_back` | Go back to the previous page in history |
 | `navigate_forward` | Go forward to the next page in history |

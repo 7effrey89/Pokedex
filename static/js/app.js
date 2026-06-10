@@ -30,6 +30,12 @@ class PokemonChatApp {
         this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
         this.currency = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter.getCurrency() : 'USD';
+        this.cardCollection = typeof CardCollectionStore !== 'undefined' ? new CardCollectionStore() : null;
+        this.cameraMode = 'insights';
+        this.pendingCardScan = null;
+        this.currentScannerMatch = null;
+        this.scannerAttemptCount = 0;
+        this.lastScannerFrame = null;
 
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -64,10 +70,30 @@ class PokemonChatApp {
         this.cameraButton = document.getElementById('cameraButton');
         this.cameraModalOverlay = document.getElementById('cameraModalOverlay');
         this.cameraModalClose = document.getElementById('cameraModalClose');
+        this.cameraModal = document.getElementById('cameraModal');
+        this.cameraModalSubtitle = document.getElementById('cameraModalSubtitle');
         this.cameraPreview = document.getElementById('cameraPreview');
         this.cameraStatusText = document.getElementById('cameraStatusText');
         this.cameraSwitchButton = document.getElementById('cameraSwitchButton');
         this.cameraSwitchText = document.getElementById('cameraSwitchText');
+        this.cameraIdentifyButton = document.getElementById('cameraIdentifyButton');
+        this.cameraInsightsModeBtn = document.getElementById('cameraInsightsModeBtn');
+        this.cameraCollectionModeBtn = document.getElementById('cameraCollectionModeBtn');
+        this.cameraCollectionPanel = document.getElementById('cameraCollectionPanel');
+        this.cameraIdentifiedCardImage = document.getElementById('cameraIdentifiedCardImage');
+        this.cameraPreviewPlaceholder = document.getElementById('cameraPreviewPlaceholder');
+        this.cameraIdentifiedCardTitle = document.getElementById('cameraIdentifiedCardTitle');
+        this.cameraIdentifiedCardMeta = document.getElementById('cameraIdentifiedCardMeta');
+        this.cameraPreviewTags = document.getElementById('cameraPreviewTags');
+        this.cameraAcceptCardBtn = document.getElementById('cameraAcceptCardBtn');
+        this.cameraRejectCardBtn = document.getElementById('cameraRejectCardBtn');
+        this.cameraHintSection = document.getElementById('cameraHintSection');
+        this.cameraHintInput = document.getElementById('cameraHintInput');
+        this.cameraHintSubmitBtn = document.getElementById('cameraHintSubmitBtn');
+        this.cameraHistoryList = document.getElementById('cameraHistoryList');
+        this.cameraSummaryList = document.getElementById('cameraSummaryList');
+        this.cameraPreviewCard = document.getElementById('cameraPreviewCard');
+        this.cameraSaveCollectionBtn = document.getElementById('cameraSaveCollectionBtn');
         this.cameraFacingMode = 'environment';
         this.cameraStream = null;
         this.isScanModeActive = false;
@@ -114,6 +140,10 @@ class PokemonChatApp {
         this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
         this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
         this.realtimeLanguageSelect = document.getElementById('realtimeLanguageSelect');
+        this.collectionExportBtn = document.getElementById('collectionExportBtn');
+        this.collectionImportBtn = document.getElementById('collectionImportBtn');
+        this.collectionImportInput = document.getElementById('collectionImportInput');
+        this.collectionImportStatus = document.getElementById('collectionImportStatus');
 
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
@@ -193,6 +223,8 @@ class PokemonChatApp {
         this.initializeCameraControls();
         this.initializeChatSidebar();
         this.initializeFaceProfileCaptureControls();
+        this.cardCollection?.subscribe(() => this.handleCardCollectionUpdated());
+        this.handleCardCollectionUpdated();
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
@@ -1615,6 +1647,9 @@ class PokemonChatApp {
             case 'show_tcg_database':
                 window.showTcgDatabaseCanvas?.();
                 break;
+            case 'show_my_collection':
+                await window.showMyCollectionCanvas?.();
+                break;
             case 'compare_pokemon':
                 await window.comparePokemonCanvas?.(action.pokemon_name || null, action.compare_pokemon_name || null);
                 break;
@@ -1826,9 +1861,80 @@ class PokemonChatApp {
                 this.setCameraSwitchEnabled(false);
             }
         }
+
+        this.cameraIdentifyButton?.addEventListener('click', () => this.identifyCurrentCard());
+        this.cameraInsightsModeBtn?.addEventListener('click', () => this.setCameraMode('insights'));
+        this.cameraCollectionModeBtn?.addEventListener('click', () => this.setCameraMode('collection'));
+        this.cameraAcceptCardBtn?.addEventListener('click', () => this.acceptCurrentScannerMatch());
+        this.cameraRejectCardBtn?.addEventListener('click', () => this.retryScannerMatch());
+        this.cameraHintSubmitBtn?.addEventListener('click', () => this.identifyCurrentCard({ useHints: true }));
+        this.cameraSaveCollectionBtn?.addEventListener('click', () => {
+            this.cardCollection?._persist?.();
+            this.showToast('Card Collection', 'Collection saved locally in this browser.', 'success', 2500);
+        });
+
+        this.cameraHistoryList?.addEventListener('click', (event) => {
+            const removeButton = event.target.closest('[data-history-id]');
+            if (!removeButton) return;
+            this.cardCollection?.removeHistoryEntry(removeButton.dataset.historyId);
+        });
+
+        this.cameraSummaryList?.addEventListener('click', (event) => {
+            const counterButton = event.target.closest('[data-card-id][data-action]');
+            if (!counterButton) return;
+            const cardId = counterButton.dataset.cardId;
+            const currentCount = this.cardCollection?.getCardCount(cardId) || 0;
+            const nextCount = counterButton.dataset.action === 'increment' ? currentCount + 1 : currentCount - 1;
+            const card = this.cardCollection?.state?.cards?.[cardId]?.card;
+            if (card) this.cardCollection?.setCardCount(card, nextCount);
+        });
+
+        this.cameraSummaryList?.addEventListener('change', (event) => {
+            const input = event.target.closest('input[data-card-id]');
+            if (!input) return;
+            const card = this.cardCollection?.state?.cards?.[input.dataset.cardId]?.card;
+            if (card) this.cardCollection?.setCardCount(card, input.value);
+        });
+
+        this.setCameraMode(this.cameraMode, { force: true });
+        this.resetScannerPreview();
     }
 
-    
+    setCameraMode(mode, { force = false } = {}) {
+        if (!force && mode === this.cameraMode) return;
+        this.cameraMode = mode === 'collection' ? 'collection' : 'insights';
+        const isCollection = this.cameraMode === 'collection';
+
+        this.cameraModal?.classList.toggle('is-collection-mode', isCollection);
+        this.cameraCollectionPanel && (this.cameraCollectionPanel.hidden = !isCollection);
+        this.cameraInsightsModeBtn?.classList.toggle('active', !isCollection);
+        this.cameraCollectionModeBtn?.classList.toggle('active', isCollection);
+        if (this.cameraModalSubtitle) {
+            this.cameraModalSubtitle.textContent = isCollection
+                ? 'Identify cards with the camera, confirm the match, and save them to My Collection.'
+                : 'Share a card or poster and get real-time insights.';
+        }
+        if (this.cameraIdentifyButton) {
+            this.cameraIdentifyButton.textContent = isCollection ? 'Identify Card' : 'Send Camera Frame';
+        }
+
+        if (isCollection) {
+            this.renderScannerCollectionPanels();
+        } else {
+            this.hideScannerHints();
+        }
+    }
+
+    hideScannerHints() {
+        if (this.cameraHintSection) this.cameraHintSection.hidden = true;
+    }
+
+    showScannerHints(message = null) {
+        if (this.cameraHintSection) this.cameraHintSection.hidden = false;
+        if (message) {
+            this.updateCameraStatus(message);
+        }
+    }
 
     getCameraFacingDescription(mode = this.cameraFacingMode) {
         return mode === 'environment' ? 'rear' : 'front';
@@ -1869,7 +1975,9 @@ class PokemonChatApp {
         this.cameraModalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        this.setCameraMode(this.cameraMode, { force: true });
         this.updateCameraSwitchButton();
+        this.renderScannerCollectionPanels();
         await this.startCameraPreview();
         await this.startCameraScanningSession();
     }
@@ -1878,8 +1986,10 @@ class PokemonChatApp {
         if (!this.cameraModalOverlay) return;
         this.cameraModalOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        this.pendingCardScan = null;
         this.stopCameraScanning();
         this.stopCameraStream();
+        this.resetScannerPreview();
         this.updateCameraStatus('Camera closed. Reopen to scan more.');
     }
 
@@ -1973,6 +2083,305 @@ class PokemonChatApp {
             this.cameraPreview.pause();
             this.cameraPreview.srcObject = null;
         }
+    }
+
+    captureCurrentCameraFrame() {
+        if (!this.cameraPreview || this.cameraPreview.readyState < 2) {
+            return null;
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = this.cameraPreview.videoWidth;
+        canvas.height = this.cameraPreview.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(this.cameraPreview, 0, 0);
+        return canvas.toDataURL('image/jpeg', 0.92);
+    }
+
+    async identifyCurrentCard({ useHints = false } = {}) {
+        if (this.cameraMode !== 'collection') {
+            return this.sendCameraSnapshot('manual');
+        }
+
+        const imageDataUrl = this.captureCurrentCameraFrame();
+        if (!imageDataUrl) {
+            this.updateCameraStatus('Waiting for a clear camera frame before identifying the card.');
+            return false;
+        }
+
+        this.lastScannerFrame = imageDataUrl;
+        this.updateCameraStatus('Identifying the card...');
+        this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = true);
+        this.hideScannerHints();
+
+        try {
+            const prompt = this.buildCardIdentificationPrompt({
+                attempt: useHints ? Math.max(3, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
+                previousGuess: this.currentScannerMatch?.guess,
+                hints: useHints ? this.cameraHintInput?.value?.trim() : ''
+            });
+            const responseText = await this.requestScannerResponse(imageDataUrl, prompt);
+            const guess = this.parseScannerGuess(responseText);
+            const matchedCard = await this.findBestMatchingCard(guess);
+            this.currentScannerMatch = {
+                guess,
+                matchedCard,
+                responseText,
+                imageDataUrl
+            };
+            this.scannerAttemptCount = useHints ? 3 : this.scannerAttemptCount + 1;
+            this.renderScannerMatch();
+            this.updateCameraStatus(matchedCard
+                ? `Best match: ${matchedCard.name}${matchedCard.set?.name ? ` from ${matchedCard.set.name}` : ''}`
+                : 'I found a guess, but I could not confidently match it in the card database.');
+            return true;
+        } catch (error) {
+            console.error('Card identification failed:', error);
+            this.updateCameraStatus('Could not identify the card right now.');
+            this.showToast('Card Scanner', 'Unable to identify the current card.', 'error', 3500);
+            return false;
+        } finally {
+            this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = false);
+        }
+    }
+
+    buildCardIdentificationPrompt({ attempt = 1, previousGuess = null, hints = '' } = {}) {
+        const promptParts = [
+            'Identify the most visible Pokémon TCG card in this image.',
+            'Reply with exactly six lines in this format:',
+            'Card: <best full card name>',
+            'Pokemon: <pokemon name or unknown>',
+            'Set: <set name or unknown>',
+            'Number: <printed card number or unknown>',
+            'HP: <hp or unknown>',
+            'Confidence: <high|medium|low>',
+        ];
+
+        if (attempt >= 2 && previousGuess) {
+            promptParts.push(`The previous guess was wrong: ${previousGuess.cardName || previousGuess.pokemonName || 'unknown card'}${previousGuess.setName ? ` from ${previousGuess.setName}` : ''}. Suggest a different card.`);
+        }
+
+        if (hints) {
+            promptParts.push(`User hints: ${hints}`);
+        }
+
+        promptParts.push('Keep the answer short and do not add any extra commentary.');
+        return promptParts.join(' ');
+    }
+
+    requestScannerResponse(imageDataUrl, prompt) {
+        return new Promise(async (resolve, reject) => {
+            if (!this.realtimeVoice || !this.useRealtimeApi) {
+                reject(new Error('Realtime voice is not available'));
+                return;
+            }
+
+            this.pendingCardScan = { resolve, reject };
+
+            try {
+                await this.activateRealtimeConversation({ announce: false });
+                const sent = await this.realtimeVoice.sendImage(imageDataUrl, prompt);
+                if (!sent) {
+                    this.pendingCardScan = null;
+                    reject(new Error('Image was not sent'));
+                }
+            } catch (error) {
+                this.pendingCardScan = null;
+                reject(error);
+            }
+        });
+    }
+
+    parseScannerGuess(text = '') {
+        const lines = text.split(/\n+/).map(line => line.trim()).filter(Boolean);
+        const readField = (label) => {
+            const match = lines.find(line => line.toLowerCase().startsWith(`${label.toLowerCase()}:`));
+            return match ? match.split(':').slice(1).join(':').trim() : '';
+        };
+        return {
+            cardName: readField('Card'),
+            pokemonName: readField('Pokemon'),
+            setName: readField('Set'),
+            number: readField('Number'),
+            hp: readField('HP'),
+            confidence: readField('Confidence') || 'medium'
+        };
+    }
+
+    async findBestMatchingCard(guess) {
+        const terms = [...new Set([guess.cardName, guess.pokemonName].filter(Boolean))];
+        if (terms.length === 0) return null;
+
+        const candidates = [];
+        for (const term of terms) {
+            try {
+                const response = await fetch('/api/realtime/tool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tool_name: 'search_pokemon_cards',
+                        arguments: { pokemon_name: term }
+                    })
+                });
+                if (!response.ok) continue;
+                const data = await response.json();
+                const cards = data?.result?.cards || [];
+                cards.forEach(card => {
+                    if (!candidates.some(existing => existing.id === card.id)) {
+                        candidates.push(card);
+                    }
+                });
+            } catch (error) {
+                console.warn('Candidate lookup failed:', error);
+            }
+        }
+
+        if (candidates.length === 0) return null;
+
+        const normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        const wantedName = normalize(guess.cardName);
+        const wantedSet = normalize(guess.setName);
+        const wantedNumber = normalize(guess.number);
+        const wantedHp = normalize(guess.hp);
+
+        const scored = candidates.map(card => {
+            let score = 0;
+            const cardName = normalize(card.name);
+            const setName = normalize(card.set?.name);
+            if (wantedName && cardName === wantedName) score += 70;
+            else if (wantedName && (cardName.includes(wantedName) || wantedName.includes(cardName))) score += 35;
+            if (wantedSet && setName === wantedSet) score += 35;
+            else if (wantedSet && (setName.includes(wantedSet) || wantedSet.includes(setName))) score += 15;
+            if (wantedNumber && normalize(card.number) === wantedNumber) score += 30;
+            if (wantedHp && normalize(card.hp) === wantedHp) score += 10;
+            return { card, score };
+        }).sort((a, b) => b.score - a.score);
+
+        return scored[0]?.card || candidates[0];
+    }
+
+    renderScannerMatch() {
+        const match = this.currentScannerMatch;
+        const card = match?.matchedCard;
+        const guess = match?.guess;
+        const imageUrl = card?.images?.small || card?.imageSmall || '';
+        if (this.cameraIdentifiedCardImage) {
+            this.cameraIdentifiedCardImage.hidden = !imageUrl;
+            this.cameraIdentifiedCardImage.src = imageUrl || '';
+        }
+        if (this.cameraPreviewPlaceholder) {
+            this.cameraPreviewPlaceholder.hidden = Boolean(imageUrl);
+        }
+        if (this.cameraIdentifiedCardTitle) {
+            this.cameraIdentifiedCardTitle.textContent = card?.name || guess?.cardName || 'Best guess ready for review';
+        }
+        if (this.cameraIdentifiedCardMeta) {
+            const pieces = [
+                card?.set?.name || guess?.setName || 'Set unknown',
+                card?.number || guess?.number || 'Number unknown',
+                guess?.confidence ? `Confidence: ${guess.confidence}` : ''
+            ].filter(Boolean);
+            this.cameraIdentifiedCardMeta.textContent = pieces.join(' · ');
+        }
+        if (this.cameraPreviewTags) {
+            const tags = [
+                guess?.pokemonName && guess.pokemonName.toLowerCase() !== 'unknown' ? guess.pokemonName : '',
+                guess?.hp && guess.hp.toLowerCase() !== 'unknown' ? `${guess.hp} HP` : '',
+                card?.rarity || ''
+            ].filter(Boolean);
+            this.cameraPreviewTags.innerHTML = tags.map(tag => `<span class="camera-preview-tag">${tag}</span>`).join('');
+        }
+        if (this.cameraAcceptCardBtn) this.cameraAcceptCardBtn.disabled = !card;
+        if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = !match;
+    }
+
+    resetScannerPreview() {
+        this.currentScannerMatch = null;
+        this.scannerAttemptCount = 0;
+        if (this.cameraHintInput) this.cameraHintInput.value = '';
+        if (this.cameraIdentifiedCardImage) {
+            this.cameraIdentifiedCardImage.hidden = true;
+            this.cameraIdentifiedCardImage.src = '';
+        }
+        if (this.cameraPreviewPlaceholder) this.cameraPreviewPlaceholder.hidden = false;
+        if (this.cameraIdentifiedCardTitle) this.cameraIdentifiedCardTitle.textContent = 'No card identified yet';
+        if (this.cameraIdentifiedCardMeta) this.cameraIdentifiedCardMeta.textContent = 'Use the live preview and tap Identify Card to start logging cards you own.';
+        if (this.cameraPreviewTags) this.cameraPreviewTags.innerHTML = '';
+        if (this.cameraAcceptCardBtn) this.cameraAcceptCardBtn.disabled = true;
+        if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = true;
+        this.hideScannerHints();
+    }
+
+    async acceptCurrentScannerMatch() {
+        const card = this.currentScannerMatch?.matchedCard;
+        if (!card) return;
+        this.cardCollection?.recordScan(card, { source: 'scanner' });
+        this.animateScannerCardToHistory();
+        window.setTimeout(() => this.resetScannerPreview(), 220);
+        this.updateCameraStatus(`Saved ${card.name} to your collection.`);
+        this.showToast('Card Scanner', `${card.name} saved to My Collection.`, 'success', 2500);
+    }
+
+    async retryScannerMatch() {
+        if (!this.currentScannerMatch) return;
+        if (this.scannerAttemptCount >= 2) {
+            this.showScannerHints('Still not right? Add a clue like Pokémon name, HP, attack, or expansion and try again.');
+            return;
+        }
+        await this.identifyCurrentCard();
+    }
+
+    renderScannerCollectionPanels() {
+        if (!this.cardCollection) return;
+        const history = this.cardCollection.getHistory();
+        const summary = this.cardCollection.getOwnedCards().sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+        if (this.cameraHistoryList) {
+            this.cameraHistoryList.innerHTML = history.length > 0
+                ? history.map(entry => `
+                    <div class="camera-history-item">
+                        ${entry.image ? `<img class="camera-history-thumb" src="${entry.image}" alt="${entry.cardName}">` : '<div class="camera-history-thumb"></div>'}
+                        <div class="camera-history-details">
+                            <strong>${entry.cardName}</strong>
+                            <span>${entry.setName || 'Set unknown'} · +${entry.countChange}</span>
+                        </div>
+                        <button class="camera-history-remove" type="button" data-history-id="${entry.id}" aria-label="Remove ${entry.cardName} from history">✕</button>
+                    </div>
+                `).join('')
+                : '<div class="camera-empty-state">Accepted cards will appear here.</div>';
+        }
+
+        if (this.cameraSummaryList) {
+            this.cameraSummaryList.innerHTML = summary.length > 0
+                ? summary.map(card => `
+                    <div class="camera-summary-item">
+                        <div class="camera-summary-details">
+                            <strong>${card.name}</strong>
+                            <span>${card.set?.name || 'Set unknown'}${card.number ? ` · #${card.number}` : ''}</span>
+                        </div>
+                        <div class="tcg-collection-counter camera-summary-counter">
+                            <button class="tcg-collection-counter-btn" type="button" data-card-id="${card.id}" data-action="decrement" aria-label="Decrease ${card.name} count">−</button>
+                            <input class="tcg-collection-counter-input" type="number" min="0" value="${card._collectionCount || 0}" data-card-id="${card.id}" aria-label="${card.name} count">
+                            <button class="tcg-collection-counter-btn" type="button" data-card-id="${card.id}" data-action="increment" aria-label="Increase ${card.name} count">+</button>
+                        </div>
+                    </div>
+                `).join('')
+                : '<div class="camera-empty-state">Your saved card counts will appear here.</div>';
+        }
+    }
+
+    handleCardCollectionUpdated() {
+        this.renderScannerCollectionPanels();
+        this.tcgDatabase?.refreshCollectionState?.();
+    }
+
+    animateScannerCardToHistory() {
+        if (!this.cameraPreviewCard) return;
+        this.cameraPreviewCard.classList.remove('is-saving');
+        void this.cameraPreviewCard.offsetWidth;
+        this.cameraPreviewCard.classList.add('is-saving');
+        window.setTimeout(() => {
+            this.cameraPreviewCard?.classList.remove('is-saving');
+        }, 520);
     }
 
     async sendCameraSnapshot(mode = 'manual') {
@@ -2228,6 +2637,61 @@ class PokemonChatApp {
             });
             resetBtn.dataset.listenerAttached = 'true';
         }
+    }
+
+    setupCollectionImportExportControls() {
+        if (this.collectionExportBtn && this.collectionExportBtn.dataset.listenerAttached !== 'true') {
+            this.collectionExportBtn.addEventListener('click', () => this.exportCardCollection());
+            this.collectionExportBtn.dataset.listenerAttached = 'true';
+        }
+
+        if (this.collectionImportBtn && this.collectionImportBtn.dataset.listenerAttached !== 'true') {
+            this.collectionImportBtn.addEventListener('click', () => this.collectionImportInput?.click());
+            this.collectionImportBtn.dataset.listenerAttached = 'true';
+        }
+
+        if (this.collectionImportInput && this.collectionImportInput.dataset.listenerAttached !== 'true') {
+            this.collectionImportInput.addEventListener('change', async (event) => {
+                const file = event.target.files?.[0];
+                if (!file) return;
+                try {
+                    const text = await file.text();
+                    this.cardCollection?.importState(text);
+                    this.updateCollectionImportStatus(`Imported ${file.name} successfully.`, 'success');
+                    this.showToast('Card Collection', 'Collection imported successfully.', 'success', 2500);
+                } catch (error) {
+                    console.error('Collection import failed:', error);
+                    this.updateCollectionImportStatus('Import failed. Please choose a valid JSON export.', 'error');
+                    this.showToast('Card Collection', 'Unable to import that file.', 'error', 3500);
+                } finally {
+                    event.target.value = '';
+                }
+            });
+            this.collectionImportInput.dataset.listenerAttached = 'true';
+        }
+    }
+
+    updateCollectionImportStatus(message, type = 'info') {
+        if (!this.collectionImportStatus) return;
+        this.collectionImportStatus.textContent = message;
+        this.collectionImportStatus.dataset.state = type;
+    }
+
+    exportCardCollection() {
+        if (!this.cardCollection) return;
+        const json = this.cardCollection.exportState();
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const stamp = new Date().toISOString().slice(0, 10);
+        link.href = url;
+        link.download = `pokedex-card-collection-${stamp}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        this.updateCollectionImportStatus('Collection exported from this browser.', 'success');
+        this.showToast('Card Collection', 'Collection exported to JSON.', 'success', 2500);
     }
 
     _renderBucketEditor() {
@@ -2873,6 +3337,7 @@ class PokemonChatApp {
         this.setupCryControls();
         this.setupScrollResetControls();
         this.setupCurrencyControls();
+        this.setupCollectionImportExportControls();
     }
     
     async loadCacheConfig() {
@@ -3785,6 +4250,14 @@ class PokemonChatApp {
             },
             
             onResponse: (text, isPartial) => {
+                if (this.pendingCardScan) {
+                    if (!isPartial && text) {
+                        this.pendingCardScan.resolve(text);
+                        this.pendingCardScan = null;
+                    }
+                    return;
+                }
+
                 if (this.voicePreviewPending) {
                     if (!isPartial) {
                         this.voicePreviewPending = false;
@@ -3846,6 +4319,10 @@ class PokemonChatApp {
             },
             
             onError: (error) => {
+                if (this.pendingCardScan) {
+                    this.pendingCardScan.reject(new Error(error));
+                    this.pendingCardScan = null;
+                }
                 console.error('Realtime voice error:', error);
                 this.setVoiceBackendState({
                     mode: 'error',
@@ -5509,6 +5986,10 @@ class PokemonChatApp {
                     const setCount = data?.selectedSets || 0;
                     return `User is viewing the TCG Card Database in All Cards mode with ${cardCount} cards loaded from ${setCount} expansion(s). Cards are numbered #1 through #${cardCount}. User can say "show card 5" or "open card number 12" to view a specific card's details.${currNote}`;
                 }
+                if (data?.viewMode === 'collection') {
+                    const cardCount = this.currentTcgCards?.length || 0;
+                    return `User is viewing My Collection in the TCG Card Database with ${cardCount} owned card(s) saved locally in this browser. They can adjust counts or open any saved card.${currNote}`;
+                }
                 return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.${currNote}`;
             
             case 'pokemon':
@@ -6361,6 +6842,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return { success: true };
         }
         return { error: 'TCG Database not available' };
+    };
+
+    window.showMyCollectionCanvas = async () => {
+        if (window.pokemonChatApp?.tcgDatabase) {
+            await window.pokemonChatApp.tcgDatabase.show();
+            await window.pokemonChatApp.tcgDatabase.showMyCollection();
+            return { success: true };
+        }
+        return { error: 'My Collection view is not available' };
     };
 
     window.navigateBackCanvas = () => {
