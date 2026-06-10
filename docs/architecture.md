@@ -93,6 +93,22 @@ Owned card data is stored entirely in the browser via `localStorage` using the `
 
 ---
 
+## TCG Scanner Image Matching
+
+The collection scanner uses a two-stage match so visual variants can be distinguished without losing reliable text clues:
+
+1. `app.js` asks the realtime model for printed details: card name, Pokemon, set, card number, HP, type, rarity, and visible attack names.
+2. `findBestMatchingCard()` searches TCG candidates and scores those printed fields locally.
+3. The top candidates are sent with the captured frame to `POST /api/tcg/image-match`.
+4. `tcg_image_routes.py` fetches official candidate card images server-side and compares them to the camera frame with Pillow-based average hash, difference hash, edge hash, and color signature scores.
+5. The frontend blends the visual score with the printed-detail score and displays the selected card with a visual confidence percentage.
+
+This route exists server-side so browser canvas security rules do not block comparisons against remote card images.
+
+The standalone POC at `/static/tyrantrum-embedding-poc.html` uses `GET /api/tcg/image-proxy?url=...` to load official card images into a browser canvas, builds local grayscale/color image embeddings, starts the camera by default, and shows a live lightbox alignment zone over the camera feed. The default scan zone uses a narrower card-like ratio, and the user can drag its yellow edges to resize the crop area. Snapshot matching captures the camera frame and crops the current guide area at its visible proportions, then uses that cropped image for the browser image-embedding ranking pipeline. It can run in either cosine-only mode or rerank mode, with rerank mode selected by default. Rerank mode sends the cropped card image to `POST /api/tcg/extract-card-text`, where the configured Azure OpenAI vision model extracts structured card metadata: name, HP, card types, set/number, rarity, attacks, attack energy costs, weakness, resistance, and retreat. The browser scores those extracted attributes against candidate card metadata using weighted field matching, combines the attribute score with image cosine similarity as `image_embedding * 0.58 + text * 0.42`, then calls `POST /api/tcg/rerank-match` so an Azure OpenAI judge can rerank the candidates with the same structured evidence. The UI exposes candidate metadata and score calculation tooltips. If API settings are missing or the judge fails, the endpoint returns the deterministic combined-score order.
+
+---
+
 ## PokeAPI Proxy & Fair Use
 
 All PokeAPI calls go through the Flask proxy at `/api/pokemon/*` which caches responses locally:

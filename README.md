@@ -49,7 +49,7 @@ The app features a clean, mobile-first design with:
 
 - **Backend**: Python Flask
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **APIs**: 
+- **APIs**:
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
   - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
 - **Face Recognition**: face_recognition library (based on dlib)
@@ -104,13 +104,13 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    ```
 
 2. **Install system dependencies (for face-recognition)**
-   
+
    **Ubuntu/Debian:**
    ```bash
    sudo apt-get update
    sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev
    ```
-   
+
    **macOS:**
    ```bash
    xcode-select --install
@@ -127,7 +127,7 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    ```bash
    pip install -r requirements.txt
    ```
-   
+
    **Note:** On Windows, installing `dlib` (required by face-recognition) can be challenging. Consider using Docker or WSL2 for easier setup.
 
 5. **Set up environment variables** (optional)
@@ -604,6 +604,46 @@ Search for Pokemon Trading Card Game cards:
   - HP and retreat cost
   - Format legality (Standard, Expanded, Unlimited)
   - Rarity and artist information
+
+#### TCG Camera Matching Scoring
+
+The standalone Tyrantrum POC at `/static/tyrantrum-embedding-poc.html` ranks candidate cards with transparent scoring:
+
+- **Image Embedding score**: cosine similarity between the camera crop image embedding and each candidate card image embedding. The image embedding is built in the browser from normalized grayscale pixels plus a compact RGB histogram.
+- **Text score**: not cosine similarity. The LLM extracts structured Pokemon TCG metadata from the camera crop, then the browser compares those fields against each candidate card using deterministic weighted field matching. Once the LLM extraction result is available, the same extracted metadata and candidate metadata will produce the same Text score. Compared fields include card name, HP, set, collector number, rarity, Pokemon type, stage/subtype, attack names, attack energy costs, attack damage, weakness, resistance, retreat cost, and fallback summary text.
+- **Combined score**: in Text + LLM rerank mode, the deterministic score is `Image Embedding * 0.58 + Text * 0.42`. In cosine-only mode, the combined score is the Image Embedding score.
+- **LLM judge rerank**: after deterministic scoring, the app can send the extracted metadata, candidate metadata, image score, text score, combined score, and matched fields to the LLM judge. The judge may reorder candidates, but if the judge is unavailable the deterministic combined-score order is used.
+
+Text scoring uses a normalized weighted average. For every field that has a value in both the extracted metadata and the candidate card metadata, the browser adds `fieldWeight * fieldMatchScore` to the numerator and `fieldWeight` to the denominator. The final Text score is `sum(weight * fieldMatchScore) / sum(availableWeights)`, capped at `1.0`. Fields missing on either side are skipped rather than counted as zero.
+
+| Field | Weight | Match method |
+|-------|--------|--------------|
+| Card name | `0.20` | Token match: full score when all candidate tokens are contained in the extracted text; otherwise token overlap. |
+| HP | `0.08` | Exact normalized text match. |
+| Set name | `0.08` | Token match. |
+| Collector number | `0.12` | Exact-ish match: full score when either value contains the other; otherwise token overlap. |
+| Rarity | `0.05` | Token match. |
+| Pokemon type | `0.12` | Set overlap between extracted types and candidate types. |
+| Stage/subtype | `0.05` | Set overlap between extracted stage and candidate subtypes. |
+| Attack name | `0.08` per extracted attack | Token match against the candidate attack at the same attack index. |
+| Attack energy cost | `0.06` per extracted attack | Set overlap between extracted energy symbols and candidate attack cost at the same attack index. |
+| Attack damage | `0.04` per extracted attack | Exact-ish match. |
+| Weakness | `0.08` | Set overlap between extracted weakness types and candidate weakness types. |
+| Resistance | `0.04` | Set overlap between extracted resistance types and candidate resistance types. |
+| Retreat cost | `0.08` | Exact-ish match between extracted retreat count and candidate converted retreat cost. |
+| Summary fallback: name | `0.04` | Token match against the fallback extracted text summary. |
+| Summary fallback: collector number | `0.04` | Token match against the fallback extracted text summary. |
+| Summary fallback: attack name | `0.04` per candidate attack, first 3 attacks | Token match against the fallback extracted text summary. |
+
+The deterministic Text score is then combined with the Image Embedding score before the optional judge step:
+
+```text
+combined_score = (image_embedding_score * 0.58) + (text_score * 0.42)
+```
+
+The result displayed as a percentage is the score multiplied by `100` and rounded to one decimal place.
+
+The POC UI exposes expandable candidate metadata and tooltips beside each score so the calculation can be inspected while testing.
 
 ### Tool Management (NEW! 🛠️)
 

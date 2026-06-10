@@ -28,7 +28,7 @@ CORS(app)
 init_realtime_socket_routes(app)
 
 # Register blueprints
-from src.routes import chat_bp, realtime_bp, tool_bp, cache_bp, face_bp, pokeapi_bp
+from src.routes import chat_bp, realtime_bp, tool_bp, cache_bp, face_bp, pokeapi_bp, tcg_image_bp
 
 app.register_blueprint(chat_bp)
 app.register_blueprint(realtime_bp)
@@ -36,6 +36,7 @@ app.register_blueprint(tool_bp)
 app.register_blueprint(cache_bp)
 app.register_blueprint(face_bp)
 app.register_blueprint(pokeapi_bp)
+app.register_blueprint(tcg_image_bp)
 
 
 @app.route('/')

@@ -58,6 +58,8 @@ All implemented features, categorized. Every new feature must be added here.
 | Text Chat Sidebar | Text-based chat with streaming responses | N/A |
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
 | Collection Scanner | Camera collection mode with preview, accept/retry flow, scan history, and local save summary | N/A |
+| TCG Image Similarity Matching | Collection scanner reranks candidate cards by comparing the camera frame to official card images | N/A |
+| Tyrantrum Embedding POC | Standalone browser POC with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
 | Face Recognition | Identify people via camera | ❌ |
 
 ## Caching & Performance

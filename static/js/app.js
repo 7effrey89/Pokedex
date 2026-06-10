@@ -2122,7 +2122,7 @@ class PokemonChatApp {
             });
             const responseText = await this.requestScannerResponse(imageDataUrl, prompt);
             const guess = this.parseScannerGuess(responseText);
-            const matchedCard = await this.findBestMatchingCard(guess);
+            const matchedCard = await this.findBestMatchingCard(guess, imageDataUrl);
             this.currentScannerMatch = {
                 guess,
                 matchedCard,
@@ -2153,17 +2153,27 @@ class PokemonChatApp {
      * Set: Surging Sparks
      * Number: 238
      * HP: 200
+     * Type: Lightning
+     * Rarity: Special Illustration Rare
+     * Attack1: Resolute Heart
+     * Attack2: Topaz Bolt
      * Confidence: medium
      */
     buildCardIdentificationPrompt({ attempt = 1, previousGuess = null, hints = '' } = {}) {
         const promptParts = [
             'Identify the most visible Pokémon TCG card in this image.',
-            'Reply with exactly six lines in this format:',
+            'Use printed details to distinguish between different versions and illustrations of the same Pokémon.',
+            'Prioritize the printed set/card number, HP, type, rarity, and attack names when visible.',
+            'Reply with exactly ten lines in this format:',
             'Card: <best full card name>',
             'Pokemon: <pokemon name or unknown>',
             'Set: <set name or unknown>',
             'Number: <printed card number or unknown>',
             'HP: <hp or unknown>',
+            'Type: <pokemon/card type or unknown>',
+            'Rarity: <rarity or unknown>',
+            'Attack1: <first visible attack name or unknown>',
+            'Attack2: <second visible attack name or unknown>',
             'Confidence: <high|medium|low>',
         ];
 
@@ -2216,12 +2226,19 @@ class PokemonChatApp {
             setName: readField('Set'),
             number: readField('Number'),
             hp: readField('HP'),
+            type: readField('Type'),
+            rarity: readField('Rarity'),
+            attack1: readField('Attack1'),
+            attack2: readField('Attack2'),
             confidence: readField('Confidence') || 'medium'
         };
     }
 
-    async findBestMatchingCard(guess) {
-        const terms = [...new Set([guess.cardName, guess.pokemonName].filter(Boolean))];
+    async findBestMatchingCard(guess, imageDataUrl = null) {
+        const normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        const terms = [...new Set([guess.cardName, guess.pokemonName]
+            .map(term => String(term || '').trim())
+            .filter(term => term && normalize(term) !== 'unknown'))];
         if (terms.length === 0) return null;
 
         const candidates = [];
@@ -2250,26 +2267,115 @@ class PokemonChatApp {
 
         if (candidates.length === 0) return null;
 
-        const normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
         const wantedName = normalize(guess.cardName);
         const wantedSet = normalize(guess.setName);
         const wantedNumber = normalize(guess.number);
         const wantedHp = normalize(guess.hp);
+        const wantedType = normalize(guess.type);
+        const wantedRarity = normalize(guess.rarity);
+        const wantedAttacks = [guess.attack1, guess.attack2]
+            .map(attack => normalize(attack))
+            .filter(attack => attack && attack !== 'unknown');
+
+        const tokenOverlapScore = (wanted, actual) => {
+            if (!wanted || !actual || wanted === 'unknown') return 0;
+            if (actual === wanted) return 1;
+            if (actual.includes(wanted) || wanted.includes(actual)) return 0.7;
+            const wantedTokens = wanted.split(' ').filter(token => token.length > 2);
+            if (wantedTokens.length === 0) return 0;
+            const actualTokens = new Set(actual.split(' ').filter(Boolean));
+            const matchedTokens = wantedTokens.filter(token => actualTokens.has(token)).length;
+            return matchedTokens / wantedTokens.length;
+        };
 
         const scored = candidates.map(card => {
             let score = 0;
             const cardName = normalize(card.name);
             const setName = normalize(card.set?.name);
+            const cardTypes = Array.isArray(card.types) ? card.types.map(type => normalize(type)) : [];
+            const cardRarity = normalize(card.rarity);
+            const cardAttacks = Array.isArray(card.attacks)
+                ? card.attacks.map(attack => normalize(`${attack.name || ''} ${attack.damage || ''}`))
+                : [];
             if (wantedName && cardName === wantedName) score += 70;
             else if (wantedName && (cardName.includes(wantedName) || wantedName.includes(cardName))) score += 35;
             if (wantedSet && setName === wantedSet) score += 35;
             else if (wantedSet && (setName.includes(wantedSet) || wantedSet.includes(setName))) score += 15;
             if (wantedNumber && normalize(card.number) === wantedNumber) score += 30;
             if (wantedHp && normalize(card.hp) === wantedHp) score += 10;
-            return { card, score };
+            if (wantedType && cardTypes.some(type => type === wantedType || type.includes(wantedType) || wantedType.includes(type))) score += 12;
+            if (wantedRarity && tokenOverlapScore(wantedRarity, cardRarity) > 0.6) score += 10;
+            wantedAttacks.forEach(wantedAttack => {
+                const bestAttackScore = Math.max(0, ...cardAttacks.map(cardAttack => tokenOverlapScore(wantedAttack, cardAttack)));
+                score += Math.round(bestAttackScore * 18);
+            });
+            return { card, score, textScore: score, visualScore: null };
         }).sort((a, b) => b.score - a.score);
 
-        return scored[0]?.card || candidates[0];
+        const visuallyScored = await this.applyScannerImageSimilarity(scored, imageDataUrl);
+        const bestMatch = visuallyScored[0];
+        if (bestMatch?.card) {
+            bestMatch.card._scannerScores = {
+                text: bestMatch.textScore,
+                visual: bestMatch.visualScore,
+                combined: bestMatch.score
+            };
+        }
+        return bestMatch?.card || candidates[0];
+    }
+
+    async applyScannerImageSimilarity(scoredCandidates, imageDataUrl) {
+        if (!imageDataUrl || !Array.isArray(scoredCandidates) || scoredCandidates.length <= 1) {
+            return scoredCandidates;
+        }
+
+        const candidatesForVisualMatch = scoredCandidates
+            .slice(0, 24)
+            .map(({ card }) => ({
+                id: card.id,
+                name: card.name,
+                images: card.images,
+                imageLarge: card.imageLarge,
+                imageSmall: card.imageSmall,
+                image: card.image
+            }))
+            .filter(card => card.id && (card.images?.large || card.images?.small || card.imageLarge || card.imageSmall || card.image));
+
+        if (candidatesForVisualMatch.length <= 1) {
+            return scoredCandidates;
+        }
+
+        try {
+            const response = await fetch('/api/tcg/image-match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    image_data_url: imageDataUrl,
+                    candidates: candidatesForVisualMatch
+                })
+            });
+
+            if (!response.ok) {
+                console.warn('Scanner image similarity failed:', response.status);
+                return scoredCandidates;
+            }
+
+            const data = await response.json();
+            const visualMatches = new Map((data.matches || []).map(match => [match.id, match]));
+            return scoredCandidates.map(entry => {
+                const visualMatch = visualMatches.get(entry.card.id);
+                if (!visualMatch) return entry;
+                const visualScore = Number(visualMatch.visual_score || 0);
+                return {
+                    ...entry,
+                    visualScore,
+                    score: entry.textScore + (visualScore * 0.85)
+                };
+            }).sort((a, b) => b.score - a.score);
+        } catch (error) {
+            console.warn('Scanner image similarity unavailable:', error);
+            return scoredCandidates;
+        }
     }
 
     renderScannerMatch() {
@@ -2291,6 +2397,7 @@ class PokemonChatApp {
             const pieces = [
                 card?.set?.name || guess?.setName || 'Set unknown',
                 card?.number || guess?.number || 'Number unknown',
+                card?._scannerScores?.visual != null ? `Visual: ${Math.round(card._scannerScores.visual)}%` : '',
                 guess?.confidence ? `Confidence: ${guess.confidence}` : ''
             ].filter(Boolean);
             this.cameraIdentifiedCardMeta.textContent = pieces.join(' · ');
@@ -2299,6 +2406,7 @@ class PokemonChatApp {
             const tags = [
                 guess?.pokemonName && guess.pokemonName.toLowerCase() !== 'unknown' ? guess.pokemonName : '',
                 guess?.hp && guess.hp.toLowerCase() !== 'unknown' ? `${guess.hp} HP` : '',
+                guess?.attack1 && guess.attack1.toLowerCase() !== 'unknown' ? guess.attack1 : '',
                 card?.rarity || ''
             ].filter(Boolean);
             this.cameraPreviewTags.innerHTML = tags.map(tag => `<span class="camera-preview-tag">${tag}</span>`).join('');
