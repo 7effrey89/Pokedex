@@ -27,7 +27,7 @@ All implemented features, categorized. Every new feature must be added here.
 | TCG Database | Browse all 172+ card expansions/sets | ❌ |
 | Expansions View | Lazy-loaded set previews with card thumbnails | ❌ |
 | All Cards View | Flat grid of all cards across selected expansions | ❌ |
-| My Collection View | Show locally saved owned cards with editable counts and collection-only filtering | ✅ `show_my_collection` |
+| My Collection Toggle | Switch TCG Database and Trading Card Gallery between clean default cards and collection mode where owned cards stay color and unowned cards appear monochrome with editable counts | ✅ `show_my_collection` |
 | Collection Counters | Adjust owned counts inline from the TCG database and auto-save to browser storage | N/A |
 | Expansion Picker | Collapsible checklist to select which sets to load | ❌ |
 | TCG Sort Options | Sort by set, card #, Pokédex #, name, rarity, price (10 options) | ❌ |

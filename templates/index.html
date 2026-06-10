@@ -220,10 +220,14 @@
                         <p id="tcgDbSetCount"></p>
                     </div>
                     <div class="tcg-db-controls">
+                        <label class="tcg-collection-mode-toggle" for="tcgDbCollectionToggle">
+                            <span>My Collection</span>
+                            <input type="checkbox" id="tcgDbCollectionToggle" aria-label="Toggle My Collection mode">
+                            <span class="tcg-collection-mode-slider" aria-hidden="true"></span>
+                        </label>
                         <div class="tcg-view-toggle">
                             <button class="tcg-view-toggle-btn active" data-mode="expansions">Expansions</button>
                             <button class="tcg-view-toggle-btn" data-mode="all-cards">All Cards</button>
-                            <button class="tcg-view-toggle-btn tcg-view-toggle-btn-collection" data-mode="collection">My Collection</button>
                         </div>
                         <div class="tcg-sort-controls">
                             <label for="tcg-db-sort-select">Sort by:</label>

@@ -6,6 +6,28 @@ class TcgCardsGalleryView {
         this.app = app;
         this.galleryView = document.getElementById('tcgCardsView');
         this._dexLookup = null;
+        this.collectionMode = this._loadCollectionModePreference();
+    }
+
+    _loadCollectionModePreference() {
+        try {
+            return localStorage.getItem('pokedex_tcg_collection_mode') === 'true';
+        } catch (error) {
+            return false;
+        }
+    }
+
+    _saveCollectionModePreference(enabled) {
+        this.collectionMode = Boolean(enabled);
+        try {
+            localStorage.setItem('pokedex_tcg_collection_mode', enabled ? 'true' : 'false');
+        } catch (error) {
+            // Ignore storage failures; the toggle still works for the current session.
+        }
+    }
+
+    _syncCollectionModePreference() {
+        this.collectionMode = this._loadCollectionModePreference();
     }
 
     display(tcgData) {
@@ -17,6 +39,7 @@ class TcgCardsGalleryView {
         }
         
         console.log('✅ Valid TCG data with', tcgData.cards.length, 'cards');
+        this._syncCollectionModePreference();
         
         // Store for forward navigation
         this.app.currentTcgData = tcgData;
@@ -54,6 +77,10 @@ class TcgCardsGalleryView {
         if (!tcgData || !tcgData.cards || !Array.isArray(tcgData.cards) || tcgData.cards.length === 0) {
             return;
         }
+
+        this._syncCollectionModePreference();
+
+        this.app.currentTcgData = tcgData;
         
         // Update canvas state for TCG gallery (without adding to history)
         const stateData = {
@@ -86,6 +113,11 @@ class TcgCardsGalleryView {
         // Track current sort
         this.currentSort = this.currentSort || 'default';
         
+        const displayCards = this._getDisplayCards(tcgData.cards);
+        const displayCountText = this.collectionMode
+            ? `${displayCards.length} cards · ${this._getOwnedCount(displayCards)} owned`
+            : `${tcgData.total_count || tcgData.cards.length} cards found`;
+
         // Create header with sort controls
         const header = document.createElement('div');
         header.className = 'tcg-canvas-header';
@@ -103,29 +135,42 @@ class TcgCardsGalleryView {
             <div class="tcg-canvas-title">
                 <h1>🃏 Trading Card Gallery</h1>
                 ${subtitleHTML}
-                <p>${tcgData.total_count || tcgData.cards.length} cards found</p>
+                <p>${displayCountText}</p>
             </div>
-            <div class="tcg-sort-controls">
-                <label for="tcg-sort-select">Sort by:</label>
-                <select id="tcg-sort-select">
-                    <option value="default"${this.currentSort === 'default' ? ' selected' : ''}>Default</option>
-                    <option value="number"${this.currentSort === 'number' ? ' selected' : ''}>Card #</option>
-                    <option value="dex-asc"${this.currentSort === 'dex-asc' ? ' selected' : ''}>Pokédex #</option>
-                    <option value="name-asc"${this.currentSort === 'name-asc' ? ' selected' : ''}>Name: A → Z</option>
-                    <option value="name-desc"${this.currentSort === 'name-desc' ? ' selected' : ''}>Name: Z → A</option>
-                    <option value="rarity-desc"${this.currentSort === 'rarity-desc' ? ' selected' : ''}>Rarity: Rare First</option>
-                    <option value="rarity-asc"${this.currentSort === 'rarity-asc' ? ' selected' : ''}>Rarity: Common First</option>
-                    <option value="price-desc"${this.currentSort === 'price-desc' ? ' selected' : ''}>Price: High → Low</option>
-                    <option value="price-asc"${this.currentSort === 'price-asc' ? ' selected' : ''}>Price: Low → High</option>
-                    <option value="year-desc"${this.currentSort === 'year-desc' ? ' selected' : ''}>Year: Newest</option>
-                    <option value="year-asc"${this.currentSort === 'year-asc' ? ' selected' : ''}>Year: Oldest</option>
-                    <option value="set-asc"${this.currentSort === 'set-asc' ? ' selected' : ''}>Expansion: A → Z</option>
-                    <option value="set-desc"${this.currentSort === 'set-desc' ? ' selected' : ''}>Expansion: Z → A</option>
-                </select>
-                <button id="tcg-refresh-btn" class="tcg-refresh-btn" title="Refresh cards from API">🔄</button>
+            <div class="tcg-header-actions">
+                <label class="tcg-collection-mode-toggle" for="tcgGalleryCollectionToggle">
+                    <span>My Collection</span>
+                    <input type="checkbox" id="tcgGalleryCollectionToggle" aria-label="Toggle My Collection mode" ${this.collectionMode ? 'checked' : ''}>
+                    <span class="tcg-collection-mode-slider" aria-hidden="true"></span>
+                </label>
+                <div class="tcg-sort-controls">
+                    <label for="tcg-sort-select">Sort by:</label>
+                    <select id="tcg-sort-select">
+                        <option value="default"${this.currentSort === 'default' ? ' selected' : ''}>Default</option>
+                        <option value="number"${this.currentSort === 'number' ? ' selected' : ''}>Card #</option>
+                        <option value="dex-asc"${this.currentSort === 'dex-asc' ? ' selected' : ''}>Pokédex #</option>
+                        <option value="name-asc"${this.currentSort === 'name-asc' ? ' selected' : ''}>Name: A → Z</option>
+                        <option value="name-desc"${this.currentSort === 'name-desc' ? ' selected' : ''}>Name: Z → A</option>
+                        <option value="rarity-desc"${this.currentSort === 'rarity-desc' ? ' selected' : ''}>Rarity: Rare First</option>
+                        <option value="rarity-asc"${this.currentSort === 'rarity-asc' ? ' selected' : ''}>Rarity: Common First</option>
+                        <option value="price-desc"${this.currentSort === 'price-desc' ? ' selected' : ''}>Price: High → Low</option>
+                        <option value="price-asc"${this.currentSort === 'price-asc' ? ' selected' : ''}>Price: Low → High</option>
+                        <option value="year-desc"${this.currentSort === 'year-desc' ? ' selected' : ''}>Year: Newest</option>
+                        <option value="year-asc"${this.currentSort === 'year-asc' ? ' selected' : ''}>Year: Oldest</option>
+                        <option value="set-asc"${this.currentSort === 'set-asc' ? ' selected' : ''}>Expansion: A → Z</option>
+                        <option value="set-desc"${this.currentSort === 'set-desc' ? ' selected' : ''}>Expansion: Z → A</option>
+                    </select>
+                    <button id="tcg-refresh-btn" class="tcg-refresh-btn" title="Refresh cards from API">🔄</button>
+                </div>
             </div>
         `;
         this.galleryView.appendChild(header);
+
+        const collectionToggle = header.querySelector('#tcgGalleryCollectionToggle');
+        collectionToggle.addEventListener('change', () => {
+            this._saveCollectionModePreference(collectionToggle.checked);
+            this.renderCards(tcgData);
+        });
         
         // Attach sort listener
         const sortSelect = header.querySelector('#tcg-sort-select');
@@ -141,11 +186,16 @@ class TcgCardsGalleryView {
         });
         
         // Sort cards
-        const sortedCards = this.sortCards(tcgData.cards, this.currentSort);
+        const sortedCards = this.sortCards(displayCards, this.currentSort);
+        this.app.currentTcgCards = sortedCards;
         
         // Create cards grid
         const cardsGrid = document.createElement('div');
         cardsGrid.className = 'tcg-cards-grid';
+
+        if (sortedCards.length === 0) {
+            cardsGrid.innerHTML = '<div class="tcg-empty-state">No cards found in this gallery.</div>';
+        }
         
         sortedCards.forEach((card, index) => {
             const cardDiv = this.createCardElement(card, index);
@@ -162,6 +212,18 @@ class TcgCardsGalleryView {
                 this.app.markPokemonViewed(pokemonId, 'tcg-gallery');
             }
         }
+    }
+
+    _getDisplayCards(cards) {
+        if (!this.collectionMode) return cards;
+        return cards.map(card => ({
+            ...card,
+            _collectionCount: this.app.cardCollection?.getCardCount?.(card.id) || 0
+        }));
+    }
+
+    _getOwnedCount(cards) {
+        return cards.filter(card => (this.app.cardCollection?.getCardCount?.(card.id) || card._collectionCount || 0) > 0).length;
     }
 
     getCardAvgPrice(card) {
@@ -295,6 +357,10 @@ class TcgCardsGalleryView {
         const setId = this.getSetId(card);
         const releaseYear = this.getCardReleaseYear(card);
         const avgPrice = this.getCardAvgPrice(card);
+        const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || card._collectionCount || 0;
+
+        cardDiv.classList.toggle('is-owned', this.collectionMode && collectionCount > 0);
+        cardDiv.classList.toggle('is-unowned', this.collectionMode && collectionCount <= 0);
 
         const cc = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter : null;
         const priceDisplay = avgPrice !== null
@@ -310,12 +376,46 @@ class TcgCardsGalleryView {
         cardDiv.innerHTML = `
             <div class="card-index-badge">#${index + 1}</div>
             <img src="${imageUrl}" alt="${cardName}" loading="lazy">
+            ${this.collectionMode ? `
+                <div class="tcg-collection-counter camera-summary-counter" data-card-id="${card.id}">
+                    <button class="tcg-collection-counter-btn" type="button" data-action="decrement" aria-label="Decrease ${cardName} count">−</button>
+                    <input class="tcg-collection-counter-input" type="number" min="0" value="${collectionCount}" aria-label="${cardName} owned count">
+                    <button class="tcg-collection-counter-btn" type="button" data-action="increment" aria-label="Increase ${cardName} count">+</button>
+                </div>
+            ` : ''}
             <div class="tcg-card-info">
                 <h3>${cardName}</h3>
                 ${setInfo ? `<p class="tcg-card-set">${setLink}${releaseYear ? ` (${releaseYear})` : ''}</p>` : ''}
                 <p class="tcg-card-price-tag">Avg: <span class="${avgPrice !== null ? 'has-price' : 'no-price'}"${priceStyle}>${priceDisplay}</span></p>
+                ${this.collectionMode && collectionCount > 0 ? `<span class="tcg-card-collection-tag">Owned: ${collectionCount}</span>` : ''}
             </div>
         `;
+
+        const counter = cardDiv.querySelector('.tcg-collection-counter');
+        const input = cardDiv.querySelector('.tcg-collection-counter-input');
+        const applyCount = (nextValue) => {
+            const safeValue = Math.max(0, Number(nextValue) || 0);
+            this.app.cardCollection?.setCardCount?.(card, safeValue);
+            if (input) input.value = safeValue;
+            if (this.collectionMode) {
+                this.renderCards(this.app.currentTcgData);
+            }
+        };
+
+        counter?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const action = event.target?.dataset?.action;
+            if (!action) return;
+            const currentValue = Number(input?.value || collectionCount || 0);
+            applyCount(action === 'increment' ? currentValue + 1 : currentValue - 1);
+        });
+
+        input?.addEventListener('click', event => event.stopPropagation());
+        input?.addEventListener('change', event => {
+            event.stopPropagation();
+            applyCount(event.target.value);
+        });
+        input?.addEventListener('keydown', event => event.stopPropagation());
         
         // Card image click → detail view
         const img = cardDiv.querySelector('img');
