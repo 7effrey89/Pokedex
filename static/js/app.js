@@ -1869,7 +1869,7 @@ class PokemonChatApp {
         this.cameraRejectCardBtn?.addEventListener('click', () => this.retryScannerMatch());
         this.cameraHintSubmitBtn?.addEventListener('click', () => this.identifyCurrentCard({ useHints: true }));
         this.cameraSaveCollectionBtn?.addEventListener('click', () => {
-            this.cardCollection?._persist?.();
+            this.cardCollection?.save?.();
             this.showToast('Card Collection', 'Collection saved locally in this browser.', 'success', 2500);
         });
 
@@ -2144,6 +2144,16 @@ class PokemonChatApp {
         }
     }
 
+    /**
+     * Build the strict scanner prompt used for card identification.
+     * Expected response format:
+     * Card: Pikachu ex
+     * Pokemon: Pikachu
+     * Set: Surging Sparks
+     * Number: 238
+     * HP: 200
+     * Confidence: medium
+     */
     buildCardIdentificationPrompt({ attempt = 1, previousGuess = null, hints = '' } = {}) {
         const promptParts = [
             'Identify the most visible Pokémon TCG card in this image.',
@@ -2169,7 +2179,7 @@ class PokemonChatApp {
     }
 
     requestScannerResponse(imageDataUrl, prompt) {
-        return new Promise(async (resolve, reject) => {
+        return new Promise((resolve, reject) => {
             if (!this.realtimeVoice || !this.useRealtimeApi) {
                 reject(new Error('Realtime voice is not available'));
                 return;
@@ -2177,17 +2187,19 @@ class PokemonChatApp {
 
             this.pendingCardScan = { resolve, reject };
 
-            try {
-                await this.activateRealtimeConversation({ announce: false });
-                const sent = await this.realtimeVoice.sendImage(imageDataUrl, prompt);
-                if (!sent) {
+            (async () => {
+                try {
+                    await this.activateRealtimeConversation({ announce: false });
+                    const sent = await this.realtimeVoice.sendImage(imageDataUrl, prompt);
+                    if (!sent) {
+                        this.pendingCardScan = null;
+                        reject(new Error('Image was not sent'));
+                    }
+                } catch (error) {
                     this.pendingCardScan = null;
-                    reject(new Error('Image was not sent'));
+                    reject(error);
                 }
-            } catch (error) {
-                this.pendingCardScan = null;
-                reject(error);
-            }
+            })();
         });
     }
 
@@ -2377,6 +2389,7 @@ class PokemonChatApp {
     animateScannerCardToHistory() {
         if (!this.cameraPreviewCard) return;
         this.cameraPreviewCard.classList.remove('is-saving');
+        // Force a reflow so the CSS animation reliably restarts for each accepted scan.
         void this.cameraPreviewCard.offsetWidth;
         this.cameraPreviewCard.classList.add('is-saving');
         window.setTimeout(() => {

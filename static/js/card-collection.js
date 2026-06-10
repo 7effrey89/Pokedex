@@ -1,6 +1,7 @@
 class CardCollectionStore {
     constructor(storageKey = 'pokedex_card_collection_v1') {
         this.storageKey = storageKey;
+        this.maxHistoryEntries = 100;
         this.listeners = new Set();
         this.state = this._loadState();
     }
@@ -57,7 +58,7 @@ class CardCollectionStore {
                 source: entry.source || 'scanner',
                 createdAt: entry.createdAt || new Date().toISOString()
             }))
-            .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+            .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
         normalized.updatedAt = state?.updatedAt || new Date().toISOString();
         return normalized;
@@ -102,6 +103,10 @@ class CardCollectionStore {
             localStorage.setItem(this.storageKey, JSON.stringify(this.state));
         }
         this._emit();
+    }
+
+    save() {
+        this._persist();
     }
 
     _emit() {
@@ -183,7 +188,7 @@ class CardCollectionStore {
             createdAt: new Date().toISOString()
         });
 
-        this.state.history = this.state.history.slice(0, 100);
+        this.state.history = this.state.history.slice(0, this.maxHistoryEntries);
         this._persist();
         return nextCount;
     }

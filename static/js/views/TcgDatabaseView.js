@@ -1059,7 +1059,7 @@ class TcgDatabaseView {
         const priceStyle = priceColor ? `style="color:${priceColor}"` : '';
         const rarity = card.rarity || '';
         const badge = displayIndex ? `<div class="card-index-badge">#${displayIndex}</div>` : '';
-        const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || card._collectionCount || 0;
+        const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || 0;
 
         el.classList.toggle('is-owned', collectionCount > 0);
         el.classList.toggle('is-unowned', collectionCount <= 0);
