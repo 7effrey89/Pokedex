@@ -39,6 +39,7 @@
 }
 
 .tcg-card-item.is-unowned img {
+    /* Keep unowned cards readable while still clearly desaturated in the collection grid. */
     filter: grayscale(100%) brightness(1.12) opacity(0.72);
 }
 

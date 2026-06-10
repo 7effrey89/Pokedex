@@ -1,7 +1,9 @@
+const CARD_COLLECTION_MAX_HISTORY = 100;
+
 class CardCollectionStore {
     constructor(storageKey = 'pokedex_card_collection_v1') {
         this.storageKey = storageKey;
-        this.maxHistoryEntries = 100;
+        this.maxHistoryEntries = CARD_COLLECTION_MAX_HISTORY;
         this.listeners = new Set();
         this.state = this._loadState();
     }

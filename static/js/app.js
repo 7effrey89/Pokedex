@@ -35,6 +35,7 @@ class PokemonChatApp {
         this.pendingCardScan = null;
         this.currentScannerMatch = null;
         this.scannerAttemptCount = 0;
+        this.scannerHintAttemptFloor = 3;
         this.lastScannerFrame = null;
 
         // Pokemon viewing status tracking (stored in cookies)
@@ -2115,7 +2116,7 @@ class PokemonChatApp {
 
         try {
             const prompt = this.buildCardIdentificationPrompt({
-                attempt: useHints ? Math.max(3, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
+                attempt: useHints ? Math.max(this.scannerHintAttemptFloor, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
                 previousGuess: this.currentScannerMatch?.guess,
                 hints: useHints ? this.cameraHintInput?.value?.trim() : ''
             });
@@ -2128,7 +2129,7 @@ class PokemonChatApp {
                 responseText,
                 imageDataUrl
             };
-            this.scannerAttemptCount = useHints ? 3 : this.scannerAttemptCount + 1;
+            this.scannerAttemptCount = useHints ? this.scannerHintAttemptFloor : this.scannerAttemptCount + 1;
             this.renderScannerMatch();
             this.updateCameraStatus(matchedCard
                 ? `Best match: ${matchedCard.name}${matchedCard.set?.name ? ` from ${matchedCard.set.name}` : ''}`
@@ -2389,8 +2390,7 @@ class PokemonChatApp {
     animateScannerCardToHistory() {
         if (!this.cameraPreviewCard) return;
         this.cameraPreviewCard.classList.remove('is-saving');
-        // Force a reflow so the CSS animation reliably restarts for each accepted scan.
-        void this.cameraPreviewCard.offsetWidth;
+        void this.cameraPreviewCard.offsetWidth; // Force reflow so the CSS animation restarts for each accepted scan.
         this.cameraPreviewCard.classList.add('is-saving');
         window.setTimeout(() => {
             this.cameraPreviewCard?.classList.remove('is-saving');
