@@ -939,6 +939,10 @@ Update AZURE_WEBAPP_PUBLISH_PROFILE with the new XML
 Also verify AZURE_WEBAPP_NAME matches your Azure Web App's exact name
 Alternatively, you can switch to using azure/login@v2 with a service principal (OIDC), which is more robust than publish profile
 
+## RBAC Permissions
+Provide "Cognitive Services Data Contributor" and "
+Cognitive Services OpenAI User" for the service principal to your Foundry Project
+
 ## Credits
 
 Developed as a mobile-friendly Pokemon chat demonstration with future integration capabilities for Azure OpenAI and MCP servers.
