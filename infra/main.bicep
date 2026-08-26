@@ -29,8 +29,12 @@ param containerImageName string = 'pokedex-app:latest'
 param azureAuthMode string = 'key'
 
 param foundryProjectEndpoint string = ''
-param azureOpenAiDeployment string = ''
+@minLength(1)
+param azureOpenAiEndpoint string
+@minLength(1)
+param azureOpenAiDeployment string
 param azureOpenAiApiVersion string = '2024-10-21'
+param azureOpenAiRealtimeEndpoint string = ''
 param azureOpenAiRealtimeDeployment string = 'gpt-realtime'
 param azureOpenAiRealtimeApiVersion string = '2024-10-01-preview'
 param azureAppRegistrationName string = ''
@@ -141,9 +145,11 @@ module appService './modules/app-service.bicep' = {
     applicationInsightsConnectionString: applicationInsights.outputs.connectionString
     azureAuthMode: azureAuthMode
     foundryProjectEndpoint: foundryProjectEndpoint
+    azureOpenAiEndpoint: azureOpenAiEndpoint
     azureOpenAiApiKey: azureOpenAiApiKey
     azureOpenAiDeployment: azureOpenAiDeployment
     azureOpenAiApiVersion: azureOpenAiApiVersion
+    azureOpenAiRealtimeEndpoint: azureOpenAiRealtimeEndpoint
     azureOpenAiRealtimeDeployment: azureOpenAiRealtimeDeployment
     azureOpenAiRealtimeApiVersion: azureOpenAiRealtimeApiVersion
     azureAppRegistrationName: azureAppRegistrationName

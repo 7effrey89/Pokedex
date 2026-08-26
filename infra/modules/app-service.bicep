@@ -7,10 +7,12 @@ param containerImageName string
 param applicationInsightsConnectionString string
 param azureAuthMode string
 param foundryProjectEndpoint string
+param azureOpenAiEndpoint string
 @secure()
 param azureOpenAiApiKey string
 param azureOpenAiDeployment string
 param azureOpenAiApiVersion string
+param azureOpenAiRealtimeEndpoint string
 param azureOpenAiRealtimeDeployment string
 param azureOpenAiRealtimeApiVersion string
 param azureAppRegistrationName string
@@ -86,6 +88,10 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
           value: foundryProjectEndpoint
         }
         {
+          name: 'AZURE_OPENAI_ENDPOINT'
+          value: azureOpenAiEndpoint
+        }
+        {
           name: 'AZURE_OPENAI_API_KEY'
           value: azureOpenAiApiKey
         }
@@ -96,6 +102,10 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         {
           name: 'AZURE_OPENAI_API_VERSION'
           value: azureOpenAiApiVersion
+        }
+        {
+          name: 'AZURE_OPENAI_REALTIME_ENDPOINT'
+          value: azureOpenAiRealtimeEndpoint
         }
         {
           name: 'AZURE_OPENAI_REALTIME_DEPLOYMENT'
