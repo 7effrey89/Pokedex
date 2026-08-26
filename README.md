@@ -169,8 +169,8 @@ For reliable deployment with native dependencies like `face-recognition` (dlib, 
 ```bash
 az login
 RESOURCE_GROUP=pokedex-rg
-LOCATION=eastus
-ACR_NAME=pokedexacr  # Must be globally unique, alphanumeric only
+LOCATION=swedencentral
+ACR_NAME=pokedexacr2  # Must be globally unique, alphanumeric only
 
 # Create resource group
 az group create --name $RESOURCE_GROUP --location $LOCATION

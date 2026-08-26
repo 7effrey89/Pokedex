@@ -15,10 +15,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2026-02-01' = {
     enableRbacAuthorization: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
-    networkAcls: {
-      defaultAction: 'Allow'
-      bypass: 'AzureServices'
-    }
+    publicNetworkAccess: 'Disabled'
   }
 }
 

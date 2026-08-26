@@ -4,10 +4,11 @@ param appServiceName string
 param appServicePlanId string
 param containerRegistryLoginServer string
 param containerImageName string
-param keyVaultName string
 param applicationInsightsConnectionString string
 param azureAuthMode string
 param foundryProjectEndpoint string
+@secure()
+param azureOpenAiApiKey string
 param azureOpenAiDeployment string
 param azureOpenAiApiVersion string
 param azureOpenAiRealtimeDeployment string
@@ -15,11 +16,15 @@ param azureOpenAiRealtimeApiVersion string
 param azureAppRegistrationName string
 param azureClientId string
 param azureTenantId string
+@secure()
+param azureClientSecret string
 param azureTokenScope string
 param pokemonApiUrl string
+@secure()
+param pokemonTcgApiKey string
 param tcgPageSize int
-
-var keyVaultReferencePrefix = '@Microsoft.KeyVault(VaultName=${keyVaultName};SecretName='
+@secure()
+param appApiPassword string
 
 resource appService 'Microsoft.Web/sites@2026-07-15' = {
   name: appServiceName
@@ -39,6 +44,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
       acrUseManagedIdentityCreds: true
       alwaysOn: true
       webSocketsEnabled: true
+      healthCheckPath: '/api/health'
       http20Enabled: true
       minTlsVersion: '1.2'
       ftpsState: 'Disabled'
@@ -81,7 +87,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'AZURE_OPENAI_API_KEY'
-          value: '${keyVaultReferencePrefix}azure-openai-api-key)'
+          value: azureOpenAiApiKey
         }
         {
           name: 'AZURE_OPENAI_DEPLOYMENT'
@@ -113,7 +119,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'AZURE_CLIENT_SECRET'
-          value: '${keyVaultReferencePrefix}azure-client-secret)'
+          value: azureClientSecret
         }
         {
           name: 'AZURE_TOKEN_SCOPE'
@@ -125,7 +131,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'POKEMON_TCG_API_KEY'
-          value: '${keyVaultReferencePrefix}pokemon-tcg-api-key)'
+          value: pokemonTcgApiKey
         }
         {
           name: 'TCG_PAGE_SIZE'
@@ -133,7 +139,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'APP_API_PASSWORD'
-          value: '${keyVaultReferencePrefix}app-api-password)'
+          value: appApiPassword
         }
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -148,7 +154,7 @@ resource scmAuth 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-12
   parent: appService
   name: 'scm'
   properties: {
-    allow: true
+    allow: false
   }
 }
 

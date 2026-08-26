@@ -39,6 +39,18 @@ param azureTenantId string = ''
 param azureTokenScope string = 'https://cognitiveservices.azure.com/.default'
 param pokemonApiUrl string = 'https://pokeapi.co/api/v2'
 
+@secure()
+param azureOpenAiApiKey string
+
+@secure()
+param azureClientSecret string
+
+@secure()
+param pokemonTcgApiKey string
+
+@secure()
+param appApiPassword string
+
 @minValue(1)
 @maxValue(250)
 param tcgPageSize int = 250
@@ -126,10 +138,10 @@ module appService './modules/app-service.bicep' = {
     appServicePlanId: appServicePlan.outputs.appServicePlanId
     containerRegistryLoginServer: containerRegistry.outputs.loginServer
     containerImageName: containerImageName
-    keyVaultName: keyVault.outputs.keyVaultName
     applicationInsightsConnectionString: applicationInsights.outputs.connectionString
     azureAuthMode: azureAuthMode
     foundryProjectEndpoint: foundryProjectEndpoint
+    azureOpenAiApiKey: azureOpenAiApiKey
     azureOpenAiDeployment: azureOpenAiDeployment
     azureOpenAiApiVersion: azureOpenAiApiVersion
     azureOpenAiRealtimeDeployment: azureOpenAiRealtimeDeployment
@@ -137,9 +149,12 @@ module appService './modules/app-service.bicep' = {
     azureAppRegistrationName: azureAppRegistrationName
     azureClientId: azureClientId
     azureTenantId: azureTenantId
+    azureClientSecret: azureClientSecret
     azureTokenScope: azureTokenScope
     pokemonApiUrl: pokemonApiUrl
+    pokemonTcgApiKey: pokemonTcgApiKey
     tcgPageSize: tcgPageSize
+    appApiPassword: appApiPassword
   }
 }
 
