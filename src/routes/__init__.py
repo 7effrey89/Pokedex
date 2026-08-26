@@ -15,6 +15,7 @@ from .tool_routes import tool_bp
 from .cache_routes import cache_bp
 from .face_routes import face_bp
 from .pokeapi_routes import pokeapi_bp
+from .tcg_image_routes import tcg_image_bp
 
 __all__ = [
     'chat_bp',
@@ -22,5 +23,6 @@ __all__ = [
     'tool_bp',
     'cache_bp',
     'face_bp',
-    'pokeapi_bp'
+    'pokeapi_bp',
+    'tcg_image_bp'
 ]

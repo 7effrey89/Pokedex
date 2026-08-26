@@ -151,7 +151,7 @@ class CacheService:
         descriptor = self._build_descriptor(endpoint, params)
         # For numeric-only lookups (e.g. form variants like 10034), enrich with
         # the name from the API response so the file is descriptive.
-        if response and descriptor:
+        if response and descriptor and self._allows_enriched_descriptor_lookup(endpoint):
             name = response.get("name")
             if name and isinstance(name, str):
                 slug = self._slugify(name)
@@ -182,9 +182,12 @@ class CacheService:
         if legacy_path != base_path and legacy_path.exists():
             return legacy_path
 
-        # Glob for enriched descriptors: e.g. pokeapi-10034-*.json
+        # Glob for enriched descriptors: e.g. pokeapi-10034-*.json.
+        # This only applies to Pokemon lookups where a bare numeric ID may be
+        # enriched with a name. TCG card IDs such as me3-45 must stay exact;
+        # otherwise tcg-price-me3-45 can incorrectly match tcg-price-me3-87.
         descriptor = self._build_descriptor(endpoint, params)
-        if descriptor:
+        if descriptor and self._allows_enriched_descriptor_lookup(endpoint):
             parts = descriptor.rsplit("-", 1)
             if len(parts) == 2 and parts[1].isdigit():
                 pattern = f"{parts[0]}-*.json"
@@ -193,6 +196,14 @@ class CacheService:
                     return matches[0]
 
         return None
+
+    def _allows_enriched_descriptor_lookup(self, endpoint: str) -> bool:
+        """Whether cache lookup can glob for name-enriched numeric filenames."""
+        return endpoint in {
+            "get_pokemon",
+            "pokeapi_pokemon",
+            "pokeapi_species",
+        }
     
     def get(self, endpoint: str, params: Dict[str, Any] = None) -> Optional[Dict[str, Any]]:
         """

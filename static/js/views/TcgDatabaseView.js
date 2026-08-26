@@ -14,7 +14,8 @@ class TcgDatabaseView {
         this.observer = null;
 
         // All Cards flat view state
-        this.viewMode = 'expansions'; // 'expansions' or 'all-cards'
+        this.viewMode = 'expansions'; // 'expansions' | 'all-cards'
+        this.collectionModePreference = this._loadCollectionModePreference();
         this.allCards = [];
         this.loadedSetIds = new Set(); // track which sets have been fetched
         this.filteredCards = null; // null = no filter active
@@ -63,6 +64,12 @@ class TcgDatabaseView {
     }
 
     async toggleViewMode(mode) {
+        if (mode === 'collection') {
+            this._saveCollectionModePreference(true);
+            const collectionToggle = this.databaseView?.querySelector('#tcgDbCollectionToggle');
+            if (collectionToggle) collectionToggle.checked = true;
+            mode = 'all-cards';
+        }
         if (mode === this.viewMode) return;
         this.viewMode = mode;
 
@@ -71,6 +78,8 @@ class TcgDatabaseView {
         toggleBtns?.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.mode === mode);
         });
+        const collectionToggle = this.databaseView?.querySelector('#tcgDbCollectionToggle');
+        if (collectionToggle) collectionToggle.checked = this.collectionModePreference;
 
         // Update sort select options
         this._updateSortOptions();
@@ -83,6 +92,47 @@ class TcgDatabaseView {
             this.app.updateCanvasState('tcg-database', {
                 total_sets: this.allSets.length
             }, false);
+        }
+    }
+
+    _loadCollectionModePreference() {
+        try {
+            return localStorage.getItem('pokedex_tcg_collection_mode') === 'true';
+        } catch (error) {
+            return false;
+        }
+    }
+
+    _saveCollectionModePreference(enabled) {
+        this.collectionModePreference = Boolean(enabled);
+        try {
+            localStorage.setItem('pokedex_tcg_collection_mode', enabled ? 'true' : 'false');
+        } catch (error) {
+            // Ignore storage failures; the toggle still works for the current session.
+        }
+    }
+
+    _syncCollectionModePreference() {
+        const nextPreference = this._loadCollectionModePreference();
+        const changed = nextPreference !== this.collectionModePreference;
+        this.collectionModePreference = nextPreference;
+        return changed;
+    }
+
+    async _applyCollectionModePreference() {
+        const changed = this._syncCollectionModePreference();
+        const collectionToggle = this.databaseView?.querySelector('#tcgDbCollectionToggle');
+        if (collectionToggle) {
+            collectionToggle.checked = this.collectionModePreference;
+        }
+        if (changed) {
+            if (this.viewMode === 'all-cards') {
+                this._updateCardCount();
+                this._renderCardGrid();
+            } else {
+                this._updateSetCount();
+                this._renderDatabase();
+            }
         }
     }
 
@@ -171,6 +221,7 @@ class TcgDatabaseView {
             await this._preloadPromise;
         }
         await this._loadSets();
+        await this._applyCollectionModePreference();
         this.restoreScrollPosition();
 
         this.app.updateCanvasState('tcg-database', {
@@ -181,6 +232,7 @@ class TcgDatabaseView {
     showWithoutHistory() {
         this._hideOtherViews();
         this.databaseView.style.display = 'block';
+        this._applyCollectionModePreference();
         this.restoreScrollPosition();
 
         this.app.updateCanvasState('tcg-database', {
@@ -286,10 +338,28 @@ class TcgDatabaseView {
         // View toggle buttons
         const toggleBtns = this.databaseView?.querySelectorAll('.tcg-view-toggle-btn');
         toggleBtns?.forEach(btn => {
+            if (btn.dataset.listenerAttached === 'true') return;
             btn.addEventListener('click', () => {
                 this.toggleViewMode(btn.dataset.mode);
             });
+            btn.dataset.listenerAttached = 'true';
         });
+
+        const collectionToggle = this.databaseView?.querySelector('#tcgDbCollectionToggle');
+        if (collectionToggle && collectionToggle.dataset.listenerAttached !== 'true') {
+            collectionToggle.checked = this.collectionModePreference;
+            collectionToggle.addEventListener('change', () => {
+                this._saveCollectionModePreference(collectionToggle.checked);
+                if (this.viewMode === 'all-cards') {
+                    this._updateCardCount();
+                    this._renderCardGrid();
+                } else {
+                    this._updateSetCount();
+                    this._renderDatabase();
+                }
+            });
+            collectionToggle.dataset.listenerAttached = 'true';
+        }
     }
 
     _renderDatabase() {
@@ -427,12 +497,49 @@ class TcgDatabaseView {
             cardEl.style.position = 'relative';
             const imageUrl = card.images?.small || card.imageSmall || '';
             const cardName = card.name || 'Unknown';
+            const showCollectionControls = this.collectionModePreference;
+            const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || 0;
+
+            cardEl.classList.toggle('is-owned', showCollectionControls && collectionCount > 0);
+            cardEl.classList.toggle('is-unowned', showCollectionControls && collectionCount <= 0);
 
             cardEl.innerHTML = `
                 <div class="card-index-badge">#${i + 1}</div>
                 <img src="${imageUrl}" alt="${cardName}" loading="lazy">
+                ${showCollectionControls ? `
+                    <div class="tcg-collection-counter tcg-db-collection-counter" data-card-id="${card.id}">
+                        <button class="tcg-collection-counter-btn" type="button" data-action="decrement" aria-label="Decrease ${cardName} count">−</button>
+                        <input class="tcg-collection-counter-input" type="number" min="0" value="${collectionCount}" aria-label="${cardName} owned count">
+                        <button class="tcg-collection-counter-btn" type="button" data-action="increment" aria-label="Increase ${cardName} count">+</button>
+                    </div>
+                ` : ''}
                 <span class="tcg-db-card-name">${cardName}</span>
             `;
+
+            const counter = cardEl.querySelector('.tcg-collection-counter');
+            const input = cardEl.querySelector('.tcg-collection-counter-input');
+            const applyCount = (nextValue) => {
+                const safeValue = Math.max(0, Number(nextValue) || 0);
+                this.app.cardCollection?.setCardCount?.(card, safeValue);
+                if (input) input.value = safeValue;
+                cardEl.classList.toggle('is-owned', safeValue > 0);
+                cardEl.classList.toggle('is-unowned', safeValue <= 0);
+            };
+
+            counter?.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const action = event.target?.dataset?.action;
+                if (!action) return;
+                const currentValue = Number(input?.value || collectionCount || 0);
+                applyCount(action === 'increment' ? currentValue + 1 : currentValue - 1);
+            });
+
+            input?.addEventListener('click', event => event.stopPropagation());
+            input?.addEventListener('change', (event) => {
+                event.stopPropagation();
+                applyCount(event.target.value);
+            });
+
             cardEl.addEventListener('click', () => {
                 this.app.tcgDetail.show(card);
             });
@@ -544,8 +651,10 @@ class TcgDatabaseView {
         if (!this.cardList) return;
         this.cardList.innerHTML = '';
 
-        // Build expansion picker and grid container immediately (no await)
-        this._buildExpansionPicker();
+        if (this.viewMode === 'all-cards') {
+            // Build expansion picker and grid container immediately (no await)
+            this._buildExpansionPicker();
+        }
 
         const grid = document.createElement('div');
         grid.className = 'tcg-all-cards-grid';
@@ -567,6 +676,13 @@ class TcgDatabaseView {
         }
 
         this._updateCardCount();
+    }
+
+    showMyCollection() {
+        this._saveCollectionModePreference(true);
+        const collectionToggle = this.databaseView?.querySelector('#tcgDbCollectionToggle');
+        if (collectionToggle) collectionToggle.checked = true;
+        return this.toggleViewMode('all-cards');
     }
 
     /** Build the expansion picker checklist below the header */
@@ -826,7 +942,10 @@ class TcgDatabaseView {
         const countEl = document.getElementById('tcgDbSetCount');
         if (!countEl) return;
         const display = this._getDisplayCards();
-        if (this.filteredCards !== null) {
+        if (this.collectionModePreference) {
+            const ownedCount = display.filter(card => (this.app.cardCollection?.getCardCount?.(card.id) || 0) > 0).length;
+            countEl.textContent = `${display.length} cards · ${ownedCount} owned`;
+        } else if (this.filteredCards !== null) {
             countEl.textContent = `${display.length} of ${this.allCards.length} cards`;
         } else {
             countEl.textContent = `${this.allCards.length} cards · ${this._selectedSetIds.size} expansions`;
@@ -836,7 +955,7 @@ class TcgDatabaseView {
         if (this.viewMode === 'all-cards') {
             this.app.updateCanvasState('tcg-database', {
                 total_sets: this.allSets.length,
-                viewMode: 'all-cards',
+                viewMode: this.viewMode,
                 selectedSets: this._selectedSetIds.size
             }, false);
         }
@@ -1044,16 +1163,64 @@ class TcgDatabaseView {
         const priceStyle = priceColor ? `style="color:${priceColor}"` : '';
         const rarity = card.rarity || '';
         const badge = displayIndex ? `<div class="card-index-badge">#${displayIndex}</div>` : '';
+        const showCollectionControls = this.collectionModePreference;
+        const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || 0;
+
+        el.classList.toggle('is-owned', showCollectionControls && collectionCount > 0);
+        el.classList.toggle('is-unowned', showCollectionControls && collectionCount <= 0);
 
         el.innerHTML = `
             ${badge}
             <img src="${imageUrl}" alt="${name}" loading="lazy">
+            ${showCollectionControls ? `
+                <div class="tcg-collection-counter camera-summary-counter" data-card-id="${card.id}">
+                    <button class="tcg-collection-counter-btn" type="button" data-action="decrement" aria-label="Decrease ${name} count">−</button>
+                    <input class="tcg-collection-counter-input" type="number" min="0" value="${collectionCount}" aria-label="${name} owned count">
+                    <button class="tcg-collection-counter-btn" type="button" data-action="increment" aria-label="Increase ${name} count">+</button>
+                </div>
+            ` : ''}
             <div class="tcg-card-info">
                 <span class="tcg-card-name">${name}</span>
                 <span class="tcg-card-set-label">${setName}</span>
                 ${priceStr || rarity ? `<span class="tcg-card-meta">${priceStr ? `<span class="tcg-card-price" ${priceStyle}>${priceStr}</span>` : ''}${priceStr && rarity ? ' · ' : ''}${rarity}</span>` : ''}
+                ${showCollectionControls && collectionCount > 0 ? `<span class="tcg-card-collection-tag">Owned: ${collectionCount}</span>` : ''}
             </div>
         `;
+
+        const counter = el.querySelector('.tcg-collection-counter');
+        const input = el.querySelector('.tcg-collection-counter-input');
+        const applyCount = (nextValue) => {
+            const safeValue = Math.max(0, Number(nextValue) || 0);
+            this.app.cardCollection?.setCardCount?.(card, safeValue);
+            if (input) input.value = safeValue;
+            el.classList.toggle('is-owned', safeValue > 0);
+            el.classList.toggle('is-unowned', safeValue <= 0);
+            const ownedTag = el.querySelector('.tcg-card-collection-tag');
+            if (safeValue > 0) {
+                if (ownedTag) {
+                    ownedTag.textContent = `Owned: ${safeValue}`;
+                } else {
+                    el.querySelector('.tcg-card-info')?.insertAdjacentHTML('beforeend', `<span class="tcg-card-collection-tag">Owned: ${safeValue}</span>`);
+                }
+            } else if (ownedTag) {
+                ownedTag.remove();
+            }
+        };
+
+        counter?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const action = event.target?.dataset?.action;
+            if (!action) return;
+            const currentValue = Number(input?.value || collectionCount || 0);
+            applyCount(action === 'increment' ? currentValue + 1 : currentValue - 1);
+        });
+
+        input?.addEventListener('click', event => event.stopPropagation());
+        input?.addEventListener('change', (event) => {
+            event.stopPropagation();
+            applyCount(event.target.value);
+        });
+        input?.addEventListener('keydown', (event) => event.stopPropagation());
 
         el.addEventListener('click', async () => {
             // Fetch full card details for the detail view
@@ -1093,15 +1260,24 @@ class TcgDatabaseView {
         return el;
     }
 
+    refreshCollectionState() {
+        if (this.viewMode === 'all-cards') {
+            this._reapplyActiveFilters();
+            this._updateCardCount();
+            this._renderCardGrid();
+        }
+    }
+
     /** Filter cards by criteria from the search panel */
     filterCards(filters) {
         // Remember filters so they can be re-applied when expansions change
         this._activeFilters = filters;
+        const sourceCards = this.allCards;
 
         if (!filters || (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity)) {
             this.filteredCards = null;
         } else {
-            this.filteredCards = this.allCards.filter(card => {
+            this.filteredCards = sourceCards.filter(card => {
                 // Name filter
                 if (filters.name) {
                     const name = (card.name || '').toLowerCase();
@@ -1142,10 +1318,11 @@ class TcgDatabaseView {
         if (this._activeFilters) {
             // Re-run filterCards logic without re-saving (already saved)
             const filters = this._activeFilters;
+            const sourceCards = this.allCards;
             if (!filters.name && !filters.types?.size && !filters.categories?.size && !filters.priceMin && !filters.priceMax && !filters.rarity) {
                 this.filteredCards = null;
             } else {
-                this.filteredCards = this.allCards.filter(card => {
+                this.filteredCards = sourceCards.filter(card => {
                     if (filters.name) {
                         const name = (card.name || '').toLowerCase();
                         const setName = (card.set?.name || '').toLowerCase();

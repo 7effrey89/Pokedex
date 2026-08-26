@@ -374,6 +374,20 @@ def handle_get_card_details(card_id: str) -> Dict[str, Any]:
             logger.info(f"🎯 Returning cached card details for: {card_id}")
         return cached_response
 
+    if "-" in card_id:
+        set_id = card_id.rsplit("-", 1)[0]
+        cached_set, set_cache_status = cache_service.get_with_stale("search_cards_by_set", {"set_id": set_id})
+        if isinstance(cached_set, dict):
+            for card in cached_set.get("cards", []):
+                if isinstance(card, dict) and card.get("id") == card_id:
+                    logger.info(
+                        "🎯 Returning %s set-cached card details for: %s",
+                        "STALE" if set_cache_status == "stale" else "cached",
+                        card_id,
+                    )
+                    cache_service.set("get_card_details", cache_key_params, card)
+                    return card
+
     logger.info(f"🎴 Fetching card details for: {card_id}")
 
     client = _get_tcg_client()

@@ -220,6 +220,11 @@
                         <p id="tcgDbSetCount"></p>
                     </div>
                     <div class="tcg-db-controls">
+                        <label class="tcg-collection-mode-toggle" for="tcgDbCollectionToggle">
+                            <span>My Collection</span>
+                            <input type="checkbox" id="tcgDbCollectionToggle" aria-label="Toggle My Collection mode">
+                            <span class="tcg-collection-mode-slider" aria-hidden="true"></span>
+                        </label>
                         <div class="tcg-view-toggle">
                             <button class="tcg-view-toggle-btn active" data-mode="expansions">Expansions</button>
                             <button class="tcg-view-toggle-btn" data-mode="all-cards">All Cards</button>
@@ -1002,6 +1007,27 @@
                             <button class="price-bucket-reset-btn" id="resetBucketsBtn">Reset Defaults</button>
                         </div>
                     </div>
+
+                    <div class="settings-section">
+                        <h3>🗂️ Card Collection</h3>
+                        <p class="section-description">
+                            Export your locally saved scanner collection to JSON or import a previous backup into this browser.
+                        </p>
+                        <div class="cache-controls">
+                            <div class="control-row">
+                                <label class="control-label">
+                                    <span>Collection Backup</span>
+                                    <small>Exports card counts and scanner history stored in this browser</small>
+                                </label>
+                                <div class="control-input collection-settings-actions">
+                                    <button class="tools-save-btn" id="collectionExportBtn" type="button">Export JSON</button>
+                                    <button class="tools-reset-btn" id="collectionImportBtn" type="button">Import JSON</button>
+                                    <input type="file" id="collectionImportInput" accept="application/json" hidden>
+                                </div>
+                            </div>
+                            <p class="api-status-text" id="collectionImportStatus" role="status"></p>
+                        </div>
+                    </div>
                     
                     <!-- Tools Section -->
                     <div class="settings-section">
@@ -1030,19 +1056,70 @@
         
         <!-- Camera Scanner Modal -->
         <div class="camera-modal-overlay" id="cameraModalOverlay">
-            <div class="camera-modal">
+            <div class="camera-modal" id="cameraModal">
                 <div class="camera-modal-header">
                     <div>
                         <h2>Image Scanner</h2>
-                        <p class="camera-modal-subtitle">Share a card or poster and get real-time insights.</p>
+                        <p class="camera-modal-subtitle" id="cameraModalSubtitle">Share a card or poster and get real-time insights.</p>
+                    </div>
+                    <div class="camera-mode-toggle" id="cameraModeToggle">
+                        <button class="camera-mode-btn active" id="cameraInsightsModeBtn" type="button" data-mode="insights">Insights</button>
+                        <button class="camera-mode-btn" id="cameraCollectionModeBtn" type="button" data-mode="collection">Collection</button>
                     </div>
                     <button class="camera-modal-close" id="cameraModalClose" aria-label="Close camera scanner">&times;</button>
                 </div>
-                <div class="camera-modal-body">
-                    <video id="cameraPreview" autoplay playsinline muted></video>
-                    <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
+                <div class="camera-modal-layout">
+                    <div class="camera-modal-body">
+                        <video id="cameraPreview" autoplay playsinline muted></video>
+                        <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
+                    </div>
+                    <div class="camera-collection-panel" id="cameraCollectionPanel" hidden>
+                        <div class="camera-preview-card" id="cameraPreviewCard">
+                            <div class="camera-preview-card-media">
+                                <img id="cameraIdentifiedCardImage" alt="Identified card preview" hidden>
+                                <div class="camera-preview-card-placeholder" id="cameraPreviewPlaceholder">
+                                    Scan a card to preview the best match here.
+                                </div>
+                            </div>
+                            <div class="camera-preview-card-body">
+                                <div class="camera-preview-label">Latest match</div>
+                                <h3 id="cameraIdentifiedCardTitle">No card identified yet</h3>
+                                <p id="cameraIdentifiedCardMeta">Use the live preview and tap Identify Card to start logging cards you own.</p>
+                                <div class="camera-preview-tags" id="cameraPreviewTags"></div>
+                                <div class="camera-preview-actions">
+                                    <button class="camera-action camera-accept-button" id="cameraAcceptCardBtn" type="button" disabled>✅ Accept</button>
+                                    <button class="camera-action camera-reject-button" id="cameraRejectCardBtn" type="button" disabled>❌ Retry</button>
+                                </div>
+                                <div class="camera-hints" id="cameraHintSection" hidden>
+                                    <label for="cameraHintInput">Need another try? Add quick clues like Pokémon name, HP, attack, or expansion.</label>
+                                    <div class="camera-hint-row">
+                                        <input type="text" id="cameraHintInput" placeholder="e.g. Charizard, 120 HP, Base Set">
+                                        <button class="camera-action camera-action-ghost" id="cameraHintSubmitBtn" type="button">Use Hints</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="camera-collection-history">
+                            <div class="camera-collection-section-title">
+                                <span>Scan History</span>
+                            </div>
+                            <div class="camera-history-list" id="cameraHistoryList">
+                                <div class="camera-empty-state">Accepted cards will appear here.</div>
+                            </div>
+                        </div>
+                        <div class="camera-collection-summary">
+                            <div class="camera-collection-section-title">
+                                <span>Collection Summary</span>
+                                <button class="camera-action camera-action-ghost camera-save-summary-btn" id="cameraSaveCollectionBtn" type="button">Save</button>
+                            </div>
+                            <div class="camera-summary-list" id="cameraSummaryList">
+                                <div class="camera-empty-state">Your saved card counts will appear here.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="camera-modal-actions">
+                    <button class="camera-action" id="cameraIdentifyButton" type="button">Identify Card</button>
                     <button class="camera-action camera-action-ghost camera-switch-button" id="cameraSwitchButton" type="button" aria-label="Switch to front camera">
                         <span class="camera-switch-icon">🔄</span>
                         <span class="camera-switch-text" id="cameraSwitchText">Use Front Camera</span>
@@ -1063,6 +1140,7 @@
     
     <!-- Currency utility (must load before app.js) -->
     <script src="{{ url_for('static', filename='js/currency.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/card-collection.js') }}"></script>
 
     <!-- Then load core application -->
     <script src="{{ url_for('static', filename='js/realtime-voice.js') }}"></script>
