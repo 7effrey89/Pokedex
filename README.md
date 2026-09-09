@@ -8,6 +8,21 @@ This app includes **Docker support** for seamless deployment to Azure App Servic
 
 📦 **[Complete Deployment Guide →](docs/AZURE_DEPLOYMENT.md)**
 
+For the existing production environment, use the repository deployment script from PowerShell:
+
+```powershell
+# Validate Bicep locally without changing Azure
+.\deploy.ps1
+
+# Preview the complete infrastructure redeploy without changing Azure
+.\deploy.ps1 -Plan
+
+# Apply Bicep, rebuild the container in ACR, restart App Service, and verify health
+.\deploy.ps1 -Deploy
+```
+
+The deployment reads required settings from the process environment or the ignored `.env` file. It stops if Azure what-if includes a deletion, or if required Azure OpenAI configuration is missing.
+
 **Quick Setup:**
 1. Create Azure Container Registry (ACR)
 2. Create Azure App Service (Linux Container)
