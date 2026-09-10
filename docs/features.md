@@ -57,9 +57,12 @@ All implemented features, categorized. Every new feature must be added here.
 | Voice Conversation | Real-time voice chat with AI Pokédex assistant | ✅ (core) |
 | Text Chat Sidebar | Text-based chat with streaming responses | N/A |
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
-| Collection Scanner | Camera collection mode with preview, accept/retry flow, scan history, and local save summary | N/A |
-| TCG Image Similarity Matching | Collection scanner reranks candidate cards by comparing the camera frame to official card images | N/A |
-| Tyrantrum Embedding POC | Standalone browser POC with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
+| Collection Scanner | Mobile-first camera mode with crop-tolerant matching, selectable ranked previews, an Add action beneath the selected match, second-click image enlargement, scan history, and collection summary | N/A |
+| TCG Image Similarity Matching | POC-derived crop with either candidate-first Pillow scoring or exact full-catalog NumPy cosine retrieval, plus optional structured metadata and LLM reranking | N/A |
+| Scanner Pipeline Settings | Persisted scanner control for independent full-catalog NumPy search, cosine-only ranking, deterministic OCR + cosine scoring, or full OCR + cosine + LLM reranking | N/A |
+| Scanner Pipeline Debug View | Toggleable responsive trace with stages, timings, crop and LLM evidence, raw query descriptors, candidate metadata and score components, judge request context, and per-candidate reasoning | N/A |
+| TCG Image Index Pipeline | Resumable Step 04 script caches unique official card images and generates a versioned 1,432-dimensional NumPy matrix, aligned card mapping, manifest, and failure report | N/A |
+| Tyrantrum Embedding POC | Standalone browser POC linked from Image Scanner, with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
 | Face Recognition | Identify people via camera | ❌ |
 
 ## Caching & Performance

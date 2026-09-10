@@ -95,15 +95,33 @@ Owned card data is stored entirely in the browser via `localStorage` using the `
 
 ## TCG Scanner Image Matching
 
-The collection scanner uses a two-stage match so visual variants can be distinguished without losing reliable text clues:
+The collection scanner supports two retrieval architectures so their accuracy and latency can be compared:
 
-1. `app.js` asks the realtime model for printed details: card name, Pokemon, set, card number, HP, type, rarity, and visible attack names.
-2. `findBestMatchingCard()` searches TCG candidates and scores those printed fields locally.
-3. The top candidates are sent with the captured frame to `POST /api/tcg/image-match`.
-4. `tcg_image_routes.py` fetches official candidate card images server-side and compares them to the camera frame with Pillow-based average hash, difference hash, edge hash, and color signature scores.
-5. The frontend blends the visual score with the printed-detail score and displays the selected card with a visual confidence percentage.
+### Candidate-first pipelines
+
+1. `app.js` maps the visible card guide through the video's `object-fit: cover` scale and offsets, then crops that exact intrinsic camera region. One resulting data URL drives the captured-shot preview and every matching request.
+2. `POST /api/tcg/extract-card-text` uses the configured vision model to extract structured card metadata. The realtime ten-line parser remains a fallback when structured extraction is unavailable.
+3. `findBestMatchingCards()` searches the JSON-backed TCG cache by the extracted card name and scores printed fields locally.
+4. At most 24 candidates are sent with the crop to `POST /api/tcg/image-match`.
+5. `tcg_image_routes.py` fetches official candidate images server-side and compares them with Pillow-based average hash, difference hash, edge hash, and color signature scores. Candidate image features are cached in process memory.
+6. The frontend combines visual similarity at 58% with metadata similarity at 42%, then sends at most 12 candidates to `POST /api/tcg/rerank-match` for an optional LLM judge pass.
+7. The six highest-ranked candidates appear over the camera feed; the user explicitly chooses the correct card before it is added to local collection storage.
 
 This route exists server-side so browser canvas security rules do not block comparisons against remote card images.
+
+### Full-catalog NumPy pipeline
+
+The experimental `numpy` setting deliberately bypasses OCR, metadata candidate lookup, and the LLM judge:
+
+1. `scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive and deduplicates cards by stable TCG card ID.
+2. Official card images are downloaded resumably to `tcg-image-cache/images/` and validated with Pillow.
+3. `src/services/tcg_image_index.py` center-crops each image and builds a deterministic 1,432-dimensional vector from `32×44` standardized grayscale pixels plus eight histogram buckets for each RGB channel.
+4. Step 04 L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `tcg-image-cache/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
+5. `POST /api/tcg/numpy-image-match` receives the same guide crop shown in the captured-shot preview, uses the shared encoder, and builds four query variants containing 100%, 90%, 86%, and 82% of the captured content. The padded variants compensate for cards framed too tightly without increasing the runtime index size.
+6. The service lazy-loads the generated matrix once per process, performs exact cosine similarity for every query scale, and keeps each card's highest score.
+7. The endpoint returns the six highest-scoring complete card records for the existing scanner candidate UI.
+
+The JSON archive remains the source of truth. Images and vectors are disposable build artifacts; rerunning Step 04 rebuilds them whenever source URLs or `ENCODER_VERSION` change. Downloaded images are not required at runtime after the index is built. Deployments must include the complete `tcg-image-cache/index/` directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
 
 The standalone POC at `/static/tyrantrum-embedding-poc.html` uses `GET /api/tcg/image-proxy?url=...` to load official card images into a browser canvas, builds local grayscale/color image embeddings, starts the camera by default, and shows a live lightbox alignment zone over the camera feed. The default scan zone uses a narrower card-like ratio, and the user can drag its yellow edges to resize the crop area. Snapshot matching captures the camera frame and crops the current guide area at its visible proportions, then uses that cropped image for the browser image-embedding ranking pipeline. It can run in either cosine-only mode or rerank mode, with rerank mode selected by default. Rerank mode sends the cropped card image to `POST /api/tcg/extract-card-text`, where the configured Azure OpenAI vision model extracts structured card metadata: name, HP, card types, set/number, rarity, attacks, attack energy costs, weakness, resistance, and retreat. The browser scores those extracted attributes against candidate card metadata using weighted field matching, combines the attribute score with image cosine similarity as `image_embedding * 0.58 + text * 0.42`, then calls `POST /api/tcg/rerank-match` so an Azure OpenAI judge can rerank the candidates with the same structured evidence. The UI exposes candidate metadata and score calculation tooltips. If API settings are missing or the judge fails, the endpoint returns the deterministic combined-score order.
 

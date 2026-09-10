@@ -61,3 +61,8 @@ profiles_pic/*
 !profiles_pic/Jeffrey.png
 !profiles_pic/.gitkeep
 #cache/
+
+# TCG image pipeline downloads are rebuildable and too large for source control.
+tcg-image-cache/images/
+tcg-image-cache/index/*
+!tcg-image-cache/index/.gitkeep

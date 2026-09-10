@@ -8,11 +8,13 @@ import io
 import json
 import logging
 import re
+from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
 from flask import Blueprint, Response, jsonify, request
 from PIL import Image, ImageFilter, ImageOps
+from src.services.tcg_image_index import TcgImageIndex, encode_card_image, query_scale_variants
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +26,7 @@ MAX_CANDIDATES = 24
 IMAGE_TIMEOUT_SECONDS = 8
 ALLOWED_IMAGE_HOSTS = {'images.pokemontcg.io', 'images.scrydex.com'}
 _FEATURE_CACHE = {}
+_NUMPY_INDEX = TcgImageIndex(Path(__file__).resolve().parents[2] / 'tcg-image-cache' / 'index')
 
 
 @tcg_image_bp.route('/image-proxy', methods=['GET'])
@@ -90,11 +93,53 @@ def match_tcg_card_image():
             logger.warning("Unable to score TCG image candidate %s: %s", card_id, exc)
 
     matches.sort(key=lambda item: item["visual_score"], reverse=True)
-    return jsonify({
+    result = {
         "matches": matches,
         "best_id": matches[0]["id"] if matches else None,
         "matched_count": len(matches)
-    })
+    }
+    if data.get('debug') is True:
+        result["query_descriptor"] = _serialize_image_features(source_features)
+        result["descriptor_method"] = "average hash + difference hash + edge hash + RGB signature"
+    return jsonify(result)
+
+
+@tcg_image_bp.route('/numpy-image-match', methods=['POST'])
+def match_tcg_card_image_numpy():
+    """Search the generated full-card catalog with exact NumPy cosine similarity."""
+    data = request.get_json(silent=True) or {}
+    image_data_url = data.get('image_data_url') or data.get('imageDataUrl')
+    if not image_data_url:
+        return jsonify({"error": "image_data_url is required"}), 400
+
+    try:
+        source_image = _load_data_url_image(image_data_url)
+        limit = max(1, min(int(data.get('limit', 6)), 24))
+        matches = _NUMPY_INDEX.search(source_image, limit=limit)
+        query_descriptors = None
+        if data.get('debug') is True:
+            query_descriptors = [
+                encode_card_image(variant).round(6).tolist()
+                for variant in query_scale_variants(source_image)
+            ]
+    except (TypeError, ValueError) as exc:
+        return jsonify({"error": str(exc)}), 400
+    except FileNotFoundError as exc:
+        return jsonify({"error": str(exc), "index_ready": False}), 503
+    except Exception as exc:
+        logger.exception("NumPy TCG image search failed")
+        return jsonify({"error": str(exc)}), 500
+
+    result = {
+        "matches": matches,
+        "best_id": matches[0]["id"] if matches else None,
+        "matched_count": len(matches),
+        "index_ready": True,
+    }
+    if query_descriptors is not None:
+        result["query_descriptors"] = query_descriptors
+        result["descriptor_method"] = "32 x 44 standardized grayscale + 24 RGB histogram bins"
+    return jsonify(result)
 
 
 @tcg_image_bp.route('/extract-card-text', methods=['POST'])
@@ -182,13 +227,21 @@ def extract_tcg_card_text():
                 }
             ],
             response_format={"type": "json_object"},
-            max_completion_tokens=600
+            max_completion_tokens=2000
         )
-        content = response.choices[0].message.content or "{}"
+        choice = response.choices[0]
+        content = choice.message.content or ""
+        if not content.strip():
+            raise RuntimeError(
+                f"Vision extraction returned no JSON (finish_reason={choice.finish_reason or 'unknown'})"
+            )
         parsed = json.loads(content)
         metadata = parsed.get('metadata') if isinstance(parsed.get('metadata'), dict) else {}
+        extracted_text = str(parsed.get('extracted_text') or '').strip()
+        if not extracted_text and not any(value for value in metadata.values() if value):
+            raise RuntimeError("Vision extraction returned no visible card evidence")
         return jsonify({
-            "extracted_text": str(parsed.get('extracted_text') or '').strip(),
+            "extracted_text": extracted_text,
             "metadata": metadata,
             "confidence": _safe_float(parsed.get('confidence')),
             "notes": str(parsed.get('notes') or '').strip(),
@@ -401,6 +454,15 @@ def _build_image_features(image):
         "edge_hash": _average_hash(grayscale.filter(ImageFilter.FIND_EDGES)),
         "color_signature": _color_signature(fitted)
     }
+
+
+def _serialize_image_features(features):
+    return [
+        *[1.0 if value else 0.0 for value in features["average_hash"]],
+        *[1.0 if value else 0.0 for value in features["difference_hash"]],
+        *[1.0 if value else 0.0 for value in features["edge_hash"]],
+        *[channel for pixel in features["color_signature"] for channel in pixel],
+    ]
 
 
 def _average_hash(grayscale_image, hash_size=16):

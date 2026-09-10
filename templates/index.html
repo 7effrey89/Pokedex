@@ -1066,64 +1066,115 @@
                         <button class="camera-mode-btn active" id="cameraInsightsModeBtn" type="button" data-mode="insights">Insights</button>
                         <button class="camera-mode-btn" id="cameraCollectionModeBtn" type="button" data-mode="collection">Collection</button>
                     </div>
+                    <button class="camera-settings-button" id="cameraSettingsButton" type="button" aria-label="Scanner pipeline settings" aria-expanded="false" aria-controls="cameraSettingsPanel" data-tooltip="Scanner settings" title="Scanner settings" hidden>
+                        <span aria-hidden="true">⚙</span>
+                    </button>
+                    <button class="camera-debug-button" id="cameraDebugButton" type="button" aria-label="Scanner pipeline trace" aria-expanded="false" aria-controls="cameraDebugPanel" data-tooltip="Pipeline trace" title="Pipeline trace" hidden>
+                        <span aria-hidden="true">⌁</span>
+                    </button>
                     <button class="camera-modal-close" id="cameraModalClose" aria-label="Close camera scanner">&times;</button>
                 </div>
+                <div class="camera-settings-panel" id="cameraSettingsPanel" hidden>
+                    <fieldset>
+                        <legend>Scanning pipeline</legend>
+                        <label>
+                            <input type="radio" name="cameraPipelineMode" value="numpy">
+                            <span><strong>NumPy full catalog</strong><small>Search every cached card image directly, without OCR or an LLM.</small></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="cameraPipelineMode" value="cosine">
+                            <span><strong>Cosine only</strong><small>OCR finds candidates; visual similarity determines rank.</small></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="cameraPipelineMode" value="hybrid">
+                            <span><strong>OCR + cosine</strong><small>Blend extracted card text with visual similarity.</small></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="cameraPipelineMode" value="rerank" checked>
+                            <span><strong>OCR + cosine + LLM</strong><small>Use the full pipeline with LLM judge reranking.</small></span>
+                        </label>
+                    </fieldset>
+                </div>
+                <aside class="camera-debug-panel" id="cameraDebugPanel" aria-label="Scanner pipeline trace" hidden>
+                    <div class="camera-debug-header">
+                        <div>
+                            <span class="camera-debug-kicker">Live trace</span>
+                            <h3>Scanner pipeline</h3>
+                        </div>
+                        <span class="camera-debug-mode" id="cameraDebugMode">NumPy</span>
+                    </div>
+                    <div class="camera-debug-summary" id="cameraDebugSummary">Run a scan to inspect each matching stage.</div>
+                    <div class="camera-debug-steps" id="cameraDebugSteps"></div>
+                    <div class="camera-debug-evidence" id="cameraDebugEvidence"></div>
+                </aside>
                 <div class="camera-modal-layout">
                     <div class="camera-modal-body">
                         <video id="cameraPreview" autoplay playsinline muted></video>
+                        <div class="camera-scan-guide" id="cameraScanGuide" aria-hidden="true">
+                            <span class="camera-scan-corner camera-scan-corner-top-left"></span>
+                            <span class="camera-scan-corner camera-scan-corner-top-right"></span>
+                            <span class="camera-scan-corner camera-scan-corner-bottom-left"></span>
+                            <span class="camera-scan-corner camera-scan-corner-bottom-right"></span>
+                        </div>
                         <div class="camera-status-text" id="cameraStatusText">Camera ready. Scanning automatically sends the latest frame for your next question.</div>
                     </div>
                     <div class="camera-collection-panel" id="cameraCollectionPanel" hidden>
                         <div class="camera-preview-card" id="cameraPreviewCard">
-                            <div class="camera-preview-card-media">
-                                <img id="cameraIdentifiedCardImage" alt="Identified card preview" hidden>
-                                <div class="camera-preview-card-placeholder" id="cameraPreviewPlaceholder">
-                                    Scan a card to preview the best match here.
-                                </div>
+                            <div class="camera-preview-label">
+                                <span>Best matches</span>
+                                <button class="camera-retry-link" id="cameraRejectCardBtn" type="button" disabled>Scan again</button>
                             </div>
-                            <div class="camera-preview-card-body">
-                                <div class="camera-preview-label">Latest match</div>
-                                <h3 id="cameraIdentifiedCardTitle">No card identified yet</h3>
-                                <p id="cameraIdentifiedCardMeta">Use the live preview and tap Identify Card to start logging cards you own.</p>
-                                <div class="camera-preview-tags" id="cameraPreviewTags"></div>
-                                <div class="camera-preview-actions">
-                                    <button class="camera-action camera-accept-button" id="cameraAcceptCardBtn" type="button" disabled>✅ Accept</button>
-                                    <button class="camera-action camera-reject-button" id="cameraRejectCardBtn" type="button" disabled>❌ Retry</button>
-                                </div>
-                                <div class="camera-hints" id="cameraHintSection" hidden>
-                                    <label for="cameraHintInput">Need another try? Add quick clues like Pokémon name, HP, attack, or expansion.</label>
-                                    <div class="camera-hint-row">
-                                        <input type="text" id="cameraHintInput" placeholder="e.g. Charizard, 120 HP, Base Set">
-                                        <button class="camera-action camera-action-ghost" id="cameraHintSubmitBtn" type="button">Use Hints</button>
+                            <div class="camera-match-layout">
+                                <figure class="camera-captured-preview" id="cameraCapturedPreview" hidden>
+                                    <img id="cameraCapturedImage" alt="Captured card scan">
+                                    <figcaption>Captured shot</figcaption>
+                                </figure>
+                                <div class="camera-match-content">
+                                    <div class="camera-candidate-list" id="cameraCandidateList">
+                                        <div class="camera-preview-card-placeholder" id="cameraPreviewPlaceholder">
+                                            Align one card in the frame, then tap Scan Card.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="camera-collection-history">
-                            <div class="camera-collection-section-title">
-                                <span>Scan History</span>
+                            <button class="camera-card-lightbox" id="cameraCardLightbox" type="button" aria-label="Close enlarged card preview" hidden>
+                                <img id="cameraIdentifiedCardImage" alt="Enlarged selected card">
+                            </button>
+                            <div class="camera-hints" id="cameraHintSection" hidden>
+                                <label for="cameraHintInput">Add a clue such as Pokémon, HP, attack, or set.</label>
+                                <div class="camera-hint-row">
+                                    <input type="text" id="cameraHintInput" placeholder="e.g. Charizard, 120 HP, Base Set">
+                                    <button class="camera-action camera-action-ghost" id="cameraHintSubmitBtn" type="button">Use Hint</button>
+                                </div>
                             </div>
+                        </div>
+                        <details class="camera-collection-history">
+                            <summary class="camera-collection-section-title">Scan History</summary>
                             <div class="camera-history-list" id="cameraHistoryList">
                                 <div class="camera-empty-state">Accepted cards will appear here.</div>
                             </div>
-                        </div>
-                        <div class="camera-collection-summary">
-                            <div class="camera-collection-section-title">
+                        </details>
+                        <details class="camera-collection-summary">
+                            <summary class="camera-collection-section-title">
                                 <span>Collection Summary</span>
                                 <button class="camera-action camera-action-ghost camera-save-summary-btn" id="cameraSaveCollectionBtn" type="button">Save</button>
-                            </div>
+                            </summary>
                             <div class="camera-summary-list" id="cameraSummaryList">
                                 <div class="camera-empty-state">Your saved card counts will appear here.</div>
                             </div>
-                        </div>
+                        </details>
                     </div>
                 </div>
                 <div class="camera-modal-actions">
-                    <button class="camera-action" id="cameraIdentifyButton" type="button">Identify Card</button>
-                    <button class="camera-action camera-action-ghost camera-switch-button" id="cameraSwitchButton" type="button" aria-label="Switch to front camera">
-                        <span class="camera-switch-icon">🔄</span>
+                    <button class="camera-action" id="cameraIdentifyButton" type="button" aria-label="Scan Card" data-tooltip="Scan Card">
+                        <span class="camera-scan-icon" aria-hidden="true">📷</span>
+                        <span class="camera-scan-text">Scan Card</span>
+                    </button>
+                    <button class="camera-action camera-action-ghost camera-switch-button" id="cameraSwitchButton" type="button" aria-label="Switch to front camera" data-tooltip="Switch to front camera">
+                        <span class="camera-switch-icon" aria-hidden="true">🔄</span>
                         <span class="camera-switch-text" id="cameraSwitchText">Use Front Camera</span>
                     </button>
+                    <a class="camera-action camera-action-ghost camera-poc-link" href="{{ url_for('static', filename='tyrantrum-embedding-poc.html') }}" target="_blank" rel="noopener noreferrer">Open Temporary Scanner</a>
                     <p class="camera-modal-note">Scanning runs the moment this window opens and pauses as soon as you close it.</p>
                 </div>
             </div>

@@ -1,12 +1,13 @@
 # Pokemon TCG Cache Pipeline
 
-Two scripts keep offline TCG data in sync with the format this app expects:
+Four numbered scripts keep offline Pokemon and TCG data in sync with the format this app expects:
 
 | Step | Script | Purpose | Output |
 | --- | --- | --- | --- |
 | 01 | `scripts/01-download_tcg_cache.py` | Bulk download every Pokémon’s raw TCG response directly from the public API. | Raw JSON snapshots in `tcg-cache/` plus `data/pokemon_list.json`. |
 | 02 | `scripts/02-normalize_tcg_cache.py` | Reformat those raw files so they exactly match the CacheService schema. | Canonical files in `cache/` (or in-place when requested). |
 | 03 | `scripts/03-preload_pokeapi_cache.py` | Warm the local CacheService with live PokeAPI responses so the UI never needs to hit pokéapi.co directly. | Fresh `pokeapi-*` files inside `cache/`. |
+| 04 | `scripts/04-cache_tcg_images.py` | Cache every unique official card image and build the exact NumPy cosine index. | Images in `tcg-image-cache/images/` and runtime artifacts in `tcg-image-cache/index/`. |
 
 ## Step 01 – Download raw caches
 
@@ -82,9 +83,34 @@ python scripts/03-preload_pokeapi_cache.py --end 151 --resources pokemon,species
 python scripts/03-preload_pokeapi_cache.py --resources types
 ```
 
+## Step 04 – Cache card images and build the NumPy index
+
+`scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive, deduplicates cards by ID, downloads each official card image once, and encodes every valid image with the same shared Pillow/NumPy encoder used by the Flask scanner endpoint.
+
+- Resumes by validating and skipping existing images unless `--refresh` is supplied.
+- Retries failed downloads and records cards that could not be indexed in `tcg-image-cache/index/failures.json`.
+- Writes normalized `float32` vectors in row-for-row alignment with `cards.json`.
+- Writes an encoder version and source fingerprint to `manifest.json` so stale or incompatible indexes fail clearly.
+- Supports separate download and rebuild passes with `--download-only` and `--index-only`.
+
+Quick commands:
+
+```bash
+# Cache every unique card and build the production index
+python scripts/04-cache_tcg_images.py
+
+# Validate the pipeline with a small subset
+python scripts/04-cache_tcg_images.py --limit 25 --parallel 4
+
+# Rebuild vectors after an encoder change without downloading again
+python scripts/04-cache_tcg_images.py --index-only
+```
+
+The downloaded `images/` directory is a rebuildable local cache and is ignored by Git. The smaller `vectors.npy`, `cards.json`, and `manifest.json` files under `index/` are the runtime artifacts used by the **NumPy full catalog** scanner mode.
+
 ## FAQ
 
-- **Do I need both steps every time?** Only when you want fresh data. Run Step 01 to pull new cards; Step 02 whenever you need normalized copies in `cache/`.
+- **Do I need every step every time?** No. Run Step 01 for fresh card metadata, Step 02 for app cache normalization, Step 03 for PokeAPI warming, and Step 04 when card metadata or the image encoder changes.
 - **Where do I set the TCG API key?** Add `POKEMON_TCG_API_KEY=...` to `.env` or export it in your shell before running Step 01.
 - **Can I normalize third-party files?** Yes—pass any path(s) to Step 02; it detects names, rebuilds params, and outputs the canonical schema.
 

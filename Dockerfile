@@ -41,6 +41,7 @@ COPY static/ ./static/
 COPY templates/ ./templates/
 COPY data/ ./data/
 COPY tcg-cache/ ./tcg-cache/
+COPY tcg-image-cache/index/ ./tcg-image-cache/index/
 
 # Create necessary directories for runtime
 RUN mkdir -p profiles_pic cache

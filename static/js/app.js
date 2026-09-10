@@ -32,11 +32,13 @@ class PokemonChatApp {
         this.currency = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter.getCurrency() : 'USD';
         this.cardCollection = typeof CardCollectionStore !== 'undefined' ? new CardCollectionStore() : null;
         this.cameraMode = 'insights';
+        this.scannerPipelineMode = this.loadScannerPipelineMode();
         this.pendingCardScan = null;
         this.currentScannerMatch = null;
         this.scannerAttemptCount = 0;
         this.scannerHintAttemptFloor = 3;
         this.lastScannerFrame = null;
+        this.scannerDebugTrace = null;
 
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -74,19 +76,28 @@ class PokemonChatApp {
         this.cameraModal = document.getElementById('cameraModal');
         this.cameraModalSubtitle = document.getElementById('cameraModalSubtitle');
         this.cameraPreview = document.getElementById('cameraPreview');
+        this.cameraScanGuide = document.getElementById('cameraScanGuide');
         this.cameraStatusText = document.getElementById('cameraStatusText');
         this.cameraSwitchButton = document.getElementById('cameraSwitchButton');
         this.cameraSwitchText = document.getElementById('cameraSwitchText');
         this.cameraIdentifyButton = document.getElementById('cameraIdentifyButton');
         this.cameraInsightsModeBtn = document.getElementById('cameraInsightsModeBtn');
         this.cameraCollectionModeBtn = document.getElementById('cameraCollectionModeBtn');
+        this.cameraSettingsButton = document.getElementById('cameraSettingsButton');
+        this.cameraSettingsPanel = document.getElementById('cameraSettingsPanel');
+        this.cameraDebugButton = document.getElementById('cameraDebugButton');
+        this.cameraDebugPanel = document.getElementById('cameraDebugPanel');
+        this.cameraDebugMode = document.getElementById('cameraDebugMode');
+        this.cameraDebugSummary = document.getElementById('cameraDebugSummary');
+        this.cameraDebugSteps = document.getElementById('cameraDebugSteps');
+        this.cameraDebugEvidence = document.getElementById('cameraDebugEvidence');
         this.cameraCollectionPanel = document.getElementById('cameraCollectionPanel');
+        this.cameraCapturedPreview = document.getElementById('cameraCapturedPreview');
+        this.cameraCapturedImage = document.getElementById('cameraCapturedImage');
+        this.cameraCandidateList = document.getElementById('cameraCandidateList');
         this.cameraIdentifiedCardImage = document.getElementById('cameraIdentifiedCardImage');
+        this.cameraCardLightbox = document.getElementById('cameraCardLightbox');
         this.cameraPreviewPlaceholder = document.getElementById('cameraPreviewPlaceholder');
-        this.cameraIdentifiedCardTitle = document.getElementById('cameraIdentifiedCardTitle');
-        this.cameraIdentifiedCardMeta = document.getElementById('cameraIdentifiedCardMeta');
-        this.cameraPreviewTags = document.getElementById('cameraPreviewTags');
-        this.cameraAcceptCardBtn = document.getElementById('cameraAcceptCardBtn');
         this.cameraRejectCardBtn = document.getElementById('cameraRejectCardBtn');
         this.cameraHintSection = document.getElementById('cameraHintSection');
         this.cameraHintInput = document.getElementById('cameraHintInput');
@@ -1866,9 +1877,30 @@ class PokemonChatApp {
         this.cameraIdentifyButton?.addEventListener('click', () => this.identifyCurrentCard());
         this.cameraInsightsModeBtn?.addEventListener('click', () => this.setCameraMode('insights'));
         this.cameraCollectionModeBtn?.addEventListener('click', () => this.setCameraMode('collection'));
-        this.cameraAcceptCardBtn?.addEventListener('click', () => this.acceptCurrentScannerMatch());
+        this.cameraSettingsButton?.addEventListener('click', () => this.toggleScannerSettings());
+        this.cameraDebugButton?.addEventListener('click', () => this.setScannerDebugOpen(this.cameraDebugPanel?.hidden !== false));
+        this.cameraSettingsPanel?.addEventListener('change', (event) => {
+            if (event.target.name === 'cameraPipelineMode') {
+                this.setScannerPipelineMode(event.target.value);
+            }
+        });
         this.cameraRejectCardBtn?.addEventListener('click', () => this.retryScannerMatch());
         this.cameraHintSubmitBtn?.addEventListener('click', () => this.identifyCurrentCard({ useHints: true }));
+        this.cameraCandidateList?.addEventListener('click', (event) => {
+            const addButton = event.target.closest('[data-scanner-add]');
+            if (addButton) {
+                this.acceptCurrentScannerMatch();
+                return;
+            }
+            const candidateButton = event.target.closest('[data-scanner-card-id]');
+            if (candidateButton) this.selectScannerCandidate(candidateButton.dataset.scannerCardId);
+        });
+        this.cameraCardLightbox?.addEventListener('click', () => this.closeScannerCardPreview());
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && this.cameraCardLightbox?.hidden === false) {
+                this.closeScannerCardPreview();
+            }
+        });
         this.cameraSaveCollectionBtn?.addEventListener('click', () => {
             this.cardCollection?.save?.();
             this.showToast('Card Collection', 'Collection saved locally in this browser.', 'success', 2500);
@@ -1910,13 +1942,23 @@ class PokemonChatApp {
         this.cameraCollectionPanel && (this.cameraCollectionPanel.hidden = !isCollection);
         this.cameraInsightsModeBtn?.classList.toggle('active', !isCollection);
         this.cameraCollectionModeBtn?.classList.toggle('active', isCollection);
+        if (this.cameraSettingsButton) this.cameraSettingsButton.hidden = !isCollection;
+        if (this.cameraDebugButton) this.cameraDebugButton.hidden = !isCollection;
+        if (!isCollection) {
+            this.setScannerSettingsOpen(false);
+            this.setScannerDebugOpen(false);
+        }
         if (this.cameraModalSubtitle) {
             this.cameraModalSubtitle.textContent = isCollection
                 ? 'Identify cards with the camera, confirm the match, and save them to My Collection.'
                 : 'Share a card or poster and get real-time insights.';
         }
         if (this.cameraIdentifyButton) {
-            this.cameraIdentifyButton.textContent = isCollection ? 'Identify Card' : 'Send Camera Frame';
+            const buttonLabel = isCollection ? 'Scan Card' : 'Send Camera Frame';
+            const buttonText = this.cameraIdentifyButton.querySelector('.camera-scan-text');
+            if (buttonText) buttonText.textContent = buttonLabel;
+            this.cameraIdentifyButton.setAttribute('aria-label', buttonLabel);
+            this.cameraIdentifyButton.dataset.tooltip = buttonLabel;
         }
 
         if (isCollection) {
@@ -1941,12 +1983,206 @@ class PokemonChatApp {
         return mode === 'environment' ? 'rear' : 'front';
     }
 
+    loadScannerPipelineMode() {
+        try {
+            const stored = localStorage.getItem('pokedex_scanner_pipeline_v1');
+            return ['numpy', 'cosine', 'hybrid', 'rerank'].includes(stored) ? stored : 'rerank';
+        } catch (error) {
+            return 'rerank';
+        }
+    }
+
+    setScannerPipelineMode(mode) {
+        this.scannerPipelineMode = ['numpy', 'cosine', 'hybrid', 'rerank'].includes(mode) ? mode : 'rerank';
+        try {
+            localStorage.setItem('pokedex_scanner_pipeline_v1', this.scannerPipelineMode);
+        } catch (error) {
+            console.warn('Could not save scanner pipeline preference:', error);
+        }
+        this.syncScannerPipelineControls();
+        this.setScannerSettingsOpen(false);
+        const labels = {
+            numpy: 'Full-catalog NumPy visual search selected.',
+            cosine: 'Cosine-only visual ranking selected.',
+            hybrid: 'OCR and cosine ranking selected.',
+            rerank: 'OCR, cosine, and LLM reranking selected.'
+        };
+        this.updateCameraStatus(labels[this.scannerPipelineMode]);
+    }
+
+    syncScannerPipelineControls() {
+        this.cameraSettingsPanel?.querySelectorAll('input[name="cameraPipelineMode"]').forEach(input => {
+            input.checked = input.value === this.scannerPipelineMode;
+        });
+    }
+
+    toggleScannerSettings() {
+        this.setScannerSettingsOpen(this.cameraSettingsPanel?.hidden !== false);
+    }
+
+    setScannerSettingsOpen(isOpen) {
+        if (!this.cameraSettingsPanel || !this.cameraSettingsButton) return;
+        const shouldOpen = Boolean(isOpen && this.cameraMode === 'collection');
+        this.cameraSettingsPanel.hidden = !shouldOpen;
+        this.cameraSettingsButton.setAttribute('aria-expanded', String(shouldOpen));
+        if (shouldOpen) {
+            this.setScannerDebugOpen(false);
+            this.syncScannerPipelineControls();
+        }
+    }
+
+    setScannerDebugOpen(isOpen) {
+        if (!this.cameraDebugPanel || !this.cameraDebugButton) return;
+        const shouldOpen = Boolean(isOpen && this.cameraMode === 'collection');
+        this.cameraDebugPanel.hidden = !shouldOpen;
+        this.cameraDebugButton.setAttribute('aria-expanded', String(shouldOpen));
+        this.cameraModal?.classList.toggle('is-debug-open', shouldOpen);
+        if (shouldOpen) {
+            if (this.cameraSettingsPanel) this.cameraSettingsPanel.hidden = true;
+            this.cameraSettingsButton?.setAttribute('aria-expanded', 'false');
+            this.renderScannerDebugTrace();
+        }
+    }
+
+    resetScannerDebugTrace(imageDataUrl) {
+        const mode = this.scannerPipelineMode;
+        const usesMetadata = mode !== 'numpy';
+        this.scannerDebugTrace = {
+            mode,
+            startedAt: performance.now(),
+            imageDataUrl,
+            evidence: null,
+            descriptor: null,
+            descriptorMethod: '',
+            descriptorVariants: 0,
+            judgeContext: null,
+            judgeUsed: false,
+            judgeWarning: '',
+            rankings: [],
+            steps: [
+                { id: 'capture', label: 'Capture guide crop', status: 'done', duration: 0 },
+                { id: 'embed', label: mode === 'numpy' ? 'Build embedding and search full catalog' : 'Compare captured card with candidate images', status: 'pending' },
+                { id: 'text', label: 'Extract visible metadata with LLM', status: usesMetadata ? 'pending' : 'skipped' },
+                { id: 'score', label: 'Score metadata fields and image similarity', status: usesMetadata ? 'pending' : 'skipped' },
+                { id: 'judge', label: 'LLM judge rerank', status: mode === 'rerank' ? 'pending' : 'skipped' },
+                { id: 'render', label: 'Render ranking results', status: 'pending' }
+            ]
+        };
+        this.renderScannerDebugTrace();
+    }
+
+    updateScannerDebugStep(id, status, detail = '') {
+        const step = this.scannerDebugTrace?.steps.find(item => item.id === id);
+        if (!step) return;
+        if (status === 'active') step.startedAt = performance.now();
+        if ((status === 'done' || status === 'error') && step.startedAt) {
+            step.duration = performance.now() - step.startedAt;
+        }
+        step.status = status;
+        step.detail = detail;
+        if (id === 'render' && status === 'done') {
+            this.scannerDebugTrace.completedAt = performance.now();
+        }
+        this.renderScannerDebugTrace();
+    }
+
+    renderScannerDebugTrace() {
+        if (!this.cameraDebugSteps) return;
+        const trace = this.scannerDebugTrace;
+        if (!trace) {
+            this.cameraDebugSteps.innerHTML = '';
+            return;
+        }
+        const modeNames = { numpy: 'NumPy full catalog', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
+        if (this.cameraDebugMode) this.cameraDebugMode.textContent = modeNames[trace.mode];
+        if (this.cameraDebugSummary) {
+            const best = trace.rankings[0];
+            this.cameraDebugSummary.textContent = best
+                ? `${best.card?.name || 'Unknown'} leads at ${Math.round(best.score * 1000) / 10}% after ${Math.round((trace.completedAt || performance.now()) - trace.startedAt)} ms.`
+                : 'Trace updates live as the crop moves through the matching pipeline.';
+        }
+        this.cameraDebugSteps.innerHTML = trace.steps.map(step => `
+            <div class="camera-debug-step is-${step.status}">
+                <span class="camera-debug-step-dot" aria-hidden="true">${step.status === 'done' ? '✓' : step.status === 'skipped' ? '–' : step.status === 'error' ? '!' : ''}</span>
+                <span><strong>${this._escapeHtml(step.label)}</strong>${step.detail ? `<small>${this._escapeHtml(step.detail)}</small>` : ''}</span>
+                ${Number.isFinite(step.duration) ? `<time>${Math.round(step.duration)} ms</time>` : ''}
+            </div>`).join('');
+        const evidence = trace.evidence ? `
+            <section class="camera-debug-capture">
+                <div class="camera-debug-capture-heading">
+                    <strong>Cropped camera card</strong>
+                    <span>LLM text confidence: ${Math.round(Number(trace.evidence.confidence) || 0)}%</span>
+                </div>
+                <div class="camera-debug-capture-layout">
+                    <img src="${trace.imageDataUrl}" alt="Captured card crop">
+                    <div>
+                        <details open><summary>Extracted text</summary><pre>${this._escapeHtml(trace.evidence.text || 'No text extracted.')}</pre></details>
+                        <details open><summary>Extracted metadata</summary><pre>${this._escapeHtml(JSON.stringify(trace.evidence.metadata || {}, null, 2))}</pre></details>
+                        ${trace.evidence.notes ? `<details><summary>Extraction notes</summary><pre>${this._escapeHtml(trace.evidence.notes)}</pre></details>` : ''}
+                    </div>
+                </div>
+            </section>` : `<figure><img src="${trace.imageDataUrl}" alt="Captured card crop"><figcaption>Guide crop · 630 × 880 JPEG</figcaption></figure>`;
+        const descriptor = Array.isArray(trace.descriptor) && trace.descriptor.length
+            ? `<details><summary>Query visual descriptor (${trace.descriptor.length.toLocaleString()} dims${trace.descriptorVariants > 1 ? ` · ${trace.descriptorVariants} crop variants` : ''})</summary><small class="camera-debug-method">${this._escapeHtml(trace.descriptorMethod)}</small><pre>${this._escapeHtml(trace.descriptor.map(value => Number(value).toFixed(4)).join(', '))}</pre></details>`
+            : '';
+        const judgeContext = trace.judgeContext
+            ? `<details><summary>LLM judge request</summary><pre>${this._escapeHtml(JSON.stringify(trace.judgeContext, null, 2))}</pre></details>`
+            : '';
+        const rankings = trace.rankings.length
+            ? `<section class="camera-debug-rankings"><h4>${trace.judgeUsed ? 'LLM judge rerank' : 'Ranked candidates'}</h4>${trace.judgeWarning ? `<p class="camera-debug-warning">${this._escapeHtml(trace.judgeWarning)}</p>` : ''}${trace.rankings.map((entry, index) => {
+                const scores = entry.card?._scannerScores || {};
+                const imageUrl = entry.card?.images?.small || entry.card?.imageSmall || entry.card?.image || '';
+                const metadata = this.formatScannerDebugCardMetadata(entry.card);
+                return `<article class="camera-debug-rank ${index === 0 ? 'is-best' : ''}">
+                    <div class="camera-debug-rank-main">
+                        <b>${index + 1}</b>
+                        ${imageUrl ? `<img src="${this._escapeHtml(imageUrl)}" alt="${this._escapeHtml(entry.card?.name || 'Candidate card')}">` : ''}
+                        <span><strong>${this._escapeHtml(entry.card?.name || 'Unknown')}</strong><small>${this._escapeHtml(entry.card?.set?.name || entry.card?.id || '')} · #${this._escapeHtml(entry.card?.number || '?')}</small></span>
+                        <code>${Math.round(entry.score * 1000) / 10}%</code>
+                    </div>
+                    <div class="camera-debug-score-grid">
+                        <span>Text <strong>${scores.text == null ? '–' : `${Math.round(scores.text * 10) / 10}%`}</strong></span>
+                        <span>Visual <strong>${scores.visual == null ? '–' : `${Math.round(scores.visual * 10) / 10}%`}</strong></span>
+                        <span>Combined <strong>${scores.combined == null ? `${Math.round(entry.score * 1000) / 10}%` : `${Math.round(scores.combined * 10) / 10}%`}</strong></span>
+                    </div>
+                    ${entry.visualBreakdown ? `<details><summary>Visual score components</summary><pre>${this._escapeHtml(JSON.stringify(entry.visualBreakdown, null, 2))}</pre></details>` : ''}
+                    <details><summary>Candidate metadata</summary><pre>${this._escapeHtml(JSON.stringify(metadata, null, 2))}</pre></details>
+                    ${entry.judgeReason ? `<details open><summary>Judge reason</summary><pre>${this._escapeHtml(entry.judgeReason)}</pre></details>` : ''}
+                </article>`;
+            }).join('')}</section>`
+            : '';
+        if (this.cameraDebugEvidence) {
+            this.cameraDebugEvidence.innerHTML = `${evidence}${descriptor}${judgeContext}${rankings}`;
+        }
+    }
+
+    formatScannerDebugCardMetadata(card = {}) {
+        return {
+            id: card.id,
+            name: card.name,
+            hp: card.hp,
+            set: card.set?.name,
+            number: card.number,
+            rarity: card.rarity,
+            supertype: card.supertype,
+            subtypes: card.subtypes || [],
+            types: card.types || [],
+            attacks: card.attacks || [],
+            weaknesses: card.weaknesses || [],
+            resistances: card.resistances || [],
+            retreatCost: card.retreatCost || [],
+            convertedRetreatCost: card.convertedRetreatCost
+        };
+    }
+
     updateCameraSwitchButton() {
         if (!this.cameraSwitchText) return;
         const nextMode = this.cameraFacingMode === 'environment' ? 'Front' : 'Rear';
         this.cameraSwitchText.textContent = `Use ${nextMode} Camera`;
         if (this.cameraSwitchButton) {
-            this.cameraSwitchButton.setAttribute('aria-label', `Switch to ${nextMode.toLowerCase()} camera`);
+            const buttonLabel = `Switch to ${nextMode.toLowerCase()} camera`;
+            this.cameraSwitchButton.setAttribute('aria-label', buttonLabel);
+            this.cameraSwitchButton.dataset.tooltip = buttonLabel;
         }
     }
 
@@ -2086,15 +2322,52 @@ class PokemonChatApp {
         }
     }
 
+    getCameraGuideSourceRect() {
+        if (!this.cameraPreview || !this.cameraScanGuide) {
+            return null;
+        }
+        const sourceWidth = this.cameraPreview.videoWidth;
+        const sourceHeight = this.cameraPreview.videoHeight;
+        const videoRect = this.cameraPreview.getBoundingClientRect();
+        const guideRect = this.cameraScanGuide.getBoundingClientRect();
+        if (!sourceWidth || !sourceHeight || !videoRect.width || !videoRect.height || !guideRect.width || !guideRect.height) {
+            return null;
+        }
+
+        const coverScale = Math.max(videoRect.width / sourceWidth, videoRect.height / sourceHeight);
+        const renderedWidth = sourceWidth * coverScale;
+        const renderedHeight = sourceHeight * coverScale;
+        const renderedLeft = videoRect.left + (videoRect.width - renderedWidth) / 2;
+        const renderedTop = videoRect.top + (videoRect.height - renderedHeight) / 2;
+        const sourceX = Math.max(0, (guideRect.left - renderedLeft) / coverScale);
+        const sourceY = Math.max(0, (guideRect.top - renderedTop) / coverScale);
+        const cropWidth = Math.min(guideRect.width / coverScale, sourceWidth - sourceX);
+        const cropHeight = Math.min(guideRect.height / coverScale, sourceHeight - sourceY);
+        return { sourceX, sourceY, cropWidth, cropHeight };
+    }
+
     captureCurrentCameraFrame() {
         if (!this.cameraPreview || this.cameraPreview.readyState < 2) {
             return null;
         }
+        const crop = this.getCameraGuideSourceRect();
+        if (!crop) return null;
+
         const canvas = document.createElement('canvas');
-        canvas.width = this.cameraPreview.videoWidth;
-        canvas.height = this.cameraPreview.videoHeight;
+        canvas.width = 630;
+        canvas.height = 880;
         const ctx = canvas.getContext('2d');
-        ctx.drawImage(this.cameraPreview, 0, 0);
+        ctx.drawImage(
+            this.cameraPreview,
+            crop.sourceX,
+            crop.sourceY,
+            crop.cropWidth,
+            crop.cropHeight,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
         return canvas.toDataURL('image/jpeg', 0.92);
     }
 
@@ -2110,39 +2383,151 @@ class PokemonChatApp {
         }
 
         this.lastScannerFrame = imageDataUrl;
+        this.resetScannerDebugTrace(imageDataUrl);
+        if (this.cameraCapturedImage) this.cameraCapturedImage.src = imageDataUrl;
+        if (this.cameraCapturedPreview) this.cameraCapturedPreview.hidden = false;
         this.updateCameraStatus('Identifying the card...');
         this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = true);
         this.hideScannerHints();
 
         try {
-            const prompt = this.buildCardIdentificationPrompt({
-                attempt: useHints ? Math.max(this.scannerHintAttemptFloor, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
-                previousGuess: this.currentScannerMatch?.guess,
-                hints: useHints ? this.cameraHintInput?.value?.trim() : ''
-            });
-            const responseText = await this.requestScannerResponse(imageDataUrl, prompt);
-            const guess = this.parseScannerGuess(responseText);
-            const matchedCard = await this.findBestMatchingCard(guess, imageDataUrl);
+            const hints = useHints ? this.cameraHintInput?.value?.trim() : '';
+            let evidence;
+            let responseText = '';
+            let guess;
+            let rankedCandidates;
+            if (this.scannerPipelineMode === 'numpy') {
+                this.updateCameraStatus('Searching the full cached card catalog...');
+                this.updateScannerDebugStep('embed', 'active', 'Encoding four crop scales and comparing 15,909 vectors at 1,432 dimensions.');
+                rankedCandidates = await this.findNumpyMatchingCards(imageDataUrl);
+                this.updateScannerDebugStep('embed', 'done', `${rankedCandidates.length} highest cosine matches returned.`);
+                const bestEntry = rankedCandidates[0];
+                const bestCard = bestEntry?.card;
+                guess = {
+                    cardName: bestCard?.name || '',
+                    pokemonName: bestCard?.name || '',
+                    setName: bestCard?.set?.name || '',
+                    number: bestCard?.number || '',
+                    hp: bestCard?.hp || '',
+                    type: bestCard?.types?.[0] || '',
+                    rarity: bestCard?.rarity || '',
+                    attack1: bestCard?.attacks?.[0]?.name || '',
+                    attack2: bestCard?.attacks?.[1]?.name || '',
+                    confidence: bestEntry ? `${Math.round(bestEntry.score * 100)}%` : 'low'
+                };
+                evidence = {
+                    text: '',
+                    metadata: this.scannerGuessToMetadata(guess),
+                    confidence: bestEntry ? bestEntry.score * 100 : 0,
+                    source: 'numpy_full_catalog'
+                };
+                this.scannerDebugTrace.evidence = {
+                    source: evidence.source,
+                    descriptor: '32 × 44 standardized grayscale + 24 RGB histogram bins',
+                    dimensions: 1432,
+                    catalogSize: 15909,
+                    queryVariants: 4
+                };
+            } else {
+                try {
+                    this.updateScannerDebugStep('text', 'active', 'Reading printed card fields from the captured crop.');
+                    evidence = await this.extractScannerEvidence(imageDataUrl);
+                    this.updateScannerDebugStep('text', 'done', `${Math.round(evidence.confidence || 0)}% extraction confidence.`);
+                } catch (extractionError) {
+                    console.warn('Structured scanner extraction unavailable, using realtime fallback:', extractionError);
+                    const prompt = this.buildCardIdentificationPrompt({
+                        attempt: useHints ? Math.max(this.scannerHintAttemptFloor, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
+                        previousGuess: this.currentScannerMatch?.guess,
+                        hints
+                    });
+                    responseText = await this.requestScannerResponse(imageDataUrl, prompt);
+                    const fallbackGuess = this.parseScannerGuess(responseText);
+                    evidence = { text: responseText, metadata: this.scannerGuessToMetadata(fallbackGuess), confidence: fallbackGuess.confidence };
+                    this.updateScannerDebugStep('text', 'done', 'Structured extraction failed; realtime fallback used.');
+                }
+                guess = this.scannerEvidenceToGuess(evidence, hints);
+                this.scannerDebugTrace.evidence = evidence;
+                this.updateScannerDebugStep('score', 'active', 'Looking up candidates and combining field and visual scores.');
+                rankedCandidates = await this.findBestMatchingCards(guess, imageDataUrl, evidence);
+                this.updateScannerDebugStep('score', 'done', `${rankedCandidates.length} candidates ranked.`);
+            }
+            const matchedCard = rankedCandidates[0]?.card || null;
             this.currentScannerMatch = {
                 guess,
                 matchedCard,
+                rankedCandidates,
+                evidence,
                 responseText,
                 imageDataUrl
             };
             this.scannerAttemptCount = useHints ? this.scannerHintAttemptFloor : this.scannerAttemptCount + 1;
+            this.scannerDebugTrace.rankings = rankedCandidates;
+            this.updateScannerDebugStep('render', 'active', 'Updating candidate previews and selected-card metadata.');
             this.renderScannerMatch();
+            this.updateScannerDebugStep('render', 'done', matchedCard ? `${matchedCard.name} selected as the best match.` : 'No confident match found.');
             this.updateCameraStatus(matchedCard
                 ? `Best match: ${matchedCard.name}${matchedCard.set?.name ? ` from ${matchedCard.set.name}` : ''}`
                 : 'I found a guess, but I could not confidently match it in the card database.');
             return true;
         } catch (error) {
             console.error('Card identification failed:', error);
-            this.updateCameraStatus('Could not identify the card right now.');
-            this.showToast('Card Scanner', 'Unable to identify the current card.', 'error', 3500);
+            const activeStep = this.scannerDebugTrace?.steps.find(step => step.status === 'active');
+            if (activeStep) this.updateScannerDebugStep(activeStep.id, 'error', error.message || 'Stage failed.');
+            const message = error.message || 'Could not identify the card right now.';
+            this.updateCameraStatus(message);
+            this.showToast('Card Scanner', message, 'error', 3500);
             return false;
         } finally {
             this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = false);
         }
+    }
+
+    async extractScannerEvidence(imageDataUrl) {
+        const response = await fetch('/api/tcg/extract-card-text', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                image_data_url: imageDataUrl,
+                api_settings: this.buildApiSettingsPayload('chat')
+            })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || `Card extraction failed (${response.status})`);
+        return {
+            text: data.extracted_text || '',
+            metadata: data.metadata || {},
+            confidence: Number(data.confidence || 0),
+            notes: data.notes || ''
+        };
+    }
+
+    scannerGuessToMetadata(guess) {
+        return {
+            name: guess.cardName || guess.pokemonName,
+            hp: guess.hp,
+            types: guess.type ? [guess.type] : [],
+            set_name: guess.setName,
+            number: guess.number,
+            rarity: guess.rarity,
+            attacks: [guess.attack1, guess.attack2].filter(Boolean).map(name => ({ name }))
+        };
+    }
+
+    scannerEvidenceToGuess(evidence, hints = '') {
+        const metadata = evidence?.metadata || {};
+        const attacks = Array.isArray(metadata.attacks) ? metadata.attacks : [];
+        return {
+            cardName: metadata.name || '',
+            pokemonName: metadata.name || hints || '',
+            setName: metadata.set_name || '',
+            number: metadata.number || '',
+            hp: metadata.hp || '',
+            type: Array.isArray(metadata.types) ? metadata.types[0] || '' : metadata.types || '',
+            rarity: metadata.rarity || '',
+            attack1: attacks[0]?.name || '',
+            attack2: attacks[1]?.name || '',
+            confidence: evidence?.confidence ? `${Math.round(evidence.confidence)}%` : 'medium'
+        };
     }
 
     /**
@@ -2234,12 +2619,18 @@ class PokemonChatApp {
         };
     }
 
-    async findBestMatchingCard(guess, imageDataUrl = null) {
+    async findBestMatchingCards(guess, imageDataUrl = null, evidence = null) {
         const normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
         const terms = [...new Set([guess.cardName, guess.pokemonName]
             .map(term => String(term || '').trim())
             .filter(term => term && normalize(term) !== 'unknown'))];
-        if (terms.length === 0) return null;
+        if (terms.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'Extraction did not provide a card name for candidate lookup.');
+            if (this.scannerPipelineMode === 'rerank') {
+                this.updateScannerDebugStep('judge', 'skipped', 'No candidates were available for LLM reranking.');
+            }
+            return [];
+        }
 
         const candidates = [];
         for (const term of terms) {
@@ -2265,7 +2656,13 @@ class PokemonChatApp {
             }
         }
 
-        if (candidates.length === 0) return null;
+        if (candidates.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'No catalog candidates were found from the extracted metadata.');
+            if (this.scannerPipelineMode === 'rerank') {
+                this.updateScannerDebugStep('judge', 'skipped', 'No candidates were available for LLM reranking.');
+            }
+            return [];
+        }
 
         const wantedName = normalize(guess.cardName);
         const wantedSet = normalize(guess.setName);
@@ -2309,23 +2706,63 @@ class PokemonChatApp {
                 const bestAttackScore = Math.max(0, ...cardAttacks.map(cardAttack => tokenOverlapScore(wantedAttack, cardAttack)));
                 score += Math.round(bestAttackScore * 18);
             });
-            return { card, score, textScore: score, visualScore: null };
+            const textScore = Math.min(1, score / 185);
+            return { card, score: textScore, textScore, visualScore: null };
         }).sort((a, b) => b.score - a.score);
 
-        const visuallyScored = await this.applyScannerImageSimilarity(scored, imageDataUrl);
-        const bestMatch = visuallyScored[0];
-        if (bestMatch?.card) {
-            bestMatch.card._scannerScores = {
-                text: bestMatch.textScore,
-                visual: bestMatch.visualScore,
-                combined: bestMatch.score
-            };
+        const visualOnly = this.scannerPipelineMode === 'cosine';
+        this.updateScannerDebugStep('embed', 'active', `Comparing the crop with ${Math.min(scored.length, 24)} candidate images.`);
+        const visuallyScored = await this.applyScannerImageSimilarity(scored, imageDataUrl, visualOnly);
+        const visualStep = this.scannerDebugTrace?.steps.find(step => step.id === 'embed');
+        if (visualStep?.status === 'active') {
+            this.updateScannerDebugStep('embed', 'done', 'Visual similarity scores normalized and sorted.');
         }
-        return bestMatch?.card || candidates[0];
+        let reranked = visuallyScored;
+        if (this.scannerPipelineMode === 'rerank') {
+            this.updateScannerDebugStep('judge', 'active', 'Sending the twelve strongest candidates and evidence to the LLM judge.');
+            reranked = await this.rerankScannerCandidates(visuallyScored.slice(0, 12), evidence);
+            this.updateScannerDebugStep('judge', 'done', `${reranked.length} candidates returned by the judge.`);
+        }
+        reranked.forEach(entry => {
+            entry.card._scannerScores = {
+                text: entry.textScore * 100,
+                visual: entry.visualScore == null ? null : entry.visualScore * 100,
+                combined: entry.score * 100
+            };
+        });
+        return reranked.slice(0, 6);
     }
 
-    async applyScannerImageSimilarity(scoredCandidates, imageDataUrl) {
-        if (!imageDataUrl || !Array.isArray(scoredCandidates) || scoredCandidates.length <= 1) {
+    async findBestMatchingCard(guess, imageDataUrl = null) {
+        const ranked = await this.findBestMatchingCards(guess, imageDataUrl);
+        return ranked[0]?.card || null;
+    }
+
+    async findNumpyMatchingCards(imageDataUrl) {
+        const response = await fetch('/api/tcg/numpy-image-match', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image_data_url: imageDataUrl, limit: 6, debug: true })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(data.error || `NumPy catalog search failed (${response.status})`);
+        }
+        if (this.scannerDebugTrace) {
+            this.scannerDebugTrace.descriptor = data.query_descriptors?.[0] || null;
+            this.scannerDebugTrace.descriptorVariants = data.query_descriptors?.length || 0;
+            this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
+        }
+        return (data.matches || []).filter(match => match.card?.id).map(match => {
+            const score = Math.max(0, Math.min(1, Number(match.score || 0)));
+            match.card._scannerScores = { text: null, visual: score * 100, combined: score * 100 };
+            return { card: match.card, score, textScore: 0, visualScore: score };
+        });
+    }
+
+    async applyScannerImageSimilarity(scoredCandidates, imageDataUrl, visualOnly = false) {
+        if (!imageDataUrl || !Array.isArray(scoredCandidates) || scoredCandidates.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'No captured image or candidates were available for visual comparison.');
             return scoredCandidates;
         }
 
@@ -2341,7 +2778,8 @@ class PokemonChatApp {
             }))
             .filter(card => card.id && (card.images?.large || card.images?.small || card.imageLarge || card.imageSmall || card.image));
 
-        if (candidatesForVisualMatch.length <= 1) {
+        if (candidatesForVisualMatch.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'Candidate records did not include usable reference images.');
             return scoredCandidates;
         }
 
@@ -2351,83 +2789,149 @@ class PokemonChatApp {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     image_data_url: imageDataUrl,
-                    candidates: candidatesForVisualMatch
+                    candidates: candidatesForVisualMatch,
+                    debug: true
                 })
             });
 
             if (!response.ok) {
                 console.warn('Scanner image similarity failed:', response.status);
+                this.updateScannerDebugStep('embed', 'skipped', `Visual comparison service returned HTTP ${response.status}.`);
                 return scoredCandidates;
             }
 
             const data = await response.json();
+            if (this.scannerDebugTrace) {
+                this.scannerDebugTrace.descriptor = data.query_descriptor || null;
+                this.scannerDebugTrace.descriptorVariants = data.query_descriptor?.length ? 1 : 0;
+                this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
+            }
             const visualMatches = new Map((data.matches || []).map(match => [match.id, match]));
+            if (visualMatches.size === 0) {
+                this.updateScannerDebugStep('embed', 'skipped', 'No candidate reference images could be compared.');
+                return scoredCandidates;
+            }
             return scoredCandidates.map(entry => {
                 const visualMatch = visualMatches.get(entry.card.id);
                 if (!visualMatch) return entry;
-                const visualScore = Number(visualMatch.visual_score || 0);
+                const visualScore = Number(visualMatch.visual_score || 0) / 100;
                 return {
                     ...entry,
                     visualScore,
-                    score: entry.textScore + (visualScore * 0.85)
+                    visualBreakdown: {
+                        hash_score: visualMatch.hash_score,
+                        edge_score: visualMatch.edge_score,
+                        color_score: visualMatch.color_score
+                    },
+                    score: visualOnly ? visualScore : (entry.textScore * 0.42) + (visualScore * 0.58)
                 };
             }).sort((a, b) => b.score - a.score);
         } catch (error) {
             console.warn('Scanner image similarity unavailable:', error);
+            this.updateScannerDebugStep('embed', 'skipped', error.message || 'Visual comparison was unavailable.');
             return scoredCandidates;
+        }
+    }
+
+    async rerankScannerCandidates(ranked, evidence) {
+        if (!ranked.length || !evidence) return ranked;
+        const payload = {
+            extracted_text: evidence.text || '',
+            extracted_metadata: evidence.metadata || {},
+            api_settings: this.buildApiSettingsPayload('chat'),
+            candidates: ranked.map(entry => ({
+                id: entry.card.id,
+                name: entry.card.name,
+                set: entry.card.set?.name,
+                number: entry.card.number,
+                rarity: entry.card.rarity,
+                hp: entry.card.hp,
+                supertype: entry.card.supertype,
+                subtypes: entry.card.subtypes || [],
+                types: entry.card.types || [],
+                attacks: entry.card.attacks || [],
+                weaknesses: entry.card.weaknesses || [],
+                resistances: entry.card.resistances || [],
+                retreatCost: entry.card.retreatCost || [],
+                convertedRetreatCost: entry.card.convertedRetreatCost,
+                embedding_score: entry.visualScore || 0,
+                text_score: entry.textScore,
+                combined_score: entry.score,
+                text_matches: []
+            }))
+        };
+        try {
+            const response = await fetch('/api/tcg/rerank-match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!response.ok) return ranked;
+            const data = await response.json();
+            if (this.scannerDebugTrace) {
+                this.scannerDebugTrace.judgeContext = data.judge_context || payload;
+                this.scannerDebugTrace.judgeUsed = Boolean(data.judge_used);
+                this.scannerDebugTrace.judgeWarning = data.warning || '';
+            }
+            const byId = new Map(ranked.map(entry => [entry.card.id, entry]));
+            const reranked = (data.ranked || []).map(item => {
+                const original = byId.get(item.id);
+                return original ? { ...original, judgeReason: item.judge_reason || '' } : null;
+            }).filter(Boolean);
+            return reranked.length ? reranked : ranked;
+        } catch (error) {
+            console.warn('Scanner candidate rerank unavailable:', error);
+            return ranked;
         }
     }
 
     renderScannerMatch() {
         const match = this.currentScannerMatch;
         const card = match?.matchedCard;
-        const guess = match?.guess;
-        const imageUrl = card?.images?.small || card?.imageSmall || '';
-        if (this.cameraIdentifiedCardImage) {
-            this.cameraIdentifiedCardImage.hidden = !imageUrl;
-            this.cameraIdentifiedCardImage.src = imageUrl || '';
+        const rankedCandidates = match?.rankedCandidates || [];
+        if (this.cameraCandidateList) {
+            this.cameraCandidateList.innerHTML = rankedCandidates.length
+                ? rankedCandidates.map((entry, index) => {
+                    const candidate = entry.card;
+                    const imageUrl = candidate.images?.small || candidate.imageSmall || candidate.image || '';
+                    const score = Math.max(0, Math.min(100, Math.round(entry.score * 100)));
+                    const isSelected = candidate.id === card?.id;
+                    return `
+                        <div class="camera-candidate-shell ${isSelected ? 'is-selected' : ''}">
+                            <button class="camera-candidate ${index === 0 ? 'is-best' : ''} ${isSelected ? 'is-selected' : ''}"
+                                    type="button"
+                                    data-scanner-card-id="${this._escapeHtml(candidate.id)}"
+                                    aria-pressed="${isSelected}"
+                                    aria-label="${this._escapeHtml(isSelected ? `Enlarge ${candidate.name || 'selected card'}` : `Select ${candidate.name || 'card candidate'}`)}">
+                                <img src="${this._escapeHtml(imageUrl)}" alt="${this._escapeHtml(candidate.name || 'Card candidate')}">
+                                <div class="camera-candidate-rank">${index + 1}</div>
+                                <div class="camera-candidate-info">
+                                    <strong>${this._escapeHtml(candidate.name || 'Unknown card')}</strong>
+                                    <span>${this._escapeHtml(candidate.set?.name || 'Unknown set')} · #${this._escapeHtml(candidate.number || '?')}</span>
+                                    <span>${score}% match</span>
+                                </div>
+                            </button>
+                            ${isSelected ? '<button class="camera-selected-add" type="button" data-scanner-add>Add to collection</button>' : ''}
+                        </div>
+                    `;
+                }).join('')
+                : '<div class="camera-preview-card-placeholder">No close matches yet. Add a hint and scan again.</div>';
         }
-        if (this.cameraPreviewPlaceholder) {
-            this.cameraPreviewPlaceholder.hidden = Boolean(imageUrl);
-        }
-        if (this.cameraIdentifiedCardTitle) {
-            this.cameraIdentifiedCardTitle.textContent = card?.name || guess?.cardName || 'Best guess ready for review';
-        }
-        if (this.cameraIdentifiedCardMeta) {
-            const pieces = [
-                card?.set?.name || guess?.setName || 'Set unknown',
-                card?.number || guess?.number || 'Number unknown',
-                card?._scannerScores?.visual != null ? `Visual: ${Math.round(card._scannerScores.visual)}%` : '',
-                guess?.confidence ? `Confidence: ${guess.confidence}` : ''
-            ].filter(Boolean);
-            this.cameraIdentifiedCardMeta.textContent = pieces.join(' · ');
-        }
-        if (this.cameraPreviewTags) {
-            const tags = [
-                guess?.pokemonName && guess.pokemonName.toLowerCase() !== 'unknown' ? guess.pokemonName : '',
-                guess?.hp && guess.hp.toLowerCase() !== 'unknown' ? `${guess.hp} HP` : '',
-                guess?.attack1 && guess.attack1.toLowerCase() !== 'unknown' ? guess.attack1 : '',
-                card?.rarity || ''
-            ].filter(Boolean);
-            this.cameraPreviewTags.innerHTML = tags.map(tag => `<span class="camera-preview-tag">${tag}</span>`).join('');
-        }
-        if (this.cameraAcceptCardBtn) this.cameraAcceptCardBtn.disabled = !card;
         if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = !match;
     }
 
     resetScannerPreview() {
         this.currentScannerMatch = null;
+        this.lastScannerFrame = null;
         this.scannerAttemptCount = 0;
         if (this.cameraHintInput) this.cameraHintInput.value = '';
-        if (this.cameraIdentifiedCardImage) {
-            this.cameraIdentifiedCardImage.hidden = true;
-            this.cameraIdentifiedCardImage.src = '';
+        if (this.cameraCapturedPreview) this.cameraCapturedPreview.hidden = true;
+        if (this.cameraCapturedImage) this.cameraCapturedImage.removeAttribute('src');
+        this.closeScannerCardPreview();
+        if (this.cameraCandidateList) {
+            this.cameraCandidateList.innerHTML = '<div class="camera-preview-card-placeholder" id="cameraPreviewPlaceholder">Align one card in the frame, then tap Scan Card.</div>';
+            this.cameraPreviewPlaceholder = document.getElementById('cameraPreviewPlaceholder');
         }
-        if (this.cameraPreviewPlaceholder) this.cameraPreviewPlaceholder.hidden = false;
-        if (this.cameraIdentifiedCardTitle) this.cameraIdentifiedCardTitle.textContent = 'No card identified yet';
-        if (this.cameraIdentifiedCardMeta) this.cameraIdentifiedCardMeta.textContent = 'Use the live preview and tap Identify Card to start logging cards you own.';
-        if (this.cameraPreviewTags) this.cameraPreviewTags.innerHTML = '';
-        if (this.cameraAcceptCardBtn) this.cameraAcceptCardBtn.disabled = true;
         if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = true;
         this.hideScannerHints();
     }
@@ -2440,6 +2944,32 @@ class PokemonChatApp {
         window.setTimeout(() => this.resetScannerPreview(), 220);
         this.updateCameraStatus(`Saved ${card.name} to your collection.`);
         this.showToast('Card Scanner', `${card.name} saved to My Collection.`, 'success', 2500);
+    }
+
+    selectScannerCandidate(cardId) {
+        const selected = this.currentScannerMatch?.rankedCandidates?.find(entry => entry.card.id === cardId);
+        if (!selected) return;
+        if (this.currentScannerMatch.matchedCard?.id === cardId) {
+            this.openScannerCardPreview(selected.card);
+            return;
+        }
+        this.currentScannerMatch.matchedCard = selected.card;
+        this.renderScannerMatch();
+        this.updateCameraStatus(`Selected ${selected.card.name}${selected.card.set?.name ? ` from ${selected.card.set.name}` : ''}.`);
+    }
+
+    openScannerCardPreview(card) {
+        const imageUrl = card?.images?.large || card?.imageLarge || card?.images?.small || card?.imageSmall || card?.image || '';
+        if (!imageUrl || !this.cameraCardLightbox || !this.cameraIdentifiedCardImage) return;
+        this.cameraIdentifiedCardImage.src = imageUrl;
+        this.cameraIdentifiedCardImage.alt = `${card.name || 'Selected card'} enlarged preview`;
+        this.cameraCardLightbox.hidden = false;
+        this.cameraCardLightbox.focus();
+    }
+
+    closeScannerCardPreview() {
+        if (this.cameraCardLightbox) this.cameraCardLightbox.hidden = true;
+        if (this.cameraIdentifiedCardImage) this.cameraIdentifiedCardImage.removeAttribute('src');
     }
 
     async retryScannerMatch() {
