@@ -1,0 +1,1504 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:eternatus"
+  },
+  "cache_key": "d5f331202d2e0dacd007bcc987eb21c2",
+  "cached_at": 1765916378.476648,
+  "response": {
+    "data": [
+      {
+        "id": "swshp-SWSH044",
+        "name": "Eternatus V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Accelerator",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "You may attach a Darkness Energy card from your hand to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dynamax Cannon",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH044",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH044.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH044_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH044",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.55,
+              "mid": 3.16,
+              "high": 27.21,
+              "market": 3.1,
+              "directLow": 2.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH044",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.61,
+            "lowPrice": 1.5,
+            "trendPrice": 3.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.82,
+            "lowPriceExPlus": 1.5,
+            "avg1": 4.04,
+            "avg7": 3.56,
+            "avg30": 4.16,
+            "reverseHoloAvg1": 5.85,
+            "reverseHoloAvg7": 5.95,
+            "reverseHoloAvg30": 5.7
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH045",
+        "name": "Eternatus VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Eternatus V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eternal Zone",
+            "text": "If all of your Pokémon in play are Darkness type, you can have up to 8 Pokémon on your Bench, and you can't put non-Darkness Pokémon into play. (If this Ability stops working, discard Pokémon from your Bench until you have 5.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dread End",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Darkness Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH045",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH045.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH045_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH045",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.72,
+              "mid": 3.05,
+              "high": 9999.0,
+              "market": 2.84,
+              "directLow": 2.63
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH045",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.25,
+            "lowPrice": 1.0,
+            "trendPrice": 4.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.49,
+            "lowPriceExPlus": 2.5,
+            "avg1": 6.95,
+            "avg7": 4.66,
+            "avg30": 4.46,
+            "reverseHoloAvg1": 6.99,
+            "reverseHoloAvg7": 8.12,
+            "reverseHoloAvg30": 8.86
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH064",
+        "name": "Eternatus V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Accelerator",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "You may attach a Darkness Energy card from your hand to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dynamax Cannon",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH064",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH064.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH064_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH064",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.43,
+              "high": 9.97,
+              "market": 1.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH064",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.72,
+            "lowPrice": 0.8,
+            "trendPrice": 1.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.05,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.0,
+            "avg7": 1.61,
+            "avg30": 1.76,
+            "reverseHoloAvg1": 1.75,
+            "reverseHoloAvg7": 3.21,
+            "reverseHoloAvg30": 3.23
+          }
+        }
+      },
+      {
+        "id": "swsh3-116",
+        "name": "Eternatus V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Accelerator",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "You may attach a Darkness Energy card from your hand to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dynamax Cannon",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "116",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/116.png",
+          "large": "https://images.pokemontcg.io/swsh3/116_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-116",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.75,
+              "mid": 1.54,
+              "high": 29.97,
+              "market": 1.5,
+              "directLow": 29.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-116",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.48,
+            "lowPrice": 0.5,
+            "trendPrice": 1.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.72,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.5,
+            "avg7": 1.42,
+            "avg30": 1.52,
+            "reverseHoloAvg1": 2.86,
+            "reverseHoloAvg7": 2.7,
+            "reverseHoloAvg30": 2.95
+          }
+        }
+      },
+      {
+        "id": "swsh3-117",
+        "name": "Eternatus VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Eternatus V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eternal Zone",
+            "text": "If all of your Pokémon in play are Darkness type, you can have up to 8 Pokémon on your Bench, and you can't put non-Darkness Pokémon into play. (If this Ability stops working, discard Pokémon from your Bench until you have 5.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dread End",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Darkness Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/117.png",
+          "large": "https://images.pokemontcg.io/swsh3/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.5,
+              "mid": 5.41,
+              "high": 29.97,
+              "market": 5.01,
+              "directLow": 29.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-117",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.43,
+            "lowPrice": 1.46,
+            "trendPrice": 3.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.25,
+            "lowPriceExPlus": 1.98,
+            "avg1": 3.49,
+            "avg7": 3.16,
+            "avg30": 3.24,
+            "reverseHoloAvg1": 8.98,
+            "reverseHoloAvg7": 8.43,
+            "reverseHoloAvg30": 8.9
+          }
+        }
+      },
+      {
+        "id": "swsh3-192",
+        "name": "Eternatus VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Eternatus V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eternal Zone",
+            "text": "If all of your Pokémon in play are Darkness type, you can have up to 8 Pokémon on your Bench, and you can't put non-Darkness Pokémon into play. (If this Ability stops working, discard Pokémon from your Bench until you have 5.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dread End",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Darkness Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "192",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/192.png",
+          "large": "https://images.pokemontcg.io/swsh3/192_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-192",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.5,
+              "mid": 10.91,
+              "high": 32.0,
+              "market": 10.98,
+              "directLow": 29.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-192",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 8.92,
+            "lowPrice": 5.75,
+            "trendPrice": 9.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 30.11,
+            "lowPriceExPlus": 7.9,
+            "avg1": 9.48,
+            "avg7": 9.34,
+            "avg30": 10.64,
+            "reverseHoloAvg1": 29.95,
+            "reverseHoloAvg7": 31.05,
+            "reverseHoloAvg30": 28.11
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV121",
+        "name": "Eternatus V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Accelerator",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "You may attach a Darkness Energy card from your hand to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dynamax Cannon",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV121",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV121.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV121_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV121",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.65,
+              "mid": 5.38,
+              "high": 29.99,
+              "market": 5.49,
+              "directLow": 6.32
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV121",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 6.39,
+            "lowPrice": 4.0,
+            "trendPrice": 6.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.5,
+            "lowPriceExPlus": 4.0,
+            "avg1": 4.63,
+            "avg7": 6.36,
+            "avg30": 6.23,
+            "reverseHoloAvg1": 26.64,
+            "reverseHoloAvg7": 27.33,
+            "reverseHoloAvg30": 28.68
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV122",
+        "name": "Eternatus VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Eternatus V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eternal Zone",
+            "text": "If all of your Pokémon in play are Darkness type, you can have up to 8 Pokémon on your Bench, and you can't put non-Darkness Pokémon into play. (If this Ability stops working, discard Pokémon from your Bench until you have 5.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dread End",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Darkness Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV122",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV122.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.0,
+              "mid": 5.99,
+              "high": 99.99,
+              "market": 5.51,
+              "directLow": 6.58
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV122",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 5.21,
+            "lowPrice": 3.99,
+            "trendPrice": 5.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 28.0,
+            "lowPriceExPlus": 3.99,
+            "avg1": 4.7,
+            "avg7": 6.08,
+            "avg30": 5.4,
+            "reverseHoloAvg1": 27.98,
+            "reverseHoloAvg7": 29.64,
+            "reverseHoloAvg30": 35.57
+          }
+        }
+      },
+      {
+        "id": "swsh11tg-TG21",
+        "name": "Eternatus V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Power Accelerator",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "You may attach a Darkness Energy card from your hand to 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dynamax Cannon",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon VMAX, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11tg",
+          "name": "Lost Origin Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11tg/logo.png"
+          }
+        },
+        "number": "TG21",
+        "artist": "kodama",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11tg/TG21.png",
+          "large": "https://images.pokemontcg.io/swsh11tg/TG21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11tg-TG21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.48,
+              "mid": 4.01,
+              "high": 12.99,
+              "market": 4.04,
+              "directLow": 4.6
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11tg-TG21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.9,
+            "lowPrice": 1.87,
+            "trendPrice": 4.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.5,
+            "avg1": 4.99,
+            "avg7": 4.57,
+            "avg30": 4.75,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11tg-TG22",
+        "name": "Eternatus VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX",
+          "Eternamax"
+        ],
+        "hp": "340",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Eternatus V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eternal Zone",
+            "text": "If all of your Pokémon in play are Darkness type, you can have up to 8 Pokémon on your Bench, and you can't put non-Darkness Pokémon into play. (If this Ability stops working, discard Pokémon from your Bench until you have 5.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dread End",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Darkness Pokémon in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh11tg",
+          "name": "Lost Origin Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11tg/logo.png"
+          }
+        },
+        "number": "TG22",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11tg/TG22.png",
+          "large": "https://images.pokemontcg.io/swsh11tg/TG22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11tg-TG22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.89,
+              "mid": 9.62,
+              "high": 41.07,
+              "market": 9.62,
+              "directLow": 11.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11tg-TG22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.35,
+            "lowPrice": 4.95,
+            "trendPrice": 8.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 6.0,
+            "avg1": 10.25,
+            "avg7": 7.39,
+            "avg30": 8.07,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-105",
+        "name": "Radiant Eternatus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Radiant"
+        ],
+        "hp": "170",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Radiant Pokémon Rule: You can't have more than 1 Radiant Pokémon in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Climactic Gate",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may search your deck for up to 2 Pokémon VMAX and put them onto your Bench. Then, shuffle your deck. If you use this Ability, your turn ends.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Power Beam",
+            "cost": [
+              "Fire",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": ""
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "105",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Radiant Rare",
+        "flavorText": "The core on its chest absorbs energy emanating from the lands of the Galar region. This energy is what allows Eternatus to stay active.",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/105.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/105_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-105",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.62,
+              "high": 999.0,
+              "market": 0.49,
+              "directLow": 0.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-105",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 0.53,
+            "lowPrice": 0.02,
+            "trendPrice": 0.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.76,
+            "avg7": 0.6,
+            "avg30": 0.55,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv8-141",
+        "name": "Eternatus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "150",
+        "types": [
+          "Dragon"
+        ],
+        "attacks": [
+          {
+            "name": "Dyna-Blast",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex, this attack does 80 more damage."
+          },
+          {
+            "name": "World Ender",
+            "cost": [
+              "Fire",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "230",
+            "text": "Discard a Stadium in play. If you can't, this attack does nothing."
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "141",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/141.png",
+          "large": "https://images.pokemontcg.io/sv8/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.0,
+              "market": 0.1,
+              "directLow": 0.07
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.23,
+              "high": 3.24,
+              "market": 0.17,
+              "directLow": 0.16
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.16,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.05,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "me2-69",
+        "name": "Eternatus",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "150",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Shatter",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Discard a Stadium in play."
+          },
+          {
+            "name": "Power Rush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Flip a coin. If tails, during your next turn, this Pokémon can't use attacks."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "akagi",
+        "rarity": "Uncommon",
+        "flavorText": "The core on its chest absorbs energy emanating from the lands of the Galar region. This energy is what allows Eternatus to stay active.",
+        "nationalPokedexNumbers": [
+          890
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/69.png",
+          "large": "https://images.pokemontcg.io/me2/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.09,
+              "high": 999.0,
+              "market": 0.06,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": 0.16
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 13,
+    "totalCount": 13
+  }
+}

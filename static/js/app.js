@@ -113,20 +113,13 @@ class PokemonChatApp {
         this.isSendingImage = false;
         this.currentCardContext = null;
 
-        // Face profile capture elements (Settings modal)
-        this.faceProfileVideo = document.getElementById('faceProfileVideo');
-        this.faceProfileStatus = document.getElementById('faceProfileStatus');
-        this.faceProfileNameInput = document.getElementById('faceProfileNameInput');
-        this.faceProfilePreviewWrapper = document.getElementById('faceProfilePreviewWrapper');
-        this.faceProfilePreview = document.getElementById('faceProfilePreview');
-        this.faceProfileStartButton = document.getElementById('faceProfileStartButton');
-        this.faceProfileCaptureButton = document.getElementById('faceProfileCaptureButton');
-        this.faceProfileSaveButton = document.getElementById('faceProfileSaveButton');
-        this.faceProfileCameraStream = null;
-        this.faceProfileCaptureDataUrl = null;
-        this.isSavingFaceProfile = false;
-        this.faceProfileControlsInitialized = false;
-        this.isFaceProfileCameraStarting = false;
+        // User Account & Multi-Member management state
+        this.currentAccount = null;
+        this.memberCameraStream = null;
+        this.memberCapturedDataUrl = null;
+        this.editingMemberId = null;
+        this.isMemberCameraStarting = false;
+        this.accountModalActiveTab = 'info';
 
         // Canvas context tracking
         this.currentCanvasState = {
@@ -234,12 +227,13 @@ class PokemonChatApp {
         this.initializeToolsModal();
         this.initializeCameraControls();
         this.initializeChatSidebar();
-        this.initializeFaceProfileCaptureControls();
+        this.initializeUserAccountControls();
         this.cardCollection?.subscribe(() => this.handleCardCollectionUpdated());
         this.handleCardCollectionUpdated();
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
+        this.loadCurrentAccount();
         // Preload TCG data in background so it's ready when user navigates there
         this.tcgDatabase.preload();
         this.routeFromUrl(); // Route based on current URL instead of always showing grid
@@ -436,224 +430,970 @@ class PokemonChatApp {
         return newId;
     }
 
-    initializeFaceProfileCaptureControls() {
-        const hasFaceProfileElements = this.faceProfileVideo ||
-            this.faceProfileStartButton ||
-            this.faceProfileCaptureButton ||
-            this.faceProfileSaveButton ||
-            this.faceProfileNameInput;
+    // ==========================================
+    // User Account & Multi-Member Profile Manager
+    // ==========================================
 
-        if (!hasFaceProfileElements) {
-            return;
+    initializeUserAccountControls() {
+        const profileBtn = document.getElementById('userProfileBtn');
+        const dropdown = document.getElementById('userAccountDropdown');
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        const modalClose = document.getElementById('accountModalClose');
+
+        // Toggle Azure-style dropdown on avatar click
+        if (profileBtn && dropdown && profileBtn.dataset.listenerAttached !== 'true') {
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = dropdown.hidden;
+                dropdown.hidden = !isHidden;
+                profileBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            });
+            profileBtn.dataset.listenerAttached = 'true';
         }
 
-        if (!this.faceProfileControlsInitialized) {
-            if (this.faceProfileStartButton) {
-                this.faceProfileStartButton.addEventListener('click', () => this.toggleFaceProfileCamera());
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (dropdown && !dropdown.hidden && !e.target.closest('#userAccountContainer')) {
+                dropdown.hidden = true;
+                if (profileBtn) profileBtn.setAttribute('aria-expanded', 'false');
             }
+        });
 
-            if (this.faceProfileCaptureButton) {
-                this.faceProfileCaptureButton.addEventListener('click', () => this.captureFaceProfilePhoto());
+        // Dropdown buttons
+        const manageLink = document.getElementById('dropdownManageAccountLink');
+        const manageBtn = document.getElementById('dropdownManageBtn');
+        const switchAccBtn = document.getElementById('dropdownSwitchAccountBtn');
+        const addMemberMiniBtn = document.getElementById('dropdownAddMemberBtn');
+        const signoutBtn = document.getElementById('userAccountSignoutBtn');
+        const settingsAccountBtn = document.getElementById('openAccountFromSettingsBtn');
+
+        if (manageLink) manageLink.addEventListener('click', (e) => { e.preventDefault(); this.openAccountModal('info'); });
+        if (manageBtn) manageBtn.addEventListener('click', () => this.openAccountModal('info'));
+        if (switchAccBtn) switchAccBtn.addEventListener('click', () => this.openAccountModal('switch'));
+        if (addMemberMiniBtn) addMemberMiniBtn.addEventListener('click', () => {
+            this.openAccountModal('members');
+            this.openMemberEditor();
+        });
+        if (signoutBtn) signoutBtn.addEventListener('click', () => {
+            if (dropdown) dropdown.hidden = true;
+            this.logoutAccount();
+        });
+        if (settingsAccountBtn) settingsAccountBtn.addEventListener('click', () => {
+            if (this.toolsModalOverlay) this.toolsModalOverlay.classList.remove('active');
+            this.openAccountModal('members');
+        });
+
+        // Modal close
+        if (modalClose) modalClose.addEventListener('click', () => this.closeAccountModal());
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) this.closeAccountModal();
+            });
+        }
+
+        // Tab buttons
+        const tabBtns = modalOverlay ? modalOverlay.querySelectorAll('.account-tab-btn') : [];
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => this.switchAccountTab(btn.dataset.tab));
+        });
+
+        // Tab 1: Account Info
+        const saveAccBtn = document.getElementById('saveAccountInfoBtn');
+        const logoutAccBtn = document.getElementById('logoutAccountBtn');
+        const deleteAccBtn = document.getElementById('deleteAccountBtn');
+        const avatarInput = document.getElementById('accountAvatarFileInput');
+        if (saveAccBtn) saveAccBtn.addEventListener('click', () => this.saveAccountInfo());
+        if (logoutAccBtn) logoutAccBtn.addEventListener('click', () => this.logoutAccount());
+        if (deleteAccBtn) deleteAccBtn.addEventListener('click', () => this.deleteCurrentAccount());
+        if (avatarInput) avatarInput.addEventListener('change', () => this.handleAccountAvatarUpload(avatarInput));
+
+        // Tab 2: Members & Faces
+        const openAddMemberBtn = document.getElementById('openAddMemberFormBtn');
+        const closeMemberEditorBtn = document.getElementById('closeMemberEditorBtn');
+        const cancelMemberBtn = document.getElementById('cancelMemberBtn');
+        const saveMemberBtn = document.getElementById('saveMemberBtn');
+
+        if (openAddMemberBtn) openAddMemberBtn.addEventListener('click', () => this.openMemberEditor());
+        if (closeMemberEditorBtn) closeMemberEditorBtn.addEventListener('click', () => this.closeMemberEditor());
+        if (cancelMemberBtn) cancelMemberBtn.addEventListener('click', () => this.closeMemberEditor());
+        if (saveMemberBtn) saveMemberBtn.addEventListener('click', () => this.saveMember());
+
+        // Member photo source switcher (Live Camera vs Upload)
+        const sourceCamBtn = document.getElementById('memberSourceCameraBtn');
+        const sourceUploadBtn = document.getElementById('memberSourceUploadBtn');
+        const camSection = document.getElementById('memberCameraSection');
+        const uploadSection = document.getElementById('memberUploadSection');
+
+        if (sourceCamBtn && sourceUploadBtn) {
+            sourceCamBtn.addEventListener('click', () => {
+                sourceCamBtn.classList.add('active');
+                sourceUploadBtn.classList.remove('active');
+                if (camSection) camSection.hidden = false;
+                if (uploadSection) uploadSection.hidden = true;
+            });
+            sourceUploadBtn.addEventListener('click', () => {
+                sourceUploadBtn.classList.add('active');
+                sourceCamBtn.classList.remove('active');
+                if (camSection) camSection.hidden = true;
+                if (uploadSection) uploadSection.hidden = false;
+                this.stopMemberCamera();
+            });
+        }
+
+        // Member camera controls
+        const startCamBtn = document.getElementById('startMemberCameraBtn');
+        const captureCamBtn = document.getElementById('captureMemberFaceBtn');
+        const photoFileInput = document.getElementById('memberPhotoFileInput');
+
+        if (startCamBtn) startCamBtn.addEventListener('click', () => this.toggleMemberCamera());
+        if (captureCamBtn) captureCamBtn.addEventListener('click', () => this.captureMemberFace());
+        if (photoFileInput) photoFileInput.addEventListener('change', () => this.handleMemberPhotoUpload(photoFileInput));
+
+        // Tab 3: Switch / Login / Create Account
+        const loginAccBtn = document.getElementById('loginAccountBtn');
+        const createAccBtn = document.getElementById('createNewAccountBtn');
+        const showSignupBtn = document.getElementById('showSignupFormBtn');
+        const showLoginBtn = document.getElementById('showLoginFormBtn');
+        const loginEmailInput = document.getElementById('loginAccountEmail');
+        const loginPasswordInput = document.getElementById('loginAccountPassword');
+
+        if (loginAccBtn) loginAccBtn.addEventListener('click', () => this.loginWithCredentials());
+        if (createAccBtn) createAccBtn.addEventListener('click', () => this.createNewAccount());
+
+        if (showSignupBtn) {
+            showSignupBtn.addEventListener('click', () => {
+                const loginSec = document.getElementById('accountLoginSection');
+                const signupSec = document.getElementById('accountSignupSection');
+                if (loginSec) loginSec.hidden = true;
+                if (signupSec) signupSec.hidden = false;
+            });
+        }
+
+        if (showLoginBtn) {
+            showLoginBtn.addEventListener('click', () => {
+                const loginSec = document.getElementById('accountLoginSection');
+                const signupSec = document.getElementById('accountSignupSection');
+                if (loginSec) loginSec.hidden = false;
+                if (signupSec) signupSec.hidden = true;
+            });
+        }
+
+        if (loginPasswordInput) {
+            loginPasswordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') this.loginWithCredentials();
+            });
+        }
+    }
+
+    getRememberedAccountIds() {
+        try {
+            const raw = localStorage.getItem('pokedex_remembered_accounts');
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch {
+            return [];
+        }
+    }
+
+    rememberAccountId(userId) {
+        if (!userId) return;
+        const ids = this.getRememberedAccountIds();
+        if (!ids.includes(userId)) {
+            ids.push(userId);
+            try {
+                localStorage.setItem('pokedex_remembered_accounts', JSON.stringify(ids));
+            } catch (e) {
+                console.warn('Failed to save remembered account:', e);
             }
+        }
+    }
 
-            if (this.faceProfileSaveButton) {
-                this.faceProfileSaveButton.addEventListener('click', () => this.saveFaceProfilePhoto());
+    forgetAccountId(userId) {
+        if (!userId) return;
+        const ids = this.getRememberedAccountIds().filter(id => id !== userId);
+        try {
+            localStorage.setItem('pokedex_remembered_accounts', JSON.stringify(ids));
+        } catch (e) {
+            console.warn('Failed to update remembered accounts:', e);
+        }
+    }
+
+    async loadCurrentAccount(userId = null) {
+        try {
+            const url = userId ? `/api/account/current?user_id=${userId}` : '/api/account/current';
+            const response = await fetch(url);
+            if (!response.ok) return;
+            const data = await response.json();
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
             }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
+        } catch (error) {
+            console.warn('Unable to load current user account:', error);
+        }
+    }
 
-            if (this.faceProfileNameInput) {
-                this.faceProfileNameInput.addEventListener('input', () => {
-                    this.cacheFaceCapture({ name: this.faceProfileNameInput.value.trim() });
-                    this.updateFaceProfileUIState();
+    renderUserAccountHeaderAndDropdown(accountData) {
+        if (!accountData || !accountData.account) return;
+        const account = accountData.account;
+        const activeMember = accountData.active_member;
+        const members = accountData.members || [];
+
+        // Determine avatar image url (prefer active member avatar, then account avatar)
+        const avatarPath = activeMember?.avatar_path || account.avatar_path;
+        const avatarUrl = avatarPath ? `/api/account/avatar/${encodeURIComponent(avatarPath.split('/').pop())}` : null;
+
+        // Header Avatar
+        const headerImg = document.getElementById('headerUserAvatar');
+        const headerFallback = document.getElementById('headerUserAvatarFallback');
+        if (headerImg && headerFallback) {
+            if (avatarUrl) {
+                headerImg.src = avatarUrl;
+                headerImg.hidden = false;
+                headerFallback.hidden = true;
+            } else {
+                headerImg.hidden = true;
+                headerFallback.hidden = false;
+                const initials = (activeMember?.name || account.display_name || 'U').charAt(0).toUpperCase();
+                headerFallback.textContent = initials;
+            }
+        }
+
+        // Dropdown card
+        const dropdownName = document.getElementById('dropdownUserName');
+        const dropdownEmail = document.getElementById('dropdownUserEmail');
+        const dropdownMemberBadge = document.getElementById('dropdownActiveMemberBadge');
+        const dropdownActiveMemberName = document.getElementById('dropdownActiveMemberName');
+        const dropdownAvatarImg = document.getElementById('dropdownUserAvatar');
+        const dropdownAvatarFallback = document.getElementById('dropdownUserAvatarFallback');
+
+        if (dropdownName) dropdownName.textContent = account.display_name || 'Trainer Account';
+        if (dropdownEmail) dropdownEmail.textContent = account.email || 'Local Trainer';
+        if (dropdownActiveMemberName) dropdownActiveMemberName.textContent = activeMember ? activeMember.name : 'None';
+        if (dropdownMemberBadge) dropdownMemberBadge.hidden = !activeMember;
+
+        if (dropdownAvatarImg && dropdownAvatarFallback) {
+            if (avatarUrl) {
+                dropdownAvatarImg.src = avatarUrl;
+                dropdownAvatarImg.hidden = false;
+                dropdownAvatarFallback.hidden = true;
+            } else {
+                dropdownAvatarImg.hidden = true;
+                dropdownAvatarFallback.hidden = false;
+                const initials = (activeMember?.name || account.display_name || 'T').charAt(0).toUpperCase();
+                dropdownAvatarFallback.textContent = initials;
+            }
+        }
+
+        // Dropdown members mini list
+        const miniList = document.getElementById('dropdownMembersMiniList');
+        if (miniList) {
+            if (!members.length) {
+                miniList.innerHTML = '<div style="font-size: 0.75rem; color: #888; padding: 0.25rem;">No members yet</div>';
+            } else {
+                miniList.innerHTML = members.map(m => {
+                    const isActive = activeMember && activeMember.id === m.id;
+                    const mAvatar = m.avatar_path ? `/api/account/avatar/${encodeURIComponent(m.avatar_path.split('/').pop())}` : null;
+                    const mInitial = m.name.charAt(0).toUpperCase();
+                    return `
+                        <div class="user-account-member-item ${isActive ? 'active' : ''}" data-member-id="${m.id}">
+                            <div class="user-account-member-item-info">
+                                <div class="user-account-member-avatar-mini">
+                                    ${mAvatar ? `<img src="${mAvatar}" alt="${m.name}">` : `<span>${mInitial}</span>`}
+                                </div>
+                                <span class="user-account-member-name">${m.name}</span>
+                            </div>
+                            ${isActive ? '<span class="user-account-member-badge-active">Active</span>' : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                miniList.querySelectorAll('.user-account-member-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const mId = parseInt(item.dataset.memberId, 10);
+                        this.switchActiveMember(mId);
+                    });
                 });
             }
-
-            this.faceProfileControlsInitialized = true;
-        }
-
-        this.restoreCachedFaceProfileData();
-
-        if (!this.faceProfileCameraStream) {
-            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
-        }
-
-        this.updateFaceProfileUIState();
-    }
-
-    ensureFaceProfileCameraActive() {
-        if (!this.faceProfileVideo) {
-            return;
-        }
-
-        if (this.faceProfileCameraStream || this.isFaceProfileCameraStarting) {
-            return;
-        }
-
-        this.startFaceProfileCamera();
-    }
-
-    restoreCachedFaceProfileData() {
-        if (this.faceProfileNameInput) {
-            const detectedName = this.currentIdentifiedUser;
-            this.faceProfileNameInput.value = detectedName || this.loadCachedFaceCaptureName();
-        }
-
-        const cachedImage = this.loadCachedFaceCaptureImage();
-        if (cachedImage && this.faceProfilePreview && this.faceProfilePreviewWrapper) {
-            this.faceProfilePreview.src = cachedImage;
-            this.faceProfilePreviewWrapper.hidden = false;
-            this.faceProfileCaptureDataUrl = cachedImage;
-        } else if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = true;
         }
     }
 
-    loadCachedFaceCaptureName() {
+    renderAccountModalData(accountData) {
+        if (!accountData || !accountData.account) return;
+        const account = accountData.account;
+        const activeMember = accountData.active_member;
+        const members = accountData.members || [];
+
+        // Tab 1: Account Info fields
+        const nameInput = document.getElementById('accountDisplayNameInput');
+        const emailInput = document.getElementById('accountEmailInput');
+        const idText = document.getElementById('accountIdText');
+        const modalAvatarImg = document.getElementById('accountModalAvatarImg');
+        const modalAvatarFallback = document.getElementById('accountModalAvatarFallback');
+
+        if (nameInput) nameInput.value = account.display_name || '';
+        if (emailInput) emailInput.value = account.email || '';
+        if (idText) idText.textContent = account.id;
+
+        const accAvatarUrl = account.avatar_path ? `/api/account/avatar/${encodeURIComponent(account.avatar_path.split('/').pop())}` : null;
+        if (modalAvatarImg && modalAvatarFallback) {
+            if (accAvatarUrl) {
+                modalAvatarImg.src = accAvatarUrl;
+                modalAvatarImg.hidden = false;
+                modalAvatarFallback.hidden = true;
+            } else {
+                modalAvatarImg.hidden = true;
+                modalAvatarFallback.hidden = false;
+                modalAvatarFallback.textContent = (account.display_name || 'U').charAt(0).toUpperCase();
+            }
+        }
+
+        // Tab 2: Members Grid
+        const membersGrid = document.getElementById('accountMembersGrid');
+        if (membersGrid) {
+            if (!members.length) {
+                membersGrid.innerHTML = '<p style="color: #666; font-size: 0.85rem;">No members added to this account yet. Click "+ Add Member" to register faces.</p>';
+            } else {
+                membersGrid.innerHTML = members.map(m => {
+                    const isActive = activeMember && activeMember.id === m.id;
+                    const mAvatar = m.avatar_path ? `/api/account/avatar/${encodeURIComponent(m.avatar_path.split('/').pop())}` : null;
+                    const mInitial = m.name.charAt(0).toUpperCase();
+                    return `
+                        <div class="member-card ${isActive ? 'is-active' : ''}">
+                            <div class="member-card-avatar">
+                                ${mAvatar ? `<img src="${mAvatar}" alt="${m.name}">` : `<span>${mInitial}</span>`}
+                            </div>
+                            <div class="member-card-details">
+                                <div class="member-card-name">${m.name}</div>
+                                <div class="member-card-badge">
+                                    ${isActive ? '<span style="color:#2e7d32;">● Active Speaker</span>' : '<span style="color:#888;">● Member</span>'}
+                                </div>
+                                <div class="member-card-actions">
+                                    <button class="member-action-btn" onclick="window.app.editAccountMember(${m.id})">Edit</button>
+                                    ${!isActive ? `<button class="member-action-btn" onclick="window.app.switchActiveMember(${m.id})">Set Active</button>` : ''}
+                                    <button class="member-action-btn delete" onclick="window.app.deleteAccountMember(${m.id}, '${m.name.replace(/'/g, "\\'")}')">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Tab 3: List Existing Accounts
+        this.loadExistingAccountsList();
+    }
+
+    async loadExistingAccountsList() {
+        const listEl = document.getElementById('accountExistingList');
+        if (!listEl) return;
         try {
-            return localStorage.getItem('pokedex_last_face_name') || '';
+            const resp = await fetch('/api/account/list');
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const currentId = this.currentAccount?.account?.id;
+            if (currentId) this.rememberAccountId(currentId);
+            const rememberedIds = this.getRememberedAccountIds();
+
+            // Only display accounts that have been logged into previously on this browser
+            const visibleAccounts = (data.accounts || []).filter(acc => rememberedIds.includes(acc.id));
+
+            if (!visibleAccounts.length) {
+                listEl.innerHTML = '<div style="font-size: 0.85rem; color: #777; padding: 0.5rem 0;">No other remembered accounts on this device.</div>';
+                return;
+            }
+
+            listEl.innerHTML = visibleAccounts.map(acc => {
+                const isCurrent = acc.id === currentId;
+                const lockIcon = acc.has_password ? '🔒 ' : '';
+                const safeName = (acc.display_name || '').replace(/'/g, "\\'");
+                const safeEmail = (acc.email || '').replace(/'/g, "\\'");
+                return `
+                    <div class="account-existing-card ${isCurrent ? 'is-active' : ''}">
+                        <div class="account-existing-info" style="cursor:pointer;" onclick="window.app.switchAccount(${acc.id}, ${Boolean(acc.has_password)}, '${safeEmail}', '${safeName}')">
+                            <span class="account-existing-name">${lockIcon}${acc.display_name}</span>
+                            <span class="account-existing-email">${acc.email || 'Local Trainer'} · ${acc.member_count} member(s)</span>
+                        </div>
+                        <div class="account-existing-actions-group">
+                            <span class="account-existing-badge" style="cursor:pointer;" onclick="window.app.switchAccount(${acc.id}, ${Boolean(acc.has_password)}, '${safeEmail}', '${safeName}')">${isCurrent ? 'Current' : 'Switch'}</span>
+                            <button class="account-existing-forget-btn" title="Remove from this device" type="button" onclick="window.app.removeAccountFromDevice(${acc.id}, '${safeName}')">&times;</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } catch (e) {
+            console.warn('Failed to load accounts list:', e);
+        }
+    }
+
+    async removeAccountFromDevice(userId, name) {
+        if (!confirm(`Remove "${name}" from this device's remembered list?`)) return;
+        this.forgetAccountId(userId);
+        this.showToast('Account Removed', `"${name}" removed from this device.`, 'info');
+
+        // If they removed the currently active account, switch to another remembered account or reload
+        if (this.currentAccount?.account?.id === userId) {
+            const remaining = this.getRememberedAccountIds();
+            if (remaining.length > 0) {
+                await this.switchAccount(remaining[0]);
+            } else {
+                await this.loadCurrentAccount();
+            }
+        } else {
+            await this.loadExistingAccountsList();
+        }
+    }
+
+    async deleteCurrentAccount() {
+        const currentId = this.currentAccount?.account?.id;
+        const name = this.currentAccount?.account?.display_name || 'this account';
+        if (!currentId) return;
+
+        if (!confirm(`Are you sure you want to permanently delete "${name}"?\nAll associated members, card collection, and settings will be permanently removed.`)) {
+            return;
+        }
+
+        const statusMsg = document.getElementById('accountInfoStatusMsg');
+        try {
+            if (statusMsg) statusMsg.textContent = 'Deleting account...';
+            const response = await fetch('/api/account/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: currentId })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to delete account');
+
+            this.forgetAccountId(currentId);
+            this.showToast('Account Deleted', `Account "${name}" has been permanently deleted.`, 'info');
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
+            }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
         } catch (error) {
-            console.warn('Unable to read cached face name:', error);
-            return '';
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+            this.showToast('Error', error.message, 'error');
         }
     }
 
-    loadCachedFaceCaptureImage() {
+    openAccountModal(initialTab = 'info') {
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        const dropdown = document.getElementById('userAccountDropdown');
+        if (dropdown) dropdown.hidden = true;
+        if (!modalOverlay) return;
+
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        this.switchAccountTab(initialTab);
+        this.loadCurrentAccount();
+    }
+
+    closeAccountModal() {
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        if (modalOverlay) modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        this.closeMemberEditor();
+    }
+
+    switchAccountTab(tabName) {
+        this.accountModalActiveTab = tabName;
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        if (!modalOverlay) return;
+
+        modalOverlay.querySelectorAll('.account-tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === tabName);
+        });
+
+        const panes = {
+            'info': document.getElementById('accountPaneInfo'),
+            'members': document.getElementById('accountPaneMembers'),
+            'switch': document.getElementById('accountPaneSwitch')
+        };
+
+        Object.entries(panes).forEach(([key, pane]) => {
+            if (pane) pane.classList.toggle('active', key === tabName);
+        });
+
+        if (tabName === 'switch') {
+            const loginSec = document.getElementById('accountLoginSection');
+            const signupSec = document.getElementById('accountSignupSection');
+            if (loginSec) loginSec.hidden = false;
+            if (signupSec) signupSec.hidden = true;
+            const loginStatus = document.getElementById('loginAccountStatusMsg');
+            const signupStatus = document.getElementById('newAccountStatusMsg');
+            if (loginStatus) loginStatus.textContent = '';
+            if (signupStatus) signupStatus.textContent = '';
+        }
+    }
+
+    async saveAccountInfo() {
+        const nameInput = document.getElementById('accountDisplayNameInput');
+        const emailInput = document.getElementById('accountEmailInput');
+        const passwordInput = document.getElementById('accountPasswordInput');
+        const statusMsg = document.getElementById('accountInfoStatusMsg');
+        const displayName = nameInput?.value.trim();
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+
+        if (!displayName) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Display name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
         try {
-            return localStorage.getItem('pokedex_last_face_capture') || '';
+            if (statusMsg) statusMsg.textContent = 'Saving...';
+            const body = {
+                display_name: displayName,
+                email: email,
+                avatar: this._pendingAccountAvatarData || null
+            };
+            if (password) {
+                body.password = password;
+            }
+
+            const response = await fetch('/api/account/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to save account');
+
+            this._pendingAccountAvatarData = null;
+            if (passwordInput) passwordInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Saved successfully!';
+                statusMsg.className = 'account-status-msg';
+            }
+            this.showToast('Account Updated', 'Your profile details have been saved.', 'success');
+            await this.loadCurrentAccount();
         } catch (error) {
-            console.warn('Unable to read cached face capture:', error);
-            return '';
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
         }
     }
 
-    updateFaceProfileUIState() {
-        const hasStream = Boolean(this.faceProfileCameraStream);
-        if (this.faceProfileStartButton) {
-            this.faceProfileStartButton.textContent = hasStream ? 'Stop Camera' : 'Start Camera';
-        }
-        if (this.faceProfileCaptureButton) {
-            this.faceProfileCaptureButton.disabled = !hasStream;
-        }
+    handleAccountAvatarUpload(input) {
+        const file = input.files?.[0];
+        if (!file) return;
 
-        const hasName = !!(this.faceProfileNameInput && this.faceProfileNameInput.value.trim());
-        const canSave = Boolean(hasName && this.faceProfileCaptureDataUrl && !this.isSavingFaceProfile);
-        if (this.faceProfileSaveButton) {
-            this.faceProfileSaveButton.disabled = !canSave;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const dataUrl = e.target.result;
+            this._pendingAccountAvatarData = dataUrl;
+            const img = document.getElementById('accountModalAvatarImg');
+            const fallback = document.getElementById('accountModalAvatarFallback');
+            if (img && fallback) {
+                img.src = dataUrl;
+                img.hidden = false;
+                fallback.hidden = true;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    editAccountMember(memberId) {
+        const member = (this.currentAccount?.members || []).find(m => m.id === memberId);
+        if (member) {
+            this.openMemberEditor(member);
+            const panel = document.getElementById('memberEditorPanel');
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
     }
 
-    updateFaceProfileStatus(message) {
-        if (this.faceProfileStatus) {
-            this.faceProfileStatus.textContent = message;
+    openMemberEditor(member = null) {
+        const panel = document.getElementById('memberEditorPanel');
+        const title = document.getElementById('memberEditorTitle');
+        const nameInput = document.getElementById('memberEditorNameInput');
+        const preview = document.getElementById('memberCapturedPreviewWrapper');
+        const previewImg = document.getElementById('memberCapturedPreviewImg');
+        const statusMsg = document.getElementById('memberEditorStatusMsg');
+
+        if (!panel) return;
+        panel.hidden = false;
+        this.editingMemberId = member?.id || null;
+        this.memberCapturedDataUrl = null;
+
+        if (title) title.textContent = member ? `Edit Member: ${member.name}` : 'Add Member';
+        if (nameInput) nameInput.value = member?.name || '';
+        if (statusMsg) statusMsg.textContent = '';
+
+        if (member?.avatar_path && preview && previewImg) {
+            previewImg.src = `/api/account/avatar/${encodeURIComponent(member.avatar_path.split('/').pop())}`;
+            preview.hidden = false;
+        } else if (preview) {
+            preview.hidden = true;
         }
     }
 
-    async toggleFaceProfileCamera() {
-        if (this.faceProfileCameraStream) {
-            this.stopFaceProfileCamera();
-            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
-            this.updateFaceProfileUIState();
+    closeMemberEditor() {
+        const panel = document.getElementById('memberEditorPanel');
+        if (panel) panel.hidden = true;
+        this.stopMemberCamera();
+        this.editingMemberId = null;
+        this.memberCapturedDataUrl = null;
+    }
+
+    async toggleMemberCamera() {
+        if (this.memberCameraStream) {
+            this.stopMemberCamera();
+            const status = document.getElementById('memberCameraStatus');
+            if (status) status.textContent = 'Camera idle.';
+            const btn = document.getElementById('startMemberCameraBtn');
+            if (btn) btn.textContent = 'Start Camera';
+            const captureBtn = document.getElementById('captureMemberFaceBtn');
+            if (captureBtn) captureBtn.disabled = true;
             return;
         }
-
-        await this.startFaceProfileCamera();
+        await this.startMemberCamera();
     }
 
-    async startFaceProfileCamera() {
-        if (!this.faceProfileVideo || this.isFaceProfileCameraStarting) {
-            return;
-        }
+    async startMemberCamera() {
+        const video = document.getElementById('memberCameraVideo');
+        const status = document.getElementById('memberCameraStatus');
+        const btn = document.getElementById('startMemberCameraBtn');
+        const captureBtn = document.getElementById('captureMemberFaceBtn');
 
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            this.updateFaceProfileStatus('Camera access is not supported on this device.');
-            return;
-        }
-
-        this.isFaceProfileCameraStarting = true;
-        this.updateFaceProfileStatus('Requesting camera permission...');
+        if (!video || this.isMemberCameraStarting) return;
+        this.isMemberCameraStarting = true;
+        if (status) status.textContent = 'Requesting camera access...';
 
         try {
-            this.faceProfileCameraStream = await navigator.mediaDevices.getUserMedia({
+            this.memberCameraStream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: { ideal: 'user' } },
                 audio: false
             });
-
-            this.faceProfileVideo.srcObject = this.faceProfileCameraStream;
-            await this.faceProfileVideo.play().catch(() => {});
-            this.updateFaceProfileStatus('Camera ready. Capture your face when centered.');
+            video.srcObject = this.memberCameraStream;
+            await video.play().catch(() => {});
+            if (status) status.textContent = 'Camera ready. Center your face and tap Capture.';
+            if (btn) btn.textContent = 'Stop Camera';
+            if (captureBtn) captureBtn.disabled = false;
         } catch (error) {
-            console.error('Face profile camera failed:', error);
-            this.updateFaceProfileStatus('Camera access denied or unavailable.');
-            this.stopFaceProfileCamera();
+            console.error('Member camera error:', error);
+            if (status) status.textContent = 'Camera access denied or unavailable.';
+            this.stopMemberCamera();
         } finally {
-            this.isFaceProfileCameraStarting = false;
-            this.updateFaceProfileUIState();
+            this.isMemberCameraStarting = false;
         }
     }
 
-    stopFaceProfileCamera() {
-        if (this.faceProfileCameraStream) {
-            this.faceProfileCameraStream.getTracks().forEach(track => track.stop());
-            this.faceProfileCameraStream = null;
+    stopMemberCamera() {
+        if (this.memberCameraStream) {
+            this.memberCameraStream.getTracks().forEach(t => t.stop());
+            this.memberCameraStream = null;
         }
-
-        if (this.faceProfileVideo) {
-            this.faceProfileVideo.pause();
-            this.faceProfileVideo.srcObject = null;
+        const video = document.getElementById('memberCameraVideo');
+        if (video) {
+            video.pause();
+            video.srcObject = null;
         }
-
-        this.isFaceProfileCameraStarting = false;
+        const btn = document.getElementById('startMemberCameraBtn');
+        if (btn) btn.textContent = 'Start Camera';
+        const captureBtn = document.getElementById('captureMemberFaceBtn');
+        if (captureBtn) captureBtn.disabled = true;
     }
 
-    captureFaceProfilePhoto() {
-        if (!this.faceProfileVideo || this.faceProfileVideo.readyState < 2) {
-            this.updateFaceProfileStatus('Camera is still warming up.');
-            return;
-        }
+    captureMemberFace() {
+        const video = document.getElementById('memberCameraVideo');
+        const status = document.getElementById('memberCameraStatus');
+        const previewWrapper = document.getElementById('memberCapturedPreviewWrapper');
+        const previewImg = document.getElementById('memberCapturedPreviewImg');
 
-        const dataUrl = this.getFaceCropDataUrl(this.faceProfileVideo);
+        if (!video || video.readyState < 2) return;
+        const dataUrl = this.getFaceCropDataUrl(video);
         if (!dataUrl) {
-            this.updateFaceProfileStatus('Unable to capture the image.');
-            this.showToast('Face Profile', 'Could not capture a frame. Try again.', 'error');
+            if (status) status.textContent = 'Unable to capture frame.';
             return;
         }
 
-        this.faceProfileCaptureDataUrl = dataUrl;
-        if (this.faceProfilePreview) {
-            this.faceProfilePreview.src = dataUrl;
-        }
-        if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = false;
+        this.memberCapturedDataUrl = dataUrl;
+        if (previewImg) previewImg.src = dataUrl;
+        if (previewWrapper) previewWrapper.hidden = false;
+        if (status) status.textContent = 'Face captured! Tap Save Member to complete.';
+    }
+
+    handleMemberPhotoUpload(input) {
+        const file = input.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const dataUrl = e.target.result;
+            this.memberCapturedDataUrl = dataUrl;
+            const previewWrapper = document.getElementById('memberCapturedPreviewWrapper');
+            const previewImg = document.getElementById('memberCapturedPreviewImg');
+            if (previewImg) previewImg.src = dataUrl;
+            if (previewWrapper) previewWrapper.hidden = false;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    async saveMember() {
+        const nameInput = document.getElementById('memberEditorNameInput');
+        const statusMsg = document.getElementById('memberEditorStatusMsg');
+        const name = nameInput?.value.trim();
+
+        if (!name) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Member name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
         }
 
-        this.updateFaceProfileStatus('Great! Name it and tap Save Profile to add it to face ID.');
-        this.cacheFaceCapture({ image: dataUrl });
-        this.updateFaceProfileUIState();
+        try {
+            if (statusMsg) statusMsg.textContent = 'Saving member & face profile...';
+            const endpoint = this.editingMemberId
+                ? `/api/account/members/${this.editingMemberId}`
+                : '/api/account/members';
+            const method = this.editingMemberId ? 'PUT' : 'POST';
+
+            const response = await fetch(endpoint, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    photo: this.memberCapturedDataUrl || null
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to save member');
+
+            this.showToast('Member Saved', `Member "${name}" is now registered.`, 'success');
+            this.closeMemberEditor();
+            await this.loadCurrentAccount();
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
+    }
+
+    async deleteAccountMember(memberId, name) {
+        if (!confirm(`Are you sure you want to remove member "${name}"?`)) return;
+        try {
+            const response = await fetch(`/api/account/members/${memberId}`, { method: 'DELETE' });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to delete member');
+            this.showToast('Member Removed', `Member "${name}" has been removed.`, 'info');
+            await this.loadCurrentAccount();
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async switchActiveMember(memberId) {
+        try {
+            const response = await fetch('/api/account/active-member', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ member_id: memberId })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to switch member');
+            this.showToast('Active Member', `Switched active speaker to ${data.active_member?.name || 'Member'}.`, 'success');
+            await this.loadCurrentAccount();
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async switchAccount(userId, hasPassword = false, email = '', displayName = '') {
+        if (hasPassword) {
+            // Focus and pre-fill the Login form on the right
+            this.switchAccountTab('switch');
+            const loginSec = document.getElementById('accountLoginSection');
+            const signupSec = document.getElementById('accountSignupSection');
+            if (loginSec) loginSec.hidden = false;
+            if (signupSec) signupSec.hidden = true;
+
+            const emailInput = document.getElementById('loginAccountEmail');
+            const passwordInput = document.getElementById('loginAccountPassword');
+            const statusMsg = document.getElementById('loginAccountStatusMsg');
+
+            if (emailInput) emailInput.value = email || '';
+            if (passwordInput) {
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+            if (statusMsg) {
+                statusMsg.textContent = displayName ? `Enter password for "${displayName}" to log in.` : 'Enter password to log in.';
+                statusMsg.className = 'account-status-msg';
+            }
+            return;
+        }
+
+        try {
+            const body = { user_id: userId };
+            const response = await fetch('/api/account/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to switch account');
+            this.showToast('Account Switched', `Logged into "${data.account?.display_name}".`, 'success');
+            await this.loadCurrentAccount(userId);
+            this.closeAccountModal();
+        } catch (error) {
+            this.showToast('Login Failed', error.message, 'error');
+        }
+    }
+
+    async logoutAccount() {
+        try {
+            const response = await fetch('/api/account/logout', { method: 'POST' });
+            const data = await response.json();
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
+            }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
+            this.showToast('Logged Out', 'You have been signed out.', 'info');
+            this.openAccountModal('switch');
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async loginWithCredentials() {
+        const emailInput = document.getElementById('loginAccountEmail');
+        const passwordInput = document.getElementById('loginAccountPassword');
+        const statusMsg = document.getElementById('loginAccountStatusMsg');
+
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+
+        if (!email) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Email address is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
+        try {
+            if (statusMsg) {
+                statusMsg.textContent = 'Logging in...';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            const response = await fetch('/api/account/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    password: password || undefined
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Login failed');
+
+            if (emailInput) emailInput.value = '';
+            if (passwordInput) passwordInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Logged in successfully!';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            this.showToast('Welcome Back', `Logged in as "${data.account?.display_name}".`, 'success');
+            await this.loadCurrentAccount(data.account?.id);
+            this.closeAccountModal();
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
+    }
+
+    async createNewAccount() {
+        const nameInput = document.getElementById('newAccountDisplayName');
+        const emailInput = document.getElementById('newAccountEmail');
+        const passwordInput = document.getElementById('newAccountPassword');
+        const memberInput = document.getElementById('newAccountInitialMember');
+        const statusMsg = document.getElementById('newAccountStatusMsg');
+
+        const displayName = nameInput?.value.trim();
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+        const memberName = memberInput?.value.trim();
+
+        if (!displayName) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Account display name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
+        try {
+            if (statusMsg) statusMsg.textContent = 'Creating account...';
+            const response = await fetch('/api/account/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    display_name: displayName,
+                    email: email,
+                    password: password,
+                    member_name: memberName || displayName
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to create account');
+
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (passwordInput) passwordInput.value = '';
+            if (memberInput) memberInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Account created!';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            this.showToast('Account Created', `Welcome, ${displayName}!`, 'success');
+            await this.loadCurrentAccount(data.account?.id);
+            this.switchAccountTab('members');
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
     }
 
     getFaceCropDataUrl(videoElement) {
-        if (!videoElement) {
-            return null;
-        }
-
+        if (!videoElement) return null;
         const videoWidth = videoElement.videoWidth;
         const videoHeight = videoElement.videoHeight;
-
-        if (!videoWidth || !videoHeight) {
-            return null;
-        }
+        if (!videoWidth || !videoHeight) return null;
 
         const outputWidth = 512;
         const outputHeight = 640;
-        const desiredRatio = outputWidth / outputHeight; // Keep portrait output without distortion
+        const desiredRatio = outputWidth / outputHeight;
 
         let cropWidth = videoWidth * 0.55;
         let cropHeight = cropWidth / desiredRatio;
-
         if (cropHeight > videoHeight * 0.9) {
             cropHeight = videoHeight * 0.9;
             cropWidth = cropHeight * desiredRatio;
         }
-
         if (cropWidth > videoWidth) {
             cropWidth = videoWidth * 0.9;
             cropHeight = cropWidth / desiredRatio;
@@ -666,9 +1406,7 @@ class PokemonChatApp {
         canvas.width = outputWidth;
         canvas.height = outputHeight;
         const ctx = canvas.getContext('2d');
-        if (!ctx) {
-            return null;
-        }
+        if (!ctx) return null;
 
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, outputWidth, outputHeight);
@@ -678,169 +1416,69 @@ class PokemonChatApp {
         ctx.closePath();
         ctx.clip();
 
-        ctx.drawImage(
-            videoElement,
-            sourceX,
-            sourceY,
-            cropWidth,
-            cropHeight,
-            0,
-            0,
-            outputWidth,
-            outputHeight
-        );
+        ctx.drawImage(videoElement, sourceX, sourceY, cropWidth, cropHeight, 0, 0, outputWidth, outputHeight);
         ctx.restore();
-
         return canvas.toDataURL('image/png');
     }
 
-    cacheFaceCapture({ image = null, name = null } = {}) {
+    // ====================
+    // API Settings Management
+    // ====================
+
+    getDefaultApiSettings() {
+        return {
+            mode: 'app',
+            appPassword: '',
+            realtimeLanguage: 'english',
+            custom: {
+                chatEndpoint: '',
+                chatKey: '',
+                chatDeployment: '',
+                realtimeEndpoint: '',
+                realtimeKey: '',
+                realtimeDeployment: '',
+                realtimeApiVersion: '',
+                tcgApiKey: ''
+            }
+        };
+    }
+
+    loadApiSettings() {
+        const defaults = this.getDefaultApiSettings();
+        try {
+            if (typeof localStorage === 'undefined') {
+                return { ...defaults };
+            }
+            const raw = localStorage.getItem('pokedex_api_settings_v1');
+            if (!raw) {
+                return { ...defaults };
+            }
+
+            const parsed = JSON.parse(raw);
+            return {
+                ...defaults,
+                ...parsed,
+                custom: {
+                    ...defaults.custom,
+                    ...(parsed.custom || {})
+                }
+            };
+        } catch (error) {
+            console.warn('Unable to parse stored API settings:', error);
+            return { ...defaults };
+        }
+    }
+
+    persistApiSettings() {
         try {
             if (typeof localStorage === 'undefined') {
                 return;
             }
-
-            if (image) {
-                localStorage.setItem('pokedex_last_face_capture', image);
-            }
-
-            if (typeof name === 'string') {
-                if (name) {
-                    localStorage.setItem('pokedex_last_face_name', name);
-                } else {
-                    localStorage.removeItem('pokedex_last_face_name');
-                }
-            }
+            localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
         } catch (error) {
-            console.warn('Unable to cache face capture locally:', error);
+            console.warn('Unable to persist API settings:', error);
         }
     }
-
-    resetFaceProfilePreview() {
-        this.faceProfileCaptureDataUrl = null;
-        if (this.faceProfilePreview) {
-            this.faceProfilePreview.src = '';
-        }
-        if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = true;
-        }
-    }
-
-    async saveFaceProfilePhoto() {
-        if (!this.faceProfileNameInput) {
-            return;
-        }
-
-        const name = this.faceProfileNameInput.value.trim();
-        if (!name) {
-            this.showToast('Face Profile', 'Give this photo a name before saving.', 'info');
-            this.faceProfileNameInput.focus();
-            return;
-        }
-
-        if (!this.faceProfileCaptureDataUrl) {
-            this.showToast('Face Profile', 'Capture a photo first.', 'info');
-            return;
-        }
-
-        if (this.isSavingFaceProfile) {
-            return;
-        }
-
-        this.isSavingFaceProfile = true;
-        this.updateFaceProfileUIState();
-        this.updateFaceProfileStatus('Saving profile photo...');
-
-        try {
-            const response = await fetch('/api/face/profiles', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    image: this.faceProfileCaptureDataUrl,
-                    name
-                })
-            });
-
-            const data = await response.json().catch(() => ({}));
-            if (!response.ok) {
-                throw new Error(data.error || 'Unable to save profile photo.');
-            }
-
-            const savedName = data?.profile?.displayName || name;
-            this.updateFaceProfileStatus('Profile saved! I can now recognize you by this photo.');
-            this.showToast('Face Profile', `Saved ${savedName}`, 'success');
-            this.cacheFaceCapture({ image: this.faceProfileCaptureDataUrl, name: savedName });
-            this.resetFaceProfilePreview();
-        } catch (error) {
-            console.error('Failed to save profile photo:', error);
-            const message = error.message || 'Could not save profile photo.';
-            this.updateFaceProfileStatus(message);
-            this.showToast('Face Profile', message, 'error');
-        } finally {
-            this.isSavingFaceProfile = false;
-            this.updateFaceProfileUIState();
-        }
-
-    }
-
-        // ====================
-        // API Settings Management
-        // ====================
-
-        getDefaultApiSettings() {
-            return {
-                mode: 'app',
-                appPassword: '',
-                realtimeLanguage: 'english',
-                custom: {
-                    chatEndpoint: '',
-                    chatKey: '',
-                    chatDeployment: '',
-                    realtimeEndpoint: '',
-                    realtimeKey: '',
-                    realtimeDeployment: '',
-                    realtimeApiVersion: '',
-                    tcgApiKey: ''
-                }
-            };
-        }
-
-        loadApiSettings() {
-            const defaults = this.getDefaultApiSettings();
-            try {
-                if (typeof localStorage === 'undefined') {
-                    return { ...defaults };
-                }
-                const raw = localStorage.getItem('pokedex_api_settings_v1');
-                if (!raw) {
-                    return { ...defaults };
-                }
-
-                const parsed = JSON.parse(raw);
-                return {
-                    ...defaults,
-                    ...parsed,
-                    custom: {
-                        ...defaults.custom,
-                        ...(parsed.custom || {})
-                    }
-                };
-            } catch (error) {
-                console.warn('Unable to parse stored API settings:', error);
-                return { ...defaults };
-            }
-        }
-
-        persistApiSettings() {
-            try {
-                if (typeof localStorage === 'undefined') {
-                    return;
-                }
-                localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
-            } catch (error) {
-                console.warn('Unable to persist API settings:', error);
-            }
-        }
 
         initializeApiSettingsControls() {
             // Controls might not exist on lightweight embeds
@@ -3797,7 +4435,8 @@ class PokemonChatApp {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    image: base64Image
+                    image: base64Image,
+                    user_id: this.currentAccount?.account?.id || null
                 }),
                 signal: controller.signal
             });
@@ -3819,6 +4458,9 @@ class PokemonChatApp {
 
             // Handle the result
             if (result.name) {
+                if (result.member_id && this.currentAccount?.account?.id) {
+                    this.switchActiveMember(result.member_id).catch(() => {});
+                }
                 this.handleIdentifiedUserResult(result.name, {
                     isNewUser: Boolean(result.is_new_user),
                     greetingMessage: result.is_new_user ? result.greeting_message : null
@@ -3989,6 +4631,425 @@ class PokemonChatApp {
         this.setupScrollResetControls();
         this.setupCurrencyControls();
         this.setupCollectionImportExportControls();
+        this.setupAdminDataControls();
+    }
+
+    async setupAdminDataControls() {
+        const section = document.getElementById('adminSection');
+        if (!section) return;
+
+        const downloadBtn = document.getElementById('adminAssetDownloadBtn');
+        const backupBtn = document.getElementById('adminBackupBtn');
+        const restoreBtn = document.getElementById('adminRestoreBtn');
+        const restoreInput = document.getElementById('adminRestoreInput');
+        const scanBtn = document.getElementById('adminScanBtn');
+
+        if (downloadBtn && downloadBtn.dataset.listenerAttached !== 'true') {
+            downloadBtn.addEventListener('click', () => this.startAdminAssetDownload());
+            downloadBtn.dataset.listenerAttached = 'true';
+        }
+        if (backupBtn && backupBtn.dataset.listenerAttached !== 'true') {
+            backupBtn.addEventListener('click', () => this.createAdminBackup());
+            backupBtn.dataset.listenerAttached = 'true';
+        }
+        if (restoreBtn && restoreInput && restoreBtn.dataset.listenerAttached !== 'true') {
+            restoreBtn.addEventListener('click', () => restoreInput.click());
+            restoreInput.addEventListener('change', () => this.restoreAdminBackup(restoreInput));
+            restoreBtn.dataset.listenerAttached = 'true';
+        }
+        if (scanBtn && scanBtn.dataset.listenerAttached !== 'true') {
+            scanBtn.addEventListener('click', () => this.startAdminContentScan());
+            scanBtn.dataset.listenerAttached = 'true';
+        }
+
+        await this.loadAdminStatus();
+    }
+
+    async loadAdminStatus() {
+        const section = document.getElementById('adminSection');
+        if (!section) return;
+
+        try {
+            const response = await fetch('/api/admin/status');
+            if (!response.ok) {
+                section.hidden = true;
+                return;
+            }
+            const data = await response.json();
+            section.hidden = !data.is_admin;
+            if (!data.is_admin) return;
+
+            this.renderAdminStorage(data);
+            this.renderAdminAssetComponents(data.assets);
+            this.renderAdminBackupComponents(data.backup_components);
+            if (data.asset_job && data.asset_job.status === 'running') {
+                this.pollAdminAssetJob();
+            }
+        } catch (error) {
+            console.warn('Admin status unavailable:', error);
+            section.hidden = true;
+        }
+    }
+
+    renderAdminStorage(data) {
+        const root = document.getElementById('adminDataRoot');
+        const catalog = document.getElementById('adminCatalogStatus');
+        const users = document.getElementById('adminUsersStatus');
+
+        if (root) {
+            root.textContent = `${data.storage.data_root}${data.storage.persistent ? ' (persistent)' : ' (local)'}`;
+        }
+        if (catalog) {
+            catalog.textContent = data.catalog.available
+                ? `v${data.catalog.schema_version} · ${data.catalog.pokemon_count.toLocaleString()} Pokémon · ${data.catalog.card_count.toLocaleString()} cards`
+                : (data.catalog.reason || 'Unavailable');
+        }
+        if (users) {
+            users.textContent = data.users.available
+                ? `${data.users.user_count.toLocaleString()} users · ${data.users.card_count.toLocaleString()} owned cards`
+                : 'Not initialized';
+        }
+    }
+
+    renderAdminAssetComponents(assets) {
+        const container = document.getElementById('adminAssetComponents');
+        if (!container) return;
+
+        if (!assets || !assets.available) {
+            container.innerHTML = `<p class="api-status-text">${assets?.reason || 'Catalog database unavailable'}</p>`;
+            return;
+        }
+
+        container.innerHTML = assets.components.map(component => `
+            <label class="admin-component">
+                <input type="checkbox" value="${component.key}" ${component.missing > 0 ? 'checked' : ''}>
+                <span class="admin-component-text">
+                    <span class="admin-component-name">${component.label}</span>
+                    <span class="admin-component-meta">
+                        ${component.stored.toLocaleString()} stored ·
+                        ${component.missing.toLocaleString()} missing ·
+                        ${component.disk_bytes == null ? 'stored on disk' : `${this.formatAdminBytes(component.disk_bytes)} on disk`}
+                    </span>
+                </span>
+            </label>
+        `).join('');
+    }
+
+    renderAdminBackupComponents(components) {
+        const container = document.getElementById('adminBackupComponents');
+        if (!container || !components) return;
+
+        container.innerHTML = components.map(component => `
+            <label class="admin-component">
+                <input type="checkbox" value="${component.key}" ${component.available ? 'checked' : ''} ${component.available ? '' : 'disabled'}>
+                <span class="admin-component-text">
+                    <span class="admin-component-name">${component.label}</span>
+                    <span class="admin-component-meta">
+                        ${component.available
+                            ? (component.size_bytes == null ? 'Size calculated during backup' : this.formatAdminBytes(component.size_bytes))
+                            : 'Not available'}
+                    </span>
+                </span>
+            </label>
+        `).join('');
+    }
+
+    getAdminSelection(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return [];
+        return Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
+    }
+
+    formatAdminBytes(bytes) {
+        if (!bytes) return '0 B';
+        const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+        const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+        return `${(bytes / Math.pow(1024, index)).toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+    }
+
+    setAdminStatusText(message, isError = false) {
+        const element = document.getElementById('adminStatusText');
+        if (!element) return;
+        element.textContent = message;
+        element.style.color = isError ? '#c62828' : '';
+    }
+
+    async startAdminAssetDownload() {
+        const components = this.getAdminSelection('adminAssetComponents');
+        if (!components.length) {
+            this.setAdminStatusText('Select at least one asset component.', true);
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/admin/assets/download', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ components })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Unable to start download', true);
+                return;
+            }
+            this.setAdminStatusText('Asset download started.');
+            this.pollAdminAssetJob();
+        } catch (error) {
+            this.setAdminStatusText(`Download failed: ${error.message}`, true);
+        }
+    }
+
+    async pollAdminAssetJob() {
+        const progress = document.getElementById('adminAssetProgress');
+        const fill = document.getElementById('adminAssetProgressFill');
+        const text = document.getElementById('adminAssetProgressText');
+        if (!progress) return;
+
+        progress.hidden = false;
+        clearInterval(this._adminAssetTimer);
+
+        const tick = async () => {
+            try {
+                const response = await fetch('/api/admin/assets/job');
+                const data = await response.json();
+                const job = data.job;
+                if (!job) {
+                    clearInterval(this._adminAssetTimer);
+                    return;
+                }
+                if (fill) fill.style.width = `${job.percent}%`;
+                if (text) {
+                    text.textContent = `${job.message} — ${job.completed.toLocaleString()}/${job.total.toLocaleString()}`
+                        + (job.failed ? ` (${job.failed.toLocaleString()} failed)` : '');
+                }
+                if (job.status !== 'running') {
+                    clearInterval(this._adminAssetTimer);
+                    this.renderAdminAssetComponents(data.assets);
+                }
+            } catch (error) {
+                clearInterval(this._adminAssetTimer);
+            }
+        };
+
+        await tick();
+        this._adminAssetTimer = setInterval(tick, 1500);
+    }
+
+    async createAdminBackup() {
+        const components = this.getAdminSelection('adminBackupComponents');
+        if (!components.length) {
+            this.setAdminStatusText('Select at least one backup component.', true);
+            return;
+        }
+
+        this.setAdminStatusText('Creating backup...');
+        try {
+            const response = await fetch('/api/admin/backup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ components })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Backup failed', true);
+                return;
+            }
+            this.setAdminStatusText(`Backup ready: ${data.name} (${this.formatAdminBytes(data.size_bytes)})`);
+            window.location.href = data.download_url;
+        } catch (error) {
+            this.setAdminStatusText(`Backup failed: ${error.message}`, true);
+        }
+    }
+
+    async restoreAdminBackup(input) {
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('bundle', file);
+        this.getAdminSelection('adminBackupComponents').forEach(value => formData.append('components', value));
+
+        this.setAdminStatusText('Restoring backup...');
+        try {
+            const response = await fetch('/api/admin/restore', { method: 'POST', body: formData });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Restore failed', true);
+                return;
+            }
+            this.setAdminStatusText(`Restored ${data.restored_components.join(', ')} (${data.file_count.toLocaleString()} files).`);
+            await this.loadAdminStatus();
+        } catch (error) {
+            this.setAdminStatusText(`Restore failed: ${error.message}`, true);
+        } finally {
+            input.value = '';
+        }
+    }
+
+    async startAdminContentScan() {
+        const results = document.getElementById('adminScanResults');
+        const pokemonGroup = document.getElementById('adminScanPokemon');
+        const setsGroup = document.getElementById('adminScanTcgSets');
+        const cardsGroup = document.getElementById('adminScanTcgCards');
+        if (!results) return;
+
+        results.hidden = false;
+        [pokemonGroup, setsGroup, cardsGroup].forEach(group => { if (group) group.hidden = true; });
+        this.setAdminStatusText('Scanning PokeAPI and the TCG API for new content...');
+
+        try {
+            const response = await fetch('/api/admin/scan');
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Scan failed', true);
+                return;
+            }
+            this._adminScanPokemon = data.pokemon;
+            this._adminScanTcg = data.tcg;
+            this.renderAdminScanResults(data.pokemon, data.tcg);
+            this.setAdminStatusText('');
+        } catch (error) {
+            this.setAdminStatusText(`Scan failed: ${error.message}`, true);
+        }
+    }
+
+    renderAdminScanResults(pokemon, tcg) {
+        const pokemonGroup = document.getElementById('adminScanPokemon');
+        const pokemonSummary = document.getElementById('adminScanPokemonSummary');
+        const addPokemonBtn = document.getElementById('adminAddPokemonBtn');
+        if (pokemonGroup && pokemonSummary) {
+            pokemonGroup.hidden = false;
+            pokemonSummary.textContent = pokemon.available
+                ? `${pokemon.missing_count.toLocaleString()} new Pokemon species available (checked ${pokemon.checked.toLocaleString()})`
+                : (pokemon.reason || 'Pokemon scan unavailable');
+            if (addPokemonBtn) {
+                addPokemonBtn.hidden = !pokemon.available || pokemon.missing_count === 0;
+                if (addPokemonBtn.dataset.listenerAttached !== 'true') {
+                    addPokemonBtn.addEventListener('click', () => this.addAdminNewPokemon());
+                    addPokemonBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+
+        const setsGroup = document.getElementById('adminScanTcgSets');
+        const setsSummary = document.getElementById('adminScanTcgSetsSummary');
+        const addSetsBtn = document.getElementById('adminAddTcgSetsBtn');
+        const cardsGroup = document.getElementById('adminScanTcgCards');
+        const cardsSummary = document.getElementById('adminScanTcgCardsSummary');
+        const addCardsBtn = document.getElementById('adminAddTcgCardsBtn');
+
+        if (!tcg.available) {
+            // Show the shared failure reason once rather than duplicating it in both TCG boxes.
+            if (setsGroup && setsSummary) {
+                setsGroup.hidden = false;
+                setsSummary.textContent = tcg.reason || 'TCG scan unavailable';
+                if (addSetsBtn) addSetsBtn.hidden = true;
+            }
+            if (cardsGroup) cardsGroup.hidden = true;
+            return;
+        }
+
+        if (setsGroup && setsSummary) {
+            setsGroup.hidden = false;
+            setsSummary.textContent = `${tcg.new_sets_count.toLocaleString()} new TCG sets available (checked ${tcg.checked.toLocaleString()})`;
+            if (addSetsBtn) {
+                addSetsBtn.hidden = tcg.new_sets_count === 0;
+                if (addSetsBtn.dataset.listenerAttached !== 'true') {
+                    addSetsBtn.addEventListener('click', () => this.addAdminNewTcgSets());
+                    addSetsBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+        if (cardsGroup && cardsSummary) {
+            cardsGroup.hidden = false;
+            cardsSummary.textContent = `${tcg.sets_with_new_cards_count.toLocaleString()} existing sets have new cards`;
+            if (addCardsBtn) {
+                addCardsBtn.hidden = tcg.sets_with_new_cards_count === 0;
+                if (addCardsBtn.dataset.listenerAttached !== 'true') {
+                    addCardsBtn.addEventListener('click', () => this.addAdminNewTcgCards());
+                    addCardsBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+    }
+
+    async _startAdminIngestBatch(kind, ids) {
+        if (!ids.length) return;
+
+        const progress = document.getElementById('adminScanProgress');
+        const fill = document.getElementById('adminScanProgressFill');
+        const text = document.getElementById('adminScanProgressText');
+        if (progress) progress.hidden = false;
+        if (fill) fill.style.width = '0%';
+        if (text) text.textContent = `Starting... (0/${ids.length})`;
+
+        try {
+            const response = await fetch('/api/admin/ingest/batch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ kind, ids })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Unable to start ingest', true);
+                return;
+            }
+            await this._pollAdminIngestJob();
+        } catch (error) {
+            this.setAdminStatusText(`Ingest failed: ${error.message}`, true);
+        }
+    }
+
+    async _pollAdminIngestJob() {
+        const fill = document.getElementById('adminScanProgressFill');
+        const text = document.getElementById('adminScanProgressText');
+        clearInterval(this._adminIngestTimer);
+
+        const tick = async () => {
+            try {
+                const response = await fetch('/api/admin/ingest/batch/job');
+                const data = await response.json();
+                const job = data.job;
+                if (!job) {
+                    clearInterval(this._adminIngestTimer);
+                    return;
+                }
+                if (fill) fill.style.width = `${job.percent}%`;
+                if (text) {
+                    const subProgress = job.sub_total
+                        ? ` — ${job.current_label} (${job.sub_completed}/${job.sub_total})`
+                        : (job.current_label ? ` — fetching ${job.current_label}...` : '');
+                    text.textContent = `Adding ${job.completed}/${job.total}${subProgress}`;
+                }
+                if (job.status !== 'running') {
+                    clearInterval(this._adminIngestTimer);
+                    if (text) text.textContent = job.message;
+                    this.setAdminStatusText(job.message, job.errors.length > 0);
+                    await this.loadAdminStatus();
+                    await this.startAdminContentScan();
+                }
+            } catch (error) {
+                clearInterval(this._adminIngestTimer);
+            }
+        };
+
+        await tick();
+        this._adminIngestTimer = setInterval(tick, 1000);
+    }
+
+    async addAdminNewPokemon() {
+        const missing = this._adminScanPokemon?.missing || [];
+        await this._startAdminIngestBatch('pokemon_species', missing.map(item => item.id));
+    }
+
+    async addAdminNewTcgSets() {
+        const missing = this._adminScanTcg?.new_sets || [];
+        await this._startAdminIngestBatch('tcg_set', missing.map(item => item.id));
+    }
+
+    async addAdminNewTcgCards() {
+        const missing = this._adminScanTcg?.sets_with_new_cards || [];
+        await this._startAdminIngestBatch('tcg_set', missing.map(item => item.id));
     }
     
     async loadCacheConfig() {
@@ -4003,16 +5064,21 @@ class PokemonChatApp {
     }
     
     setupCacheControls() {
+        this.setupDataSourceControls();
+
         // Cache toggle
         const cacheToggle = document.getElementById('cacheToggle');
         if (cacheToggle) {
             cacheToggle.checked = this.cacheConfig?.enabled ?? true;
-            cacheToggle.addEventListener('change', async (e) => {
-                const enabled = Boolean(e.target.checked);
-                this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
-                this.applyCacheDependencies(enabled);
-                await this.updateCacheEnabled(enabled);
-            });
+            if (cacheToggle.dataset.listenerAttached !== 'true') {
+                cacheToggle.addEventListener('change', async (e) => {
+                    const enabled = Boolean(e.target.checked);
+                    this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
+                    this.applyCacheDependencies(enabled);
+                    await this.updateCacheEnabled(enabled);
+                });
+                cacheToggle.dataset.listenerAttached = 'true';
+            }
         }
 
         // PokeAPI cache toggle
@@ -4060,6 +5126,33 @@ class PokemonChatApp {
         // Update cache stats
         this.updateCacheStats();
         this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
+    }
+
+    setupDataSourceControls() {
+        const options = document.getElementById('dataSourceOptions');
+        if (!options) return;
+
+        const currentMode = this.cacheConfig?.data_source_mode || 'json';
+        const sqliteStatus = this.cacheConfig?.sqlite || {};
+        const radios = options.querySelectorAll('input[name="dataSourceMode"]');
+        radios.forEach((radio) => {
+            radio.checked = radio.value === currentMode;
+            radio.disabled = radio.value === 'sqlite' && !sqliteStatus.available;
+        });
+
+        const status = document.getElementById('dataSourceStatus');
+        if (status) {
+            status.textContent = sqliteStatus.available
+                ? `${sqliteStatus.pokemon_count} Pokemon and ${sqliteStatus.card_count} cards available locally`
+                : (sqliteStatus.reason || 'Database has not been built');
+        }
+
+        if (options.dataset.listenerAttached === 'true') return;
+        options.addEventListener('change', async (event) => {
+            const input = event.target.closest('input[name="dataSourceMode"]');
+            if (input) await this.updateDataSourceMode(input.value);
+        });
+        options.dataset.listenerAttached = 'true';
     }
 
     setupFaceIdentificationControls() {
@@ -4251,6 +5344,8 @@ class PokemonChatApp {
     }
 
     applyCacheDependencies(isEnabled) {
+        const jsonMode = (this.cacheConfig?.data_source_mode || 'json') === 'json';
+        const cacheControlsEnabled = isEnabled && jsonMode;
         const dependentToggles = [
             document.getElementById('pokeapiCacheToggle'),
             document.getElementById('tcgCacheToggle')
@@ -4261,7 +5356,7 @@ class PokemonChatApp {
                 return;
             }
             const forceDisabled = toggle.dataset.forceDisabled === 'true';
-            toggle.disabled = forceDisabled || !isEnabled;
+            toggle.disabled = forceDisabled || !cacheControlsEnabled;
             const row = toggle.closest('.control-row');
             if (row) {
                 row.classList.toggle('disabled', toggle.disabled);
@@ -4270,17 +5365,17 @@ class PokemonChatApp {
 
         const cacheExpiryInput = document.getElementById('cacheExpiry');
         if (cacheExpiryInput) {
-            cacheExpiryInput.disabled = !isEnabled;
+            cacheExpiryInput.disabled = !cacheControlsEnabled;
             const row = cacheExpiryInput.closest('.control-row');
             if (row) {
-                row.classList.toggle('disabled', !isEnabled);
+                row.classList.toggle('disabled', !cacheControlsEnabled);
             }
         }
 
         const cacheClearBtn = document.getElementById('cacheClearBtn');
         if (cacheClearBtn) {
-            cacheClearBtn.disabled = !isEnabled;
-            cacheClearBtn.classList.toggle('disabled', !isEnabled);
+            cacheClearBtn.disabled = !cacheControlsEnabled;
+            cacheClearBtn.classList.toggle('disabled', !cacheControlsEnabled);
         }
     }
 
@@ -4391,6 +5486,32 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error updating cache:', error);
+        }
+    }
+
+    async updateDataSourceMode(mode) {
+        const previousMode = this.cacheConfig?.data_source_mode || 'json';
+        try {
+            const response = await fetch('/api/cache/data-source-mode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Unable to change data source');
+
+            this.cacheConfig = {
+                ...(this.cacheConfig || {}),
+                ...data.config,
+                sqlite: data.sqlite
+            };
+            this.setupDataSourceControls();
+            this.applyCacheDependencies(this.cacheConfig.enabled ?? true);
+            this.showToast('Data Source', mode === 'sqlite' ? 'Using the local database.' : 'Using JSON seed data.', 'success', 2500);
+        } catch (error) {
+            this.cacheConfig = { ...(this.cacheConfig || {}), data_source_mode: previousMode };
+            this.setupDataSourceControls();
+            this.showToast('Data Source', error.message, 'error', 4500);
         }
     }
 
@@ -6966,16 +8087,39 @@ class PokemonChatApp {
             }
 
             if (pathname.startsWith('/api/pokemon/')) {
-                return {
-                    label: 'Loading Pokemon data...',
-                    detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
-                };
+                return this.describePokeApiProxyLoading(parsed);
             }
         } catch (error) {
             return fallback;
         }
 
         return fallback;
+    }
+
+    describePokeApiProxyLoading(parsedUrl) {
+        const isRefresh = ['1', 'true', 'yes'].includes(
+            (parsedUrl.searchParams.get('refresh') || '').toLowerCase()
+        );
+        const isSqliteMode = (this.cacheConfig?.data_source_mode || 'json') === 'sqlite';
+
+        if (isRefresh) {
+            return {
+                label: 'Refreshing Pokemon data...',
+                detail: 'Rotom is fetching fresh data from PokeAPI and saving it to the database.'
+            };
+        }
+
+        if (isSqliteMode) {
+            return {
+                label: 'Loading Pokemon data...',
+                detail: 'Rotom is loading Pokemon details from the local database.'
+            };
+        }
+
+        return {
+            label: 'Loading Pokemon data...',
+            detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
+        };
     }
 
     parseLoadingRequestBody(body) {
@@ -7471,6 +8615,7 @@ class PokemonChatApp {
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     window.pokemonChatApp = new PokemonChatApp();
+    window.app = window.pokemonChatApp;
     
     // Expose functions for realtime API to call
     window.showTcgCardByIndex = (cardIndex, pokemonName = null) => {

@@ -1,0 +1,933 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:pincurchin"
+  },
+  "cache_key": "a5ac957f2c72ab72b90cdbce862087db",
+  "cached_at": 1765915066.181402,
+  "response": {
+    "data": [
+      {
+        "id": "swsh4-62",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Spinning Fan",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 10 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Peck",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "62",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/62.png",
+          "large": "https://images.pokemontcg.io/swsh4/62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.23,
+              "high": 2.0,
+              "market": 0.14,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 25.05,
+              "market": 0.05,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.06,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.28,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "swsh3-64",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Double Draw",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 2 cards."
+          },
+          {
+            "name": "Zing Zap",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Holo",
+        "flavorText": "It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/64.png",
+          "large": "https://images.pokemontcg.io/swsh3/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 2.4,
+              "market": 0.21,
+              "directLow": 0.21
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.32,
+              "high": 2.0,
+              "market": 0.32,
+              "directLow": 0.37
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-64",
+          "updatedAt": "2025/12/15",
+          "prices": {
+            "averageSellPrice": 0.36,
+            "lowPrice": 0.08,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.91,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.72,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.15,
+            "avg7": 0.31,
+            "avg30": 0.38,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.64,
+            "reverseHoloAvg30": 0.55
+          }
+        }
+      },
+      {
+        "id": "swsh2-72",
+        "name": "Pincurchin V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "170",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Counterattack Kerzap",
+            "text": "If this Pokémon is in the Active Spot and is damaged by an opponent's attack (even if it is Knocked Out), flip 3 coins. For each heads, put 3 damage counters on the Attacking Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sparking Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/72.png",
+          "large": "https://images.pokemontcg.io/swsh2/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.5,
+              "mid": 1.0,
+              "high": 4.99,
+              "market": 0.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.11,
+            "lowPrice": 0.5,
+            "trendPrice": 1.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.32,
+            "lowPriceExPlus": 0.5,
+            "avg1": 2.25,
+            "avg7": 1.25,
+            "avg30": 1.14,
+            "reverseHoloAvg1": 1.1,
+            "reverseHoloAvg7": 1.32,
+            "reverseHoloAvg30": 1.61
+          }
+        }
+      },
+      {
+        "id": "swsh1-77",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Shocking Needles",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "Flip 4 coins. This attack does 30 damage for each heads. If at least 2 of them are heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "Akira Komayama",
+        "rarity": "Common",
+        "flavorText": "It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/77.png",
+          "large": "https://images.pokemontcg.io/swsh1/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.11,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": 0.04
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 2.35,
+              "market": 0.2,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.13,
+            "reverseHoloAvg7": 0.23,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV043",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Shocking Needles",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "Flip 4 coins. This attack does 30 damage for each heads. If at least 2 of them are heads, your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV043",
+        "artist": "Motofumi Fujiwara",
+        "rarity": "Rare Shiny",
+        "flavorText": "It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV043.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV043_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV043",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.99,
+              "high": 9.99,
+              "market": 1.79,
+              "directLow": 2.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV043",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.07,
+            "lowPrice": 1.0,
+            "trendPrice": 1.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 9.23,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.0,
+            "avg7": 1.95,
+            "avg30": 2.23,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 9.7,
+            "reverseHoloAvg30": 8.35
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-56",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Then, shuffle your deck."
+          },
+          {
+            "name": "Continuous Tumble",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin until you get tails. This attack does 30 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Saya Tsuruta",
+        "rarity": "Uncommon",
+        "flavorText": "It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/56.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.14,
+              "mid": 0.28,
+              "high": 999.0,
+              "market": 0.27,
+              "directLow": 0.29
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.05,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.3,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.29,
+            "avg7": 0.06,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.29,
+            "reverseHoloAvg7": 0.28,
+            "reverseHoloAvg30": 0.26
+          }
+        }
+      },
+      {
+        "id": "sv2-73",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Lightning"
+            ],
+            "name": "Stun Needle",
+            "damage": "20",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Lightning"
+            ],
+            "name": "Follow-Up Kerzap",
+            "damage": "100",
+            "text": "You can use this attack only if this Pokémon used Stun Needle during your last turn.",
+            "convertedEnergyCost": 1
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "miki kudo",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon generates electricity when it digests food. It uses its five hard teeth to scrape seaweed off surfaces and eat it.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/73.png",
+          "large": "https://images.pokemontcg.io/sv2/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 1.41,
+              "market": 0.12,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.06,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "sv2-72",
+        "name": "Pincurchin",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning"
+            ],
+            "name": "Needle Crush",
+            "damage": "70",
+            "text": "Discard an Energy from your opponent's Active Pokémon.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Yuka Morii",
+        "rarity": "Common",
+        "flavorText": "This Pokémon generates electricity when it digests food. It uses its five hard teeth to scrape seaweed off surfaces and eat it.",
+        "nationalPokedexNumbers": [
+          871
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/72.png",
+          "large": "https://images.pokemontcg.io/sv2/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.31,
+              "market": 0.1,
+              "directLow": 0.09
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.05,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-72",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.08,
+            "reverseHoloAvg30": 0.1
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

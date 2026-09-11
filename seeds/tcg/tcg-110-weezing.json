@@ -1,0 +1,3436 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:weezing"
+  },
+  "cache_key": "fe6203775a75ad3563e1ba7e0339695a",
+  "cached_at": 1765900522.983739,
+  "response": {
+    "data": [
+      {
+        "id": "base5-14",
+        "name": "Dark Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "24",
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Mass Explosion",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the total number of Koffings, Weezings, and Dark Weezings in play (Apply Weakness and Resistance.). Then, this attack does 20 damage to each Koffing, Weezing, and Dark Weezing (even your own). Don't apply Weakness and Resistance."
+          },
+          {
+            "name": "Stun Gas",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned; if tails, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "Researchers have observed these Pokémon reproducing in industrial waste sites.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/14.png",
+          "large": "https://images.pokemontcg.io/base5/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 27.85,
+              "mid": 46.58,
+              "high": 83.99,
+              "market": 45.67,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 3.99,
+              "mid": 7.0,
+              "high": 200.0,
+              "market": 7.01,
+              "directLow": 11.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.24,
+            "lowPrice": 0.5,
+            "trendPrice": 4.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.78,
+            "lowPriceExPlus": 4.0,
+            "avg1": 4.32,
+            "avg7": 4.18,
+            "avg30": 7.1,
+            "reverseHoloAvg1": 2.48,
+            "reverseHoloAvg7": 6.11,
+            "reverseHoloAvg30": 5.97
+          }
+        }
+      },
+      {
+        "id": "sm115-29",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Surrender Now",
+            "text": "Once during your turn, if this Pokémon is discarded with the effect of Jessie & James, you may have your opponent discard a card from their hand. (They discard that card after the effect of Jessie & James.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Tackle",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm115",
+          "name": "Hidden Fates",
+          "series": "Sun & Moon",
+          "printedTotal": 68,
+          "total": 69,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "HIF",
+          "releaseDate": "2019/08/23",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm115/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm115/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Hideki Ishikawa",
+        "rarity": "Rare",
+        "flavorText": "If one of the twin Koffing inflates, the other one deflates. It constantly mixes its poisonous gases.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm115/29.png",
+          "large": "https://images.pokemontcg.io/sm115/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm115-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 1.49,
+              "market": 0.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.12,
+              "mid": 0.49,
+              "high": 6.84,
+              "market": 0.36,
+              "directLow": 0.44
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm115-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.39,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.44,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.15,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.46,
+            "reverseHoloAvg30": 0.39
+          }
+        }
+      },
+      {
+        "id": "xy10-28",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Balloon Bomb",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip 2 coins. For each heads, discard 2 cards from the top of your opponent's deck."
+          },
+          {
+            "name": "Thick Liquid",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Both Active Pokémon are now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "Very rarely, a sudden mutation can result in two small Koffing twins becoming conjoined as a Weezing.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/28.png",
+          "large": "https://images.pokemontcg.io/xy10/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.18,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.6,
+              "high": 6.0,
+              "market": 0.63,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.75,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.11,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.59,
+            "reverseHoloAvg30": 0.73
+          }
+        }
+      },
+      {
+        "id": "hgss1-34",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Super Poison Breath",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Super Explosion",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90",
+            "text": "Weezing does 90 damage to itself, and don't apply Weakness to this damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss1",
+          "name": "HeartGold & SoulSilver",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss1/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss1/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "flavorText": "If one of the twin Koffing inflates, the other one deflates. It constantly mixes its poisonous gases.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss1/34.png",
+          "large": "https://images.pokemontcg.io/hgss1/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.5,
+              "mid": 1.26,
+              "high": 2.02,
+              "market": 1.78,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.79,
+              "mid": 3.84,
+              "high": 6.21,
+              "market": 4.61,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.26,
+            "lowPrice": 0.35,
+            "trendPrice": 1.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.97,
+            "reverseHoloLow": 0.49,
+            "reverseHoloTrend": 2.16,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.95,
+            "avg7": 1.26,
+            "avg30": 1.47,
+            "reverseHoloAvg1": 1.19,
+            "reverseHoloAvg7": 2.48,
+            "reverseHoloAvg30": 2.67
+          }
+        }
+      },
+      {
+        "id": "ex1-24",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Confusion Gas",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "The Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Poison Smog",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Each Defending Pokémon is now Poisoned. Does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex1",
+          "name": "Ruby & Sapphire",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 109,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RS",
+          "releaseDate": "2003/07/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex1/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex1/24.png",
+          "large": "https://images.pokemontcg.io/ex1/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.48,
+              "mid": 1.1,
+              "high": 5.0,
+              "market": 1.44,
+              "directLow": 1.5
+            },
+            "reverseHolofoil": {
+              "low": 3.26,
+              "mid": 4.86,
+              "high": 19.97,
+              "market": 5.14,
+              "directLow": 4.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.54,
+            "lowPrice": 0.04,
+            "trendPrice": 0.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.16,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 0.02,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.33,
+            "avg7": 0.43,
+            "avg30": 0.51,
+            "reverseHoloAvg1": 0.02,
+            "reverseHoloAvg7": 1.0,
+            "reverseHoloAvg30": 2.82
+          }
+        }
+      },
+      {
+        "id": "ex11-33",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Body Odor",
+            "text": "As long as Weezing is the Active Pokémon, put 1 damage counter on each of your opponent's Pokémon that has any Poké-Bodies between turns.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mist Attack",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Does 10 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Sludge Whirlpool",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "33",
+        "artist": "Yukiko Baba",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/33.png",
+          "large": "https://images.pokemontcg.io/ex11/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.53,
+              "mid": 0.95,
+              "high": 2.97,
+              "market": 1.02,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.09,
+              "mid": 8.9,
+              "high": 9.98,
+              "market": 7.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.08,
+            "lowPrice": 0.08,
+            "trendPrice": 1.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.87,
+            "reverseHoloTrend": 9.63,
+            "lowPriceExPlus": 0.12,
+            "avg1": 0.99,
+            "avg7": 1.25,
+            "avg30": 0.85,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 9.77,
+            "reverseHoloAvg30": 8.06
+          }
+        }
+      },
+      {
+        "id": "base5-31",
+        "name": "Dark Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "24",
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Mass Explosion",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the total number of Koffings, Weezings, and Dark Weezings in play (Apply Weakness and Resistance.). Then, this attack does 20 damage to each Koffing, Weezing, and Dark Weezing (even your own). Don't apply Weakness and Resistance."
+          },
+          {
+            "name": "Stun Gas",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned; if tails, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare",
+        "flavorText": "Researchers have observed these Pokémon reproducing in industrial waste sites.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/31.png",
+          "large": "https://images.pokemontcg.io/base5/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 5.22,
+              "mid": 9.43,
+              "high": 24.99,
+              "market": 9.87,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 3.5,
+              "mid": 4.71,
+              "high": 15.0,
+              "market": 5.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.53,
+            "lowPrice": 0.8,
+            "trendPrice": 6.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.93,
+            "lowPriceExPlus": 7.0,
+            "avg1": 6.75,
+            "avg7": 6.83,
+            "avg30": 7.27,
+            "reverseHoloAvg1": 18.0,
+            "reverseHoloAvg7": 5.37,
+            "reverseHoloAvg30": 4.77
+          }
+        }
+      },
+      {
+        "id": "dp4-31",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "42",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Toxic Virus",
+            "text": "At any time between turns, each player puts 1 more damage counter on his or her Poisoned Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Offensive Gas",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "It grows by feeding on gases released by garbage. Though very rare, triplets have been found.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/31.png",
+          "large": "https://images.pokemontcg.io/dp4/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.89,
+              "mid": 1.4,
+              "high": 19.98,
+              "market": 1.44,
+              "directLow": 3.7
+            },
+            "reverseHolofoil": {
+              "low": 1.07,
+              "mid": 3.09,
+              "high": 7.19,
+              "market": 4.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.78,
+            "lowPrice": 0.04,
+            "trendPrice": 0.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.21,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.01,
+            "avg7": 0.71,
+            "avg30": 0.92,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 1.38,
+            "reverseHoloAvg30": 1.05
+          }
+        }
+      },
+      {
+        "id": "col1-38",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Super Poison Breath",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Super Explosion",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90",
+            "text": "Weezing does 90 damage to itself, and don't apply Weakness to this damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "flavorText": "If one of the twin Koffing inflates, the other one deflates. It constantly mixes its poisonous gases.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/38.png",
+          "large": "https://images.pokemontcg.io/col1/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.44,
+              "mid": 0.92,
+              "high": 2.0,
+              "market": 0.96,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.49,
+              "mid": 22.24,
+              "high": 41.98,
+              "market": 3.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.93,
+            "lowPrice": 0.2,
+            "trendPrice": 1.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.75,
+            "reverseHoloLow": 0.9,
+            "reverseHoloTrend": 3.51,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.0,
+            "avg7": 1.7,
+            "avg30": 2.37,
+            "reverseHoloAvg1": 1.45,
+            "reverseHoloAvg7": 3.7,
+            "reverseHoloAvg30": 3.21
+          }
+        }
+      },
+      {
+        "id": "ecard1-32",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Foul Gas",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned. If tails, the Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Misfire",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If tails, put 6 damage counters on Weezing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/32.png",
+          "large": "https://images.pokemontcg.io/ecard1/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 64.0,
+              "mid": 93.0,
+              "high": 149.99,
+              "market": 89.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 22.87,
+              "mid": 23.99,
+              "high": 26.83,
+              "market": 28.69,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 31.76,
+            "lowPrice": 1.5,
+            "trendPrice": 23.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.5,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 13.04,
+            "lowPriceExPlus": 12.0,
+            "avg1": 110.0,
+            "avg7": 28.22,
+            "avg30": 22.03,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 11.28,
+            "reverseHoloAvg30": 9.24
+          }
+        }
+      },
+      {
+        "id": "base3-45",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "27",
+        "hp": "60",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Smog",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Selfdestruct",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Does 10 damage to each Pokémon on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.) Weezing does 60 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Where two kinds of poison gases meet, two Koffings can fuse into a Weezing over many years.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/45.png",
+          "large": "https://images.pokemontcg.io/base3/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 0.99,
+              "mid": 1.91,
+              "high": 19.98,
+              "market": 2.01,
+              "directLow": 19.98
+            },
+            "unlimited": {
+              "low": 0.25,
+              "mid": 0.75,
+              "high": 501.5,
+              "market": 1.01,
+              "directLow": 1.45
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.73,
+            "lowPrice": 0.02,
+            "trendPrice": 2.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.23,
+            "lowPriceExPlus": 0.3,
+            "avg1": 1.42,
+            "avg7": 4.52,
+            "avg30": 2.59,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.29
+          }
+        }
+      },
+      {
+        "id": "ex7-42",
+        "name": "Dark Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass",
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "rules": [
+          "This Pokémon is both Grass Darkness type."
+        ],
+        "abilities": [
+          {
+            "name": "Methane Leak",
+            "text": "As long as Dark Weezing is your Active Pokémon, put 1 damage counter on each Pokémon that remains Poisoned between turns.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Smog",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "The Defending Pokémon is now Poisoned."
+          },
+          {
+            "name": "Darkness Charge",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Put 2 damage counters on Dark Weezing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/42.png",
+          "large": "https://images.pokemontcg.io/ex7/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.5,
+              "mid": 2.19,
+              "high": 7.17,
+              "market": 2.21,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 35.99,
+              "mid": 60.5,
+              "high": 72.0,
+              "market": 55.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.74,
+            "lowPrice": 0.35,
+            "trendPrice": 2.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 10.0,
+            "reverseHoloLow": 19.88,
+            "reverseHoloTrend": 12.9,
+            "lowPriceExPlus": 0.55,
+            "avg1": 3.0,
+            "avg7": 2.2,
+            "avg30": 2.11,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 14.84,
+            "reverseHoloAvg30": 13.25
+          }
+        }
+      },
+      {
+        "id": "gym2-50",
+        "name": "Koga's Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "31",
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koga's Koffing",
+        "attacks": [
+          {
+            "name": "Spontaneous Explosion",
+            "cost": [
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 30 more damage and Koga's Weezing does 30 damage to itself; if tails, this attack does 10 damage."
+          },
+          {
+            "name": "Toxic Cloud",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned. It now takes 20 Poison damage instead of 10 after each player's turn (even if it was already Poisoned)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "50",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/50.png",
+          "large": "https://images.pokemontcg.io/gym2/50_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 3.01,
+              "mid": 4.43,
+              "high": 8.66,
+              "market": 3.57,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 0.68,
+              "mid": 1.22,
+              "high": 4.99,
+              "market": 1.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-50",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.94,
+            "lowPrice": 0.2,
+            "trendPrice": 2.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.7,
+            "avg1": 3.18,
+            "avg7": 2.35,
+            "avg30": 2.31,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "ex8-51",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Liability",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put damage counters on the Defending Pokémon until it is 10 HP away from being Knocked Out. Weezing does 70 damage to itself."
+          },
+          {
+            "name": "Smogscreen",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned. If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex8",
+          "name": "Deoxys",
+          "series": "EX",
+          "printedTotal": 107,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DX",
+          "releaseDate": "2005/02/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex8/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex8/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Hisao Nakamura",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex8/51.png",
+          "large": "https://images.pokemontcg.io/ex8/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex8-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.8,
+              "mid": 1.29,
+              "high": 2.15,
+              "market": 1.33,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.29,
+              "mid": 11.61,
+              "high": 19.99,
+              "market": 10.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex8-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.58,
+            "lowPrice": 0.1,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.53,
+            "reverseHoloLow": 1.49,
+            "reverseHoloTrend": 6.03,
+            "lowPriceExPlus": 0.3,
+            "avg1": 2.5,
+            "avg7": 0.76,
+            "avg30": 1.79,
+            "reverseHoloAvg1": 9.92,
+            "reverseHoloAvg7": 5.59,
+            "reverseHoloAvg30": 6.6
+          }
+        }
+      },
+      {
+        "id": "bw8-58",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Aftermath",
+            "text": "When this Pokémon is Knocked Out by damage from an opponent's attack, discard the top 3 cards of your opponent's deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Smogbank",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw8",
+          "name": "Plasma Storm",
+          "series": "Black & White",
+          "printedTotal": 135,
+          "total": 138,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLS",
+          "releaseDate": "2013/02/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw8/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw8/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo",
+        "flavorText": "Inhaling toxic fumes from trash and mixing them inside its body lets it spread an even fouler stench.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw8/58.png",
+          "large": "https://images.pokemontcg.io/bw8/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw8-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.1,
+              "mid": 2.18,
+              "high": 9.99,
+              "market": 2.32,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.7,
+              "mid": 7.28,
+              "high": 30.0,
+              "market": 7.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw8-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.47,
+            "lowPrice": 0.2,
+            "trendPrice": 1.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.7,
+            "reverseHoloLow": 0.35,
+            "reverseHoloTrend": 1.88,
+            "lowPriceExPlus": 0.25,
+            "avg1": 2.38,
+            "avg7": 1.52,
+            "avg30": 1.76,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.13,
+            "reverseHoloAvg30": 2.21
+          }
+        }
+      },
+      {
+        "id": "sm12-77",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Blow-Away Bomb",
+            "text": "Once during your turn, when you discard this Pokémon with the effect of Roxie, you may put 1 damage counter on each of your opponent's Pokémon. (Place damage counters after the effect of Roxie.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Balloon Burst",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90",
+            "text": "Discard this Pokémon and all cards attached to it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "Motofumi Fujiwara",
+        "rarity": "Rare",
+        "flavorText": "If one of the twin Koffing inflates, the other one deflates. It constantly mixes its poisonous gases.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/77.png",
+          "large": "https://images.pokemontcg.io/sm12/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.23,
+              "mid": 0.6,
+              "high": 2.49,
+              "market": 0.52,
+              "directLow": 0.6
+            },
+            "normal": {
+              "low": 0.15,
+              "mid": 0.33,
+              "high": 10.0,
+              "market": 0.29,
+              "directLow": 0.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.37,
+            "lowPrice": 0.04,
+            "trendPrice": 0.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.94,
+            "reverseHoloLow": 0.18,
+            "reverseHoloTrend": 0.79,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.24,
+            "avg7": 0.42,
+            "avg30": 0.44,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 0.76,
+            "reverseHoloAvg30": 0.78
+          }
+        }
+      },
+      {
+        "id": "ecard1-70",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Foul Gas",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Poisoned. If tails, the Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Misfire",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If tails, put 6 damage counters on Weezing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "70",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/70.png",
+          "large": "https://images.pokemontcg.io/ecard1/70_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.0,
+              "mid": 2.4,
+              "high": 5.0,
+              "market": 2.51,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.67,
+              "mid": 18.99,
+              "high": 30.0,
+              "market": 26.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.29,
+            "lowPrice": 0.1,
+            "trendPrice": 4.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.23,
+            "reverseHoloLow": 1.3,
+            "reverseHoloTrend": 4.19,
+            "lowPriceExPlus": 1.85,
+            "avg1": 0.99,
+            "avg7": 4.3,
+            "avg30": 3.19,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.9,
+            "reverseHoloAvg30": 4.14
+          }
+        }
+      },
+      {
+        "id": "sm10-74",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Detention Gas",
+            "text": "As long as this Pokémon is your Active Pokémon, put 1 damage counter on each of your opponent's Basic Pokémon between turns.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Splattering Sludge",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "This attack does 20 damage to each of your opponent's Benched Pokémon that has any damage counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "74",
+        "artist": "OOYAMA",
+        "rarity": "Rare",
+        "flavorText": "If one of the twin Koffing inflates, the other one deflates. It constantly mixes its poisonous gases.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/74.png",
+          "large": "https://images.pokemontcg.io/sm10/74_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-74",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.35,
+              "mid": 0.57,
+              "high": 10.0,
+              "market": 0.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.55,
+              "mid": 1.02,
+              "high": 2.76,
+              "market": 1.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-74",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.73,
+            "lowPrice": 0.08,
+            "trendPrice": 0.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.89,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.56,
+            "lowPriceExPlus": 0.45,
+            "avg1": 0.45,
+            "avg7": 0.79,
+            "avg30": 0.81,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 1.68,
+            "reverseHoloAvg30": 1.51
+          }
+        }
+      },
+      {
+        "id": "pl2-87",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "47",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Camouflage Gas",
+            "text": "If Weezing is Confused and is Knocked Out, your opponent can't take a Prize card.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Damage Breakdown",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Count the number of damage counters on Weezing. Put that many damage counters on the Defending Pokémon and Weezing is now Confused."
+          },
+          {
+            "name": "Smog",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Ken Sugimori",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/87.png",
+          "large": "https://images.pokemontcg.io/pl2/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.3,
+              "high": 5.0,
+              "market": 0.3,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.79,
+              "mid": 1.11,
+              "high": 3.99,
+              "market": 1.55,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.05,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.18,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.1,
+            "avg7": 0.1,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 4.95,
+            "reverseHoloAvg7": 2.4,
+            "reverseHoloAvg30": 1.35
+          }
+        }
+      },
+      {
+        "id": "swsh2-113",
+        "name": "Galarian Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Neutralizing Gas",
+            "text": "As long as this Pokémon is in the Active Spot, your opponent's Pokémon in play have no Abilities, except for Neutralizing Gas.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Severe Poison",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned. Put 4 damage counters instead of 1 on that Pokémon during Pokémon Checkup."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "113",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "This Pokémon consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/113.png",
+          "large": "https://images.pokemontcg.io/swsh2/113_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-113",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 4.95,
+              "market": 0.79,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.44,
+              "high": 2.99,
+              "market": 0.42,
+              "directLow": 0.37
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-113",
+          "updatedAt": "2025/11/22",
+          "prices": {
+            "averageSellPrice": 0.52,
+            "lowPrice": 0.15,
+            "trendPrice": 0.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.29,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.27,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.19,
+            "avg7": 0.46,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 0.65,
+            "reverseHoloAvg7": 1.11,
+            "reverseHoloAvg30": 0.88
+          }
+        }
+      },
+      {
+        "id": "xyp-XY163",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Levitate",
+            "text": "If this Pokémon has any Energy attached to it, this Pokémon has no Retreat Cost.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Smokescreen",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY163",
+        "artist": "TOKIYA",
+        "rarity": "Promo",
+        "flavorText": "Very rarely, a sudden mutation can result in two small Koffing twins becoming conjoined as a Weezing.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY163.png",
+          "large": "https://images.pokemontcg.io/xyp/XY163_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY163",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.29,
+              "mid": 0.77,
+              "high": 6.0,
+              "market": 0.77,
+              "directLow": 1.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY163",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.15,
+            "trendPrice": 1.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.8,
+            "avg1": 1.0,
+            "avg7": 1.07,
+            "avg30": 1.3,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 0.77,
+            "reverseHoloAvg30": 0.95
+          }
+        }
+      },
+      {
+        "id": "swsh45-42",
+        "name": "Galarian Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Neutralizing Gas",
+            "text": "As long as this Pokémon is in the Active Spot, your opponent's Pokémon in play have no Abilities, except for Neutralizing Gas.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Severe Poison",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned. Put 4 damage counters instead of 1 on that Pokémon during Pokémon Checkup."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "This Pokémon consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/42.png",
+          "large": "https://images.pokemontcg.io/swsh45/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.29,
+              "high": 2.0,
+              "market": 0.25,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.27,
+              "high": 19.98,
+              "market": 0.27,
+              "directLow": 0.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.23,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.33,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.38,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.21,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.19,
+            "reverseHoloAvg7": 0.32,
+            "reverseHoloAvg30": 0.26
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV077",
+        "name": "Galarian Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Neutralizing Gas",
+            "text": "As long as this Pokémon is in the Active Spot, your opponent's Pokémon in play have no Abilities, except for Neutralizing Gas.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Severe Poison",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned. Put 4 damage counters instead of 1 on that Pokémon during Pokémon Checkup."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV077",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Shiny",
+        "flavorText": "This Pokémon consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV077.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV077_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV077",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 3.04,
+              "high": 9.99,
+              "market": 2.83,
+              "directLow": 2.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV077",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 4.42,
+            "lowPrice": 2.4,
+            "trendPrice": 5.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.46,
+            "lowPriceExPlus": 2.4,
+            "avg1": 2.99,
+            "avg7": 5.53,
+            "avg30": 4.16,
+            "reverseHoloAvg1": 8.25,
+            "reverseHoloAvg7": 7.18,
+            "reverseHoloAvg30": 7.57
+          }
+        }
+      },
+      {
+        "id": "swsh6-95",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Mixin' Toxin",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused. Attach a Darkness Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Smog Burst",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "This attack does 20 more damage for each Darkness Energy attached to all of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "Ryuta Fuse",
+        "rarity": "Rare",
+        "flavorText": "Very rarely, a sudden mutation can result in two small Koffing twins becoming conjoined as a Weezing.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/95.png",
+          "large": "https://images.pokemontcg.io/swsh6/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.21,
+              "high": 999.0,
+              "market": 0.16,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.04,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": 0.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.32,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.29,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.13,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.23
+          }
+        }
+      },
+      {
+        "id": "swsh6-96",
+        "name": "Galarian Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Energy Factory",
+            "text": "Each basic Darkness Energy attached to your Pokémon that have \"Weezing\" in their name provides DarknessDarkness Energy. You can't apply more than 1 Energy Factory Ability at a time.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Suffocating Gas",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "Miki Tanaka",
+        "rarity": "Rare",
+        "flavorText": "Long ago, during a time when droves of factories fouled the air with pollution, Weezing changed into this form for some reason.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/96.png",
+          "large": "https://images.pokemontcg.io/swsh6/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.25,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 999.0,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.38,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.32,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.09,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.38,
+            "reverseHoloAvg30": 0.38
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-110",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "abilities": [
+          {
+            "name": "Let's Have a Blast",
+            "text": "If this Pokémon is in the Active Spot and is Knocked Out by damage from an attack from your opponent's Pokémon, flip a coin. If heads, the Attacking Pokémon is Knocked Out.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spinning Fumes",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "This attack also does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "110",
+        "artist": "Shibuzoh.",
+        "rarity": "Rare",
+        "flavorText": "Very rarely, a sudden mutation can result in two small Koffing twins becoming conjoined as a Weezing.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/110.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/110_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-110",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 5.0,
+              "market": 0.16,
+              "directLow": 0.06
+            },
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 0.74,
+              "high": 40.0,
+              "market": 0.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-110",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.09,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 1.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.22,
+            "avg7": 0.19,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 1.03,
+            "reverseHoloAvg30": 1.07
+          }
+        }
+      },
+      {
+        "id": "sv9-92",
+        "name": "Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Koffing",
+        "attacks": [
+          {
+            "name": "Pervasive Gas",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Crazy Blast",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If this Pokémon used Pervasive Gas during your last turn, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "KEIICHIRO ITO",
+        "rarity": "Uncommon",
+        "flavorText": "Top-grade perfume is made using its internal poison gases by diluting them to the highest level.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/92.png",
+          "large": "https://images.pokemontcg.io/sv9/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 5.0,
+              "market": 0.05,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.5,
+              "high": 5.9,
+              "market": 0.39,
+              "directLow": 0.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.53,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.36,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.37,
+            "reverseHoloAvg7": 0.32,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "sv10-126",
+        "name": "Team Rocket's Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Team Rocket's Koffing",
+        "attacks": [
+          {
+            "name": "Explode Together Now",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each Pokémon in play that has \"Koffing\" or \"Weezing\" in its name (both yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "126",
+        "artist": "matazo",
+        "rarity": "Uncommon",
+        "flavorText": "Top-grade perfume is made using its internal poison gases by diluting them to the highest level.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/126.png",
+          "large": "https://images.pokemontcg.io/sv10/126_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-126",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": 0.08
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.3,
+              "high": 20.0,
+              "market": 0.3,
+              "directLow": 0.29
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-126",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.22,
+            "reverseHoloAvg7": 0.22,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "sv10-199",
+        "name": "Team Rocket's Weezing",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Team Rocket's Koffing",
+        "attacks": [
+          {
+            "name": "Explode Together Now",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each Pokémon in play that has \"Koffing\" or \"Weezing\" in its name (both yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "199",
+        "artist": "Yukihiro Tada",
+        "rarity": "Illustration Rare",
+        "flavorText": "Top-grade perfume is made using its internal poison gases by diluting them to the highest level.",
+        "nationalPokedexNumbers": [
+          110
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/199.png",
+          "large": "https://images.pokemontcg.io/sv10/199_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-199",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 8.21,
+              "high": 50.0,
+              "market": 6.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-199",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.01,
+            "lowPrice": 5.5,
+            "trendPrice": 9.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 5.5,
+            "avg1": 11.22,
+            "avg7": 9.59,
+            "avg30": 9.98,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 29,
+    "totalCount": 29
+  }
+}

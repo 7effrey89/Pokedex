@@ -34,13 +34,17 @@
                         <div class="indicator-light yellow"></div>
                         <div class="indicator-light green"></div>
                     </div>
+                    <div class="status-indicator" id="statusIndicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
                 </div>
                 <div class="header-spacer"></div>
                 <div class="header-controls">
                     <div class="logo" aria-label="Pokedex brand">
                         <h1>POKEDEX</h1>
                     </div>
-                    <div class="header-actions" aria-label="Voice and scan controls">
+                    <div class="header-actions" aria-label="Voice, scan and account controls">
                         <button id="voiceButton" class="voice-button" aria-label="Start voice conversation" title="Start voice conversation">
                             <svg class="voice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -58,9 +62,57 @@
                             </svg>
                             <span class="camera-text">Scan</span>
                         </button>
-                        <div class="status-indicator" id="statusIndicator">
-                            <span class="status-dot"></span>
-                            <span class="status-text">Online</span>
+                        <div class="user-account-container" id="userAccountContainer">
+                            <button id="userProfileBtn" class="user-profile-btn" type="button" aria-label="User Account" aria-expanded="false" title="User Account & Members">
+                                <img id="headerUserAvatar" class="header-user-avatar" src="" alt="User avatar" hidden>
+                                <div id="headerUserAvatarFallback" class="header-user-avatar-fallback">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                </div>
+                            </button>
+
+                            <!-- Azure-style account popover dropdown -->
+                            <div class="user-account-dropdown" id="userAccountDropdown" hidden>
+                                <div class="user-account-dropdown-header">
+                                    <div class="user-account-brand">
+                                        <span class="user-account-brand-icon">⚡</span>
+                                        <span class="user-account-brand-text">POKÉDEX ACCOUNT</span>
+                                    </div>
+                                    <button class="user-account-signout-btn" id="userAccountSignoutBtn" type="button">Sign out</button>
+                                </div>
+                                <div class="user-account-card">
+                                    <div class="user-account-card-avatar-wrapper">
+                                        <img id="dropdownUserAvatar" class="user-account-card-avatar" src="" alt="Avatar" hidden>
+                                        <div id="dropdownUserAvatarFallback" class="user-account-card-avatar-fallback">
+                                            <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="user-account-card-details">
+                                        <div class="user-account-name" id="dropdownUserName">Trainer Account</div>
+                                        <div class="user-account-email" id="dropdownUserEmail">trainer@pokedex.local</div>
+                                        <div class="user-account-member-badge" id="dropdownActiveMemberBadge">
+                                            <span class="member-dot"></span> Active Member: <strong id="dropdownActiveMemberName">Trainer</strong>
+                                        </div>
+                                        <button class="user-account-link-btn" id="dropdownManageAccountLink" type="button">Manage account</button>
+                                    </div>
+                                </div>
+                                <div class="user-account-dropdown-section">
+                                    <div class="user-account-section-header">
+                                        <span class="user-account-section-title">Members</span>
+                                        <button class="user-account-add-member-mini-btn" id="dropdownAddMemberBtn" type="button">+ Add</button>
+                                    </div>
+                                    <div class="user-account-members-mini-list" id="dropdownMembersMiniList">
+                                        <!-- Loaded dynamically -->
+                                    </div>
+                                </div>
+                                <div class="user-account-dropdown-footer">
+                                    <button class="user-account-footer-btn" id="dropdownSwitchAccountBtn" type="button">Switch account</button>
+                                    <button class="user-account-footer-btn user-account-footer-btn-primary" id="dropdownManageBtn" type="button">Manage Account</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -619,6 +671,22 @@
                     <!-- Cache Settings Section -->
                     <div class="settings-section">
                         <h3>💾 Cache Settings</h3>
+                        <div class="data-source-control">
+                            <div class="control-label">
+                                <span>Data Source</span>
+                                <small id="dataSourceStatus">Checking database availability...</small>
+                            </div>
+                            <div class="data-source-options" id="dataSourceOptions" role="radiogroup" aria-label="Data source">
+                                <label class="data-source-option">
+                                    <input type="radio" name="dataSourceMode" value="json">
+                                    <span>JSON Seed</span>
+                                </label>
+                                <label class="data-source-option">
+                                    <input type="radio" name="dataSourceMode" value="sqlite">
+                                    <span>SQLite Database</span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="cache-stats" id="cacheStats">
                             <div class="stat-item">
                                 <span class="stat-label">Cache Status:</span>
@@ -817,7 +885,7 @@
                     <div class="settings-section">
                         <h3>👤 Face Identification</h3>
                         <p class="section-description">
-                            Control the visual overlay that appears when the app is identifying a face. Disabling the overlay keeps identification active but runs quietly in the background.
+                            Recognize members in real time when speaking into voice chat. Face photos are linked to your account members in the Account Manager.
                         </p>
                         <div class="cache-controls">
                             <div class="control-row">
@@ -831,34 +899,11 @@
                                 </label>
                             </div>
                         </div>
-
-                        <div class="face-profile-capture">
-                            <div class="face-profile-video-wrapper">
-                                <video id="faceProfileVideo" autoplay playsinline muted></video>
-                                <div class="face-profile-overlay" aria-hidden="true">
-                                    <div class="face-profile-ring"></div>
-                                    <span class="face-profile-hint">Center your face inside the guide</span>
-                                </div>
-                                <div class="face-profile-status" id="faceProfileStatus">Camera idle. Tap Start Camera to begin.</div>
-                            </div>
-                            <div class="face-profile-video-actions">
-                                <button class="camera-action camera-action-ghost" id="faceProfileStartButton" type="button">Start Camera</button>
-                                <button class="camera-action" id="faceProfileCaptureButton" type="button" disabled>Capture Face</button>
-                            </div>
-                            <div class="face-profile-controls">
-                                <div class="camera-prompt face-profile-name-field">
-                                    <label for="faceProfileNameInput">Profile Name</label>
-                                    <input type="text" id="faceProfileNameInput" placeholder="Enter who you are (e.g. Misty)">
-                                </div>
-                                <div class="face-profile-preview" id="faceProfilePreviewWrapper" hidden>
-                                    <img id="faceProfilePreview" alt="Captured face preview" />
-                                    <span>Captured preview</span>
-                                </div>
-                            </div>
-                            <div class="face-profile-actions">
-                                <button class="camera-action" id="faceProfileSaveButton" type="button" disabled>Save Profile</button>
-                            </div>
-                            <p class="face-profile-note">Photos save locally in <code>profiles_pic</code> so the Pokédex can recognize you later.</p>
+                        <div class="face-profile-account-link-box">
+                            <p class="section-description" style="margin-bottom: 0.75rem;">
+                                Member names, photos, and camera enrollments are managed directly in your Account.
+                            </p>
+                            <button class="tools-save-btn" id="openAccountFromSettingsBtn" type="button">Manage Account & Member Faces</button>
                         </div>
                     </div>
 
@@ -1036,10 +1081,290 @@
                             <div class="tools-loading">Loading tools...</div>
                         </div>
                     </div>
+
+                    <!-- Admin Data Management -->
+                    <div class="settings-section admin-section" id="adminSection" hidden>
+                        <h3>🔐 Data Management <span class="admin-badge">Admin</span></h3>
+                        <p class="section-description">
+                            Manage persistent storage, download missing assets once, and move data between environments.
+                        </p>
+
+                        <div class="admin-storage" id="adminStorage">
+                            <div class="stat-item">
+                                <span class="stat-label">Data Root:</span>
+                                <span class="stat-value" id="adminDataRoot">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Catalog:</span>
+                                <span class="stat-value" id="adminCatalogStatus">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">User Data:</span>
+                                <span class="stat-value" id="adminUsersStatus">-</span>
+                            </div>
+                        </div>
+
+                        <h4 class="admin-subheading">Selective Asset Download</h4>
+                        <p class="section-description">
+                            Downloads only assets the database knows about but has not stored locally.
+                        </p>
+                        <div class="admin-component-list" id="adminAssetComponents">
+                            <div class="tools-loading">Loading asset inventory...</div>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="tools-save-btn" id="adminAssetDownloadBtn" type="button">Download Selected Assets</button>
+                        </div>
+                        <div class="admin-progress" id="adminAssetProgress" hidden>
+                            <div class="admin-progress-bar"><div class="admin-progress-fill" id="adminAssetProgressFill"></div></div>
+                            <p class="api-status-text" id="adminAssetProgressText"></p>
+                        </div>
+
+                        <h4 class="admin-subheading">Backup and Restore</h4>
+                        <p class="section-description">
+                            Backups are verified ZIP bundles. Restores validate every checksum before replacing files.
+                        </p>
+                        <div class="admin-component-list" id="adminBackupComponents">
+                            <div class="tools-loading">Loading backup components...</div>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="tools-save-btn" id="adminBackupBtn" type="button">Create Backup</button>
+                            <button class="tools-reset-btn" id="adminRestoreBtn" type="button">Restore From File</button>
+                            <input type="file" id="adminRestoreInput" accept=".zip" hidden>
+                        </div>
+
+                        <h4 class="admin-subheading">New Content</h4>
+                        <p class="section-description">
+                            Check the live PokeAPI and TCG API for new Pokemon species or card sets not yet in the database.
+                        </p>
+                        <div class="admin-actions">
+                            <button class="tools-reset-btn" id="adminScanBtn" type="button">Scan for New Content</button>
+                        </div>
+                        <div class="admin-scan-results" id="adminScanResults" hidden>
+                            <div class="admin-scan-group" id="adminScanPokemon" hidden>
+                                <div class="admin-scan-summary">
+                                    <span id="adminScanPokemonSummary">-</span>
+                                    <button class="tools-save-btn" id="adminAddPokemonBtn" type="button" hidden>Add New Pokemon</button>
+                                </div>
+                            </div>
+                            <div class="admin-scan-group" id="adminScanTcgSets" hidden>
+                                <div class="admin-scan-summary">
+                                    <span id="adminScanTcgSetsSummary">-</span>
+                                    <button class="tools-save-btn" id="adminAddTcgSetsBtn" type="button" hidden>Add New Sets</button>
+                                </div>
+                            </div>
+                            <div class="admin-scan-group" id="adminScanTcgCards" hidden>
+                                <div class="admin-scan-summary">
+                                    <span id="adminScanTcgCardsSummary">-</span>
+                                    <button class="tools-save-btn" id="adminAddTcgCardsBtn" type="button" hidden>Add New Cards</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin-progress" id="adminScanProgress" hidden>
+                            <div class="admin-progress-bar"><div class="admin-progress-fill" id="adminScanProgressFill"></div></div>
+                            <p class="api-status-text" id="adminScanProgressText"></p>
+                        </div>
+
+                        <p class="api-status-text" id="adminStatusText" role="status"></p>
+                    </div>
                 </div>
                 <div class="tools-modal-footer">
                     <button class="tools-reset-btn" id="toolsResetBtn">Reset Tools to Defaults</button>
                     <button class="tools-save-btn" id="toolsSaveBtn">Save Tool Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Management Lightbox Modal -->
+        <div class="account-modal-overlay" id="accountModalOverlay">
+            <div class="account-modal" id="accountModal">
+                <div class="account-modal-header">
+                    <div>
+                        <h2>👤 Account & Members</h2>
+                        <p class="account-modal-subtitle">Manage your Pokédex account and family/team members for face recognition.</p>
+                    </div>
+                    <button class="account-modal-close" id="accountModalClose" type="button" aria-label="Close dialog">&times;</button>
+                </div>
+
+                <div class="account-modal-tabs">
+                    <button class="account-tab-btn active" id="accountTabInfoBtn" type="button" data-tab="info">Account Info</button>
+                    <button class="account-tab-btn" id="accountTabMembersBtn" type="button" data-tab="members">Members & Faces</button>
+                    <button class="account-tab-btn" id="accountTabSwitchBtn" type="button" data-tab="switch">Switch / Login</button>
+                </div>
+
+                <div class="account-modal-content">
+                    <!-- Tab 1: Account Info -->
+                    <div class="account-tab-pane active" id="accountPaneInfo">
+                        <div class="account-form-grid">
+                            <div class="account-avatar-picker-section">
+                                <div class="account-avatar-large-preview">
+                                    <img id="accountModalAvatarImg" src="" alt="Account Avatar" hidden>
+                                    <div id="accountModalAvatarFallback" class="account-avatar-large-fallback">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <label class="account-upload-btn">
+                                    <span>Upload Photo</span>
+                                    <input type="file" id="accountAvatarFileInput" accept="image/*" hidden>
+                                </label>
+                            </div>
+                            <div class="account-fields">
+                                <div class="account-field-group">
+                                    <label for="accountDisplayNameInput">Account Display Name</label>
+                                    <input type="text" id="accountDisplayNameInput" placeholder="e.g. Jeffrey Lai or Pallet Town Squad">
+                                </div>
+                                <div class="account-field-group">
+                                    <label for="accountEmailInput">Email Address</label>
+                                    <input type="email" id="accountEmailInput" placeholder="e.g. jeffrey_pro@hotmail.com">
+                                </div>
+                                <div class="account-field-group">
+                                    <label for="accountPasswordInput">Change Password (optional)</label>
+                                    <input type="password" id="accountPasswordInput" placeholder="Enter new password">
+                                </div>
+                                <div class="account-field-meta" id="accountCreatedMeta">
+                                    <span>Account ID: <strong id="accountIdText">-</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="account-pane-actions">
+                            <button class="account-primary-btn" id="saveAccountInfoBtn" type="button">Save Account Changes</button>
+                            <button class="account-secondary-btn" id="logoutAccountBtn" type="button">Log Out</button>
+                            <button class="account-danger-btn" id="deleteAccountBtn" type="button">Delete Account</button>
+                            <span class="account-status-msg" id="accountInfoStatusMsg"></span>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Members & Faces -->
+                    <div class="account-tab-pane" id="accountPaneMembers">
+                        <div class="account-members-header">
+                            <div>
+                                <h3>Account Members</h3>
+                                <p class="account-members-subtitle">Each member can have their own name and face photo so the camera recognizes who is speaking.</p>
+                            </div>
+                            <button class="account-primary-btn" id="openAddMemberFormBtn" type="button">+ Add Member</button>
+                        </div>
+
+                        <!-- Add / Edit Member Inline Form / Panel -->
+                        <div class="account-member-editor-panel" id="memberEditorPanel" hidden>
+                            <div class="member-editor-header">
+                                <h4 id="memberEditorTitle">Add Member</h4>
+                                <button class="member-editor-close" id="closeMemberEditorBtn" type="button">&times;</button>
+                            </div>
+                            <div class="member-editor-body">
+                                <div class="member-editor-name-field">
+                                    <label for="memberEditorNameInput">Member Name</label>
+                                    <input type="text" id="memberEditorNameInput" placeholder="e.g. Misty, Ash, Jeffrey">
+                                </div>
+                                
+                                <div class="member-photo-source-tabs">
+                                    <button class="member-source-btn active" id="memberSourceCameraBtn" type="button">Live Camera</button>
+                                    <button class="member-source-btn" id="memberSourceUploadBtn" type="button">Upload File</button>
+                                </div>
+
+                                <div class="member-camera-section" id="memberCameraSection">
+                                    <div class="member-camera-video-wrapper">
+                                        <video id="memberCameraVideo" autoplay playsinline muted></video>
+                                        <div class="member-camera-guide">
+                                            <div class="member-camera-ring"></div>
+                                            <span>Center face in circle</span>
+                                        </div>
+                                    </div>
+                                    <div class="member-camera-actions">
+                                        <button class="member-camera-action-btn" id="startMemberCameraBtn" type="button">Start Camera</button>
+                                        <button class="member-camera-action-btn" id="captureMemberFaceBtn" type="button" disabled>Capture Face</button>
+                                    </div>
+                                    <div class="member-camera-status" id="memberCameraStatus">Camera idle.</div>
+                                </div>
+
+                                <div class="member-upload-section" id="memberUploadSection" hidden>
+                                    <label class="member-file-dropzone">
+                                        <span>Click or drag a face photo here</span>
+                                        <input type="file" id="memberPhotoFileInput" accept="image/*" hidden>
+                                    </label>
+                                </div>
+
+                                <div class="member-captured-preview-wrapper" id="memberCapturedPreviewWrapper" hidden>
+                                    <img id="memberCapturedPreviewImg" src="" alt="Captured Face Preview">
+                                    <span>Face Preview</span>
+                                </div>
+                            </div>
+                            <div class="member-editor-footer">
+                                <button class="account-primary-btn" id="saveMemberBtn" type="button">Save Member</button>
+                                <button class="account-secondary-btn" id="cancelMemberBtn" type="button">Cancel</button>
+                                <span class="account-status-msg" id="memberEditorStatusMsg"></span>
+                            </div>
+                        </div>
+
+                        <!-- Members Cards Grid -->
+                        <div class="account-members-grid" id="accountMembersGrid">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Switch / Login / Signup -->
+                    <div class="account-tab-pane" id="accountPaneSwitch">
+                        <div class="account-switch-layout">
+                            <div class="account-switch-column">
+                                <h3>Existing Accounts</h3>
+                                <div class="account-existing-list" id="accountExistingList">
+                                    <!-- Rendered dynamically -->
+                                </div>
+                            </div>
+                            <div class="account-switch-divider"></div>
+                            <div class="account-switch-column">
+                                <!-- Login Section (Default) -->
+                                <div class="account-auth-section" id="accountLoginSection">
+                                    <h3>Log In</h3>
+                                    <div class="account-field-group">
+                                        <label for="loginAccountEmail">Email Address</label>
+                                        <input type="email" id="loginAccountEmail" placeholder="e.g. jeffrey_pro@hotmail.com">
+                                    </div>
+                                    <div class="account-field-group">
+                                        <label for="loginAccountPassword">Password</label>
+                                        <input type="password" id="loginAccountPassword" placeholder="Enter password">
+                                    </div>
+                                    <div class="account-auth-actions">
+                                        <button class="account-primary-btn" id="loginAccountBtn" type="button">Log In</button>
+                                        <span class="account-status-msg" id="loginAccountStatusMsg"></span>
+                                    </div>
+                                    <div class="account-auth-toggle">
+                                        <span>Don't have an account?</span>
+                                        <button class="account-auth-toggle-btn" id="showSignupFormBtn" type="button">Create new account</button>
+                                    </div>
+                                </div>
+
+                                <!-- Signup Section (Hidden initially) -->
+                                <div class="account-auth-section" id="accountSignupSection" hidden>
+                                    <h3>Create New Account</h3>
+                                    <div class="account-field-group">
+                                        <label for="newAccountDisplayName">Account Display Name</label>
+                                        <input type="text" id="newAccountDisplayName" placeholder="e.g. Oak Lab or Team Rocket">
+                                    </div>
+                                    <div class="account-field-group">
+                                        <label for="newAccountEmail">Email Address</label>
+                                        <input type="email" id="newAccountEmail" placeholder="e.g. trainer@pokemon.com">
+                                    </div>
+                                    <div class="account-field-group">
+                                        <label for="newAccountPassword">Password</label>
+                                        <input type="password" id="newAccountPassword" placeholder="Enter password for demo">
+                                    </div>
+                                    <div class="account-field-group">
+                                        <label for="newAccountInitialMember">Primary Member Name</label>
+                                        <input type="text" id="newAccountInitialMember" placeholder="e.g. Red">
+                                    </div>
+                                    <div class="account-auth-actions">
+                                        <button class="account-primary-btn" id="createNewAccountBtn" type="button">Create Account</button>
+                                        <span class="account-status-msg" id="newAccountStatusMsg"></span>
+                                    </div>
+                                    <div class="account-auth-toggle">
+                                        <span>Already have an account?</span>
+                                        <button class="account-auth-toggle-btn" id="showLoginFormBtn" type="button">Log in instead</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

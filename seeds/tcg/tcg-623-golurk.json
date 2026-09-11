@@ -1,0 +1,2326 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:golurk"
+  },
+  "cache_key": "41e3ec212e0531344576ac08f2521bac",
+  "cached_at": 1765907771.222933,
+  "response": {
+    "data": [
+      {
+        "id": "xy7-35",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "ancientTrait": {
+          "name": "θ Stop",
+          "text": "Prevent all effects of your opponent's Pokémon's Abilities done to this Pokémon."
+        },
+        "abilities": [
+          {
+            "name": "Double Type",
+            "text": "As long as this Pokémon is in play, it is Psychic and Fighting type.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Superpower",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80+",
+            "text": "You may do 40 more damage. If you do, this Pokémon does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "It flies across the sky at Mach speeds. Removing the seal on its chest makes its internal energy go out of control.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/35.png",
+          "large": "https://images.pokemontcg.io/xy7/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.11,
+              "mid": 0.55,
+              "high": 4.0,
+              "market": 0.59,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 1.9,
+              "high": 3.21,
+              "market": 3.06,
+              "directLow": 2.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.14,
+            "trendPrice": 0.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.98,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 2.93,
+            "lowPriceExPlus": 0.34,
+            "avg1": 0.88,
+            "avg7": 0.88,
+            "avg30": 0.85,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.65,
+            "reverseHoloAvg30": 2.55
+          }
+        }
+      },
+      {
+        "id": "xy7-41",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Dig Out",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Discard the top card of your deck. If that card is a Fighting Energy card, attach it to this Pokémon."
+          },
+          {
+            "name": "Double Lariat",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90×",
+            "text": "Flip 2 coins. This attack does 90 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Suwama Chiaki",
+        "rarity": "Common",
+        "flavorText": "It flies across the sky at Mach speeds. Removing the seal on its chest makes its internal energy go out of control.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/41.png",
+          "large": "https://images.pokemontcg.io/xy7/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 4.0,
+              "market": 0.14,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.3,
+              "high": 3.59,
+              "market": 0.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.21,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.32,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.24,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 0.26,
+            "reverseHoloAvg7": 0.3,
+            "reverseHoloAvg30": 0.33
+          }
+        }
+      },
+      {
+        "id": "bw10-46",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Iron Fist of Justice",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "If you have any Team Plasma Pokémon in play, this attack does nothing."
+          },
+          {
+            "name": "Shadow Punch",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "46",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Holo",
+        "flavorText": "Golurk were created to protect people and Pokémon. They run on a mysterious energy.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/46.png",
+          "large": "https://images.pokemontcg.io/bw10/46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 0.7,
+              "high": 3.99,
+              "market": 0.64,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.72,
+              "high": 6.49,
+              "market": 0.72,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.77,
+            "lowPrice": 0.3,
+            "trendPrice": 2.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.37,
+            "reverseHoloLow": 0.45,
+            "reverseHoloTrend": 1.44,
+            "lowPriceExPlus": 0.65,
+            "avg1": 2.75,
+            "avg7": 1.77,
+            "avg30": 1.52,
+            "reverseHoloAvg1": 1.37,
+            "reverseHoloAvg7": 1.34,
+            "reverseHoloAvg30": 1.29
+          }
+        }
+      },
+      {
+        "id": "sm35-44",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Triple Smash",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Flip 3 coins. This attack does 60 more damage for each heads."
+          },
+          {
+            "name": "Golurk Hammer",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "44",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "It is said that Golurk were ordered to protect people and Pokémon by the ancient people who made them.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/44.png",
+          "large": "https://images.pokemontcg.io/sm35/44_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 1.56,
+              "market": 0.15,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.41,
+              "high": 2.0,
+              "market": 0.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-44",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.45,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.4,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.07,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.65,
+            "reverseHoloAvg7": 0.38,
+            "reverseHoloAvg30": 0.29
+          }
+        }
+      },
+      {
+        "id": "xy3-43",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Wreck",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If there is any Stadium card in play, this attack does 60 more damage. Discard that Stadium card."
+          },
+          {
+            "name": "Golurk Hammer",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "PLANETA",
+        "rarity": "Rare",
+        "flavorText": "It is said that Golurk were ordered to protect people and Pokémon by the ancient people who made them.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/43.png",
+          "large": "https://images.pokemontcg.io/xy3/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.08,
+              "mid": 0.3,
+              "high": 19.98,
+              "market": 0.31,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.3,
+              "mid": 0.63,
+              "high": 2.97,
+              "market": 0.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.47,
+            "lowPrice": 0.02,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.26,
+            "lowPriceExPlus": 0.06,
+            "avg1": 0.25,
+            "avg7": 0.47,
+            "avg30": 0.4,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 1.45,
+            "reverseHoloAvg30": 1.32
+          }
+        }
+      },
+      {
+        "id": "bw6-59",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Devolution Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Devolve the Defending Pokémon and put the highest Stage evolution card on it into your opponent's hand."
+          },
+          {
+            "name": "Ghost Hammer",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "During your opponent's next turn, this Pokémon has no Weakness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "59",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo",
+        "flavorText": "It flies around the sky at Mach speeds. Removing the seal on its chest makes its internal energy go out of control.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/59.png",
+          "large": "https://images.pokemontcg.io/bw6/59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.64,
+              "mid": 1.09,
+              "high": 3.35,
+              "market": 1.05,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.35,
+              "mid": 1.42,
+              "high": 6.5,
+              "market": 1.37,
+              "directLow": 1.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.06,
+            "lowPrice": 0.08,
+            "trendPrice": 1.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 1.42,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.5,
+            "avg7": 1.35,
+            "avg30": 0.98,
+            "reverseHoloAvg1": 0.19,
+            "reverseHoloAvg7": 0.9,
+            "reverseHoloAvg30": 1.21
+          }
+        }
+      },
+      {
+        "id": "bw3-72",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Hammer Arm",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Discard the top card of your opponent's deck."
+          },
+          {
+            "name": "Hurricane Punch",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50×",
+            "text": "Flip 4 coins. This attack does 50 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw3",
+          "name": "Noble Victories",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NVI",
+          "releaseDate": "2011/11/16",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw3/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw3/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "It is said that Golurk were ordered to protect people and Pokémon by the ancient people who made them.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw3/72.png",
+          "large": "https://images.pokemontcg.io/bw3/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw3-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.65,
+              "mid": 1.21,
+              "high": 3.98,
+              "market": 2.01,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.21,
+              "mid": 4.25,
+              "high": 59.77,
+              "market": 3.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw3-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 0.05,
+            "trendPrice": 0.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.8,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.28,
+            "lowPriceExPlus": 0.24,
+            "avg1": 0.2,
+            "avg7": 0.58,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.98,
+            "reverseHoloAvg30": 1.45
+          }
+        }
+      },
+      {
+        "id": "swsh3-77",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "150",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Dynamic Chop",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Golurk Hammer",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Rare",
+        "flavorText": "Artillery platforms built into the walls of ancient castles served as perches from which Golurk could fire energy beams.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/77.png",
+          "large": "https://images.pokemontcg.io/swsh3/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.34,
+              "high": 2.0,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.42,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.43,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.21,
+            "avg30": 0.14,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.37,
+            "reverseHoloAvg30": 0.45
+          }
+        }
+      },
+      {
+        "id": "sm12-90",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Rock Tumble",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Fist of Antiquity",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "160",
+            "text": "If you have any Supporter cards in your discard pile, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare",
+        "flavorText": "Some say that ancient people invented Golurk to serve as a laborer. It follows its master's orders faithfully.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/90.png",
+          "large": "https://images.pokemontcg.io/sm12/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.22,
+              "mid": 0.53,
+              "high": 2.5,
+              "market": 0.55,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.11,
+              "mid": 0.25,
+              "high": 10.0,
+              "market": 0.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.05,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.7,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.1,
+            "avg7": 0.19,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.83,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "bw7-150",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Devolution Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Devolve the Defending Pokémon and put the highest Stage evolution card on it into your opponent's hand."
+          },
+          {
+            "name": "Ghost Hammer",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "During your opponent's next turn, this Pokémon has no Weakness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "150",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "flavorText": "This extremely rare Pokémon is a different color than usual. It is very hard to find.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/150.png",
+          "large": "https://images.pokemontcg.io/bw7/150_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-150",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 99.99,
+              "mid": 129.01,
+              "high": 184.49,
+              "market": 102.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-150",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 79.99,
+            "lowPrice": 18.0,
+            "trendPrice": 45.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.93,
+            "lowPriceExPlus": 27.0,
+            "avg1": 79.99,
+            "avg7": 41.95,
+            "avg30": 54.52,
+            "reverseHoloAvg1": 4.99,
+            "reverseHoloAvg7": 24.13,
+            "reverseHoloAvg30": 17.81
+          }
+        }
+      },
+      {
+        "id": "swsh6-66",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "150",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Reinforced Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If this Pokémon has a Pokémon Tool attached, this attack does 90 more damage."
+          },
+          {
+            "name": "Megaton Fall",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "190",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "Teeziro",
+        "rarity": "Rare",
+        "flavorText": "There's a theory that inside Golurk is a perpetual motion machine that produces limitless energy, but this belief hasn't been proven.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/66.png",
+          "large": "https://images.pokemontcg.io/swsh6/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.26,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.07,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.16,
+            "reverseHoloAvg7": 0.31,
+            "reverseHoloAvg30": 0.25
+          }
+        }
+      },
+      {
+        "id": "swsh7-70",
+        "name": "Golurk V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mega Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Rewind Beam",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "If your opponent's Active Pokémon is an evolved Pokémon, devolve it by putting the highest Stage Evolution card on it into your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "70",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/70.png",
+          "large": "https://images.pokemontcg.io/swsh7/70_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.99,
+              "high": 5.0,
+              "market": 0.71,
+              "directLow": 0.7
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-70",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.84,
+            "lowPrice": 0.3,
+            "trendPrice": 0.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 0.81,
+            "avg7": 0.95,
+            "avg30": 0.86,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-181",
+        "name": "Golurk V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mega Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Rewind Beam",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "If your opponent's Active Pokémon is an evolved Pokémon, devolve it by putting the highest Stage Evolution card on it into your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "181",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/181.png",
+          "large": "https://images.pokemontcg.io/swsh7/181_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-181",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.02,
+              "mid": 3.2,
+              "high": 29.97,
+              "market": 2.85,
+              "directLow": 4.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-181",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.4,
+            "lowPrice": 2.0,
+            "trendPrice": 4.7,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.0,
+            "avg1": 6.5,
+            "avg7": 4.81,
+            "avg30": 4.62,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh7-182",
+        "name": "Golurk V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Mega Punch",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Rewind Beam",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "If your opponent's Active Pokémon is an evolved Pokémon, devolve it by putting the highest Stage Evolution card on it into your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "Oswaldo KATO",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/182.png",
+          "large": "https://images.pokemontcg.io/swsh7/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.0,
+              "mid": 25.0,
+              "high": 375.0,
+              "market": 22.11,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 20.71,
+            "lowPrice": 14.0,
+            "trendPrice": 18.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 14.0,
+            "avg1": 17.99,
+            "avg7": 19.73,
+            "avg30": 21.47,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh9-83",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Big Hand",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 10 more damage for each card in your hand."
+          },
+          {
+            "name": "Mega Punch",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Aya Kusube",
+        "rarity": "Rare",
+        "flavorText": "Artillery platforms built into the walls of ancient castles served as perches from which Golurk could fire energy beams.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/83.png",
+          "large": "https://images.pokemontcg.io/swsh9/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 5.02,
+              "market": 0.13,
+              "directLow": 0.1
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.89,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.14,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.15,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      },
+      {
+        "id": "sv5-88",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "160",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Iron Defense",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, during your opponent's next turn, prevent all damage done to this Pokémon by attacks."
+          },
+          {
+            "name": "Fighting Fist",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If your opponent's Active Pokémon is a Pokémon ex or Pokémon V, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "Oku",
+        "rarity": "Uncommon",
+        "flavorText": "Artillery platforms built into the walls of ancient castles served as perches from which Golurk could fire energy beams.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/88.png",
+          "large": "https://images.pokemontcg.io/sv5/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 1.54,
+              "market": 0.09,
+              "directLow": 0.06
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.08,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.1
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-43",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "160",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Double Smash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80×",
+            "text": "Flip 2 coins. This attack does 80 damage for each heads."
+          },
+          {
+            "name": "Golurk Hammer",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "200",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "Uta",
+        "rarity": "Uncommon",
+        "flavorText": "It flies across the sky at Mach speeds. Removing the seal on its chest makes its internal energy go out of control.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/43.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.21,
+              "high": 2.37,
+              "market": 0.17,
+              "directLow": 0.08
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.07,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.27,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 0.34,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-123",
+        "name": "Golurk",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "160",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Golett",
+        "attacks": [
+          {
+            "name": "Double Smash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80×",
+            "text": "Flip 2 coins. This attack does 80 damage for each heads."
+          },
+          {
+            "name": "Golurk Hammer",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "200",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "123",
+        "artist": "Shinya Mizuno",
+        "rarity": "Illustration Rare",
+        "flavorText": "It flies across the sky at Mach speeds. Removing the seal on its chest makes its internal energy go out of control.",
+        "nationalPokedexNumbers": [
+          623
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/123.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/123_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-123",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.0,
+              "mid": 7.99,
+              "high": 19.99,
+              "market": 6.85,
+              "directLow": 6.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-123",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 6.23,
+            "lowPrice": 3.4,
+            "trendPrice": 5.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.4,
+            "avg1": 6.19,
+            "avg7": 5.64,
+            "avg30": 6.05,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 18,
+    "totalCount": 18
+  }
+}

@@ -1,0 +1,1397 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:ferrothorn"
+  },
+  "cache_key": "5c7a9c9499e69da4ad717144fe15ed33",
+  "cached_at": 1765915917.593327,
+  "response": {
+    "data": [
+      {
+        "id": "bw2-72",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Steel Feelers",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage times the number of heads."
+          },
+          {
+            "name": "Gyro Ball",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Switch this Pokémon with 1 of your Benched Pokémon. Then, your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw2",
+          "name": "Emerging Powers",
+          "series": "Black & White",
+          "printedTotal": 98,
+          "total": 98,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EPO",
+          "releaseDate": "2011/08/31",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw2/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw2/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare",
+        "flavorText": "They attach themselves to cave ceilings, firing steel spikes at targets passing beneath them.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw2/72.png",
+          "large": "https://images.pokemontcg.io/bw2/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw2-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.31,
+              "mid": 0.96,
+              "high": 3.98,
+              "market": 1.02,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.24,
+              "high": 3.98,
+              "market": 2.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw2-72",
+          "updatedAt": "2025/12/14",
+          "prices": {
+            "averageSellPrice": 0.83,
+            "lowPrice": 0.07,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.99,
+            "reverseHoloLow": 0.24,
+            "reverseHoloTrend": 1.23,
+            "lowPriceExPlus": 0.19,
+            "avg1": 1.0,
+            "avg7": 0.61,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.25,
+            "reverseHoloAvg30": 1.1
+          }
+        }
+      },
+      {
+        "id": "bw2-73",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Iron Defense",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn."
+          },
+          {
+            "name": "Power Whip",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Does 10 damage for each Energy attached to this Pokémon to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw2",
+          "name": "Emerging Powers",
+          "series": "Black & White",
+          "printedTotal": 98,
+          "total": 98,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EPO",
+          "releaseDate": "2011/08/31",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw2/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw2/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Uncommon",
+        "flavorText": "It fights by swinging around its three spiky feelers. A hit from these steel spikes can reduce a boulder to rubble.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw2/73.png",
+          "large": "https://images.pokemontcg.io/bw2/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw2-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.4,
+              "high": 5.0,
+              "market": 0.43,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.56,
+              "high": 3.67,
+              "market": 0.57,
+              "directLow": 0.42
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw2-73",
+          "updatedAt": "2025/12/14",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.02,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.81,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.72,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.14,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.74,
+            "reverseHoloAvg7": 0.63,
+            "reverseHoloAvg30": 0.67
+          }
+        }
+      },
+      {
+        "id": "xy9-80",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Metal Claw",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Spike Lash",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 10 damage to each of your opponent's Pokémon for each Colorless in that Pokémon's Retreat Cost. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "They attach themselves to cave ceilings, firing steel spikes at targets passing beneath them.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/80.png",
+          "large": "https://images.pokemontcg.io/xy9/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 3.53,
+              "market": 0.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.39,
+              "high": 2.69,
+              "market": 0.38,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.14,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.58,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.46,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.09,
+            "avg7": 0.22,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.65,
+            "reverseHoloAvg7": 0.68,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "sm9-103",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Guard Press",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "During your opponent's next turn, this Pokémon takes 20 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Thorn Pod Throw",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This attack does 20 damage times the amount of Metal Energy attached to this Pokémon to 1 of your opponent's Benched Pokémon. You can't do more than 100 damage to a Benched Pokémon in this way. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "Hasuno",
+        "rarity": "Rare",
+        "flavorText": "They attach themselves to cave ceilings, firing steel spikes at targets passing beneath them.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/103.png",
+          "large": "https://images.pokemontcg.io/sm9/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.33,
+              "high": 1.99,
+              "market": 0.28,
+              "directLow": 0.27
+            },
+            "normal": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 1.49,
+              "market": 0.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-103",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.32,
+            "lowPrice": 0.08,
+            "trendPrice": 0.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.53,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.39,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.39,
+            "avg7": 0.28,
+            "avg30": 0.33,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.43,
+            "reverseHoloAvg30": 0.42
+          }
+        }
+      },
+      {
+        "id": "swsh4-124",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Swift Swing",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each Metal Energy attached to this Pokémon. Switch this Pokémon with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "124",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon scrapes its spikes across rocks, and then uses the tips of its feelers to absorb the nutrients it finds within the stone.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/124.png",
+          "large": "https://images.pokemontcg.io/swsh4/124_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-124",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 25.08,
+              "market": 0.08,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.21,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-124",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "swsh1-131",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Triple Smash",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage for each heads."
+          },
+          {
+            "name": "Energy Slap",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "You may move all Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "131",
+        "artist": "Midori Harada",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon scrapes its spikes across rocks, and then uses the tips of its feelers to absorb the nutrients it finds within the stone.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/131.png",
+          "large": "https://images.pokemontcg.io/swsh1/131_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-131",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 1.49,
+              "market": 0.07,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.3,
+              "high": 1.0,
+              "market": 0.27,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-131",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.48,
+            "reverseHoloLow": 0.08,
+            "reverseHoloTrend": 0.43,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.48,
+            "reverseHoloAvg30": 0.5
+          }
+        }
+      },
+      {
+        "id": "swsh12-122",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Spinning Attack",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Whip Smash",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "122",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon scrapes its spikes across rocks, and then uses the tips of its feelers to absorb the nutrients it finds within the stone.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/122.png",
+          "large": "https://images.pokemontcg.io/swsh12/122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.14,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-122",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      },
+      {
+        "id": "sv4-128",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "abilities": [
+          {
+            "name": "Exoskeleton",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spinning Needles",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your next turn, this Pokémon's Spinning Needles attack does 100 more damage (before applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "128",
+        "artist": "SATOSHI NAKAI",
+        "rarity": "Uncommon",
+        "flavorText": "Its spikes are harder than steel. This Pokémon crawls across rock walls by stabbing the spikes on its feelers into the stone.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/128.png",
+          "large": "https://images.pokemontcg.io/sv4/128_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-128",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.04,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.17,
+              "high": 1.53,
+              "market": 0.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-128",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.13
+          }
+        }
+      },
+      {
+        "id": "sv4-209",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "abilities": [
+          {
+            "name": "Exoskeleton",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spinning Needles",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your next turn, this Pokémon's Spinning Needles attack does 100 more damage (before applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "209",
+        "artist": "Kurata So",
+        "rarity": "Illustration Rare",
+        "flavorText": "Its spikes are harder than steel. This Pokémon crawls across rock walls by stabbing the spikes on its feelers into the stone.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/209.png",
+          "large": "https://images.pokemontcg.io/sv4/209_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-209",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.99,
+              "mid": 4.35,
+              "high": 18.0,
+              "market": 3.99,
+              "directLow": 4.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-209",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.97,
+            "lowPrice": 2.8,
+            "trendPrice": 4.36,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.8,
+            "avg1": 4.38,
+            "avg7": 4.28,
+            "avg30": 4.82,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-69",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Power Whip",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon for each Energy attached to this Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Metal Claw",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "Hasuno",
+        "rarity": "Uncommon",
+        "flavorText": "It fights by swinging around its three spiky feelers. A hit from these steel spikes can reduce a boulder to rubble.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/69.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.03,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.47,
+              "market": 0.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-69",
+          "updatedAt": "2025/12/14",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.14,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-149",
+        "name": "Ferrothorn",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Ferroseed",
+        "attacks": [
+          {
+            "name": "Power Whip",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to 1 of your opponent's Pokémon for each Energy attached to this Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Metal Claw",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "149",
+        "artist": "Minahamu",
+        "rarity": "Illustration Rare",
+        "flavorText": "It fights by swinging around its three spiky feelers. A hit from these steel spikes can reduce a boulder to rubble.",
+        "nationalPokedexNumbers": [
+          598
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/149.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/149_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-149",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.0,
+              "mid": 12.31,
+              "high": 50.0,
+              "market": 12.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-149",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 9.88,
+            "lowPrice": 7.99,
+            "trendPrice": 11.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 7.99,
+            "avg1": 11.63,
+            "avg7": 10.69,
+            "avg30": 10.58,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 11,
+    "totalCount": 11
+  }
+}

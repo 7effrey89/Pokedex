@@ -1,0 +1,1680 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:cloyster"
+  },
+  "cache_key": "ed42abaad52df71797145493b2897888",
+  "cached_at": 1765900024.347984,
+  "response": {
+    "data": [
+      {
+        "id": "ecard1-8",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Lick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Auto Fire",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/8.png",
+          "large": "https://images.pokemontcg.io/ecard1/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 57.9,
+              "mid": 86.43,
+              "high": 119.98,
+              "market": 84.18,
+              "directLow": 99.98
+            },
+            "reverseHolofoil": {
+              "low": 96.88,
+              "mid": 99.98,
+              "high": 99.99,
+              "market": 45.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 22.34,
+            "lowPrice": 4.0,
+            "trendPrice": 22.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.39,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 11.47,
+            "lowPriceExPlus": 11.98,
+            "avg1": 24.9,
+            "avg7": 25.41,
+            "avg30": 18.18,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 9.14,
+            "reverseHoloAvg30": 10.39
+          }
+        }
+      },
+      {
+        "id": "ex6-20",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "abilities": [
+          {
+            "name": "Exoskeleton",
+            "text": "Any damage done to Cloyster by attacks is reduced by 20 (after applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Double Bubble",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10×",
+            "text": "Flip 2 coins. This attack does 10 damage times the number of heads. If either of the coins is heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Shell Attack",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Aya Kusube",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/20.png",
+          "large": "https://images.pokemontcg.io/ex6/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.0,
+              "mid": 1.61,
+              "high": 4.0,
+              "market": 1.63,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 20.85,
+              "mid": 25.89,
+              "high": 39.99,
+              "market": 24.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.08,
+            "lowPrice": 0.1,
+            "trendPrice": 1.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.24,
+            "reverseHoloLow": 1.2,
+            "reverseHoloTrend": 7.65,
+            "lowPriceExPlus": 0.49,
+            "avg1": 0.8,
+            "avg7": 1.4,
+            "avg30": 1.53,
+            "reverseHoloAvg1": 4.49,
+            "reverseHoloAvg7": 7.15,
+            "reverseHoloAvg30": 6.99
+          }
+        }
+      },
+      {
+        "id": "ex15-14",
+        "name": "Cloyster δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellder",
+        "abilities": [
+          {
+            "name": "Solid Shell",
+            "text": "Prevent all effects of attacks, including damage, done by your opponent's Pokémon to each of your Benched Pokémon that has δ on its card.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Grind",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each Energy attached to Cloyster."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex15",
+          "name": "Dragon Frontiers",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DF",
+          "releaseDate": "2006/11/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex15/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex15/14.png",
+          "large": "https://images.pokemontcg.io/ex15/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex15-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.97,
+              "high": 5.25,
+              "market": 0.97,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 15.07,
+              "mid": 15.07,
+              "high": 22.95,
+              "market": 18.74,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex15-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.75,
+            "lowPrice": 0.1,
+            "trendPrice": 2.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.47,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 11.61,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.37,
+            "avg7": 1.57,
+            "avg30": 1.36,
+            "reverseHoloAvg1": 22.5,
+            "reverseHoloAvg7": 10.42,
+            "reverseHoloAvg30": 8.18
+          }
+        }
+      },
+      {
+        "id": "gym1-29",
+        "name": "Misty's Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "30",
+        "hp": "70",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Misty's Shellder",
+        "abilities": [
+          {
+            "name": "Shell Armor",
+            "text": "You may reduce all damage done by attacks to Misty's Cloyster by 10 (after applying Weakness and Resistance). (Any other effects of attacks still happen). This power can't be used if Misty's Cloyster is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Triple Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 3 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym1",
+          "name": "Gym Heroes",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G1",
+          "releaseDate": "2000/08/14",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym1/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym1/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym1/29.png",
+          "large": "https://images.pokemontcg.io/gym1/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 20.0,
+              "mid": 22.65,
+              "high": 23.99,
+              "market": 20.87,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 7.43,
+              "mid": 9.71,
+              "high": 20.0,
+              "market": 9.94,
+              "directLow": 7.52
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym1-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.21,
+            "lowPrice": 4.0,
+            "trendPrice": 9.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.25,
+            "lowPriceExPlus": 8.0,
+            "avg1": 9.0,
+            "avg7": 7.72,
+            "avg30": 11.36,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 1.25,
+            "reverseHoloAvg30": 1.25
+          }
+        }
+      },
+      {
+        "id": "base3-32",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "25",
+        "hp": "50",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Clamp",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed. If tails, this attack does nothing (not even damage)."
+          },
+          {
+            "name": "Spike Cannon",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "Flip 2 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "When attacked, it launches its horns in quick volleys. Its innards have never been seen.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/32.png",
+          "large": "https://images.pokemontcg.io/base3/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 0.8,
+              "mid": 2.0,
+              "high": 14.99,
+              "market": 2.58,
+              "directLow": 3.99
+            },
+            "unlimited": {
+              "low": 0.2,
+              "mid": 0.61,
+              "high": 4.96,
+              "market": 0.78,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.78,
+            "lowPrice": 0.02,
+            "trendPrice": 1.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.22,
+            "avg1": 0.67,
+            "avg7": 1.75,
+            "avg30": 1.64,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "g1-20",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Clamp Crush",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed and discard an Energy attached to that Pokémon."
+          },
+          {
+            "name": "Spike Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 5 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Uncommon",
+        "flavorText": "Cloyster that live in seas with harsh tidal currents grow large, sharp spikes on their shells.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/20.png",
+          "large": "https://images.pokemontcg.io/g1/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 4.0,
+              "market": 0.22,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.59,
+              "high": 9.98,
+              "market": 0.59,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.52,
+            "reverseHoloLow": 0.07,
+            "reverseHoloTrend": 0.73,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.16,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 0.57,
+            "reverseHoloAvg30": 0.72
+          }
+        }
+      },
+      {
+        "id": "xy1-32",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Clamp Crush",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed and discard an Energy attached to that Pokémon."
+          },
+          {
+            "name": "Spike Cannon",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 5 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "Cloyster that live in seas with harsh tidal currents grow large, sharp spikes on their shells.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/32.png",
+          "large": "https://images.pokemontcg.io/xy1/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.41,
+              "high": 1.58,
+              "market": 0.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.95,
+              "high": 7.95,
+              "market": 1.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.46,
+            "lowPrice": 0.05,
+            "trendPrice": 0.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.53,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.13,
+            "lowPriceExPlus": 0.19,
+            "avg1": 0.49,
+            "avg7": 0.41,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 1.45,
+            "reverseHoloAvg7": 1.15,
+            "reverseHoloAvg30": 1.23
+          }
+        }
+      },
+      {
+        "id": "xy9-24",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Sudden Grip",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If this Pokémon evolved from Shellder during this turn, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Surf",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Saya Tsuruta",
+        "rarity": "Uncommon",
+        "flavorText": "Its shell is extremely hard. It cannot be shattered, even with a bomb. The shell opens only when it is attacking.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/24.png",
+          "large": "https://images.pokemontcg.io/xy9/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.2,
+              "high": 4.0,
+              "market": 0.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.52,
+              "high": 2.0,
+              "market": 0.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.45,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.16,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.44,
+            "reverseHoloAvg30": 0.74
+          }
+        }
+      },
+      {
+        "id": "sm1-34",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Headlock",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage. If tails, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Guard Press",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "During your opponent's next turn, this Pokémon takes 20 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Yoshinobu Saito",
+        "rarity": "Rare",
+        "flavorText": "Its hard shell cannot be shattered—not even by a bomb. The contents of the shell remain unknown.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/34.png",
+          "large": "https://images.pokemontcg.io/sm1/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 4.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.28,
+              "high": 4.25,
+              "market": 0.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.4,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.44,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.14,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.54,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "swsh1-41",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Shell Grab",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Tidal Wave",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "MAHOU",
+        "rarity": "Rare",
+        "flavorText": "Its shell is extremely hard. It cannot be shattered, even with a bomb. The shell opens only when it is attacking.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/41.png",
+          "large": "https://images.pokemontcg.io/swsh1/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 4.0,
+              "market": 0.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.53,
+              "high": 1.49,
+              "market": 0.53,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.05,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.74,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.76,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.2,
+            "avg7": 0.16,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 0.7,
+            "reverseHoloAvg30": 0.74
+          }
+        }
+      },
+      {
+        "id": "dp3-47",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Withdraw",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Flip a coin. If heads, prevent all damage done to Cloyster by attacks during your opponent's next turn."
+          },
+          {
+            "name": "Spine Missile",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip 4 coins. For each heads, choose an opponent's Pokémon in play and this attack does 20 damage to those Pokémon. (You may choose the same Pokémon more than once.) (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "47",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "It fights by keeping its shell tightly shut for protection and by shooting spikes to repel foes.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/47.png",
+          "large": "https://images.pokemontcg.io/dp3/47_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.51,
+              "high": 5.0,
+              "market": 0.62,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.6,
+              "mid": 2.24,
+              "high": 4.37,
+              "market": 2.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.24,
+            "lowPrice": 0.05,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.66,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 0.91,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.09,
+            "avg7": 0.26,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 1.1,
+            "reverseHoloAvg30": 1.13
+          }
+        }
+      },
+      {
+        "id": "ecard1-42",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Lick",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Auto Fire",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Flip 4 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/42.png",
+          "large": "https://images.pokemontcg.io/ecard1/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 8.16,
+              "mid": 9.99,
+              "high": 999.0,
+              "market": 8.0,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 29.98,
+              "mid": 29.99,
+              "high": 34.0,
+              "market": 13.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.21,
+            "lowPrice": 0.24,
+            "trendPrice": 5.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.91,
+            "reverseHoloLow": 1.79,
+            "reverseHoloTrend": 5.72,
+            "lowPriceExPlus": 2.0,
+            "avg1": 1.0,
+            "avg7": 4.17,
+            "avg30": 3.95,
+            "reverseHoloAvg1": 2.37,
+            "reverseHoloAvg7": 3.77,
+            "reverseHoloAvg30": 5.22
+          }
+        }
+      },
+      {
+        "id": "swsh8-51",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Rapid Strike"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "abilities": [
+          {
+            "name": "Shell Armor",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Aqua Split",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "This attack also does 30 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "nagimiso",
+        "rarity": "Rare",
+        "flavorText": "Once it slams its shell shut, it is impossible to open, even by those with superior strength.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/51.png",
+          "large": "https://images.pokemontcg.io/swsh8/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.29,
+              "high": 2.0,
+              "market": 0.3,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.02,
+              "mid": 0.16,
+              "high": 2.0,
+              "market": 0.14,
+              "directLow": 0.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.24,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.2,
+            "avg30": 0.14,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.25,
+            "reverseHoloAvg30": 0.28
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-91",
+        "name": "Cloyster",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellder",
+        "attacks": [
+          {
+            "name": "Protect Charge",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80",
+            "text": "During your opponent's next turn, this Pokémon takes 80 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Nelnal",
+        "rarity": "Uncommon",
+        "flavorText": "Cloyster that live in seas with harsh tidal currents grow large, sharp spikes on their shells.",
+        "nationalPokedexNumbers": [
+          91
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/91.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 3.0,
+              "market": 0.14,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 1.49,
+              "market": 0.07,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.07,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.25,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 14,
+    "totalCount": 14
+  }
+}

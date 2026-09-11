@@ -1,0 +1,861 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:lurantis"
+  },
+  "cache_key": "9bbc76b9346ba3c00df11a059059e7d2",
+  "cached_at": 1765916110.38909,
+  "response": {
+    "data": [
+      {
+        "id": "sm1-15",
+        "name": "Lurantis-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Flower Supply",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "Attach 2 basic Energy cards from your discard pile to your Pokémon in any way you like."
+          },
+          {
+            "name": "Solar Blade",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Chloroscythe-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Grass Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/15.png",
+          "large": "https://images.pokemontcg.io/sm1/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.79,
+              "mid": 1.39,
+              "high": 22.0,
+              "market": 1.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.6,
+            "lowPrice": 0.2,
+            "trendPrice": 1.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.93,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.48,
+            "avg7": 1.6,
+            "avg30": 1.64,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.05,
+            "reverseHoloAvg30": 2.07
+          }
+        }
+      },
+      {
+        "id": "sm11-16",
+        "name": "Lurantis",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "attacks": [
+          {
+            "name": "Petal Blizzard",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 10 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Sol Slice",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50+",
+            "text": "If this Pokémon has any Fire Energy attached to it, this attack does 50 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Uncommon",
+        "flavorText": "For self-protection, it pretends to be a bug Pokémon. Both of its arms bear keen-edged petals.",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/16.png",
+          "large": "https://images.pokemontcg.io/sm11/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.4,
+              "high": 1.18,
+              "market": 0.44,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 1.49,
+              "market": 0.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.61,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.79,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.14,
+            "avg30": 0.15,
+            "reverseHoloAvg1": 0.14,
+            "reverseHoloAvg7": 0.83,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "smp-SM25",
+        "name": "Lurantis",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "abilities": [
+          {
+            "name": "Sunny Day",
+            "text": "The attacks of your Grass Pokémon and Fire Pokémon do 20 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM25",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "flavorText": "It requires a lot of effort to maintain Lurantis's vivid coloring, but some collectors enjoy this work and treat it as their hobby.",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM25.png",
+          "large": "https://images.pokemontcg.io/smp/SM25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.6,
+              "high": 19.99,
+              "market": 1.6,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.41,
+            "lowPrice": 0.1,
+            "trendPrice": 0.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.72,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.99,
+            "avg7": 0.89,
+            "avg30": 0.77,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.62,
+            "reverseHoloAvg30": 0.62
+          }
+        }
+      },
+      {
+        "id": "sm1-138",
+        "name": "Lurantis-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Flower Supply",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "Attach 2 basic Energy cards from your discard pile to your Pokémon in any way you like."
+          },
+          {
+            "name": "Solar Blade",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Chloroscythe-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Grass Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "138",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/138.png",
+          "large": "https://images.pokemontcg.io/sm1/138_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-138",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.82,
+              "high": 29.99,
+              "market": 2.54,
+              "directLow": 3.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-138",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.19,
+            "lowPrice": 1.0,
+            "trendPrice": 2.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.41,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.5,
+            "avg7": 2.65,
+            "avg30": 3.4,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 3.33,
+            "reverseHoloAvg30": 4.21
+          }
+        }
+      },
+      {
+        "id": "sm1-150",
+        "name": "Lurantis-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Flower Supply",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": "Attach 2 basic Energy cards from your discard pile to your Pokémon in any way you like."
+          },
+          {
+            "name": "Solar Blade",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Chloroscythe-GX",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Grass Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "150",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/150.png",
+          "large": "https://images.pokemontcg.io/sm1/150_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-150",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.17,
+              "mid": 8.16,
+              "high": 25.4,
+              "market": 7.97,
+              "directLow": 7.33
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-150",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 6.03,
+            "lowPrice": 1.5,
+            "trendPrice": 6.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.85,
+            "lowPriceExPlus": 3.0,
+            "avg1": 7.49,
+            "avg7": 6.11,
+            "avg30": 6.98,
+            "reverseHoloAvg1": 9.97,
+            "reverseHoloAvg7": 11.14,
+            "reverseHoloAvg30": 9.98
+          }
+        }
+      },
+      {
+        "id": "swsh5-15",
+        "name": "Lurantis",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "attacks": [
+          {
+            "name": "Leaf Drain",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Solar Cutter",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Rare",
+        "flavorText": "As it slashes into its enemies, it looks like it's dancing. Its elegant appearance has led some to call it the most glamorous Grass Pokémon.",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/15.png",
+          "large": "https://images.pokemontcg.io/swsh5/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 40.0,
+              "market": 0.22,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 19.98,
+              "market": 0.14,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.2,
+            "avg7": 0.13,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 0.16,
+            "reverseHoloAvg7": 0.25,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "sv10-14",
+        "name": "Lurantis",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Fomantis",
+        "attacks": [
+          {
+            "name": "Razor Leaf",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Petal Blade Dance",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "130",
+            "text": "Discard 2 Basic Grass Energy cards from your hand. If you can't discard 2 cards in this way, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Masako Tomii",
+        "rarity": "Uncommon",
+        "flavorText": "By masquerading as a bug Pokémon, it lowers the guard of actual bug Pokémon lured in by a scent of sweet flowers. Its sickles bring them down.",
+        "nationalPokedexNumbers": [
+          754
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/14.png",
+          "large": "https://images.pokemontcg.io/sv10/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.32,
+              "high": 2.99,
+              "market": 0.32,
+              "directLow": 0.25
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.05,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 7,
+    "totalCount": 7
+  }
+}

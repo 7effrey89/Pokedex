@@ -1,0 +1,1200 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:florges"
+  },
+  "cache_key": "89cfdca7a76a59d303f5567a1e0e4c8a",
+  "cached_at": 1765908758.556326,
+  "response": {
+    "data": [
+      {
+        "id": "xy2-66",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Floette",
+        "attacks": [
+          {
+            "name": "Brilliant Search",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 3 cards and put them into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Petal Blizzard",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 20 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy2",
+          "name": "Flashfire",
+          "series": "XY",
+          "printedTotal": 106,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLF",
+          "releaseDate": "2014/05/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy2/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo",
+        "flavorText": "It claims exquisite flower gardens as its territory, and it obtains power from basking in the energy emitted by flowering plants.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy2/66.png",
+          "large": "https://images.pokemontcg.io/xy2/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy2-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 1.02,
+              "high": 19.99,
+              "market": 1.09,
+              "directLow": 1.19
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.59,
+              "high": 19.99,
+              "market": 1.65,
+              "directLow": 1.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy2-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.04,
+            "lowPrice": 0.2,
+            "trendPrice": 1.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.5,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.07,
+            "lowPriceExPlus": 0.2,
+            "avg1": 1.5,
+            "avg7": 1.06,
+            "avg30": 1.06,
+            "reverseHoloAvg1": 2.39,
+            "reverseHoloAvg7": 0.8,
+            "reverseHoloAvg30": 1.12
+          }
+        }
+      },
+      {
+        "id": "xy4-67",
+        "name": "Florges-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Fairy"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Lead",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Supporter card, reveal it, and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Bright Garden",
+            "cost": [
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage times the number of Grass Pokémon and Fairy Pokémon you have in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/67.png",
+          "large": "https://images.pokemontcg.io/xy4/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.51,
+              "mid": 4.27,
+              "high": 7.5,
+              "market": 4.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-67",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 5.06,
+            "lowPrice": 1.0,
+            "trendPrice": 5.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.12,
+            "lowPriceExPlus": 2.99,
+            "avg1": 5.0,
+            "avg7": 5.06,
+            "avg30": 4.13,
+            "reverseHoloAvg1": 1.4,
+            "reverseHoloAvg7": 3.4,
+            "reverseHoloAvg30": 2.79
+          }
+        }
+      },
+      {
+        "id": "sm6-86",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "name": "Wondrous Gift",
+            "text": "Once during your turn (before your attack), you may flip a coin. If heads, put an Item card from your discard pile on top of your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mist Guard",
+            "cost": [
+              "Fairy",
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Prevent all damage done to this Pokémon by attacks from Dragon Pokémon during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "86",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare",
+        "flavorText": "In times long past, governors of castles would invite Florges to create flower gardens to embellish the castle domains.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/86.png",
+          "large": "https://images.pokemontcg.io/sm6/86_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-86",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 1.0,
+              "high": 4.99,
+              "market": 0.87,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.2,
+              "mid": 0.65,
+              "high": 1.99,
+              "market": 0.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-86",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.54,
+            "lowPrice": 0.25,
+            "trendPrice": 0.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.9,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.97,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.29,
+            "avg7": 0.82,
+            "avg30": 0.73,
+            "reverseHoloAvg1": 0.89,
+            "reverseHoloAvg7": 0.93,
+            "reverseHoloAvg30": 1.2
+          }
+        }
+      },
+      {
+        "id": "xy8-103",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "name": "Calming Aroma",
+            "text": "Each of your Pokémon's attacks costs Fairy less.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wonder Shine",
+            "cost": [
+              "Fairy",
+              "Fairy",
+              "Fairy"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "flavorText": "In times long past, governors of castles would invite Florges to create flower gardens to embellish the castle domains.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/103.png",
+          "large": "https://images.pokemontcg.io/xy8/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.42,
+              "high": 4.0,
+              "market": 0.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.6,
+              "mid": 1.12,
+              "high": 19.99,
+              "market": 1.09,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-103",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.64,
+            "lowPrice": 0.1,
+            "trendPrice": 0.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.9,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.48,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.1,
+            "avg7": 0.64,
+            "avg30": 0.58,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.61,
+            "reverseHoloAvg30": 1.47
+          }
+        }
+      },
+      {
+        "id": "xy8-104",
+        "name": "Florges BREAK",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "BREAK"
+        ],
+        "hp": "140",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Florges",
+        "rules": [
+          "BREAK Evolution Rule: Florges BREAK retains the attacks, Abilities, Weakness, Resistance, and Retreat Cost of its previous Evolution."
+        ],
+        "abilities": [
+          {
+            "name": "Floral Breeze",
+            "text": "Once during your turn (before your attack), you may heal 30 damage and remove a Special Condition from your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "104",
+        "artist": "5ban Graphics",
+        "rarity": "Rare BREAK",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/104.png",
+          "large": "https://images.pokemontcg.io/xy8/104_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-104",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.78,
+              "high": 7.38,
+              "market": 2.74,
+              "directLow": 1.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-104",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.59,
+            "lowPrice": 0.9,
+            "trendPrice": 2.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.5,
+            "reverseHoloTrend": 5.41,
+            "lowPriceExPlus": 1.45,
+            "avg1": 1.93,
+            "avg7": 2.59,
+            "avg30": 2.4,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 3.86,
+            "reverseHoloAvg30": 2.55
+          }
+        }
+      },
+      {
+        "id": "xy4-116",
+        "name": "Florges-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "160",
+        "types": [
+          "Fairy"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Lead",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Supporter card, reveal it, and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Bright Garden",
+            "cost": [
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage times the number of Grass Pokémon and Fairy Pokémon you have in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "116",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/116.png",
+          "large": "https://images.pokemontcg.io/xy4/116_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-116",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.75,
+              "mid": 19.66,
+              "high": 67.3,
+              "market": 19.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-116",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 7.87,
+            "lowPrice": 3.9,
+            "trendPrice": 11.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.95,
+            "lowPriceExPlus": 11.0,
+            "avg1": 5.0,
+            "avg7": 11.93,
+            "avg30": 9.01,
+            "reverseHoloAvg1": 9.5,
+            "reverseHoloAvg7": 6.91,
+            "reverseHoloAvg30": 6.38
+          }
+        }
+      },
+      {
+        "id": "sm12-152",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "name": "Flower Picking",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may choose 2 random cards from your opponent's hand. Your opponent reveals those cards and shuffles them into their deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Petal Dance",
+            "cost": [
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "Flip 3 coins. This attack does 60 damage for each heads. This Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "152",
+        "artist": "Akira Komayama",
+        "rarity": "Rare Holo",
+        "flavorText": "It controls the flowers it grows. The petal blizzards that Florges triggers are overwhelming in their beauty and power.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/152.png",
+          "large": "https://images.pokemontcg.io/sm12/152_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-152",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.44,
+              "mid": 0.73,
+              "high": 1.81,
+              "market": 0.76,
+              "directLow": 1.81
+            },
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.62,
+              "high": 2.99,
+              "market": 0.65,
+              "directLow": 1.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-152",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.71,
+            "lowPrice": 0.22,
+            "trendPrice": 0.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.12,
+            "reverseHoloLow": 0.22,
+            "reverseHoloTrend": 0.98,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.49,
+            "avg7": 0.8,
+            "avg30": 0.69,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 1.14,
+            "reverseHoloAvg30": 1.07
+          }
+        }
+      },
+      {
+        "id": "swsh7-73",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Rapid Strike"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "name": "Rapid Strike Connection",
+            "text": "As often as you like during your turn, you may move an Energy from 1 of your Pokémon to 1 of your Rapid Strike Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wonder Shine",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "Its life can span several hundred years. It's said to devote its entire life to protecting gardens.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/73.png",
+          "large": "https://images.pokemontcg.io/swsh7/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.25,
+              "high": 2.0,
+              "market": 0.21,
+              "directLow": 0.16
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.22,
+              "high": 4.99,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.02,
+            "trendPrice": 0.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.07,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.33,
+            "avg30": 0.22,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.31
+          }
+        }
+      },
+      {
+        "id": "sv1-93",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "type": "Ability",
+            "name": "Blooming Garden",
+            "text": "Your Pokémon in play have no Weakness."
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Moonblast",
+            "damage": "120",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks do 30 less damage (before applying Weakness and Resistance).",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv1",
+          "name": "Scarlet & Violet",
+          "series": "Scarlet & Violet",
+          "printedTotal": 198,
+          "total": 258,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/03/31",
+          "updatedAt": "2023/03/31 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv1/logo.png"
+          }
+        },
+        "number": "93",
+        "artist": "Haru Akasaka",
+        "rarity": "Uncommon",
+        "flavorText": "They say that flower gardens created by Florges are constantly showered with a power that can heal both body and spirit.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv1/93.png",
+          "large": "https://images.pokemontcg.io/sv1/93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv1-93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.2,
+              "high": 1.46,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv1-93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.11,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "sv6-88",
+        "name": "Florges",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Floette",
+        "abilities": [
+          {
+            "name": "Captivating Invitation",
+            "text": "Once during your turn, you may flip a coin. If heads, switch in 1 of your opponent's Benched Pokémon to the Active Spot, and the new Active Pokémon is now Confused.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Magical Shot",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "Ligton",
+        "rarity": "Uncommon",
+        "flavorText": "They say that flower gardens created by Florges are constantly showered with a power that can heal both body and spirit.",
+        "nationalPokedexNumbers": [
+          671
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/88.png",
+          "large": "https://images.pokemontcg.io/sv6/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.05,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.24,
+              "high": 999.0,
+              "market": 0.25,
+              "directLow": 0.17
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.14,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.11,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 10,
+    "totalCount": 10
+  }
+}

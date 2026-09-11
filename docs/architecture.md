@@ -69,6 +69,11 @@ For grid/list views that display many cards, the backend supports a `slim: true`
 
 Detail views fetch full card data on click via `get_card_details`.
 
+When Settings selects SQLite, TCG set listing, cards-by-set, and card-detail
+handlers query the normalized database before any JSON cache lookup. Card image
+URLs point to `/api/tcg/card-image/<card_id>/<asset_kind>`, which resolves only
+the importer-registered local path and never falls back to a remote image.
+
 ---
 
 ## Progressive Rendering
@@ -114,14 +119,14 @@ This route exists server-side so browser canvas security rules do not block comp
 The experimental `numpy` setting deliberately bypasses OCR, metadata candidate lookup, and the LLM judge:
 
 1. `scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive and deduplicates cards by stable TCG card ID.
-2. Official card images are downloaded resumably to `tcg-image-cache/images/` and validated with Pillow.
+2. Official card images are downloaded resumably to `data/assets/tcg/` and validated with Pillow.
 3. `src/services/tcg_image_index.py` center-crops each image and builds a deterministic 1,432-dimensional vector from `32×44` standardized grayscale pixels plus eight histogram buckets for each RGB channel.
-4. Step 04 L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `tcg-image-cache/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
+4. Step 04 L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `data/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
 5. `POST /api/tcg/numpy-image-match` receives the same guide crop shown in the captured-shot preview, uses the shared encoder, and builds four query variants containing 100%, 90%, 86%, and 82% of the captured content. The padded variants compensate for cards framed too tightly without increasing the runtime index size.
 6. The service lazy-loads the generated matrix once per process, performs exact cosine similarity for every query scale, and keeps each card's highest score.
 7. The endpoint returns the six highest-scoring complete card records for the existing scanner candidate UI.
 
-The JSON archive remains the source of truth. Images and vectors are disposable build artifacts; rerunning Step 04 rebuilds them whenever source URLs or `ENCODER_VERSION` change. Downloaded images are not required at runtime after the index is built. Deployments must include the complete `tcg-image-cache/index/` directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
+The JSON archive remains the source of truth. Images and vectors are disposable build artifacts; rerunning Step 04 rebuilds them whenever source URLs or `ENCODER_VERSION` change. Downloaded images are not required at runtime after the index is built. Deployments must include the complete `data/index/` directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
 
 The standalone POC at `/static/tyrantrum-embedding-poc.html` uses `GET /api/tcg/image-proxy?url=...` to load official card images into a browser canvas, builds local grayscale/color image embeddings, starts the camera by default, and shows a live lightbox alignment zone over the camera feed. The default scan zone uses a narrower card-like ratio, and the user can drag its yellow edges to resize the crop area. Snapshot matching captures the camera frame and crops the current guide area at its visible proportions, then uses that cropped image for the browser image-embedding ranking pipeline. It can run in either cosine-only mode or rerank mode, with rerank mode selected by default. Rerank mode sends the cropped card image to `POST /api/tcg/extract-card-text`, where the configured Azure OpenAI vision model extracts structured card metadata: name, HP, card types, set/number, rarity, attacks, attack energy costs, weakness, resistance, and retreat. The browser scores those extracted attributes against candidate card metadata using weighted field matching, combines the attribute score with image cosine similarity as `image_embedding * 0.58 + text * 0.42`, then calls `POST /api/tcg/rerank-match` so an Azure OpenAI judge can rerank the candidates with the same structured evidence. The UI exposes candidate metadata and score calculation tooltips. If API settings are missing or the judge fails, the endpoint returns the deterministic combined-score order.
 
@@ -194,6 +199,44 @@ Realtime Voice:
 2. If backend: add handler in `src/routes/chat_routes.py` tool_handlers dict + `src/tools/tool_handlers.py`
 3. If frontend: add case in `executeFrontendAction()` (app.js) AND in `realtime-voice.js` executeToolCall()
 4. Both APIs auto-pick up the definition — no edits to `azure_openai_chat.py` or `realtime_chat.py`
+
+---
+
+## Database Architecture & Versioned Migrations
+
+The application uses two separate SQLite databases stored under `POKEDEX_DATA_ROOT` (defaults to `./data/` locally, `/home/data/data/` in Azure persistent storage):
+
+1. **Catalog Database (`pokedex.sqlite3`)**:
+   - Source of truth for Pokémon, species, evolutions, TCG cards, expansions, market listings, and local asset mappings.
+   - Built and updated reproducibly from raw API seed data and explicit upstream syncs.
+2. **User Database (`users.sqlite3`)**:
+   - Stores user accounts, password hashes, multi-member face enrollments, card collections, and user preferences.
+   - Kept completely separate from the catalog so catalog rebuilds, restores, or re-indexes can never overwrite user-owned data.
+
+### Schema Versioning & Migration Mechanism
+
+Database migrations are managed via versioned SQL files located in `data/schema/` and tracked using SQLite's native `PRAGMA user_version`:
+
+| Database | Migration File Pattern | Schema Version Constant (`src/db/database.py`) | Runner Function |
+|----------|------------------------|------------------------------------------------|-----------------|
+| Catalog | `data/schema/001.sql`, `002.sql`, ... | `SCHEMA_VERSION` | `apply_catalog_schema(connection)` |
+| User DB | `data/schema/users-001.sql`, `users-002.sql`, ... | `USERS_SCHEMA_VERSION` | `apply_users_schema(connection)` |
+
+### Workflow for Future Database Changes
+
+When modifying the database schema in the future:
+
+1. **Do not modify existing migration scripts** if databases exist in deployment environments.
+2. **Create a new migration script**:
+   - For catalog schema changes: add `data/schema/<version:03d>.sql` (e.g. `003.sql`).
+   - For user database changes: add `data/schema/users-<version:03d>.sql` (e.g. `users-004.sql`).
+3. **Write incremental DDL**:
+   - Use `ALTER TABLE`, `CREATE TABLE`, `CREATE INDEX`, etc.
+   - Conclude the file with `PRAGMA user_version = <N>;`.
+4. **Update the version constant in `src/db/database.py`**:
+   - Set `SCHEMA_VERSION = <N>` or `USERS_SCHEMA_VERSION = <N>`.
+5. **Automatic Execution**:
+   - On application startup, `apply_catalog_schema()` and `apply_users_schema()` check the database's current `PRAGMA user_version` and sequentially apply any newer migration scripts inside a transaction.
 
 ---
 

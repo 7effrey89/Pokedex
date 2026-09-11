@@ -1,0 +1,639 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:primarina"
+  },
+  "cache_key": "29ecc60617fb225842d6cc33c21bca90",
+  "cached_at": 1765916000.34448,
+  "response": {
+    "data": [
+      {
+        "id": "sm1-41",
+        "name": "Primarina",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Brionne",
+        "attacks": [
+          {
+            "name": "Disarming Voice",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Sparkling Aria",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "It controls its water balloons with song. The melody is learning from others of its kind and is passed down from one generation to the next.",
+        "nationalPokedexNumbers": [
+          730
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/41.png",
+          "large": "https://images.pokemontcg.io/sm1/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.35,
+              "high": 1.95,
+              "market": 0.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.51,
+              "high": 2.0,
+              "market": 0.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.51,
+            "lowPrice": 0.1,
+            "trendPrice": 0.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.33,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.39,
+            "avg7": 0.34,
+            "avg30": 0.39,
+            "reverseHoloAvg1": 0.19,
+            "reverseHoloAvg7": 0.34,
+            "reverseHoloAvg30": 0.27
+          }
+        }
+      },
+      {
+        "id": "sm1-42",
+        "name": "Primarina-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Brionne",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bubble Beat",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 20 more damage times the amount of Water Energy attached to your Pokémon."
+          },
+          {
+            "name": "Roaring Seas",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Grand Echo-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Heal all damage from all of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          730
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/42.png",
+          "large": "https://images.pokemontcg.io/sm1/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.56,
+              "mid": 2.77,
+              "high": 27.07,
+              "market": 2.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.99,
+            "lowPrice": 0.5,
+            "trendPrice": 3.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.62,
+            "lowPriceExPlus": 1.87,
+            "avg1": 3.0,
+            "avg7": 2.97,
+            "avg30": 2.89,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 2.79,
+            "reverseHoloAvg30": 2.52
+          }
+        }
+      },
+      {
+        "id": "smp-SM39",
+        "name": "Primarina-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Brionne",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bubble Beat",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 20 more damage times the amount of Water Energy attached to your Pokémon."
+          },
+          {
+            "name": "Roaring Seas",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Grand Echo-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Heal all damage from all of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM39",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          730
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM39.png",
+          "large": "https://images.pokemontcg.io/smp/SM39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.86,
+              "mid": 9.46,
+              "high": 9999.0,
+              "market": 9.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.52,
+            "lowPrice": 3.0,
+            "trendPrice": 7.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.7,
+            "lowPriceExPlus": 3.95,
+            "avg1": 7.0,
+            "avg7": 6.31,
+            "avg30": 6.51,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 6.07,
+            "reverseHoloAvg30": 4.38
+          }
+        }
+      },
+      {
+        "id": "sm8-67",
+        "name": "Primarina",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Brionne",
+        "abilities": [
+          {
+            "name": "Harmonics",
+            "text": "Whenever you attach an Energy card from your hand to 1 of your Pokémon, except with an attack, Ability, or Trainer card, attach up to 2 Energy cards to that Pokémon instead of 1.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hypno Splash",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm8",
+          "name": "Lost Thunder",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 240,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOT",
+          "releaseDate": "2018/11/02",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm8/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare",
+        "flavorText": "Its singing voice is its chief weapon in battle. This Pokémon's Trainer must prioritize the daily maintenance of its throat at all costs.",
+        "nationalPokedexNumbers": [
+          730
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm8/67.png",
+          "large": "https://images.pokemontcg.io/sm8/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm8-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 0.91,
+              "high": 1.99,
+              "market": 0.93,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.2,
+              "mid": 0.52,
+              "high": 1.95,
+              "market": 0.52,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm8-67",
+          "updatedAt": "2025/12/15",
+          "prices": {
+            "averageSellPrice": 0.59,
+            "lowPrice": 0.1,
+            "trendPrice": 0.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.0,
+            "reverseHoloLow": 0.75,
+            "reverseHoloTrend": 4.21,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.99,
+            "avg7": 0.57,
+            "avg30": 0.58,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 4.02,
+            "reverseHoloAvg30": 2.56
+          }
+        }
+      },
+      {
+        "id": "sm2-149",
+        "name": "Primarina-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Brionne",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bubble Beat",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 20 more damage times the amount of Water Energy attached to your Pokémon."
+          },
+          {
+            "name": "Roaring Seas",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Grand Echo-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Heal all damage from all of your Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "149",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          730
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/149.png",
+          "large": "https://images.pokemontcg.io/sm2/149_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-149",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.55,
+              "mid": 28.0,
+              "high": 52.0,
+              "market": 24.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-149",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 12.48,
+            "lowPrice": 4.9,
+            "trendPrice": 15.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.16,
+            "lowPriceExPlus": 8.95,
+            "avg1": 14.99,
+            "avg7": 16.83,
+            "avg30": 14.25,
+            "reverseHoloAvg1": 13.5,
+            "reverseHoloAvg7": 12.7,
+            "reverseHoloAvg30": 12.62
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 5,
+    "totalCount": 5
+  }
+}

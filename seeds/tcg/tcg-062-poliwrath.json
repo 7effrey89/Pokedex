@@ -1,0 +1,2401 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:poliwrath"
+  },
+  "cache_key": "3ae49eb34d128ab1f2ce978c518e4b9f",
+  "cached_at": 1765895315.407273,
+  "response": {
+    "data": [
+      {
+        "id": "ex10-11",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Spiral Swirl",
+            "text": "If Poliwrath is your Active Pokémon and is Knocked Out by damage from an opponent's attack, the Attacking Pokémon is now Confused.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If the Defending Pokémon is a Darkness Pokémon or has Dark in its name, this attack does 40 damage plus 30 more damage."
+          },
+          {
+            "name": "Hyper Splash",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If the Defending Pokémon is a Stage 2 Evolved Pokémon, this attack does 60 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/11.png",
+          "large": "https://images.pokemontcg.io/ex10/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.71,
+              "mid": 29.99,
+              "high": 49.0,
+              "market": 21.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 31.99,
+              "mid": 43.55,
+              "high": 200.0,
+              "market": 35.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 12.46,
+            "lowPrice": 1.69,
+            "trendPrice": 9.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.87,
+            "reverseHoloLow": 1.99,
+            "reverseHoloTrend": 16.96,
+            "lowPriceExPlus": 4.5,
+            "avg1": 3.5,
+            "avg7": 11.03,
+            "avg30": 8.62,
+            "reverseHoloAvg1": 5.9,
+            "reverseHoloAvg7": 11.42,
+            "reverseHoloAvg30": 13.98
+          }
+        }
+      },
+      {
+        "id": "base1-13",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "48",
+        "hp": "90",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Water Gun",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Water Energy attached to Poliwrath but not used to pay for this attack's Energy cost. Extra Water Energy after the 2nd doesn't count."
+          },
+          {
+            "name": "Whirlpool",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "If the Defending Pokémon has any Energy cards attached to it, choose 1 of them and discard it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base1",
+          "name": "Base",
+          "series": "Base",
+          "printedTotal": 102,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BS",
+          "releaseDate": "1999/01/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+            "logo": "https://images.pokemontcg.io/base1/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "An adept swimmer at both the front crawl and breaststroke. Easily overtakes the best human swimmers.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base1/13.png",
+          "large": "https://images.pokemontcg.io/base1/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.4,
+              "mid": 15.99,
+              "high": 39.99,
+              "market": 19.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 25.87,
+            "lowPrice": 4.0,
+            "trendPrice": 39.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.78,
+            "lowPriceExPlus": 14.99,
+            "avg1": 38.74,
+            "avg7": 38.64,
+            "avg30": 29.36,
+            "reverseHoloAvg1": 8.96,
+            "reverseHoloAvg7": 22.07,
+            "reverseHoloAvg30": 19.08
+          }
+        }
+      },
+      {
+        "id": "base4-15",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "48",
+        "hp": "90",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Water Gun",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Water Energy attached to Poliwrath but not used to pay for this attack's Energy cost. You can't add more than 20 damage in this way."
+          },
+          {
+            "name": "Whirlpool",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "If the Defending Pokémon has any Energy cards attached to it, choose 1 of them and discard it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "An adept swimmer at both the front crawl and breaststroke. Easily overtakes the best human swimmers.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/15.png",
+          "large": "https://images.pokemontcg.io/base4/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.89,
+              "mid": 11.67,
+              "high": 178.0,
+              "market": 12.34,
+              "directLow": 12.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.87,
+            "lowPrice": 2.95,
+            "trendPrice": 9.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.54,
+            "lowPriceExPlus": 8.0,
+            "avg1": 3.99,
+            "avg7": 10.92,
+            "avg30": 9.6,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 8.8,
+            "reverseHoloAvg30": 8.75
+          }
+        }
+      },
+      {
+        "id": "ex6-11",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Spiral",
+            "text": "As long as Poliwrath is your Active Pokémon, your opponent's Confused Pokémon can't retreat.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Split Spiral Punch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Mega Throw",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If the Defending Pokémon is Pokémon-ex, this attack does 50 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/11.png",
+          "large": "https://images.pokemontcg.io/ex6/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.34,
+              "mid": 21.94,
+              "high": 99.99,
+              "market": 20.92,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 26.32,
+              "mid": 28.49,
+              "high": 29.99,
+              "market": 25.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 2.0,
+            "trendPrice": 6.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.83,
+            "reverseHoloLow": 2.49,
+            "reverseHoloTrend": 8.23,
+            "lowPriceExPlus": 5.0,
+            "avg1": 7.99,
+            "avg7": 6.85,
+            "avg30": 9.55,
+            "reverseHoloAvg1": 4.9,
+            "reverseHoloAvg7": 6.93,
+            "reverseHoloAvg30": 7.77
+          }
+        }
+      },
+      {
+        "id": "neo2-9",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Corkscrew Punch",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Poliwrath does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare Holo",
+        "flavorText": "Although an energetic, skilled swimmer that uses all of its muscles, it lives on dry land.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/9.png",
+          "large": "https://images.pokemontcg.io/neo2/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 63.69,
+              "mid": 69.37,
+              "high": 74.97,
+              "market": 48.29,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 17.81,
+              "mid": 23.05,
+              "high": 50.0,
+              "market": 24.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 70.93,
+            "lowPrice": 3.85,
+            "trendPrice": 64.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.81,
+            "lowPriceExPlus": 12.0,
+            "avg1": 24.0,
+            "avg7": 21.92,
+            "avg30": 43.68,
+            "reverseHoloAvg1": 25.0,
+            "reverseHoloAvg7": 8.37,
+            "reverseHoloAvg30": 11.08
+          }
+        }
+      },
+      {
+        "id": "hgss2-21",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Steamroll",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dynamic Punch",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "Flip a coin. If heads, this attack does 60 damage plus 40 more damage and the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "Although an energetic, skilled swimmer that uses all of its muscles, it lives on dry land.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/21.png",
+          "large": "https://images.pokemontcg.io/hgss2/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.77,
+              "mid": 1.09,
+              "high": 1.77,
+              "market": 1.37,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.99,
+              "mid": 6.74,
+              "high": 19.99,
+              "market": 9.52,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.73,
+            "lowPrice": 0.05,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.69,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 3.4,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.9,
+            "avg7": 0.66,
+            "avg30": 1.11,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 4.34,
+            "reverseHoloAvg30": 2.79
+          }
+        }
+      },
+      {
+        "id": "xy3-17",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Steamroll",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "This attack does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "This Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "With its extremely tough muscles, it can keep swimming in the Pacific Ocean without resting.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/17.png",
+          "large": "https://images.pokemontcg.io/xy3/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 1.25,
+              "high": 3.0,
+              "market": 1.27,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.35,
+              "mid": 0.99,
+              "high": 9.49,
+              "market": 0.79,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.75,
+            "lowPrice": 0.2,
+            "trendPrice": 1.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 3.43,
+            "lowPriceExPlus": 0.79,
+            "avg1": 1.99,
+            "avg7": 1.59,
+            "avg30": 1.48,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 3.36,
+            "reverseHoloAvg30": 2.28
+          }
+        }
+      },
+      {
+        "id": "ecard3-H24",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Strange Spiral",
+            "text": "Once during your turn (before your attack), if Poliwrath is your Active Pokémon, you may discard a basic Energy card attached to Poliwrath. If you do, the Defending Pokémon is now Confused. This power can't be used if Poliwrath is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spiral Punch",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin until you get tails. This attack does 40 damage plus 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "H24",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/H24.png",
+          "large": "https://images.pokemontcg.io/ecard3/H24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-H24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 170.0,
+              "mid": 258.75,
+              "high": 299.0,
+              "market": 213.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-H24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 232.28,
+            "lowPrice": 13.7,
+            "trendPrice": 168.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 40.82,
+            "lowPriceExPlus": 88.49,
+            "avg1": 70.0,
+            "avg7": 182.34,
+            "avg30": 109.71,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 38.73,
+            "reverseHoloAvg30": 31.07
+          }
+        }
+      },
+      {
+        "id": "gym1-31",
+        "name": "Misty's Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "43",
+        "hp": "90",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Misty's Poliwhirl",
+        "attacks": [
+          {
+            "name": "Water Ring",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "30",
+            "text": "Does 10 damage to each Pokémon that isn't Water on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "gym1",
+          "name": "Gym Heroes",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G1",
+          "releaseDate": "2000/08/14",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym1/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym1/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym1/31.png",
+          "large": "https://images.pokemontcg.io/gym1/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym1-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 15.0,
+              "mid": 24.0,
+              "high": 50.0,
+              "market": 24.63,
+              "directLow": 24.91
+            },
+            "unlimited": {
+              "low": 8.78,
+              "mid": 10.45,
+              "high": 16.75,
+              "market": 11.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym1-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.77,
+            "lowPrice": 3.5,
+            "trendPrice": 12.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.5,
+            "lowPriceExPlus": 9.9,
+            "avg1": 10.0,
+            "avg7": 10.15,
+            "avg30": 10.31,
+            "reverseHoloAvg1": 4.5,
+            "reverseHoloAvg7": 4.5,
+            "reverseHoloAvg30": 4.5
+          }
+        }
+      },
+      {
+        "id": "xy12-25",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "48",
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Dashing Punch",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50+",
+            "text": "If this Pokémon was on the Bench and became your Active Pokémon this turn, this attack does 50 more damage."
+          },
+          {
+            "name": "Whirlpool",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Discard an Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "An adept swimmer, it knows the front crawl, butterfly, and more. It is faster than the best human swimmers.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/25.png",
+          "large": "https://images.pokemontcg.io/xy12/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 2.5,
+              "high": 19.95,
+              "market": 2.6,
+              "directLow": 1.49
+            },
+            "reverseHolofoil": {
+              "low": 1.25,
+              "mid": 2.49,
+              "high": 14.95,
+              "market": 2.5,
+              "directLow": 2.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.17,
+            "lowPrice": 0.5,
+            "trendPrice": 3.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.73,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 2.62,
+            "lowPriceExPlus": 1.5,
+            "avg1": 2.94,
+            "avg7": 3.76,
+            "avg30": 5.04,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 2.59,
+            "reverseHoloAvg30": 2.9
+          }
+        }
+      },
+      {
+        "id": "ecard1-24",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Plunge",
+            "text": "Once during your turn (before your attack), if Poliwrath is on your Bench, you may flip a coin. If heads, take all Energy cards attached to your Active Pokémon, if any, and attach them to Poliwrath. Then switch Poliwrath with your Active Pokémon.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Water Punch",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "Flip a number of coins equal to the amount of Water Energy attached to Poliwrath. This attack does 40 damage plus 10 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Yuka Morii",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/24.png",
+          "large": "https://images.pokemontcg.io/ecard1/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 44.66,
+              "mid": 78.53,
+              "high": 99.99,
+              "market": 64.11,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 31.79,
+              "mid": 38.99,
+              "high": 40.0,
+              "market": 42.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.47,
+            "lowPrice": 4.0,
+            "trendPrice": 11.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.99,
+            "reverseHoloLow": 4.0,
+            "reverseHoloTrend": 10.55,
+            "lowPriceExPlus": 13.0,
+            "avg1": 16.9,
+            "avg7": 10.29,
+            "avg30": 15.9,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 13.27,
+            "reverseHoloAvg30": 11.57
+          }
+        }
+      },
+      {
+        "id": "sm1-32",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Split Spiral Punch",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Wake-Up Slap",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon is affected by a Special Condition, this attack does 80 more damage. Then, remove all Special Conditions from that Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Midori Harada",
+        "rarity": "Rare Holo",
+        "flavorText": "Its percentage of body fat is nearly zero. Its body is entirely muscle, which makes it heavy and forces its swimming prowess to develop.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/32.png",
+          "large": "https://images.pokemontcg.io/sm1/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.23,
+              "mid": 0.63,
+              "high": 3.5,
+              "market": 0.66,
+              "directLow": 0.4
+            },
+            "reverseHolofoil": {
+              "low": 0.23,
+              "mid": 0.59,
+              "high": 5.0,
+              "market": 0.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.92,
+            "lowPrice": 0.2,
+            "trendPrice": 0.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.35,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.63,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.25,
+            "avg7": 0.98,
+            "avg30": 0.93,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 1.46,
+            "reverseHoloAvg30": 1.17
+          }
+        }
+      },
+      {
+        "id": "neo2-28",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Corkscrew Punch",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Poliwrath does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo2",
+          "name": "Neo Discovery",
+          "series": "Neo",
+          "printedTotal": 75,
+          "total": 75,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N2",
+          "releaseDate": "2001/06/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo2/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo2/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare",
+        "flavorText": "Although an energetic, skilled swimmer that uses all of its muscles, it lives on dry land.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo2/28.png",
+          "large": "https://images.pokemontcg.io/neo2/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 8.04,
+              "mid": 13.29,
+              "high": 124.0,
+              "market": 10.08,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 3.09,
+              "mid": 4.0,
+              "high": 5.0,
+              "market": 4.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.27,
+            "lowPrice": 0.5,
+            "trendPrice": 4.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.81,
+            "lowPriceExPlus": 3.5,
+            "avg1": 2.5,
+            "avg7": 5.14,
+            "avg30": 5.44,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 5.81,
+            "reverseHoloAvg30": 3.54
+          }
+        }
+      },
+      {
+        "id": "dp6-35",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "46",
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Focus Punch",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "If Poliwrath was damaged by an attack during your opponent's last turn, this attack does nothing."
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Poliwrath does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "With extremely tough muscles, it can keep swimming in the Pacific Ocean without resting.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/35.png",
+          "large": "https://images.pokemontcg.io/dp6/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.66,
+              "mid": 1.5,
+              "high": 2.51,
+              "market": 1.68,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.49,
+              "mid": 4.75,
+              "high": 39.95,
+              "market": 4.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.55,
+            "lowPrice": 0.1,
+            "trendPrice": 1.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.9,
+            "reverseHoloLow": 0.6,
+            "reverseHoloTrend": 3.03,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.25,
+            "avg7": 1.51,
+            "avg30": 1.41,
+            "reverseHoloAvg1": 1.65,
+            "reverseHoloAvg7": 3.26,
+            "reverseHoloAvg30": 2.27
+          }
+        }
+      },
+      {
+        "id": "sm10-39",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Knuckle Punch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Swirly Rush",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If Poliwag and Poliwhirl are on your Bench, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Akira Komayama",
+        "rarity": "Rare",
+        "flavorText": "It's quite a gifted swimmer, even among Water-type Pokémon, but it normally spends its time on land.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/39.png",
+          "large": "https://images.pokemontcg.io/sm10/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.21,
+              "mid": 0.52,
+              "high": 4.0,
+              "market": 0.52,
+              "directLow": 0.26
+            },
+            "reverseHolofoil": {
+              "low": 0.23,
+              "mid": 0.74,
+              "high": 10.0,
+              "market": 0.73,
+              "directLow": 0.96
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.95,
+            "lowPrice": 0.08,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.61,
+            "reverseHoloLow": 0.7,
+            "reverseHoloTrend": 1.57,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.99,
+            "avg7": 0.79,
+            "avg30": 0.73,
+            "reverseHoloAvg1": 1.45,
+            "reverseHoloAvg7": 1.4,
+            "reverseHoloAvg30": 1.24
+          }
+        }
+      },
+      {
+        "id": "ecard3-26",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Strange Spiral",
+            "text": "Once during your turn (before your attack), if Poliwrath is your Active Pokémon, you may discard a basic Energy card attached to Poliwrath. If you do, the Defending Pokémon is now Confused. This power can't be used if Poliwrath is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spiral Punch",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin until you get tails. This attack does 40 damage plus 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/26.png",
+          "large": "https://images.pokemontcg.io/ecard3/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 15.36,
+              "mid": 47.73,
+              "high": 80.24,
+              "market": 54.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 63.99,
+              "mid": 105.0,
+              "high": 107.99,
+              "market": 84.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 12.66,
+            "lowPrice": 2.5,
+            "trendPrice": 15.8,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 75.0,
+            "reverseHoloLow": 2.98,
+            "reverseHoloTrend": 60.01,
+            "lowPriceExPlus": 10.0,
+            "avg1": 3.0,
+            "avg7": 13.28,
+            "avg30": 13.24,
+            "reverseHoloAvg1": 25.0,
+            "reverseHoloAvg7": 69.78,
+            "reverseHoloAvg30": 33.26
+          }
+        }
+      },
+      {
+        "id": "ecard1-60",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "abilities": [
+          {
+            "name": "Plunge",
+            "text": "Once during your turn (before your attack), if Poliwrath is on your Bench, you may flip a coin. If heads, take all Energy cards attached to your Active Pokémon, if any, and attach them to Poliwrath. Then switch Poliwrath with your Active Pokémon.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Water Punch",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "Flip a number of coins equal to the amount of Water Energy attached to Poliwrath. This attack does 40 damage plus 10 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "60",
+        "artist": "Yuka Morii",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/60.png",
+          "large": "https://images.pokemontcg.io/ecard1/60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 19.0,
+              "mid": 20.1,
+              "high": 50.0,
+              "market": 20.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 49.0,
+              "mid": 49.0,
+              "high": 49.0,
+              "market": 23.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.23,
+            "lowPrice": 0.5,
+            "trendPrice": 4.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.75,
+            "reverseHoloLow": 1.49,
+            "reverseHoloTrend": 7.79,
+            "lowPriceExPlus": 2.3,
+            "avg1": 2.99,
+            "avg7": 2.27,
+            "avg30": 5.26,
+            "reverseHoloAvg1": 7.99,
+            "reverseHoloAvg7": 9.83,
+            "reverseHoloAvg30": 6.31
+          }
+        }
+      },
+      {
+        "id": "swsh11-85",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Split Spiral Punch",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Splash Loop",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Put 2 Energy attached to this Pokémon into your hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "85",
+        "artist": "Teeziro",
+        "rarity": "Rare",
+        "flavorText": "Its body is solid muscle. When swimming through cold seas, Poliwrath uses its impressive arms to smash through drift ice and plow forward.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/85.png",
+          "large": "https://images.pokemontcg.io/swsh11/85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.0,
+              "market": 0.13,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.16,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-85",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.23,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.37,
+            "avg7": 0.14,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.23,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-62",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Bubble Beam",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Heroic Punch",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "Flip a coin. If heads, this attack does 150 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "62",
+        "artist": "Kurata So",
+        "rarity": "Uncommon",
+        "flavorText": "Poliwrath is skilled at both swimming and martial arts. It uses its well-trained arms to dish out powerful punches.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/62.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 2.01,
+              "market": 0.09,
+              "directLow": 0.06
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 25.0,
+              "market": 0.18,
+              "directLow": 0.18
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-62",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.06,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "sv6-43",
+        "name": "Poliwrath",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Poliwhirl",
+        "attacks": [
+          {
+            "name": "Hypnosis",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Jumping Uppercut",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120+",
+            "text": "You may do 120 more damage. If you do, shuffle this Pokémon and all attached cards into your deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "43",
+        "artist": "Nisota Niso",
+        "rarity": "Uncommon",
+        "flavorText": "It can use its well-developed arms and legs to run on the surface of the water for a split second.",
+        "nationalPokedexNumbers": [
+          62
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/43.png",
+          "large": "https://images.pokemontcg.io/sv6/43_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.06,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.14,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-43",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.12
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 20,
+    "totalCount": 20
+  }
+}

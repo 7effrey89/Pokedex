@@ -1,0 +1,1604 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:walrein"
+  },
+  "cache_key": "dc0027d2813a3ab04e0eed39c8a6ac59",
+  "cached_at": 1765915569.142698,
+  "response": {
+    "data": [
+      {
+        "id": "ex4-6",
+        "name": "Team Aqua's Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Water",
+          "Darkness"
+        ],
+        "evolvesFrom": "Team Aqua's Sealeo",
+        "rules": [
+          "This Pokémon is both Water Darkness type."
+        ],
+        "attacks": [
+          {
+            "name": "Power Blow",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each Energy attached to Team Aqua's Walrein."
+          },
+          {
+            "name": "Hydro Reverse",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50+",
+            "text": "You may return any number of basic Water Energy cards attached to all of your Pokémon to your hand. If you do, this attack does 50 damage plus 10 more damage for each Energy you returned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          },
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Ken Ikuji",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/6.png",
+          "large": "https://images.pokemontcg.io/ex4/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.88,
+              "mid": 5.99,
+              "high": 11.09,
+              "market": 6.78,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.88,
+              "mid": 7.98,
+              "high": 14.4,
+              "market": 14.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.65,
+            "lowPrice": 0.5,
+            "trendPrice": 4.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.59,
+            "reverseHoloLow": 0.85,
+            "reverseHoloTrend": 6.49,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.28,
+            "avg7": 3.62,
+            "avg30": 3.45,
+            "reverseHoloAvg1": 2.97,
+            "reverseHoloAvg7": 4.05,
+            "reverseHoloAvg30": 5.87
+          }
+        }
+      },
+      {
+        "id": "dc1-5",
+        "name": "Team Aqua's Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Team Aqua's Sealeo",
+        "attacks": [
+          {
+            "name": "Power Blow",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage times the amount of Energy attached to this Pokémon."
+          },
+          {
+            "name": "Dual Blizzard",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 Water Energy attached to this Pokémon. This attack does 80 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dc1",
+          "name": "Double Crisis",
+          "series": "XY",
+          "printedTotal": 34,
+          "total": 34,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DCR",
+          "releaseDate": "2015/03/25",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dc1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dc1/logo.png"
+          }
+        },
+        "number": "5",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare Holo",
+        "flavorText": "It's good at attacks that freeze opponents with a powerful cold snap. Then, it pulverizes a frozen foe with its sharp tusks!",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dc1/5.png",
+          "large": "https://images.pokemontcg.io/dc1/5_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dc1-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.93,
+              "mid": 1.52,
+              "high": 4.99,
+              "market": 2.5,
+              "directLow": 2.97
+            },
+            "reverseHolofoil": {
+              "low": 2.99,
+              "mid": 3.21,
+              "high": 9.99,
+              "market": 5.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dc1-5",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.44,
+            "lowPrice": 1.2,
+            "trendPrice": 3.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.38,
+            "reverseHoloTrend": 8.11,
+            "lowPriceExPlus": 1.99,
+            "avg1": 4.48,
+            "avg7": 3.55,
+            "avg30": 3.47,
+            "reverseHoloAvg1": 14.9,
+            "reverseHoloAvg7": 7.99,
+            "reverseHoloAvg30": 5.63
+          }
+        }
+      },
+      {
+        "id": "ex5-15",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "abilities": [
+          {
+            "name": "Crush Draw",
+            "text": "Once during your turn (before your attack), you may reveal the top card of your deck. If that card is a basic Energy card, attach it to 1 of your Pokémon. If not, put the card back on your deck. This power can't be used if Walrein is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sheer Cold",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If heads, each Defending Pokémon can't attack during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/15.png",
+          "large": "https://images.pokemontcg.io/ex5/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.35,
+              "mid": 12.5,
+              "high": 19.99,
+              "market": 9.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 11.29,
+              "mid": 19.84,
+              "high": 49.99,
+              "market": 18.42,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.98,
+            "lowPrice": 1.5,
+            "trendPrice": 3.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.0,
+            "reverseHoloLow": 1.99,
+            "reverseHoloTrend": 7.3,
+            "lowPriceExPlus": 3.0,
+            "avg1": 8.0,
+            "avg7": 4.76,
+            "avg30": 4.04,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 4.22,
+            "reverseHoloAvg30": 5.91
+          }
+        }
+      },
+      {
+        "id": "xy2-26",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Powder Snow",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Big Tusk",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120-",
+            "text": "This attack does 120 damage minus 10 damage for each damage counter on this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy2",
+          "name": "Flashfire",
+          "series": "XY",
+          "printedTotal": 106,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLF",
+          "releaseDate": "2014/05/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy2/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Naoki Saito",
+        "rarity": "Rare",
+        "flavorText": "It shatters ice with its big tusks. Its thick blubber repels not only the cold, but also enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy2/26.png",
+          "large": "https://images.pokemontcg.io/xy2/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.44,
+              "high": 4.0,
+              "market": 0.44,
+              "directLow": 0.5
+            },
+            "reverseHolofoil": {
+              "low": 0.44,
+              "mid": 0.81,
+              "high": 4.0,
+              "market": 0.69,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy2-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.58,
+            "lowPrice": 0.02,
+            "trendPrice": 0.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.56,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.63,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.56,
+            "avg30": 0.4,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 0.75,
+            "reverseHoloAvg30": 1.06
+          }
+        }
+      },
+      {
+        "id": "bw6-31",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Aurora Beam",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          },
+          {
+            "name": "Ice Entomb",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "The Defending Pokémon is now Paralyzed. This Pokémon can't use Ice Entomb during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "It shatters ice with its big tusks. Its thick blubber repels not only the cold, but also enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/31.png",
+          "large": "https://images.pokemontcg.io/bw6/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.5,
+              "high": 1.61,
+              "market": 0.53,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 0.73,
+              "high": 2.99,
+              "market": 0.8,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.42,
+            "lowPrice": 0.02,
+            "trendPrice": 0.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.16,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.25,
+            "avg7": 0.43,
+            "avg30": 0.42,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 1.21,
+            "reverseHoloAvg30": 1.19
+          }
+        }
+      },
+      {
+        "id": "pl2-36",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "59",
+        "hp": "140",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "abilities": [
+          {
+            "name": "Gather Ice",
+            "text": "Once during your turn (before your attack), when you play Walrein from your hand to evolve 1 of your Pokémon, you may attach as many Water Energy cards from your hand to Walrein as you like.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cold Crush",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Discard an Energy card attached to Walrein and then discard an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "36",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "It shatters ice with its big tusks. Its thick blubber repels not only the cold, but also enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/36.png",
+          "large": "https://images.pokemontcg.io/pl2/36_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.5,
+              "mid": 1.31,
+              "high": 29.97,
+              "market": 1.63,
+              "directLow": 29.97
+            },
+            "reverseHolofoil": {
+              "low": 0.82,
+              "mid": 2.24,
+              "high": 3.0,
+              "market": 2.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.95,
+            "lowPrice": 0.06,
+            "trendPrice": 1.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.94,
+            "reverseHoloLow": 0.49,
+            "reverseHoloTrend": 1.4,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.95,
+            "avg7": 1.15,
+            "avg30": 1.02,
+            "reverseHoloAvg1": 1.94,
+            "reverseHoloAvg7": 1.41,
+            "reverseHoloAvg30": 1.49
+          }
+        }
+      },
+      {
+        "id": "dp2-39",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "51",
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "abilities": [
+          {
+            "name": "Freeze-up",
+            "text": "Once during your turn, when you play Walrein from your hand to evolve 1 of your Pokémon, you may flip 2 coins. If both are heads, discard 1 of the Defending Pokémon and all cards attached to it. (This doesn't count as a Knocked Out Pokémon.)",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ice Bind",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "If your opponent doesn't discard a card from his or her hand, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "It shatters ice with its big tusks. Its thick blubber repels not only the cold, but also enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/39.png",
+          "large": "https://images.pokemontcg.io/dp2/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.26,
+              "mid": 0.5,
+              "high": 5.29,
+              "market": 0.64,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.78,
+              "mid": 1.0,
+              "high": 3.67,
+              "market": 1.36,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.54,
+            "lowPrice": 0.04,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.52,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.6,
+            "avg7": 0.31,
+            "avg30": 0.79,
+            "reverseHoloAvg1": 0.25,
+            "reverseHoloAvg7": 0.94,
+            "reverseHoloAvg30": 1.18
+          }
+        }
+      },
+      {
+        "id": "xy5-48",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Knock Over",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "You may discard any Stadium card in play."
+          },
+          {
+            "name": "Frozen Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70+",
+            "text": "If your opponent's Active Pokémon is a Fighting Pokémon, this attack does 70 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare",
+        "flavorText": "It shatters drift ice with its strong tusks. Its thick layer of blubber repels enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/48.png",
+          "large": "https://images.pokemontcg.io/xy5/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.3,
+              "high": 2.7,
+              "market": 0.28,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.52,
+              "high": 2.53,
+              "market": 0.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.6,
+            "lowPrice": 0.02,
+            "trendPrice": 0.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.33,
+            "reverseHoloLow": 0.45,
+            "reverseHoloTrend": 1.19,
+            "lowPriceExPlus": 0.07,
+            "avg1": 0.69,
+            "avg7": 0.52,
+            "avg30": 0.39,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.03,
+            "reverseHoloAvg30": 1.16
+          }
+        }
+      },
+      {
+        "id": "sm12-52",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Cold Snap",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "Your opponent can't play any Trainer cards from their hand during their next turn. If 1 of your Pokémon used Cold Snap during your last turn, this attack can't be used."
+          },
+          {
+            "name": "Blizzard",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "This attack does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare",
+        "flavorText": "It shatters ice with its big tusks. Its thick blubber repels not only the cold, but also enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/52.png",
+          "large": "https://images.pokemontcg.io/sm12/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.28,
+              "high": 10.0,
+              "market": 0.25,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.6,
+              "high": 2.99,
+              "market": 0.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.4,
+            "lowPrice": 0.09,
+            "trendPrice": 0.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.23,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.83,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.1,
+            "avg7": 0.52,
+            "avg30": 0.37,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.91,
+            "reverseHoloAvg30": 0.89
+          }
+        }
+      },
+      {
+        "id": "ex12-89",
+        "name": "Walrein ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Icy Aura",
+            "text": "As long as Walrein ex is your Active Pokémon, put 1 damage counter on each Active Pokémon (both yours and your opponent's) between turns, excluding Water Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Water Arrow",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 40 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Ice Throw",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "If the Defending Pokémon is a Fighting Pokémon, this attack's base damage is 120 instead of 80."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          },
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex12",
+          "name": "Legend Maker",
+          "series": "EX",
+          "printedTotal": 92,
+          "total": 93,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LM",
+          "releaseDate": "2006/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex12/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex12/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex12/89.png",
+          "large": "https://images.pokemontcg.io/ex12/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex12-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 50.28,
+              "mid": 57.46,
+              "high": 64.64,
+              "market": 57.36,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex12-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 29.93,
+            "lowPrice": 7.5,
+            "trendPrice": 31.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.25,
+            "lowPriceExPlus": 36.5,
+            "avg1": 19.87,
+            "avg7": 29.89,
+            "avg30": 31.57,
+            "reverseHoloAvg1": 45.0,
+            "reverseHoloAvg7": 17.94,
+            "reverseHoloAvg30": 12.37
+          }
+        }
+      },
+      {
+        "id": "ex16-99",
+        "name": "Walrein ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Chilling Breath",
+            "text": "Once during your turn, when you play Walrein ex from your hand to evolve 1 of your Pokémon, you may use this power. Your opponent can't play any Trainer cards from his or her hand during your opponent's next turn.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wreck",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70+",
+            "text": "If there is any Stadium card in play, this attack does 70 damage plus 20 more damage. Discard that Stadium card."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "99",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/99.png",
+          "large": "https://images.pokemontcg.io/ex16/99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 28.99,
+              "mid": 45.26,
+              "high": 81.0,
+              "market": 37.28,
+              "directLow": 34.88
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 17.76,
+            "lowPrice": 4.5,
+            "trendPrice": 13.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 25.62,
+            "lowPriceExPlus": 19.98,
+            "avg1": 19.99,
+            "avg7": 16.7,
+            "avg30": 21.86,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 23.12,
+            "reverseHoloAvg30": 18.55
+          }
+        }
+      },
+      {
+        "id": "swsh6-39",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Aurora Beam",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Hail Prison",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Discard 2 Energy from this Pokémon. Your opponent's Active Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "KEIICHIRO ITO",
+        "rarity": "Rare",
+        "flavorText": "It shatters drift ice with its strong tusks. Its thick layer of blubber repels enemy attacks.",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/39.png",
+          "large": "https://images.pokemontcg.io/swsh6/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.13,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.14,
+            "lowPrice": 0.02,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.33,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.12,
+            "avg30": 0.14,
+            "reverseHoloAvg1": 0.38,
+            "reverseHoloAvg7": 0.41,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "sv8-45",
+        "name": "Walrein",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "170",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Sealeo",
+        "attacks": [
+          {
+            "name": "Frigid Fangs",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "During your opponent's next turn, Pokémon that have 2 or less Energy attached can't attack. (This includes new Pokémon that come into play.)"
+          },
+          {
+            "name": "Megaton Fall",
+            "cost": [
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "170",
+            "text": "This Pokémon also does 50 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "45",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          365
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/45.png",
+          "large": "https://images.pokemontcg.io/sv8/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 23.0,
+              "market": 0.05,
+              "directLow": 0.04
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 420.69,
+              "market": 0.19,
+              "directLow": 0.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.16,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.18,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 13,
+    "totalCount": 13
+  }
+}

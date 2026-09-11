@@ -6,6 +6,7 @@ This package contains Flask route blueprints organized by feature:
 - realtime_routes.py - Realtime voice API endpoints
 - tool_routes.py - Tool management endpoints
 - cache_routes.py - Cache management endpoints
+- admin_routes.py - Administrator data management endpoints
 - face_routes.py - Face recognition endpoints
 """
 
@@ -16,6 +17,8 @@ from .cache_routes import cache_bp
 from .face_routes import face_bp
 from .pokeapi_routes import pokeapi_bp
 from .tcg_image_routes import tcg_image_bp
+from .admin_routes import admin_bp
+from .account_routes import account_bp
 
 __all__ = [
     'chat_bp',
@@ -24,5 +27,7 @@ __all__ = [
     'cache_bp',
     'face_bp',
     'pokeapi_bp',
-    'tcg_image_bp'
+    'tcg_image_bp',
+    'admin_bp',
+    'account_bp'
 ]

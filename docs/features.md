@@ -63,7 +63,8 @@ All implemented features, categorized. Every new feature must be added here.
 | Scanner Pipeline Debug View | Toggleable responsive trace with stages, timings, crop and LLM evidence, raw query descriptors, candidate metadata and score components, judge request context, and per-candidate reasoning | N/A |
 | TCG Image Index Pipeline | Resumable Step 04 script caches unique official card images and generates a versioned 1,432-dimensional NumPy matrix, aligned card mapping, manifest, and failure report | N/A |
 | Tyrantrum Embedding POC | Standalone browser POC linked from Image Scanner, with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
-| Face Recognition | Identify people via camera | ❌ |
+| Face Recognition | Identify account members in real time via camera and precomputed SQLite embeddings | ❌ |
+| User Accounts & Multi-Member Profiles | SQLite-backed user accounts supporting email/password registration, multiple members with custom names, avatar photos, camera face enrollment, and active member switching | ❌ |
 
 ## Caching & Performance
 
@@ -73,7 +74,13 @@ All implemented features, categorized. Every new feature must be added here.
 | PokeAPI Proxy | All PokeAPI calls proxied through Flask for local caching | N/A |
 | TCG Cache | Card data cached with 7-day TTL, stale data served while refreshing | N/A |
 | Cache Management API | Enable/disable cache, set TTL, clear/invalidate entries | ❌ |
+| SQLite Data Source Foundation | Versioned normalized schema, readiness checks, and guarded JSON/SQLite source selection | N/A |
+| SQLite Hydration Pipeline | Atomic step-05 importer normalizes wrapped Pokemon/species/forms and deduplicated TCG sets/cards/latest prices; selected SQLite mode reads TCG sets/cards and serves registered local card images | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
+| Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |
+| SQLite-Backed Metadata Lookup | Pokemon search/dex metadata is built from indexed SQLite queries (not a legacy cache-file scan) whenever SQLite mode is active | N/A |
+| Admin: Scan for New Content | Diffs the live PokeAPI species list and TCG API set/card totals against the local catalog to report new Pokemon, new TCG sets, and sets with newly released cards | ❌ |
+| Admin: Add New Content | Inserts only the missing Pokemon species/forms or TCG sets/cards discovered by the scan, reusing the importer's normalization so new rows match the existing schema | ❌ |
 
 ## UI/UX
 

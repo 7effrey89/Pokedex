@@ -1,0 +1,986 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:slurpuff"
+  },
+  "cache_key": "32e85892708bc6b3f25124c566e42211",
+  "cached_at": 1765915985.279637,
+  "response": {
+    "data": [
+      {
+        "id": "xyp-XY15",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Cotton Guard",
+            "cost": [
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 30 (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Sleepy Ball",
+            "cost": [
+              "Fairy",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY15",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Promo",
+        "flavorText": "It can distinguish the faintest of scents. It puts its sensitive sense of smell to use by helping pastry chefs in their work.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY15.png",
+          "large": "https://images.pokemontcg.io/xyp/XY15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.43,
+              "mid": 0.68,
+              "high": 6.0,
+              "market": 0.63,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.61,
+            "lowPrice": 0.3,
+            "trendPrice": 0.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.08,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.95,
+            "avg7": 1.05,
+            "avg30": 1.1,
+            "reverseHoloAvg1": 0.93,
+            "reverseHoloAvg7": 1.11,
+            "reverseHoloAvg30": 0.92
+          }
+        }
+      },
+      {
+        "id": "xy4-69",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Swirlix",
+        "abilities": [
+          {
+            "name": "Tasting",
+            "text": "Once during your turn (before your attack), you may draw a card. If this Pokémon is your Active Pokémon, draw 1 more card.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Light Pulse",
+            "cost": [
+              "Fairy",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Prevent all effects of your opponent's attacks, except damage, done to this Pokémon during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "sui",
+        "rarity": "Rare Holo",
+        "flavorText": "It can distinguish the faintest of scents. It puts its sensitive sense of smell to use by helping pastry chefs in their work.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/69.png",
+          "large": "https://images.pokemontcg.io/xy4/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.78,
+              "mid": 1.78,
+              "high": 4.94,
+              "market": 1.05,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.62,
+              "mid": 0.9,
+              "high": 1.18,
+              "market": 1.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-69",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.0,
+            "lowPrice": 0.3,
+            "trendPrice": 1.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.68,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.75,
+            "lowPriceExPlus": 0.85,
+            "avg1": 1.75,
+            "avg7": 1.66,
+            "avg30": 1.76,
+            "reverseHoloAvg1": 2.19,
+            "reverseHoloAvg7": 2.52,
+            "reverseHoloAvg30": 1.77
+          }
+        }
+      },
+      {
+        "id": "xy1-95",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Swirlix",
+        "abilities": [
+          {
+            "name": "Sweet Veil",
+            "text": "Each of your Pokémon that has any Fairy Energy attached to it can't be affected by any Special Conditions. (Remove any Special Conditions affecting those Pokémon.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Draining Kiss",
+            "cost": [
+              "Fairy",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo",
+        "flavorText": "It can distinguish the faintest of scents. It puts its sensitive sense of smell to use by helping pastry chefs in their work.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/95.png",
+          "large": "https://images.pokemontcg.io/xy1/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 0.97,
+              "high": 5.0,
+              "market": 0.97,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.29,
+              "mid": 0.81,
+              "high": 2.49,
+              "market": 0.77,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.05,
+            "trendPrice": 0.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.76,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.05,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.14,
+            "avg7": 0.32,
+            "avg30": 0.6,
+            "reverseHoloAvg1": 0.79,
+            "reverseHoloAvg7": 0.77,
+            "reverseHoloAvg30": 0.98
+          }
+        }
+      },
+      {
+        "id": "g1-RC20",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Lap Up",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 3 cards."
+          },
+          {
+            "name": "Fairy Wind",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "RC20",
+        "artist": "MAHOU",
+        "rarity": "Uncommon",
+        "flavorText": "The cakes Slurpuff makes always look just like that one Pokémon it likes.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/RC20.png",
+          "large": "https://images.pokemontcg.io/g1/RC20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-RC20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.7,
+              "mid": 3.0,
+              "high": 9.98,
+              "market": 3.6,
+              "directLow": 9.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-RC20",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.59,
+            "lowPrice": 0.2,
+            "trendPrice": 0.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.97,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.23,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.5,
+            "avg7": 0.88,
+            "avg30": 0.74,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.11,
+            "reverseHoloAvg30": 0.96
+          }
+        }
+      },
+      {
+        "id": "sm12-154",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Fairy"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Olfactory Enchantment",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Sweet Panic",
+            "cost": [
+              "Fairy"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "110",
+            "text": "If your opponent's Active Pokémon isn't Confused, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Darkness",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "154",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare",
+        "flavorText": "It can distinguish the faintest of scents. It puts its sensitive sense of smell to use by helping pastry chefs in their work.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/154.png",
+          "large": "https://images.pokemontcg.io/sm12/154_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-154",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.7,
+              "mid": 0.9,
+              "high": 3.99,
+              "market": 0.93,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.25,
+              "mid": 0.48,
+              "high": 10.0,
+              "market": 0.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-154",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.35,
+            "lowPrice": 0.04,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.13,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 0.7,
+            "lowPriceExPlus": 0.04,
+            "avg1": 0.1,
+            "avg7": 0.38,
+            "avg30": 0.34,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.79,
+            "reverseHoloAvg30": 0.7
+          }
+        }
+      },
+      {
+        "id": "swsh6-68",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Follow the Scent",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip 3 coins. Put a number of cards up to the number of heads from your discard pile into your hand."
+          },
+          {
+            "name": "Fairy Wind",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "Saya Tsuruta",
+        "rarity": "Rare",
+        "flavorText": "Slurpuff's fur contains a lot of air, making it soft to the touch and lighter than it looks.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/68.png",
+          "large": "https://images.pokemontcg.io/swsh6/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.2,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.24,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.33,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.28,
+            "avg7": 0.15,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 0.32,
+            "reverseHoloAvg30": 0.28
+          }
+        }
+      },
+      {
+        "id": "swsh12-84",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Draining Kiss",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Magical Shot",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "84",
+        "artist": "Mizue",
+        "rarity": "Uncommon",
+        "flavorText": "By taking in a person's scent, it can sniff out their mental and physical condition. It's hoped that this skill will have many medical applications.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/84.png",
+          "large": "https://images.pokemontcg.io/swsh12/84_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-84",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 2.44,
+              "market": 0.15,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-84",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.11,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.13
+          }
+        }
+      },
+      {
+        "id": "sv6-90",
+        "name": "Slurpuff",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Swirlix",
+        "attacks": [
+          {
+            "name": "Slurp Slurp",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90×",
+            "text": "Flip 2 coins. This attack does 90 damage for each heads. If both of them are tails,  your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Metal",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "mingo",
+        "rarity": "Uncommon",
+        "flavorText": "By taking in a person's scent, it can sniff out their mental and physical condition. It's hoped that this skill will have many medical applications.",
+        "nationalPokedexNumbers": [
+          685
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/90.png",
+          "large": "https://images.pokemontcg.io/sv6/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.21,
+              "high": 999.0,
+              "market": 0.19,
+              "directLow": 0.17
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.05,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.16,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.23,
+            "reverseHoloAvg7": 0.2,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

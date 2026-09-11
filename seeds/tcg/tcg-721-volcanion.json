@@ -1,0 +1,2464 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:volcanion"
+  },
+  "cache_key": "aec9e90712be7314e03dc630c2320e3d",
+  "cached_at": 1765916009.663487,
+  "response": {
+    "data": [
+      {
+        "id": "xy11-25",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Power Heater",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pokémon."
+          },
+          {
+            "name": "Steam Artillery",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/25.png",
+          "large": "https://images.pokemontcg.io/xy11/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.35,
+              "high": 2.47,
+              "market": 0.34,
+              "directLow": 0.22
+            },
+            "reverseHolofoil": {
+              "low": 0.21,
+              "mid": 0.47,
+              "high": 2.95,
+              "market": 0.45,
+              "directLow": 0.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.79,
+            "lowPrice": 0.5,
+            "trendPrice": 0.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.68,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.79,
+            "avg7": 0.78,
+            "avg30": 0.86,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 0.9,
+            "reverseHoloAvg30": 0.72
+          }
+        }
+      },
+      {
+        "id": "xy11-26",
+        "name": "Volcanion-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Fire",
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Steam Up",
+            "text": "Once during your turn (before your attack), you may discard a Fire Energy card from your hand. If you do, during this turn, your Basic Fire Pokémon's attacks do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Volcanic Heat",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/26.png",
+          "large": "https://images.pokemontcg.io/xy11/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.35,
+              "high": 15.0,
+              "market": 2.31,
+              "directLow": 3.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.9,
+            "lowPrice": 30.0,
+            "trendPrice": 14.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.0,
+            "avg1": 14.9,
+            "avg7": 9.63,
+            "avg30": 9.63,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sm10-25",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Flare Starter",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Fire Energy card and attach it to 1 of your Pokémon. If you go second and it's your first turn, instead search for up to 3 Fire Energy cards and attach them to your Pokémon in any way you like. Then, shuffle your deck."
+          },
+          {
+            "name": "High-Heat Blast",
+            "cost": [
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If you have at least 4 Fire Energy in play, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare Holo",
+        "flavorText": "It lets out billows of steam and disappears into the dense fog. It's said to live in mountains where humans do not tread.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/25.png",
+          "large": "https://images.pokemontcg.io/sm10/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.45,
+              "mid": 0.76,
+              "high": 10.0,
+              "market": 0.76,
+              "directLow": 0.65
+            },
+            "holofoil": {
+              "low": 0.35,
+              "mid": 0.66,
+              "high": 193.04,
+              "market": 0.57,
+              "directLow": 0.59
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.48,
+            "lowPrice": 0.1,
+            "trendPrice": 0.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.32,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.3,
+            "avg7": 0.5,
+            "avg30": 0.66,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.68,
+            "reverseHoloAvg30": 1.77
+          }
+        }
+      },
+      {
+        "id": "sm6-31",
+        "name": "Volcanion ◇",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Prism Star"
+        ],
+        "hp": "160",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "◇ (Prism Star) Rule: You can't have more than 1 ◇ card with the same name in your deck. If a ◇ card would go to the discard pile, put it in the Lost Zone instead."
+        ],
+        "abilities": [
+          {
+            "name": "Jet Geyser",
+            "text": "Once during your turn (before your attack), you may discard a Water Energy card from your hand. If you do, your opponent switches their Active Pokémon with 1 of their Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sauna Blast",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "This attack does 20 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Naoki Saito",
+        "rarity": "Rare Prism Star",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/31.png",
+          "large": "https://images.pokemontcg.io/sm6/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.45,
+              "mid": 2.57,
+              "high": 49.0,
+              "market": 2.5,
+              "directLow": 2.13
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.88,
+            "lowPrice": 0.5,
+            "trendPrice": 2.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.5,
+            "reverseHoloLow": 2.8,
+            "reverseHoloTrend": 2.7,
+            "lowPriceExPlus": 0.98,
+            "avg1": 0.99,
+            "avg7": 1.79,
+            "avg30": 2.43,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.51,
+            "reverseHoloAvg30": 3.38
+          }
+        }
+      },
+      {
+        "id": "sm35-27",
+        "name": "Shining Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "attacks": [
+          {
+            "name": "Dual Pump",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Quad Smash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50×",
+            "text": "Flip 4 coins. This attack does 50 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "27",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare Shining",
+        "flavorText": "It lets out billows of steam and disappears into the dense fog. It's said to live in mountains where humans do not tread.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/27.png",
+          "large": "https://images.pokemontcg.io/sm35/27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.56,
+              "mid": 7.12,
+              "high": 96.18,
+              "market": 7.07,
+              "directLow": 8.13
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.97,
+            "lowPrice": 1.49,
+            "trendPrice": 1.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.46,
+            "lowPriceExPlus": 3.0,
+            "avg1": 5.69,
+            "avg7": 5.12,
+            "avg30": 8.39,
+            "reverseHoloAvg1": 12.23,
+            "reverseHoloAvg7": 13.53,
+            "reverseHoloAvg30": 18.53
+          }
+        }
+      },
+      {
+        "id": "xy11-107",
+        "name": "Volcanion-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Fire",
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Steam Up",
+            "text": "Once during your turn (before your attack), you may discard a Fire Energy card from your hand. If you do, during this turn, your Basic Fire Pokémon's attacks do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Volcanic Heat",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon can't attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "107",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/107.png",
+          "large": "https://images.pokemontcg.io/xy11/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.7,
+              "mid": 9.44,
+              "high": 139.4,
+              "market": 9.46,
+              "directLow": 6.87
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-107",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 8.6,
+            "lowPrice": 2.5,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.46,
+            "lowPriceExPlus": 5.99,
+            "avg1": 1.5,
+            "avg7": 6.66,
+            "avg30": 14.16,
+            "reverseHoloAvg1": 7.5,
+            "reverseHoloAvg7": 5.43,
+            "reverseHoloAvg30": 5.15
+          }
+        }
+      },
+      {
+        "id": "xy11-115",
+        "name": "Volcanion-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Fire",
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Steam Up",
+            "text": "Once during your turn (before your attack), you may discard a Fire Energy card from your hand. If you do, during this turn, your Basic Fire Pokémon's attacks do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Volcanic Heat",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon can't attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "115",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/115.png",
+          "large": "https://images.pokemontcg.io/xy11/115_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-115",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 17.77,
+              "mid": 30.58,
+              "high": 739.58,
+              "market": 34.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-115",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 41.06,
+            "lowPrice": 9.8,
+            "trendPrice": 43.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.61,
+            "lowPriceExPlus": 24.99,
+            "avg1": 10.0,
+            "avg7": 35.0,
+            "avg30": 33.23,
+            "reverseHoloAvg1": 14.9,
+            "reverseHoloAvg7": 11.23,
+            "reverseHoloAvg30": 8.04
+          }
+        }
+      },
+      {
+        "id": "xyp-XY145",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Power Heater",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pokémon."
+          },
+          {
+            "name": "Steam Artillery",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY145",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY145.png",
+          "large": "https://images.pokemontcg.io/xyp/XY145_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY145",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 8.26,
+              "high": 25.0,
+              "market": 7.71,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY145",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 19.99,
+            "lowPrice": 7.49,
+            "trendPrice": 37.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.96,
+            "lowPriceExPlus": 7.5,
+            "avg1": 19.99,
+            "avg7": 61.61,
+            "avg30": 20.68,
+            "reverseHoloAvg1": 3.89,
+            "reverseHoloAvg7": 6.96,
+            "reverseHoloAvg30": 8.62
+          }
+        }
+      },
+      {
+        "id": "xyp-XY164",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Concentrated Fire",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50×",
+            "text": "Flip a coin for each Fire Energy attached to this Pokémon. This attack does 50 damage times the number of heads."
+          },
+          {
+            "name": "Combustion Impact",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY164",
+        "artist": "TOKIYA",
+        "rarity": "Promo",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY164.png",
+          "large": "https://images.pokemontcg.io/xyp/XY164_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY164",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.91,
+              "high": 4.0,
+              "market": 0.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY164",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.85,
+            "lowPrice": 0.25,
+            "trendPrice": 1.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.36,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.8,
+            "avg7": 1.79,
+            "avg30": 1.53,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 1.74,
+            "reverseHoloAvg30": 1.39
+          }
+        }
+      },
+      {
+        "id": "smp-SM179",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Flare Starter",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Fire Energy card and attach it to 1 of your Pokémon. If you go second and it's your first turn, instead search for up to 3 Fire Energy cards and attach them to your Pokémon in any way you like. Then, shuffle your deck."
+          },
+          {
+            "name": "High-Heat Blast",
+            "cost": [
+              "Fire",
+              "Fire"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "If you have at least 4 Fire Energy in play, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM179",
+        "artist": "Hasuno",
+        "rarity": "Promo",
+        "flavorText": "It lets out billows of steam and disappears into the dense fog. It's said to live in mountains where humans do not tread.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM179.png",
+          "large": "https://images.pokemontcg.io/smp/SM179_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM179",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.67,
+              "mid": 3.66,
+              "high": 12.25,
+              "market": 3.37,
+              "directLow": 4.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM179",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 8.99,
+            "lowPrice": 2.0,
+            "trendPrice": 7.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.36,
+            "lowPriceExPlus": 2.98,
+            "avg1": 5.5,
+            "avg7": 7.43,
+            "avg30": 8.81,
+            "reverseHoloAvg1": 22.5,
+            "reverseHoloAvg7": 9.35,
+            "reverseHoloAvg30": 8.49
+          }
+        }
+      },
+      {
+        "id": "xyp-XY173",
+        "name": "Volcanion-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Fire",
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Steam Up",
+            "text": "Once during your turn (before your attack), you may discard a Fire Energy card from your hand. If you do, during this turn, your Basic Fire Pokémon's attacks do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Volcanic Heat",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon can't attack during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY173",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY173.png",
+          "large": "https://images.pokemontcg.io/xyp/XY173_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY173",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.0,
+              "high": 16.0,
+              "market": 1.93,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY173",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.4,
+            "lowPrice": 0.69,
+            "trendPrice": 3.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.22,
+            "lowPriceExPlus": 2.0,
+            "avg1": 1.88,
+            "avg7": 3.31,
+            "avg30": 3.06,
+            "reverseHoloAvg1": 3.36,
+            "reverseHoloAvg7": 2.92,
+            "reverseHoloAvg30": 2.35
+          }
+        }
+      },
+      {
+        "id": "xyp-XY185",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Concentrated Fire",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50×",
+            "text": "Flip a coin for each Fire Energy attached to this Pokémon. This attack does 50 damage times the number of heads."
+          },
+          {
+            "name": "Combustion Impact",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Your opponent switches his or her Active Pokémon with 1 of his or her Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY185",
+        "artist": "Hasuno",
+        "rarity": "Promo",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY185.png",
+          "large": "https://images.pokemontcg.io/xyp/XY185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.69,
+              "mid": 11.97,
+              "high": 9999.0,
+              "market": 11.33,
+              "directLow": 9.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 13.54,
+            "lowPrice": 8.91,
+            "trendPrice": 12.83,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.54,
+            "lowPriceExPlus": 9.95,
+            "avg1": 9.94,
+            "avg7": 14.13,
+            "avg30": 11.77,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.54,
+            "reverseHoloAvg30": 2.49
+          }
+        }
+      },
+      {
+        "id": "swsh45-25",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Water"
+        ],
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Dynamite Steam",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120×",
+            "text": "Flip 2 coins. This attack does 120 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh45",
+          "name": "Shining Fates",
+          "series": "Sword & Shield",
+          "printedTotal": 72,
+          "total": 73,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "nagimiso",
+        "rarity": "Rare",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45/25.png",
+          "large": "https://images.pokemontcg.io/swsh45/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 19.98,
+              "market": 0.12,
+              "directLow": 0.09
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.22,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.04,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.22,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "swsh6-25",
+        "name": "Volcanion V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Heat Blast",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Dynamite Tackle",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has 10 or more damage counters on it, this attack does 150 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Ryota Murayama",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/25.png",
+          "large": "https://images.pokemontcg.io/swsh6/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.48,
+              "mid": 0.99,
+              "high": 999.0,
+              "market": 0.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.0,
+            "lowPrice": 0.35,
+            "trendPrice": 0.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 0.99,
+            "avg7": 1.04,
+            "avg30": 1.02,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh6-162",
+        "name": "Volcanion V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V",
+          "Single Strike"
+        ],
+        "hp": "220",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Heat Blast",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Dynamite Tackle",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has 10 or more damage counters on it, this attack does 150 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "162",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/162.png",
+          "large": "https://images.pokemontcg.io/swsh6/162_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-162",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.0,
+              "high": 999.0,
+              "market": 1.88,
+              "directLow": 2.56
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-162",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.65,
+            "lowPrice": 1.29,
+            "trendPrice": 2.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.77,
+            "avg1": 1.65,
+            "avg7": 3.05,
+            "avg30": 2.7,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-26",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Hydro Burn",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If this Pokémon has any Water Energy attached, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Shiburingaru",
+        "rarity": "Rare Holo",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/26.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.16
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.3,
+              "high": 999.0,
+              "market": 0.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.33,
+            "lowPrice": 0.02,
+            "trendPrice": 0.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.46,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.64,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.15,
+            "avg30": 0.26,
+            "reverseHoloAvg1": 1.29,
+            "reverseHoloAvg7": 0.5,
+            "reverseHoloAvg30": 0.45
+          }
+        }
+      },
+      {
+        "id": "sv4-22",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Dual Turbo",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Choose up to 2 of your Benched Pokémon and attach a Basic Fire Energy card from your discard pile to each of them."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Fire",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "Nisota Niso",
+        "rarity": "Rare",
+        "flavorText": "It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/22.png",
+          "large": "https://images.pokemontcg.io/sv4/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 40.0,
+              "market": 0.08,
+              "directLow": 0.09
+            },
+            "reverseHolofoil": {
+              "low": 0.06,
+              "mid": 0.2,
+              "high": 1.53,
+              "market": 0.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.07,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.23,
+            "reverseHoloAvg7": 0.16,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "sv9-31",
+        "name": "Volcanion ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scalding Steam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Scorching Cyclone",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Move an Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "5ban Graphics",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/31.png",
+          "large": "https://images.pokemontcg.io/sv9/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.75,
+              "high": 4.0,
+              "market": 0.6,
+              "directLow": 0.84
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.59,
+            "lowPrice": 0.1,
+            "trendPrice": 0.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.72,
+            "avg7": 0.61,
+            "avg30": 0.59,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-171",
+        "name": "Volcanion ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scalding Steam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Scorching Cyclone",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Move an Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "171",
+        "artist": "5ban Graphics",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/171.png",
+          "large": "https://images.pokemontcg.io/sv9/171_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-171",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.44,
+              "mid": 1.25,
+              "high": 9999.0,
+              "market": 0.93,
+              "directLow": 1.42
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-171",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.39,
+            "lowPrice": 0.6,
+            "trendPrice": 1.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.6,
+            "avg1": 1.65,
+            "avg7": 1.41,
+            "avg30": 1.37,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-182",
+        "name": "Volcanion ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "220",
+        "types": [
+          "Fire"
+        ],
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Scalding Steam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Scorching Cyclone",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Move an Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "akagi",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/182.png",
+          "large": "https://images.pokemontcg.io/sv9/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.56,
+              "mid": 22.28,
+              "high": 120.0,
+              "market": 20.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 32.3,
+            "lowPrice": 21.0,
+            "trendPrice": 27.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 21.0,
+            "avg1": 35.63,
+            "avg7": 27.69,
+            "avg30": 29.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "me1-25",
+        "name": "Volcanion",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Fire"
+        ],
+        "attacks": [
+          {
+            "name": "Singe",
+            "cost": [
+              "Fire"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Burned."
+          },
+          {
+            "name": "Backfire",
+            "cost": [
+              "Fire",
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Put 2 Fire Energy attached to this Pokémon into your hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "25",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          721
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/25.png",
+          "large": "https://images.pokemontcg.io/me1/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.09,
+              "high": 999.0,
+              "market": 0.06,
+              "directLow": 0.04
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.13,
+              "directLow": 0.01
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 21,
+    "totalCount": 21
+  }
+}

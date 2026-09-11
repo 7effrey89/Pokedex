@@ -1,0 +1,3341 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:necrozma"
+  },
+  "cache_key": "a84a9cf72a6ddc39a91c330369d44b81",
+  "cached_at": 1765909162.645949,
+  "response": {
+    "data": [
+      {
+        "id": "sm5-63",
+        "name": "Dawn Wings Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Invasion",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Flash",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Moon's Eclipse-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. Prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "63",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/63.png",
+          "large": "https://images.pokemontcg.io/sm5/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.98,
+              "mid": 4.99,
+              "high": 49.99,
+              "market": 5.2,
+              "directLow": 5.59
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.81,
+            "lowPrice": 0.5,
+            "trendPrice": 2.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.08,
+            "lowPriceExPlus": 1.5,
+            "avg1": 1.5,
+            "avg7": 2.57,
+            "avg30": 2.84,
+            "reverseHoloAvg1": 3.75,
+            "reverseHoloAvg7": 2.53,
+            "reverseHoloAvg30": 2.95
+          }
+        }
+      },
+      {
+        "id": "smp-SM58",
+        "name": "Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Light's End",
+            "text": "Prevent all damage done to this Pokémon by attacks from Colorless Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Burst",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Discard all Psychic Energy from this Pokémon. This attack does 60 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Black Ray-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 100 damage to each of your opponent's Pokémon-GX and Pokémon-EX. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM58",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM58.png",
+          "large": "https://images.pokemontcg.io/smp/SM58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.25,
+              "mid": 2.0,
+              "high": 11.0,
+              "market": 1.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.7,
+            "lowPrice": 0.4,
+            "trendPrice": 1.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.18,
+            "lowPriceExPlus": 0.9,
+            "avg1": 0.89,
+            "avg7": 1.49,
+            "avg30": 2.14,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.96,
+            "reverseHoloAvg30": 2.27
+          }
+        }
+      },
+      {
+        "id": "sm3-63",
+        "name": "Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Light's End",
+            "text": "Prevent all damage done to this Pokémon by attacks from Colorless Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Burst",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Discard all Psychic Energy from this Pokémon. This attack does 60 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Black Ray-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 100 damage to each of your opponent's Pokémon-GX and Pokémon-EX. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "63",
+        "artist": "PLANETA",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/63.png",
+          "large": "https://images.pokemontcg.io/sm3/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.1,
+              "mid": 2.5,
+              "high": 12.98,
+              "market": 2.57,
+              "directLow": 3.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.87,
+            "lowPrice": 0.7,
+            "trendPrice": 2.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.1,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.99,
+            "avg7": 2.01,
+            "avg30": 1.74,
+            "reverseHoloAvg1": 2.2,
+            "reverseHoloAvg7": 2.45,
+            "reverseHoloAvg30": 2.11
+          }
+        }
+      },
+      {
+        "id": "sm75-78",
+        "name": "Ultra Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Photon Geyser",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all basic Psychic Energy from this Pokémon. This attack does 80 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Sky-Scorching Light-GX",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "You can use this attack only if the total of both players' remaining Prize cards is 6 or less. Put 6 damage counters on each of your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm75",
+          "name": "Dragon Majesty",
+          "series": "Sun & Moon",
+          "printedTotal": 70,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRM",
+          "releaseDate": "2018/09/07",
+          "updatedAt": "2018/10/01 21:54:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm75/logo.png"
+          }
+        },
+        "number": "78",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm75/78.png",
+          "large": "https://images.pokemontcg.io/sm75/78_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm75-78",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 94.54,
+              "mid": 99.74,
+              "high": 227.0,
+              "market": 93.56,
+              "directLow": 227.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm75-78",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 116.33,
+            "lowPrice": 40.0,
+            "trendPrice": 115.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 135.4,
+            "lowPriceExPlus": 74.99,
+            "avg1": 29.95,
+            "avg7": 97.74,
+            "avg30": 111.12,
+            "reverseHoloAvg1": 157.0,
+            "reverseHoloAvg7": 133.54,
+            "reverseHoloAvg30": 105.01
+          }
+        }
+      },
+      {
+        "id": "sm5-90",
+        "name": "Dusk Mane Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Meteor Tempest",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Sun's Eclipse-GX",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/90.png",
+          "large": "https://images.pokemontcg.io/sm5/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.04,
+              "mid": 5.68,
+              "high": 8.49,
+              "market": 5.68,
+              "directLow": 7.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 9.0,
+            "lowPrice": 5.99,
+            "trendPrice": 10.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.34,
+            "lowPriceExPlus": 5.99,
+            "avg1": 9.0,
+            "avg7": 8.78,
+            "avg30": 8.58,
+            "reverseHoloAvg1": 4.5,
+            "reverseHoloAvg7": 1.69,
+            "reverseHoloAvg30": 1.72
+          }
+        }
+      },
+      {
+        "id": "sm6-95",
+        "name": "Ultra Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Photon Geyser",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all basic Psychic Energy from this Pokémon. This attack does 80 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Sky-Scorching Light-GX",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "You can use this attack only if the total of both players' remaining Prize cards is 6 or less. Put 6 damage counters on each of your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "PLANETA Otani",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/95.png",
+          "large": "https://images.pokemontcg.io/sm6/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.64,
+              "mid": 6.99,
+              "high": 14.0,
+              "market": 7.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.23,
+            "lowPrice": 1.0,
+            "trendPrice": 3.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.58,
+            "lowPriceExPlus": 2.0,
+            "avg1": 2.5,
+            "avg7": 3.52,
+            "avg30": 3.25,
+            "reverseHoloAvg1": 2.49,
+            "reverseHoloAvg7": 2.63,
+            "reverseHoloAvg30": 2.78
+          }
+        }
+      },
+      {
+        "id": "smp-SM101",
+        "name": "Dawn Wings Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Invasion",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Flash",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Moon's Eclipse-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. Prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM101",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM101.png",
+          "large": "https://images.pokemontcg.io/smp/SM101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.42,
+              "mid": 4.29,
+              "high": 9999.0,
+              "market": 4.29,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM101",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.54,
+            "lowPrice": 0.49,
+            "trendPrice": 2.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.64,
+            "lowPriceExPlus": 1.49,
+            "avg1": 3.5,
+            "avg7": 2.51,
+            "avg30": 2.97,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 2.06,
+            "reverseHoloAvg30": 2.87
+          }
+        }
+      },
+      {
+        "id": "smp-SM102",
+        "name": "Dusk Mane Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Meteor Tempest",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Sun's Eclipse-GX",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM102",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM102.png",
+          "large": "https://images.pokemontcg.io/smp/SM102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.5,
+              "mid": 5.0,
+              "high": 108.2,
+              "market": 5.13,
+              "directLow": 6.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM102",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 3.14,
+            "lowPrice": 0.5,
+            "trendPrice": 3.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.88,
+            "lowPriceExPlus": 2.5,
+            "avg1": 4.0,
+            "avg7": 3.13,
+            "avg30": 3.25,
+            "reverseHoloAvg1": 2.73,
+            "reverseHoloAvg7": 2.51,
+            "reverseHoloAvg30": 2.68
+          }
+        }
+      },
+      {
+        "id": "sm11-101",
+        "name": "Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Barrier Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Special Laser",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has any Special Energy attached to it, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "It looks somehow pained as it rages around in search of light, which serves as its energy. It's apparently from another world.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/101.png",
+          "large": "https://images.pokemontcg.io/sm11/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.71,
+              "mid": 2.53,
+              "high": 7.95,
+              "market": 2.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 2.91,
+              "high": 4.99,
+              "market": 2.92,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.01,
+            "lowPrice": 0.08,
+            "trendPrice": 1.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.69,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 2.78,
+            "lowPriceExPlus": 0.08,
+            "avg1": 1.1,
+            "avg7": 1.48,
+            "avg30": 1.89,
+            "reverseHoloAvg1": 0.45,
+            "reverseHoloAvg7": 3.56,
+            "reverseHoloAvg30": 2.53
+          }
+        }
+      },
+      {
+        "id": "smp-SM106",
+        "name": "Dawn Wings Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Gulf Stream",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "If you have exactly 6 Prize cards remaining, this attack does 20 more damage for each damage counter on this Pokémon."
+          },
+          {
+            "name": "Sword of Dawn",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM106",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "flavorText": "Lunala no longer has a will of its own. Now under the control of Necrozma, it continuously expels all of its energy.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM106.png",
+          "large": "https://images.pokemontcg.io/smp/SM106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.64,
+              "high": 19.99,
+              "market": 1.72,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM106",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 2.16,
+            "lowPrice": 0.9,
+            "trendPrice": 2.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.22,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.98,
+            "avg7": 2.21,
+            "avg30": 1.6,
+            "reverseHoloAvg1": 1.95,
+            "reverseHoloAvg7": 1.27,
+            "reverseHoloAvg30": 1.26
+          }
+        }
+      },
+      {
+        "id": "smp-SM107",
+        "name": "Dusk Mane Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Dusk Shot",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon-GX or Pokémon-EX. This damage isn't affected by Weakness or Resistance."
+          },
+          {
+            "name": "Rusty Claws",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If your opponent has exactly 1 Prize card remaining, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM107",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "flavorText": "This is its form with it is devouring the light of Solgaleo. It pounces on its foes and then slashes them with the claws on its four limbs and back.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM107.png",
+          "large": "https://images.pokemontcg.io/smp/SM107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.18,
+              "mid": 2.29,
+              "high": 7.53,
+              "market": 2.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM107",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 2.24,
+            "lowPrice": 0.98,
+            "trendPrice": 2.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.48,
+            "lowPriceExPlus": 1.48,
+            "avg1": 2.43,
+            "avg7": 2.34,
+            "avg30": 2.13,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 1.98,
+            "reverseHoloAvg30": 2.46
+          }
+        }
+      },
+      {
+        "id": "smp-SM123",
+        "name": "Dawn Wings Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Gulf Stream",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "If you have exactly 6 Prize cards remaining, this attack does 20 more damage for each damage counter on this Pokémon."
+          },
+          {
+            "name": "Sword of Dawn",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM123",
+        "artist": "nagimiso",
+        "rarity": "Promo",
+        "flavorText": "Lunala no longer has a will of its own. Now under the control of Necrozma, it continuously expels all of its energy.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM123.png",
+          "large": "https://images.pokemontcg.io/smp/SM123_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM123",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.11,
+              "mid": 2.05,
+              "high": 8.82,
+              "market": 2.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM123",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.83,
+            "lowPrice": 1.0,
+            "trendPrice": 3.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.33,
+            "lowPriceExPlus": 1.85,
+            "avg1": 4.2,
+            "avg7": 2.99,
+            "avg30": 2.75,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.62,
+            "reverseHoloAvg30": 2.19
+          }
+        }
+      },
+      {
+        "id": "smp-SM124",
+        "name": "Dusk Mane Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Dusk Shot",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 60 damage to 1 of your opponent's Pokémon-GX or Pokémon-EX. This damage isn't affected by Weakness or Resistance."
+          },
+          {
+            "name": "Rusty Claws",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If your opponent has exactly 1 Prize card remaining, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM124",
+        "artist": "nagimiso",
+        "rarity": "Promo",
+        "flavorText": "This is its form with it is devouring the light of Solgaleo. It pounces on its foes and then slashes them with the claws on its four limbs and back.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM124.png",
+          "large": "https://images.pokemontcg.io/smp/SM124_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM124",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.4,
+              "mid": 2.31,
+              "high": 9.95,
+              "market": 2.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM124",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.23,
+            "lowPrice": 0.9,
+            "trendPrice": 2.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.97,
+            "lowPriceExPlus": 1.3,
+            "avg1": 2.2,
+            "avg7": 2.44,
+            "avg30": 2.38,
+            "reverseHoloAvg1": 3.8,
+            "reverseHoloAvg7": 3.64,
+            "reverseHoloAvg30": 3.8
+          }
+        }
+      },
+      {
+        "id": "smp-SM126",
+        "name": "Ultra Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Photon Geyser",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all basic Psychic Energy from this Pokémon. This attack does 80 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Sky-Scorching Light-GX",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "You can use this attack only if the total of both players' remaining Prize cards is 6 or less. Put 6 damage counters on each of your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM126",
+        "artist": "PLANETA",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM126.png",
+          "large": "https://images.pokemontcg.io/smp/SM126_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM126",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.69,
+              "mid": 7.55,
+              "high": 11.11,
+              "market": 6.61,
+              "directLow": 7.55
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM126",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.09,
+            "lowPrice": 0.8,
+            "trendPrice": 2.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.36,
+            "lowPriceExPlus": 2.5,
+            "avg1": 2.47,
+            "avg7": 3.01,
+            "avg30": 4.28,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.8,
+            "reverseHoloAvg30": 3.08
+          }
+        }
+      },
+      {
+        "id": "sm6-127",
+        "name": "Ultra Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Photon Geyser",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all basic Psychic Energy from this Pokémon. This attack does 80 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Sky-Scorching Light-GX",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "You can use this attack only if the total of both players' remaining Prize cards is 6 or less. Put 6 damage counters on each of your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "127",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/127.png",
+          "large": "https://images.pokemontcg.io/sm6/127_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-127",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.85,
+              "mid": 21.88,
+              "high": 49.95,
+              "market": 21.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-127",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 14.32,
+            "lowPrice": 5.0,
+            "trendPrice": 16.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.42,
+            "lowPriceExPlus": 15.99,
+            "avg1": 3.99,
+            "avg7": 15.83,
+            "avg30": 16.72,
+            "reverseHoloAvg1": 12.99,
+            "reverseHoloAvg7": 13.54,
+            "reverseHoloAvg30": 9.62
+          }
+        }
+      },
+      {
+        "id": "sm3-134",
+        "name": "Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Light's End",
+            "text": "Prevent all damage done to this Pokémon by attacks from Colorless Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Burst",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Discard all Psychic Energy from this Pokémon. This attack does 60 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Black Ray-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 100 damage to each of your opponent's Pokémon-GX and Pokémon-EX. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "134",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/134.png",
+          "large": "https://images.pokemontcg.io/sm3/134_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-134",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.4,
+              "mid": 4.95,
+              "high": 19.97,
+              "market": 4.95,
+              "directLow": 6.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-134",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 4.95,
+            "lowPrice": 1.5,
+            "trendPrice": 4.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.96,
+            "lowPriceExPlus": 1.5,
+            "avg1": 3.99,
+            "avg7": 3.8,
+            "avg30": 4.42,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 4.68,
+            "reverseHoloAvg30": 4.57
+          }
+        }
+      },
+      {
+        "id": "sm5-143",
+        "name": "Dawn Wings Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Invasion",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Flash",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Moon's Eclipse-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. Prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "143",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/143.png",
+          "large": "https://images.pokemontcg.io/sm5/143_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-143",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.69,
+              "mid": 14.49,
+              "high": 22.4,
+              "market": 13.8,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-143",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 5.96,
+            "lowPrice": 3.48,
+            "trendPrice": 5.97,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.19,
+            "lowPriceExPlus": 5.0,
+            "avg1": 5.49,
+            "avg7": 6.3,
+            "avg30": 7.5,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 7.39,
+            "reverseHoloAvg30": 7.69
+          }
+        }
+      },
+      {
+        "id": "sm5-145",
+        "name": "Dusk Mane Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Meteor Tempest",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Sun's Eclipse-GX",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "145",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/145.png",
+          "large": "https://images.pokemontcg.io/sm5/145_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-145",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.9,
+              "mid": 20.0,
+              "high": 59.99,
+              "market": 18.76,
+              "directLow": 21.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-145",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 10.7,
+            "lowPrice": 3.0,
+            "trendPrice": 9.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.48,
+            "lowPriceExPlus": 5.5,
+            "avg1": 10.0,
+            "avg7": 9.96,
+            "avg30": 9.36,
+            "reverseHoloAvg1": 6.29,
+            "reverseHoloAvg7": 10.08,
+            "reverseHoloAvg30": 7.6
+          }
+        }
+      },
+      {
+        "id": "sm6-140",
+        "name": "Ultra Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Dragon"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Photon Geyser",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all basic Psychic Energy from this Pokémon. This attack does 80 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Sky-Scorching Light-GX",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "You can use this attack only if the total of both players' remaining Prize cards is 6 or less. Put 6 damage counters on each of your opponent's Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "140",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/140.png",
+          "large": "https://images.pokemontcg.io/sm6/140_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-140",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 32.99,
+              "mid": 42.58,
+              "high": 53.1,
+              "market": 41.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-140",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 19.99,
+            "lowPrice": 14.0,
+            "trendPrice": 22.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.88,
+            "lowPriceExPlus": 18.0,
+            "avg1": 17.99,
+            "avg7": 23.2,
+            "avg30": 20.52,
+            "reverseHoloAvg1": 24.99,
+            "reverseHoloAvg7": 21.15,
+            "reverseHoloAvg30": 18.39
+          }
+        }
+      },
+      {
+        "id": "sm3-153",
+        "name": "Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Light's End",
+            "text": "Prevent all damage done to this Pokémon by attacks from Colorless Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Burst",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Discard all Psychic Energy from this Pokémon. This attack does 60 more damage for each card you discarded in this way."
+          },
+          {
+            "name": "Black Ray-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 100 damage to each of your opponent's Pokémon-GX and Pokémon-EX. This damage isn't affected by Weakness or Resistance. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "153",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/153.png",
+          "large": "https://images.pokemontcg.io/sm3/153_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-153",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.97,
+              "mid": 18.58,
+              "high": 24.0,
+              "market": 18.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-153",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 11.33,
+            "lowPrice": 4.0,
+            "trendPrice": 7.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.48,
+            "lowPriceExPlus": 6.99,
+            "avg1": 15.0,
+            "avg7": 8.2,
+            "avg30": 9.58,
+            "reverseHoloAvg1": 10.99,
+            "reverseHoloAvg7": 14.12,
+            "reverseHoloAvg30": 11.22
+          }
+        }
+      },
+      {
+        "id": "sm12-164",
+        "name": "Ultra Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "110",
+        "types": [
+          "Dragon"
+        ],
+        "abilities": [
+          {
+            "name": "Ultra Burst",
+            "text": "This Pokémon can't attack unless your opponent has 2 or fewer Prize cards remaining.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Luster of Downfall",
+            "cost": [
+              "Psychic",
+              "Metal"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "170",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "164",
+        "artist": "Hasuno",
+        "rarity": "Rare Holo",
+        "flavorText": "This is its form when it has absorbed overwhelming light energy. It fires laser beams from all over its body.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/164.png",
+          "large": "https://images.pokemontcg.io/sm12/164_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-164",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 2.31,
+              "mid": 3.8,
+              "high": 19.99,
+              "market": 3.8,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 2.0,
+              "mid": 3.35,
+              "high": 9.99,
+              "market": 3.53,
+              "directLow": 3.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-164",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.26,
+            "lowPrice": 0.85,
+            "trendPrice": 2.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.67,
+            "reverseHoloLow": 1.2,
+            "reverseHoloTrend": 2.93,
+            "lowPriceExPlus": 0.85,
+            "avg1": 1.0,
+            "avg7": 2.14,
+            "avg30": 2.25,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 2.78,
+            "reverseHoloAvg30": 2.63
+          }
+        }
+      },
+      {
+        "id": "smp-SM165",
+        "name": "Ultra Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Ultra Beast"
+        ],
+        "hp": "130",
+        "types": [
+          "Dragon"
+        ],
+        "attacks": [
+          {
+            "name": "Shining Burst",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100+",
+            "text": "If the total of both players' remaining Prize cards is 6 or less, discard all Energy attached to this Pokémon, and this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fairy",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM165",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "flavorText": "This is its form when it has absorbed overwhelming light energy. It fires laser beams from all over its body.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM165.png",
+          "large": "https://images.pokemontcg.io/smp/SM165_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM165",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.4,
+              "mid": 3.49,
+              "high": 8.99,
+              "market": 3.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM165",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.75,
+            "lowPrice": 0.99,
+            "trendPrice": 1.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.01,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.5,
+            "avg7": 1.72,
+            "avg30": 1.7,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 1.05,
+            "reverseHoloAvg30": 0.88
+          }
+        }
+      },
+      {
+        "id": "sm5-161",
+        "name": "Dawn Wings Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "180",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Invasion",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may switch it with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Flash",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Moon's Eclipse-GX",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "180",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. Prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "161",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/161.png",
+          "large": "https://images.pokemontcg.io/sm5/161_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-161",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 22.0,
+              "mid": 30.0,
+              "high": 74.75,
+              "market": 23.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-161",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 15.79,
+            "lowPrice": 6.98,
+            "trendPrice": 16.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.18,
+            "lowPriceExPlus": 10.0,
+            "avg1": 18.48,
+            "avg7": 15.94,
+            "avg30": 13.67,
+            "reverseHoloAvg1": 36.25,
+            "reverseHoloAvg7": 22.78,
+            "reverseHoloAvg30": 15.38
+          }
+        }
+      },
+      {
+        "id": "sm5-163",
+        "name": "Dusk Mane Necrozma-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX",
+          "Ultra Beast"
+        ],
+        "hp": "190",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          },
+          {
+            "name": "Meteor Tempest",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "Discard 3 Energy from this Pokémon."
+          },
+          {
+            "name": "Sun's Eclipse-GX",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Metal"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "250",
+            "text": "You can use this attack only if you have more Prize cards remaining than your opponent. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "163",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/163.png",
+          "large": "https://images.pokemontcg.io/sm5/163_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-163",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.07,
+              "mid": 24.9,
+              "high": 40.93,
+              "market": 24.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-163",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 20.66,
+            "lowPrice": 9.95,
+            "trendPrice": 18.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 16.24,
+            "lowPriceExPlus": 10.0,
+            "avg1": 21.0,
+            "avg7": 16.76,
+            "avg30": 15.33,
+            "reverseHoloAvg1": 20.0,
+            "reverseHoloAvg7": 19.2,
+            "reverseHoloAvg30": 16.81
+          }
+        }
+      },
+      {
+        "id": "smp-SM204",
+        "name": "Necrozma",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Barrier Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Special Laser",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has any Special Energy attached to it, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM204",
+        "artist": "Hasuno",
+        "rarity": "Promo",
+        "flavorText": "It looks somehow pained as it rages around in search of light, which serves as its energy. It's apparently from another world.",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM204.png",
+          "large": "https://images.pokemontcg.io/smp/SM204_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM204",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.49,
+              "mid": 9.75,
+              "high": 19.99,
+              "market": 4.67,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM204",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 11.91,
+            "lowPrice": 4.9,
+            "trendPrice": 14.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.21,
+            "lowPriceExPlus": 4.9,
+            "avg1": 4.5,
+            "avg7": 9.97,
+            "avg30": 9.8,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 5.09,
+            "reverseHoloAvg30": 4.15
+          }
+        }
+      },
+      {
+        "id": "swsh5-63",
+        "name": "Necrozma V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Ray",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "This attack also does 20 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Special Laser",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has any Special Energy attached, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "63",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/63.png",
+          "large": "https://images.pokemontcg.io/swsh5/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.49,
+              "mid": 1.1,
+              "high": 25.96,
+              "market": 0.91,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.18,
+            "lowPrice": 0.35,
+            "trendPrice": 1.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.17,
+            "lowPriceExPlus": 0.6,
+            "avg1": 1.03,
+            "avg7": 1.27,
+            "avg30": 1.2,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.99,
+            "reverseHoloAvg30": 2.3
+          }
+        }
+      },
+      {
+        "id": "swsh5-149",
+        "name": "Necrozma V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Psychic"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Prismatic Ray",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "This attack also does 20 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Special Laser",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100+",
+            "text": "If this Pokémon has any Special Energy attached, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "149",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          800
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/149.png",
+          "large": "https://images.pokemontcg.io/swsh5/149_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-149",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.5,
+              "mid": 4.39,
+              "high": 34.49,
+              "market": 4.29,
+              "directLow": 5.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-149",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 4.26,
+            "lowPrice": 1.99,
+            "trendPrice": 3.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.48,
+            "lowPriceExPlus": 2.99,
+            "avg1": 4.88,
+            "avg7": 3.8,
+            "avg30": 4.75,
+            "reverseHoloAvg1": 14.0,
+            "reverseHoloAvg7": 15.29,
+            "reverseHoloAvg30": 16.65
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 27,
+    "totalCount": 27
+  }
+}

@@ -40,19 +40,18 @@ COPY src/ ./src/
 COPY static/ ./static/
 COPY templates/ ./templates/
 COPY data/ ./data/
-COPY tcg-cache/ ./tcg-cache/
-COPY tcg-image-cache/index/ ./tcg-image-cache/index/
 
 # Create necessary directories for runtime
-RUN mkdir -p profiles_pic cache
-
+RUN mkdir -p cache
 # Expose port 80
 EXPOSE 80
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PORT=80
-ENV GUNICORN_WORKERS=4
+# SQLite accepts user writes, so a single writer process is required until the
+# user store moves to a multi-writer database.
+ENV GUNICORN_WORKERS=1
 
 # Docker HEALTHCHECK to probe the health endpoint
 # Checks every 30s with 3s timeout, starts checking after 10s, 3 retries before unhealthy

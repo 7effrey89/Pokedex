@@ -1,0 +1,1392 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:escavalier"
+  },
+  "cache_key": "5b8fdfe41b24ce0d8a9aea88f03d4e7d",
+  "cached_at": 1765915877.329323,
+  "response": {
+    "data": [
+      {
+        "id": "bw10-61",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "Team Plasma"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Steamroll",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Slashing Strike",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This Pokémon can't use Slashing Strike during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "Wearing the shell covering they stole from Shelmet, they defend themselves and attack with two lances.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/61.png",
+          "large": "https://images.pokemontcg.io/bw10/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.17,
+              "mid": 0.5,
+              "high": 5.0,
+              "market": 0.59,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 3.98,
+              "market": 0.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.6,
+            "lowPrice": 0.05,
+            "trendPrice": 0.48,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.4,
+            "reverseHoloLow": 0.29,
+            "reverseHoloTrend": 0.9,
+            "lowPriceExPlus": 0.22,
+            "avg1": 1.0,
+            "avg7": 0.47,
+            "avg30": 0.48,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 1.09,
+            "reverseHoloAvg30": 1.03
+          }
+        }
+      },
+      {
+        "id": "xy4-64",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Poke Through",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Discard a random card from your opponent's hand."
+          },
+          {
+            "name": "Spiral Rush",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "Flip a coin until you get tails. This attack does 30 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "Wearing the shell covering they stole from Shelmet, they defend themselves and attack with two lances.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/64.png",
+          "large": "https://images.pokemontcg.io/xy4/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.37,
+              "high": 3.31,
+              "market": 0.37,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.85,
+              "high": 3.98,
+              "market": 0.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.08,
+            "trendPrice": 0.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.68,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.15,
+            "avg7": 0.45,
+            "avg30": 0.46,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 0.87,
+            "reverseHoloAvg30": 0.92
+          }
+        }
+      },
+      {
+        "id": "sm4-69",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Fury Attack",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage for each heads."
+          },
+          {
+            "name": "Iron Tackle",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "This Pokémon does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Wearing the shell covering they stole from Shelmet, they defend themselves and attack with two lances.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/69.png",
+          "large": "https://images.pokemontcg.io/sm4/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 3.0,
+              "market": 0.16,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.11,
+              "mid": 0.29,
+              "high": 3.0,
+              "market": 0.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-69",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.36,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.41,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.15,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 0.33,
+            "reverseHoloAvg7": 0.37,
+            "reverseHoloAvg30": 0.31
+          }
+        }
+      },
+      {
+        "id": "bw5-74",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Joust",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "Before doing damage, discard a Pokémon Tool card attached to the Defending Pokémon."
+          },
+          {
+            "name": "Cavalry Lance",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "During your opponent's next turn, this Pokémon has no Weakness."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "74",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "They fly around at high speed, striking with their pointed spears. Even when in trouble, they face opponents bravely.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/74.png",
+          "large": "https://images.pokemontcg.io/bw5/74_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-74",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.71,
+              "high": 2.97,
+              "market": 0.8,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.65,
+              "mid": 1.0,
+              "high": 1.99,
+              "market": 0.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-74",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.05,
+            "trendPrice": 0.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.13,
+            "lowPriceExPlus": 0.2,
+            "avg1": 1.25,
+            "avg7": 0.77,
+            "avg30": 0.61,
+            "reverseHoloAvg1": 0.7,
+            "reverseHoloAvg7": 1.13,
+            "reverseHoloAvg30": 0.96
+          }
+        }
+      },
+      {
+        "id": "bw3-80",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Guard Press",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Twineedle",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70×",
+            "text": "Flip 2 coins. This attack does 70 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw3",
+          "name": "Noble Victories",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NVI",
+          "releaseDate": "2011/11/16",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw3/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw3/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "These Pokémon evolve by wearing the shell covering of a Shelmet. The steel armor protects their whole body.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw3/80.png",
+          "large": "https://images.pokemontcg.io/bw3/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw3-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.21,
+              "mid": 0.54,
+              "high": 1.99,
+              "market": 0.54,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.55,
+              "mid": 1.19,
+              "high": 6.0,
+              "market": 1.13,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw3-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 5.0,
+            "lowPrice": 0.5,
+            "trendPrice": 6.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.68,
+            "lowPriceExPlus": 3.73,
+            "avg1": 5.0,
+            "avg7": 4.84,
+            "avg30": 6.21,
+            "reverseHoloAvg1": 2.97,
+            "reverseHoloAvg7": 2.21,
+            "reverseHoloAvg30": 2.21
+          }
+        }
+      },
+      {
+        "id": "swsh3-124",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Fury Cutter",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip 3 coins. If 1 of them is heads, this attack does 20 more damage. If 2 of them are heads, this attack does 70 more damage. If all of them are heads, this attack does 140 more damage."
+          },
+          {
+            "name": "Seashell Attack",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "124",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Rare",
+        "flavorText": "They use shells they've stolen from Shelmet to arm and protect themselves. They're very popular Pokémon in the Galar region.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/124.png",
+          "large": "https://images.pokemontcg.io/swsh3/124_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-124",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.2,
+              "high": 5.04,
+              "market": 0.16,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.29,
+              "high": 2.0,
+              "market": 0.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-124",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.33,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.41,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.18,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.61,
+            "reverseHoloAvg7": 0.38,
+            "reverseHoloAvg30": 0.42
+          }
+        }
+      },
+      {
+        "id": "sm11-142",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Discerning Spear",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "80",
+            "text": "If your opponent's Active Pokémon has no damage counters on it before this attack does damage, this attack does nothing."
+          },
+          {
+            "name": "Iron Lance",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Satoshi Shirai",
+        "rarity": "Rare",
+        "flavorText": "Wearing the shell covering they stole from Shelmet, they defend themselves and attack with two lances.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/142.png",
+          "large": "https://images.pokemontcg.io/sm11/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.3,
+              "high": 1.49,
+              "market": 0.33,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.47,
+              "high": 1.56,
+              "market": 0.44,
+              "directLow": 0.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.38,
+            "lowPrice": 0.05,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.55,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.1,
+            "avg7": 0.38,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.46,
+            "reverseHoloAvg7": 0.67,
+            "reverseHoloAvg30": 0.71
+          }
+        }
+      },
+      {
+        "id": "swsh9-101",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "abilities": [
+          {
+            "name": "Miraculous Armor",
+            "text": "This Pokémon takes 100 less damage from attacks from your opponent's Pokémon V (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Pike",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "Nurikabe",
+        "rarity": "Rare",
+        "flavorText": "They use shells they've stolen from Shelmet to arm and protect themselves. They're very popular Pokémon in the Galar region.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/101.png",
+          "large": "https://images.pokemontcg.io/swsh9/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 5.01,
+              "market": 0.13,
+              "directLow": 0.1
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.27,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.04,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.33,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "sv9-102",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Pierce",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Iron Buster",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "During your next turn, this Pokémon can't attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "Takumi Wada",
+        "rarity": "Uncommon",
+        "flavorText": "It charges its enemies, lances at the ready. An image of one of its duels is captured in a famous painting of Escavalier clashing with Sirfetch'd.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/102.png",
+          "large": "https://images.pokemontcg.io/sv9/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 5.0,
+              "market": 0.04,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.37,
+              "market": 0.09,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-102",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.11,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-60",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Wild Lances",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "90",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "60",
+        "artist": "DOM",
+        "rarity": "Uncommon",
+        "flavorText": "They fly around at high speed, striking with their pointed spears. Even when in trouble, they face opponents bravely.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/60.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.03,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.47,
+              "market": 0.12,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.12,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.26,
+            "reverseHoloAvg7": 0.13,
+            "reverseHoloAvg30": 0.13
+          }
+        }
+      },
+      {
+        "id": "zsv10pt5-138",
+        "name": "Escavalier",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Metal"
+        ],
+        "evolvesFrom": "Karrablast",
+        "attacks": [
+          {
+            "name": "Wild Lances",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "90",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "zsv10pt5",
+          "name": "Black Bolt",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 172,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLK",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/zsv10pt5/logo.png"
+          }
+        },
+        "number": "138",
+        "artist": "Uta",
+        "rarity": "Illustration Rare",
+        "flavorText": "They fly around at high speed, striking with their pointed spears. Even when in trouble, they face opponents bravely.",
+        "nationalPokedexNumbers": [
+          589
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/zsv10pt5/138.png",
+          "large": "https://images.pokemontcg.io/zsv10pt5/138_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/zsv10pt5-138",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.5,
+              "mid": 12.0,
+              "high": 20.0,
+              "market": 11.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/zsv10pt5-138",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 10.47,
+            "lowPrice": 8.0,
+            "trendPrice": 10.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 8.0,
+            "avg1": 10.15,
+            "avg7": 10.78,
+            "avg30": 10.68,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 11,
+    "totalCount": 11
+  }
+}

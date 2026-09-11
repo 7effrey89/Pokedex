@@ -1,0 +1,1605 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:torterra"
+  },
+  "cache_key": "892c9e466f985e7674b7e996451c2670",
+  "cached_at": 1765915635.21144,
+  "response": {
+    "data": [
+      {
+        "id": "bw8-3",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "Team Plasma"
+        ],
+        "hp": "150",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Guard Press",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "During your opponent's next turn, any damage to this Pokémon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Rumble Stomp",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80+",
+            "text": "Flip a coin until you get tails. This attack does 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw8",
+          "name": "Plasma Storm",
+          "series": "Black & White",
+          "printedTotal": 135,
+          "total": 138,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLS",
+          "releaseDate": "2013/02/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw8/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw8/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "Some Pokémon are born on a Torterra's back and spend their entire life there.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw8/3.png",
+          "large": "https://images.pokemontcg.io/bw8/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw8-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.79,
+              "mid": 2.25,
+              "high": 15.0,
+              "market": 5.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 5.5,
+              "mid": 10.64,
+              "high": 45.99,
+              "market": 8.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw8-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.2,
+            "trendPrice": 2.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.97,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 6.01,
+            "lowPriceExPlus": 1.2,
+            "avg1": 0.05,
+            "avg7": 2.72,
+            "avg30": 2.25,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 4.89,
+            "reverseHoloAvg30": 5.23
+          }
+        }
+      },
+      {
+        "id": "sm5-9",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Giga Drain",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "This attack does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "kawayoo",
+        "rarity": "Rare Holo",
+        "flavorText": "Small Pokémon occasionally gather on its unmoving back to begin building their nests.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/9.png",
+          "large": "https://images.pokemontcg.io/sm5/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 1.75,
+              "mid": 2.39,
+              "high": 4.79,
+              "market": 2.69,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.75,
+              "mid": 1.46,
+              "high": 6.98,
+              "market": 1.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.07,
+            "lowPrice": 0.2,
+            "trendPrice": 1.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.1,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.33,
+            "lowPriceExPlus": 0.68,
+            "avg1": 1.0,
+            "avg7": 1.1,
+            "avg30": 1.07,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 1.09,
+            "reverseHoloAvg30": 1.04
+          }
+        }
+      },
+      {
+        "id": "dpp-DP09",
+        "name": "Torterra LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Torterra",
+        "rules": [
+          "Put this card onto your Active Torterra. Torterra LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Forest Murmurs",
+            "text": "Once during your turn (before your attack), if you have more Prize cards left than your opponent, you may choose 1 of your opponent's Benched Pokémon and switch it with 1 of the Defending Pokémon. This power can't be used if Torterra is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Vigorous Dash",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Torterra does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dpp",
+          "name": "DP Black Star Promos",
+          "series": "Diamond & Pearl",
+          "printedTotal": 56,
+          "total": 56,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR-DPP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dpp/symbol.png",
+            "logo": "https://images.pokemontcg.io/dpp/logo.png"
+          }
+        },
+        "number": "DP09",
+        "artist": "Shizurow",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dpp/DP09.png",
+          "large": "https://images.pokemontcg.io/dpp/DP09_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dpp-DP09",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.99,
+              "mid": 22.55,
+              "high": 39.99,
+              "market": 35.4,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "hgss2-10",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Giga Drain",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Remove from Torterra the number of damage counters equal to the damage you did to the Defending Pokémon."
+          },
+          {
+            "name": "Land Crush",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "10",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "Ancient people imagined that beneath the ground, a gigantic Torterra dwelled.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/10.png",
+          "large": "https://images.pokemontcg.io/hgss2/10_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 5.0,
+              "mid": 7.61,
+              "high": 29.99,
+              "market": 10.87,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 6.85,
+              "mid": 8.41,
+              "high": 19.99,
+              "market": 9.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.73,
+            "lowPrice": 0.1,
+            "trendPrice": 2.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.76,
+            "lowPriceExPlus": 1.3,
+            "avg1": 2.49,
+            "avg7": 2.71,
+            "avg30": 2.57,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 2.62,
+            "reverseHoloAvg30": 3.11
+          }
+        }
+      },
+      {
+        "id": "dp1-17",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Body Slam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Leaf Storm",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "Remove 2 damage counters from each of your Grass Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "17",
+        "artist": "Masahiko Ishii",
+        "rarity": "Rare Holo",
+        "flavorText": "Small Pokémon occasionally gather on its unmoving back to begin building their nests.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/17.png",
+          "large": "https://images.pokemontcg.io/dp1/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.93,
+              "mid": 9.54,
+              "high": 79.0,
+              "market": 12.24,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.31,
+              "mid": 11.95,
+              "high": 78.0,
+              "market": 7.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.97,
+            "lowPrice": 0.15,
+            "trendPrice": 3.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.8,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 0.83,
+            "lowPriceExPlus": 1.98,
+            "avg1": 3.19,
+            "avg7": 3.53,
+            "avg30": 2.56,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.69,
+            "reverseHoloAvg30": 2.81
+          }
+        }
+      },
+      {
+        "id": "dp7-11",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "47",
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Grotle",
+        "abilities": [
+          {
+            "name": "Sunshine Song",
+            "text": "Once during your turn (before your attack), when you play Torterra from your hand to evolve 1 of your Pokémon, you may choose as many of your Grass Pokémon in play as you like. For each Grass Pokémon you choose, search your deck for an Evolution card that evolves from that Pokémon and evolve it. Shuffle your deck afterward.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crash Impact",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Torterra does 20 damage to itself. Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon, if any."
+          },
+          {
+            "name": "Land Shake",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "During your opponent's next turn, when your opponent puts a Basic Pokémon from his or her hand onto his or her Bench, put 2 damage counters on that Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/11.png",
+          "large": "https://images.pokemontcg.io/dp7/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.5,
+              "mid": 11.64,
+              "high": 19.99,
+              "market": 11.74,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.5,
+              "mid": 10.67,
+              "high": 15.99,
+              "market": 15.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.44,
+            "lowPrice": 0.2,
+            "trendPrice": 3.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.88,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 3.43,
+            "avg30": 3.57,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 2.61,
+            "reverseHoloAvg30": 2.9
+          }
+        }
+      },
+      {
+        "id": "dp5-30",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "51",
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Does 10 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Frenzy Plant",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Torterra can't use Frenzy Plant during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "Daisuke Ito",
+        "rarity": "Rare",
+        "flavorText": "Groups of this Pokémon migrating in search of water have been mistaken for \"moving forests.\"",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/30.png",
+          "large": "https://images.pokemontcg.io/dp5/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.72,
+              "mid": 1.49,
+              "high": 3.59,
+              "market": 1.97,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 9.12,
+              "mid": 10.07,
+              "high": 75.0,
+              "market": 8.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.21,
+            "lowPrice": 0.02,
+            "trendPrice": 1.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.89,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 2.82,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.95,
+            "avg7": 1.57,
+            "avg30": 0.82,
+            "reverseHoloAvg1": 2.89,
+            "reverseHoloAvg7": 3.06,
+            "reverseHoloAvg30": 2.52
+          }
+        }
+      },
+      {
+        "id": "pl1-39",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "48",
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Green Blast",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each Grass Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Soothing Scent",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Some Pokémon are born on a TORTERRA's back and spend their entire life there.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/39.png",
+          "large": "https://images.pokemontcg.io/pl1/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.3,
+              "mid": 2.3,
+              "high": 3.24,
+              "market": 2.35,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.61,
+              "mid": 6.51,
+              "high": 14.99,
+              "market": 5.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.35,
+            "lowPrice": 0.1,
+            "trendPrice": 1.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.79,
+            "reverseHoloLow": 0.46,
+            "reverseHoloTrend": 2.19,
+            "lowPriceExPlus": 0.5,
+            "avg1": 1.0,
+            "avg7": 1.51,
+            "avg30": 1.48,
+            "reverseHoloAvg1": 0.79,
+            "reverseHoloAvg7": 2.59,
+            "reverseHoloAvg30": 2.8
+          }
+        }
+      },
+      {
+        "id": "sm6-58",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Giga Drain",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "This attack does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm6",
+          "name": "Forbidden Light",
+          "series": "Sun & Moon",
+          "printedTotal": 131,
+          "total": 150,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FLI",
+          "releaseDate": "2018/05/04",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm6/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "Small Pokémon occasionally gather on its unmoving back to begin building their nests.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm6/58.png",
+          "large": "https://images.pokemontcg.io/sm6/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm6-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.44,
+              "mid": 0.57,
+              "high": 1.8,
+              "market": 0.59,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 0.78,
+              "high": 1.99,
+              "market": 1.01,
+              "directLow": 0.9
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm6-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.43,
+            "lowPrice": 0.05,
+            "trendPrice": 0.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.78,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 0.94,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.1,
+            "avg7": 0.45,
+            "avg30": 0.54,
+            "reverseHoloAvg1": 1.3,
+            "reverseHoloAvg7": 0.7,
+            "reverseHoloAvg30": 0.77
+          }
+        }
+      },
+      {
+        "id": "dp1-122",
+        "name": "Torterra LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Torterra",
+        "rules": [
+          "Put this card onto your Active Torterra. Torterra LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "abilities": [
+          {
+            "name": "Forest Murmurs",
+            "text": "Once during your turn (before your attack), if you have more Prize cards left than your opponent, you may choose 1 of your opponent's Benched Pokémon and switch it with 1 of the Defending Pokémon. This power can't be used if Torterra is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Vigorous Dash",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "Does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Torterra does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "122",
+        "artist": "Shizurow",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/122.png",
+          "large": "https://images.pokemontcg.io/dp1/122_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-122",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 70.0,
+              "mid": 97.34,
+              "high": 185.6,
+              "market": 98.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-122",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 28.65,
+            "lowPrice": 1.99,
+            "trendPrice": 25.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.07,
+            "lowPriceExPlus": 29.0,
+            "avg1": 45.0,
+            "avg7": 15.29,
+            "avg30": 23.48,
+            "reverseHoloAvg1": 29.99,
+            "reverseHoloAvg7": 14.49,
+            "reverseHoloAvg30": 13.76
+          }
+        }
+      },
+      {
+        "id": "swsh9-8",
+        "name": "Torterra",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "190",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "attacks": [
+          {
+            "name": "Evopress",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Evolution Pokémon in play."
+          },
+          {
+            "name": "Hammer In",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Oswaldo KATO",
+        "rarity": "Rare Holo",
+        "flavorText": "Small Pokémon occasionally gather on its unmoving back to begin building their nests.",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/8.png",
+          "large": "https://images.pokemontcg.io/swsh9/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.28,
+              "high": 3.25,
+              "market": 0.28,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.08,
+              "mid": 0.28,
+              "high": 5.1,
+              "market": 0.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.14,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.19,
+            "avg30": 0.29,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv5-12",
+        "name": "Torterra ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Forest March",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Grass Pokémon in play."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Heal 50 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/12.png",
+          "large": "https://images.pokemontcg.io/sv5/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.3,
+              "mid": 0.9,
+              "high": 22.0,
+              "market": 0.63,
+              "directLow": 0.63
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.09,
+            "trendPrice": 0.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.09,
+            "avg1": 1.0,
+            "avg7": 0.73,
+            "avg30": 0.71,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv5-185",
+        "name": "Torterra ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Grotle",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Forest March",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your Grass Pokémon in play."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Heal 50 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "185",
+        "artist": "PLANETA Tsuji",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          389
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/185.png",
+          "large": "https://images.pokemontcg.io/sv5/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 3.0,
+              "high": 22.0,
+              "market": 2.73,
+              "directLow": 3.18
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.51,
+            "lowPrice": 0.8,
+            "trendPrice": 2.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 2.26,
+            "avg7": 2.52,
+            "avg30": 2.46,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 13,
+    "totalCount": 13
+  }
+}

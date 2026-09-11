@@ -1,0 +1,3844 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:skarmory"
+  },
+  "cache_key": "164890b632016b1a89a47ec54de34624",
+  "cached_at": 1765914148.493014,
+  "response": {
+    "data": [
+      {
+        "id": "neo1-13",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "30",
+        "hp": "60",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Claw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          },
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, all damage done by attacks to Skarmory during your opponent's next turn is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo1",
+          "name": "Neo Genesis",
+          "series": "Neo",
+          "printedTotal": 111,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N1",
+          "releaseDate": "2000/12/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo1/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo1/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "Its sturdy wings look heavy, but they are actually hollow and light, allowing it to fly freely in the sky.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo1/13.png",
+          "large": "https://images.pokemontcg.io/neo1/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 21.43,
+              "mid": 36.54,
+              "high": 77.66,
+              "market": 52.57,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 15.09,
+              "mid": 19.48,
+              "high": 29.98,
+              "market": 22.45,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo1-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.52,
+            "lowPrice": 1.99,
+            "trendPrice": 13.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.97,
+            "lowPriceExPlus": 11.0,
+            "avg1": 16.5,
+            "avg7": 12.37,
+            "avg30": 14.63,
+            "reverseHoloAvg1": 5.23,
+            "reverseHoloAvg7": 5.98,
+            "reverseHoloAvg30": 8.8
+          }
+        }
+      },
+      {
+        "id": "ex3-21",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Pick On",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If the number of cards in your opponent's hand is at least 6, look at his or her hand. Choose a number of cards there until your opponent has 5 cards left in his or her hand and have your opponent shuffle the cards you chose into his or her deck."
+          },
+          {
+            "name": "Power Count",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Count the amount of Energy attached to all of your Pokémon and all of your opponent's Pokémon. If your Pokémon have less Energy than your opponent's, this attack does 20 damage plus 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Hisao Nakamura",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/21.png",
+          "large": "https://images.pokemontcg.io/ex3/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.75,
+              "mid": 1.54,
+              "high": 3.65,
+              "market": 1.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 8.0,
+              "mid": 14.99,
+              "high": 27.95,
+              "market": 17.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.86,
+            "lowPrice": 0.1,
+            "trendPrice": 0.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.88,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 12.99,
+            "lowPriceExPlus": 0.29,
+            "avg1": 0.35,
+            "avg7": 1.99,
+            "avg30": 1.24,
+            "reverseHoloAvg1": 0.88,
+            "reverseHoloAvg7": 11.53,
+            "reverseHoloAvg30": 6.42
+          }
+        }
+      },
+      {
+        "id": "hgss3-21",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Coat",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Metal Energy card and attach it to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Razor Wing",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "After nesting in bramble bushes, the wings of its chicks grow hard from scratches by thorns.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/21.png",
+          "large": "https://images.pokemontcg.io/hgss3/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.46,
+              "high": 1.43,
+              "market": 0.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.55,
+              "mid": 3.8,
+              "high": 4.04,
+              "market": 6.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.02,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.43,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 2.21,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.99,
+            "avg7": 0.29,
+            "avg30": 0.38,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.21,
+            "reverseHoloAvg30": 1.47
+          }
+        }
+      },
+      {
+        "id": "neo3-23",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "29",
+        "hp": "60",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Fury Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10×",
+            "text": "Flip 2 coins. This attack does 10 damage times the number of heads."
+          },
+          {
+            "name": "Agility",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, during your opponent's next turn, prevent all effects of attacks, including damage, done to Skarmory."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Aya Kusube",
+        "rarity": "Rare",
+        "flavorText": "After nesting in bramble bushes, the wings of its chicks grow hard from scratches by thorns.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/23.png",
+          "large": "https://images.pokemontcg.io/neo3/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 12.28,
+              "mid": 15.76,
+              "high": 25.0,
+              "market": 13.14,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 5.0,
+              "mid": 7.69,
+              "high": 29.99,
+              "market": 8.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.53,
+            "lowPrice": 0.85,
+            "trendPrice": 2.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.16,
+            "lowPriceExPlus": 4.95,
+            "avg1": 4.5,
+            "avg7": 4.93,
+            "avg30": 6.73,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 2.39,
+            "reverseHoloAvg30": 2.39
+          }
+        }
+      },
+      {
+        "id": "ex8-26",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Metal"
+        ],
+        "abilities": [
+          {
+            "name": "Metallic Lift",
+            "text": "If Skarmory has any Metal Energy attached to it, the Retreat Cost for Skarmory is 0.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spearhead",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card."
+          },
+          {
+            "name": "Heavy Metal",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "Flip a coin for each Metal Energy attached to Skarmory. This attack does 10 damage plus 20 more damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex8",
+          "name": "Deoxys",
+          "series": "EX",
+          "printedTotal": 107,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DX",
+          "releaseDate": "2005/02/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex8/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex8/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex8/26.png",
+          "large": "https://images.pokemontcg.io/ex8/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex8-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.36,
+              "mid": 1.2,
+              "high": 3.0,
+              "market": 1.32,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 23.0,
+              "mid": 31.38,
+              "high": 38.5,
+              "market": 18.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex8-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.61,
+            "lowPrice": 0.1,
+            "trendPrice": 3.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 9.6,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 6.85,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.75,
+            "avg7": 2.91,
+            "avg30": 1.53,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 8.15,
+            "reverseHoloAvg30": 10.79
+          }
+        }
+      },
+      {
+        "id": "col1-31",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Coat",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Metal Energy card and attach it to 1 of your Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Razor Wing",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "col1",
+          "name": "Call of Legends",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CL",
+          "releaseDate": "2011/02/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/col1/symbol.png",
+            "logo": "https://images.pokemontcg.io/col1/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "After nesting in bramble bushes, the wings of its chicks grow hard from scratches by thorns.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/col1/31.png",
+          "large": "https://images.pokemontcg.io/col1/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/col1-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.5,
+              "mid": 0.73,
+              "high": 19.95,
+              "market": 0.78,
+              "directLow": 19.95
+            },
+            "reverseHolofoil": {
+              "low": 2.05,
+              "mid": 3.92,
+              "high": 6.53,
+              "market": 3.74,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/col1-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.63,
+            "lowPrice": 0.3,
+            "trendPrice": 1.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.6,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 4.01,
+            "lowPriceExPlus": 0.8,
+            "avg1": 0.89,
+            "avg7": 1.35,
+            "avg30": 1.56,
+            "reverseHoloAvg1": 1.2,
+            "reverseHoloAvg7": 4.34,
+            "reverseHoloAvg30": 3.96
+          }
+        }
+      },
+      {
+        "id": "ecard1-27",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Beak",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 10 more damage."
+          },
+          {
+            "name": "Air Cutter",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "27",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/27.png",
+          "large": "https://images.pokemontcg.io/ecard1/27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 58.0,
+              "mid": 62.97,
+              "high": 78.5,
+              "market": 78.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 27.99,
+              "mid": 28.78,
+              "high": 29.57,
+              "market": 29.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.47,
+            "lowPrice": 2.89,
+            "trendPrice": 15.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 13.38,
+            "reverseHoloLow": 2.89,
+            "reverseHoloTrend": 10.21,
+            "lowPriceExPlus": 8.4,
+            "avg1": 50.0,
+            "avg7": 14.91,
+            "avg30": 16.87,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 12.7,
+            "reverseHoloAvg30": 8.0
+          }
+        }
+      },
+      {
+        "id": "ex11-55",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Metal"
+        ],
+        "abilities": [
+          {
+            "name": "Shining Horn",
+            "text": "As long as Skarmory is the only Pokémon you have in play, your opponent's Basic Pokémon can't attack.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cry for Help",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a Metal Pokémon (excluding Pokémon-ex), show it to your opponent, and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "During your opponent's next turn, any damage done to Skarmory by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "55",
+        "artist": "Hisao Nakamura",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/55.png",
+          "large": "https://images.pokemontcg.io/ex11/55_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.13,
+              "mid": 2.1,
+              "high": 5.0,
+              "market": 2.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 11.88,
+              "mid": 22.23,
+              "high": 99.99,
+              "market": 15.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.4,
+            "lowPrice": 0.05,
+            "trendPrice": 1.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 8.0,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 13.39,
+            "lowPriceExPlus": 0.4,
+            "avg1": 3.11,
+            "avg7": 1.79,
+            "avg30": 2.15,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 8.11,
+            "reverseHoloAvg30": 10.57
+          }
+        }
+      },
+      {
+        "id": "dp7-51",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "34",
+        "hp": "80",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage."
+          },
+          {
+            "name": "Mach Blade",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Flip a coin. If heads, this attack does 50 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "Despite being clad entirely in iron-hard armor, it flies at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/51.png",
+          "large": "https://images.pokemontcg.io/dp7/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.12,
+              "mid": 0.32,
+              "high": 1.0,
+              "market": 0.33,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.48,
+              "mid": 0.67,
+              "high": 7.3,
+              "market": 0.64,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.03,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 0.66,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.13,
+            "avg7": 0.19,
+            "avg30": 0.21,
+            "reverseHoloAvg1": 0.78,
+            "reverseHoloAvg7": 0.62,
+            "reverseHoloAvg30": 0.75
+          }
+        }
+      },
+      {
+        "id": "dp4-53",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "31",
+        "hp": "70",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Air Crash",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If heads, discard an Energy attached to the Defending Pokémon."
+          },
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "During your opponent's next turn, any damage done to Skarmory by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Despite being clad entirely in iron-hard armor, it flies at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/53.png",
+          "large": "https://images.pokemontcg.io/dp4/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.3,
+              "high": 5.0,
+              "market": 0.38,
+              "directLow": 0.18
+            },
+            "reverseHolofoil": {
+              "low": 1.49,
+              "mid": 2.98,
+              "high": 8.07,
+              "market": 1.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.75,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.59,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.08,
+            "avg7": 0.13,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.8,
+            "reverseHoloAvg30": 0.91
+          }
+        }
+      },
+      {
+        "id": "xy4-59",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Slash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Iron Wing",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Discard a Metal Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "59",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Common",
+        "flavorText": "After nesting in bramble bushes, the wings of its chicks grow hard from scratches by thorns.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/59.png",
+          "large": "https://images.pokemontcg.io/xy4/59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.22,
+              "high": 1.49,
+              "market": 0.22,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.73,
+              "high": 2.98,
+              "market": 0.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.2,
+            "reverseHoloLow": 0.12,
+            "reverseHoloTrend": 0.63,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.13,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 0.74,
+            "reverseHoloAvg30": 0.57
+          }
+        }
+      },
+      {
+        "id": "ecard1-63",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Beak",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 10 more damage."
+          },
+          {
+            "name": "Air Cutter",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "63",
+        "artist": "Kimiya Masago",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/63.png",
+          "large": "https://images.pokemontcg.io/ecard1/63_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.99,
+              "mid": 8.66,
+              "high": 15.0,
+              "market": 7.29,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 10.4,
+              "mid": 19.95,
+              "high": 29.5,
+              "market": 16.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-63",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.48,
+            "lowPrice": 0.4,
+            "trendPrice": 3.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.4,
+            "reverseHoloLow": 0.8,
+            "reverseHoloTrend": 5.59,
+            "lowPriceExPlus": 1.5,
+            "avg1": 0.99,
+            "avg7": 1.61,
+            "avg30": 4.18,
+            "reverseHoloAvg1": 8.99,
+            "reverseHoloAvg7": 9.42,
+            "reverseHoloAvg30": 7.08
+          }
+        }
+      },
+      {
+        "id": "xy6-69",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward."
+          },
+          {
+            "name": "Blow Through",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If there is any Stadium card in play, this attack does 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy6",
+          "name": "Roaring Skies",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 112,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ROS",
+          "releaseDate": "2015/05/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy6/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy6/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "Despite being clad entirely in iron-hard armor, it flies at speed of over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy6/69.png",
+          "large": "https://images.pokemontcg.io/xy6/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy6-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 19.98,
+              "market": 0.24,
+              "directLow": 0.18
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.5,
+              "high": 1.67,
+              "market": 0.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy6-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.76,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.62,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.4,
+            "avg7": 0.28,
+            "avg30": 0.28,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 0.73,
+            "reverseHoloAvg30": 0.83
+          }
+        }
+      },
+      {
+        "id": "xy1-80",
+        "name": "Skarmory-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Joust",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Tailspin Piledriver",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/80.png",
+          "large": "https://images.pokemontcg.io/xy1/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.89,
+              "mid": 4.03,
+              "high": 1540.2,
+              "market": 4.48,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.0,
+            "lowPrice": 0.8,
+            "trendPrice": 4.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.28,
+            "lowPriceExPlus": 2.5,
+            "avg1": 4.99,
+            "avg7": 4.06,
+            "avg30": 4.0,
+            "reverseHoloAvg1": 3.9,
+            "reverseHoloAvg7": 3.33,
+            "reverseHoloAvg30": 3.31
+          }
+        }
+      },
+      {
+        "id": "pl3-83",
+        "name": "Skarmory FB",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "50",
+        "hp": "80",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Silver Feather",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "During your opponent's next turn, when your opponent puts a Basic Pokémon from his or her hand onto his or her Bench, put 2 damage counters on that Pokémon."
+          },
+          {
+            "name": "Metal Max",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Discard all Metal Energy attached to Skarmory FB. Flip a coin for each Energy card you discarded. This attack does 20 damage plus 40 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Hironobu Yoshida",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/83.png",
+          "large": "https://images.pokemontcg.io/pl3/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.49,
+              "mid": 0.72,
+              "high": 2.5,
+              "market": 0.91,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.2,
+              "mid": 1.35,
+              "high": 3.41,
+              "market": 3.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.45,
+            "lowPrice": 0.1,
+            "trendPrice": 0.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.5,
+            "reverseHoloLow": 0.21,
+            "reverseHoloTrend": 1.91,
+            "lowPriceExPlus": 0.34,
+            "avg1": 0.9,
+            "avg7": 0.58,
+            "avg30": 0.7,
+            "reverseHoloAvg1": 2.25,
+            "reverseHoloAvg7": 1.8,
+            "reverseHoloAvg30": 1.54
+          }
+        }
+      },
+      {
+        "id": "sm1-88",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Metallic Sound",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Discard all Special Energy from each Pokémon."
+          },
+          {
+            "name": "Aerial Ace",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Common",
+        "flavorText": "Its feathers, which fall off as it grows, are thin and sharp. In times long past, warriors used them as swords.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/88.png",
+          "large": "https://images.pokemontcg.io/sm1/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.1,
+              "high": 4.0,
+              "market": 0.09,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.11,
+              "mid": 0.27,
+              "high": 1.99,
+              "market": 0.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.23,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.26,
+            "reverseHoloAvg30": 0.25
+          }
+        }
+      },
+      {
+        "id": "bw8-87",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Team Plasma"
+        ],
+        "hp": "90",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Cargo Jet",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard a Team Plasma card from your hand. if you do, draw 3 cards."
+          },
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 20 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw8",
+          "name": "Plasma Storm",
+          "series": "Black & White",
+          "printedTotal": 135,
+          "total": 138,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLS",
+          "releaseDate": "2013/02/06",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw8/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw8/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "Its heavy-looking iron body is actually thin and light, so it can fly at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw8/87.png",
+          "large": "https://images.pokemontcg.io/bw8/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw8-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.77,
+              "mid": 2.68,
+              "high": 6.0,
+              "market": 2.61,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.9,
+              "mid": 3.75,
+              "high": 5.6,
+              "market": 6.56,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw8-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.13,
+            "lowPrice": 0.4,
+            "trendPrice": 1.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.44,
+            "reverseHoloLow": 0.49,
+            "reverseHoloTrend": 2.33,
+            "lowPriceExPlus": 0.48,
+            "avg1": 1.95,
+            "avg7": 1.59,
+            "avg30": 1.15,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 2.36,
+            "reverseHoloAvg30": 1.97
+          }
+        }
+      },
+      {
+        "id": "bw7-95",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Claw",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          },
+          {
+            "name": "Drill Peck",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "95",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Uncommon",
+        "flavorText": "Despite being clad entirely in iron-hard armor, it flies at speed of over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/95.png",
+          "large": "https://images.pokemontcg.io/bw7/95_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-95",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.19,
+              "mid": 0.39,
+              "high": 1.07,
+              "market": 0.4,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.38,
+              "mid": 1.21,
+              "high": 4.0,
+              "market": 1.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-95",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.22,
+            "lowPrice": 0.05,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.72,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.98,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.2,
+            "avg7": 0.18,
+            "avg30": 0.27,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 0.75,
+            "reverseHoloAvg30": 0.85
+          }
+        }
+      },
+      {
+        "id": "bw7-96",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Metal Sound",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Swift",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "This attack's damage isn't affected by Weakness, Resistance, or any other effects on the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw7",
+          "name": "Boundaries Crossed",
+          "series": "Black & White",
+          "printedTotal": 149,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BCR",
+          "releaseDate": "2012/11/07",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw7/logo.png"
+          }
+        },
+        "number": "96",
+        "artist": "Hajime Kusajima",
+        "rarity": "Uncommon",
+        "flavorText": "Its heavy-looking iron body is actually thin and light, so it can fly at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw7/96.png",
+          "large": "https://images.pokemontcg.io/bw7/96_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw7-96",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.29,
+              "mid": 0.55,
+              "high": 1.32,
+              "market": 0.76,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 3.34,
+              "high": 8.0,
+              "market": 4.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw7-96",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.02,
+            "trendPrice": 0.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.61,
+            "reverseHoloLow": 0.35,
+            "reverseHoloTrend": 1.69,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.2,
+            "avg7": 0.34,
+            "avg30": 0.31,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 1.07,
+            "reverseHoloAvg30": 1.08
+          }
+        }
+      },
+      {
+        "id": "sm9-98",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Calm Strike",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "If you have used your GX attack, this attack does 70 more damage."
+          },
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "kirisAki",
+        "rarity": "Rare",
+        "flavorText": "Its metal body is sturdy, but it does rust rather easily. So on rainy days, this Pokémon prefers to stay put in its nest.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/98.png",
+          "large": "https://images.pokemontcg.io/sm9/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.7,
+              "high": 1.49,
+              "market": 0.6,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.07,
+              "mid": 0.33,
+              "high": 1.99,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.05,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.49,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.43,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.1,
+            "avg7": 0.17,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.54,
+            "reverseHoloAvg30": 0.61
+          }
+        }
+      },
+      {
+        "id": "ex16-98",
+        "name": "Skarmory ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "ex"
+        ],
+        "hp": "100",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Metal Gravity",
+            "text": "If your opponent's Active Pokémon retreats and has 40 or more remaining HP, put 3 damage counters on that Pokémon. You can't use more than 1 Metal Gravity Poké-Body each turn.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Whirlwind",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Razor Wing",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/98.png",
+          "large": "https://images.pokemontcg.io/ex16/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 47.97,
+              "mid": 50.0,
+              "high": 120.0,
+              "market": 59.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 34.2,
+            "lowPrice": 6.0,
+            "trendPrice": 25.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.16,
+            "lowPriceExPlus": 24.0,
+            "avg1": 35.0,
+            "avg7": 27.19,
+            "avg30": 19.24,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 10.43,
+            "reverseHoloAvg30": 10.36
+          }
+        }
+      },
+      {
+        "id": "swsh3-120",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Metal Arms",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If this Pokémon has a Pokémon Tool attached, this attack does 40 more damage."
+          },
+          {
+            "name": "Cutting Wind",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "120",
+        "artist": "NC Empire",
+        "rarity": "Common",
+        "flavorText": "Its body is draped in steel armor. It looks heavy, but it can fly at speeds of up to 185 miles an hour!",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/120.png",
+          "large": "https://images.pokemontcg.io/swsh3/120_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-120",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.2,
+              "directLow": 0.15
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 25.11,
+              "market": 0.11,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-120",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.15,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "ecard3-97",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Double Peck",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10×",
+            "text": "Flip 2 coins. This attack does 10 damage times the number of heads."
+          },
+          {
+            "name": "Spinning Head",
+            "cost": [
+              "Metal",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, switch Skarmory with 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "97",
+        "artist": "Katsura Tabata",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/97.png",
+          "large": "https://images.pokemontcg.io/ecard3/97_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-97",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 9.99,
+              "mid": 10.0,
+              "high": 11.5,
+              "market": 8.96,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 55.0,
+              "mid": 59.98,
+              "high": 64.95,
+              "market": 41.84,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-97",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 1.79,
+            "lowPrice": 0.2,
+            "trendPrice": 4.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.95,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 13.21,
+            "lowPriceExPlus": 1.5,
+            "avg1": 1.53,
+            "avg7": 2.08,
+            "avg30": 3.83,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 15.83,
+            "reverseHoloAvg30": 9.7
+          }
+        }
+      },
+      {
+        "id": "xy1-145",
+        "name": "Skarmory-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Metal"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Joust",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Tailspin Piledriver",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon already has any damage counters on it, this attack does 40 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "145",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/145.png",
+          "large": "https://images.pokemontcg.io/xy1/145_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-145",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.59,
+              "mid": 31.51,
+              "high": 107.66,
+              "market": 32.32,
+              "directLow": 105.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-145",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 20.38,
+            "lowPrice": 4.24,
+            "trendPrice": 15.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.89,
+            "lowPriceExPlus": 8.0,
+            "avg1": 5.0,
+            "avg7": 19.77,
+            "avg30": 15.12,
+            "reverseHoloAvg1": 14.99,
+            "reverseHoloAvg7": 8.48,
+            "reverseHoloAvg30": 6.94
+          }
+        }
+      },
+      {
+        "id": "swsh8-182",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Single Strike"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Slicing Blade",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Grass",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "Megumi Higuchi",
+        "rarity": "Common",
+        "flavorText": "Its body is draped in steel armor. It looks heavy, but it can fly at speeds of up to 185 miles an hour!",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/182.png",
+          "large": "https://images.pokemontcg.io/swsh8/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.21,
+              "high": 1.49,
+              "market": 0.19,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.0,
+              "market": 0.06,
+              "directLow": 0.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.28,
+            "reverseHoloAvg7": 0.11,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      },
+      {
+        "id": "sv3-142",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Peck",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Slashing Steel",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "During your next turn, this Pokémon can't use Slashing Steel."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv3",
+          "name": "Obsidian Flames",
+          "series": "Scarlet & Violet",
+          "printedTotal": 197,
+          "total": 230,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/08/11",
+          "updatedAt": "2023/08/11 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Takeshi Nakamura",
+        "rarity": "Uncommon",
+        "flavorText": "People fashion swords from Skarmory's shed feathers, so this Pokémon is a popular element in heraldic designs.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3/142.png",
+          "large": "https://images.pokemontcg.io/sv3/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.04,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.23,
+              "high": 1.41,
+              "market": 0.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.23
+          }
+        }
+      },
+      {
+        "id": "sv6-119",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Cutting Wind",
+            "cost": [
+              "Metal"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Big Storm",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Discard a Stadium in play."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv6",
+          "name": "Twilight Masquerade",
+          "series": "Scarlet & Violet",
+          "printedTotal": 167,
+          "total": 226,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TWM",
+          "releaseDate": "2024/05/24",
+          "updatedAt": "2024/05/23 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6/logo.png"
+          }
+        },
+        "number": "119",
+        "artist": "toi8",
+        "rarity": "Common",
+        "flavorText": "People fashion swords from Skarmory's shed feathers, so this Pokémon is a popular element in heraldic designs.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6/119.png",
+          "large": "https://images.pokemontcg.io/sv6/119_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6-119",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.03,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.13,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6-119",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.08,
+            "reverseHoloAvg30": 0.08
+          }
+        }
+      },
+      {
+        "id": "sv8-124",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "124",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/124.png",
+          "large": "https://images.pokemontcg.io/sv8/124_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-124",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 1.54,
+              "market": 0.09,
+              "directLow": 0.09
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.04,
+              "directLow": 0.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-124",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.07,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.06,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.02,
+            "reverseHoloAvg7": 0.08,
+            "reverseHoloAvg30": 0.07
+          }
+        }
+      },
+      {
+        "id": "sv8-209",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Steel Wing",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "209",
+        "rarity": "Illustration Rare",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/209.png",
+          "large": "https://images.pokemontcg.io/sv8/209_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-209",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.23,
+              "mid": 7.33,
+              "high": 505.46,
+              "market": 5.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-209",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 8.44,
+            "lowPrice": 4.0,
+            "trendPrice": 8.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.0,
+            "avg1": 6.86,
+            "avg7": 8.27,
+            "avg30": 8.35,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv10-141",
+        "name": "Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "110",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Roost",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Heal 50 damage from this Pokémon. During your next turn, this Pokémon can't retreat."
+          },
+          {
+            "name": "Metal Claw",
+            "cost": [
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "141",
+        "artist": "Shin Nagasawa",
+        "rarity": "Common",
+        "flavorText": "Its sturdy, heavy-looking iron body is actually thin and light, so it can fly at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/141.png",
+          "large": "https://images.pokemontcg.io/sv10/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.05,
+              "directLow": 0.04
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 5.01,
+              "market": 0.07,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.06,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.06,
+            "reverseHoloAvg30": 0.08
+          }
+        }
+      },
+      {
+        "id": "sv10-142",
+        "name": "Steven's Skarmory",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "120",
+        "types": [
+          "Metal"
+        ],
+        "attacks": [
+          {
+            "name": "Razor Wing",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Sonic Double",
+            "cost": [
+              "Metal",
+              "Metal",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to 2 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Nisota Niso",
+        "rarity": "Common",
+        "flavorText": "Its sturdy, heavy-looking iron body is actually thin and light, so it can fly at speeds over 180 mph.",
+        "nationalPokedexNumbers": [
+          227
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/142.png",
+          "large": "https://images.pokemontcg.io/sv10/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.05,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 20.0,
+              "market": 0.13,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.09,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.07,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 31,
+    "totalCount": 31
+  }
+}

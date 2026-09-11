@@ -1,0 +1,2328 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:minun"
+  },
+  "cache_key": "a5b883ad71c1685642ce6abe31feb540",
+  "cached_at": 1765915487.508913,
+  "response": {
+    "data": [
+      {
+        "id": "pop3-4",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Cheer Up",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card. If you have Plusle in play, draw 2 cards instead."
+          },
+          {
+            "name": "Negative Ion",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 10 (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Power Bolt",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon that has any Poké-Powers. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pop3",
+          "name": "POP Series 3",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2006/04/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop3/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop3/4.png",
+          "large": "https://images.pokemontcg.io/pop3/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop3-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 8.5,
+              "mid": 11.33,
+              "high": 25.0,
+              "market": 5.78,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 11.55,
+              "mid": 26.89,
+              "high": 79.99,
+              "market": 27.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop3-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.0,
+            "lowPrice": 3.99,
+            "trendPrice": 10.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.68,
+            "lowPriceExPlus": 14.0,
+            "avg1": 5.75,
+            "avg7": 10.81,
+            "avg30": 7.77,
+            "reverseHoloAvg1": 3.95,
+            "reverseHoloAvg7": 6.46,
+            "reverseHoloAvg30": 5.63
+          }
+        }
+      },
+      {
+        "id": "ex3-7",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Lightning"
+        ],
+        "abilities": [
+          {
+            "name": "Chain of Events",
+            "text": "As long as Minun is your Active Pokémon, whenever your other Active Pokémon, if any, attacks, you may use Cheer On after the first attack (you still need the necessary Energy to use Cheer On). You can't use Cheer On more than once in this way even if your other Active Pokémon has the Chain of Events Poké-Body.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cheer On",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Remove 1 damage counter from each of your Pokémon (including Minun)."
+          },
+          {
+            "name": "Special Circuit",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 20 damage to that Pokémon. If you choose Pokémon that has a Poké-Power or Poké-Body, this attack does 40 damage instead. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex3",
+          "name": "Dragon",
+          "series": "EX",
+          "printedTotal": 97,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DR",
+          "releaseDate": "2003/11/24",
+          "updatedAt": "2023/02/16 05:47:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex3/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex3/7.png",
+          "large": "https://images.pokemontcg.io/ex3/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex3-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 41.0,
+              "mid": 77.71,
+              "high": 199.99,
+              "market": 87.01,
+              "directLow": 199.99
+            },
+            "reverseHolofoil": {
+              "low": 32.8,
+              "mid": 39.85,
+              "high": 99.99,
+              "market": 32.8,
+              "directLow": 80.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex3-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.16,
+            "lowPrice": 2.0,
+            "trendPrice": 18.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.0,
+            "reverseHoloLow": 2.99,
+            "reverseHoloTrend": 6.65,
+            "lowPriceExPlus": 3.89,
+            "avg1": 3.0,
+            "avg7": 21.13,
+            "avg30": 13.42,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 8.08,
+            "reverseHoloAvg30": 8.82
+          }
+        }
+      },
+      {
+        "id": "pop1-12",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Thunder Wave",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          },
+          {
+            "name": "Spark",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10",
+            "text": "Choose 2 of your opponent's Benched Pokémon. This attack does 10 damage to each of those Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pop1",
+          "name": "POP Series 1",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop1/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Ken Sugimori",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop1/12.png",
+          "large": "https://images.pokemontcg.io/pop1/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop1-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.74,
+              "mid": 1.03,
+              "high": 5.0,
+              "market": 1.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop1-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.2,
+            "lowPrice": 0.1,
+            "trendPrice": 1.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.14,
+            "lowPriceExPlus": 0.1,
+            "avg1": 2.69,
+            "avg7": 2.09,
+            "avg30": 1.58,
+            "reverseHoloAvg1": 0.14,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.14
+          }
+        }
+      },
+      {
+        "id": "hsp-HGSS17",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward."
+          },
+          {
+            "name": "Tag Team Boost",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If Plusle is on your Bench, this attack does 10 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hsp",
+          "name": "HGSS Black Star Promos",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR-HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hsp/symbol.png",
+            "logo": "https://images.pokemontcg.io/hsp/logo.png"
+          }
+        },
+        "number": "HGSS17",
+        "artist": "Kouki Saitou",
+        "rarity": "Promo",
+        "flavorText": "Exposure to electricity from Minun and Plusle promotes blood circulation and relaxes muscles.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hsp/HGSS17.png",
+          "large": "https://images.pokemontcg.io/hsp/HGSS17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hsp-HGSS17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 40.0,
+              "mid": 62.43,
+              "high": 149.99,
+              "market": 13.65,
+              "directLow": 69.99
+            }
+          }
+        }
+      },
+      {
+        "id": "dp3-32",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "30",
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "abilities": [
+          {
+            "name": "Minus Charge",
+            "text": "Once during your turn (before your attack), if any Pokémon were Knocked Out during your opponent's last turn, you may draw 2 cards. You can't use more than 1 Minus Charge Poké-Power each turn. This power can't be used if Minun is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Tag Play —",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "If you have Plusle on your Bench, you may move an Energy card attached to Minun to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/32.png",
+          "large": "https://images.pokemontcg.io/dp3/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.1,
+              "mid": 1.98,
+              "high": 5.77,
+              "market": 1.98,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.78,
+              "mid": 4.39,
+              "high": 19.99,
+              "market": 4.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.13,
+            "lowPrice": 0.09,
+            "trendPrice": 0.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.56,
+            "reverseHoloLow": 0.99,
+            "reverseHoloTrend": 1.61,
+            "lowPriceExPlus": 0.59,
+            "avg1": 0.4,
+            "avg7": 1.03,
+            "avg30": 1.37,
+            "reverseHoloAvg1": 2.98,
+            "reverseHoloAvg7": 1.81,
+            "reverseHoloAvg30": 1.75
+          }
+        }
+      },
+      {
+        "id": "dp5-25",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "24",
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Pound",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": ""
+          },
+          {
+            "name": "(+) Spark",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "If Plusle is on your Bench, this attack does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Suwama Chiaki",
+        "rarity": "Rare",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/25.png",
+          "large": "https://images.pokemontcg.io/dp5/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.5,
+              "mid": 3.0,
+              "high": 20.0,
+              "market": 2.95,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 8.4,
+              "mid": 12.83,
+              "high": 14.38,
+              "market": 12.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.1,
+            "trendPrice": 0.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.23,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 2.41,
+            "lowPriceExPlus": 0.7,
+            "avg1": 0.5,
+            "avg7": 0.91,
+            "avg30": 1.01,
+            "reverseHoloAvg1": 2.12,
+            "reverseHoloAvg7": 2.22,
+            "reverseHoloAvg30": 1.61
+          }
+        }
+      },
+      {
+        "id": "hgss2-34",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Shuffle your deck afterward."
+          },
+          {
+            "name": "Tag Team Boost",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If Plusle is on your Bench, this attack does 10 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "hgss2",
+          "name": "HS—Unleashed",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 95,
+          "total": 96,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UL",
+          "releaseDate": "2010/05/12",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss2/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss2/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "Exposure to electricity from Minun and Plusle promotes blood circulation and relaxes muscles.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss2/34.png",
+          "large": "https://images.pokemontcg.io/hgss2/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 1.18,
+              "high": 2.42,
+              "market": 0.79,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.47,
+              "mid": 2.91,
+              "high": 17.85,
+              "market": 4.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss2-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.39,
+            "lowPrice": 0.02,
+            "trendPrice": 0.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.77,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 2.51,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.35,
+            "avg7": 0.35,
+            "avg30": 0.48,
+            "reverseHoloAvg1": 1.7,
+            "reverseHoloAvg7": 2.66,
+            "reverseHoloAvg30": 1.82
+          }
+        }
+      },
+      {
+        "id": "ex9-37",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "abilities": [
+          {
+            "name": "Electro-guard",
+            "text": "As long Minun has any Lightning Energy attached to it, Minun has no Weakness.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Quick Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex9",
+          "name": "Emerald",
+          "series": "EX",
+          "printedTotal": 106,
+          "total": 107,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EM",
+          "releaseDate": "2005/05/01",
+          "updatedAt": "2020/02/08 09:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex9/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex9/logo.png"
+          }
+        },
+        "number": "37",
+        "artist": "Naoyo Kimura",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex9/37.png",
+          "large": "https://images.pokemontcg.io/ex9/37_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex9-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.2,
+              "mid": 2.7,
+              "high": 6.79,
+              "market": 2.54,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 29.98,
+              "mid": 31.69,
+              "high": 43.79,
+              "market": 20.6,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex9-37",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.55,
+            "lowPrice": 0.05,
+            "trendPrice": 1.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.0,
+            "reverseHoloLow": 2.1,
+            "reverseHoloTrend": 7.62,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.5,
+            "avg7": 1.06,
+            "avg30": 1.38,
+            "reverseHoloAvg1": 6.0,
+            "reverseHoloAvg7": 6.46,
+            "reverseHoloAvg30": 7.51
+          }
+        }
+      },
+      {
+        "id": "ex8-41",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Sniff Out",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put any 1 card from your discard pile into your hand."
+          },
+          {
+            "name": "Negative Spark",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Does 20 damage to each of your opponent's Pokémon that has any Poké-Bodies. Don't apply Weakness and Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex8",
+          "name": "Deoxys",
+          "series": "EX",
+          "printedTotal": 107,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DX",
+          "releaseDate": "2005/02/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex8/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex8/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Hajime Kusajima",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex8/41.png",
+          "large": "https://images.pokemontcg.io/ex8/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex8-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.51,
+              "mid": 9.02,
+              "high": 13.19,
+              "market": 6.98,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 27.77,
+              "mid": 32.0,
+              "high": 44.11,
+              "market": 14.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex8-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.91,
+            "lowPrice": 0.05,
+            "trendPrice": 3.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 22.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 20.34,
+            "lowPriceExPlus": 0.4,
+            "avg1": 1.3,
+            "avg7": 3.3,
+            "avg30": 2.25,
+            "reverseHoloAvg1": 22.0,
+            "reverseHoloAvg7": 20.56,
+            "reverseHoloAvg30": 11.8
+          }
+        }
+      },
+      {
+        "id": "xy3-32",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Negative Discard",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put 2 basic Energy cards from your discard pile into your hand."
+          },
+          {
+            "name": "Static Shock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "Akira Komayama",
+        "rarity": "Common",
+        "flavorText": "Exposure to electricity from Minun and Plusle promotes blood circulation and relaxes muscles.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/32.png",
+          "large": "https://images.pokemontcg.io/xy3/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.36,
+              "high": 4.0,
+              "market": 0.41,
+              "directLow": 0.5
+            },
+            "reverseHolofoil": {
+              "low": 0.89,
+              "mid": 1.04,
+              "high": 2.29,
+              "market": 1.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.61,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.41,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.19,
+            "avg30": 0.22,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 1.32,
+            "reverseHoloAvg30": 1.2
+          }
+        }
+      },
+      {
+        "id": "sm35-34",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Collect",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw a card."
+          },
+          {
+            "name": "Spark",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "This attack does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "nagimiso",
+        "rarity": "Common",
+        "flavorText": "Exposure to electricity from Minun and Plusle promotes blood circulation and relaxes muscles.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/34.png",
+          "large": "https://images.pokemontcg.io/sm35/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.06,
+              "mid": 0.24,
+              "high": 1.75,
+              "market": 0.23,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.44,
+              "high": 1.19,
+              "market": 0.45,
+              "directLow": 0.34
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.16,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.08,
+            "reverseHoloTrend": 0.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.12,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.28,
+            "reverseHoloAvg7": 0.41,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "bw11-48",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Negative Ion",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 30 (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Electrishower",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 10 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/48.png",
+          "large": "https://images.pokemontcg.io/bw11/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.75,
+              "mid": 1.54,
+              "high": 19.99,
+              "market": 1.56,
+              "directLow": 0.92
+            },
+            "reverseHolofoil": {
+              "low": 6.99,
+              "mid": 9.99,
+              "high": 13.11,
+              "market": 3.71,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.34,
+            "lowPrice": 0.85,
+            "trendPrice": 1.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 6.0,
+            "reverseHoloLow": 3.67,
+            "reverseHoloTrend": 7.44,
+            "lowPriceExPlus": 0.85,
+            "avg1": 2.15,
+            "avg7": 2.05,
+            "avg30": 2.36,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 6.96,
+            "reverseHoloAvg30": 4.75
+          }
+        }
+      },
+      {
+        "id": "bw5-40",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Negative Ion",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 30 (before applying Weakness and Resistance)."
+          },
+          {
+            "name": "Electrishower",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 10 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Naoki Saito",
+        "rarity": "Common",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/40.png",
+          "large": "https://images.pokemontcg.io/bw5/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.5,
+              "mid": 2.9,
+              "high": 7.0,
+              "market": 2.71,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 20.0,
+              "mid": 39.99,
+              "high": 49.99,
+              "market": 4.82,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.57,
+            "lowPrice": 0.02,
+            "trendPrice": 0.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.25,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.66,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.8,
+            "avg7": 0.44,
+            "avg30": 0.48,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.84,
+            "reverseHoloAvg30": 1.38
+          }
+        }
+      },
+      {
+        "id": "sm7-54",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Ditch and Draw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "You may discard any number of cards from your hand. Then, draw cards until you have 5 cards in your hand."
+          },
+          {
+            "name": "Electro Ball",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "Sumiyoshi Kizuki",
+        "rarity": "Uncommon",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/54.png",
+          "large": "https://images.pokemontcg.io/sm7/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.17,
+              "mid": 0.4,
+              "high": 19.99,
+              "market": 0.45,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.67,
+              "high": 1.0,
+              "market": 0.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.35,
+            "lowPrice": 0.02,
+            "trendPrice": 0.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.5,
+            "reverseHoloLow": 0.18,
+            "reverseHoloTrend": 0.47,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.28,
+            "avg30": 0.32,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.45,
+            "reverseHoloAvg30": 0.43
+          }
+        }
+      },
+      {
+        "id": "ex5-67",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "50",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Minus Energy",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Flip a coin. If heads, choose 1 Energy attached to the Defending Pokémon. Your opponent returns that card to his or her hand."
+          },
+          {
+            "name": "Thundershock",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/67.png",
+          "large": "https://images.pokemontcg.io/ex5/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 17.44,
+              "mid": 20.1,
+              "high": 33.26,
+              "market": 22.81,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 27.95,
+              "mid": 72.22,
+              "high": 72.22,
+              "market": 25.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.91,
+            "lowPrice": 0.05,
+            "trendPrice": 1.72,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 32.62,
+            "reverseHoloLow": 1.95,
+            "reverseHoloTrend": 14.15,
+            "lowPriceExPlus": 0.71,
+            "avg1": 0.5,
+            "avg7": 2.25,
+            "avg30": 2.57,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 18.86,
+            "reverseHoloAvg30": 11.62
+          }
+        }
+      },
+      {
+        "id": "pl3-71",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "level": "33",
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Search your deck for up to 2 Lightning Basic Pokémon and put them onto your Bench. Shuffle your deck afterward."
+          },
+          {
+            "name": "Trash Charge",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "Search your discard pile for a Lightning Energy card and attach it to 1 of your Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+10"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "Yuka Morii",
+        "rarity": "Uncommon",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/71.png",
+          "large": "https://images.pokemontcg.io/pl3/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.99,
+              "mid": 7.68,
+              "high": 19.99,
+              "market": 3.14,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 15.0,
+              "mid": 19.95,
+              "high": 49.99,
+              "market": 14.03,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.75,
+            "lowPrice": 0.15,
+            "trendPrice": 1.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.29,
+            "reverseHoloLow": 1.55,
+            "reverseHoloTrend": 2.48,
+            "lowPriceExPlus": 0.75,
+            "avg1": 1.0,
+            "avg7": 1.5,
+            "avg30": 1.6,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.67,
+            "reverseHoloAvg30": 2.5
+          }
+        }
+      },
+      {
+        "id": "swsh8-90",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Rapid Strike"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Call for Family",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Then, shuffle your deck."
+          },
+          {
+            "name": "Static Shock",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Common",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/90.png",
+          "large": "https://images.pokemontcg.io/swsh8/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.26,
+              "high": 2.0,
+              "market": 0.25,
+              "directLow": 0.23
+            },
+            "normal": {
+              "low": 0.02,
+              "mid": 0.15,
+              "high": 1.49,
+              "market": 0.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.19,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.06,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.25
+          }
+        }
+      },
+      {
+        "id": "tk2b-6",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Lightning"
+        ],
+        "attacks": [
+          {
+            "name": "Drawup Power",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for an Energy card, show it to your opponent, and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Front Spark",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Does 10 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "tk2b",
+          "name": "EX Trainer Kit 2 Minun",
+          "series": "EX",
+          "printedTotal": 12,
+          "total": 12,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2006/03/01",
+          "updatedAt": "2022/01/13 20:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/tk2b/symbol.png",
+            "logo": "https://images.pokemontcg.io/tk2b/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Katsura Tabata",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/tk2b/6.png",
+          "large": "https://images.pokemontcg.io/tk2b/6_hires.png"
+        }
+      },
+      {
+        "id": "sv4-61",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "abilities": [
+          {
+            "name": "Buddy Pulse",
+            "text": "If you have Plusle in play, whenever your opponent attaches an Energy card from their hand to 1 of their Pokémon, put 2 damage counters on that Pokémon. The effect of Buddy Pulse doesn't stack.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Speed Ball",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Narumi Sato",
+        "rarity": "Common",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/61.png",
+          "large": "https://images.pokemontcg.io/sv4/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.17,
+              "high": 40.0,
+              "market": 0.17,
+              "directLow": 0.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.12,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.07,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.12
+          }
+        }
+      },
+      {
+        "id": "sv4-194",
+        "name": "Minun",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Lightning"
+        ],
+        "abilities": [
+          {
+            "name": "Buddy Pulse",
+            "text": "If you have Plusle in play, whenever your opponent attaches an Energy card from their hand to 1 of their Pokémon, put 2 damage counters on that Pokémon. The effect of Buddy Pulse doesn't stack.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Speed Ball",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "194",
+        "artist": "OKACHEKE",
+        "rarity": "Illustration Rare",
+        "flavorText": "It cheers on friends. If its friends are losing, its body lets off more and more sparks.",
+        "nationalPokedexNumbers": [
+          312
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/194.png",
+          "large": "https://images.pokemontcg.io/sv4/194_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-194",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 23.43,
+              "mid": 28.65,
+              "high": 51.99,
+              "market": 27.08,
+              "directLow": 31.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-194",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 19.11,
+            "lowPrice": 11.0,
+            "trendPrice": 18.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 11.0,
+            "avg1": 20.24,
+            "avg7": 18.36,
+            "avg30": 19.13,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 20,
+    "totalCount": 20
+  }
+}

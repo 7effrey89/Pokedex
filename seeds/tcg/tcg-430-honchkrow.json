@@ -1,0 +1,2740 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:honchkrow"
+  },
+  "cache_key": "8a7bb50275a4fac649941236459a120d",
+  "cached_at": 1765915713.097938,
+  "response": {
+    "data": [
+      {
+        "id": "dp2-10",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "42",
+        "hp": "90",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "abilities": [
+          {
+            "name": "Dark Genes",
+            "text": "As long as Honchkrow has the Energy necessary to use its attack, each of your Murkrow can use Honchkrow's attack as its own without the Energy necessary to use that attack.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dark Wing Flaps",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Choose 1 card from your opponent's hand without looking. Look at the card you chose, then have your opponent shuffle that card into his or her deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp2",
+          "name": "Mysterious Treasures",
+          "series": "Diamond & Pearl",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MT",
+          "releaseDate": "2007/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp2/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp2/logo.png"
+          }
+        },
+        "number": "10",
+        "artist": "Kazuyuki Kano",
+        "rarity": "Rare Holo",
+        "flavorText": "Becoming active at night, it is known to swarm with numerous MURKROW in tow.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp2/10.png",
+          "large": "https://images.pokemontcg.io/dp2/10_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp2-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.74,
+              "mid": 4.12,
+              "high": 9.98,
+              "market": 4.45,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.9,
+              "mid": 5.25,
+              "high": 6.49,
+              "market": 3.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp2-10",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.14,
+            "lowPrice": 0.48,
+            "trendPrice": 3.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.0,
+            "reverseHoloLow": 0.48,
+            "reverseHoloTrend": 3.35,
+            "lowPriceExPlus": 0.89,
+            "avg1": 3.99,
+            "avg7": 2.83,
+            "avg30": 2.47,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 2.46,
+            "reverseHoloAvg30": 2.42
+          }
+        }
+      },
+      {
+        "id": "hgss3-15",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Whirlwind",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Blindside",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon that has any damage counters on it. This attack does 50 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "It is merciless by nature. It is said that it never forgives the mistakes of its Murkrow followers.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/15.png",
+          "large": "https://images.pokemontcg.io/hgss3/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.4,
+              "mid": 0.65,
+              "high": 1.85,
+              "market": 1.03,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 3.74,
+              "high": 8.8,
+              "market": 3.54,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.86,
+            "lowPrice": 0.3,
+            "trendPrice": 0.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.63,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 3.59,
+            "lowPriceExPlus": 0.48,
+            "avg1": 1.0,
+            "avg7": 0.98,
+            "avg30": 0.88,
+            "reverseHoloAvg1": 1.75,
+            "reverseHoloAvg7": 3.99,
+            "reverseHoloAvg30": 2.58
+          }
+        }
+      },
+      {
+        "id": "hgss3-16",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Shadow Bind",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Vengeance",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each Darkness Pokémon in your discard pile."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "It is merciless by nature. It is said that it never forgives the mistakes of its Murkrow followers.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/16.png",
+          "large": "https://images.pokemontcg.io/hgss3/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.4,
+              "high": 9.09,
+              "market": 0.47,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 1.75,
+              "high": 2.99,
+              "market": 2.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.4,
+            "lowPrice": 0.04,
+            "trendPrice": 0.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.97,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 5.08,
+            "lowPriceExPlus": 0.18,
+            "avg1": 0.37,
+            "avg7": 0.39,
+            "avg30": 0.4,
+            "reverseHoloAvg1": 5.93,
+            "reverseHoloAvg7": 4.23,
+            "reverseHoloAvg30": 3.58
+          }
+        }
+      },
+      {
+        "id": "pl3-29",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "46",
+        "hp": "90",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "abilities": [
+          {
+            "name": "Darkness Restore",
+            "text": "Once during your turn (before your attack), if Honchkrow is your Active Pokémon and your opponent's Bench isn't full, you may use this power. Search your opponent's discard pile for a Basic Pokémon and put it onto his or her bench. This power can't be used if Honchkrow is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Riot",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Does 30 damage plus 10 more damage for each Pokémon that isn't an evolved Pokémon in play (both yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "If one utters a deep cry, many Murkrow gather quickly. For this, it is called \"Summoner of Night.\"",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/29.png",
+          "large": "https://images.pokemontcg.io/pl3/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.98,
+              "mid": 1.48,
+              "high": 3.67,
+              "market": 1.48,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 2.72,
+              "high": 3.99,
+              "market": 3.11,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.18,
+            "lowPrice": 0.24,
+            "trendPrice": 0.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.51,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.5,
+            "lowPriceExPlus": 0.6,
+            "avg1": 2.0,
+            "avg7": 1.18,
+            "avg30": 1.03,
+            "reverseHoloAvg1": 1.48,
+            "reverseHoloAvg7": 1.51,
+            "reverseHoloAvg30": 1.56
+          }
+        }
+      },
+      {
+        "id": "xy4-52",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Nightmare Mambo",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "If your opponent's Active Pokémon is Asleep, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy4",
+          "name": "Phantom Forces",
+          "series": "XY",
+          "printedTotal": 119,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PHF",
+          "releaseDate": "2014/11/05",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy4/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy4/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "flavorText": "If one utters a deep cry, many Murkrow gather quickly. For this, it is called \"Summoner of Night.\"",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy4/52.png",
+          "large": "https://images.pokemontcg.io/xy4/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy4-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.43,
+              "high": 19.98,
+              "market": 0.51,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.44,
+              "mid": 0.76,
+              "high": 4.91,
+              "market": 0.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy4-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.62,
+            "lowPrice": 0.1,
+            "trendPrice": 0.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.66,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.33,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.95,
+            "avg7": 0.66,
+            "avg30": 0.49,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 1.26,
+            "reverseHoloAvg30": 1.06
+          }
+        }
+      },
+      {
+        "id": "sm5-72",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Rip and Run",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard a random card from your opponent's hand. Switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Speed Dive",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Uncommon",
+        "flavorText": "If its Murkrow cronies fail to catch food for it, or if it feels they have betrayed it, it will hunt them down wherever they are and punish them.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/72.png",
+          "large": "https://images.pokemontcg.io/sm5/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 1.49,
+              "market": 0.21,
+              "directLow": 0.12
+            },
+            "reverseHolofoil": {
+              "low": 0.13,
+              "mid": 0.35,
+              "high": 1.49,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.16,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.29,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.12,
+            "avg7": 0.19,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.31,
+            "reverseHoloAvg30": 0.33
+          }
+        }
+      },
+      {
+        "id": "bw6-73",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Whirlwind",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "You may have your opponent switch the Defending Pokémon with 1 of his or her Benched Pokémon."
+          },
+          {
+            "name": "Diving Swipe",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard a random card from your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare",
+        "flavorText": "If one utters a deep cry, many Murkrow gather quickly. For this, it is called \"Summoner of Night.\"",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/73.png",
+          "large": "https://images.pokemontcg.io/bw6/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.37,
+              "mid": 0.75,
+              "high": 1.49,
+              "market": 0.79,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.88,
+              "mid": 0.98,
+              "high": 19.99,
+              "market": 0.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.47,
+            "lowPrice": 0.02,
+            "trendPrice": 0.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.99,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.8,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.25,
+            "avg7": 0.44,
+            "avg30": 0.71,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.6,
+            "reverseHoloAvg30": 1.29
+          }
+        }
+      },
+      {
+        "id": "pl1-77",
+        "name": "Honchkrow G",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "47",
+        "hp": "80",
+        "types": [
+          "Darkness"
+        ],
+        "attacks": [
+          {
+            "name": "Honcho's Command",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Search your deck for up to 2 in any combination of Stadium cards or Trainer cards that has Team Galactic's Invention in its name, show them to your opponent, and put them into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Target Attack",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 20 damage to that Pokémon. If that Pokémon already has any damage counters on it, this attack does 20 damage plus 20 more damage. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl1",
+          "name": "Platinum",
+          "series": "Platinum",
+          "printedTotal": 127,
+          "total": 133,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PL",
+          "releaseDate": "2009/02/11",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl1/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "Yusuke Ishikawa",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl1/77.png",
+          "large": "https://images.pokemontcg.io/pl1/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl1-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.11,
+              "mid": 0.37,
+              "high": 2.0,
+              "market": 0.44,
+              "directLow": 0.31
+            },
+            "reverseHolofoil": {
+              "low": 1.84,
+              "mid": 4.5,
+              "high": 6.83,
+              "market": 5.38,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl1-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.35,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.92,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.1,
+            "avg7": 0.25,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 1.87,
+            "reverseHoloAvg7": 2.28,
+            "reverseHoloAvg30": 1.57
+          }
+        }
+      },
+      {
+        "id": "sm2-79",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Feint Attack",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. This damage isn't affected by Weakness, Resistance, or any other effects on that Pokémon."
+          },
+          {
+            "name": "Raven's Claw",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 10 more damage for each damage counter on all of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "79",
+        "artist": "Hideki Ishikawa",
+        "rarity": "Rare",
+        "flavorText": "A single cry from this nocturnal Pokémon, and more than a hundred of its Murkrow cronies will assemble.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/79.png",
+          "large": "https://images.pokemontcg.io/sm2/79_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-79",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 19.98,
+              "market": 0.25,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.39,
+              "high": 2.44,
+              "market": 0.39,
+              "directLow": 0.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-79",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.43,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.47,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.23,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 0.39,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "sm10-109",
+        "name": "Honchkrow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ruler of the Night",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent can't play any Pokémon Tool, Special Energy, or Stadium cards from their hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Feather Storm",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon-GX and Pokémon-EX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Unfair-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Your opponent reveals their hand. Discard 2 cards from it. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "109",
+        "artist": "sadaji",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/109.png",
+          "large": "https://images.pokemontcg.io/sm10/109_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-109",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.25,
+              "mid": 1.84,
+              "high": 9.99,
+              "market": 1.79,
+              "directLow": 1.96
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-109",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 2.17,
+            "lowPrice": 0.8,
+            "trendPrice": 2.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.93,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.9,
+            "avg7": 1.99,
+            "avg30": 2.58,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 2.2,
+            "reverseHoloAvg30": 2.18
+          }
+        }
+      },
+      {
+        "id": "dp3-132",
+        "name": "Honchkrow LV.X",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Level-Up"
+        ],
+        "level": "X",
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Honchkrow",
+        "rules": [
+          "Put this card onto your Active Honchkrow. Honchkrow LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+        ],
+        "attacks": [
+          {
+            "name": "Feint Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 40 damage to that Pokémon. This attack's damage isn't affected by Weakness, Resistance, Poké-Powers, Poké-Bodies, or any other effects on that Pokémon."
+          },
+          {
+            "name": "Darkness Wing",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "If the Defending Pokémon would be Knocked Out by damage from this attack, you may search your discard pile for any 1 card, show it to your opponent, and put it into your hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "132",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo LV.X",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/132.png",
+          "large": "https://images.pokemontcg.io/dp3/132_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-132",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 27.57,
+              "mid": 37.47,
+              "high": 47.87,
+              "market": 37.95,
+              "directLow": 26.71
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-132",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 18.99,
+            "lowPrice": 4.75,
+            "trendPrice": 20.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.08,
+            "lowPriceExPlus": 15.0,
+            "avg1": 20.59,
+            "avg7": 21.79,
+            "avg30": 20.6,
+            "reverseHoloAvg1": 2.5,
+            "reverseHoloAvg7": 5.5,
+            "reverseHoloAvg30": 8.65
+          }
+        }
+      },
+      {
+        "id": "sm11-130",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Sharpshooting",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "This attack does 30 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Dark Cutter",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "130",
+        "artist": "Tomokazu Komiya",
+        "rarity": "Rare",
+        "flavorText": "It will absolutely not forgive failure from or betrayal by its goons. It has no choice in this if it wants to maintain the order of the flock.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/130.png",
+          "large": "https://images.pokemontcg.io/sm11/130_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-130",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.42,
+              "high": 1.49,
+              "market": 0.42,
+              "directLow": 0.37
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.69,
+              "high": 3.0,
+              "market": 0.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-130",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.64,
+            "lowPrice": 0.1,
+            "trendPrice": 0.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.0,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.25,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.4,
+            "avg7": 0.61,
+            "avg30": 0.58,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 1.51,
+            "reverseHoloAvg30": 1.21
+          }
+        }
+      },
+      {
+        "id": "sm10-202",
+        "name": "Honchkrow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ruler of the Night",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent can't play any Pokémon Tool, Special Energy, or Stadium cards from their hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Feather Storm",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon-GX and Pokémon-EX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Unfair-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Your opponent reveals their hand. Discard 2 cards from it. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "202",
+        "artist": "sadaji",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/202.png",
+          "large": "https://images.pokemontcg.io/sm10/202_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-202",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 4.24,
+              "high": 9.34,
+              "market": 3.84,
+              "directLow": 3.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-202",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 5.75,
+            "lowPrice": 0.5,
+            "trendPrice": 6.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.96,
+            "lowPriceExPlus": 2.0,
+            "avg1": 4.94,
+            "avg7": 5.56,
+            "avg30": 5.57,
+            "reverseHoloAvg1": 6.34,
+            "reverseHoloAvg7": 6.26,
+            "reverseHoloAvg30": 4.85
+          }
+        }
+      },
+      {
+        "id": "sm10-223",
+        "name": "Honchkrow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Ruler of the Night",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent can't play any Pokémon Tool, Special Energy, or Stadium cards from their hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Feather Storm",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon-GX and Pokémon-EX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Unfair-GX",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Your opponent reveals their hand. Discard 2 cards from it. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "223",
+        "artist": "sadaji",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/223.png",
+          "large": "https://images.pokemontcg.io/sm10/223_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-223",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.15,
+              "mid": 10.19,
+              "high": 85.0,
+              "market": 8.15,
+              "directLow": 12.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-223",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.7,
+            "lowPrice": 6.0,
+            "trendPrice": 10.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.04,
+            "lowPriceExPlus": 9.0,
+            "avg1": 14.15,
+            "avg7": 10.48,
+            "avg30": 10.11,
+            "reverseHoloAvg1": 6.9,
+            "reverseHoloAvg7": 10.07,
+            "reverseHoloAvg30": 10.18
+          }
+        }
+      },
+      {
+        "id": "swsh5-94",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "abilities": [
+          {
+            "name": "Insomnia",
+            "text": "This Pokémon can't be Asleep.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Voltage Dive",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80+",
+            "text": "If your opponent's Active Pokémon has any Special Energy attached, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "94",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "Its goons take care of most of the fighting for it. The only time it dirties its own hands is in delivering a final blow to finish off an opponent.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/94.png",
+          "large": "https://images.pokemontcg.io/swsh5/94_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-94",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.23,
+              "high": 2.0,
+              "market": 0.13,
+              "directLow": 0.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-94",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "swsh9-88",
+        "name": "Honchkrow V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Boss Pockets",
+            "text": "This Pokémon may have up to 4 Pokémon Tools attached to it. If it loses this Ability, discard Pokémon Tools from it until only 1 remains.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fearsome Shadow",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Your opponent reveals their hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "88",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/88.png",
+          "large": "https://images.pokemontcg.io/swsh9/88_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-88",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.22,
+              "mid": 0.99,
+              "high": 17.99,
+              "market": 0.74,
+              "directLow": 0.75
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-88",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.69,
+            "lowPrice": 0.15,
+            "trendPrice": 0.65,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.53,
+            "avg7": 0.69,
+            "avg30": 0.72,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh9-161",
+        "name": "Honchkrow V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Boss Pockets",
+            "text": "This Pokémon may have up to 4 Pokémon Tools attached to it. If it loses this Ability, discard Pokémon Tools from it until only 1 remains.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fearsome Shadow",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Your opponent reveals their hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "161",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/161.png",
+          "large": "https://images.pokemontcg.io/swsh9/161_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-161",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.93,
+              "mid": 1.52,
+              "high": 7.0,
+              "market": 1.32,
+              "directLow": 1.93
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-161",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.97,
+            "lowPrice": 0.8,
+            "trendPrice": 1.73,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.8,
+            "avg1": 2.0,
+            "avg7": 2.12,
+            "avg30": 1.95,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh9-162",
+        "name": "Honchkrow V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "200",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Boss Pockets",
+            "text": "This Pokémon may have up to 4 Pokémon Tools attached to it. If it loses this Ability, discard Pokémon Tools from it until only 1 remains.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fearsome Shadow",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Your opponent reveals their hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh9",
+          "name": "Brilliant Stars",
+          "series": "Sword & Shield",
+          "printedTotal": 172,
+          "total": 186,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BRS",
+          "releaseDate": "2022/02/25",
+          "updatedAt": "2022/02/23 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh9/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh9/logo.png"
+          }
+        },
+        "number": "162",
+        "artist": "zig",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh9/162.png",
+          "large": "https://images.pokemontcg.io/swsh9/162_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh9-162",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.01,
+              "mid": 11.37,
+              "high": 90.0,
+              "market": 10.64,
+              "directLow": 11.66
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh9-162",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 12.25,
+            "lowPrice": 6.99,
+            "trendPrice": 11.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 7.78,
+            "avg1": 11.93,
+            "avg7": 11.0,
+            "avg30": 11.86,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-115",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Peck",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Night Cyclone",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": "Move all Energy from this Pokémon to your Benched Pokémon in any way you like."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "115",
+        "artist": "Shiburingaru",
+        "rarity": "Rare",
+        "flavorText": "Its goons take care of most of the fighting for it. The only time it dirties its own hands is in delivering a final blow to finish off an opponent.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/115.png",
+          "large": "https://images.pokemontcg.io/swsh11/115_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-115",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.0,
+              "market": 0.12,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-115",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.08,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "swsh12-107",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Triple Draw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 3 cards."
+          },
+          {
+            "name": "Callous Wings",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "You may switch this Pokémon with 1 of your Benched Murkrow."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "107",
+        "artist": "aoki",
+        "rarity": "Uncommon",
+        "flavorText": "Its goons take care of most of the fighting for it. The only time it dirties its own hands is in delivering a final blow to finish off an opponent.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/107.png",
+          "large": "https://images.pokemontcg.io/swsh12/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 5.0,
+              "market": 0.06,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.16,
+              "high": 1.49,
+              "market": 0.13,
+              "directLow": 0.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-107",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.05,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.17,
+            "reverseHoloAvg7": 0.16,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "sv2-132",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "cost": [
+              "Darkness"
+            ],
+            "name": "Flap",
+            "damage": "30",
+            "text": "",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Dirty Throw",
+            "damage": "140",
+            "text": "Discard a card from your hand. If you can't, this attack does nothing.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv2",
+          "name": "Paldea Evolved",
+          "series": "Scarlet & Violet",
+          "printedTotal": 193,
+          "total": 279,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/06/09",
+          "updatedAt": "2023/06/09 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv2/logo.png"
+          }
+        },
+        "number": "132",
+        "artist": "Nisota Niso",
+        "rarity": "Uncommon",
+        "flavorText": "It is merciless by nature. It is said that it never forgives the mistakes of its Murkrow followers.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv2/132.png",
+          "large": "https://images.pokemontcg.io/sv2/132_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv2-132",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.05,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.19,
+              "high": 2.0,
+              "market": 0.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv2-132",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.13,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.18,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "me2-58",
+        "name": "Honchkrow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Murkrow",
+        "attacks": [
+          {
+            "name": "Wind of Darkness",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Sniping Feathers",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Discard 2 Energy from this Pokémon, and this attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me2",
+          "name": "Phantasmal Flames",
+          "series": "Mega Evolution",
+          "printedTotal": 94,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PFL",
+          "releaseDate": "2025/11/14",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me2/symbol.png",
+            "logo": "https://images.pokemontcg.io/me2/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Uncommon",
+        "flavorText": "It is merciless by nature. It is said that it never forgives the mistakes of its Murkrow followers.",
+        "nationalPokedexNumbers": [
+          430
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me2/58.png",
+          "large": "https://images.pokemontcg.io/me2/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me2-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 999.0,
+              "market": 0.05,
+              "directLow": 0.03
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.07,
+              "high": 999.0,
+              "market": 0.03,
+              "directLow": 0.01
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 22,
+    "totalCount": 22
+  }
+}

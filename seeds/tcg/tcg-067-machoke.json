@@ -1,0 +1,2780 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:machoke"
+  },
+  "cache_key": "eade1b5b84c9f2cce3082ee899d487ea",
+  "cached_at": 1765895340.339939,
+  "response": {
+    "data": [
+      {
+        "id": "swsh35-25",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Low Kick",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Pummel",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "Flip a coin. If heads, this attack does 70 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "AKIRA EGAWA",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful, it must wear a power-save belt to be able to regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/25.png",
+          "large": "https://images.pokemontcg.io/swsh35/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.27,
+              "high": 2.0,
+              "market": 0.27,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.04,
+              "mid": 0.17,
+              "high": 1.49,
+              "market": 0.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.36,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.11,
+            "avg30": 0.1,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.39,
+            "reverseHoloAvg30": 0.34
+          }
+        }
+      },
+      {
+        "id": "base1-34",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Karate Chop",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50-",
+            "text": "Does 50 damage minus 10 damage for each damage counter on Machoke."
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "Machoke does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base1",
+          "name": "Base",
+          "series": "Base",
+          "printedTotal": 102,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BS",
+          "releaseDate": "1999/01/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+            "logo": "https://images.pokemontcg.io/base1/logo.png"
+          }
+        },
+        "number": "34",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful that it must wear a power-save belt to help regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base1/34.png",
+          "large": "https://images.pokemontcg.io/base1/34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.57,
+              "high": 9999.0,
+              "market": 0.82,
+              "directLow": 0.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base1-34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.88,
+            "lowPrice": 0.02,
+            "trendPrice": 1.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.46,
+            "avg7": 0.59,
+            "avg30": 1.13,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.2,
+            "reverseHoloAvg30": 0.2
+          }
+        }
+      },
+      {
+        "id": "ex12-39",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "abilities": [
+          {
+            "name": "Paranoid",
+            "text": "As long as Machoke is Confused, Machoke's attacks do 50 more damage to the Defending Pokémon (before applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Split Kick",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Does 20 damage to each Defending Pokémon."
+          },
+          {
+            "name": "Magnum Punch",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex12",
+          "name": "Legend Maker",
+          "series": "EX",
+          "printedTotal": 92,
+          "total": 93,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LM",
+          "releaseDate": "2006/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex12/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex12/logo.png"
+          }
+        },
+        "number": "39",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex12/39.png",
+          "large": "https://images.pokemontcg.io/ex12/39_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex12-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.32,
+              "mid": 0.9,
+              "high": 5.0,
+              "market": 0.9,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 11.08,
+              "mid": 17.4,
+              "high": 20.01,
+              "market": 15.78,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex12-39",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.76,
+            "lowPrice": 0.05,
+            "trendPrice": 1.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.87,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 4.47,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.5,
+            "avg7": 0.73,
+            "avg30": 0.83,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 4.13,
+            "reverseHoloAvg30": 6.51
+          }
+        }
+      },
+      {
+        "id": "hgss4-40",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Knuckle Down",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Poké-Powers, Poké-Bodies, or any other effects on the Defending Pokémon."
+          },
+          {
+            "name": "Strength",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "It always goes at its full power, but this very tough and durable Pokémon never gets tired.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/40.png",
+          "large": "https://images.pokemontcg.io/hgss4/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.23,
+              "mid": 0.34,
+              "high": 1.49,
+              "market": 0.34,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.4,
+              "mid": 2.7,
+              "high": 8.24,
+              "market": 0.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.44,
+            "reverseHoloTrend": 4.71,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.24,
+            "avg7": 0.3,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 4.27,
+            "reverseHoloAvg30": 3.47
+          }
+        }
+      },
+      {
+        "id": "gym2-42",
+        "name": "Giovanni's Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Giovanni's Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Risky Attack",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "60",
+            "text": "Flip a coin. If tails, this attack does no damage to the Defending Pokémon and Giovanni's Machoke does 100 damage to itself."
+          },
+          {
+            "name": "Headlock",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 20 more damage and the Defending Pokémon is now Paralyzed. If tails, this attack does 20 damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "42",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/42.png",
+          "large": "https://images.pokemontcg.io/gym2/42_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 3.78,
+              "mid": 5.49,
+              "high": 34.99,
+              "market": 5.7,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 0.97,
+              "mid": 1.77,
+              "high": 4.99,
+              "market": 2.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-42",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.78,
+            "lowPrice": 0.4,
+            "trendPrice": 3.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.2,
+            "avg1": 1.55,
+            "avg7": 2.16,
+            "avg30": 2.19,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "ex16-33",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Steady Punch",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage."
+          },
+          {
+            "name": "Mega Kick",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex16",
+          "name": "Power Keepers",
+          "series": "EX",
+          "printedTotal": 108,
+          "total": 108,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PK",
+          "releaseDate": "2007/02/02",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex16/logo.png"
+          }
+        },
+        "number": "33",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex16/33.png",
+          "large": "https://images.pokemontcg.io/ex16/33_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex16-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.46,
+              "high": 5.98,
+              "market": 0.56,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 5.87,
+              "mid": 10.14,
+              "high": 19.0,
+              "market": 5.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex16-33",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.23,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.5,
+            "reverseHoloLow": 1.8,
+            "reverseHoloTrend": 6.67,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.1,
+            "avg7": 0.19,
+            "avg30": 0.3,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 4.18,
+            "reverseHoloAvg30": 5.2
+          }
+        }
+      },
+      {
+        "id": "base5-40",
+        "name": "Dark Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "28",
+        "hp": "60",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Drag Off",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Before doing damage, choose 1 of your opponent's Benched Pokémon and switch it with the Defending Pokémon. Do the damage to the new Defending Pokémon. This attack can't be used if your opponent has no Benched Pokémon."
+          },
+          {
+            "name": "Knock Back",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "While normally peaceful and friendly, the number of incidents involving cruel Machokes is rising.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/40.png",
+          "large": "https://images.pokemontcg.io/base5/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 1.95,
+              "mid": 4.61,
+              "high": 34.99,
+              "market": 4.67,
+              "directLow": 2.89
+            },
+            "unlimited": {
+              "low": 0.49,
+              "mid": 1.29,
+              "high": 22.99,
+              "market": 2.05,
+              "directLow": 2.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.07,
+            "lowPrice": 0.03,
+            "trendPrice": 3.7,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.5,
+            "lowPriceExPlus": 1.2,
+            "avg1": 1.6,
+            "avg7": 4.14,
+            "avg30": 3.19,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 1.97,
+            "reverseHoloAvg30": 1.97
+          }
+        }
+      },
+      {
+        "id": "bw10-48",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Last-Chance Chop",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "If this Pokémon's remaining HP is 10, this attack does 70 more damage."
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "48",
+        "artist": "match",
+        "rarity": "Uncommon",
+        "flavorText": "It happily carries heavy cargo to toughen up. It willingly does hard work for people.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/48.png",
+          "large": "https://images.pokemontcg.io/bw10/48_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.37,
+              "high": 1.13,
+              "market": 0.37,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.52,
+              "mid": 0.83,
+              "high": 2.49,
+              "market": 0.91,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-48",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.44,
+            "lowPrice": 0.03,
+            "trendPrice": 0.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.07,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.16,
+            "avg7": 0.36,
+            "avg30": 0.39,
+            "reverseHoloAvg1": 0.48,
+            "reverseHoloAvg7": 0.99,
+            "reverseHoloAvg30": 0.75
+          }
+        }
+      },
+      {
+        "id": "ex5-41",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "abilities": [
+          {
+            "name": "Strikes Back",
+            "text": "If Machoke is your Active Pokémon and is damaged by an opponent's attack (even if Machoke is Knocked Out), put 1 damage counter on the Attacking Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Low Kick",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Hajime Kusajima",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/41.png",
+          "large": "https://images.pokemontcg.io/ex5/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.5,
+              "mid": 0.75,
+              "high": 1.8,
+              "market": 0.82,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.66,
+              "mid": 23.32,
+              "high": 29.99,
+              "market": 7.94,
+              "directLow": 29.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 19.99,
+            "lowPrice": 27.99,
+            "trendPrice": 18.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 27.99,
+            "avg1": 19.99,
+            "avg7": 31.0,
+            "avg30": 31.0,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "dp7-41",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "41",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Steady Punch",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 20 more damage."
+          },
+          {
+            "name": "Brick Break",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Resistance, Poké-Powers, Poké-Bodies, or any other effects on the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Sachiko Adachi",
+        "rarity": "Uncommon",
+        "flavorText": "Machoke's boundless power is very dangerous, so it wears a belt that suppresses its energy.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/41.png",
+          "large": "https://images.pokemontcg.io/dp7/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.38,
+              "mid": 0.98,
+              "high": 1.65,
+              "market": 0.99,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 1.33,
+              "high": 6.1,
+              "market": 2.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.28,
+            "lowPrice": 0.02,
+            "trendPrice": 0.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.71,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.63,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.48,
+            "avg7": 0.32,
+            "avg30": 0.44,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 0.62,
+            "reverseHoloAvg30": 1.09
+          }
+        }
+      },
+      {
+        "id": "neo4-49",
+        "name": "Light Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "37",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Return Home",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If you have any Benched Pokémon, shuffle 1 of them and all cards attached to it into your deck."
+          },
+          {
+            "name": "Gentle Kick",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "If the Defending Pokémon has no damage counters on it, this attack does 40 damage. If it has any, this attack does 20 damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "This Pokémon never gets tired, no matter what it does or how hard it works.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/49.png",
+          "large": "https://images.pokemontcg.io/neo4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 7.42,
+              "mid": 8.7,
+              "high": 19.99,
+              "market": 12.95,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 0.6,
+              "mid": 2.43,
+              "high": 9.99,
+              "market": 2.52,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.56,
+            "lowPrice": 0.35,
+            "trendPrice": 2.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.5,
+            "avg1": 3.58,
+            "avg7": 2.74,
+            "avg30": 2.48,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "base4-49",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Karate Chop",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50-",
+            "text": "Does 50 damage minus 10 damage for each damage counter on Machoke."
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "Machoke does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful that it must wear a power-save belt to help regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/49.png",
+          "large": "https://images.pokemontcg.io/base4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.19,
+              "mid": 0.5,
+              "high": 501.5,
+              "market": 0.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.46,
+            "lowPrice": 0.1,
+            "trendPrice": 0.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.2,
+            "avg7": 0.31,
+            "avg30": 0.41,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "dp1-53",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "39",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Karate Chop",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40-",
+            "text": "Does 40 damage minus 10 damage for each damage counter on Machoke."
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "MACHOKE's boundless power is very dangerous, so it wears a belt that suppresses its energy.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/53.png",
+          "large": "https://images.pokemontcg.io/dp1/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.4,
+              "high": 1.75,
+              "market": 0.43,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.99,
+              "mid": 1.23,
+              "high": 4.14,
+              "market": 1.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.69,
+            "lowPrice": 0.02,
+            "trendPrice": 0.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.35,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.32,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.1,
+            "avg7": 0.61,
+            "avg30": 0.54,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.72,
+            "reverseHoloAvg30": 1.26
+          }
+        }
+      },
+      {
+        "id": "g1-41",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful, it must wear a power-save belt to be able to regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/41.png",
+          "large": "https://images.pokemontcg.io/g1/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 4.0,
+              "market": 0.25,
+              "directLow": 0.22
+            },
+            "reverseHolofoil": {
+              "low": 0.33,
+              "mid": 0.52,
+              "high": 2.0,
+              "market": 0.55,
+              "directLow": 0.67
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.0,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.92,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.21,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 0.97,
+            "reverseHoloAvg30": 0.89
+          }
+        }
+      },
+      {
+        "id": "xy3-45",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful, it must wear a power-save belt to be able to regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/45.png",
+          "large": "https://images.pokemontcg.io/xy3/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 4.0,
+              "market": 0.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.75,
+              "high": 1.5,
+              "market": 0.82,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.17,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.97,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.85,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.15,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 0.96,
+            "reverseHoloAvg30": 0.79
+          }
+        }
+      },
+      {
+        "id": "base6-51",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Karate Chop",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50-",
+            "text": "Does 50 damage minus 10 damage for each damage counter on Machoke."
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "Machoke does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "Its muscular body is so powerful that it must wear a power-save belt to help regulate its motions.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/51.png",
+          "large": "https://images.pokemontcg.io/base6/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.99,
+              "mid": 1.54,
+              "high": 6.17,
+              "market": 1.7,
+              "directLow": 1.97
+            },
+            "reverseHolofoil": {
+              "low": 59.99,
+              "mid": 59.99,
+              "high": 107.4,
+              "market": 58.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.42,
+            "lowPrice": 0.05,
+            "trendPrice": 0.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 40.0,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 28.97,
+            "lowPriceExPlus": 0.5,
+            "avg1": 0.29,
+            "avg7": 0.9,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 40.0,
+            "reverseHoloAvg7": 28.0,
+            "reverseHoloAvg30": 24.69
+          }
+        }
+      },
+      {
+        "id": "xy12-58",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Karate Chop",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60-",
+            "text": "This attack does 60 damage minus 10 damage for each damage counter on this Pokémon."
+          },
+          {
+            "name": "Submission",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This Pokémon does 20 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "58",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "Its formidable body never gets tired. It helps people by doing work such as the moving of heavy goods.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/58.png",
+          "large": "https://images.pokemontcg.io/xy12/58_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.18,
+              "high": 3.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.09,
+              "mid": 0.38,
+              "high": 9.09,
+              "market": 0.31,
+              "directLow": 0.25
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-58",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.11,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.14,
+            "reverseHoloAvg7": 0.36,
+            "reverseHoloAvg30": 0.45
+          }
+        }
+      },
+      {
+        "id": "sm2-64",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "abilities": [
+          {
+            "name": "Daunting Pose",
+            "text": "Prevent all damage done to your Benched Pokémon by your opponent's attacks. Your opponent's attacks and Abilities can't put damage counters on your Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cross Chop",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "As a result of its continual workouts, it has developed tremendous power. It uses that power to help people with their work.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/64.png",
+          "large": "https://images.pokemontcg.io/sm2/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.09,
+              "mid": 0.25,
+              "high": 4.0,
+              "market": 0.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.5,
+              "high": 1.18,
+              "market": 0.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-64",
+          "updatedAt": "2025/12/15",
+          "prices": {
+            "averageSellPrice": 0.12,
+            "lowPrice": 0.02,
+            "trendPrice": 0.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.32,
+            "reverseHoloLow": 0.07,
+            "reverseHoloTrend": 0.35,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.15,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.3,
+            "reverseHoloAvg30": 0.34
+          }
+        }
+      },
+      {
+        "id": "ecard3-38",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Focus Energy",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "During your next turn, Machoke's Mega Punch attack's base damage is 80."
+          },
+          {
+            "name": "Mega Punch",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Hisao Nakamura",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/38.png",
+          "large": "https://images.pokemontcg.io/ecard3/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 12.99,
+              "mid": 13.66,
+              "high": 21.06,
+              "market": 10.76,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 29.0,
+              "mid": 31.0,
+              "high": 33.0,
+              "market": 45.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.06,
+            "lowPrice": 0.5,
+            "trendPrice": 3.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 9.84,
+            "lowPriceExPlus": 0.9,
+            "avg1": 1.5,
+            "avg7": 2.57,
+            "avg30": 3.26,
+            "reverseHoloAvg1": 9.0,
+            "reverseHoloAvg7": 7.58,
+            "reverseHoloAvg30": 9.16
+          }
+        }
+      },
+      {
+        "id": "ecard1-85",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Punch",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Mega Kick",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "85",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/85.png",
+          "large": "https://images.pokemontcg.io/ecard1/85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.36,
+              "mid": 3.2,
+              "high": 19.99,
+              "market": 3.24,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 8.5,
+              "mid": 14.33,
+              "high": 89.99,
+              "market": 13.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-85",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.13,
+            "lowPrice": 0.05,
+            "trendPrice": 1.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.41,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 5.02,
+            "lowPriceExPlus": 0.99,
+            "avg1": 1.0,
+            "avg7": 2.23,
+            "avg30": 1.96,
+            "reverseHoloAvg1": 3.25,
+            "reverseHoloAvg7": 5.16,
+            "reverseHoloAvg30": 4.2
+          }
+        }
+      },
+      {
+        "id": "swsh11-87",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Strength",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Seismic Toss",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "87",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "A sturdy creature boasting a robust physique and boundless stamina. Loves training above all else and voluntarily assists with tasks such as construction and clearing land.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/87.png",
+          "large": "https://images.pokemontcg.io/swsh11/87_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-87",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.15,
+              "directLow": 0.12
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.0,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-87",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.15,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.07,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.13,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-67",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Mountain Ramming",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Discard the top card of your opponent's deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Ryuta Fuse",
+        "rarity": "Uncommon",
+        "flavorText": "Its formidable body never gets tired. It helps people by doing work such as the moving of heavy goods.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/67.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 20.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.11,
+              "high": 2.01,
+              "market": 0.07,
+              "directLow": 0.06
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-67",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.09,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.19
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-177",
+        "name": "Machoke",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Machop",
+        "evolvesTo": [
+          "Machamp"
+        ],
+        "attacks": [
+          {
+            "name": "Mountain Ramming",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Discard the top card of your opponent's deck."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "177",
+        "artist": "Tetsu Kayama",
+        "rarity": "Illustration Rare",
+        "flavorText": "Its formidable body never gets tired. It helps people by doing work such as the moving of heavy goods.",
+        "nationalPokedexNumbers": [
+          67
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/177.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/177_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-177",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.0,
+              "mid": 13.18,
+              "high": 100.0,
+              "market": 12.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-177",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 13.42,
+            "lowPrice": 8.78,
+            "trendPrice": 13.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 9.5,
+            "avg1": 13.52,
+            "avg7": 12.89,
+            "avg30": 13.49,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 23,
+    "totalCount": 23
+  }
+}

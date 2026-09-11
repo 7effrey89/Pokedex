@@ -12,8 +12,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
-from flask import Blueprint, Response, jsonify, request
+from flask import Blueprint, Response, jsonify, request, send_file
 from PIL import Image, ImageFilter, ImageOps
+from src.config import get_storage_paths
+from src.db.tcg_repository import SqliteTcgRepository
 from src.services.tcg_image_index import TcgImageIndex, encode_card_image, query_scale_variants
 
 logger = logging.getLogger(__name__)
@@ -26,7 +28,28 @@ MAX_CANDIDATES = 24
 IMAGE_TIMEOUT_SECONDS = 8
 ALLOWED_IMAGE_HOSTS = {'images.pokemontcg.io', 'images.scrydex.com'}
 _FEATURE_CACHE = {}
-_NUMPY_INDEX = TcgImageIndex(Path(__file__).resolve().parents[2] / 'tcg-image-cache' / 'index')
+_NUMPY_INDEX = TcgImageIndex(get_storage_paths().tcg_index)
+_SQLITE_TCG_REPOSITORY = SqliteTcgRepository()
+
+
+@tcg_image_bp.route('/card-image/<card_id>/<asset_kind>', methods=['GET'])
+def get_local_tcg_card_image(card_id, asset_kind):
+    """Serve a card image registered by the SQLite importer."""
+    relative_path = _SQLITE_TCG_REPOSITORY.get_image_path(card_id, asset_kind)
+    if not relative_path:
+        return jsonify({"error": "card image not found"}), 404
+
+    project_root = Path(__file__).resolve().parents[2]
+    image_path = (project_root / relative_path).resolve()
+    try:
+        image_path.relative_to(project_root)
+    except ValueError:
+        return jsonify({"error": "invalid card image path"}), 500
+    if not image_path.is_file():
+        return jsonify({"error": "card image file not found"}), 404
+    with Image.open(image_path) as image:
+        media_type = Image.MIME.get(image.format, 'application/octet-stream')
+    return send_file(image_path, mimetype=media_type, conditional=True, max_age=86400)
 
 
 @tcg_image_bp.route('/image-proxy', methods=['GET'])

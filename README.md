@@ -151,13 +151,28 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    # Edit .env if you want to add Azure OpenAI integration in the future
    ```
 
-6. **Run the application**
+6. **Hydrate the local SQLite database**
+   ```bash
+   python scripts/05-import_sqlite.py
+   ```
+
+   This builds `data/pokedex.sqlite3` from the raw PokeAPI and TCG JSON seeds,
+   fetches missing PokeAPI forms and evolution chains directly into SQLite,
+   downloads official Pokemon artwork, and registers existing TCG card images.
+   The generated database and downloaded assets are ignored by Git. Use
+   `--no-network --skip-artwork` for an offline structural import check; it
+   intentionally fails if the seed archive does not contain every form.
+   If validation reports missing local assets after a full import, rerun with
+   `--resume` to repair the retained `.building` database without rebuilding
+   Pokemon, evolution, and TCG rows.
+
+7. **Run the application**
    ```bash
    python app.py
    ```
 
-7. **Open in browser**
-   - Navigate to `http://localhost:5000`
+8. **Open in browser**
+   - Navigate to `http://localhost:5050`
    - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
 
 ## Deploying to Azure App Service

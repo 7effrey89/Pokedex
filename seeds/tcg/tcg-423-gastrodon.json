@@ -1,0 +1,1024 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:gastrodon"
+  },
+  "cache_key": "a9901106174e572b63887ed56cc9ff0f",
+  "cached_at": 1765907153.595099,
+  "response": {
+    "data": [
+      {
+        "id": "dp3-8",
+        "name": "Gastrodon East Sea",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "43",
+        "hp": "100",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellos East Sea",
+        "abilities": [
+          {
+            "name": "Osmotic Pressure",
+            "text": "Once during your turn (before your attack), if you have Gastrodon West Sea in play, you may move up to 3 damage counters from Gastrodon East Sea to 1 of your Gastrodon West Sea.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dwindling Wave",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80-",
+            "text": "Does 80 damage minus 10 damage for each damage counter on Gastrodon East Sea."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Kazuyuki Kano",
+        "rarity": "Rare Holo",
+        "flavorText": "It has a pliable body without any bones. If any part of its body is torn off, it grows right back.",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/8.png",
+          "large": "https://images.pokemontcg.io/dp3/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.25,
+              "mid": 9.4,
+              "high": 19.99,
+              "market": 9.89,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.02,
+              "mid": 8.67,
+              "high": 19.99,
+              "market": 8.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.82,
+            "lowPrice": 0.05,
+            "trendPrice": 1.73,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.13,
+            "reverseHoloLow": 0.6,
+            "reverseHoloTrend": 1.06,
+            "lowPriceExPlus": 0.95,
+            "avg1": 4.99,
+            "avg7": 1.86,
+            "avg30": 3.43,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 1.81,
+            "reverseHoloAvg30": 2.02
+          }
+        }
+      },
+      {
+        "id": "dp3-9",
+        "name": "Gastrodon West Sea",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "44",
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellos West Sea",
+        "attacks": [
+          {
+            "name": "Raging Flood",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each damage counter on Gastrodon West Sea. Then, remove 2 damage counters from Gastrodon West Sea."
+          },
+          {
+            "name": "Wild Waves",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Put 1 damage counter on each Benched Pokémon (both yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Kazuyuki Kano",
+        "rarity": "Rare Holo",
+        "flavorText": "It has a pliable body without any bones. If any part of its body is torn off, it grows right back.",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/9.png",
+          "large": "https://images.pokemontcg.io/dp3/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.19,
+              "mid": 8.91,
+              "high": 19.99,
+              "market": 8.83,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.68,
+              "mid": 6.61,
+              "high": 9.99,
+              "market": 5.9,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.26,
+            "lowPrice": 0.25,
+            "trendPrice": 2.83,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.66,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 2.09,
+            "lowPriceExPlus": 1.5,
+            "avg1": 0.99,
+            "avg7": 4.36,
+            "avg30": 3.61,
+            "reverseHoloAvg1": 1.94,
+            "reverseHoloAvg7": 2.51,
+            "reverseHoloAvg30": 1.73
+          }
+        }
+      },
+      {
+        "id": "pl2-21",
+        "name": "Gastrodon East Sea",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "90",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellos East Sea",
+        "abilities": [
+          {
+            "name": "Sticky Hold",
+            "text": "If Gastrodon East Sea is switched or retreats to your Bench, move as many Energy cards attached to Gastrodon East Sea as you like to the new Active Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Calling Wave",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Gastrodon and put them onto your Bench as Basic Pokémon. Put 2 damage counters on each of them. Shuffle your deck afterward."
+          },
+          {
+            "name": "Wave Splash",
+            "cost": [
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/21.png",
+          "large": "https://images.pokemontcg.io/pl2/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.94,
+              "mid": 2.0,
+              "high": 2.41,
+              "market": 1.93,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.97,
+              "mid": 3.74,
+              "high": 4.99,
+              "market": 3.68,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.98,
+            "lowPrice": 0.05,
+            "trendPrice": 1.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.45,
+            "reverseHoloLow": 0.89,
+            "reverseHoloTrend": 1.9,
+            "lowPriceExPlus": 0.49,
+            "avg1": 0.99,
+            "avg7": 0.97,
+            "avg30": 1.04,
+            "reverseHoloAvg1": 1.45,
+            "reverseHoloAvg7": 2.07,
+            "reverseHoloAvg30": 1.47
+          }
+        }
+      },
+      {
+        "id": "pl2-22",
+        "name": "Gastrodon West Sea",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "50",
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellos West Sea",
+        "attacks": [
+          {
+            "name": "Tackle",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Muddy Bomb",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon and 10 damage to each of your opponent's other Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Raging Sea",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60+",
+            "text": "Does 60 damage plus 10 more damage for each of your Benched Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "+30"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/22.png",
+          "large": "https://images.pokemontcg.io/pl2/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.11,
+              "mid": 1.52,
+              "high": 2.9,
+              "market": 1.81,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.41,
+              "mid": 9.0,
+              "high": 18.33,
+              "market": 3.71,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.39,
+            "lowPrice": 0.08,
+            "trendPrice": 0.7,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.11,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.19,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.4,
+            "avg7": 0.73,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 0.64,
+            "reverseHoloAvg7": 1.32,
+            "reverseHoloAvg30": 1.08
+          }
+        }
+      },
+      {
+        "id": "xy11-29",
+        "name": "Gastrodon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Shellos",
+        "attacks": [
+          {
+            "name": "Sticky Shot",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "During your opponent's next turn, the Defending Pokémon's attacks cost Colorless more, and its Retreat Cost is Colorless more."
+          },
+          {
+            "name": "Water Pulse",
+            "cost": [
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Aya Kusube",
+        "rarity": "Rare",
+        "flavorText": "It apparently had a huge shell for protection in ancient times. It lives in shallow tidal pools.",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/29.png",
+          "large": "https://images.pokemontcg.io/xy11/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.4,
+              "high": 2.0,
+              "market": 0.43,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.64,
+              "high": 2.98,
+              "market": 0.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.43,
+            "lowPrice": 0.05,
+            "trendPrice": 0.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.59,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.85,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.45,
+            "avg7": 0.42,
+            "avg30": 0.37,
+            "reverseHoloAvg1": 1.05,
+            "reverseHoloAvg7": 0.81,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "sm4-54",
+        "name": "Gastrodon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellos",
+        "attacks": [
+          {
+            "name": "Eerie Fluid",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "This attack does 10 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm4",
+          "name": "Crimson Invasion",
+          "series": "Sun & Moon",
+          "printedTotal": 111,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CIN",
+          "releaseDate": "2017/11/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm4/logo.png"
+          }
+        },
+        "number": "54",
+        "artist": "TOKIYA",
+        "rarity": "Uncommon",
+        "flavorText": "It has strong regenerative capabilities. Even if parts of it are bitten off by fish Pokémon, it will return to normal within a few hours.",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm4/54.png",
+          "large": "https://images.pokemontcg.io/sm4/54_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm4-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.02,
+              "mid": 0.17,
+              "high": 4.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.35,
+              "high": 1.53,
+              "market": 0.32,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm4-54",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.35,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.33,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.11,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.29,
+            "reverseHoloAvg7": 0.39,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "swsh11-102",
+        "name": "Gastrodon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellos",
+        "attacks": [
+          {
+            "name": "Recover",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Discard an Energy from this Pokémon and heal all damage from it."
+          },
+          {
+            "name": "Earthquake",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "170",
+            "text": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Uncommon",
+        "flavorText": "Its search for food sometimes leads it onto land, where it leaves behind a sticky trail of slime as it passes through.",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/102.png",
+          "large": "https://images.pokemontcg.io/swsh11/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.18,
+              "high": 2.0,
+              "market": 0.18,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 2.0,
+              "market": 0.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-102",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.29,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.22,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "sv8-107",
+        "name": "Gastrodon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Shellos",
+        "abilities": [
+          {
+            "name": "Sticky Bind",
+            "text": "As long as this Pokémon is on your Bench, Benched Stage 2 Pokémon (both yours and your opponent's) have no Abilities.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mud Shot",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sv8",
+          "name": "Surging Sparks",
+          "series": "Scarlet & Violet",
+          "printedTotal": 191,
+          "total": 252,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSP",
+          "releaseDate": "2024/11/08",
+          "updatedAt": "2024/11/07 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv8/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv8/logo.png"
+          }
+        },
+        "number": "107",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          423
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv8/107.png",
+          "large": "https://images.pokemontcg.io/sv8/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv8-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 5.0,
+              "market": 0.08,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.22,
+              "high": 1.7,
+              "market": 0.19,
+              "directLow": 0.16
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv8-107",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.14,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.26,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.27,
+            "reverseHoloAvg7": 0.2,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 8,
+    "totalCount": 8
+  }
+}

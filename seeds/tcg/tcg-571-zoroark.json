@@ -1,0 +1,4449 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:zoroark"
+  },
+  "cache_key": "6aa5b05239a6730754f9bd884e4570a2",
+  "cached_at": 1765914554.101725,
+  "response": {
+    "data": [
+      {
+        "id": "bwp-BW09",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Nasty Plot",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a card and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of the Defending Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW09",
+        "artist": "Naoki Saito",
+        "rarity": "Promo",
+        "flavorText": "Each has the ability to fool a large group of people simultaneously. They protect their lair with illusory scenery.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW09.png",
+          "large": "https://images.pokemontcg.io/bwp/BW09_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW09",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.75,
+              "mid": 2.56,
+              "high": 4.47,
+              "market": 4.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW09",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.75,
+            "lowPrice": 0.2,
+            "trendPrice": 2.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.13,
+            "lowPriceExPlus": 0.99,
+            "avg1": 0.2,
+            "avg7": 1.65,
+            "avg30": 2.38,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.13,
+            "reverseHoloAvg30": 1.17
+          }
+        }
+      },
+      {
+        "id": "bwp-BW19",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Punishment",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20+",
+            "text": "If the Defending Pokémon is a Stage 2 Pokémon, this attack does 20 more damage."
+          },
+          {
+            "name": "Snarl",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (before applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW19",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW19.png",
+          "large": "https://images.pokemontcg.io/bwp/BW19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.69,
+              "high": 7.5,
+              "market": 2.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.84,
+            "lowPrice": 1.7,
+            "trendPrice": 3.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.92,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.5,
+            "avg7": 3.84,
+            "avg30": 3.9,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 1.83,
+            "reverseHoloAvg30": 1.69
+          }
+        }
+      },
+      {
+        "id": "sm35-53",
+        "name": "Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "Once during your turn (before your attack), you may discard a card from your hand. If you do, draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Riotous Beating",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          },
+          {
+            "name": "Trickster-GX",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon's attacks and use it as this attack. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/53.png",
+          "large": "https://images.pokemontcg.io/sm35/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.94,
+              "high": 99.99,
+              "market": 2.36,
+              "directLow": 2.33
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.17,
+            "lowPrice": 1.0,
+            "trendPrice": 2.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.74,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.2,
+            "avg7": 2.17,
+            "avg30": 2.13,
+            "reverseHoloAvg1": 1.7,
+            "reverseHoloAvg7": 2.06,
+            "reverseHoloAvg30": 2.28
+          }
+        }
+      },
+      {
+        "id": "xy1-73",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Corner",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "The Defending Pokémon can't retreat during your opponent's next turn."
+          },
+          {
+            "name": "Night Claw",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": "Flip a coin. If tails, discard 2 Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "Each has the ability to fool a large group of people simultaneously. They protect their lair with illusory scenery.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/73.png",
+          "large": "https://images.pokemontcg.io/xy1/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.15,
+              "mid": 0.51,
+              "high": 1.99,
+              "market": 0.69,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 1.01,
+              "high": 1.59,
+              "market": 0.96,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.38,
+            "lowPrice": 0.06,
+            "trendPrice": 1.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.71,
+            "reverseHoloLow": 0.6,
+            "reverseHoloTrend": 1.67,
+            "lowPriceExPlus": 0.58,
+            "avg1": 0.2,
+            "avg7": 1.71,
+            "avg30": 1.44,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.76,
+            "reverseHoloAvg30": 1.4
+          }
+        }
+      },
+      {
+        "id": "bw1-71",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Nasty Plot",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a card and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of the Defending Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw1",
+          "name": "Black & White",
+          "series": "Black & White",
+          "printedTotal": 114,
+          "total": 115,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BLW",
+          "releaseDate": "2011/04/25",
+          "updatedAt": "2018/11/29 19:56:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw1/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw1/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "Naoki Saito",
+        "rarity": "Rare Holo",
+        "flavorText": "Each has the ability to fool a large group of people simultaneously. They protect their lair with illusory scenery.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw1/71.png",
+          "large": "https://images.pokemontcg.io/bw1/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw1-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.54,
+              "mid": 4.8,
+              "high": 10.0,
+              "market": 4.82,
+              "directLow": 5.74
+            },
+            "reverseHolofoil": {
+              "low": 5.99,
+              "mid": 9.29,
+              "high": 77.8,
+              "market": 9.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw1-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.73,
+            "lowPrice": 0.1,
+            "trendPrice": 2.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.25,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 3.86,
+            "lowPriceExPlus": 0.3,
+            "avg1": 2.5,
+            "avg7": 2.69,
+            "avg30": 2.82,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.68,
+            "reverseHoloAvg30": 3.16
+          }
+        }
+      },
+      {
+        "id": "bw2-67",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Fury Swipes",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "Flip 3 coins. This attack does 20 damage times the number of heads."
+          },
+          {
+            "name": "Night Daze",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw2",
+          "name": "Emerging Powers",
+          "series": "Black & White",
+          "printedTotal": 98,
+          "total": 98,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EPO",
+          "releaseDate": "2011/08/31",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw2/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw2/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Shin Nagasawa",
+        "rarity": "Rare Holo",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw2/67.png",
+          "large": "https://images.pokemontcg.io/bw2/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw2-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.8,
+              "mid": 1.02,
+              "high": 2.98,
+              "market": 2.01,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.69,
+              "mid": 2.92,
+              "high": 4.27,
+              "market": 3.63,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw2-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.44,
+            "lowPrice": 0.15,
+            "trendPrice": 1.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.49,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 2.28,
+            "lowPriceExPlus": 0.19,
+            "avg1": 2.5,
+            "avg7": 1.81,
+            "avg30": 1.39,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 2.21,
+            "reverseHoloAvg30": 1.61
+          }
+        }
+      },
+      {
+        "id": "bw5-71",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Brutal Bash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of Darkness Pokémon you have in play."
+          },
+          {
+            "name": "Dark Rush",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of damage counters on this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "71",
+        "artist": "5ban Graphics",
+        "rarity": "Rare",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/71.png",
+          "large": "https://images.pokemontcg.io/bw5/71_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.6,
+              "mid": 1.02,
+              "high": 2.99,
+              "market": 1.02,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.2,
+              "mid": 3.92,
+              "high": 9.99,
+              "market": 3.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-71",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.73,
+            "lowPrice": 0.02,
+            "trendPrice": 2.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.04,
+            "reverseHoloTrend": 2.37,
+            "lowPriceExPlus": 0.09,
+            "avg1": 9.95,
+            "avg7": 2.53,
+            "avg30": 1.08,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 2.09,
+            "reverseHoloAvg30": 2.03
+          }
+        }
+      },
+      {
+        "id": "bw11-90",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Brutal Bash",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of Darkness Pokémon you have in play."
+          },
+          {
+            "name": "Dark Rush",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of damage counters on this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bw11",
+          "name": "Legendary Treasures",
+          "series": "Black & White",
+          "printedTotal": 113,
+          "total": 140,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LTR",
+          "releaseDate": "2013/11/06",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw11/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw11/90.png",
+          "large": "https://images.pokemontcg.io/bw11/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw11-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.7,
+              "mid": 1.06,
+              "high": 8.0,
+              "market": 1.26,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.85,
+              "mid": 1.18,
+              "high": 7.85,
+              "market": 5.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw11-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.49,
+            "lowPrice": 1.95,
+            "trendPrice": 3.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.25,
+            "reverseHoloLow": 4.99,
+            "reverseHoloTrend": 5.59,
+            "lowPriceExPlus": 1.95,
+            "avg1": 3.49,
+            "avg7": 3.63,
+            "avg30": 2.95,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 5.31,
+            "reverseHoloAvg30": 2.82
+          }
+        }
+      },
+      {
+        "id": "sm35-77",
+        "name": "Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "Once during your turn (before your attack), you may discard a card from your hand. If you do, draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Riotous Beating",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          },
+          {
+            "name": "Trickster-GX",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon's attacks and use it as this attack. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "77",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/77.png",
+          "large": "https://images.pokemontcg.io/sm35/77_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-77",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.0,
+              "mid": 16.99,
+              "high": 31.65,
+              "market": 16.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-77",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 25.12,
+            "lowPrice": 11.74,
+            "trendPrice": 24.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 27.32,
+            "lowPriceExPlus": 16.0,
+            "avg1": 18.29,
+            "avg7": 23.12,
+            "avg30": 22.53,
+            "reverseHoloAvg1": 31.0,
+            "reverseHoloAvg7": 27.24,
+            "reverseHoloAvg30": 27.05
+          }
+        }
+      },
+      {
+        "id": "sm35-77a",
+        "name": "Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "Once during your turn (before your attack), you may discard a card from your hand. If you do, draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Riotous Beating",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          },
+          {
+            "name": "Trickster-GX",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon's attacks and use it as this attack. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "77a",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/77a.png",
+          "large": "https://images.pokemontcg.io/sm35/77a_hires.png"
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-77a",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 17.23,
+            "lowPrice": 3.97,
+            "trendPrice": 18.82,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 23.13,
+            "lowPriceExPlus": 10.5,
+            "avg1": 18.0,
+            "avg7": 17.95,
+            "avg30": 18.82,
+            "reverseHoloAvg1": 19.99,
+            "reverseHoloAvg7": 19.78,
+            "reverseHoloAvg30": 21.2
+          }
+        }
+      },
+      {
+        "id": "sm9-91",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Taunt",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Switch 1 of your opponent's Benched Pokémon with their Active Pokémon."
+          },
+          {
+            "name": "Night Punishment",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Pokémon in your discard pile. You can't do more than 200 damage in this way."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/91.png",
+          "large": "https://images.pokemontcg.io/sm9/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.22,
+              "mid": 0.71,
+              "high": 2.5,
+              "market": 0.72,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.96,
+              "high": 2.49,
+              "market": 0.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.64,
+            "lowPrice": 0.5,
+            "trendPrice": 1.52,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.55,
+            "reverseHoloLow": 0.7,
+            "reverseHoloTrend": 1.93,
+            "lowPriceExPlus": 0.69,
+            "avg1": 2.68,
+            "avg7": 1.64,
+            "avg30": 1.21,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.76,
+            "reverseHoloAvg30": 1.74
+          }
+        }
+      },
+      {
+        "id": "smp-SM84",
+        "name": "Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "Once during your turn (before your attack), you may discard a card from your hand. If you do, draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Riotous Beating",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each of your Pokémon in play."
+          },
+          {
+            "name": "Trickster-GX",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Pokémon's attacks and use it as this attack. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM84",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM84.png",
+          "large": "https://images.pokemontcg.io/smp/SM84_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM84",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 4.71,
+              "high": 9999.0,
+              "market": 3.93,
+              "directLow": 3.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM84",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.1,
+            "lowPrice": 1.0,
+            "trendPrice": 2.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.83,
+            "lowPriceExPlus": 1.67,
+            "avg1": 2.45,
+            "avg7": 3.48,
+            "avg30": 2.96,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.84,
+            "reverseHoloAvg30": 1.99
+          }
+        }
+      },
+      {
+        "id": "smp-SM89",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Rip Claw",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, discard an Energy from your opponent's Active Pokémon."
+          },
+          {
+            "name": "Doom Crush",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard a Darkness Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM89",
+        "artist": "Misa Tsutsui",
+        "rarity": "Promo",
+        "flavorText": "Each has the ability to fool a large group of people simultaneously. They protect their lair with illusory scenery.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM89.png",
+          "large": "https://images.pokemontcg.io/smp/SM89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.58,
+              "high": 1.81,
+              "market": 0.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.89,
+            "lowPrice": 0.15,
+            "trendPrice": 0.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.95,
+            "avg7": 0.93,
+            "avg30": 0.87,
+            "reverseHoloAvg1": 0.24,
+            "reverseHoloAvg7": 0.75,
+            "reverseHoloAvg30": 0.54
+          }
+        }
+      },
+      {
+        "id": "xy8-91",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "abilities": [
+          {
+            "name": "Stand In",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may switch this Pokémon with your Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "10+",
+            "text": "This attack does 30 more damage for each of your opponent's Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "91",
+        "artist": "kawayoo",
+        "rarity": "Rare Holo",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/91.png",
+          "large": "https://images.pokemontcg.io/xy8/91_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-91",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.89,
+              "mid": 1.33,
+              "high": 3.99,
+              "market": 1.26,
+              "directLow": 1.53
+            },
+            "reverseHolofoil": {
+              "low": 1.89,
+              "mid": 2.66,
+              "high": 9.98,
+              "market": 4.44,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-91",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.27,
+            "lowPrice": 0.2,
+            "trendPrice": 2.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.5,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 3.75,
+            "lowPriceExPlus": 0.85,
+            "avg1": 5.85,
+            "avg7": 2.85,
+            "avg30": 2.43,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 3.16,
+            "reverseHoloAvg30": 3.09
+          }
+        }
+      },
+      {
+        "id": "xy8-92",
+        "name": "Zoroark BREAK",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "BREAK"
+        ],
+        "hp": "140",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zoroark",
+        "rules": [
+          "BREAK Evolution Rule: Zoroark BREAK retains the attacks, Abilities, Weakness, Resistance, and Retreat Cost of its previous Evolution."
+        ],
+        "attacks": [
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "set": {
+          "id": "xy8",
+          "name": "BREAKthrough",
+          "series": "XY",
+          "printedTotal": 162,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKT",
+          "releaseDate": "2015/11/04",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy8/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy8/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "5ban Graphics",
+        "rarity": "Rare BREAK",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy8/92.png",
+          "large": "https://images.pokemontcg.io/xy8/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy8-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.13,
+              "mid": 4.59,
+              "high": 26.5,
+              "market": 4.55,
+              "directLow": 3.8
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy8-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.96,
+            "lowPrice": 0.99,
+            "trendPrice": 4.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 5.0,
+            "reverseHoloTrend": 4.44,
+            "lowPriceExPlus": 3.5,
+            "avg1": 5.9,
+            "avg7": 3.79,
+            "avg30": 5.41,
+            "reverseHoloAvg1": 4.0,
+            "reverseHoloAvg7": 3.78,
+            "reverseHoloAvg30": 3.74
+          }
+        }
+      },
+      {
+        "id": "bw4-102",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Nasty Plot",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a card and put it into your hand. Shuffle your deck afterward."
+          },
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of the Defending Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw4",
+          "name": "Next Destinies",
+          "series": "Black & White",
+          "printedTotal": 99,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "NXD",
+          "releaseDate": "2012/02/08",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw4/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw4/logo.png"
+          }
+        },
+        "number": "102",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Secret",
+        "flavorText": "This extremely rare Pokémon is a different color than usual. It is very hard to find.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw4/102.png",
+          "large": "https://images.pokemontcg.io/bw4/102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw4-102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 156.61,
+              "mid": 199.95,
+              "high": 329.98,
+              "market": 194.99,
+              "directLow": 199.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw4-102",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 77.97,
+            "lowPrice": 17.0,
+            "trendPrice": 160.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 40.78,
+            "lowPriceExPlus": 66.66,
+            "avg1": 125.0,
+            "avg7": 132.26,
+            "avg30": 86.82,
+            "reverseHoloAvg1": 46.5,
+            "reverseHoloAvg7": 39.63,
+            "reverseHoloAvg30": 29.25
+          }
+        }
+      },
+      {
+        "id": "sm10-107",
+        "name": "Greninja & Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Pulse",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 30 more damage times the amount of Darkness Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Dark Union-GX",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 2 in any combination of Darkness Pokémon-GX and Darkness Pokémon-EX from your discard pile onto your Bench. If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), attach 2 Energy cards from your discard pile to each Pokémon that you put onto your Bench in this way. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "107",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          571,
+          658
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/107.png",
+          "large": "https://images.pokemontcg.io/sm10/107_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-107",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.99,
+              "mid": 47.2,
+              "high": 99.95,
+              "market": 45.16,
+              "directLow": 37.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-107",
+          "updatedAt": "2025/11/25",
+          "prices": {
+            "averageSellPrice": 32.02,
+            "lowPrice": 13.0,
+            "trendPrice": 33.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.32,
+            "lowPriceExPlus": 17.99,
+            "avg1": 19.99,
+            "avg7": 30.99,
+            "avg30": 28.91,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 5.17,
+            "reverseHoloAvg30": 5.39
+          }
+        }
+      },
+      {
+        "id": "sm10-200",
+        "name": "Greninja & Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Pulse",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 30 more damage times the amount of Darkness Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Dark Union-GX",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 2 in any combination of Darkness Pokémon-GX and Darkness Pokémon-EX from your discard pile onto your Bench. If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), attach 2 Energy cards from your discard pile to each Pokémon that you put onto your Bench in this way. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "200",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          571,
+          658
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/200.png",
+          "large": "https://images.pokemontcg.io/sm10/200_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-200",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 35.93,
+              "mid": 63.24,
+              "high": 149.95,
+              "market": 67.68,
+              "directLow": 67.68
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-200",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 46.49,
+            "lowPrice": 15.0,
+            "trendPrice": 34.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.92,
+            "lowPriceExPlus": 17.7,
+            "avg1": 37.99,
+            "avg7": 30.53,
+            "avg30": 28.8,
+            "reverseHoloAvg1": 9.0,
+            "reverseHoloAvg7": 8.55,
+            "reverseHoloAvg30": 8.89
+          }
+        }
+      },
+      {
+        "id": "sm10-201",
+        "name": "Greninja & Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Pulse",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 30 more damage times the amount of Darkness Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Dark Union-GX",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 2 in any combination of Darkness Pokémon-GX and Darkness Pokémon-EX from your discard pile onto your Bench. If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), attach 2 Energy cards from your discard pile to each Pokémon that you put onto your Bench in this way. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "201",
+        "artist": "kodama",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          571,
+          658
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/201.png",
+          "large": "https://images.pokemontcg.io/sm10/201_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-201",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 242.99,
+              "mid": 286.98,
+              "high": 499.95,
+              "market": 285.54,
+              "directLow": 254.69
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-201",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 133.0,
+            "lowPrice": 49.95,
+            "trendPrice": 232.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 22.25,
+            "lowPriceExPlus": 135.0,
+            "avg1": 140.0,
+            "avg7": 235.0,
+            "avg30": 173.39,
+            "reverseHoloAvg1": 23.9,
+            "reverseHoloAvg7": 18.69,
+            "reverseHoloAvg30": 17.46
+          }
+        }
+      },
+      {
+        "id": "sm10-222",
+        "name": "Greninja & Zoroark-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "250",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Pulse",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 30 more damage times the amount of Darkness Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Dark Union-GX",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 2 in any combination of Darkness Pokémon-GX and Darkness Pokémon-EX from your discard pile onto your Bench. If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), attach 2 Energy cards from your discard pile to each Pokémon that you put onto your Bench in this way. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "222",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          571,
+          658
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/222.png",
+          "large": "https://images.pokemontcg.io/sm10/222_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-222",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 73.5,
+              "mid": 88.99,
+              "high": 129.79,
+              "market": 78.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-222",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 33.33,
+            "lowPrice": 14.99,
+            "trendPrice": 74.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.54,
+            "lowPriceExPlus": 34.9,
+            "avg1": 23.0,
+            "avg7": 39.51,
+            "avg30": 46.78,
+            "reverseHoloAvg1": 18.0,
+            "reverseHoloAvg7": 20.47,
+            "reverseHoloAvg30": 16.95
+          }
+        }
+      },
+      {
+        "id": "swsh7-103",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "abilities": [
+          {
+            "name": "Phantom Transformation",
+            "text": "Once during your turn, you may choose a Stage 1 Pokémon, except any Zoroark, from your discard pile. If you do, discard this Pokémon and all attached cards, and put the chosen Pokémon in its place.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Night Daze",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "Souichirou Gunjima",
+        "rarity": "Rare Holo",
+        "flavorText": "If it thinks humans are going to discover its den, Zoroark shows them visions that make them wander around in the woods.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/103.png",
+          "large": "https://images.pokemontcg.io/swsh7/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.09,
+              "mid": 0.3,
+              "high": 19.99,
+              "market": 0.27,
+              "directLow": 0.22
+            },
+            "reverseHolofoil": {
+              "low": 0.14,
+              "mid": 0.37,
+              "high": 4.99,
+              "market": 0.33,
+              "directLow": 0.3
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-103",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.57,
+            "lowPrice": 0.02,
+            "trendPrice": 0.41,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.63,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.81,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.5,
+            "avg7": 0.43,
+            "avg30": 0.54,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.71,
+            "reverseHoloAvg30": 0.56
+          }
+        }
+      },
+      {
+        "id": "swsh8-171",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Double Claw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40×",
+            "text": "Flip 2 coins. This attack does 40 damage for each heads."
+          },
+          {
+            "name": "Night Daze",
+            "cost": [
+              "Darkness",
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "100",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "171",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "If it thinks humans are going to discover its den, Zoroark shows them visions that make them wander around in the woods.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/171.png",
+          "large": "https://images.pokemontcg.io/swsh8/171_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-171",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.14,
+              "high": 4.0,
+              "market": 0.11,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.25,
+              "high": 1.52,
+              "market": 0.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-171",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.27,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.07,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.23,
+            "reverseHoloAvg30": 0.25
+          }
+        }
+      },
+      {
+        "id": "swsh11-76",
+        "name": "Hisuian Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Hisuian Zorua",
+        "attacks": [
+          {
+            "name": "Doom Curse",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "At the end of your opponent's next turn, the Defending Pokémon will be Knocked Out."
+          },
+          {
+            "name": "Call Back",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put a card from your discard pile into your hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "76",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "With its disheveled white fur, it looks like an embodiment of death. Heedless of its own safety, Zoroark attacks its nemeses with a bitter energy so intense, it lacerates Zoroark's own body.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/76.png",
+          "large": "https://images.pokemontcg.io/swsh11/76_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-76",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.32,
+              "high": 2.39,
+              "market": 0.29,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.14,
+              "mid": 0.3,
+              "high": 2.31,
+              "market": 0.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-76",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.59,
+            "lowPrice": 0.09,
+            "trendPrice": 2.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.09,
+            "avg1": 1.86,
+            "avg7": 2.11,
+            "avg30": 1.57,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-146",
+        "name": "Hisuian Zoroark V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Void Return",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "30",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Shadow Cyclone",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Move an Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "146",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/146.png",
+          "large": "https://images.pokemontcg.io/swsh11/146_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-146",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.9,
+              "high": 15.14,
+              "market": 0.63,
+              "directLow": 0.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-146",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.69,
+            "lowPrice": 0.1,
+            "trendPrice": 0.75,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.6,
+            "avg7": 0.72,
+            "avg30": 0.68,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-147",
+        "name": "Hisuian Zoroark VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Hisuian Zoroark V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Phantom Star",
+            "text": "During your turn, you may discard your hand and draw 7 cards. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ticking Curse",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "147",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/147.png",
+          "large": "https://images.pokemontcg.io/swsh11/147_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-147",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.61,
+              "mid": 1.4,
+              "high": 89.0,
+              "market": 0.99,
+              "directLow": 1.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-147",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.4,
+            "trendPrice": 0.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.73,
+            "avg7": 0.88,
+            "avg30": 0.92,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-203",
+        "name": "Hisuian Zoroark VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Hisuian Zoroark V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Phantom Star",
+            "text": "During your turn, you may discard your hand and draw 7 cards. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ticking Curse",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "203",
+        "artist": "aky CG Works",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/203.png",
+          "large": "https://images.pokemontcg.io/swsh11/203_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-203",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.49,
+              "mid": 6.89,
+              "high": 14.8,
+              "market": 5.89,
+              "directLow": 8.85
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-203",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 6.19,
+            "lowPrice": 3.9,
+            "trendPrice": 7.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.9,
+            "avg1": 6.99,
+            "avg7": 9.12,
+            "avg30": 7.23,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-213",
+        "name": "Hisuian Zoroark VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Hisuian Zoroark V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Phantom Star",
+            "text": "During your turn, you may discard your hand and draw 7 cards. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ticking Curse",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "213",
+        "artist": "aky CG Works",
+        "rarity": "Rare Secret",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/213.png",
+          "large": "https://images.pokemontcg.io/swsh11/213_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-213",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.71,
+              "mid": 5.99,
+              "high": 25.0,
+              "market": 4.95,
+              "directLow": 5.72
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-213",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 5.49,
+            "lowPrice": 3.59,
+            "trendPrice": 5.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.59,
+            "avg1": 6.74,
+            "avg7": 5.67,
+            "avg30": 5.66,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH297",
+        "name": "Hisuian Zoroark V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Void Return",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "30",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Shadow Cyclone",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "130",
+            "text": "Move an Energy from this Pokémon to 1 of your Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH297",
+        "artist": "aky CG Works",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH297.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH297_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH297",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.95,
+              "mid": 1.43,
+              "high": 60.0,
+              "market": 1.23,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH297",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.21,
+            "lowPrice": 0.5,
+            "trendPrice": 1.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.65,
+            "avg1": 0.58,
+            "avg7": 1.26,
+            "avg30": 1.25,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH298",
+        "name": "Hisuian Zoroark VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Hisuian Zoroark V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Phantom Star",
+            "text": "During your turn, you may discard your hand and draw 7 cards. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ticking Curse",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH298",
+        "artist": "aky CG Works",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH298.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH298_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH298",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.39,
+              "mid": 1.25,
+              "high": 999.99,
+              "market": 1.04,
+              "directLow": 1.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH298",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.01,
+            "lowPrice": 0.45,
+            "trendPrice": 0.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.45,
+            "avg1": 0.48,
+            "avg7": 0.98,
+            "avg30": 0.97,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5gg-GG56",
+        "name": "Hisuian Zoroark VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "270",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Hisuian Zoroark V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Phantom Star",
+            "text": "During your turn, you may discard your hand and draw 7 cards. (You can't use more than 1 VSTAR Power in a game.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Ticking Curse",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Pokémon that has any damage counters on it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12pt5gg",
+          "name": "Crown Zenith Galarian Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 70,
+          "total": 70,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5gg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5gg/logo.png"
+          }
+        },
+        "number": "GG56",
+        "artist": "SIE NANAHARA",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5gg/GG56.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5gg/GG56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5gg-GG56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 25.34,
+              "mid": 30.14,
+              "high": 100.0,
+              "market": 29.11,
+              "directLow": 29.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5gg-GG56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 30.18,
+            "lowPrice": 12.5,
+            "trendPrice": 33.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 24.0,
+            "avg1": 85.0,
+            "avg7": 33.31,
+            "avg30": 31.25,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv6pt5-32",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Illusory Hijacking",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60×",
+            "text": "This attack does 60 damage for each of your opponent's Pokémon ex and Pokémon V in play."
+          },
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv6pt5",
+          "name": "Shrouded Fable",
+          "series": "Scarlet & Violet",
+          "printedTotal": 64,
+          "total": 99,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SFA",
+          "releaseDate": "2024/08/02",
+          "updatedAt": "2024/08/02 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6pt5/logo.png"
+          }
+        },
+        "number": "32",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6pt5/32.png",
+          "large": "https://images.pokemontcg.io/sv6pt5/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6pt5-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.15,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 999.0,
+              "market": 0.11,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6pt5-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.06,
+            "avg30": 0.06,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.14,
+            "reverseHoloAvg30": 0.12
+          }
+        }
+      },
+      {
+        "id": "sv9-98",
+        "name": "N's Zoroark ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "N's Zorua",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Night Joker",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "takuyoa",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/98.png",
+          "large": "https://images.pokemontcg.io/sv9/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.19,
+              "mid": 3.0,
+              "high": 9999.0,
+              "market": 2.13,
+              "directLow": 2.31
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 2.97,
+            "lowPrice": 1.0,
+            "trendPrice": 3.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.99,
+            "avg1": 2.33,
+            "avg7": 3.41,
+            "avg30": 3.21,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-175",
+        "name": "N's Zoroark ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "N's Zorua",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Night Joker",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "175",
+        "artist": "takuyoa",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/175.png",
+          "large": "https://images.pokemontcg.io/sv9/175_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-175",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.69,
+              "mid": 5.67,
+              "high": 26.99,
+              "market": 4.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-175",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.49,
+            "lowPrice": 3.49,
+            "trendPrice": 4.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 3.49,
+            "avg1": 4.95,
+            "avg7": 4.95,
+            "avg30": 4.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-185",
+        "name": "N's Zoroark ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "N's Zorua",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Night Joker",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "185",
+        "artist": "Megumi Mizutani",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/185.png",
+          "large": "https://images.pokemontcg.io/sv9/185_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-185",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 57.81,
+              "mid": 72.4,
+              "high": 400.0,
+              "market": 65.27,
+              "directLow": 78.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-185",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 54.99,
+            "lowPrice": 42.0,
+            "trendPrice": 49.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 42.0,
+            "avg1": 62.0,
+            "avg7": 54.57,
+            "avg30": 54.02,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv9-189",
+        "name": "N's Zoroark ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "280",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "N's Zorua",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Trade",
+            "text": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Night Joker",
+            "cost": [
+              "Darkness",
+              "Darkness"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "189",
+        "artist": "takuyoa",
+        "rarity": "Hyper Rare",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/189.png",
+          "large": "https://images.pokemontcg.io/sv9/189_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-189",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 13.0,
+              "mid": 16.0,
+              "high": 80.0,
+              "market": 14.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-189",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 21.47,
+            "lowPrice": 17.0,
+            "trendPrice": 21.86,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 17.0,
+            "avg1": 28.19,
+            "avg7": 20.81,
+            "avg30": 21.25,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-62",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "62",
+        "artist": "akagi",
+        "rarity": "Rare",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/62.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.06,
+              "mid": 0.28,
+              "high": 7.95,
+              "market": 0.25,
+              "directLow": 0.2
+            },
+            "holofoil": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 3.95,
+              "market": 0.11,
+              "directLow": 0.07
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.14,
+            "avg7": 0.07,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.8,
+            "reverseHoloAvg7": 0.43,
+            "reverseHoloAvg30": 0.28
+          }
+        }
+      },
+      {
+        "id": "rsv10pt5-143",
+        "name": "Zoroark",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Zorua",
+        "attacks": [
+          {
+            "name": "Mind Jack",
+            "cost": [
+              "Darkness"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each of your opponent's Benched Pokémon."
+          },
+          {
+            "name": "Foul Play",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "rsv10pt5",
+          "name": "White Flare",
+          "series": "Scarlet & Violet",
+          "printedTotal": 86,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "WHT",
+          "releaseDate": "2025/07/18",
+          "updatedAt": "2025/07/17 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/rsv10pt5/logo.png"
+          }
+        },
+        "number": "143",
+        "artist": "Iwamoto05",
+        "rarity": "Illustration Rare",
+        "flavorText": "Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.",
+        "nationalPokedexNumbers": [
+          571
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/rsv10pt5/143.png",
+          "large": "https://images.pokemontcg.io/rsv10pt5/143_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/rsv10pt5-143",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 42.3,
+              "mid": 54.79,
+              "high": 149.95,
+              "market": 50.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/rsv10pt5-143",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 39.31,
+            "lowPrice": 28.0,
+            "trendPrice": 40.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 29.0,
+            "avg1": 49.99,
+            "avg7": 39.51,
+            "avg30": 39.68,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 37,
+    "totalCount": 37
+  }
+}

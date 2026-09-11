@@ -69,7 +69,11 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'WEBSITES_ENABLE_APP_SERVICE_STORAGE'
-          value: 'false'
+          value: 'true'
+        }
+        {
+          name: 'POKEDEX_DATA_ROOT'
+          value: '/home/data'
         }
         {
           name: 'DOCKER_REGISTRY_SERVER_URL'
@@ -77,7 +81,7 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         }
         {
           name: 'GUNICORN_WORKERS'
-          value: '4'
+          value: '1'
         }
         {
           name: 'AZURE_AUTH_MODE'

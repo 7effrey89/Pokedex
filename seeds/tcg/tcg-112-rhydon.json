@@ -1,0 +1,2550 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:rhydon"
+  },
+  "cache_key": "c38415a4b338e517d683ad439b573a14",
+  "cached_at": 1765900596.218938,
+  "response": {
+    "data": [
+      {
+        "id": "gym1-2",
+        "name": "Brock's Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "38",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Brock's Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "abilities": [
+          {
+            "name": "Bench Guard",
+            "text": "As long as Brock's Rhydon is Benched, whenever 1 of your Benched Pokémon is damaged, you may do 10 of that damage to Brock's Rhydon instead. (If more than 1 of your Benched Pokémon is damaged at the same time, you may use this power once for each of them.)",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Lariat",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "gym1",
+          "name": "Gym Heroes",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G1",
+          "releaseDate": "2000/08/14",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym1/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym1/2.png",
+          "large": "https://images.pokemontcg.io/gym1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 79.99,
+              "mid": 120.0,
+              "high": 165.0,
+              "market": 122.17,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 14.0,
+              "mid": 19.93,
+              "high": 49.95,
+              "market": 25.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 25.06,
+            "lowPrice": 2.45,
+            "trendPrice": 27.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.12,
+            "lowPriceExPlus": 20.0,
+            "avg1": 17.5,
+            "avg7": 17.04,
+            "avg30": 22.59,
+            "reverseHoloAvg1": 5.39,
+            "reverseHoloAvg7": 11.72,
+            "reverseHoloAvg30": 11.03
+          }
+        }
+      },
+      {
+        "id": "ex4-11",
+        "name": "Team Magma's Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting",
+          "Darkness"
+        ],
+        "evolvesFrom": "Team Magma's Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "rules": [
+          "This Pokémon is both Fighting Darkness type."
+        ],
+        "attacks": [
+          {
+            "name": "Magma Jab",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "This attack's damage is not affected by Resistance."
+          },
+          {
+            "name": "Shoot Down",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "If the Defending Pokémon has Team Aqua in its name, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "11",
+        "artist": "T. Honda",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/11.png",
+          "large": "https://images.pokemontcg.io/ex4/11_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 29.53,
+              "mid": 37.91,
+              "high": 205.85,
+              "market": 19.77,
+              "directLow": 33.25
+            },
+            "reverseHolofoil": {
+              "low": 11.0,
+              "mid": 16.98,
+              "high": 37.85,
+              "market": 25.32,
+              "directLow": 24.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-11",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.95,
+            "lowPrice": 1.5,
+            "trendPrice": 10.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 16.25,
+            "reverseHoloLow": 1.88,
+            "reverseHoloTrend": 15.97,
+            "lowPriceExPlus": 4.99,
+            "avg1": 3.5,
+            "avg7": 7.11,
+            "avg30": 11.67,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 16.91,
+            "reverseHoloAvg30": 10.39
+          }
+        }
+      },
+      {
+        "id": "ex9-19",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Attack",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Rock Tumble",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex9",
+          "name": "Emerald",
+          "series": "EX",
+          "printedTotal": 106,
+          "total": 107,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EM",
+          "releaseDate": "2005/05/01",
+          "updatedAt": "2020/02/08 09:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex9/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex9/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex9/19.png",
+          "large": "https://images.pokemontcg.io/ex9/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex9-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.98,
+              "mid": 1.33,
+              "high": 3.0,
+              "market": 1.32,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 23.95,
+              "mid": 24.0,
+              "high": 29.9,
+              "market": 20.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex9-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.55,
+            "lowPrice": 0.05,
+            "trendPrice": 0.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 12.98,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 15.34,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.49,
+            "avg7": 0.58,
+            "avg30": 0.91,
+            "reverseHoloAvg1": 13.0,
+            "reverseHoloAvg7": 13.34,
+            "reverseHoloAvg30": 11.01
+          }
+        }
+      },
+      {
+        "id": "ex4-22",
+        "name": "Team Magma's Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Team Magma's Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Second Strike",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "If the Defending Pokémon already has at least 2 damage counters on it, this attack does 20 damage plus 20 more damage."
+          },
+          {
+            "name": "Land Crush",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If tails, discard an Energy card attached to Team Magma's Rhydon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex4",
+          "name": "Team Magma vs Team Aqua",
+          "series": "EX",
+          "printedTotal": 95,
+          "total": 97,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MA",
+          "releaseDate": "2004/03/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex4/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex4/logo.png"
+          }
+        },
+        "number": "22",
+        "artist": "T. Honda",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex4/22.png",
+          "large": "https://images.pokemontcg.io/ex4/22_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex4-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.84,
+              "mid": 2.7,
+              "high": 6.49,
+              "market": 2.37,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.0,
+              "mid": 9.71,
+              "high": 11.99,
+              "market": 9.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex4-22",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.26,
+            "lowPrice": 0.2,
+            "trendPrice": 1.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 6.13,
+            "lowPriceExPlus": 0.69,
+            "avg1": 1.99,
+            "avg7": 1.17,
+            "avg30": 1.79,
+            "reverseHoloAvg1": 7.99,
+            "reverseHoloAvg7": 7.36,
+            "reverseHoloAvg30": 6.8
+          }
+        }
+      },
+      {
+        "id": "ecard3-H27",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Stomp",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 damage plus 20 more damage."
+          },
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "100",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "H27",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/H27.png",
+          "large": "https://images.pokemontcg.io/ecard3/H27_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-H27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 100.24,
+              "mid": 100.24,
+              "high": 100.24,
+              "market": 224.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-H27",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 426.0,
+            "lowPrice": 25.0,
+            "trendPrice": 279.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 41.31,
+            "lowPriceExPlus": 49.99,
+            "avg1": 850.0,
+            "avg7": 279.43,
+            "avg30": 140.02,
+            "reverseHoloAvg1": 74.99,
+            "reverseHoloAvg7": 39.97,
+            "reverseHoloAvg30": 33.63
+          }
+        }
+      },
+      {
+        "id": "base6-35",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "48",
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Attack",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Ram",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "Rhydon does 20 damage to itself. Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon, if any. (Do the damage before switching the Pokémon. Switch the Pokémon even if Rhydon is Knocked Out.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3600 degrees.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/35.png",
+          "large": "https://images.pokemontcg.io/base6/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.54,
+              "mid": 2.74,
+              "high": 19.99,
+              "market": 5.98,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 48.22,
+              "mid": 70.74,
+              "high": 80.5,
+              "market": 73.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.7,
+            "lowPrice": 0.02,
+            "trendPrice": 4.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 24.99,
+            "reverseHoloTrend": 23.87,
+            "lowPriceExPlus": 2.99,
+            "avg1": 10.0,
+            "avg7": 4.27,
+            "avg30": 4.32,
+            "reverseHoloAvg1": 15.49,
+            "reverseHoloAvg7": 23.17,
+            "reverseHoloAvg30": 25.42
+          }
+        }
+      },
+      {
+        "id": "base2-45",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "48",
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Attack",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Ram",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "Rhydon does 20 damage to itself. If your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon. Switch the Pokémon even if Rhydon is knocked out.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base2",
+          "name": "Jungle",
+          "series": "Base",
+          "printedTotal": 64,
+          "total": 64,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "JU",
+          "releaseDate": "1999/06/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base2/symbol.png",
+            "logo": "https://images.pokemontcg.io/base2/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3600 degrees.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base2/45.png",
+          "large": "https://images.pokemontcg.io/base2/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 4.0,
+              "mid": 19.99,
+              "high": 39.99,
+              "market": 5.3,
+              "directLow": 21.26
+            },
+            "unlimited": {
+              "low": 0.2,
+              "mid": 0.62,
+              "high": 200449.91,
+              "market": 0.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.4,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.02,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.56,
+            "avg7": 0.87,
+            "avg30": 1.2,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 0.93,
+            "reverseHoloAvg30": 0.93
+          }
+        }
+      },
+      {
+        "id": "ex5-46",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "abilities": [
+          {
+            "name": "Power Diffusion",
+            "text": "As long as Rhydon is your Active Pokémon, prevent all damage done by attacks to all of your Benched Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Horn Drill",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Hyper Tail",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50+",
+            "text": "If the Defending Pokémon has any Poké-Powers or Poké-Bodies, this attack does 50 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ex5",
+          "name": "Hidden Legends",
+          "series": "EX",
+          "printedTotal": 101,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HL",
+          "releaseDate": "2004/06/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex5/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex5/logo.png"
+          }
+        },
+        "number": "46",
+        "artist": "Atsuko Nishida",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex5/46.png",
+          "large": "https://images.pokemontcg.io/ex5/46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex5-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.94,
+              "mid": 1.09,
+              "high": 3.0,
+              "market": 1.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 10.3,
+              "mid": 11.4,
+              "high": 19.99,
+              "market": 12.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex5-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.45,
+            "lowPrice": 0.04,
+            "trendPrice": 0.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.0,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 3.51,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.5,
+            "avg7": 0.61,
+            "avg30": 0.76,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 4.81,
+            "reverseHoloAvg30": 5.44
+          }
+        }
+      },
+      {
+        "id": "dp1-60",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "43",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Storm Up",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If there is any Stadium card in play, this attack does 30 damage plus 20 more damage. Discard that Stadium card."
+          },
+          {
+            "name": "Crash Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Rhydon does 10 damage to itself. Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon, if any."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "60",
+        "artist": "Naoyo Kimura",
+        "rarity": "Uncommon",
+        "flavorText": "Its brain developed after it stood up on its hind legs. Its drill horn bores tunnels through solid rock.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/60.png",
+          "large": "https://images.pokemontcg.io/dp1/60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.5,
+              "high": 1.75,
+              "market": 0.55,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.25,
+              "mid": 1.99,
+              "high": 6.74,
+              "market": 1.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.3,
+            "lowPrice": 0.03,
+            "trendPrice": 0.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.17,
+            "reverseHoloLow": 0.08,
+            "reverseHoloTrend": 1.27,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.07,
+            "avg7": 0.29,
+            "avg30": 0.3,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 1.21,
+            "reverseHoloAvg30": 1.23
+          }
+        }
+      },
+      {
+        "id": "base4-59",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "48",
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Attack",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Ram",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "Rhydon does 20 damage to itself. If your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon. Switch the Pokémon even if Rhydon is knocked out.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "59",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3600 degrees.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/59.png",
+          "large": "https://images.pokemontcg.io/base4/59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.21,
+              "mid": 1.4,
+              "high": 3.19,
+              "market": 2.12,
+              "directLow": 3.18
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.73,
+            "lowPrice": 0.25,
+            "trendPrice": 1.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.39,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.94,
+            "avg7": 1.82,
+            "avg30": 1.71,
+            "reverseHoloAvg1": 0.39,
+            "reverseHoloAvg7": 0.39,
+            "reverseHoloAvg30": 0.39
+          }
+        }
+      },
+      {
+        "id": "xy1-61",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Drill",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Mad Mountain",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Flip 2 coins. If both of them are heads, discard the top card of your opponent's deck for each damage counter on this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/61.png",
+          "large": "https://images.pokemontcg.io/xy1/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.25,
+              "mid": 0.45,
+              "high": 4.0,
+              "market": 0.43,
+              "directLow": 0.35
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.7,
+              "high": 2.49,
+              "market": 0.79,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.6,
+            "lowPrice": 0.1,
+            "trendPrice": 0.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.08,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.55,
+            "avg7": 0.68,
+            "avg30": 0.58,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.86,
+            "reverseHoloAvg30": 1.09
+          }
+        }
+      },
+      {
+        "id": "ecard3-29",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Stomp",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 damage plus 20 more damage."
+          },
+          {
+            "name": "Giant Tail",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "100",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "29",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/29.png",
+          "large": "https://images.pokemontcg.io/ecard3/29_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 15.0,
+              "mid": 18.19,
+              "high": 29.99,
+              "market": 12.8,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 52.0,
+              "mid": 55.0,
+              "high": 55.0,
+              "market": 55.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-29",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.84,
+            "lowPrice": 1.33,
+            "trendPrice": 5.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 33.31,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 22.47,
+            "lowPriceExPlus": 2.9,
+            "avg1": 3.0,
+            "avg7": 6.1,
+            "avg30": 4.59,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 20.34,
+            "reverseHoloAvg30": 15.38
+          }
+        }
+      },
+      {
+        "id": "sm3-66",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Rock Tumble",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "This attack's damage isn't affected by Resistance."
+          },
+          {
+            "name": "Megahorn",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "Sanosuke Sakuma",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/66.png",
+          "large": "https://images.pokemontcg.io/sm3/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.19,
+              "high": 1.49,
+              "market": 0.15,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.13,
+              "mid": 0.27,
+              "high": 2.44,
+              "market": 0.26,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.06,
+            "reverseHoloTrend": 0.29,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.25,
+            "reverseHoloAvg30": 0.23
+          }
+        }
+      },
+      {
+        "id": "xy5-75",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Take Down",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "This Pokémon does 10 damage to itself."
+          },
+          {
+            "name": "Horn Drill",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "75",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "It begins walking on its hind legs after evolution. It can punch holes through boulders with its horn.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/75.png",
+          "large": "https://images.pokemontcg.io/xy5/75_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-75",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.19,
+              "directLow": 0.2
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.43,
+              "high": 2.28,
+              "market": 0.43,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-75",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.68,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.65,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.11,
+            "avg30": 0.16,
+            "reverseHoloAvg1": 0.95,
+            "reverseHoloAvg7": 0.72,
+            "reverseHoloAvg30": 0.67
+          }
+        }
+      },
+      {
+        "id": "pl3-80",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "45",
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Fury Attack",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "Flip 3 coins. This attack does 20 damage times the number of heads."
+          },
+          {
+            "name": "Rock Tumble",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Lightning",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Uncommon",
+        "flavorText": "Standing on its hind legs freed its forelegs and made it smarter. It is very forgetful, however.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/80.png",
+          "large": "https://images.pokemontcg.io/pl3/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.53,
+              "high": 6.62,
+              "market": 0.69,
+              "directLow": 0.21
+            },
+            "reverseHolofoil": {
+              "low": 0.9,
+              "mid": 1.67,
+              "high": 3.03,
+              "market": 2.01,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.36,
+            "lowPrice": 0.02,
+            "trendPrice": 0.4,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.08,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.92,
+            "lowPriceExPlus": 0.08,
+            "avg1": 0.5,
+            "avg7": 0.37,
+            "avg30": 0.38,
+            "reverseHoloAvg1": 2.95,
+            "reverseHoloAvg7": 2.32,
+            "reverseHoloAvg30": 1.41
+          }
+        }
+      },
+      {
+        "id": "swsh1-98",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Drill",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Rock Slide",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100",
+            "text": "This attack also does 10 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "98",
+        "artist": "KEIICHIRO ITO",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/98.png",
+          "large": "https://images.pokemontcg.io/swsh1/98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.4,
+              "high": 1.77,
+              "market": 0.36,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 1.49,
+              "market": 0.12,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.04,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.05,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.15,
+            "avg30": 0.12,
+            "reverseHoloAvg1": 1.5,
+            "reverseHoloAvg7": 1.1,
+            "reverseHoloAvg30": 0.92
+          }
+        }
+      },
+      {
+        "id": "sm10-94",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Dirty Work",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Discard the top card of your opponent's deck. If you played Giovanni's Exile from your hand during this turn, discard the top 5 cards instead."
+          },
+          {
+            "name": "Horn Attack",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "94",
+        "artist": "kirisAki",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/94.png",
+          "large": "https://images.pokemontcg.io/sm10/94_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-94",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.3,
+              "mid": 0.72,
+              "high": 1.49,
+              "market": 0.76,
+              "directLow": 0.76
+            },
+            "normal": {
+              "low": 0.07,
+              "mid": 0.22,
+              "high": 10.0,
+              "market": 0.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-94",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.63,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 0.69,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.35,
+            "avg7": 0.24,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.83,
+            "reverseHoloAvg30": 0.69
+          }
+        }
+      },
+      {
+        "id": "swsh11-90",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Horn Drill",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Take Down",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Uncommon",
+        "flavorText": "It begins walking on its hind legs after evolution. It can punch holes through boulders with its horn.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/90.png",
+          "large": "https://images.pokemontcg.io/swsh11/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 2.39,
+              "market": 0.2,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.16,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.11,
+            "reverseHoloAvg7": 0.12,
+            "reverseHoloAvg30": 0.15
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-112",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Wrack Down",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Charismatic Drill",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "If you played Giovanni's Charisma from your hand during this turn, this attack does 140 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "112",
+        "artist": "GOSSAN",
+        "rarity": "Uncommon",
+        "flavorText": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit.",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/112.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/112_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-112",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.06,
+              "mid": 0.2,
+              "high": 20.0,
+              "market": 0.19,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.8,
+              "market": 0.07,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-112",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.24,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "sv7-75",
+        "name": "Rhydon",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Rhyhorn",
+        "evolvesTo": [
+          "Rhyperior"
+        ],
+        "attacks": [
+          {
+            "name": "Destructive Horn",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Flip a coin. If heads, discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "75",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          112
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/75.png",
+          "large": "https://images.pokemontcg.io/sv7/75_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-75",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.18,
+              "high": 1.56,
+              "market": 0.16,
+              "directLow": 0.15
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.08,
+              "directLow": 0.08
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-75",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.1,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.08,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.1
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 20,
+    "totalCount": 20
+  }
+}

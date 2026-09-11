@@ -1,0 +1,612 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:wyrdeer"
+  },
+  "cache_key": "30b6ddf7314f2fa05a134dbc03a93239",
+  "cached_at": 1765898136.529957,
+  "response": {
+    "data": [
+      {
+        "id": "swsh10-69",
+        "name": "Wyrdeer",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Stantler",
+        "abilities": [
+          {
+            "name": "Hurried Gait",
+            "text": "Once during your turn, you may draw a card.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Extrasensory",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "69",
+        "artist": "Mizue",
+        "rarity": "Rare Holo",
+        "flavorText": "The black orbs shine with an uncanny light when the Pokémon is erecting invisible barriers. The fur shed from its beard retains heat well and is a highly useful material for winter clothing.",
+        "nationalPokedexNumbers": [
+          899
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/69.png",
+          "large": "https://images.pokemontcg.io/swsh10/69_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-69",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.12,
+              "mid": 0.33,
+              "high": 19.98,
+              "market": 0.34,
+              "directLow": 0.25
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.3,
+              "high": 3.94,
+              "market": 0.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-69",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.34,
+            "lowPrice": 0.02,
+            "trendPrice": 0.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.4,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.48,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.26,
+            "avg7": 0.5,
+            "avg30": 0.35,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.33,
+            "reverseHoloAvg30": 0.43
+          }
+        }
+      },
+      {
+        "id": "swsh10-134",
+        "name": "Wyrdeer V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Frontier Road",
+            "text": "Once during your turn, when this Pokémon moves from your Bench to the Active Spot, you may move any amount of Energy from your other Pokémon to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psyshield Bash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "134",
+        "artist": "aky CG Works",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          899
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/134.png",
+          "large": "https://images.pokemontcg.io/swsh10/134_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-134",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.35,
+              "mid": 0.99,
+              "high": 5.49,
+              "market": 0.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-134",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.65,
+            "lowPrice": 0.2,
+            "trendPrice": 0.6,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.25,
+            "avg1": 0.7,
+            "avg7": 0.65,
+            "avg30": 0.65,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10-180",
+        "name": "Wyrdeer V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Colorless"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Frontier Road",
+            "text": "Once during your turn, when this Pokémon moves from your Bench to the Active Spot, you may move any amount of Energy from your other Pokémon to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psyshield Bash",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40×",
+            "text": "This attack does 40 damage for each Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "180",
+        "artist": "aky CG Works",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          899
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/180.png",
+          "large": "https://images.pokemontcg.io/swsh10/180_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-180",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.67,
+              "mid": 2.29,
+              "high": 9.99,
+              "market": 1.9,
+              "directLow": 2.84
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-180",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.15,
+            "lowPrice": 0.5,
+            "trendPrice": 1.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 1.48,
+            "avg7": 1.79,
+            "avg30": 2.35,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10tg-TG06",
+        "name": "Wyrdeer",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Stantler",
+        "abilities": [
+          {
+            "name": "Hurried Gait",
+            "text": "Once during your turn, you may draw a card.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Extrasensory",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh10tg",
+          "name": "Astral Radiance Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10tg/logo.png"
+          }
+        },
+        "number": "TG06",
+        "artist": "kirisAki",
+        "rarity": "Trainer Gallery Rare Holo",
+        "flavorText": "The black orbs shine with an uncanny light when the Pokémon is erecting invisible barriers. The fur shed from its beard retains heat well and is a highly useful material for winter clothing.",
+        "nationalPokedexNumbers": [
+          899
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10tg/TG06.png",
+          "large": "https://images.pokemontcg.io/swsh10tg/TG06_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10tg-TG06",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.99,
+              "mid": 1.75,
+              "high": 999.99,
+              "market": 1.38,
+              "directLow": 2.48
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10tg-TG06",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.8,
+            "lowPrice": 0.6,
+            "trendPrice": 1.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.6,
+            "avg1": 1.98,
+            "avg7": 1.92,
+            "avg30": 1.8,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH206",
+        "name": "Wyrdeer",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "140",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Stantler",
+        "abilities": [
+          {
+            "name": "Hurried Gait",
+            "text": "Once during your turn, you may draw a card.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Extrasensory",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40+",
+            "text": "If you have the same number of cards in your hand as your opponent, this attack does 80 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH206",
+        "artist": "Eri Yamaki",
+        "rarity": "Promo",
+        "flavorText": "The black orbs shine with an uncanny light when the Pokémon is erecting invisible barriers. The fur shed from its beard retains heat well and is a highly useful material for winter clothing.",
+        "nationalPokedexNumbers": [
+          899
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH206.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH206_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH206",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.44,
+              "mid": 0.76,
+              "high": 9.97,
+              "market": 0.77,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH206",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 1.81,
+            "lowPrice": 0.48,
+            "trendPrice": 1.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.48,
+            "avg1": 3.15,
+            "avg7": 1.78,
+            "avg30": 1.37,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 5,
+    "totalCount": 5
+  }
+}

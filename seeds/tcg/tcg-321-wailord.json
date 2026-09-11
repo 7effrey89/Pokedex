@@ -1,0 +1,2694 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:wailord"
+  },
+  "cache_key": "d7328c70e465208e02d7de7f647b1cf3",
+  "cached_at": 1765915508.847445,
+  "response": {
+    "data": [
+      {
+        "id": "ex12-14",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "abilities": [
+          {
+            "name": "Reactive Lift",
+            "text": "As long as Wailord has any React Energy cards attached to it, the Retreat Cost for each of your Water Pokémon (excluding Pokémon-ex) is 0.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hypno Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "The Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Rely on Friends",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "Does 40 damage plus 10 more damage for each of your Benched Stage 1 Evolved Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "ex12",
+          "name": "Legend Maker",
+          "series": "EX",
+          "printedTotal": 92,
+          "total": 93,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LM",
+          "releaseDate": "2006/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex12/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex12/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex12/14.png",
+          "large": "https://images.pokemontcg.io/ex12/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex12-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 17.55,
+              "mid": 36.6,
+              "high": 99.9,
+              "market": 38.2,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 38.37,
+              "mid": 38.38,
+              "high": 66.66,
+              "market": 19.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex12-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.83,
+            "lowPrice": 0.8,
+            "trendPrice": 5.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 16.47,
+            "reverseHoloLow": 1.5,
+            "reverseHoloTrend": 23.25,
+            "lowPriceExPlus": 5.99,
+            "avg1": 2.0,
+            "avg7": 4.97,
+            "avg30": 6.0,
+            "reverseHoloAvg1": 12.5,
+            "reverseHoloAvg7": 17.2,
+            "reverseHoloAvg30": 16.19
+          }
+        }
+      },
+      {
+        "id": "swsh35-13",
+        "name": "Wailord V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "280",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Draw Up",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Attach up to 3 Water Energy cards from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Ocean Waves",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120×",
+            "text": "Flip 3 coins. This attack does 120 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/13.png",
+          "large": "https://images.pokemontcg.io/swsh35/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.49,
+              "mid": 1.45,
+              "high": 39.99,
+              "market": 1.26,
+              "directLow": 1.74
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.65,
+            "lowPrice": 0.7,
+            "trendPrice": 1.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.56,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.43,
+            "avg7": 1.71,
+            "avg30": 1.58,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.46,
+            "reverseHoloAvg30": 1.86
+          }
+        }
+      },
+      {
+        "id": "ex1-14",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Take Down",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Wailord does 20 damage to itself."
+          },
+          {
+            "name": "Surf",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "ex1",
+          "name": "Ruby & Sapphire",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 109,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RS",
+          "releaseDate": "2003/07/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex1/logo.png"
+          }
+        },
+        "number": "14",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex1/14.png",
+          "large": "https://images.pokemontcg.io/ex1/14_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 15.41,
+              "mid": 23.11,
+              "high": 38.56,
+              "market": 38.56,
+              "directLow": 44.56
+            },
+            "reverseHolofoil": {
+              "low": 10.0,
+              "mid": 13.99,
+              "high": 20.0,
+              "market": 8.25,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex1-14",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 10.78,
+            "lowPrice": 0.49,
+            "trendPrice": 10.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.1,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 2.8,
+            "lowPriceExPlus": 3.95,
+            "avg1": 9.24,
+            "avg7": 11.56,
+            "avg30": 7.83,
+            "reverseHoloAvg1": 2.9,
+            "reverseHoloAvg7": 4.05,
+            "reverseHoloAvg30": 6.86
+          }
+        }
+      },
+      {
+        "id": "bw6-26",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Water Cannon",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "Flip a coin. If heads, this attack does 30 damage times the amount of Water Energy attached to this Pokémon."
+          },
+          {
+            "name": "Giant Wave",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "This Pokémon can't use Giant Wave during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "match",
+        "rarity": "Rare Holo",
+        "flavorText": "The biggest of all Pokémon. It can dive to a depth of almost 10,000 feet on only one breath.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/26.png",
+          "large": "https://images.pokemontcg.io/bw6/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.68,
+              "high": 3.98,
+              "market": 1.65,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.12,
+              "high": 2.99,
+              "market": 2.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.65,
+            "lowPrice": 0.35,
+            "trendPrice": 2.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.0,
+            "reverseHoloLow": 0.75,
+            "reverseHoloTrend": 3.58,
+            "lowPriceExPlus": 0.49,
+            "avg1": 2.56,
+            "avg7": 2.63,
+            "avg30": 2.17,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.62,
+            "reverseHoloAvg30": 2.67
+          }
+        }
+      },
+      {
+        "id": "hgss4-31",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Underwater Dive",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Flip 2 coins. For each heads, remove 3 damage counters from Wailord."
+          },
+          {
+            "name": "Swallow Up",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50+",
+            "text": "Before doing damage, count the remaining HP of the Defending Pokémon and Wailord. If the Defending Pokémon has fewer remaining HP than Wailord, this attack does 50 damage plus 50 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "31",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "flavorText": "It is the largest of all identified Pokémon. They jump as a pack to herd their prey.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/31.png",
+          "large": "https://images.pokemontcg.io/hgss4/31_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.1,
+              "mid": 1.52,
+              "high": 3.2,
+              "market": 1.58,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.98,
+              "mid": 12.98,
+              "high": 49.99,
+              "market": 6.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-31",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.86,
+            "lowPrice": 0.17,
+            "trendPrice": 1.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.0,
+            "reverseHoloLow": 0.95,
+            "reverseHoloTrend": 2.74,
+            "lowPriceExPlus": 0.35,
+            "avg1": 1.5,
+            "avg7": 2.12,
+            "avg30": 1.43,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.64,
+            "reverseHoloAvg30": 3.18
+          }
+        }
+      },
+      {
+        "id": "sm2-30",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Dive",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn."
+          },
+          {
+            "name": "Open Sea",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Heal 30 damage from each of your Water Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "OOYAMA",
+        "rarity": "Rare",
+        "flavorText": "Wailord pursue their prey in pods. With their large mouths, they can swallow entire schools of Wishiwashi whole.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/30.png",
+          "large": "https://images.pokemontcg.io/sm2/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.4,
+              "high": 5.0,
+              "market": 0.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.69,
+              "high": 1.99,
+              "market": 0.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.26,
+            "lowPrice": 0.02,
+            "trendPrice": 0.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.25,
+            "reverseHoloLow": 0.12,
+            "reverseHoloTrend": 0.26,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.25,
+            "avg30": 0.25,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.33,
+            "reverseHoloAvg30": 0.4
+          }
+        }
+      },
+      {
+        "id": "swsh4-32",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "abilities": [
+          {
+            "name": "Water Veil",
+            "text": "Whenever you attach an Energy card from your hand to this Pokémon, remove all Special Conditions from it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "10+",
+            "text": "This attack does 40 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "SATOSHI NAKAI",
+        "rarity": "Rare Holo",
+        "flavorText": "It can sometimes knock out opponents with the shock created by breaching and crashing its big body onto the water.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/32.png",
+          "large": "https://images.pokemontcg.io/swsh4/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.5,
+              "high": 999.97,
+              "market": 0.48,
+              "directLow": 0.46
+            },
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.34,
+              "high": 999.99,
+              "market": 0.31,
+              "directLow": 0.31
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.34,
+            "lowPrice": 0.02,
+            "trendPrice": 0.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.84,
+            "reverseHoloLow": 0.09,
+            "reverseHoloTrend": 0.68,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.52,
+            "avg7": 0.29,
+            "avg30": 0.42,
+            "reverseHoloAvg1": 1.25,
+            "reverseHoloAvg7": 0.9,
+            "reverseHoloAvg30": 0.89
+          }
+        }
+      },
+      {
+        "id": "dp4-30",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "43",
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "abilities": [
+          {
+            "name": "Sleeping Pulse",
+            "text": "As long as Wailord remains Asleep between turns, remove 1 damage counter from Wailord.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sink Deep",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": "If Wailord has any damage counters on it, Wailord is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "The biggest of all Pokémon. It can dive to a depth of almost 10,000 feet on only one breath.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/30.png",
+          "large": "https://images.pokemontcg.io/dp4/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.4,
+              "mid": 6.99,
+              "high": 15.0,
+              "market": 7.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.68,
+              "mid": 12.01,
+              "high": 25.52,
+              "market": 15.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.5,
+            "lowPrice": 0.2,
+            "trendPrice": 2.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 3.63,
+            "lowPriceExPlus": 1.0,
+            "avg1": 4.0,
+            "avg7": 1.93,
+            "avg30": 1.96,
+            "reverseHoloAvg1": 1.23,
+            "reverseHoloAvg7": 3.11,
+            "reverseHoloAvg30": 3.44
+          }
+        }
+      },
+      {
+        "id": "xy5-38",
+        "name": "Wailord-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "250",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Water Veil",
+            "text": "Whenever you attach an Energy card from your hand to this Pokémon, remove all Special Conditions from it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "High Breaching",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "120",
+            "text": "This Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/38.png",
+          "large": "https://images.pokemontcg.io/xy5/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.81,
+              "mid": 4.37,
+              "high": 5.86,
+              "market": 4.08,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.07,
+            "lowPrice": 1.5,
+            "trendPrice": 3.77,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.36,
+            "lowPriceExPlus": 2.5,
+            "avg1": 1.95,
+            "avg7": 3.79,
+            "avg30": 3.94,
+            "reverseHoloAvg1": 3.5,
+            "reverseHoloAvg7": 5.28,
+            "reverseHoloAvg30": 4.89
+          }
+        }
+      },
+      {
+        "id": "sm7-40",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Dwindling Wave",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "200-",
+            "text": "This attack does 40 less damage for each damage counter on this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm7",
+          "name": "Celestial Storm",
+          "series": "Sun & Moon",
+          "printedTotal": 168,
+          "total": 187,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CES",
+          "releaseDate": "2018/08/03",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm7/logo.png"
+          }
+        },
+        "number": "40",
+        "artist": "Anesaki Dynamic",
+        "rarity": "Rare",
+        "flavorText": "Its immense size is the reason for its popularity. Wailord watching is a favorite sightseeing activity in various parts of the world.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm7/40.png",
+          "large": "https://images.pokemontcg.io/sm7/40_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm7-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.4,
+              "high": 1.49,
+              "market": 0.43,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.3,
+              "mid": 0.68,
+              "high": 1.0,
+              "market": 0.72,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm7-40",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.05,
+            "lowPrice": 0.02,
+            "trendPrice": 1.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 3.6,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 1.3,
+            "avg30": 0.54,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 2.83,
+            "reverseHoloAvg30": 2.65
+          }
+        }
+      },
+      {
+        "id": "sm12-46",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          },
+          {
+            "name": "Hydro Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "140",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "46",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Rare",
+        "flavorText": "They eat so many fish Pokémon that when Wailord become too numerous, fishermen have to chase them off.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/46.png",
+          "large": "https://images.pokemontcg.io/sm12/46_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.14,
+              "mid": 0.3,
+              "high": 1.0,
+              "market": 0.28,
+              "directLow": 0.28
+            },
+            "reverseHolofoil": {
+              "low": 0.3,
+              "mid": 0.64,
+              "high": 2.5,
+              "market": 0.64,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-46",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.27,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 0.91,
+            "lowPriceExPlus": 0.04,
+            "avg1": 0.2,
+            "avg7": 0.34,
+            "avg30": 0.36,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 1.03,
+            "reverseHoloAvg30": 1.09
+          }
+        }
+      },
+      {
+        "id": "pl3-47",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "41",
+        "hp": "180",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Rest",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Remove all Special Conditions and 4 damage counters from Wailord. Wailord is now Asleep."
+          },
+          {
+            "name": "Giant Wave",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "100",
+            "text": "Wailord can't use Giant Wave during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "47",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "flavorText": "The biggest of all Pokémon. It can dive to a depth of almost 10,000 feet on only one breath.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/47.png",
+          "large": "https://images.pokemontcg.io/pl3/47_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.6,
+              "mid": 3.34,
+              "high": 6.27,
+              "market": 3.53,
+              "directLow": 1.77
+            },
+            "reverseHolofoil": {
+              "low": 2.0,
+              "mid": 2.9,
+              "high": 5.53,
+              "market": 4.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.18,
+            "lowPrice": 0.1,
+            "trendPrice": 1.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.8,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.14,
+            "lowPriceExPlus": 0.9,
+            "avg1": 0.49,
+            "avg7": 1.29,
+            "avg30": 1.7,
+            "reverseHoloAvg1": 1.83,
+            "reverseHoloAvg7": 2.0,
+            "reverseHoloAvg30": 1.9
+          }
+        }
+      },
+      {
+        "id": "ex2-100",
+        "name": "Wailord ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Super Deep Dive",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If you don't have any Benched Pokémon, this attack does nothing. Remove 3 damage counters from Wailord ex. Switch Wailord ex with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Dwindling Wave",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "100-",
+            "text": "Does 100 damage minus 10 damage for each damage counter on Wailord ex."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          },
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 5,
+        "set": {
+          "id": "ex2",
+          "name": "Sandstorm",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SS",
+          "releaseDate": "2003/09/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex2/logo.png"
+          }
+        },
+        "number": "100",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex2/100.png",
+          "large": "https://images.pokemontcg.io/ex2/100_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-100",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 46.86,
+              "mid": 60.0,
+              "high": 199.88,
+              "market": 84.3,
+              "directLow": 59.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex2-100",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 14.97,
+            "lowPrice": 4.0,
+            "trendPrice": 32.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.1,
+            "lowPriceExPlus": 34.95,
+            "avg1": 4.5,
+            "avg7": 27.41,
+            "avg30": 28.04,
+            "reverseHoloAvg1": 34.99,
+            "reverseHoloAvg7": 17.79,
+            "reverseHoloAvg30": 15.78
+          }
+        }
+      },
+      {
+        "id": "xy5-147",
+        "name": "Wailord-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "250",
+        "types": [
+          "Water"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Water Veil",
+            "text": "Whenever you attach an Energy card from your hand to this Pokémon, remove all Special Conditions from it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "High Breaching",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "120",
+            "text": "This Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy5",
+          "name": "Primal Clash",
+          "series": "XY",
+          "printedTotal": 160,
+          "total": 164,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PRC",
+          "releaseDate": "2015/02/04",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy5/logo.png"
+          }
+        },
+        "number": "147",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy5/147.png",
+          "large": "https://images.pokemontcg.io/xy5/147_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy5-147",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 23.99,
+              "mid": 29.5,
+              "high": 75.0,
+              "market": 37.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy5-147",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 30.28,
+            "lowPrice": 7.5,
+            "trendPrice": 21.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.62,
+            "lowPriceExPlus": 22.0,
+            "avg1": 21.49,
+            "avg7": 18.8,
+            "avg30": 25.22,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 15.26,
+            "reverseHoloAvg30": 12.42
+          }
+        }
+      },
+      {
+        "id": "sm9-160",
+        "name": "Magikarp & Wailord-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "300",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Gyarados"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Super Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          },
+          {
+            "name": "Towering Splash-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If this Pokémon has at least 7 extra Water Energy attached to it (in addition to this attack's cost), this attack does 100 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "160",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          129,
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/160.png",
+          "large": "https://images.pokemontcg.io/sm9/160_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-160",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 62.55,
+              "mid": 111.5,
+              "high": 141.59,
+              "market": 100.62,
+              "directLow": 119.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-160",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 29.5,
+            "lowPrice": 12.0,
+            "trendPrice": 35.47,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 13.27,
+            "lowPriceExPlus": 30.0,
+            "avg1": 30.0,
+            "avg7": 36.84,
+            "avg30": 58.05,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 12.59,
+            "reverseHoloAvg30": 12.61
+          }
+        }
+      },
+      {
+        "id": "sm9-161",
+        "name": "Magikarp & Wailord-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "300",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Gyarados"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Super Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          },
+          {
+            "name": "Towering Splash-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If this Pokémon has at least 7 extra Water Energy attached to it (in addition to this attack's cost), this attack does 100 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "161",
+        "artist": "OOYAMA",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          129,
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/161.png",
+          "large": "https://images.pokemontcg.io/sm9/161_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-161",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 877.79,
+              "mid": 914.46,
+              "high": 1280.27,
+              "market": 870.74,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-161",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 733.16,
+            "lowPrice": 49.9,
+            "trendPrice": 455.54,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 33.25,
+            "lowPriceExPlus": 159.0,
+            "avg1": 325.0,
+            "avg7": 484.82,
+            "avg30": 328.61,
+            "reverseHoloAvg1": 34.9,
+            "reverseHoloAvg7": 29.9,
+            "reverseHoloAvg30": 34.09
+          }
+        }
+      },
+      {
+        "id": "smp-SM166",
+        "name": "Magikarp & Wailord-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "300",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Gyarados"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Super Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          },
+          {
+            "name": "Towering Splash-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If this Pokémon has at least 7 extra Water Energy attached to it (in addition to this attack's cost), this attack does 100 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM166",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          129,
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM166.png",
+          "large": "https://images.pokemontcg.io/smp/SM166_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM166",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 42.0,
+              "mid": 75.0,
+              "high": 178.26,
+              "market": 68.77,
+              "directLow": 80.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM166",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 38.54,
+            "lowPrice": 3.97,
+            "trendPrice": 44.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.9,
+            "lowPriceExPlus": 16.5,
+            "avg1": 68.98,
+            "avg7": 42.89,
+            "avg30": 27.37,
+            "reverseHoloAvg1": 5.99,
+            "reverseHoloAvg7": 6.11,
+            "reverseHoloAvg30": 5.77
+          }
+        }
+      },
+      {
+        "id": "sm9-183",
+        "name": "Magikarp & Wailord-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "300",
+        "types": [
+          "Water"
+        ],
+        "evolvesTo": [
+          "Gyarados"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Super Splash",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Water",
+              "Water"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          },
+          {
+            "name": "Towering Splash-GX",
+            "cost": [
+              "Water"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If this Pokémon has at least 7 extra Water Energy attached to it (in addition to this attack's cost), this attack does 100 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "183",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          129,
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/183.png",
+          "large": "https://images.pokemontcg.io/sm9/183_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-183",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 90.48,
+              "mid": 139.69,
+              "high": 329.95,
+              "market": 111.21,
+              "directLow": 139.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-183",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 52.75,
+            "lowPrice": 9.0,
+            "trendPrice": 64.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 30.29,
+            "lowPriceExPlus": 27.0,
+            "avg1": 269.0,
+            "avg7": 63.5,
+            "avg30": 64.22,
+            "reverseHoloAvg1": 34.0,
+            "reverseHoloAvg7": 24.88,
+            "reverseHoloAvg30": 21.5
+          }
+        }
+      },
+      {
+        "id": "swsh12-38",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "200",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "abilities": [
+          {
+            "name": "Jumbo-Sized",
+            "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Special Wave",
+            "cost": [
+              "Water",
+              "Water",
+              "Water",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "If this Pokémon has any Special Energy attached, this attack does 120 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "38",
+        "artist": "Shinya Komatsu",
+        "rarity": "Uncommon",
+        "flavorText": "It can sometimes knock out opponents with the shock created by breaching and crashing its big body onto the water.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/38.png",
+          "large": "https://images.pokemontcg.io/swsh12/38_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.26,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.22,
+              "high": 2.25,
+              "market": 0.18,
+              "directLow": 0.11
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-38",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.23,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.05,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.21
+          }
+        }
+      },
+      {
+        "id": "swsh12pt5-32",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "220",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Bubble Drain",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Heavy Impact",
+            "cost": [
+              "Water",
+              "Water",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "180",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swsh12pt5",
+          "name": "Crown Zenith",
+          "series": "Sword & Shield",
+          "printedTotal": 159,
+          "total": 160,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRZ",
+          "releaseDate": "2023/01/20",
+          "updatedAt": "2023/01/19 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12pt5/logo.png"
+          }
+        },
+        "number": "32",
+        "artist": "KIYOTAKA OSHIYAMA",
+        "rarity": "Rare",
+        "flavorText": "It can sometimes knock out opponents with the shock created by breaching and crashing its big body onto the water.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12pt5/32.png",
+          "large": "https://images.pokemontcg.io/swsh12pt5/32_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.14,
+              "mid": 0.35,
+              "high": 999.0,
+              "market": 0.32,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 999.0,
+              "market": 0.12,
+              "directLow": 0.09
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12pt5-32",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.35,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.61,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.29,
+            "avg7": 0.12,
+            "avg30": 0.09,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.38,
+            "reverseHoloAvg30": 0.36
+          }
+        }
+      },
+      {
+        "id": "sv9-41",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "240",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "10+",
+            "text": "This attack does 50 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "41",
+        "artist": "Takeshi Nakamura",
+        "rarity": "Rare",
+        "flavorText": "Its immense size is the reason for its popularity. Wailord watching is a favorite sightseeing activity in various parts of the world.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/41.png",
+          "large": "https://images.pokemontcg.io/sv9/41_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 10.0,
+              "market": 0.1,
+              "directLow": 0.06
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.36,
+              "high": 3.49,
+              "market": 0.29,
+              "directLow": 0.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-41",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.33,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.26,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.11,
+            "avg7": 0.08,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.19,
+            "reverseHoloAvg7": 0.31,
+            "reverseHoloAvg30": 0.33
+          }
+        }
+      },
+      {
+        "id": "sv9-162",
+        "name": "Wailord",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "240",
+        "types": [
+          "Water"
+        ],
+        "evolvesFrom": "Wailmer",
+        "attacks": [
+          {
+            "name": "Hydro Pump",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "10+",
+            "text": "This attack does 50 more damage for each Water Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv9",
+          "name": "Journey Together",
+          "series": "Scarlet & Violet",
+          "printedTotal": 159,
+          "total": 190,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "JTG",
+          "releaseDate": "2025/03/28",
+          "updatedAt": "2025/03/27 16:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv9/logo.png"
+          }
+        },
+        "number": "162",
+        "artist": "Katsunori Sato",
+        "rarity": "Illustration Rare",
+        "flavorText": "Its immense size is the reason for its popularity. Wailord watching is a favorite sightseeing activity in various parts of the world.",
+        "nationalPokedexNumbers": [
+          321
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv9/162.png",
+          "large": "https://images.pokemontcg.io/sv9/162_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv9-162",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.5,
+              "mid": 12.16,
+              "high": 99.0,
+              "market": 10.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv9-162",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 10.45,
+            "lowPrice": 5.0,
+            "trendPrice": 10.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 5.0,
+            "avg1": 7.71,
+            "avg7": 9.98,
+            "avg30": 10.62,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 22,
+    "totalCount": 22
+  }
+}

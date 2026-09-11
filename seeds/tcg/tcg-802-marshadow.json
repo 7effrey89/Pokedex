@@ -1,0 +1,1901 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:marshadow"
+  },
+  "cache_key": "420eada8c4caa19ccf9b38637fc846e5",
+  "cached_at": 1765895662.42294,
+  "response": {
+    "data": [
+      {
+        "id": "sm35-45",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "abilities": [
+          {
+            "name": "Let Loose",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may have each player shuffle their hand into their deck and draw 4 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Punch",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "Emi Ando",
+        "rarity": "Rare Holo",
+        "flavorText": "Able to conceal itself in shadows, it never appears before humans, so its very existence was the stuff of myth.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Banned"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/45.png",
+          "large": "https://images.pokemontcg.io/sm35/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.6,
+              "high": 2.95,
+              "market": 0.62,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.95,
+              "mid": 1.53,
+              "high": 5.0,
+              "market": 1.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.68,
+            "lowPrice": 10.0,
+            "trendPrice": 3.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 45.0,
+            "avg1": 3.68,
+            "avg7": 3.37,
+            "avg30": 2.39,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "smp-SM59",
+        "name": "Marshadow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shadow Hunt",
+            "text": "This Pokémon can use the attacks of Basic Pokémon in your discard pile. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Peerless Hundred Blows-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the number of basic Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM59",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM59.png",
+          "large": "https://images.pokemontcg.io/smp/SM59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.64,
+              "mid": 4.17,
+              "high": 11.0,
+              "market": 4.03,
+              "directLow": 4.58
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.73,
+            "lowPrice": 0.5,
+            "trendPrice": 1.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.59,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.99,
+            "avg7": 1.73,
+            "avg30": 1.66,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 1.97,
+            "reverseHoloAvg30": 2.03
+          }
+        }
+      },
+      {
+        "id": "sm3-80",
+        "name": "Marshadow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shadow Hunt",
+            "text": "This Pokémon can use the attacks of any Basic Pokémon in your discard pile. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Peerless Hundred Blows-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of basic Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/80.png",
+          "large": "https://images.pokemontcg.io/sm3/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.61,
+              "high": 19.99,
+              "market": 2.61,
+              "directLow": 3.74
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 3.33,
+            "lowPrice": 0.99,
+            "trendPrice": 2.98,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.3,
+            "lowPriceExPlus": 2.0,
+            "avg1": 2.5,
+            "avg7": 2.64,
+            "avg30": 2.8,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.14,
+            "reverseHoloAvg30": 2.95
+          }
+        }
+      },
+      {
+        "id": "sm10-81",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "abilities": [
+          {
+            "name": "Resetting Hole",
+            "text": "Once during your turn (before your attack), if this Pokémon is on your Bench, you may discard any Stadium card in play. If you do, discard this Pokémon and all cards attached to it.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Red Knuckles",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "If your opponent's Active Pokémon is an Ultra Beast, this attack does 60 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "chibi",
+        "rarity": "Rare Holo",
+        "flavorText": "It slips into the shadows of others and mimics their powers and movements. As it improves, it becomes stronger than those it's imitating.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/81.png",
+          "large": "https://images.pokemontcg.io/sm10/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.54,
+              "mid": 0.84,
+              "high": 3.02,
+              "market": 0.88,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.35,
+              "mid": 0.75,
+              "high": 2.74,
+              "market": 0.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.99,
+            "lowPrice": 0.0,
+            "trendPrice": 1.99,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.0,
+            "avg1": 1.99,
+            "avg7": 1.99,
+            "avg30": 1.99,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sm10-82",
+        "name": "Marshadow & Machamp-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Revenge",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If any of your Pokémon were Knocked Out by damage from an opponent's attack during their last turn, this attack does 90 more damage."
+          },
+          {
+            "name": "Hundred-Blows Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Acme of Heroism-GX",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), and if it would be Knocked Out by damage from an opponent's attack during their next turn, it is not Knocked Out, and its remaining HP becomes 10. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "82",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          68,
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/82.png",
+          "large": "https://images.pokemontcg.io/sm10/82_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-82",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.87,
+              "mid": 28.37,
+              "high": 99.0,
+              "market": 27.02,
+              "directLow": 31.07
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-82",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 16.92,
+            "lowPrice": 3.51,
+            "trendPrice": 18.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.76,
+            "lowPriceExPlus": 9.97,
+            "avg1": 17.02,
+            "avg7": 16.56,
+            "avg30": 17.99,
+            "reverseHoloAvg1": 4.63,
+            "reverseHoloAvg7": 3.88,
+            "reverseHoloAvg30": 3.6
+          }
+        }
+      },
+      {
+        "id": "smp-SM85",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "abilities": [
+          {
+            "name": "Let Loose",
+            "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may have each player shuffle their hand into their deck and draw 4 cards.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Punch",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "This attack's damage isn't affected by Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM85",
+        "artist": "Emi Ando",
+        "rarity": "Promo",
+        "flavorText": "Able to conceal itself in shadows, it never appears before humans, so its very existence was the stuff of myth.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Banned"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM85.png",
+          "large": "https://images.pokemontcg.io/smp/SM85_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM85",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.83,
+              "mid": 3.3,
+              "high": 11.45,
+              "market": 3.3,
+              "directLow": 3.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM85",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 1.19,
+            "lowPrice": 0.28,
+            "trendPrice": 2.05,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.15,
+            "lowPriceExPlus": 0.49,
+            "avg1": 1.69,
+            "avg7": 1.44,
+            "avg30": 2.25,
+            "reverseHoloAvg1": 1.99,
+            "reverseHoloAvg7": 1.19,
+            "reverseHoloAvg30": 1.42
+          }
+        }
+      },
+      {
+        "id": "smp-SM93",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Shadowy Echoes",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Put a Basic Pokémon from each player's discard pile onto its owner's Bench."
+          },
+          {
+            "name": "Surprise Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Flip a coin. If tails, this attack does nothing."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM93",
+        "artist": "kirisAki",
+        "rarity": "Promo",
+        "flavorText": "Able to conceal itself in shadows, it never appears before humans, so its very existence was the stuff of myth.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM93.png",
+          "large": "https://images.pokemontcg.io/smp/SM93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.35,
+              "mid": 0.92,
+              "high": 19.99,
+              "market": 0.89,
+              "directLow": 0.98
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.8,
+            "lowPrice": 0.09,
+            "trendPrice": 0.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.51,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.73,
+            "avg7": 0.72,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 0.21,
+            "reverseHoloAvg7": 0.48,
+            "reverseHoloAvg30": 0.29
+          }
+        }
+      },
+      {
+        "id": "sm12-103",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Imitation",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Active Pokémon's non-GX attacks and use it as this attack."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "103",
+        "artist": "0313",
+        "rarity": "Rare",
+        "flavorText": "It slips into the shadows of others and mimics their powers and movements. As it improves, it becomes stronger than those it's imitating.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/103.png",
+          "large": "https://images.pokemontcg.io/sm12/103_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-103",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.0,
+              "mid": 8.0,
+              "high": 45.0,
+              "market": 7.1,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.89,
+              "mid": 25.98,
+              "high": 99.99,
+              "market": 35.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-103",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 8.5,
+            "lowPrice": 4.5,
+            "trendPrice": 5.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.25,
+            "reverseHoloLow": 12.45,
+            "reverseHoloTrend": 16.63,
+            "lowPriceExPlus": 4.5,
+            "avg1": 0.5,
+            "avg7": 7.21,
+            "avg30": 9.26,
+            "reverseHoloAvg1": 14.0,
+            "reverseHoloAvg7": 16.49,
+            "reverseHoloAvg30": 6.73
+          }
+        }
+      },
+      {
+        "id": "sm3-137",
+        "name": "Marshadow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shadow Hunt",
+            "text": "This Pokémon can use the attacks of Basic Pokémon in your discard pile. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Peerless Hundred Blows-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of basic Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "137",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/137.png",
+          "large": "https://images.pokemontcg.io/sm3/137_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-137",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.99,
+              "mid": 10.0,
+              "high": 19.0,
+              "market": 11.16,
+              "directLow": 6.94
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-137",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 3.55,
+            "lowPrice": 1.5,
+            "trendPrice": 3.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.38,
+            "lowPriceExPlus": 2.68,
+            "avg1": 4.99,
+            "avg7": 3.64,
+            "avg30": 3.99,
+            "reverseHoloAvg1": 7.5,
+            "reverseHoloAvg7": 4.6,
+            "reverseHoloAvg30": 4.7
+          }
+        }
+      },
+      {
+        "id": "sm3-156",
+        "name": "Marshadow-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "GX"
+        ],
+        "hp": "150",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shadow Hunt",
+            "text": "This Pokémon can use the attacks of Basic Pokémon in your discard pile. (You still need the necessary Energy to use each attack.)",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Beatdown",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Peerless Hundred Blows-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the number of basic Energy attached to this Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "156",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/156.png",
+          "large": "https://images.pokemontcg.io/sm3/156_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-156",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.98,
+              "mid": 20.42,
+              "high": 43.95,
+              "market": 19.73,
+              "directLow": 43.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-156",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 14.69,
+            "lowPrice": 4.99,
+            "trendPrice": 13.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.1,
+            "lowPriceExPlus": 7.5,
+            "avg1": 15.0,
+            "avg7": 16.04,
+            "avg30": 10.89,
+            "reverseHoloAvg1": 15.9,
+            "reverseHoloAvg7": 13.96,
+            "reverseHoloAvg30": 10.92
+          }
+        }
+      },
+      {
+        "id": "sm10-198",
+        "name": "Marshadow & Machamp-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Revenge",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If any of your Pokémon were Knocked Out by damage from an opponent's attack during their last turn, this attack does 90 more damage."
+          },
+          {
+            "name": "Hundred-Blows Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Acme of Heroism-GX",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), and if it would be Knocked Out by damage from an opponent's attack during their next turn, it is not Knocked Out, and its remaining HP becomes 10. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "198",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          68,
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/198.png",
+          "large": "https://images.pokemontcg.io/sm10/198_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-198",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 28.0,
+              "mid": 39.01,
+              "high": 99.97,
+              "market": 38.04,
+              "directLow": 37.66
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-198",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 27.55,
+            "lowPrice": 6.0,
+            "trendPrice": 31.3,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.53,
+            "lowPriceExPlus": 16.98,
+            "avg1": 27.99,
+            "avg7": 29.12,
+            "avg30": 25.94,
+            "reverseHoloAvg1": 11.52,
+            "reverseHoloAvg7": 11.31,
+            "reverseHoloAvg30": 8.77
+          }
+        }
+      },
+      {
+        "id": "sm10-199",
+        "name": "Marshadow & Machamp-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Revenge",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If any of your Pokémon were Knocked Out by damage from an opponent's attack during their last turn, this attack does 90 more damage."
+          },
+          {
+            "name": "Hundred-Blows Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Acme of Heroism-GX",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), and if it would be Knocked Out by damage from an opponent's attack during their next turn, it is not Knocked Out, and its remaining HP becomes 10. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "199",
+        "artist": "You Iribi",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          68,
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/199.png",
+          "large": "https://images.pokemontcg.io/sm10/199_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-199",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 178.26,
+              "mid": 250.5,
+              "high": 399.95,
+              "market": 211.02,
+              "directLow": 249.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-199",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 104.99,
+            "lowPrice": 45.0,
+            "trendPrice": 128.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.71,
+            "lowPriceExPlus": 69.95,
+            "avg1": 95.0,
+            "avg7": 113.28,
+            "avg30": 115.72,
+            "reverseHoloAvg1": 26.0,
+            "reverseHoloAvg7": 20.08,
+            "reverseHoloAvg30": 16.28
+          }
+        }
+      },
+      {
+        "id": "sm10-221",
+        "name": "Marshadow & Machamp-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Revenge",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "If any of your Pokémon were Knocked Out by damage from an opponent's attack during their last turn, this attack does 90 more damage."
+          },
+          {
+            "name": "Hundred-Blows Impact",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Acme of Heroism-GX",
+            "cost": [
+              "Fighting",
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "200",
+            "text": "If this Pokémon has at least 1 extra Energy attached to it (in addition to this attack's cost), and if it would be Knocked Out by damage from an opponent's attack during their next turn, it is not Knocked Out, and its remaining HP becomes 10. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "221",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          68,
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/221.png",
+          "large": "https://images.pokemontcg.io/sm10/221_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-221",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 45.92,
+              "mid": 68.24,
+              "high": 149.99,
+              "market": 55.23,
+              "directLow": 69.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-221",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 36.19,
+            "lowPrice": 9.0,
+            "trendPrice": 45.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.29,
+            "lowPriceExPlus": 19.99,
+            "avg1": 36.19,
+            "avg7": 41.58,
+            "avg30": 36.55,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 20.88,
+            "reverseHoloAvg30": 16.49
+          }
+        }
+      },
+      {
+        "id": "swsh7-80",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Rapid Strike"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "attacks": [
+          {
+            "name": "Rapid Hunt",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Rapid Strike cards, reveal them, and put them into your hand. Then, shuffle your deck."
+          },
+          {
+            "name": "Shadow Flicker",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "If the Defending Pokémon is Knocked Out during your next turn, take 1 more Prize card."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Yuya Oka",
+        "rarity": "Rare Holo",
+        "flavorText": "It sinks into the shadows of people and Pokémon, where it can understand their feelings and copy their capabilities.",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/80.png",
+          "large": "https://images.pokemontcg.io/swsh7/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 9.99,
+              "market": 0.2,
+              "directLow": 0.19
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.28,
+              "high": 2.95,
+              "market": 0.23,
+              "directLow": 0.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.37,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.41,
+            "avg7": 0.35,
+            "avg30": 0.23,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.4,
+            "reverseHoloAvg30": 0.34
+          }
+        }
+      },
+      {
+        "id": "me1-80",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Shadowy Side Kick",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "If your opponent's Pokémon is Knocked Out by damage from this attack, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "80",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/80.png",
+          "large": "https://images.pokemontcg.io/me1/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.04,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.11,
+              "directLow": 0.1
+            }
+          }
+        }
+      },
+      {
+        "id": "me1-146",
+        "name": "Marshadow",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Shadowy Side Kick",
+            "cost": [
+              "Fighting",
+              "Fighting"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "If your opponent's Pokémon is Knocked Out by damage from this attack, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "146",
+        "rarity": "Illustration Rare",
+        "nationalPokedexNumbers": [
+          802
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/146.png",
+          "large": "https://images.pokemontcg.io/me1/146_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-146",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.1,
+              "mid": 18.94,
+              "high": 999.0,
+              "market": 13.05,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 16,
+    "totalCount": 16
+  }
+}

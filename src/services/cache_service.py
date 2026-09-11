@@ -53,6 +53,7 @@ class CacheService:
             "expiry_days": 7,
             "pokeapi_cache_enabled": True,
             "tcg_cache_enabled": True,
+            "data_source_mode": "json",
         }
         
         if self.config_file.exists():
@@ -112,6 +113,19 @@ class CacheService:
         self.config["tcg_cache_enabled"] = enabled
         self._save_config()
         logger.info("TCG cache %s", "enabled" if enabled else "disabled")
+
+    def set_data_source_mode(self, mode: str):
+        """Persist the active runtime data source."""
+        if mode not in {"json", "sqlite"}:
+            raise ValueError("Data source mode must be 'json' or 'sqlite'")
+        self.config["data_source_mode"] = mode
+        self._save_config()
+        logger.info("Data source mode set to %s", mode)
+
+    def get_data_source_mode(self) -> str:
+        """Return the active runtime data source."""
+        mode = self.config.get("data_source_mode", "json")
+        return mode if mode in {"json", "sqlite"} else "json"
 
     def should_use_pokeapi_cache(self) -> bool:
         """Check if the cache should be used for PokeAPI requests"""

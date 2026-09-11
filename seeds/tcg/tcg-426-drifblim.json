@@ -1,0 +1,2147 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:drifblim"
+  },
+  "cache_key": "2f3e1f6a39e75cb53ec1f6ad9d1c6719",
+  "cached_at": 1765907191.092548,
+  "response": {
+    "data": [
+      {
+        "id": "pl3-3",
+        "name": "Drifblim FB",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "50",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "abilities": [
+          {
+            "name": "Pump Up",
+            "text": "If your opponent has 3 or less Prize cards left, Drifblim FB gets +40 HP.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Shadow Ball",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Choose 1 of your opponent's Benched Pokémon. This attack does 40 damage to that Pokémon. Apply Weakness and Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Lee HyunJung",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/3.png",
+          "large": "https://images.pokemontcg.io/pl3/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.0,
+              "mid": 5.0,
+              "high": 6.0,
+              "market": 7.3,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 2.73,
+              "mid": 3.73,
+              "high": 10.45,
+              "market": 3.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.4,
+            "lowPrice": 0.75,
+            "trendPrice": 3.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.95,
+            "reverseHoloLow": 0.75,
+            "reverseHoloTrend": 3.12,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 4.4,
+            "avg30": 4.85,
+            "reverseHoloAvg1": 1.95,
+            "reverseHoloAvg7": 2.97,
+            "reverseHoloAvg30": 2.73
+          }
+        }
+      },
+      {
+        "id": "hgss3-12",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Balloon Tackle",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": "Drifblim does 20 damage to itself."
+          },
+          {
+            "name": "Take Away",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Shuffle Drifblim and all cards attached to it back into your deck. Then, your opponent shuffles the Defending Pokémon and all cards attached to it into his or her deck. (You choose your new Active Pokémon first.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "hgss3",
+          "name": "HS—Undaunted",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 90,
+          "total": 91,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UD",
+          "releaseDate": "2010/08/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss3/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss3/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "It can generate and release gas within its body. That's how it can control the altitude of its drift.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss3/12.png",
+          "large": "https://images.pokemontcg.io/hgss3/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss3-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.24,
+              "mid": 0.51,
+              "high": 1.74,
+              "market": 0.63,
+              "directLow": 0.97
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.62,
+              "high": 4.84,
+              "market": 2.95,
+              "directLow": 2.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss3-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.98,
+            "lowPrice": 0.1,
+            "trendPrice": 0.85,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.22,
+            "reverseHoloLow": 0.17,
+            "reverseHoloTrend": 1.38,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.5,
+            "avg7": 0.92,
+            "avg30": 0.67,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 1.51,
+            "reverseHoloAvg30": 1.43
+          }
+        }
+      },
+      {
+        "id": "dp1-24",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Wind Wave",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your discard pile for up to 5 in any combination of Pokémon and Supporter cards. Show them to your opponent and shuffle them into your deck."
+          },
+          {
+            "name": "Explosive Smoke",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Does 10 damage to each Benched Pokémon (both yours and your opponent's). (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp1",
+          "name": "Diamond & Pearl",
+          "series": "Diamond & Pearl",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp1/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp1/logo.png"
+          }
+        },
+        "number": "24",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "It's drowzy in daytime, but flies off in the evening in big groups. No one knows where they go.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp1/24.png",
+          "large": "https://images.pokemontcg.io/dp1/24_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.45,
+              "mid": 1.04,
+              "high": 3.98,
+              "market": 1.07,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.05,
+              "mid": 3.0,
+              "high": 5.09,
+              "market": 2.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp1-24",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.55,
+            "lowPrice": 0.02,
+            "trendPrice": 0.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.73,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.93,
+            "lowPriceExPlus": 0.06,
+            "avg1": 0.99,
+            "avg7": 0.62,
+            "avg30": 0.88,
+            "reverseHoloAvg1": 1.45,
+            "reverseHoloAvg7": 1.37,
+            "reverseHoloAvg30": 1.91
+          }
+        }
+      },
+      {
+        "id": "dp7-16",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "48",
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Delivery",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Put any 1 card from your discard pile into your hand."
+          },
+          {
+            "name": "Lifting",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. For each Basic Pokémon you put onto your Bench, you may search your deck for a basic Energy card and attach it to that Pokémon. Shuffle your deck afterward."
+          },
+          {
+            "name": "Ominous Wind",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused and can't retreat during your opponent's next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp7",
+          "name": "Stormfront",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SF",
+          "releaseDate": "2008/11/01",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp7/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp7/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp7/16.png",
+          "large": "https://images.pokemontcg.io/dp7/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp7-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.89,
+              "mid": 1.28,
+              "high": 3.98,
+              "market": 1.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.34,
+              "mid": 4.52,
+              "high": 7.66,
+              "market": 5.5,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp7-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.74,
+            "lowPrice": 0.09,
+            "trendPrice": 0.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.81,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.09,
+            "lowPriceExPlus": 0.25,
+            "avg1": 1.0,
+            "avg7": 0.75,
+            "avg30": 0.9,
+            "reverseHoloAvg1": 1.69,
+            "reverseHoloAvg7": 1.14,
+            "reverseHoloAvg30": 0.99
+          }
+        }
+      },
+      {
+        "id": "bw10-35",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "abilities": [
+          {
+            "name": "Drifting Balloon",
+            "text": "This Pokémon's attacks cost Colorless less for each of your opponent's Team Plasma Pokémon in play.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Derail",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Discard a Special Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "Akira Komayama",
+        "rarity": "Rare",
+        "flavorText": "They carry people and Pokémon, but the wind can catch them, so there can't be a fixed destination.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/35.png",
+          "large": "https://images.pokemontcg.io/bw10/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.1,
+              "mid": 0.32,
+              "high": 19.98,
+              "market": 0.3,
+              "directLow": 0.2
+            },
+            "reverseHolofoil": {
+              "low": 0.42,
+              "mid": 0.96,
+              "high": 3.99,
+              "market": 0.93,
+              "directLow": 0.47
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.48,
+            "lowPrice": 0.05,
+            "trendPrice": 0.57,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.6,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 1.12,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.2,
+            "avg7": 0.57,
+            "avg30": 0.48,
+            "reverseHoloAvg1": 0.6,
+            "reverseHoloAvg7": 0.97,
+            "reverseHoloAvg30": 1.07
+          }
+        }
+      },
+      {
+        "id": "dpp-DP34",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "40",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Wind Wave",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your discard pile for up to 5 in any combination of Pokémon and Supporter cards. Show them to your opponent and shuffle them into your deck."
+          },
+          {
+            "name": "Explosive Smoke",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Does 10 damage to each Benched Pokémon (both yours and your opponent's). (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dpp",
+          "name": "DP Black Star Promos",
+          "series": "Diamond & Pearl",
+          "printedTotal": 56,
+          "total": 56,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR-DPP",
+          "releaseDate": "2007/05/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dpp/symbol.png",
+            "logo": "https://images.pokemontcg.io/dpp/logo.png"
+          }
+        },
+        "number": "DP34",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Promo",
+        "flavorText": "It's drowzy in daytime, but flies off in the evening in big groups. No one knows where they go.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dpp/DP34.png",
+          "large": "https://images.pokemontcg.io/dpp/DP34_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dpp-DP34",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.56,
+              "mid": 7.96,
+              "high": 11.99,
+              "market": 12.45,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "xy11-47",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Eerie Wave",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Burst Curse",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Discard 2 Energy attached to this Pokémon. Put 8 damage counters on your opponent's Pokémon in any way you like."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xy11",
+          "name": "Steam Siege",
+          "series": "XY",
+          "printedTotal": 114,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "STS",
+          "releaseDate": "2016/08/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy11/logo.png"
+          }
+        },
+        "number": "47",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "It's drowsy in daytime, but flies off in the evening in big groups. No one knows where they go.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy11/47.png",
+          "large": "https://images.pokemontcg.io/xy11/47_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy11-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 4.0,
+              "market": 0.14,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.36,
+              "high": 3.49,
+              "market": 0.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy11-47",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.5,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.62,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.1,
+            "avg7": 0.04,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.73,
+            "reverseHoloAvg30": 0.52
+          }
+        }
+      },
+      {
+        "id": "bw6-51",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Shadow Steal",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "Does 50 damage times the number of Special Energy cards in your opponent's discard pile."
+          },
+          {
+            "name": "Plentiful Placement",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 4 damage counters on 1 of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw6",
+          "name": "Dragons Exalted",
+          "series": "Black & White",
+          "printedTotal": 124,
+          "total": 128,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRX",
+          "releaseDate": "2012/08/15",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw6/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw6/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Kanako Eo",
+        "rarity": "Rare",
+        "flavorText": "At dusk, swarms of them are carried aloft on winds. When noticed, they suddenly vanish.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw6/51.png",
+          "large": "https://images.pokemontcg.io/bw6/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.67,
+              "high": 2.98,
+              "market": 0.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.75,
+              "mid": 1.1,
+              "high": 2.92,
+              "market": 1.35,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw6-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 0.1,
+            "trendPrice": 0.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.59,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.11,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.95,
+            "avg7": 0.65,
+            "avg30": 0.61,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.96,
+            "reverseHoloAvg30": 0.97
+          }
+        }
+      },
+      {
+        "id": "sm5-52",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Damage Transport",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Move 4 damage counters from each of your Pokémon to your opponent's Active Pokémon."
+          },
+          {
+            "name": "Wind Wheel",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Your opponent switches their Active Pokémon with 1 of their Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm5",
+          "name": "Ultra Prism",
+          "series": "Sun & Moon",
+          "printedTotal": 156,
+          "total": 178,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UPR",
+          "releaseDate": "2018/02/02",
+          "updatedAt": "2019/02/19 23:25:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm5/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Yumi",
+        "rarity": "Uncommon",
+        "flavorText": "Even while under careful observation, large flocks of Drifblim flying at dusk will inexplicably disappear from view.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm5/52.png",
+          "large": "https://images.pokemontcg.io/sm5/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm5-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 1.49,
+              "market": 0.25,
+              "directLow": 0.11
+            },
+            "reverseHolofoil": {
+              "low": 0.19,
+              "mid": 0.4,
+              "high": 2.28,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm5-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.1,
+            "lowPrice": 0.02,
+            "trendPrice": 0.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.24,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.25,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.09,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.3,
+            "reverseHoloAvg7": 0.24,
+            "reverseHoloAvg30": 0.29
+          }
+        }
+      },
+      {
+        "id": "dp6-53",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "43",
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Expand",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "During your opponent's next turn, any damage done to Drifblim by attacks is reduced by 10 (after applying Weakness and Resistance)."
+          },
+          {
+            "name": "Whirlwind",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent switches the Defending Pokémon with 1 of his or her Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "dp6",
+          "name": "Legends Awakened",
+          "series": "Diamond & Pearl",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LA",
+          "releaseDate": "2008/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp6/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp6/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "flavorText": "It's drowzy in daytime, but flies off in the evening in big groups. No one knows where they go.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp6/53.png",
+          "large": "https://images.pokemontcg.io/dp6/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp6-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.35,
+              "high": 2.99,
+              "market": 0.43,
+              "directLow": 0.19
+            },
+            "reverseHolofoil": {
+              "low": 0.3,
+              "mid": 1.21,
+              "high": 3.99,
+              "market": 1.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp6-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.34,
+            "lowPrice": 0.02,
+            "trendPrice": 0.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.8,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.2,
+            "avg7": 0.2,
+            "avg30": 0.3,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 1.05,
+            "reverseHoloAvg30": 0.81
+          }
+        }
+      },
+      {
+        "id": "pl3-57",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "33",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Ram",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Gust",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Colorless",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "57",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "flavorText": "At dusk, swarms of them are carried aloft on winds. When noticed, they suddenly vanish.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/57.png",
+          "large": "https://images.pokemontcg.io/pl3/57_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.13,
+              "mid": 0.34,
+              "high": 1.49,
+              "market": 0.44,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.27,
+              "mid": 1.0,
+              "high": 5.0,
+              "market": 2.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-57",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.23,
+            "lowPrice": 0.02,
+            "trendPrice": 0.23,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.4,
+            "reverseHoloTrend": 1.56,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.12,
+            "avg7": 0.24,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 1.69,
+            "reverseHoloAvg30": 0.97
+          }
+        }
+      },
+      {
+        "id": "bwp-BW64",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Shadow Steal",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "Does 50 damage times the number of Special Energy cards in your opponent's discard pile."
+          },
+          {
+            "name": "Plentiful Placement",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "Put 4 damage counters on 1 of your opponent's Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bwp",
+          "name": "BW Black Star Promos",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 101,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-BLW",
+          "releaseDate": "2011/03/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bwp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bwp/logo.png"
+          }
+        },
+        "number": "BW64",
+        "artist": "Naoki Saito",
+        "rarity": "Promo",
+        "flavorText": "At dusk, swarms of them are carried aloft on winds. When noticed, they suddenly vanish.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bwp/BW64.png",
+          "large": "https://images.pokemontcg.io/bwp/BW64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bwp-BW64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.46,
+              "mid": 5.96,
+              "high": 7.6,
+              "market": 5.89,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bwp-BW64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.99,
+            "lowPrice": 2.99,
+            "trendPrice": 4.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.27,
+            "lowPriceExPlus": 3.5,
+            "avg1": 2.99,
+            "avg7": 4.15,
+            "avg30": 3.95,
+            "reverseHoloAvg1": 3.74,
+            "reverseHoloAvg7": 3.74,
+            "reverseHoloAvg30": 3.74
+          }
+        }
+      },
+      {
+        "id": "sm11-81",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "100",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "abilities": [
+          {
+            "name": "Tag Transport",
+            "text": "Once during your turn (before your attack), you may switch your Active TAG TEAM Pokémon with 1 of your Benched Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spinning Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "81",
+        "artist": "Mizue",
+        "rarity": "Rare",
+        "flavorText": "There's a rumor that if you catch a Drifblim floating on the wind at dusk, you'll be carried away to the afterlife.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/81.png",
+          "large": "https://images.pokemontcg.io/sm11/81_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-81",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.18,
+              "mid": 0.35,
+              "high": 1.49,
+              "market": 0.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.26,
+              "mid": 0.52,
+              "high": 19.99,
+              "market": 0.52,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-81",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.25,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.49,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 0.66,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.35,
+            "avg7": 0.29,
+            "avg30": 0.39,
+            "reverseHoloAvg1": 0.49,
+            "reverseHoloAvg7": 0.75,
+            "reverseHoloAvg30": 0.66
+          }
+        }
+      },
+      {
+        "id": "swsh10-64",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Spooky Balloon",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Put 2 damage counters on 1 of your opponent's Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "64",
+        "artist": "Kyoko Umemoto",
+        "rarity": "Uncommon",
+        "flavorText": "Some say this Pokémon is a collection of souls burdened with regrets, silently drifting through the dusk.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/64.png",
+          "large": "https://images.pokemontcg.io/swsh10/64_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 3.39,
+              "market": 0.06,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.19,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-64",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.11,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.06,
+            "avg7": 0.06,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.03,
+            "reverseHoloAvg7": 0.16,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "sv1-90",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Gust",
+            "damage": "30",
+            "text": "",
+            "convertedEnergyCost": 2
+          },
+          {
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "name": "Curse Spreading",
+            "damage": "",
+            "text": "Put 8 damage counters on your opponent's Pokémon in any way you like.",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv1",
+          "name": "Scarlet & Violet",
+          "series": "Scarlet & Violet",
+          "printedTotal": 198,
+          "total": 258,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/03/31",
+          "updatedAt": "2023/03/31 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv1/logo.png"
+          }
+        },
+        "number": "90",
+        "artist": "Yuu Nishida",
+        "rarity": "Uncommon",
+        "flavorText": "It can generate and release gas within its body. That's how it can control the altitude of its drift.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv1/90.png",
+          "large": "https://images.pokemontcg.io/sv1/90_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv1-90",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 11.0,
+              "market": 0.15,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.06,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv1-90",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.21,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "sv4pt5-156",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Gust",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Curse Spreading",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "Put 8 damage counters on your opponent's Pokémon in any way you like."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4pt5",
+          "name": "Paldean Fates",
+          "series": "Scarlet & Violet",
+          "printedTotal": 91,
+          "total": 245,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2024/01/26",
+          "updatedAt": "2024/01/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4pt5/logo.png"
+          }
+        },
+        "number": "156",
+        "artist": "otumami",
+        "rarity": "Shiny Rare",
+        "flavorText": "It can generate and release gas within its body. That's how it can control the altitude of its drift.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4pt5/156.png",
+          "large": "https://images.pokemontcg.io/sv4pt5/156_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-156",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.25,
+              "mid": 2.02,
+              "high": 10.0,
+              "market": 1.71,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4pt5-156",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.33,
+            "lowPrice": 1.1,
+            "trendPrice": 2.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.1,
+            "avg1": 3.73,
+            "avg7": 2.67,
+            "avg30": 2.35,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv7-61",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Everyone Explode Now",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Drifloon and Drifblim in play. This attack also does 30 damage to each of your Drifloon and Drifblim. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "61",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/61.png",
+          "large": "https://images.pokemontcg.io/sv7/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 5.95,
+              "market": 0.07,
+              "directLow": 0.01
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.19,
+              "high": 4.09,
+              "market": 0.16,
+              "directLow": 0.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.1,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.07,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "svp-135",
+        "name": "Drifblim",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drifloon",
+        "attacks": [
+          {
+            "name": "Everyone Explode Now",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage for each of your Drifloon and Drifblim in play. This attack also does 30 damage to each of your Drifloon and Drifblim. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Black Star Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 215,
+          "total": 196,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SV",
+          "releaseDate": "2023/01/01",
+          "updatedAt": "2024/11/09 13:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "135",
+        "artist": "Keisin",
+        "rarity": "Promo",
+        "flavorText": "They carry people and Pokémon, but the wind can catch them, so there can't be a fixed destination.",
+        "nationalPokedexNumbers": [
+          426
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/135.png",
+          "large": "https://images.pokemontcg.io/svp/135_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-135",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.5,
+              "mid": 2.61,
+              "high": 9.0,
+              "market": 2.56,
+              "directLow": 2.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-135",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 4.04,
+            "lowPrice": 0.4,
+            "trendPrice": 4.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.0,
+            "avg1": 4.67,
+            "avg7": 4.58,
+            "avg30": 4.02,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 18,
+    "totalCount": 18
+  }
+}

@@ -50,6 +50,13 @@ Thumbs.db
 # Logs
 *.log
 
+# Generated SQLite data and selective backup bundles
+data/*.sqlite3
+data/*.sqlite3-*
+data/assets/
+backups/
+*.pokedex-backup.zip
+
 # Tool config persistence
 tools_config.json
 

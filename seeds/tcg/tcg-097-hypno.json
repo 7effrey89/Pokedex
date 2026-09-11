@@ -1,0 +1,2778 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:hypno"
+  },
+  "cache_key": "dd1f092e09c1ee93e51fc238d65063a5",
+  "cached_at": 1765906663.435893,
+  "response": {
+    "data": [
+      {
+        "id": "ex7-6",
+        "name": "Dark Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic",
+          "Darkness"
+        ],
+        "evolvesFrom": "Drowzee",
+        "rules": [
+          "This Pokémon is both Psychic Darkness type."
+        ],
+        "attacks": [
+          {
+            "name": "Dark Link",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, choose an attack on 1 of your Pokémon in play that has Dark in its name (excluding this one). Dark Link copies that attack except for its Energy cost. (You must still do anything else required for that attack.) (No matter what type that Pokémon is, Dark Hypno's type is still Psychic Darkness.) Dark Hypno performs that attack."
+          },
+          {
+            "name": "Black Magic",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Does 20 damage times the number of your opponent's Benched Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex7",
+          "name": "Team Rocket Returns",
+          "series": "EX",
+          "printedTotal": 109,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TRR",
+          "releaseDate": "2004/11/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex7/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex7/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex7/6.png",
+          "large": "https://images.pokemontcg.io/ex7/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex7-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 20.0,
+              "mid": 35.0,
+              "high": 49.99,
+              "market": null,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 43.69,
+              "mid": 48.59,
+              "high": 88.0,
+              "market": 52.48,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 60.0,
+              "mid": 79.95,
+              "high": 99.99,
+              "market": 72.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex7-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 20.5,
+            "lowPrice": 3.0,
+            "trendPrice": 29.97,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 50.0,
+            "reverseHoloLow": 14.88,
+            "reverseHoloTrend": 47.28,
+            "lowPriceExPlus": 19.0,
+            "avg1": 17.0,
+            "avg7": 32.1,
+            "avg30": 23.62,
+            "reverseHoloAvg1": 24.99,
+            "reverseHoloAvg7": 42.91,
+            "reverseHoloAvg30": 25.02
+          }
+        }
+      },
+      {
+        "id": "base3-8",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Prophecy",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at up to 3 cards from the top of either player's deck and rearrange them as you like."
+          },
+          {
+            "name": "Dark Mind",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "flavorText": "When it locks eyes with an enemy, it will use a mix of psi moves such as Hypnosis and Confusion.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/8.png",
+          "large": "https://images.pokemontcg.io/base3/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 31.7,
+              "mid": 56.0,
+              "high": 100.0,
+              "market": 57.05,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 12.0,
+              "mid": 14.99,
+              "high": 35.99,
+              "market": 21.04,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.16,
+            "lowPrice": 6.0,
+            "trendPrice": 18.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 23.7,
+            "lowPriceExPlus": 20.0,
+            "avg1": 8.0,
+            "avg7": 23.27,
+            "avg30": 24.72,
+            "reverseHoloAvg1": 65.0,
+            "reverseHoloAvg7": 18.26,
+            "reverseHoloAvg30": 15.61
+          }
+        }
+      },
+      {
+        "id": "ecard2-H12",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Sleep Pendulum",
+            "text": "Once during your turn (before your attack), if Hypno is your Active Pokémon, you may make the Defending Pokémon Asleep. This power can't be used if Hypno is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spiral Aura",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If the Defending Pokémon isn't Knocked Out by the damage from this attack, you may choose 1 of your opponent's Benched Pokémon and switch the Defending Pokémon with it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "H12",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/H12.png",
+          "large": "https://images.pokemontcg.io/ecard2/H12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-H12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.0,
+              "mid": 107.18,
+              "high": 125.0,
+              "market": 113.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-H12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 26.75,
+            "lowPrice": 9.99,
+            "trendPrice": 23.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 19.38,
+            "lowPriceExPlus": 29.0,
+            "avg1": 15.0,
+            "avg7": 32.62,
+            "avg30": 40.63,
+            "reverseHoloAvg1": 18.99,
+            "reverseHoloAvg7": 15.99,
+            "reverseHoloAvg30": 15.31
+          }
+        }
+      },
+      {
+        "id": "base5-9",
+        "name": "Dark Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "26",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Psypunch",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Bench Manipulation",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Your opponent flips a number of coins equal to the number of Pokémon on his or her Bench. This attack does 20 damage times the number of tails. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "9",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "Carries a pendulum with it always. Sometimes appears near less-traveled roads and schools at dusk.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/9.png",
+          "large": "https://images.pokemontcg.io/base5/9_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 54.99,
+              "mid": 80.0,
+              "high": 115.0,
+              "market": 75.52,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 22.68,
+              "mid": 28.95,
+              "high": 79.99,
+              "market": 32.13,
+              "directLow": 40.63
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-9",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 29.01,
+            "lowPrice": 5.99,
+            "trendPrice": 30.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 24.75,
+            "lowPriceExPlus": 20.0,
+            "avg1": 14.0,
+            "avg7": 20.45,
+            "avg30": 26.31,
+            "reverseHoloAvg1": 9.5,
+            "reverseHoloAvg7": 21.18,
+            "reverseHoloAvg30": 19.35
+          }
+        }
+      },
+      {
+        "id": "hgss1-23",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Sleep Pendulum",
+            "text": "Once during your turn (before your attack), you may flip a coin. If heads, the Defending Pokémon is now Asleep. This power can't be used if Hypno is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic Shot",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Does 10 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss1",
+          "name": "HeartGold & SoulSilver",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 123,
+          "total": 124,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss1/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss1/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "Always holding a pendulum that it swings at a steady rhythm, it causes drowsiness in anyone nearby.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss1/23.png",
+          "large": "https://images.pokemontcg.io/hgss1/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss1-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.53,
+              "mid": 1.0,
+              "high": 11.15,
+              "market": 1.13,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.99,
+              "mid": 5.56,
+              "high": 9.99,
+              "market": 3.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss1-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.06,
+            "trendPrice": 1.14,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.0,
+            "reverseHoloLow": 0.35,
+            "reverseHoloTrend": 2.03,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.64,
+            "avg7": 1.14,
+            "avg30": 0.7,
+            "reverseHoloAvg1": 2.29,
+            "reverseHoloAvg7": 2.37,
+            "reverseHoloAvg30": 2.37
+          }
+        }
+      },
+      {
+        "id": "dp4-19",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "28",
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Dream Catcher",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "",
+            "text": "If the Defending Pokémon is Asleep, move all damage counters from Hypno to the Defending Pokémon."
+          },
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "flavorText": "Seeing its swinging pendulum can induce sleep in three seconds, even if someone just woke up.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/19.png",
+          "large": "https://images.pokemontcg.io/dp4/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.85,
+              "mid": 1.49,
+              "high": 19.99,
+              "market": 1.47,
+              "directLow": 19.99
+            },
+            "reverseHolofoil": {
+              "low": 3.44,
+              "mid": 7.37,
+              "high": 11.03,
+              "market": 7.37,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.22,
+            "lowPrice": 0.14,
+            "trendPrice": 1.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.5,
+            "reverseHoloLow": 0.45,
+            "reverseHoloTrend": 2.48,
+            "lowPriceExPlus": 0.35,
+            "avg1": 0.99,
+            "avg7": 1.17,
+            "avg30": 0.85,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.35,
+            "reverseHoloAvg30": 1.9
+          }
+        }
+      },
+      {
+        "id": "ex11-23",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Binding Aura",
+            "text": "Your opponent can't play any Basic Pokémon or Evolution cards from his or her hand to evolve an Active Pokémon and can't attach any Energy cards from his or her hand to an Asleep Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sleep Inducer",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Switch 1 of your opponent's Benched Pokémon with 1 of the Defending Pokémon. Your opponent chooses the Defending Pokémon to switch. The new Defending Pokémon is now Asleep."
+          },
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Midori Harada",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/23.png",
+          "large": "https://images.pokemontcg.io/ex11/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.23,
+              "mid": 1.43,
+              "high": 19.99,
+              "market": 1.65,
+              "directLow": 4.99
+            },
+            "reverseHolofoil": {
+              "low": 8.99,
+              "mid": 12.6,
+              "high": 19.26,
+              "market": 13.96,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.05,
+            "lowPrice": 0.2,
+            "trendPrice": 1.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 185.0,
+            "reverseHoloLow": 2.86,
+            "reverseHoloTrend": 32.38,
+            "lowPriceExPlus": 0.95,
+            "avg1": 0.49,
+            "avg7": 2.04,
+            "avg30": 4.2,
+            "reverseHoloAvg1": 185.0,
+            "reverseHoloAvg7": 34.75,
+            "reverseHoloAvg30": 14.17
+          }
+        }
+      },
+      {
+        "id": "base3-23",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Prophecy",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at up to 3 cards from the top of either player's deck and rearrange them as you like."
+          },
+          {
+            "name": "Dark Mind",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "23",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "flavorText": "When it locks eyes with an enemy, it will use a mix of psi moves such as Hypnosis and Confusion.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/23.png",
+          "large": "https://images.pokemontcg.io/base3/23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 6.74,
+              "mid": 9.0,
+              "high": 9999.0,
+              "market": 12.42,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 1.43,
+              "mid": 3.5,
+              "high": 9999.0,
+              "market": 4.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.45,
+            "lowPrice": 0.79,
+            "trendPrice": 9.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.49,
+            "lowPriceExPlus": 4.0,
+            "avg1": 2.0,
+            "avg7": 8.41,
+            "avg30": 7.05,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 15.2,
+            "reverseHoloAvg30": 15.58
+          }
+        }
+      },
+      {
+        "id": "base6-25",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "36",
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Prophecy",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at up to 3 cards from the top of either player's deck and rearrange them as you like."
+          },
+          {
+            "name": "Dark Mind",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare",
+        "flavorText": "When it locks eyes with an enemy, it will use a mix of psi moves such as Hypnosis and Confusion.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/25.png",
+          "large": "https://images.pokemontcg.io/base6/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 2.65,
+              "mid": 3.97,
+              "high": 9.06,
+              "market": 7.25,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 87.74,
+              "mid": 87.88,
+              "high": 150.0,
+              "market": 65.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.8,
+            "lowPrice": 0.75,
+            "trendPrice": 3.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 15.0,
+            "reverseHoloLow": 18.0,
+            "reverseHoloTrend": 41.91,
+            "lowPriceExPlus": 2.0,
+            "avg1": 5.99,
+            "avg7": 3.71,
+            "avg30": 2.46,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 43.71,
+            "reverseHoloAvg30": 30.33
+          }
+        }
+      },
+      {
+        "id": "ex6-25",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Eerie Aura",
+            "text": "As long as Hypno is your Active Pokémon, put 2 damage counters on each Pokémon that remains Asleep between turns.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hypnotic Ray",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Yukiko Baba",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/25.png",
+          "large": "https://images.pokemontcg.io/ex6/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.45,
+              "mid": 1.1,
+              "high": 2.5,
+              "market": 1.08,
+              "directLow": 1.08
+            },
+            "reverseHolofoil": {
+              "low": 10.71,
+              "mid": 21.06,
+              "high": 23.99,
+              "market": 10.76,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.45,
+            "lowPrice": 0.2,
+            "trendPrice": 1.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.33,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 2.41,
+            "lowPriceExPlus": 0.59,
+            "avg1": 1.5,
+            "avg7": 1.44,
+            "avg30": 1.33,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 4.63,
+            "reverseHoloAvg30": 6.0
+          }
+        }
+      },
+      {
+        "id": "base5-26",
+        "name": "Dark Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "26",
+        "hp": "60",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Psypunch",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Bench Manipulation",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "Your opponent flips a number of coins equal to the number of Pokémon on his or her Bench. This attack does 20 damage times the number of tails. Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base5",
+          "name": "Team Rocket",
+          "series": "Base",
+          "printedTotal": 82,
+          "total": 83,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TR",
+          "releaseDate": "2000/04/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+            "logo": "https://images.pokemontcg.io/base5/logo.png"
+          }
+        },
+        "number": "26",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "Carries a pendulum with it always. Sometimes appears near less-traveled roads and schools at dusk.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base5/26.png",
+          "large": "https://images.pokemontcg.io/base5/26_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base5-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 9.02,
+              "mid": 12.0,
+              "high": 20.0,
+              "market": 13.61,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 4.0,
+              "mid": 6.72,
+              "high": 9999.0,
+              "market": 7.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base5-26",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.53,
+            "lowPrice": 1.0,
+            "trendPrice": 7.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.68,
+            "lowPriceExPlus": 4.0,
+            "avg1": 8.23,
+            "avg7": 7.63,
+            "avg30": 7.71,
+            "reverseHoloAvg1": 14.99,
+            "reverseHoloAvg7": 5.55,
+            "reverseHoloAvg30": 4.68
+          }
+        }
+      },
+      {
+        "id": "ecard2-16",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Sleep Pendulum",
+            "text": "Once during your turn (before your attack), if Hypno is your Active Pokémon, you may make the Defending Pokémon Asleep. This power can't be used if Hypno is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Spiral Aura",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "If the Defending Pokémon isn't Knocked Out by the damage from this attack, you may choose 1 of your opponent's Benched Pokémon and switch the Defending Pokémon with it."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/16.png",
+          "large": "https://images.pokemontcg.io/ecard2/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 15.07,
+              "mid": 28.11,
+              "high": 39.56,
+              "market": 27.5,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 39.89,
+              "mid": 42.0,
+              "high": 49.99,
+              "market": 27.98,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 11.83,
+            "lowPrice": 2.0,
+            "trendPrice": 7.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 3.0,
+            "reverseHoloTrend": 11.49,
+            "lowPriceExPlus": 5.0,
+            "avg1": 1.99,
+            "avg7": 7.71,
+            "avg30": 7.98,
+            "reverseHoloAvg1": 9.9,
+            "reverseHoloAvg7": 9.04,
+            "reverseHoloAvg30": 9.73
+          }
+        }
+      },
+      {
+        "id": "xy3-36",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Hand Control",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent reveals his or her hand. You may choose a Supporter card you find there. If you do, your opponent plays that Supporter card. However, you make all decisions for that card. (That Supporter card is discarded.)"
+          },
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy3",
+          "name": "Furious Fists",
+          "series": "XY",
+          "printedTotal": 111,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FFI",
+          "releaseDate": "2014/08/13",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy3/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy3/logo.png"
+          }
+        },
+        "number": "36",
+        "artist": "Shigenori Negishi",
+        "rarity": "Rare",
+        "flavorText": "It carries a pendulum-like device. There once was an incident in which it took away a child it hypnotized.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy3/36.png",
+          "large": "https://images.pokemontcg.io/xy3/36_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy3-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.42,
+              "high": 3.61,
+              "market": 0.38,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.74,
+              "high": 4.37,
+              "market": 0.69,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy3-36",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.72,
+            "lowPrice": 0.05,
+            "trendPrice": 0.59,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.98,
+            "reverseHoloLow": 0.22,
+            "reverseHoloTrend": 0.89,
+            "lowPriceExPlus": 0.25,
+            "avg1": 0.6,
+            "avg7": 0.56,
+            "avg30": 0.4,
+            "reverseHoloAvg1": 1.85,
+            "reverseHoloAvg7": 1.09,
+            "reverseHoloAvg30": 0.81
+          }
+        }
+      },
+      {
+        "id": "gym2-56",
+        "name": "Sabrina's Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "31",
+        "hp": "70",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Sabrina's Drowzee",
+        "attacks": [
+          {
+            "name": "Invigorate",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Choose 1 Basic Pokémon in any player's discard pile. Put it onto that player's Bench. Put a number of damage counters on that Pokémon equal to half its HP (rounded down to the nearest 10). (You can't put a Pokémon on a Bench that's full.)"
+          },
+          {
+            "name": "Pendulum Curse",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip a number of coins equal to the number of damage counters on the Defending Pokémon. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Ken Sugimori",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/56.png",
+          "large": "https://images.pokemontcg.io/gym2/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 4.27,
+              "mid": 6.78,
+              "high": 10.0,
+              "market": 6.78,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 2.25,
+              "mid": 3.0,
+              "high": 19.99,
+              "market": 3.35,
+              "directLow": 19.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.72,
+            "lowPrice": 0.54,
+            "trendPrice": 2.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.0,
+            "avg1": 3.0,
+            "avg7": 3.52,
+            "avg30": 4.21,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "xy9-51",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Goodnight, Babies",
+            "text": "Once during your turn (before your attack), you may leave both Active Pokémon Asleep.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Zen Headbutt",
+            "cost": [
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy9",
+          "name": "BREAKpoint",
+          "series": "XY",
+          "printedTotal": 122,
+          "total": 126,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BKP",
+          "releaseDate": "2016/02/03",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy9/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy9/logo.png"
+          }
+        },
+        "number": "51",
+        "artist": "Tomokazu Komiya",
+        "rarity": "Rare",
+        "flavorText": "Seeing its swinging pendulum can induce sleep in three seconds, even in someone who just woke up.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy9/51.png",
+          "large": "https://images.pokemontcg.io/xy9/51_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy9-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.29,
+              "mid": 0.76,
+              "high": 2.0,
+              "market": 0.79,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.75,
+              "mid": 9.98,
+              "high": 13.0,
+              "market": 6.95,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy9-51",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.08,
+            "lowPrice": 0.02,
+            "trendPrice": 0.62,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.43,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 2.83,
+            "lowPriceExPlus": 0.1,
+            "avg1": 1.0,
+            "avg7": 0.92,
+            "avg30": 1.07,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 2.8,
+            "reverseHoloAvg30": 3.24
+          }
+        }
+      },
+      {
+        "id": "sm1-60",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Meditate",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "This attack does 10 more damage for each damage counter on your opponent's Active Pokémon."
+          },
+          {
+            "name": "Hypnoblast",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "60",
+        "artist": "OOYAMA",
+        "rarity": "Uncommon",
+        "flavorText": "As a matter of course, it makes anyone it meets fall asleep and has a taste of their dreams. Anyone having a good dream, it carries off.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/60.png",
+          "large": "https://images.pokemontcg.io/sm1/60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.15,
+              "high": 4.0,
+              "market": 0.12,
+              "directLow": 0.13
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.34,
+              "high": 19.98,
+              "market": 0.34,
+              "directLow": 0.28
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.34,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.34,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.08,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.31,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      },
+      {
+        "id": "sm10-72",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Hypnotic Pendulum",
+            "text": "When your opponent's Active Pokémon is Knocked Out, flip a coin. If heads, choose which of your opponent's Benched Pokémon becomes their new Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Stir the Brain",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30+",
+            "text": "This attack does 10 more damage for each card in your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "72",
+        "artist": "sui",
+        "rarity": "Rare",
+        "flavorText": "In Alola, Komala is Hypno's main target. It rarely harms people.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/72.png",
+          "large": "https://images.pokemontcg.io/sm10/72_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-72",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.13,
+              "mid": 0.29,
+              "high": 10.0,
+              "market": 0.27,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.17,
+              "mid": 0.52,
+              "high": 1.99,
+              "market": 0.52,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-72",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.85,
+            "lowPrice": 0.05,
+            "trendPrice": 0.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.05,
+            "reverseHoloLow": 0.38,
+            "reverseHoloTrend": 1.06,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.39,
+            "avg7": 0.47,
+            "avg30": 0.37,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 1.02,
+            "reverseHoloAvg30": 0.82
+          }
+        }
+      },
+      {
+        "id": "swsh7-62",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Hypnosis",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Asleep."
+          },
+          {
+            "name": "Wake-Up Slap",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30+",
+            "text": "If your opponent's Active Pokémon is affected by a Special Condition, this attack does 90 more damage. Then, that Pokémon recovers from all Special Conditions."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh7",
+          "name": "Evolving Skies",
+          "series": "Sword & Shield",
+          "printedTotal": 203,
+          "total": 237,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVS",
+          "releaseDate": "2021/08/27",
+          "updatedAt": "2021/08/27 10:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh7/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh7/logo.png"
+          }
+        },
+        "number": "62",
+        "artist": "Miki Tanaka",
+        "rarity": "Uncommon",
+        "flavorText": "There are some Hypno that assist doctors with patients who can't sleep at night in hospitals.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh7/62.png",
+          "large": "https://images.pokemontcg.io/swsh7/62_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh7-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.49,
+              "market": 0.08,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 2.0,
+              "market": 0.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh7-62",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.22,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.02,
+            "reverseHoloAvg7": 0.25,
+            "reverseHoloAvg30": 0.13
+          }
+        }
+      },
+      {
+        "id": "swsh12-61",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Psy Call",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for up to 2 Stage 1 Pokémon and put them onto your Bench. Then, shuffle your deck."
+          },
+          {
+            "name": "Zen Headbutt",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh12",
+          "name": "Silver Tempest",
+          "series": "Sword & Shield",
+          "printedTotal": 195,
+          "total": 215,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SIT",
+          "releaseDate": "2022/11/11",
+          "updatedAt": "2022/09/09 11:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh12/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh12/logo.png"
+          }
+        },
+        "number": "61",
+        "artist": "Shinji Kanda",
+        "rarity": "Uncommon",
+        "flavorText": "There are some Hypno that assist doctors with patients who can't sleep at night in hospitals.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh12/61.png",
+          "large": "https://images.pokemontcg.io/swsh12/61_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh12-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.15,
+              "mid": 0.39,
+              "high": 3.99,
+              "market": 0.39,
+              "directLow": 0.38
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.13,
+              "high": 20.0,
+              "market": 0.12,
+              "directLow": 0.05
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh12-61",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.07,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.3,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.37,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.06,
+            "avg30": 0.07,
+            "reverseHoloAvg1": 0.51,
+            "reverseHoloAvg7": 0.3,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      },
+      {
+        "id": "sv1-83",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "cost": [
+              "Psychic"
+            ],
+            "name": "Pendulum Influence",
+            "damage": "",
+            "text": "Flip a coin. If heads, choose an attack from 1 of your opponent's Pokémon in play and use it as this attack.",
+            "convertedEnergyCost": 1
+          },
+          {
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "name": "Psychic Sphere",
+            "damage": "100",
+            "text": "",
+            "convertedEnergyCost": 3
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv1",
+          "name": "Scarlet & Violet",
+          "series": "Scarlet & Violet",
+          "printedTotal": 198,
+          "total": 258,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/03/31",
+          "updatedAt": "2023/03/31 15:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv1/logo.png"
+          }
+        },
+        "number": "83",
+        "artist": "Toshinao Aoki",
+        "rarity": "Uncommon",
+        "flavorText": "Always holding a pendulum that it swings at a steady rhythm, it causes drowsiness in anyone nearby.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv1/83.png",
+          "large": "https://images.pokemontcg.io/sv1/83_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv1-83",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 2.35,
+              "market": 0.05,
+              "directLow": 0.03
+            },
+            "reverseHolofoil": {
+              "low": 0.08,
+              "mid": 0.2,
+              "high": 80.0,
+              "market": 0.16,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv1-83",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.18,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.04,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.18,
+            "reverseHoloAvg7": 0.16,
+            "reverseHoloAvg30": 0.18
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-97",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "abilities": [
+          {
+            "name": "Here for Hypnosis",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may make your opponent's Active Pokémon Asleep.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Super Psy Bolt",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "97",
+        "artist": "Mousho",
+        "rarity": "Uncommon",
+        "flavorText": "When it locks eyes with an enemy, it will use a mix of psi moves, such as Hypnosis and Confusion.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/97.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/97_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-97",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 2.14,
+              "market": 0.07,
+              "directLow": 0.06
+            },
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 0.96,
+              "high": 75.0,
+              "market": 0.74,
+              "directLow": 0.52
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-97",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.57,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 1.93,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.08,
+            "avg7": 0.06,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 2.91,
+            "reverseHoloAvg7": 1.9,
+            "reverseHoloAvg30": 1.6
+          }
+        }
+      },
+      {
+        "id": "sv6pt5-17",
+        "name": "Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Drowzee",
+        "attacks": [
+          {
+            "name": "Daydream",
+            "cost": [
+              "Psychic",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80",
+            "text": "During your opponent's next turn, if they attach an Energy card from their hand to the Defending Pokémon, their turn ends."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv6pt5",
+          "name": "Shrouded Fable",
+          "series": "Scarlet & Violet",
+          "printedTotal": 64,
+          "total": 99,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SFA",
+          "releaseDate": "2024/08/02",
+          "updatedAt": "2024/08/02 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv6pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv6pt5/logo.png"
+          }
+        },
+        "number": "17",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv6pt5/17.png",
+          "large": "https://images.pokemontcg.io/sv6pt5/17_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv6pt5-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 999.0,
+              "market": 0.05,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.1,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv6pt5-17",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.08,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.12,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.02,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "sv10-80",
+        "name": "Team Rocket's Hypno",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Team Rocket's Drowzee",
+        "attacks": [
+          {
+            "name": "Psyshot",
+            "cost": [
+              "Psychic"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Bench Manipulation",
+            "cost": [
+              "Psychic",
+              "Psychic",
+              "Psychic"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80×",
+            "text": "Your opponent flips a coin for each of their Benched Pokémon. This attack does 80 damage to your opponent's Active Pokémon for each tails. This attack's damage isn't affected by Weakness or Resistance."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "80",
+        "artist": "Yuya Oka",
+        "rarity": "Uncommon",
+        "flavorText": "When it locks eyes with an enemy, it will use a mix of psi moves, such as Hypnosis and Confusion.",
+        "nationalPokedexNumbers": [
+          97
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/80.png",
+          "large": "https://images.pokemontcg.io/sv10/80_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-80",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.06,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.3,
+              "high": 20.0,
+              "market": 0.29,
+              "directLow": 0.28
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-80",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.22,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.2,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.04,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.26,
+            "reverseHoloAvg7": 0.24,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 23,
+    "totalCount": 23
+  }
+}

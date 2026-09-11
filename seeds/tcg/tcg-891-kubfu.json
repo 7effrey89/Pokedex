@@ -1,0 +1,140 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:kubfu"
+  },
+  "cache_key": "cb2ada4330f1a232dfc8b971e76e28d6",
+  "cached_at": 1765902607.826647,
+  "response": {
+    "data": [
+      {
+        "id": "swsh6-93",
+        "name": "Kubfu",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic"
+        ],
+        "hp": "70",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesTo": [
+          "Urshifu"
+        ],
+        "attacks": [
+          {
+            "name": "Training",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Search your deck for a basic Energy card and attach it to this Pokémon. Then, shuffle your deck."
+          },
+          {
+            "name": "Elbow Strike",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "93",
+        "artist": "Kouki Saitou",
+        "rarity": "Common",
+        "flavorText": "If Kubfu pulls the long white hair on its head, its fighting spirit heightens and power wells up from the depths of its belly.",
+        "nationalPokedexNumbers": [
+          891
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/93.png",
+          "large": "https://images.pokemontcg.io/swsh6/93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.3,
+              "high": 999.0,
+              "market": 0.3,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.02,
+              "mid": 0.16,
+              "high": 999.0,
+              "market": 0.17,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.29,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.28,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.04,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.18,
+            "reverseHoloAvg7": 0.17,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 1,
+    "totalCount": 1
+  }
+}

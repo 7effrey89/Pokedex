@@ -1,0 +1,581 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:sneasler"
+  },
+  "cache_key": "971f5b7a45b50b87c655b60a93c0ce9a",
+  "cached_at": 1765916235.89612,
+  "response": {
+    "data": [
+      {
+        "id": "swsh10-93",
+        "name": "Hisuian Sneasler",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "120",
+        "types": [
+          "Darkness"
+        ],
+        "evolvesFrom": "Hisuian Sneasel",
+        "abilities": [
+          {
+            "name": "Carry and Climb",
+            "text": "As long as this Pokémon is on your Bench, your Active Pokémon's Retreat Cost is ColorlessColorless less.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Claw Slash",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "93",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "flavorText": "Because of Sneasler's virulent poison and daunting physical prowess, no other species could hope to best it on the frozen highlands. Preferring solitude, this species does not form packs.",
+        "nationalPokedexNumbers": [
+          903
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/93.png",
+          "large": "https://images.pokemontcg.io/swsh10/93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.34,
+              "high": 2.0,
+              "market": 0.34,
+              "directLow": 0.24
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 19.98,
+              "market": 0.24,
+              "directLow": 0.1
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.32,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.39,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.38,
+            "avg7": 0.28,
+            "avg30": 0.28,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.36,
+            "reverseHoloAvg30": 0.32
+          }
+        }
+      },
+      {
+        "id": "swsh10-94",
+        "name": "Hisuian Sneasler V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Claws",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Dire Claw",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80×",
+            "text": "This attack does 80 damage for each Special Condition affecting your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "94",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          903
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/94.png",
+          "large": "https://images.pokemontcg.io/swsh10/94_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-94",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 0.99,
+              "high": 9.99,
+              "market": 0.85,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-94",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.79,
+            "lowPrice": 0.15,
+            "trendPrice": 0.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.15,
+            "avg1": 0.82,
+            "avg7": 0.87,
+            "avg30": 0.81,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10-174",
+        "name": "Hisuian Sneasler V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Claws",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Dire Claw",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80×",
+            "text": "This attack does 80 damage for each Special Condition affecting your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "174",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          903
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/174.png",
+          "large": "https://images.pokemontcg.io/swsh10/174_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-174",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.25,
+              "mid": 4.86,
+              "high": 17.99,
+              "market": 5.11,
+              "directLow": 5.62
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-174",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.69,
+            "lowPrice": 1.99,
+            "trendPrice": 4.39,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.25,
+            "avg1": 5.25,
+            "avg7": 4.88,
+            "avg30": 5.08,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh10-175",
+        "name": "Hisuian Sneasler V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "190",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Claws",
+            "cost": [],
+            "convertedEnergyCost": 0,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Dire Claw",
+            "cost": [
+              "Darkness",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "80×",
+            "text": "This attack does 80 damage for each Special Condition affecting your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh10",
+          "name": "Astral Radiance",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "ASR",
+          "releaseDate": "2022/05/27",
+          "updatedAt": "2022/05/27 09:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh10/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh10/logo.png"
+          }
+        },
+        "number": "175",
+        "artist": "OKACHEKE",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          903
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh10/175.png",
+          "large": "https://images.pokemontcg.io/swsh10/175_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh10-175",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.99,
+              "mid": 24.99,
+              "high": 120.0,
+              "market": 22.82,
+              "directLow": 21.0
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh10-175",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 39.5,
+            "lowPrice": 18.0,
+            "trendPrice": 29.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 19.99,
+            "avg1": 27.29,
+            "avg7": 27.27,
+            "avg30": 33.61,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-123",
+        "name": "Radiant Hisuian Sneasler",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Radiant"
+        ],
+        "hp": "130",
+        "types": [
+          "Darkness"
+        ],
+        "rules": [
+          "Radiant Pokémon Rule: You can't have more than 1 Radiant Pokémon in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Poison Peak",
+            "text": "During Pokémon Checkup, put 2 more damage counters on your opponent's Poisoned Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poison Jab",
+            "cost": [
+              "Darkness",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "123",
+        "artist": "Akira Komayama",
+        "rarity": "Radiant Rare",
+        "flavorText": "Because of Sneasler's virulent poison and daunting physical prowess, no other species could hope to best it on the frozen highlands. Preferring solitude, this species does not form packs.",
+        "nationalPokedexNumbers": [
+          903
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/123.png",
+          "large": "https://images.pokemontcg.io/swsh11/123_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-123",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.54,
+              "high": 55.0,
+              "market": 0.54,
+              "directLow": 0.34
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-123",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.42,
+            "lowPrice": 0.02,
+            "trendPrice": 0.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.4,
+            "avg7": 0.53,
+            "avg30": 0.43,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 5,
+    "totalCount": 5
+  }
+}

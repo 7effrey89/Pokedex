@@ -14,6 +14,7 @@ cache_bp = Blueprint('cache', __name__, url_prefix='/api/cache')
 def get_cache_config():
     """Get current cache configuration and stats"""
     from src.services.cache_service import get_cache_service
+    from src.db import SqliteDatabase
     
     cache_service = get_cache_service()
     config = cache_service.get_config()
@@ -21,7 +22,35 @@ def get_cache_config():
     
     return jsonify({
         **config,
-        **stats
+        **stats,
+        "sqlite": SqliteDatabase().status().to_dict(),
+    })
+
+
+@cache_bp.route('/data-source-mode', methods=['POST'])
+def set_data_source_mode():
+    """Select JSON seed mode or a validated SQLite database."""
+    from src.db import SqliteDatabase
+    from src.services.cache_service import get_cache_service
+
+    data = request.get_json(silent=True) or {}
+    mode = data.get('mode')
+    if mode not in {'json', 'sqlite'}:
+        return jsonify({"error": "mode must be 'json' or 'sqlite'"}), 400
+
+    database_status = SqliteDatabase().status()
+    if mode == 'sqlite' and not database_status.available:
+        return jsonify({
+            "error": database_status.reason or "SQLite database is unavailable",
+            "sqlite": database_status.to_dict(),
+        }), 409
+
+    cache_service = get_cache_service()
+    cache_service.set_data_source_mode(mode)
+    return jsonify({
+        "message": f"Data source switched to {mode}",
+        "config": cache_service.get_config(),
+        "sqlite": database_status.to_dict(),
     })
 
 

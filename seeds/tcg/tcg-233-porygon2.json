@@ -1,0 +1,1997 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:porygon2"
+  },
+  "cache_key": "61bfedcfacd7a476025c6d6c71be5fd7",
+  "cached_at": 1765914152.477352,
+  "response": {
+    "data": [
+      {
+        "id": "neo4-8",
+        "name": "Dark Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "34",
+        "hp": "60",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Spatial Distortion",
+            "text": "Once during your turn (before your attack), you may flip a coin. If heads, choose a Stadium card from your discard pile and put it into play. (If there's already a Stadium card in play, discard it.) This power can't be used if Dark Porygon2 is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Curve Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, prevent all damage done by attacks to Dark Porygon2 during your opponent's next turn. (Any other effects of attacks still happen.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo4",
+          "name": "Neo Destiny",
+          "series": "Neo",
+          "printedTotal": 105,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N4",
+          "releaseDate": "2002/02/28",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo4/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo4/logo.png"
+          }
+        },
+        "number": "8",
+        "artist": "Shin-ichi Yoshikawa, CR CG gangs",
+        "rarity": "Rare Holo",
+        "flavorText": "Advances in technology have allowed it to evolve. It occasionally displays behavior not found in its programming.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo4/8.png",
+          "large": "https://images.pokemontcg.io/neo4/8_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo4-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 50.0,
+              "mid": 83.5,
+              "high": 116.99,
+              "market": 147.98,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 50.0,
+              "mid": 69.62,
+              "high": 149.99,
+              "market": 72.45,
+              "directLow": 69.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo4-8",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.69,
+            "lowPrice": 9.0,
+            "trendPrice": 22.11,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.03,
+            "lowPriceExPlus": 13.0,
+            "avg1": 13.0,
+            "avg7": 19.62,
+            "avg30": 34.52,
+            "reverseHoloAvg1": 9.66,
+            "reverseHoloAvg7": 17.12,
+            "reverseHoloAvg30": 17.4
+          }
+        }
+      },
+      {
+        "id": "ex10-12",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "3-D Reset",
+            "text": "As often as you like during your turn (before your attack), return a Pokémon Tool card attached to 1 of your Pokémon to your hand. This power can't be used if Porygon2 is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Data Retrieval",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "If you have less than 8 cards in your hand, draw cards until you have 8 cards in your hand."
+          },
+          {
+            "name": "Scramble Trip",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "If Porygon2 has a Scramble Energy card attached to it, this attack does 40 damage plus 20 more damage and the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex10",
+          "name": "Unseen Forces",
+          "series": "EX",
+          "printedTotal": 115,
+          "total": 145,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "UF",
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex10/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex10/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex10/12.png",
+          "large": "https://images.pokemontcg.io/ex10/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex10-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 14.64,
+              "mid": 19.27,
+              "high": 424.78,
+              "market": 18.25,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 13.91,
+              "mid": 20.5,
+              "high": 27.98,
+              "market": 31.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex10-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.9,
+            "lowPrice": 1.0,
+            "trendPrice": 5.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 7.0,
+            "reverseHoloLow": 2.46,
+            "reverseHoloTrend": 8.83,
+            "lowPriceExPlus": 3.0,
+            "avg1": 2.45,
+            "avg7": 4.9,
+            "avg30": 4.98,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 8.6,
+            "reverseHoloAvg30": 7.32
+          }
+        }
+      },
+      {
+        "id": "neo3-12",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "33",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Energy Converter",
+            "text": "Once during your turn (before your attack), you may choose 1 basic Energy card attached to 1 of your Pokémon and choose an Energy type. Treat that Energy card as that type until the end of your turn. This power can't be used if Porygon2 is Asleep, Confused, or Paralyzed. If Porygon2 becomes Asleep, Confused, or Paralyzed, the Energy card goes back to its original type.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Delta Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Flip a coin. If heads, choose whether the Defending Pokémon becomes Asleep, Confused, or Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Psychic",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Keiji Kinebuchi",
+        "rarity": "Rare Holo",
+        "flavorText": "This upgraded version of Porygon is designed for space exploration. It can't fly, though.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/12.png",
+          "large": "https://images.pokemontcg.io/neo3/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 75.0,
+              "mid": 76.89,
+              "high": 100.0,
+              "market": 96.0,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 33.59,
+              "mid": 40.99,
+              "high": 58.95,
+              "market": 43.48,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 25.37,
+            "lowPrice": 7.0,
+            "trendPrice": 29.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 18.08,
+            "lowPriceExPlus": 20.0,
+            "avg1": 19.37,
+            "avg7": 25.76,
+            "avg30": 25.52,
+            "reverseHoloAvg1": 19.24,
+            "reverseHoloAvg7": 15.28,
+            "reverseHoloAvg30": 12.55
+          }
+        }
+      },
+      {
+        "id": "ex11-25",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Backup",
+            "text": "Once during your turn (before your attack), if you have less than 6 cards in your hand, you may draw cards until you have 6 cards in your hand. This power can't be used if Porygon2 is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Machine Burst",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "If Porygon2 has a Technical Machine card attached to it, the Defending Pokémon is now Asleep and Burned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex11",
+          "name": "Delta Species",
+          "series": "EX",
+          "printedTotal": 113,
+          "total": 114,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "DS",
+          "releaseDate": "2005/10/31",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex11/logo.png"
+          }
+        },
+        "number": "25",
+        "artist": "Hisao Nakamura",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex11/25.png",
+          "large": "https://images.pokemontcg.io/ex11/25_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex11-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.55,
+              "mid": 2.5,
+              "high": 4.77,
+              "market": 2.83,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.25,
+              "mid": 9.99,
+              "high": 49.99,
+              "market": 18.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex11-25",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.22,
+            "lowPrice": 0.1,
+            "trendPrice": 1.13,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 11.98,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.89,
+            "avg7": 1.2,
+            "avg30": 1.17,
+            "reverseHoloAvg1": 5.5,
+            "reverseHoloAvg7": 15.54,
+            "reverseHoloAvg30": 8.96
+          }
+        }
+      },
+      {
+        "id": "hsp-HGSS23",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Shortcut",
+            "text": "The Retreat Cost for each Porygon, Porygon2, and Porygon-Z you have in play is Colorless less.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Reckless Charge",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Porygon2 does 10 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hsp",
+          "name": "HGSS Black Star Promos",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR-HS",
+          "releaseDate": "2010/02/10",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hsp/symbol.png",
+            "logo": "https://images.pokemontcg.io/hsp/logo.png"
+          }
+        },
+        "number": "HGSS23",
+        "artist": "TOKIYA",
+        "rarity": "Promo",
+        "flavorText": "This upgraded version of Porygon is designed for space exploration. It can't fly, though.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hsp/HGSS23.png",
+          "large": "https://images.pokemontcg.io/hsp/HGSS23_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hsp-HGSS23",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.0,
+              "mid": 11.57,
+              "high": 29.98,
+              "market": 9.44,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "hgss4-49",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Mapping",
+            "text": "Once during your turn, when you play Porygon2 from your hand to evolve 1 of your Pokémon, you may search your deck for a Stadium card, show it to your opponent, and put it into your hand. Shuffle your deck afterward.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "3-D Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20×",
+            "text": "Flip 3 coins. This attack does 20 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "hgss4",
+          "name": "HS—Triumphant",
+          "series": "HeartGold & SoulSilver",
+          "printedTotal": 102,
+          "total": 103,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "TM",
+          "releaseDate": "2010/11/03",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/hgss4/symbol.png",
+            "logo": "https://images.pokemontcg.io/hgss4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Kouki Saitou",
+        "rarity": "Uncommon",
+        "flavorText": "Further research enhanced its abilities. Sometimes, it may exhibit motions that were not programmed.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/hgss4/49.png",
+          "large": "https://images.pokemontcg.io/hgss4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/hgss4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.2,
+              "mid": 0.42,
+              "high": 2.35,
+              "market": 0.41,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.7,
+              "mid": 2.95,
+              "high": 4.19,
+              "market": 2.49,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/hgss4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.46,
+            "lowPrice": 0.02,
+            "trendPrice": 0.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.4,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 1.46,
+            "lowPriceExPlus": 0.02,
+            "avg1": 1.0,
+            "avg7": 0.51,
+            "avg30": 0.34,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 1.95,
+            "reverseHoloAvg30": 2.13
+          }
+        }
+      },
+      {
+        "id": "ecard2-28",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Backup",
+            "text": "Once during each of your turns (before your attack), if you have 2 or fewer cards in your hand, you may draw cards from your deck until you have 3 cards in your hand. This power can't be used if Porygon2 is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hypnotic Ray",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Asleep."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard2",
+          "name": "Aquapolis",
+          "series": "E-Card",
+          "printedTotal": 147,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AQ",
+          "releaseDate": "2003/01/15",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard2/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard2/28.png",
+          "large": "https://images.pokemontcg.io/ecard2/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 6.37,
+              "mid": 8.0,
+              "high": 15.0,
+              "market": 6.67,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 18.88,
+              "mid": 30.0,
+              "high": 99.95,
+              "market": 30.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard2-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.13,
+            "lowPrice": 0.99,
+            "trendPrice": 2.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 11.11,
+            "reverseHoloLow": 1.2,
+            "reverseHoloTrend": 8.94,
+            "lowPriceExPlus": 1.8,
+            "avg1": 1.0,
+            "avg7": 2.04,
+            "avg30": 2.86,
+            "reverseHoloAvg1": 1.9,
+            "reverseHoloAvg7": 11.84,
+            "reverseHoloAvg30": 6.53
+          }
+        }
+      },
+      {
+        "id": "dp4-49",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "39",
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "abilities": [
+          {
+            "name": "Download",
+            "text": "Once during your turn (before your attack), you may discard a Supporter card from your hand and use the effect of that card as the effect of this power. This power can't be used if Porygon2 is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Speed Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "+20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "dp4",
+          "name": "Great Encounters",
+          "series": "Diamond & Pearl",
+          "printedTotal": 106,
+          "total": 106,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "GE",
+          "releaseDate": "2008/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp4/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp4/logo.png"
+          }
+        },
+        "number": "49",
+        "artist": "Kent Kanetsuna",
+        "rarity": "Uncommon",
+        "flavorText": "With planetary development software installed, it became capable of working in space.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp4/49.png",
+          "large": "https://images.pokemontcg.io/dp4/49_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.41,
+              "mid": 1.05,
+              "high": 5.89,
+              "market": 1.42,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 7.24,
+              "mid": 8.58,
+              "high": 9.47,
+              "market": 9.4,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp4-49",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.2,
+            "lowPrice": 0.02,
+            "trendPrice": 0.89,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.85,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 1.95,
+            "lowPriceExPlus": 0.09,
+            "avg1": 0.16,
+            "avg7": 0.16,
+            "avg30": 0.57,
+            "reverseHoloAvg1": 0.75,
+            "reverseHoloAvg7": 2.58,
+            "reverseHoloAvg30": 1.91
+          }
+        }
+      },
+      {
+        "id": "xy7-65",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Sharpen",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Tri Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "xy7",
+          "name": "Ancient Origins",
+          "series": "XY",
+          "printedTotal": 98,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "AOR",
+          "releaseDate": "2015/08/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy7/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "MAHOU",
+        "rarity": "Uncommon",
+        "flavorText": "With planetary development software installed, it became capable of working in space.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy7/65.png",
+          "large": "https://images.pokemontcg.io/xy7/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.03,
+              "mid": 0.2,
+              "high": 1.49,
+              "market": 0.18,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.14,
+              "mid": 0.46,
+              "high": 5.0,
+              "market": 0.46,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy7-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.43,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.5,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.25,
+            "avg7": 0.1,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.42,
+            "reverseHoloAvg30": 0.46
+          }
+        }
+      },
+      {
+        "id": "bw10-73",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Destructive Beam",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, discard an Energy attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw10",
+          "name": "Plasma Blast",
+          "series": "Black & White",
+          "printedTotal": 101,
+          "total": 105,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PLB",
+          "releaseDate": "2013/08/14",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw10/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw10/logo.png"
+          }
+        },
+        "number": "73",
+        "artist": "HiRON",
+        "rarity": "Uncommon",
+        "flavorText": "It was upgraded to enable the exploration of other planets. However, it failed to measure up.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw10/73.png",
+          "large": "https://images.pokemontcg.io/bw10/73_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw10-73",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.07,
+              "mid": 0.3,
+              "high": 5.0,
+              "market": 0.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.24,
+              "mid": 0.58,
+              "high": 19.99,
+              "market": 0.86,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw10-73",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.22,
+            "lowPrice": 0.03,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.4,
+            "reverseHoloLow": 0.18,
+            "reverseHoloTrend": 1.19,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.07,
+            "avg7": 0.27,
+            "avg30": 0.28,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.99,
+            "reverseHoloAvg30": 1.02
+          }
+        }
+      },
+      {
+        "id": "sm3-104",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Calculate",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Look at the top 6 cards of your deck and put them back in any order."
+          },
+          {
+            "name": "Beam",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm3",
+          "name": "Burning Shadows",
+          "series": "Sun & Moon",
+          "printedTotal": 147,
+          "total": 177,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BUS",
+          "releaseDate": "2017/08/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm3/logo.png"
+          }
+        },
+        "number": "104",
+        "artist": "Midori Harada",
+        "rarity": "Uncommon",
+        "flavorText": "For the purposes of planetary development, Porygon was updated with the most cutting-edge technology available.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm3/104.png",
+          "large": "https://images.pokemontcg.io/sm3/104_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm3-104",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 4.0,
+              "market": 0.12,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.12,
+              "mid": 0.3,
+              "high": 1.49,
+              "market": 0.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm3-104",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 0.15,
+            "lowPrice": 0.02,
+            "trendPrice": 0.17,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.31,
+            "reverseHoloLow": 0.03,
+            "reverseHoloTrend": 0.27,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.45,
+            "avg7": 0.19,
+            "avg30": 0.11,
+            "reverseHoloAvg1": 0.38,
+            "reverseHoloAvg7": 0.29,
+            "reverseHoloAvg30": 0.3
+          }
+        }
+      },
+      {
+        "id": "sm10-156",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Double Draw",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 2 cards."
+          },
+          {
+            "name": "Spinning Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "156",
+        "artist": "sowsow",
+        "rarity": "Uncommon",
+        "flavorText": "AI has been installed in it. It learns various things all on its own, but it even remembers things it doesn't need to know.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/156.png",
+          "large": "https://images.pokemontcg.io/sm10/156_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-156",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.5,
+              "mid": 0.93,
+              "high": 2.99,
+              "market": 0.82,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.09,
+              "mid": 0.28,
+              "high": 10.0,
+              "market": 0.22,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-156",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.2,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.5,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.61,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.13,
+            "avg7": 0.15,
+            "avg30": 0.18,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.54,
+            "reverseHoloAvg30": 0.61
+          }
+        }
+      },
+      {
+        "id": "swsh6-117",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Tri Attack",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage for each heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh6",
+          "name": "Chilling Reign",
+          "series": "Sword & Shield",
+          "printedTotal": 198,
+          "total": 233,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CRE",
+          "releaseDate": "2021/06/18",
+          "updatedAt": "2021/06/18 12:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+          }
+        },
+        "number": "117",
+        "artist": "Nagomi Nijo",
+        "rarity": "Uncommon",
+        "flavorText": "Even though it doesn't die in the vacuum of space, it can't move around very well in zero gravity.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh6/117.png",
+          "large": "https://images.pokemontcg.io/swsh6/117_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-117",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 999.0,
+              "market": 0.1,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.21,
+              "high": 999.0,
+              "market": 0.21,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh6-117",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.11,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.14,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.15,
+            "reverseHoloAvg30": 0.11
+          }
+        }
+      },
+      {
+        "id": "swsh11-141",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Garbage Attack",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Pokémon Tool card in the Lost Zone (both yours and your opponent's)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "141",
+        "artist": "OKACHEKE",
+        "rarity": "Uncommon",
+        "flavorText": "This is a Porygon that was updated with special data. Porygon2 develops itself by learning about many different subjects all on its own.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/141.png",
+          "large": "https://images.pokemontcg.io/swsh11/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.19,
+              "high": 3.5,
+              "market": 0.17,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.04,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.18,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.06,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.1,
+            "reverseHoloAvg7": 0.19,
+            "reverseHoloAvg30": 0.17
+          }
+        }
+      },
+      {
+        "id": "sv4-143",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Powered Ball",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Discard an Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "143",
+        "artist": "kurumitsu",
+        "rarity": "Common",
+        "flavorText": "After artificial intelligence was implemented in Porygon2, the Pokémon began using a strange language that only other Porygon2 understand.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/143.png",
+          "large": "https://images.pokemontcg.io/sv4/143_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-143",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 40.0,
+              "market": 0.12,
+              "directLow": 0.14
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-143",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.09,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.12,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.06,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.1,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      },
+      {
+        "id": "svp-138",
+        "name": "Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "Powered Ball",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Discard an Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "svp",
+          "name": "Scarlet & Violet Black Star Promos",
+          "series": "Scarlet & Violet",
+          "printedTotal": 215,
+          "total": 196,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SV",
+          "releaseDate": "2023/01/01",
+          "updatedAt": "2024/11/09 13:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/svp/symbol.png",
+            "logo": "https://images.pokemontcg.io/svp/logo.png"
+          }
+        },
+        "number": "138",
+        "artist": "GOSSAN",
+        "rarity": "Promo",
+        "flavorText": "After artificial intelligence was implemented in Porygon2, the Pokémon began using a strange language that only other Porygon2 understand.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/svp/138.png",
+          "large": "https://images.pokemontcg.io/svp/138_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/svp-138",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.73,
+              "mid": 1.05,
+              "high": 4.99,
+              "market": 1.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/svp-138",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.34,
+            "lowPrice": 0.49,
+            "trendPrice": 1.25,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.49,
+            "avg1": 1.69,
+            "avg7": 1.28,
+            "avg30": 1.48,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv10-154",
+        "name": "Team Rocket's Porygon2",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "90",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Team Rocket's Porygon",
+        "evolvesTo": [
+          "Porygon-Z"
+        ],
+        "attacks": [
+          {
+            "name": "R Command",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20×",
+            "text": "This attack does 20 damage for each Supporter card that has \"Team Rocket\" in its name in your discard pile."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "154",
+        "artist": "Takeshi Nakamura",
+        "rarity": "Common",
+        "flavorText": "This artificial Pokémon evolved thanks to cutting- edge science. It sometimes displays behavior that is not in its programming.",
+        "nationalPokedexNumbers": [
+          233
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/154.png",
+          "large": "https://images.pokemontcg.io/sv10/154_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-154",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.12,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": 0.05
+            },
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.2,
+              "high": 1.53,
+              "market": 0.18,
+              "directLow": 0.15
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-154",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.04,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.1,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.03,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.12,
+            "reverseHoloAvg7": 0.08,
+            "reverseHoloAvg30": 0.1
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 17,
+    "totalCount": 17
+  }
+}

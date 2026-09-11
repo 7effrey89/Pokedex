@@ -1,0 +1,1630 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:vikavolt"
+  },
+  "cache_key": "e3ffd1a8de94ae1933f7eab7342f5b0e",
+  "cached_at": 1765916052.552327,
+  "response": {
+    "data": [
+      {
+        "id": "smp-SM28",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "abilities": [
+          {
+            "name": "Strong Charge",
+            "text": "Once during your turn (before your attack), you may search your deck for a Grass Energy card and a Lightning Energy card and attach them to your Pokémon in any way you like. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electro Cannon",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM28",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "flavorText": "It produces electricity via an electrical organ in its abdomen. It overwhelms bird Pokémon with shocking beams of electrical energy.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM28.png",
+          "large": "https://images.pokemontcg.io/smp/SM28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.19,
+              "mid": 0.42,
+              "high": 6.0,
+              "market": 0.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.28,
+            "lowPrice": 0.02,
+            "trendPrice": 0.34,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.58,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.25,
+            "avg7": 0.33,
+            "avg30": 0.42,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.5,
+            "reverseHoloAvg30": 0.63
+          }
+        }
+      },
+      {
+        "id": "sm2-45",
+        "name": "Vikavolt-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Charge Beam",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Attach an Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Super Zap Cannon",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Gigatron-GX",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "This attack does 60 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "45",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/45.png",
+          "large": "https://images.pokemontcg.io/sm2/45_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.89,
+              "mid": 1.74,
+              "high": 7.0,
+              "market": 1.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-45",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.5,
+            "lowPrice": 0.38,
+            "trendPrice": 1.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.81,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.57,
+            "avg7": 1.29,
+            "avg30": 1.46,
+            "reverseHoloAvg1": 1.42,
+            "reverseHoloAvg7": 1.91,
+            "reverseHoloAvg30": 2.1
+          }
+        }
+      },
+      {
+        "id": "sm1-52",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "abilities": [
+          {
+            "name": "Strong Charge",
+            "text": "Once during your turn (before your attack), you may search your deck for a Grass Energy card and a Lightning Energy card and attach them to your Pokémon in any way you like. Then, shuffle your deck.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electro Cannon",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": "Discard 3 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm1",
+          "name": "Sun & Moon",
+          "series": "Sun & Moon",
+          "printedTotal": 149,
+          "total": 173,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SUM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2019/04/10 19:59:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm1/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm1/logo.png"
+          }
+        },
+        "number": "52",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare Holo",
+        "flavorText": "It produces electricity via an electrical organ in its abdomen. It overwhelms bird Pokémon with shocking beams of electrical energy.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm1/52.png",
+          "large": "https://images.pokemontcg.io/sm1/52_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm1-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.14,
+              "mid": 0.35,
+              "high": 2.0,
+              "market": 0.34,
+              "directLow": 0.32
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.65,
+              "high": 4.85,
+              "market": 0.58,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm1-52",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.65,
+            "lowPrice": 0.05,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.05,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 1.27,
+            "lowPriceExPlus": 0.25,
+            "avg1": 0.36,
+            "avg7": 0.61,
+            "avg30": 0.73,
+            "reverseHoloAvg1": 1.05,
+            "reverseHoloAvg7": 1.12,
+            "reverseHoloAvg30": 1.02
+          }
+        }
+      },
+      {
+        "id": "swsh3-60",
+        "name": "Vikavolt V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Paralyzing Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your opponent's next turn, they can't play any Item cards from their hand."
+          },
+          {
+            "name": "Super Zap Cannon",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "190",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "60",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/60.png",
+          "large": "https://images.pokemontcg.io/swsh3/60_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.42,
+              "mid": 0.99,
+              "high": 9.99,
+              "market": 0.76,
+              "directLow": 0.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-60",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.88,
+            "lowPrice": 0.2,
+            "trendPrice": 0.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.64,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.98,
+            "avg7": 0.85,
+            "avg30": 0.97,
+            "reverseHoloAvg1": 2.49,
+            "reverseHoloAvg7": 1.98,
+            "reverseHoloAvg30": 2.12
+          }
+        }
+      },
+      {
+        "id": "sm10-59",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "abilities": [
+          {
+            "name": "Stealthy Body",
+            "text": "If there is any Stadium card in play, this Pokémon has no Weakness.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electricannon",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "You may discard all Lightning Energy from this Pokémon. If you do, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sm10",
+          "name": "Unbroken Bonds",
+          "series": "Sun & Moon",
+          "printedTotal": 214,
+          "total": 234,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNB",
+          "releaseDate": "2019/05/03",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm10/logo.png"
+          }
+        },
+        "number": "59",
+        "artist": "Hasuno",
+        "rarity": "Rare Holo",
+        "flavorText": "It has an organ that generates electricity in its abdomen. It concentrates energy in its strong jaws and fires off powerful jolts of electricity.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm10/59.png",
+          "large": "https://images.pokemontcg.io/sm10/59_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm10-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.15,
+              "mid": 0.4,
+              "high": 1.54,
+              "market": 0.38,
+              "directLow": 0.25
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.34,
+              "high": 5.14,
+              "market": 0.28,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm10-59",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.75,
+            "lowPrice": 0.19,
+            "trendPrice": 0.92,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.65,
+            "reverseHoloLow": 0.19,
+            "reverseHoloTrend": 0.8,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.99,
+            "avg7": 0.84,
+            "avg30": 0.78,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.71,
+            "reverseHoloAvg30": 0.94
+          }
+        }
+      },
+      {
+        "id": "swsh2-66",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "attacks": [
+          {
+            "name": "Powerful Storm",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60+",
+            "text": "This attack does 20 more damage for each Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Thunder Jolt Beam",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "170",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh2",
+          "name": "Rebel Clash",
+          "series": "Sword & Shield",
+          "printedTotal": 192,
+          "total": 209,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "RCL",
+          "releaseDate": "2020/05/01",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh2/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh2/logo.png"
+          }
+        },
+        "number": "66",
+        "artist": "kawayoo",
+        "rarity": "Rare Holo",
+        "flavorText": "It builds up electricity in its abdomen, focuses it through its jaws, and then fires the electricity off in concentrated beams.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh2/66.png",
+          "large": "https://images.pokemontcg.io/swsh2/66_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh2-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.51,
+              "high": 4.95,
+              "market": 0.47,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.1,
+              "mid": 0.33,
+              "high": 3.95,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh2-66",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.49,
+            "lowPrice": 0.05,
+            "trendPrice": 0.43,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.48,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 0.7,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.3,
+            "avg7": 0.51,
+            "avg30": 0.5,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.61,
+            "reverseHoloAvg30": 0.58
+          }
+        }
+      },
+      {
+        "id": "sm2-134",
+        "name": "Vikavolt-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Charge Beam",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Attach an Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Super Zap Cannon",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Gigatron-GX",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "This attack does 60 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "134",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/134.png",
+          "large": "https://images.pokemontcg.io/sm2/134_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-134",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.66,
+              "mid": 3.26,
+              "high": 15.83,
+              "market": 3.0,
+              "directLow": 2.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-134",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 2.43,
+            "lowPrice": 1.45,
+            "trendPrice": 2.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.13,
+            "lowPriceExPlus": 1.98,
+            "avg1": 2.5,
+            "avg7": 2.69,
+            "avg30": 3.24,
+            "reverseHoloAvg1": 5.6,
+            "reverseHoloAvg7": 3.76,
+            "reverseHoloAvg30": 4.6
+          }
+        }
+      },
+      {
+        "id": "sm2-152",
+        "name": "Vikavolt-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "GX"
+        ],
+        "hp": "240",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Charge Beam",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": "Attach an Energy card from your discard pile to this Pokémon."
+          },
+          {
+            "name": "Super Zap Cannon",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Discard 2 Energy from this Pokémon."
+          },
+          {
+            "name": "Gigatron-GX",
+            "cost": [
+              "Lightning",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "This attack does 60 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm2",
+          "name": "Guardians Rising",
+          "series": "Sun & Moon",
+          "printedTotal": 145,
+          "total": 180,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GRI",
+          "releaseDate": "2017/05/05",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm2/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm2/logo.png"
+          }
+        },
+        "number": "152",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm2/152.png",
+          "large": "https://images.pokemontcg.io/sm2/152_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm2-152",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.41,
+              "mid": 9.66,
+              "high": 29.97,
+              "market": 9.61,
+              "directLow": 29.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm2-152",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 9.48,
+            "lowPrice": 2.8,
+            "trendPrice": 9.26,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.82,
+            "lowPriceExPlus": 4.5,
+            "avg1": 9.98,
+            "avg7": 9.74,
+            "avg30": 9.48,
+            "reverseHoloAvg1": 13.25,
+            "reverseHoloAvg7": 11.27,
+            "reverseHoloAvg30": 9.91
+          }
+        }
+      },
+      {
+        "id": "swsh3-180",
+        "name": "Vikavolt V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Lightning"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Paralyzing Bolt",
+            "cost": [
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "During your opponent's next turn, they can't play any Item cards from their hand."
+          },
+          {
+            "name": "Super Zap Cannon",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "190",
+            "text": "Discard 2 Energy from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh3",
+          "name": "Darkness Ablaze",
+          "series": "Sword & Shield",
+          "printedTotal": 189,
+          "total": 201,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DAA",
+          "releaseDate": "2020/08/14",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh3/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh3/logo.png"
+          }
+        },
+        "number": "180",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh3/180.png",
+          "large": "https://images.pokemontcg.io/swsh3/180_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh3-180",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.93,
+              "mid": 2.0,
+              "high": 19.95,
+              "market": 1.51,
+              "directLow": 2.14
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh3-180",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.53,
+            "lowPrice": 1.0,
+            "trendPrice": 2.0,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.92,
+            "lowPriceExPlus": 1.0,
+            "avg1": 2.0,
+            "avg7": 2.76,
+            "avg30": 2.6,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 7.22,
+            "reverseHoloAvg30": 6.55
+          }
+        }
+      },
+      {
+        "id": "smp-SM208",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "abilities": [
+          {
+            "name": "Stealthy Body",
+            "text": "If there is any Stadium card in play, this Pokémon has no Weakness.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Electricannon",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120+",
+            "text": "You may discard all Lightning Energy from this Pokémon. If you do, this attack does 100 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Metal",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM208",
+        "artist": "Misa Tsutsui",
+        "rarity": "Promo",
+        "flavorText": "It has an organ that generates electricity in its abdomen. It concentrates energy in its strong jaws and fires off powerful jolts of electricity.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM208.png",
+          "large": "https://images.pokemontcg.io/smp/SM208_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM208",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.17,
+              "mid": 0.45,
+              "high": 6.0,
+              "market": 0.39,
+              "directLow": 0.26
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM208",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.67,
+            "lowPrice": 0.09,
+            "trendPrice": 0.68,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.69,
+            "lowPriceExPlus": 0.3,
+            "avg1": 1.0,
+            "avg7": 0.66,
+            "avg30": 0.68,
+            "reverseHoloAvg1": 1.2,
+            "reverseHoloAvg7": 0.6,
+            "reverseHoloAvg30": 0.64
+          }
+        }
+      },
+      {
+        "id": "swsh8-101",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "150",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          },
+          {
+            "name": "Electro Blaster",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "",
+            "text": "Discard 2 Lightning Energy from this Pokémon. This attack does 200 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "swsh8",
+          "name": "Fusion Strike",
+          "series": "Sword & Shield",
+          "printedTotal": 264,
+          "total": 284,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FST",
+          "releaseDate": "2021/11/12",
+          "updatedAt": "2021/11/12 07:32:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh8/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh8/logo.png"
+          }
+        },
+        "number": "101",
+        "artist": "nagimiso",
+        "rarity": "Rare",
+        "flavorText": "If it carries a Charjabug to use as a spare battery, a flying Vikavolt can rapidly fire high-powered beams of electricity.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh8/101.png",
+          "large": "https://images.pokemontcg.io/swsh8/101_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh8-101",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.15,
+              "high": 20.0,
+              "market": 0.11,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.06,
+              "mid": 0.22,
+              "high": 500.21,
+              "market": 0.21,
+              "directLow": 0.17
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh8-101",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.09,
+            "lowPrice": 0.02,
+            "trendPrice": 0.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.26,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 0.3,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.06,
+            "avg30": 0.08,
+            "reverseHoloAvg1": 0.15,
+            "reverseHoloAvg7": 0.28,
+            "reverseHoloAvg30": 0.24
+          }
+        }
+      },
+      {
+        "id": "sv5-56",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "attacks": [
+          {
+            "name": "Mach Bolt",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50",
+            "text": ""
+          },
+          {
+            "name": "Circuit Cannon",
+            "cost": [
+              "Lightning",
+              "Lightning"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120+",
+            "text": "This attack does 80 more damage for each of your Benched Charjabug."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv5",
+          "name": "Temporal Forces",
+          "series": "Scarlet & Violet",
+          "printedTotal": 162,
+          "total": 218,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEF",
+          "releaseDate": "2024/03/22",
+          "updatedAt": "2024/03/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv5/logo.png"
+          }
+        },
+        "number": "56",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Uncommon",
+        "flavorText": "It builds up electricity in its abdomen, focuses it through its jaws, and then fires the electricity off in concentrated beams.",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv5/56.png",
+          "large": "https://images.pokemontcg.io/sv5/56_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv5-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.01,
+              "mid": 0.15,
+              "high": 2.0,
+              "market": 0.08,
+              "directLow": 0.06
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.53,
+              "market": 0.07,
+              "directLow": 0.04
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv5-56",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.06,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.08,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.08,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.04,
+            "reverseHoloAvg1": 0.05,
+            "reverseHoloAvg7": 0.07,
+            "reverseHoloAvg30": 0.08
+          }
+        }
+      },
+      {
+        "id": "sv7-53",
+        "name": "Vikavolt",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Lightning"
+        ],
+        "evolvesFrom": "Charjabug",
+        "attacks": [
+          {
+            "name": "Volt Switch",
+            "cost": [
+              "Lightning"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "90",
+            "text": "Switch this Pokémon with 1 of your Benched Lightning Pokémon."
+          },
+          {
+            "name": "Sparking Strike",
+            "cost": [
+              "Lightning",
+              "Lightning",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fighting",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "53",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          738
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "H",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/53.png",
+          "large": "https://images.pokemontcg.io/sv7/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.02,
+              "mid": 0.18,
+              "high": 2.95,
+              "market": 0.13,
+              "directLow": 0.14
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 1.95,
+              "market": 0.09,
+              "directLow": 0.01
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.08,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.06,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.03,
+            "avg7": 0.03,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.08,
+            "reverseHoloAvg7": 0.09,
+            "reverseHoloAvg30": 0.09
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 13,
+    "totalCount": 13
+  }
+}

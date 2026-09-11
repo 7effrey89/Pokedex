@@ -1,0 +1,5796 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:venusaur"
+  },
+  "cache_key": "233a8159f72b09d6f756503facf4fec0",
+  "cached_at": 1765878521.829942,
+  "response": {
+    "data": [
+      {
+        "id": "ru1-1",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "attacks": [
+          {
+            "name": "Giga Drain",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "50",
+            "text": "Remove from Venusaur the number of damage counters equal to the damage you did to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "ru1",
+          "name": "Pokémon Rumble",
+          "series": "Other",
+          "printedTotal": 16,
+          "total": 16,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2009/12/02",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ru1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ru1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Pokemon Rumble",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ru1/1.png",
+          "large": "https://images.pokemontcg.io/ru1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ru1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 194.99,
+              "mid": 199.31,
+              "high": 299.99,
+              "market": 233.31,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ru1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 47.47,
+            "lowPrice": 20.0,
+            "trendPrice": 38.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.03,
+            "lowPriceExPlus": 59.99,
+            "avg1": 55.0,
+            "avg7": 49.98,
+            "avg30": 32.14,
+            "reverseHoloAvg1": 22.84,
+            "reverseHoloAvg7": 11.09,
+            "reverseHoloAvg30": 5.39
+          }
+        }
+      },
+      {
+        "id": "sm9-1",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/1.png",
+          "large": "https://images.pokemontcg.io/sm9/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 34.93,
+              "mid": 47.62,
+              "high": 79.97,
+              "market": 47.68,
+              "directLow": 44.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 31.55,
+            "lowPrice": 4.56,
+            "trendPrice": 34.15,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.88,
+            "lowPriceExPlus": 9.0,
+            "avg1": 40.0,
+            "avg7": 28.76,
+            "avg30": 32.24,
+            "reverseHoloAvg1": 6.46,
+            "reverseHoloAvg7": 6.39,
+            "reverseHoloAvg30": 7.36
+          }
+        }
+      },
+      {
+        "id": "sm12-1",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/1.png",
+          "large": "https://images.pokemontcg.io/sm12/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.0,
+              "mid": 24.94,
+              "high": 100.0,
+              "market": 20.19,
+              "directLow": 23.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 14.93,
+            "lowPrice": 4.93,
+            "trendPrice": 17.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.68,
+            "lowPriceExPlus": 8.0,
+            "avg1": 19.31,
+            "avg7": 18.86,
+            "avg30": 16.16,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 4.5,
+            "reverseHoloAvg30": 4.7
+          }
+        }
+      },
+      {
+        "id": "swsh35-1",
+        "name": "Venusaur V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Bomb",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "80",
+            "text": "Your opponent's Active Pokémon is now Asleep and Poisoned."
+          },
+          {
+            "name": "Solar Typhoon",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "220",
+            "text": "During your next turn, this Pokémon can't use Solar Typhoon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swsh35",
+          "name": "Champion's Path",
+          "series": "Sword & Shield",
+          "printedTotal": 73,
+          "total": 80,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CPA",
+          "releaseDate": "2020/09/25",
+          "updatedAt": "2020/10/25 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "PLANETA Mochizuki",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh35/1.png",
+          "large": "https://images.pokemontcg.io/swsh35/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 2.34,
+              "high": 19.99,
+              "market": 1.92,
+              "directLow": 2.35
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh35-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.71,
+            "lowPrice": 1.1,
+            "trendPrice": 3.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.88,
+            "lowPriceExPlus": 1.1,
+            "avg1": 3.99,
+            "avg7": 2.85,
+            "avg30": 2.53,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 3.05,
+            "reverseHoloAvg30": 3.59
+          }
+        }
+      },
+      {
+        "id": "xy1-1",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/1.png",
+          "large": "https://images.pokemontcg.io/xy1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 5.45,
+              "high": 19.95,
+              "market": 5.39,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.67,
+            "lowPrice": 1.99,
+            "trendPrice": 6.12,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.37,
+            "lowPriceExPlus": 4.0,
+            "avg1": 2.0,
+            "avg7": 4.99,
+            "avg30": 6.44,
+            "reverseHoloAvg1": 3.99,
+            "reverseHoloAvg7": 4.56,
+            "reverseHoloAvg30": 4.47
+          }
+        }
+      },
+      {
+        "id": "xy1-2",
+        "name": "M Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Venusaur-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Crisis Vine",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Your opponent's Active Pokémon is now Paralyzed and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/2.png",
+          "large": "https://images.pokemontcg.io/xy1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 11.99,
+              "mid": 15.57,
+              "high": 32.7,
+              "market": 20.18,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 19.99,
+            "lowPrice": 4.97,
+            "trendPrice": 17.66,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.68,
+            "lowPriceExPlus": 14.92,
+            "avg1": 10.0,
+            "avg7": 22.29,
+            "avg30": 15.44,
+            "reverseHoloAvg1": 15.2,
+            "reverseHoloAvg7": 10.45,
+            "reverseHoloAvg30": 11.12
+          }
+        }
+      },
+      {
+        "id": "bw5-3",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Floral Fragrance",
+            "text": "Once during your turn (before your attack), you may search your deck for a Pokémon, reveal it, and put it into your hand. Shuffle your deck afterward.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "70",
+            "text": "The Defending Pokémon is now Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Water",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare Holo",
+        "flavorText": "After a rainy day, the flower on its back smells stronger. The scent attracts other Pokémon.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/3.png",
+          "large": "https://images.pokemontcg.io/bw5/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 5.44,
+              "high": 59.95,
+              "market": 5.59,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 3.49,
+              "mid": 23.29,
+              "high": 38.21,
+              "market": 20.69,
+              "directLow": 27.82
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.95,
+            "lowPrice": 0.95,
+            "trendPrice": 6.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 5.0,
+            "reverseHoloLow": 1.7,
+            "reverseHoloTrend": 6.0,
+            "lowPriceExPlus": 1.99,
+            "avg1": 4.5,
+            "avg7": 6.61,
+            "avg30": 5.87,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 5.07,
+            "reverseHoloAvg30": 5.29
+          }
+        }
+      },
+      {
+        "id": "gym2-4",
+        "name": "Erika's Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "45",
+        "hp": "90",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Erika's Ivysaur",
+        "attacks": [
+          {
+            "name": "Growth",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Flip a coin. If heads, you may attach up to 2 Grass Energy cards from your hand to Erika's Venusaur."
+          },
+          {
+            "name": "Wide Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "20",
+            "text": "If your opponent has any Benched Pokémon, choose 2 of them (or 1 if he or she only has 1). This attack does 20 damage to each of them. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "gym2",
+          "name": "Gym Challenge",
+          "series": "Gym",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "G2",
+          "releaseDate": "2000/10/16",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+            "logo": "https://images.pokemontcg.io/gym2/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Ken Sugimori",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/gym2/4.png",
+          "large": "https://images.pokemontcg.io/gym2/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/gym2-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 161.17,
+              "mid": 205.59,
+              "high": 263.93,
+              "market": 250.75,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 89.99,
+              "mid": 109.99,
+              "high": 265.0,
+              "market": 125.52,
+              "directLow": 105.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/gym2-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 101.22,
+            "lowPrice": 39.9,
+            "trendPrice": 71.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 55.62,
+            "lowPriceExPlus": 100.0,
+            "avg1": 30.0,
+            "avg7": 92.84,
+            "avg30": 97.23,
+            "reverseHoloAvg1": 60.0,
+            "reverseHoloAvg7": 45.62,
+            "reverseHoloAvg30": 61.54
+          }
+        }
+      },
+      {
+        "id": "xy12-1",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/1.png",
+          "large": "https://images.pokemontcg.io/xy12/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.99,
+              "mid": 3.99,
+              "high": 74.17,
+              "market": 3.22,
+              "directLow": 4.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.52,
+            "lowPrice": 0.4,
+            "trendPrice": 5.35,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 5.71,
+            "lowPriceExPlus": 3.0,
+            "avg1": 7.95,
+            "avg7": 5.51,
+            "avg30": 5.22,
+            "reverseHoloAvg1": 8.0,
+            "reverseHoloAvg7": 5.67,
+            "reverseHoloAvg30": 8.46
+          }
+        }
+      },
+      {
+        "id": "xy12-2",
+        "name": "M Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Venusaur-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Crisis Vine",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Your opponent's Active Pokémon is now Paralyzed and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/2.png",
+          "large": "https://images.pokemontcg.io/xy12/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.0,
+              "mid": 13.9,
+              "high": 511.72,
+              "market": 12.77,
+              "directLow": 10.96
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 13.94,
+            "lowPrice": 2.0,
+            "trendPrice": 8.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.77,
+            "lowPriceExPlus": 7.99,
+            "avg1": 9.38,
+            "avg7": 9.75,
+            "avg30": 14.22,
+            "reverseHoloAvg1": 13.0,
+            "reverseHoloAvg7": 12.69,
+            "reverseHoloAvg30": 10.91
+          }
+        }
+      },
+      {
+        "id": "g1-1",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Frog Hop",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "Flip a coin. If heads, this attack does 40 more damage."
+          },
+          {
+            "name": "Poison Impact",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Your opponent's Active Pokémon is now Asleep and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Eske Yoshinob",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/1.png",
+          "large": "https://images.pokemontcg.io/g1/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.0,
+              "mid": 5.0,
+              "high": 20.0,
+              "market": 8.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.58,
+            "lowPrice": 2.0,
+            "trendPrice": 6.46,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.21,
+            "lowPriceExPlus": 3.0,
+            "avg1": 4.5,
+            "avg7": 6.56,
+            "avg30": 6.6,
+            "reverseHoloAvg1": 6.99,
+            "reverseHoloAvg7": 5.52,
+            "reverseHoloAvg30": 5.03
+          }
+        }
+      },
+      {
+        "id": "sm35-3",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "160",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Jungle Totem",
+            "text": "Each basic Grass Energy attached to your Pokémon provides GrassGrass Energy. You can't apply more than 1 Jungle Totem Ability at a time.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm35",
+          "name": "Shining Legends",
+          "series": "Sun & Moon",
+          "printedTotal": 73,
+          "total": 81,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SLG",
+          "releaseDate": "2017/10/06",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm35/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm35/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "Eske Yoshinob",
+        "rarity": "Uncommon",
+        "flavorText": "By spreading the broad petals of its flower and catching the sun's rays, it fills its body with power.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm35/3.png",
+          "large": "https://images.pokemontcg.io/sm35/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm35-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.29,
+              "mid": 1.04,
+              "high": 75.0,
+              "market": 1.35,
+              "directLow": 1.99
+            },
+            "reverseHolofoil": {
+              "low": 1.0,
+              "mid": 2.0,
+              "high": 4.98,
+              "market": 1.87,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm35-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.51,
+            "lowPrice": 0.02,
+            "trendPrice": 0.61,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.94,
+            "reverseHoloLow": 0.31,
+            "reverseHoloTrend": 1.54,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.69,
+            "avg30": 0.57,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 1.43,
+            "reverseHoloAvg30": 1.54
+          }
+        }
+      },
+      {
+        "id": "g1-2",
+        "name": "M Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Venusaur-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bloom Buster",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": "Flip a coin. If heads, this attack does 30 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "g1",
+          "name": "Generations",
+          "series": "XY",
+          "printedTotal": 83,
+          "total": 117,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "GEN",
+          "releaseDate": "2016/02/22",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+            "logo": "https://images.pokemontcg.io/g1/logo.png"
+          }
+        },
+        "number": "2",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/g1/2.png",
+          "large": "https://images.pokemontcg.io/g1/2_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/g1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 9.2,
+              "mid": 17.99,
+              "high": 40.0,
+              "market": 16.82,
+              "directLow": 16.57
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/g1-2",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 12.0,
+            "lowPrice": 4.98,
+            "trendPrice": 9.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.37,
+            "lowPriceExPlus": 10.0,
+            "avg1": 18.5,
+            "avg7": 13.93,
+            "avg30": 20.65,
+            "reverseHoloAvg1": 7.49,
+            "reverseHoloAvg7": 6.75,
+            "reverseHoloAvg30": 7.59
+          }
+        }
+      },
+      {
+        "id": "pop2-6",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "120",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "attacks": [
+          {
+            "name": "Wide Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "Does 20 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          },
+          {
+            "name": "Hard Plant",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "80",
+            "text": "Venusaur can't use Hard Plant during your next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pop2",
+          "name": "POP Series 2",
+          "series": "POP",
+          "printedTotal": 17,
+          "total": 17,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "releaseDate": "2005/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pop2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pop2/logo.png"
+          }
+        },
+        "number": "6",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pop2/6.png",
+          "large": "https://images.pokemontcg.io/pop2/6_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pop2-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 10.99,
+              "mid": 15.27,
+              "high": 21.99,
+              "market": 20.94,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 9.44,
+              "mid": 27.16,
+              "high": 49.99,
+              "market": 28.48,
+              "directLow": 29.97
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pop2-6",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 60.0,
+            "lowPrice": 13.99,
+            "trendPrice": 62.96,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 33.8,
+            "lowPriceExPlus": 30.0,
+            "avg1": 60.0,
+            "avg7": 38.0,
+            "avg30": 38.38,
+            "reverseHoloAvg1": 25.0,
+            "reverseHoloAvg7": 25.42,
+            "reverseHoloAvg30": 21.27
+          }
+        }
+      },
+      {
+        "id": "pl3-13",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "55",
+        "hp": "140",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Green Aroma",
+            "text": "Remove all Special Conditions from each of your Grass Pokémon. Each of your Grass Pokémon can't be affected by any Special Conditions.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Desperate Pollen",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": "If Venusaur already has 8 or more damage counters on it, the Defending Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Special Reaction",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40+",
+            "text": "If the Defending Pokémon is affected by any Special Conditions, this attack does 40 damage plus 40 more damage for each of those Special Conditions."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+40"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pl3",
+          "name": "Supreme Victors",
+          "series": "Platinum",
+          "printedTotal": 147,
+          "total": 153,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SV",
+          "releaseDate": "2009/08/19",
+          "updatedAt": "2018/03/07 22:40:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl3/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl3/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl3/13.png",
+          "large": "https://images.pokemontcg.io/pl3/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 16.36,
+              "mid": 22.19,
+              "high": 30.3,
+              "market": 24.78,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 19.99,
+              "mid": 99.99,
+              "high": 102.18,
+              "market": 25.3,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl3-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.06,
+            "lowPrice": 1.0,
+            "trendPrice": 4.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 2.0,
+            "reverseHoloTrend": 6.71,
+            "lowPriceExPlus": 3.7,
+            "avg1": 1.97,
+            "avg7": 5.26,
+            "avg30": 4.6,
+            "reverseHoloAvg1": 3.77,
+            "reverseHoloAvg7": 5.62,
+            "reverseHoloAvg30": 7.46
+          }
+        }
+      },
+      {
+        "id": "base1-15",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "67",
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Energy Trans",
+            "text": "As often as you like during your turn (before your attack), you may take 1 Grass Energy card attached to 1 of your Pokémon and attach it to a different one. This power can't be used if Venusaur is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base1",
+          "name": "Base",
+          "series": "Base",
+          "printedTotal": 102,
+          "total": 102,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BS",
+          "releaseDate": "1999/01/09",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+            "logo": "https://images.pokemontcg.io/base1/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "This plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base1/15.png",
+          "large": "https://images.pokemontcg.io/base1/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 70.0,
+              "mid": 99.97,
+              "high": 999.98,
+              "market": 125.69,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base1-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 110.0,
+            "trendPrice": 332.87,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 210.0,
+            "avg1": 400.0,
+            "avg7": 354.85,
+            "avg30": 377.28,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "basep-13",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "16",
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Solar Power",
+            "text": "Once during your turn (before your attack), you may use this power. Your Active Pokémon and the Defending Pokémon are no longer Asleep, Confused, Paralyzed, or Poisoned. This power can't be used if Venusaur is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mega Drain",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "Remove a number of damage counters from Venusaur equal to half the damage done to the Defending Pokémon (after applying Weakness and Resistance) (rounded up to the nearest 10). If Venusaur has fewer damage counters than that, remove all of them."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "basep",
+          "name": "Wizards Black Star Promos",
+          "series": "Base",
+          "printedTotal": 53,
+          "total": 53,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "PR",
+          "releaseDate": "1999/07/01",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+            "logo": "https://images.pokemontcg.io/basep/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Ken Sugimori",
+        "rarity": "Promo",
+        "flavorText": "This plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/basep/13.png",
+          "large": "https://images.pokemontcg.io/basep/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/basep-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 121.1,
+              "mid": 159.78,
+              "high": 235.0,
+              "market": 147.47,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/basep-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 100.32,
+            "lowPrice": 29.0,
+            "trendPrice": 87.21,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 73.71,
+            "lowPriceExPlus": 120.0,
+            "avg1": 124.0,
+            "avg7": 100.32,
+            "avg30": 80.35,
+            "reverseHoloAvg1": 16.99,
+            "reverseHoloAvg7": 74.5,
+            "reverseHoloAvg30": 65.65
+          }
+        }
+      },
+      {
+        "id": "base4-18",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "67",
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Energy Trans",
+            "text": "As often as you like during your turn (before your attack), you may take 1 Grass Energy card attached to 1 of your Pokémon and attach it to a different one. This power can't be used if Venusaur is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base4",
+          "name": "Base Set 2",
+          "series": "Base",
+          "printedTotal": 130,
+          "total": 130,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "B2",
+          "releaseDate": "2000/02/24",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+            "logo": "https://images.pokemontcg.io/base4/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "This plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base4/18.png",
+          "large": "https://images.pokemontcg.io/base4/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base4-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 39.99,
+              "mid": 53.27,
+              "high": 4375.0,
+              "market": 73.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base4-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 46.02,
+            "lowPrice": 24.9,
+            "trendPrice": 73.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 99.2,
+            "lowPriceExPlus": 54.9,
+            "avg1": 33.95,
+            "avg7": 58.2,
+            "avg30": 54.37,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 71.99,
+            "reverseHoloAvg30": 78.99
+          }
+        }
+      },
+      {
+        "id": "dp3-20",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "51",
+        "hp": "130",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Miracle Aroma",
+            "text": "Once during your turn (before your attack), you may flip a coin. If heads, choose either Asleep, Burned, or Poisoned. The Defending Pokémon is now affected by that Special Condition. This power can't be used if Venusaur is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Giant Bloom",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Flip a coin. If heads, remove 4 damage counters from Venusaur."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "+30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "dp3",
+          "name": "Secret Wonders",
+          "series": "Diamond & Pearl",
+          "printedTotal": 132,
+          "total": 132,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SW",
+          "releaseDate": "2007/11/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp3/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "Kazuyuki Kano",
+        "rarity": "Rare Holo",
+        "flavorText": "After a rainy day, the flower on its back smells stronger. The scent attracts other Pokémon.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp3/20.png",
+          "large": "https://images.pokemontcg.io/dp3/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp3-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 20.79,
+              "mid": 29.98,
+              "high": 69.99,
+              "market": 19.97,
+              "directLow": 69.98
+            },
+            "reverseHolofoil": {
+              "low": 13.0,
+              "mid": 17.04,
+              "high": 46.98,
+              "market": 29.53,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp3-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 3.59,
+            "lowPrice": 0.17,
+            "trendPrice": 8.5,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.88,
+            "reverseHoloLow": 0.5,
+            "reverseHoloTrend": 4.71,
+            "lowPriceExPlus": 2.4,
+            "avg1": 11.25,
+            "avg7": 5.87,
+            "avg30": 4.03,
+            "reverseHoloAvg1": 2.25,
+            "reverseHoloAvg7": 3.85,
+            "reverseHoloAvg30": 4.67
+          }
+        }
+      },
+      {
+        "id": "base6-18",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "67",
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Energy Trans",
+            "text": "As often as you like during your turn (before your attack), you may take 1 Grass Energy card attached to 1 of your Pokémon and attach it to a different one. This power can't be used if Venusaur is affected by a Special Condition.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base6",
+          "name": "Legendary Collection",
+          "series": "Other",
+          "printedTotal": 110,
+          "total": 110,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LC",
+          "releaseDate": "2002/05/24",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+            "logo": "https://images.pokemontcg.io/base6/logo.png"
+          }
+        },
+        "number": "18",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Rare Holo",
+        "flavorText": "This plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base6/18.png",
+          "large": "https://images.pokemontcg.io/base6/18_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base6-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 61.33,
+              "mid": 74.15,
+              "high": 129.99,
+              "market": 90.64,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 239.99,
+              "mid": 249.99,
+              "high": 479.99,
+              "market": 499.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base6-18",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 28.31,
+            "lowPrice": 11.99,
+            "trendPrice": 38.56,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 210.0,
+            "reverseHoloLow": 67.0,
+            "reverseHoloTrend": 307.66,
+            "lowPriceExPlus": 25.0,
+            "avg1": 94.49,
+            "avg7": 36.77,
+            "avg30": 37.22,
+            "reverseHoloAvg1": 210.0,
+            "reverseHoloAvg7": 150.0,
+            "reverseHoloAvg30": 206.07
+          }
+        }
+      },
+      {
+        "id": "ex14-28",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Chlorophyll",
+            "text": "All Energy cards that provide only Colorless Energy attached to your Grass Pokémon provide Grass Energy instead.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Green Blast",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Does 20 damage plus 10 more damage for each Grass Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "Toxic Sleep",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "The Defending Pokémon is now Asleep and Poisoned. Put 2 damage counters instead of 1 on the Defending Pokémon between turns."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex14",
+          "name": "Crystal Guardians",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CG",
+          "releaseDate": "2006/08/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex14/logo.png"
+          }
+        },
+        "number": "28",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex14/28.png",
+          "large": "https://images.pokemontcg.io/ex14/28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex14-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 4.89,
+              "mid": 6.25,
+              "high": 17.97,
+              "market": 6.75,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 45.0,
+              "mid": 51.17,
+              "high": 99.99,
+              "market": 48.73,
+              "directLow": 99.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex14-28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.07,
+            "lowPrice": 0.49,
+            "trendPrice": 7.07,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 19.26,
+            "reverseHoloLow": 2.22,
+            "reverseHoloTrend": 32.12,
+            "lowPriceExPlus": 1.7,
+            "avg1": 4.47,
+            "avg7": 8.37,
+            "avg30": 5.47,
+            "reverseHoloAvg1": 3.0,
+            "reverseHoloAvg7": 20.91,
+            "reverseHoloAvg30": 21.89
+          }
+        }
+      },
+      {
+        "id": "xyp-XY28",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY28",
+        "artist": "Eske Yoshinob",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY28.png",
+          "large": "https://images.pokemontcg.io/xyp/XY28_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 4.06,
+              "high": 19.95,
+              "market": 4.08,
+              "directLow": 5.45
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY28",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.09,
+            "lowPrice": 1.5,
+            "trendPrice": 5.18,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.36,
+            "lowPriceExPlus": 3.46,
+            "avg1": 5.95,
+            "avg7": 4.93,
+            "avg30": 4.81,
+            "reverseHoloAvg1": 2.51,
+            "reverseHoloAvg7": 2.1,
+            "reverseHoloAvg30": 2.71
+          }
+        }
+      },
+      {
+        "id": "ecard1-30",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Harvest Bounty",
+            "text": "Once during your turn (before your attack), if you attach an Energy card to your Active Pokémon as part of your turn, you may attach an additional Energy card to that Pokémon at the same time. This power can't be used if Venusaur is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Body Slam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "30",
+        "artist": "Shin-ichi Yoshikawa",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/30.png",
+          "large": "https://images.pokemontcg.io/ecard1/30_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 236.08,
+              "mid": 259.69,
+              "high": 349.99,
+              "market": 118.76,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 62.0,
+              "mid": 74.49,
+              "high": 949.59,
+              "market": 63.95,
+              "directLow": 949.59
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-30",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 43.74,
+            "lowPrice": 7.5,
+            "trendPrice": 30.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 32.67,
+            "reverseHoloLow": 7.5,
+            "reverseHoloTrend": 25.57,
+            "lowPriceExPlus": 34.5,
+            "avg1": 24.99,
+            "avg7": 25.66,
+            "avg30": 35.39,
+            "reverseHoloAvg1": 43.0,
+            "reverseHoloAvg7": 21.26,
+            "reverseHoloAvg30": 20.75
+          }
+        }
+      },
+      {
+        "id": "ecard1-67",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "attacks": [
+          {
+            "name": "Leech Seed",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "If this attack damages the Defending Pokémon (after applying Weakness and Resistance), remove 1 damage counter from Venusaur, if it has any."
+          },
+          {
+            "name": "Fury Strikes",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30×",
+            "text": "Flip 3 coins. This attack does 30 damage times the number of heads."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "67",
+        "artist": "Atsuko Nishida",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/67.png",
+          "large": "https://images.pokemontcg.io/ecard1/67_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 16.5,
+              "mid": 32.98,
+              "high": 39.99,
+              "market": 26.39,
+              "directLow": 27.51
+            },
+            "reverseHolofoil": {
+              "low": 35.0,
+              "mid": 45.0,
+              "high": 53.96,
+              "market": 52.24,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-67",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.75,
+            "lowPrice": 2.0,
+            "trendPrice": 10.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 18.45,
+            "reverseHoloLow": 6.99,
+            "reverseHoloTrend": 20.4,
+            "lowPriceExPlus": 10.0,
+            "avg1": 35.0,
+            "avg7": 9.92,
+            "avg30": 10.12,
+            "reverseHoloAvg1": 12.89,
+            "reverseHoloAvg7": 27.22,
+            "reverseHoloAvg30": 17.48
+          }
+        }
+      },
+      {
+        "id": "ecard1-68",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Harvest Bounty",
+            "text": "Once during your turn (before your attack), if you attach an Energy card to your Active Pokémon as part of your turn, you may attach an additional Energy card to that Pokémon at the same time. This power can't be used if Venusaur is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Body Slam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "40",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "ecard1",
+          "name": "Expedition Base Set",
+          "series": "E-Card",
+          "printedTotal": 165,
+          "total": 165,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "EX",
+          "releaseDate": "2002/09/15",
+          "updatedAt": "2022/10/10 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+          }
+        },
+        "number": "68",
+        "artist": "Shin-ichi Yoshikawa",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard1/68.png",
+          "large": "https://images.pokemontcg.io/ecard1/68_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 16.0,
+              "mid": 20.65,
+              "high": 30.0,
+              "market": 19.71,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 62.22,
+              "mid": 84.47,
+              "high": 89.97,
+              "market": 37.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard1-68",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 24.0,
+            "lowPrice": 10.0,
+            "trendPrice": 58.51,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 40.0,
+            "lowPriceExPlus": 40.0,
+            "avg1": 24.0,
+            "avg7": 47.69,
+            "avg30": 46.61,
+            "reverseHoloAvg1": 40.0,
+            "reverseHoloAvg7": 40.0,
+            "reverseHoloAvg30": 40.0
+          }
+        }
+      },
+      {
+        "id": "xy12-89",
+        "name": "Venusaur Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Venusaur-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "5ban Graphics",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/89.png",
+          "large": "https://images.pokemontcg.io/xy12/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.17,
+              "high": 4.0,
+              "market": 0.11,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.25,
+              "mid": 0.55,
+              "high": 4.25,
+              "market": 0.51,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.13,
+            "lowPrice": 0.02,
+            "trendPrice": 0.1,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.73,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 2.71,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.07,
+            "avg7": 0.1,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 5.0,
+            "reverseHoloAvg7": 3.12,
+            "reverseHoloAvg30": 2.37
+          }
+        }
+      },
+      {
+        "id": "xy12-100",
+        "name": "M Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "230",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Venusaur-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Crisis Vine",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "120",
+            "text": "Your opponent's Active Pokémon is now Paralyzed and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy12",
+          "name": "Evolutions",
+          "series": "XY",
+          "printedTotal": 108,
+          "total": 113,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "EVO",
+          "releaseDate": "2016/11/02",
+          "updatedAt": "2020/09/25 10:09:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy12/logo.png"
+          }
+        },
+        "number": "100",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy12/100.png",
+          "large": "https://images.pokemontcg.io/xy12/100_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy12-100",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 28.01,
+              "mid": 41.39,
+              "high": 149.95,
+              "market": 39.59,
+              "directLow": 33.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy12-100",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 36.82,
+            "lowPrice": 6.0,
+            "trendPrice": 34.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.78,
+            "lowPriceExPlus": 25.0,
+            "avg1": 24.99,
+            "avg7": 42.05,
+            "avg30": 38.89,
+            "reverseHoloAvg1": 23.98,
+            "reverseHoloAvg7": 22.67,
+            "reverseHoloAvg30": 26.14
+          }
+        }
+      },
+      {
+        "id": "ex6-112",
+        "name": "Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "150",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Energy Trans",
+            "text": "As often as you like during your turn (before your attack), move a Grass Energy card attached to 1 of your Pokémon to another of your Pokémon. This power can't be used if Venusaur ex is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "20",
+            "text": "The Defending Pokémon is now Poisoned, Burned, and Confused."
+          },
+          {
+            "name": "Solarbeam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 5,
+            "damage": "90",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Psychic",
+            "value": "×2"
+          },
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "ex6",
+          "name": "FireRed & LeafGreen",
+          "series": "EX",
+          "printedTotal": 112,
+          "total": 116,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RG",
+          "releaseDate": "2004/09/01",
+          "updatedAt": "2019/01/28 16:44:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex6/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex6/logo.png"
+          }
+        },
+        "number": "112",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex6/112.png",
+          "large": "https://images.pokemontcg.io/ex6/112_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex6-112",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 150.0,
+              "mid": 231.32,
+              "high": 278.98,
+              "market": 291.66,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex6-112",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 151.04,
+            "lowPrice": 24.25,
+            "trendPrice": 175.38,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 26.27,
+            "lowPriceExPlus": 74.9,
+            "avg1": 170.0,
+            "avg7": 134.88,
+            "avg30": 162.21,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 23.56,
+            "reverseHoloAvg30": 41.02
+          }
+        }
+      },
+      {
+        "id": "xyp-XY123",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY123",
+        "artist": "Naoki Saito",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY123.png",
+          "large": "https://images.pokemontcg.io/xyp/XY123_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY123",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 125.99,
+              "mid": 171.5,
+              "high": 399.99,
+              "market": 192.18,
+              "directLow": 144.95
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY123",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 73.81,
+            "lowPrice": 19.9,
+            "trendPrice": 68.74,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 21.48,
+            "lowPriceExPlus": 40.0,
+            "avg1": 25.0,
+            "avg7": 62.07,
+            "avg30": 69.81,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 18.27,
+            "reverseHoloAvg30": 20.79
+          }
+        }
+      },
+      {
+        "id": "xy1-141",
+        "name": "Venusaur-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "M Venusaur-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Poison Powder",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": "Your opponent's Active Pokémon is now Poisoned."
+          },
+          {
+            "name": "Jungle Hammer",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "90",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "xy1",
+          "name": "XY",
+          "series": "XY",
+          "printedTotal": 146,
+          "total": 146,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "XY",
+          "releaseDate": "2014/02/05",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy1/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy1/logo.png"
+          }
+        },
+        "number": "141",
+        "artist": "Ryo Ueda",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy1/141.png",
+          "large": "https://images.pokemontcg.io/xy1/141_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy1-141",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 51.25,
+              "mid": 75.0,
+              "high": 125.99,
+              "market": 76.73,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy1-141",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 51.77,
+            "lowPrice": 12.0,
+            "trendPrice": 56.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 55.35,
+            "lowPriceExPlus": 34.0,
+            "avg1": 40.0,
+            "avg7": 50.09,
+            "avg30": 44.6,
+            "reverseHoloAvg1": 50.49,
+            "reverseHoloAvg7": 55.58,
+            "reverseHoloAvg30": 33.17
+          }
+        }
+      },
+      {
+        "id": "sm9-159",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "159",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/159.png",
+          "large": "https://images.pokemontcg.io/sm9/159_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-159",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 62.0,
+              "mid": 75.98,
+              "high": 104.05,
+              "market": 64.15,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-159",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 28.49,
+            "lowPrice": 6.0,
+            "trendPrice": 31.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.37,
+            "lowPriceExPlus": 18.5,
+            "avg1": 20.0,
+            "avg7": 30.38,
+            "avg30": 32.74,
+            "reverseHoloAvg1": 17.95,
+            "reverseHoloAvg7": 13.83,
+            "reverseHoloAvg30": 12.58
+          }
+        }
+      },
+      {
+        "id": "smp-SM167",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM167",
+        "artist": "Shin Nagasawa",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM167.png",
+          "large": "https://images.pokemontcg.io/smp/SM167_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM167",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 49.0,
+              "mid": 72.74,
+              "high": 149.99,
+              "market": 69.11,
+              "directLow": 41.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM167",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 114.39,
+            "lowPrice": 34.9,
+            "trendPrice": 109.45,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.98,
+            "lowPriceExPlus": 50.0,
+            "avg1": 90.0,
+            "avg7": 121.66,
+            "avg30": 116.34,
+            "reverseHoloAvg1": 12.5,
+            "reverseHoloAvg7": 15.24,
+            "reverseHoloAvg30": 15.29
+          }
+        }
+      },
+      {
+        "id": "sm9-182",
+        "name": "Celebi & Venusaur-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "50",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          },
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "150",
+            "text": ""
+          },
+          {
+            "name": "Evergreen-GX",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "180",
+            "text": "Heal all damage from this Pokémon. If this Pokémon has at least 1 extra Grass Energy attached to it (in addition to this attack's cost), shuffle all cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          3,
+          251
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/182.png",
+          "large": "https://images.pokemontcg.io/sm9/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 90.0,
+              "mid": 120.11,
+              "high": 190.74,
+              "market": 117.7,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 39.0,
+            "lowPrice": 9.9,
+            "trendPrice": 70.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 39.31,
+            "lowPriceExPlus": 27.5,
+            "avg1": 40.0,
+            "avg7": 42.1,
+            "avg30": 52.19,
+            "reverseHoloAvg1": 35.0,
+            "reverseHoloAvg7": 43.36,
+            "reverseHoloAvg30": 27.57
+          }
+        }
+      },
+      {
+        "id": "sm12-210",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "210",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/210.png",
+          "large": "https://images.pokemontcg.io/sm12/210_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-210",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 26.54,
+              "mid": 48.0,
+              "high": 129.95,
+              "market": 38.94,
+              "directLow": 40.89
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-210",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 27.49,
+            "lowPrice": 5.0,
+            "trendPrice": 31.84,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.46,
+            "lowPriceExPlus": 9.7,
+            "avg1": 55.0,
+            "avg7": 28.48,
+            "avg30": 25.13,
+            "reverseHoloAvg1": 11.0,
+            "reverseHoloAvg7": 11.52,
+            "reverseHoloAvg30": 9.98
+          }
+        }
+      },
+      {
+        "id": "smp-SM229",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "smp",
+          "name": "SM Black Star Promos",
+          "series": "Sun & Moon",
+          "printedTotal": 248,
+          "total": 250,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SM",
+          "releaseDate": "2017/02/03",
+          "updatedAt": "2020/05/01 16:06:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/smp/symbol.png",
+            "logo": "https://images.pokemontcg.io/smp/logo.png"
+          }
+        },
+        "number": "SM229",
+        "artist": "Yuka Morii",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/smp/SM229.png",
+          "large": "https://images.pokemontcg.io/smp/SM229_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/smp-SM229",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 51.61,
+              "mid": 75.0,
+              "high": 9999.0,
+              "market": 63.85,
+              "directLow": 67.81
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/smp-SM229",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 44.59,
+            "lowPrice": 8.44,
+            "trendPrice": 31.22,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 4.57,
+            "lowPriceExPlus": 19.75,
+            "avg1": 18.0,
+            "avg7": 42.55,
+            "avg30": 46.06,
+            "reverseHoloAvg1": 4.17,
+            "reverseHoloAvg7": 5.23,
+            "reverseHoloAvg30": 4.89
+          }
+        }
+      },
+      {
+        "id": "sm12-249",
+        "name": "Venusaur & Snivy-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "TAG TEAM",
+          "GX"
+        ],
+        "hp": "270",
+        "types": [
+          "Grass"
+        ],
+        "evolvesTo": [
+          "Servine"
+        ],
+        "rules": [
+          "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Shining Vine",
+            "text": "Once during your turn, if this Pokémon is your Active Pokémon, when you attach a Grass Energy card from your hand to it, you may switch 1 of your opponent's Benched Pokémon with their Active Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Forest Dump",
+            "cost": [
+              "Grass",
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "160",
+            "text": ""
+          },
+          {
+            "name": "Solar Plant-GX",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "",
+            "text": "This attack does 50 damage to each of your opponent's Pokémon. If this Pokémon has at least 2 extra Energy attached to it (in addition to this attack's cost), heal all damage from all of your Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "sm12",
+          "name": "Cosmic Eclipse",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 272,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "CEC",
+          "releaseDate": "2019/11/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm12/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm12/logo.png"
+          }
+        },
+        "number": "249",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          3,
+          495
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm12/249.png",
+          "large": "https://images.pokemontcg.io/sm12/249_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm12-249",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 47.94,
+              "mid": 69.69,
+              "high": 99.95,
+              "market": 56.37,
+              "directLow": 59.02
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm12-249",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 0.0,
+            "lowPrice": 14.99,
+            "trendPrice": 32.64,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 23.46,
+            "lowPriceExPlus": 24.99,
+            "avg1": 23.0,
+            "avg7": 31.05,
+            "avg30": 32.34,
+            "reverseHoloAvg1": 21.0,
+            "reverseHoloAvg7": 23.8,
+            "reverseHoloAvg30": 20.96
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH100",
+        "name": "Venusaur V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "220",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Leaf Drain",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50",
+            "text": "Heal 30 damage from this Pokémon."
+          },
+          {
+            "name": "Double-Edge",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "190",
+            "text": "This Pokémon also does 30 damage to itself."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH100",
+        "artist": "aky CG Works",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH100.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH100_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH100",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.37,
+              "mid": 4.48,
+              "high": 19.99,
+              "market": 4.54,
+              "directLow": 18.9
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH100",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 4.71,
+            "lowPrice": 1.5,
+            "trendPrice": 4.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 10.68,
+            "lowPriceExPlus": 3.4,
+            "avg1": 4.0,
+            "avg7": 4.47,
+            "avg30": 4.62,
+            "reverseHoloAvg1": 9.99,
+            "reverseHoloAvg7": 10.28,
+            "reverseHoloAvg30": 10.64
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH102",
+        "name": "Venusaur VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "330",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Venusaur V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Forest Storm",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each Grass Energy attached to all of your Pokémon."
+          },
+          {
+            "name": "G-Max Bloom",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "210",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH102",
+        "artist": "aky CG Works",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH102.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH102_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH102",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 18.01,
+              "mid": 23.11,
+              "high": 9999.0,
+              "market": 21.14,
+              "directLow": 28.51
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH102",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 4.6,
+            "lowPrice": 3.25,
+            "trendPrice": 4.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 7.0,
+            "lowPriceExPlus": 3.5,
+            "avg1": 6.0,
+            "avg7": 4.78,
+            "avg30": 5.07,
+            "reverseHoloAvg1": 7.0,
+            "reverseHoloAvg7": 5.67,
+            "reverseHoloAvg30": 5.67
+          }
+        }
+      },
+      {
+        "id": "cel25c-15_A1",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "level": "67",
+        "hp": "100",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Energy Trans",
+            "text": "As often as you like during your turn (before your attack), you may take 1 Grass Energy card attached to 1 of your Pokémon and attach it to a different one. This power can't be used if Venusaur is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "name": "Solarbeam",
+            "damage": "60",
+            "text": "",
+            "convertedEnergyCost": 4
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "cel25c",
+          "name": "Celebrations: Classic Collection",
+          "series": "Sword & Shield",
+          "printedTotal": 25,
+          "total": 25,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "CEL",
+          "releaseDate": "2021/10/08",
+          "updatedAt": "2022/10/11 21:39:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/cel25c/symbol.png",
+            "logo": "https://images.pokemontcg.io/cel25c/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Classic Collection",
+        "flavorText": "This plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/cel25c/15_A.png",
+          "large": "https://images.pokemontcg.io/cel25c/15_A_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/cel25c-15_A1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.19,
+              "mid": 11.67,
+              "high": 1000.0,
+              "market": 10.16,
+              "directLow": 11.0
+            }
+          }
+        }
+      },
+      {
+        "id": "bp-7",
+        "name": "Dark Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "70",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dark Ivysaur",
+        "attacks": [
+          {
+            "name": "Horrid Pollen",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip 2 coins. If 1 is heads, the Defending Pokémon is now Asleep and Poisoned. If both are heads, the Defending Pokémon is now Confused and Poisoned. If both are tails, the Defending Pokémon is now Paralyzed and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "bp",
+          "name": "Best of Game",
+          "series": "Other",
+          "printedTotal": 9,
+          "total": 9,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "BP",
+          "releaseDate": "2002/12/01",
+          "updatedAt": "2021/10/16 09:52:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bp/symbol.png",
+            "logo": "https://images.pokemontcg.io/bp/logo.png"
+          }
+        },
+        "number": "7",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bp/7.png",
+          "large": "https://images.pokemontcg.io/bp/7_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bp-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 93.78,
+              "mid": 95.0,
+              "high": 124.0,
+              "market": 100.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bp-7",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 59.98,
+            "lowPrice": 40.0,
+            "trendPrice": 64.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.95,
+            "lowPriceExPlus": 69.9,
+            "avg1": 60.0,
+            "avg7": 56.61,
+            "avg30": 51.14,
+            "reverseHoloAvg1": 8.95,
+            "reverseHoloAvg7": 9.45,
+            "reverseHoloAvg30": 9.45
+          }
+        }
+      },
+      {
+        "id": "pgo-3",
+        "name": "Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "abilities": [
+          {
+            "name": "Loopy Lasso",
+            "text": "Once during your turn, you may flip a coin. If heads, switch 1 of your opponent's Benched Pokémon with their Active Pokémon, and the new Active Pokémon is now Asleep and Poisoned.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Solar Beam",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "130",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "KEIICHIRO ITO",
+        "rarity": "Rare Holo",
+        "flavorText": "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/3.png",
+          "large": "https://images.pokemontcg.io/pgo/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.29,
+              "mid": 0.7,
+              "high": 19.99,
+              "market": 0.61,
+              "directLow": 0.51
+            },
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.64,
+              "high": 75.0,
+              "market": 0.54,
+              "directLow": 0.4
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.72,
+            "lowPrice": 0.02,
+            "trendPrice": 0.63,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.96,
+            "reverseHoloLow": 0.16,
+            "reverseHoloTrend": 0.76,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.41,
+            "avg7": 0.5,
+            "avg30": 0.7,
+            "reverseHoloAvg1": 0.63,
+            "reverseHoloAvg7": 0.9,
+            "reverseHoloAvg30": 1.0
+          }
+        }
+      },
+      {
+        "id": "pgo-4",
+        "name": "Radiant Venusaur",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "Radiant"
+        ],
+        "hp": "150",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "Radiant Pokémon Rule: You can't have more than 1 Radiant Pokémon in your deck."
+        ],
+        "abilities": [
+          {
+            "name": "Sunny Bloom",
+            "text": "Once at the end of your turn (after your attack), you may use this Ability. Draw cards until you have 4 cards in your hand.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Pollen Hazard",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90",
+            "text": "Your opponent's Active Pokémon is now Burned, Confused, and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 3,
+        "set": {
+          "id": "pgo",
+          "name": "Pokémon GO",
+          "series": "Sword & Shield",
+          "printedTotal": 78,
+          "total": 88,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PGO",
+          "releaseDate": "2022/07/01",
+          "updatedAt": "2022/07/06 17:07:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pgo/symbol.png",
+            "logo": "https://images.pokemontcg.io/pgo/logo.png"
+          }
+        },
+        "number": "4",
+        "artist": "Misa Tsutsui",
+        "rarity": "Radiant Rare",
+        "flavorText": "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/pgo/4.png",
+          "large": "https://images.pokemontcg.io/pgo/4_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pgo-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 3.01,
+              "mid": 6.25,
+              "high": 500.0,
+              "market": 6.08,
+              "directLow": 8.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pgo-4",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 7.21,
+            "lowPrice": 1.99,
+            "trendPrice": 5.79,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.95,
+            "avg1": 6.0,
+            "avg7": 5.86,
+            "avg30": 7.2,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-3",
+        "name": "Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Tranquil Flower",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may heal 60 damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dangerous Toxwhip",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent's Active Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "3",
+        "artist": "5ban Graphics",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/3.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.35,
+              "mid": 1.0,
+              "high": 20.0,
+              "market": 0.77,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.6,
+            "lowPrice": 0.35,
+            "trendPrice": 1.71,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.35,
+            "avg1": 2.19,
+            "avg7": 1.76,
+            "avg30": 1.61,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-182",
+        "name": "Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Tranquil Flower",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may heal 60 damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dangerous Toxwhip",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent's Active Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "182",
+        "artist": "PLANETA Yamashita",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/182.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/182_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-182",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 8.88,
+              "mid": 12.0,
+              "high": 49.99,
+              "market": 11.59,
+              "directLow": 14.88
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-182",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 18.19,
+            "lowPrice": 10.99,
+            "trendPrice": 17.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 10.99,
+            "avg1": 18.59,
+            "avg7": 16.64,
+            "avg30": 17.98,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-198",
+        "name": "Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Tranquil Flower",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may heal 60 damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dangerous Toxwhip",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent's Active Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "198",
+        "artist": "Yoriyuki Ikegami",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/198.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/198_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-198",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 64.99,
+              "mid": 79.99,
+              "high": 500.0,
+              "market": 73.55,
+              "directLow": 70.78
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-198",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 90.43,
+            "lowPrice": 65.0,
+            "trendPrice": 79.88,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 65.0,
+            "avg1": 71.0,
+            "avg7": 96.78,
+            "avg30": 92.7,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv7-1",
+        "name": "Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "ex"
+        ],
+        "hp": "340",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Tranquil Flower",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may heal 60 damage from 1 of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Dangerous Toxwhip",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "150",
+            "text": "Your opponent's Active Pokémon is now Confused and Poisoned."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "sv7",
+          "name": "Stellar Crown",
+          "series": "Scarlet & Violet",
+          "printedTotal": 142,
+          "total": 175,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SCR",
+          "releaseDate": "2024/09/13",
+          "updatedAt": "2024/09/13 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv7/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv7/logo.png"
+          }
+        },
+        "number": "1",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv7/1.png",
+          "large": "https://images.pokemontcg.io/sv7/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv7-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.4,
+              "mid": 1.25,
+              "high": 50.0,
+              "market": 1.14,
+              "directLow": 2.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv7-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.44,
+            "lowPrice": 0.45,
+            "trendPrice": 1.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.45,
+            "avg1": 1.27,
+            "avg7": 1.29,
+            "avg30": 1.39,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "me1-3",
+        "name": "Mega Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "MEGA",
+          "ex"
+        ],
+        "hp": "380",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Mega Evolution ex Rule: When your Mega Evolution Pokémon ex is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solar Transfer",
+            "text": "As often as you like during your turn, you may use this Ability. Move a Basic Grass Energy from 1 of your Pokémon to another of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jungle Dump",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "3",
+        "rarity": "Double Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/3.png",
+          "large": "https://images.pokemontcg.io/me1/3_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-3",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 1.0,
+              "high": 999.0,
+              "market": 0.73,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "me1-155",
+        "name": "Mega Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "MEGA",
+          "ex"
+        ],
+        "hp": "380",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Mega Evolution ex Rule: When your Mega Evolution Pokémon ex is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solar Transfer",
+            "text": "As often as you like during your turn, you may use this Ability. Move a Basic Grass Energy from 1 of your Pokémon to another of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jungle Dump",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "155",
+        "rarity": "Ultra Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/155.png",
+          "large": "https://images.pokemontcg.io/me1/155_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-155",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 10.25,
+              "mid": 14.57,
+              "high": 999.0,
+              "market": 12.41,
+              "directLow": null
+            }
+          }
+        }
+      },
+      {
+        "id": "me1-177",
+        "name": "Mega Venusaur ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2",
+          "MEGA",
+          "ex"
+        ],
+        "hp": "380",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Ivysaur",
+        "rules": [
+          "Mega Evolution ex Rule: When your Mega Evolution Pokémon ex is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Solar Transfer",
+            "text": "As often as you like during your turn, you may use this Ability. Move a Basic Grass Energy from 1 of your Pokémon to another of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Jungle Dump",
+            "cost": [
+              "Grass",
+              "Grass",
+              "Grass",
+              "Grass"
+            ],
+            "convertedEnergyCost": 4,
+            "damage": "240",
+            "text": "Heal 30 damage from this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 4,
+        "set": {
+          "id": "me1",
+          "name": "Mega Evolution",
+          "series": "Mega Evolution",
+          "printedTotal": 132,
+          "total": 188,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "MEG",
+          "releaseDate": "2025/09/26",
+          "updatedAt": "2025/09/25 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/me1/symbol.png",
+            "logo": "https://images.pokemontcg.io/me1/logo.png"
+          }
+        },
+        "number": "177",
+        "rarity": "Special Illustration Rare",
+        "nationalPokedexNumbers": [
+          3
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/me1/177.png",
+          "large": "https://images.pokemontcg.io/me1/177_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/me1-177",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 139.99,
+              "mid": 159.99,
+              "high": 999.0,
+              "market": 146.11,
+              "directLow": null
+            }
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 49,
+    "totalCount": 49
+  }
+}

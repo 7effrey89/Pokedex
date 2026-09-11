@@ -1,0 +1,3128 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:aerodactyl"
+  },
+  "cache_key": "0c87cdf388a18ae706643a61c32cac7c",
+  "cached_at": 1765912799.664728,
+  "response": {
+    "data": [
+      {
+        "id": "ex12-1",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Reactive Protection",
+            "text": "Any damage done to Aerodactyl by attacks from your opponent's Pokémon is reduced by 10 for each React Energy card attached to Aerodactyl (after applying Weakness and Resistance).",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Power Blow",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10+",
+            "text": "Does 10 damage plus 10 more damage for each Energy attached to Aerodactyl."
+          },
+          {
+            "name": "Speed Stroke",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": "During your opponent's next turn, prevent all effects, including damage, done to Aerodactyl by attacks from your opponent's Pokémon-ex."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "ex12",
+          "name": "Legend Maker",
+          "series": "EX",
+          "printedTotal": 92,
+          "total": 93,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "LM",
+          "releaseDate": "2006/02/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex12/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex12/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Hajime Kusajima",
+        "rarity": "Rare Holo",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex12/1.png",
+          "large": "https://images.pokemontcg.io/ex12/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 19.7,
+              "mid": 21.99,
+              "high": 198.79,
+              "market": 43.73,
+              "directLow": 198.79
+            },
+            "reverseHolofoil": {
+              "low": 35.0,
+              "mid": 57.25,
+              "high": 89.43,
+              "market": 56.02,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex12-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.62,
+            "lowPrice": 1.98,
+            "trendPrice": 8.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 28.36,
+            "reverseHoloLow": 7.0,
+            "reverseHoloTrend": 22.98,
+            "lowPriceExPlus": 7.0,
+            "avg1": 6.45,
+            "avg7": 9.76,
+            "avg30": 15.39,
+            "reverseHoloAvg1": 24.95,
+            "reverseHoloAvg7": 22.99,
+            "reverseHoloAvg30": 23.57
+          }
+        }
+      },
+      {
+        "id": "base3-1",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "28",
+        "hp": "60",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Prehistoric Power",
+            "text": "No more Evolution cards can be played. This power stops working while Aerodactyl is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wing Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare Holo",
+        "flavorText": "A ferocious prehistoric Pokémon that goes for the enemy's throat with its serrated saw-like fangs.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/1.png",
+          "large": "https://images.pokemontcg.io/base3/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEditionHolofoil": {
+              "low": 39.7,
+              "mid": 70.0,
+              "high": 119.99,
+              "market": 74.88,
+              "directLow": null
+            },
+            "unlimitedHolofoil": {
+              "low": 13.4,
+              "mid": 18.99,
+              "high": 34.98,
+              "market": 27.32,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 21.78,
+            "lowPrice": 7.0,
+            "trendPrice": 21.33,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.82,
+            "lowPriceExPlus": 12.0,
+            "avg1": 20.0,
+            "avg7": 19.4,
+            "avg30": 20.29,
+            "reverseHoloAvg1": 19.9,
+            "reverseHoloAvg7": 15.6,
+            "reverseHoloAvg30": 18.73
+          }
+        }
+      },
+      {
+        "id": "pl4-13",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "47",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Old Amber",
+        "abilities": [
+          {
+            "name": "Unearth",
+            "text": "Once during your turn (before your attack), you may search your deck for Helix Fossil, Dome Fossil, or Old Amber, show it your opponent, and put it into your hand. Shuffle your deck afterward. This power can't be used if Aerodactyl is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Hyper Beam",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, discard an Energy card attached to the Defending Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "pl4",
+          "name": "Arceus",
+          "series": "Platinum",
+          "printedTotal": 99,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "AR",
+          "releaseDate": "2009/11/04",
+          "updatedAt": "2021/07/15 11:30:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl4/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl4/logo.png"
+          }
+        },
+        "number": "13",
+        "artist": "Masakazu Fukuda",
+        "rarity": "Rare",
+        "flavorText": "A Pokémon that roamed the skies in the dinosaur era. Its teeth are like saw blades.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl4/13.png",
+          "large": "https://images.pokemontcg.io/pl4/13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl4-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 1.0,
+              "mid": 1.59,
+              "high": 4.0,
+              "market": 1.77,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 1.93,
+              "mid": 4.05,
+              "high": 9.99,
+              "market": 6.32,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl4-13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 2.25,
+            "lowPrice": 0.2,
+            "trendPrice": 2.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 4.48,
+            "reverseHoloLow": 0.79,
+            "reverseHoloTrend": 4.58,
+            "lowPriceExPlus": 0.7,
+            "avg1": 1.99,
+            "avg7": 2.03,
+            "avg30": 1.68,
+            "reverseHoloAvg1": 2.45,
+            "reverseHoloAvg7": 4.41,
+            "reverseHoloAvg30": 3.51
+          }
+        }
+      },
+      {
+        "id": "base3-16",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "28",
+        "hp": "60",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Prehistoric Power",
+            "text": "No more Evolution cards can be played. This power stops working while Aerodactyl is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wing Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "base3",
+          "name": "Fossil",
+          "series": "Base",
+          "printedTotal": 62,
+          "total": 62,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "FO",
+          "releaseDate": "1999/10/10",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/base3/symbol.png",
+            "logo": "https://images.pokemontcg.io/base3/logo.png"
+          }
+        },
+        "number": "16",
+        "artist": "Kagemaru Himeno",
+        "rarity": "Rare",
+        "flavorText": "A ferocious prehistoric Pokémon that goes for the enemy's throat with its serrated saw-like fangs.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/base3/16.png",
+          "large": "https://images.pokemontcg.io/base3/16_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/base3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 7.46,
+              "mid": 9.52,
+              "high": 14.99,
+              "market": 12.49,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 2.75,
+              "mid": 4.5,
+              "high": 10.0,
+              "market": 6.05,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/base3-16",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 8.95,
+            "lowPrice": 0.75,
+            "trendPrice": 8.78,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 8.53,
+            "lowPriceExPlus": 4.5,
+            "avg1": 3.0,
+            "avg7": 8.24,
+            "avg30": 8.94,
+            "reverseHoloAvg1": 2.24,
+            "reverseHoloAvg7": 12.28,
+            "reverseHoloAvg30": 16.15
+          }
+        }
+      },
+      {
+        "id": "neo3-15",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "27",
+        "hp": "60",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Prehistoric Memory",
+            "text": "Whenever an Evolved Pokémon attacks (even if it's your opponent's), it can use any attack from its Basic Pokémon card or any Evolution card attached to it. It still has to pay for that attack's Energy cost. This power stops working while Aerodactyl is Asleep, Confused, or Paralyzed.",
+            "type": "Pokémon Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fly",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "30",
+            "text": "Flip a coin. If heads, during your opponent's next turn, prevent all effects of attacks, including damage, done to Aerodactyl. If tails, this attack does nothing (not even damage)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "neo3",
+          "name": "Neo Revelation",
+          "series": "Neo",
+          "printedTotal": 64,
+          "total": 66,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "N3",
+          "releaseDate": "2001/09/21",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/neo3/symbol.png",
+            "logo": "https://images.pokemontcg.io/neo3/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Shin-ichi Yoshida",
+        "rarity": "Rare",
+        "flavorText": "A vicious Pokémon from the distant past, it appears to have flown by spreading its wings and gliding.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/neo3/15.png",
+          "large": "https://images.pokemontcg.io/neo3/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/neo3-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "1stEdition": {
+              "low": 11.5,
+              "mid": 12.02,
+              "high": 20.5,
+              "market": 13.96,
+              "directLow": null
+            },
+            "unlimited": {
+              "low": 3.92,
+              "mid": 4.99,
+              "high": 19.99,
+              "market": 6.29,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/neo3-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 16.24,
+            "lowPrice": 0.9,
+            "trendPrice": 8.27,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 15.42,
+            "lowPriceExPlus": 4.1,
+            "avg1": 9.99,
+            "avg7": 5.29,
+            "avg30": 9.42,
+            "reverseHoloAvg1": 12.0,
+            "reverseHoloAvg7": 19.76,
+            "reverseHoloAvg30": 9.55
+          }
+        }
+      },
+      {
+        "id": "dp5-15",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "level": "44",
+        "hp": "80",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Old Amber",
+        "abilities": [
+          {
+            "name": "Primal Claw",
+            "text": "After your opponent's Pokémon uses a Poké-Power, put 2 damage counters on that Pokémon.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Flip a coin. If heads, the Defending Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "+20"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "dp5",
+          "name": "Majestic Dawn",
+          "series": "Diamond & Pearl",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "MD",
+          "releaseDate": "2008/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/dp5/symbol.png",
+            "logo": "https://images.pokemontcg.io/dp5/logo.png"
+          }
+        },
+        "number": "15",
+        "artist": "Kouki Saitou",
+        "rarity": "Rare",
+        "flavorText": "A Pokémon that roamed the skies in the dinosaur era. Its teeth are like saw blades.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/dp5/15.png",
+          "large": "https://images.pokemontcg.io/dp5/15_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/dp5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.11,
+              "mid": 3.31,
+              "high": 9.5,
+              "market": 4.48,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 11.62,
+              "mid": 57.22,
+              "high": 102.34,
+              "market": 9.97,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/dp5-15",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.55,
+            "lowPrice": 0.4,
+            "trendPrice": 1.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.38,
+            "reverseHoloLow": 1.0,
+            "reverseHoloTrend": 6.01,
+            "lowPriceExPlus": 1.25,
+            "avg1": 2.0,
+            "avg7": 1.43,
+            "avg30": 1.67,
+            "reverseHoloAvg1": 6.95,
+            "reverseHoloAvg7": 5.22,
+            "reverseHoloAvg30": 3.88
+          }
+        }
+      },
+      {
+        "id": "ecard3-1",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Ancient Wind",
+            "text": "Once during your turn (before your attack), if Aerodactyl is your Active Pokémon, you may ignore all Poké-Bodies until the end of your turn. This power can't be used if Aerodactyl is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rising Lunge",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "20+",
+            "text": "Flip a coin. If heads, this attack does 20 damage plus 20 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Water",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ecard3",
+          "name": "Skyridge",
+          "series": "E-Card",
+          "printedTotal": 144,
+          "total": 182,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SK",
+          "releaseDate": "2003/05/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ecard3/symbol.png",
+            "logo": "https://images.pokemontcg.io/ecard3/logo.png"
+          }
+        },
+        "number": "1",
+        "artist": "Toshinao Aoki",
+        "rarity": "Rare",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ecard3/1.png",
+          "large": "https://images.pokemontcg.io/ecard3/1_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ecard3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 32.17,
+              "mid": 33.99,
+              "high": 43.77,
+              "market": 43.77,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 75.82,
+              "mid": 114.99,
+              "high": 119.98,
+              "market": 78.0,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ecard3-1",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 9.5,
+            "lowPrice": 1.99,
+            "trendPrice": 19.29,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 23.33,
+            "reverseHoloLow": 3.49,
+            "reverseHoloTrend": 18.66,
+            "lowPriceExPlus": 7.94,
+            "avg1": 8.0,
+            "avg7": 8.54,
+            "avg30": 14.39,
+            "reverseHoloAvg1": 10.0,
+            "reverseHoloAvg7": 18.34,
+            "reverseHoloAvg30": 15.62
+          }
+        }
+      },
+      {
+        "id": "ex13-35",
+        "name": "Aerodactyl δ",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "70",
+        "types": [
+          "Fire"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "abilities": [
+          {
+            "name": "Primal Light",
+            "text": "Once during your turn (before your attack), you may search your deck for a basic Energy card, show it to your opponent, and put it into your hand. Shuffle your deck afterward. This power can't be used if Aerodactyl is affected by a Special Condition.",
+            "type": "Poké-Power"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Granite Head",
+            "cost": [
+              "Fire",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "During your opponent's next turn, any damage done to Aerodactyl by attacks is reduced by 10 (after applying Weakness and Resistance)."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "ex13",
+          "name": "Holon Phantoms",
+          "series": "EX",
+          "printedTotal": 110,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "HP",
+          "releaseDate": "2006/05/01",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex13/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex13/logo.png"
+          }
+        },
+        "number": "35",
+        "artist": "Mitsuhiro Arita",
+        "rarity": "Uncommon",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex13/35.png",
+          "large": "https://images.pokemontcg.io/ex13/35_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex13-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.12,
+              "mid": 4.99,
+              "high": 18.0,
+              "market": 5.36,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex13-35",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 4.63,
+            "lowPrice": 1.4,
+            "trendPrice": 3.91,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 29.75,
+            "reverseHoloLow": 15.0,
+            "reverseHoloTrend": 38.81,
+            "lowPriceExPlus": 2.2,
+            "avg1": 4.0,
+            "avg7": 4.92,
+            "avg30": 4.02,
+            "reverseHoloAvg1": 29.75,
+            "reverseHoloAvg7": 48.52,
+            "reverseHoloAvg30": 40.38
+          }
+        }
+      },
+      {
+        "id": "bw5-53",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Restored"
+        ],
+        "hp": "90",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Old Amber Aerodactyl",
+        "rules": [
+          "Put this card onto your Bench only with the effect of Old Amber Aerodactyl"
+        ],
+        "abilities": [
+          {
+            "name": "Ancient Scream",
+            "text": "Your Pokémon's attacks do 10 more damage to the Active Pokémon (before applying Weakness and Resistance).",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Wing Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "53",
+        "artist": "Naoyo Kimura",
+        "rarity": "Rare",
+        "flavorText": "A Pokémon that roamed the skies in the dinosaur era. Its teeth are like saw blades.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/53.png",
+          "large": "https://images.pokemontcg.io/bw5/53_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 3.0,
+              "mid": 3.0,
+              "high": 45.98,
+              "market": 3.19,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 12.99,
+              "mid": 12.99,
+              "high": 12.99,
+              "market": 4.65,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-53",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.51,
+            "lowPrice": 0.2,
+            "trendPrice": 1.9,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.7,
+            "reverseHoloTrend": 6.0,
+            "lowPriceExPlus": 0.4,
+            "avg1": 0.84,
+            "avg7": 1.39,
+            "avg30": 2.16,
+            "reverseHoloAvg1": 11.99,
+            "reverseHoloAvg7": 7.16,
+            "reverseHoloAvg30": 4.27
+          }
+        }
+      },
+      {
+        "id": "pl2-55",
+        "name": "Aerodactyl GL",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "SP"
+        ],
+        "level": "62",
+        "hp": "80",
+        "types": [
+          "Fighting"
+        ],
+        "attacks": [
+          {
+            "name": "Collect",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Draw 2 cards."
+          },
+          {
+            "name": "Primal Breath",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30",
+            "text": "Your opponent can't play any Pokémon from his or her hand to Evolve or to Level-Up the Defending Pokémon during his or her next turn."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "pl2",
+          "name": "Rising Rivals",
+          "series": "Platinum",
+          "printedTotal": 111,
+          "total": 120,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "RR",
+          "releaseDate": "2009/05/16",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/pl2/symbol.png",
+            "logo": "https://images.pokemontcg.io/pl2/logo.png"
+          }
+        },
+        "number": "55",
+        "artist": "Suwama Chiaki",
+        "rarity": "Common",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/pl2/55.png",
+          "large": "https://images.pokemontcg.io/pl2/55_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/pl2-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.55,
+              "high": 5.0,
+              "market": 0.61,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 4.05,
+              "mid": 7.33,
+              "high": 10.0,
+              "market": 7.81,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/pl2-55",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.18,
+            "lowPrice": 0.02,
+            "trendPrice": 0.19,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 3.38,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.83,
+            "lowPriceExPlus": 0.05,
+            "avg1": 0.19,
+            "avg7": 0.13,
+            "avg30": 0.17,
+            "reverseHoloAvg1": 1.49,
+            "reverseHoloAvg7": 3.04,
+            "reverseHoloAvg30": 2.49
+          }
+        }
+      },
+      {
+        "id": "xy10-76",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Restored"
+        ],
+        "hp": "120",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Old Amber Aerodactyl",
+        "rules": [
+          "Put this card onto your Bench only with the effect of Old Amber Aerodactyl"
+        ],
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": ""
+          },
+          {
+            "name": "Jet Draft",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "120",
+            "text": "Discard a Special Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "76",
+        "artist": "kawayoo",
+        "rarity": "Rare",
+        "flavorText": "This vicious Pokémon is said to have flown in ancient skies while shrieking high-pitched cries.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/76.png",
+          "large": "https://images.pokemontcg.io/xy10/76_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-76",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.11,
+              "mid": 0.47,
+              "high": 2.0,
+              "market": 0.46,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.55,
+              "mid": 0.99,
+              "high": 4.99,
+              "market": 1.09,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-76",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.76,
+            "lowPrice": 0.1,
+            "trendPrice": 0.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 2.13,
+            "reverseHoloLow": 0.2,
+            "reverseHoloTrend": 2.67,
+            "lowPriceExPlus": 0.1,
+            "avg1": 1.0,
+            "avg7": 0.64,
+            "avg30": 0.75,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 1.9,
+            "reverseHoloAvg30": 2.05
+          }
+        }
+      },
+      {
+        "id": "ex2-94",
+        "name": "Aerodactyl ex",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "ex"
+        ],
+        "hp": "100",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Mysterious Fossil",
+        "rules": [
+          "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Primal Lock",
+            "text": "As long as Aerodactyl ex is in play, your opponent can't play Pokémon Tool cards. Remove any Pokémon Tool cards attached to your opponent's Pokémon and put them into his or her discard pile.",
+            "type": "Poké-Body"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "10",
+            "text": "The Defending Pokémon is now Confused."
+          },
+          {
+            "name": "Wing Attack",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "60",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "ex2",
+          "name": "Sandstorm",
+          "series": "EX",
+          "printedTotal": 100,
+          "total": 100,
+          "legalities": {
+            "unlimited": "Legal"
+          },
+          "ptcgoCode": "SS",
+          "releaseDate": "2003/09/18",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+            "logo": "https://images.pokemontcg.io/ex2/logo.png"
+          }
+        },
+        "number": "94",
+        "artist": "Hikaru Koike",
+        "rarity": "Rare Holo EX",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/ex2/94.png",
+          "large": "https://images.pokemontcg.io/ex2/94_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/ex2-94",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 110.0,
+              "mid": 129.99,
+              "high": 145.49,
+              "market": 122.99,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/ex2-94",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 63.32,
+            "lowPrice": 4.99,
+            "trendPrice": 59.76,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 12.87,
+            "lowPriceExPlus": 36.0,
+            "avg1": 55.0,
+            "avg7": 64.43,
+            "avg30": 43.54,
+            "reverseHoloAvg1": 16.0,
+            "reverseHoloAvg7": 7.65,
+            "reverseHoloAvg30": 13.49
+          }
+        }
+      },
+      {
+        "id": "xyp-XY97",
+        "name": "Aerodactyl-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "EX"
+        ],
+        "hp": "170",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesTo": [
+          "M Aerodactyl-EX"
+        ],
+        "rules": [
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rock Smash",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "Flip a coin. If heads, this attack does 30 more damage."
+          },
+          {
+            "name": "Land Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "70",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY97",
+        "artist": "Ayaka Yoshida",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY97.png",
+          "large": "https://images.pokemontcg.io/xyp/XY97_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY97",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.5,
+              "mid": 4.01,
+              "high": 9.98,
+              "market": 5.72,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY97",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 7.87,
+            "lowPrice": 2.0,
+            "trendPrice": 8.55,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.9,
+            "lowPriceExPlus": 5.0,
+            "avg1": 9.99,
+            "avg7": 7.81,
+            "avg30": 8.09,
+            "reverseHoloAvg1": 6.98,
+            "reverseHoloAvg7": 5.43,
+            "reverseHoloAvg30": 4.45
+          }
+        }
+      },
+      {
+        "id": "xyp-XY98",
+        "name": "M Aerodactyl-EX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "MEGA",
+          "EX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Aerodactyl-EX",
+        "rules": [
+          "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+          "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Rock Drill Dive",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "110",
+            "text": "This attack does 10 damage to each Benched Pokémon (both yours and your opponent's). (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY98",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY98.png",
+          "large": "https://images.pokemontcg.io/xyp/XY98_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY98",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 13.99,
+              "mid": 17.01,
+              "high": 49.95,
+              "market": 25.07,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY98",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 24.99,
+            "lowPrice": 14.9,
+            "trendPrice": 28.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 11.96,
+            "lowPriceExPlus": 25.0,
+            "avg1": 29.99,
+            "avg7": 28.55,
+            "avg30": 20.68,
+            "reverseHoloAvg1": 19.0,
+            "reverseHoloAvg7": 13.27,
+            "reverseHoloAvg30": 9.66
+          }
+        }
+      },
+      {
+        "id": "xyp-XY99",
+        "name": "Aerodactyl Spirit Link",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Pokémon Tool"
+        ],
+        "rules": [
+          "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+          "Your turn does not end if the Pokémon this card is attached to becomes M Aerodactyl-EX.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xyp",
+          "name": "XY Black Star Promos",
+          "series": "XY",
+          "printedTotal": 211,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-XY",
+          "releaseDate": "2013/10/12",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xyp/symbol.png",
+            "logo": "https://images.pokemontcg.io/xyp/logo.png"
+          }
+        },
+        "number": "XY99",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xyp/XY99.png",
+          "large": "https://images.pokemontcg.io/xyp/XY99_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xyp-XY99",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.75,
+              "mid": 1.0,
+              "high": 25.0,
+              "market": 1.14,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xyp-XY99",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 6.32,
+            "lowPrice": 4.25,
+            "trendPrice": 4.32,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.0,
+            "lowPriceExPlus": 4.25,
+            "avg1": 4.4,
+            "avg7": 5.03,
+            "avg30": 3.57,
+            "reverseHoloAvg1": 2.0,
+            "reverseHoloAvg7": 2.0,
+            "reverseHoloAvg30": 2.0
+          }
+        }
+      },
+      {
+        "id": "bw5-97",
+        "name": "Old Amber Aerodactyl",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Item"
+        ],
+        "rules": [
+          "Look at the bottom 7 cards of your deck. You may reveal an Aerodactyl you find there and put it onto your Bench. Shuffle the other cards back into your deck.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "bw5",
+          "name": "Dark Explorers",
+          "series": "Black & White",
+          "printedTotal": 108,
+          "total": 111,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DEX",
+          "releaseDate": "2012/05/09",
+          "updatedAt": "2018/03/04 10:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+            "logo": "https://images.pokemontcg.io/bw5/logo.png"
+          }
+        },
+        "number": "97",
+        "artist": "Ryo Ueda",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/bw5/97.png",
+          "large": "https://images.pokemontcg.io/bw5/97_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/bw5-97",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.15,
+              "mid": 0.31,
+              "high": 2.28,
+              "market": 0.31,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.36,
+              "mid": 0.55,
+              "high": 1.76,
+              "market": 0.65,
+              "directLow": 0.49
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/bw5-97",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.29,
+            "lowPrice": 0.02,
+            "trendPrice": 0.28,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.2,
+            "reverseHoloLow": 0.15,
+            "reverseHoloTrend": 1.11,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.47,
+            "avg7": 0.29,
+            "avg30": 0.21,
+            "reverseHoloAvg1": 0.2,
+            "reverseHoloAvg7": 0.9,
+            "reverseHoloAvg30": 0.78
+          }
+        }
+      },
+      {
+        "id": "xy10-106",
+        "name": "Old Amber Aerodactyl",
+        "supertype": "Trainer",
+        "subtypes": [
+          "Item"
+        ],
+        "rules": [
+          "Look at the bottom 7 cards of your deck. You may reveal an Aerodactyl you find there and put it onto your Bench. Shuffle the other cards back into your deck.",
+          "You may play as many Item cards as you like during your turn (before your attack)."
+        ],
+        "set": {
+          "id": "xy10",
+          "name": "Fates Collide",
+          "series": "XY",
+          "printedTotal": 124,
+          "total": 129,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "FCO",
+          "releaseDate": "2016/05/02",
+          "updatedAt": "2018/09/03 11:49:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/xy10/symbol.png",
+            "logo": "https://images.pokemontcg.io/xy10/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "Toyste Beach",
+        "rarity": "Uncommon",
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/xy10/106.png",
+          "large": "https://images.pokemontcg.io/xy10/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/xy10-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.04,
+              "mid": 0.19,
+              "high": 1.49,
+              "market": 0.12,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.1,
+              "mid": 0.36,
+              "high": 2.4,
+              "market": 0.34,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/xy10-106",
+          "updatedAt": "2025/12/12",
+          "prices": {
+            "averageSellPrice": 0.11,
+            "lowPrice": 0.02,
+            "trendPrice": 0.09,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.55,
+            "reverseHoloLow": 0.1,
+            "reverseHoloTrend": 0.56,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.15,
+            "avg30": 0.13,
+            "reverseHoloAvg1": 0.99,
+            "reverseHoloAvg7": 0.6,
+            "reverseHoloAvg30": 0.84
+          }
+        }
+      },
+      {
+        "id": "sm11-106",
+        "name": "Aerodactyl-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Unidentified Fossil",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Primal Winds",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Basic Pokémon's attacks cost Colorless more.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Boulder Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Wild Dive-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Energy attached to your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "106",
+        "artist": "PLANETA Igarashi",
+        "rarity": "Rare Holo GX",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/106.png",
+          "large": "https://images.pokemontcg.io/sm11/106_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-106",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.85,
+              "mid": 2.72,
+              "high": 5.0,
+              "market": 2.67,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-106",
+          "updatedAt": "2025/12/07",
+          "prices": {
+            "averageSellPrice": 2.99,
+            "lowPrice": 0.5,
+            "trendPrice": 3.42,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 2.83,
+            "lowPriceExPlus": 1.0,
+            "avg1": 4.48,
+            "avg7": 3.64,
+            "avg30": 3.25,
+            "reverseHoloAvg1": 4.5,
+            "reverseHoloAvg7": 2.81,
+            "reverseHoloAvg30": 3.06
+          }
+        }
+      },
+      {
+        "id": "sm9-130",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Unidentified Fossil",
+        "attacks": [
+          {
+            "name": "Supersonic",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          },
+          {
+            "name": "Fossil Fangs",
+            "cost": [
+              "Colorless",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "90+",
+            "text": "If you don't have any Pokémon-GX or Pokémon-EX on your Bench, this attack does 90 more damage."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-20"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sm9",
+          "name": "Team Up",
+          "series": "Sun & Moon",
+          "printedTotal": 181,
+          "total": 198,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "TEU",
+          "releaseDate": "2019/02/01",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm9/logo.png"
+          }
+        },
+        "number": "130",
+        "artist": "hatachu",
+        "rarity": "Rare",
+        "flavorText": "Restored from DNA found in amber, this Pokémon exhibited ferocity that was greater than expected. Some casualties resulted.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm9/130.png",
+          "large": "https://images.pokemontcg.io/sm9/130_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm9-130",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.75,
+              "mid": 1.49,
+              "high": 4.99,
+              "market": 1.48,
+              "directLow": null
+            },
+            "normal": {
+              "low": 0.25,
+              "mid": 0.88,
+              "high": 7.0,
+              "market": 0.88,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm9-130",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 1.03,
+            "lowPrice": 0.03,
+            "trendPrice": 1.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.06,
+            "reverseHoloLow": 0.3,
+            "reverseHoloTrend": 1.04,
+            "lowPriceExPlus": 0.03,
+            "avg1": 0.8,
+            "avg7": 0.96,
+            "avg30": 0.99,
+            "reverseHoloAvg1": 1.0,
+            "reverseHoloAvg7": 0.96,
+            "reverseHoloAvg30": 1.39
+          }
+        }
+      },
+      {
+        "id": "sm11-224",
+        "name": "Aerodactyl-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Unidentified Fossil",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Primal Winds",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Basic Pokémon's attacks cost Colorless more.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Boulder Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Wild Dive-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Energy attached to your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "224",
+        "artist": "ConceptLab",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/224.png",
+          "large": "https://images.pokemontcg.io/sm11/224_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-224",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.4,
+              "mid": 6.6,
+              "high": 17.99,
+              "market": 6.32,
+              "directLow": 7.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-224",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 4.98,
+            "lowPrice": 1.39,
+            "trendPrice": 7.94,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.48,
+            "lowPriceExPlus": 4.9,
+            "avg1": 5.0,
+            "avg7": 7.21,
+            "avg30": 6.64,
+            "reverseHoloAvg1": 6.5,
+            "reverseHoloAvg7": 5.88,
+            "reverseHoloAvg30": 6.27
+          }
+        }
+      },
+      {
+        "id": "sm11-244",
+        "name": "Aerodactyl-GX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1",
+          "GX"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Unidentified Fossil",
+        "rules": [
+          "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Primal Winds",
+            "text": "As long as this Pokémon is your Active Pokémon, your opponent's Basic Pokémon's attacks cost Colorless more.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Boulder Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          },
+          {
+            "name": "Wild Dive-GX",
+            "cost": [
+              "Fighting"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "50×",
+            "text": "This attack does 50 damage times the amount of Energy attached to your opponent's Active Pokémon. (You can't use more than 1 GX attack in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "set": {
+          "id": "sm11",
+          "name": "Unified Minds",
+          "series": "Sun & Moon",
+          "printedTotal": 236,
+          "total": 260,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "UNM",
+          "releaseDate": "2019/08/02",
+          "updatedAt": "2021/09/01 05:37:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sm11/symbol.png",
+            "logo": "https://images.pokemontcg.io/sm11/logo.png"
+          }
+        },
+        "number": "244",
+        "artist": "ConceptLab",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "images": {
+          "small": "https://images.pokemontcg.io/sm11/244.png",
+          "large": "https://images.pokemontcg.io/sm11/244_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sm11-244",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 12.86,
+              "mid": 16.3,
+              "high": 37.4,
+              "market": 16.3,
+              "directLow": 15.29
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sm11-244",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 28.48,
+            "lowPrice": 4.9,
+            "trendPrice": 24.03,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.66,
+            "lowPriceExPlus": 8.0,
+            "avg1": 18.95,
+            "avg7": 28.48,
+            "avg30": 18.09,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 12.58,
+            "reverseHoloAvg30": 11.08
+          }
+        }
+      },
+      {
+        "id": "swsh11-92",
+        "name": "Aerodactyl V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Rock Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "92",
+        "artist": "N-DESIGN Inc.",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/92.png",
+          "large": "https://images.pokemontcg.io/swsh11/92_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-92",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.98,
+              "high": 50.0,
+              "market": 0.76,
+              "directLow": 0.83
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-92",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.77,
+            "lowPrice": 0.05,
+            "trendPrice": 0.67,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.1,
+            "avg1": 0.43,
+            "avg7": 0.62,
+            "avg30": 0.76,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-93",
+        "name": "Aerodactyl VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "260",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Aerodactyl V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Lost Dive",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "240",
+            "text": "Put the top 3 cards of your deck in the Lost Zone."
+          },
+          {
+            "name": "Ancient Star",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Until this Pokémon leaves play, it gains an Ability that has the effect \"Your opponent's Pokémon V in play, except any Aerodactyl VSTAR, have no Abilities.\" (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "93",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VSTAR",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/93.png",
+          "large": "https://images.pokemontcg.io/swsh11/93_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-93",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 1.3,
+              "high": 29.95,
+              "market": 0.91,
+              "directLow": 1.61
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-93",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.91,
+            "lowPrice": 0.25,
+            "trendPrice": 1.08,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 0.3,
+            "avg1": 0.89,
+            "avg7": 1.01,
+            "avg30": 0.96,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-179",
+        "name": "Aerodactyl V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Rock Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "179",
+        "artist": "N-DESIGN Inc.",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/179.png",
+          "large": "https://images.pokemontcg.io/swsh11/179_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-179",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.3,
+              "mid": 2.64,
+              "high": 14.99,
+              "market": 2.37,
+              "directLow": 1.73
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-179",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.79,
+            "lowPrice": 0.99,
+            "trendPrice": 2.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.7,
+            "avg1": 3.5,
+            "avg7": 2.5,
+            "avg30": 2.82,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-180",
+        "name": "Aerodactyl V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "210",
+        "types": [
+          "Fighting"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Bite",
+            "cost": [
+              "Fighting",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "40",
+            "text": ""
+          },
+          {
+            "name": "Rock Crush",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": "Discard an Energy from your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "180",
+        "artist": "Nurikabe",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/180.png",
+          "large": "https://images.pokemontcg.io/swsh11/180_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-180",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 120.0,
+              "mid": 159.99,
+              "high": 299.95,
+              "market": 152.92,
+              "directLow": 137.99
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-180",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 135.11,
+            "lowPrice": 70.0,
+            "trendPrice": 128.95,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 80.0,
+            "avg1": 185.0,
+            "avg7": 131.69,
+            "avg30": 134.6,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11-199",
+        "name": "Aerodactyl VSTAR",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VSTAR"
+        ],
+        "hp": "260",
+        "types": [
+          "Fighting"
+        ],
+        "evolvesFrom": "Aerodactyl V",
+        "rules": [
+          "VSTAR rule: When your Pokémon VSTAR is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Lost Dive",
+            "cost": [
+              "Fighting",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "240",
+            "text": "Put the top 3 cards of your deck in the Lost Zone."
+          },
+          {
+            "name": "Ancient Star",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "Until this Pokémon leaves play, it gains an Ability that has the effect \"Your opponent's Pokémon V in play, except any Aerodactyl VSTAR, have no Abilities.\" (You can't use more than 1 VSTAR Power in a game.)"
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Grass",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "199",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/199.png",
+          "large": "https://images.pokemontcg.io/swsh11/199_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-199",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 7.57,
+              "mid": 10.73,
+              "high": 30.0,
+              "market": 10.46,
+              "directLow": 10.79
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-199",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 7.96,
+            "lowPrice": 3.87,
+            "trendPrice": 10.37,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.5,
+            "avg1": 8.0,
+            "avg7": 10.31,
+            "avg30": 9.02,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv3pt5-142",
+        "name": "Aerodactyl",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 1"
+        ],
+        "hp": "130",
+        "types": [
+          "Colorless"
+        ],
+        "evolvesFrom": "Antique Old Amber",
+        "attacks": [
+          {
+            "name": "Glide",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30",
+            "text": ""
+          },
+          {
+            "name": "Devolution Ray",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "If your opponent's Active Pokémon is an evolved Pokémon, devolve it by putting the highest Stage Evolution card on it into your opponent's hand."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Lightning",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "set": {
+          "id": "sv3pt5",
+          "name": "151",
+          "series": "Scarlet & Violet",
+          "printedTotal": 165,
+          "total": 207,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/09/22",
+          "updatedAt": "2023/09/22 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv3pt5/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv3pt5/logo.png"
+          }
+        },
+        "number": "142",
+        "artist": "Shinji Kanda",
+        "rarity": "Rare",
+        "flavorText": "Aerodactyl's sawlike fangs can shred skin to tatters—even the skin of Steel-type Pokémon.",
+        "nationalPokedexNumbers": [
+          142
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv3pt5/142.png",
+          "large": "https://images.pokemontcg.io/sv3pt5/142_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv3pt5-142",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 25.0,
+              "market": 0.23,
+              "directLow": 0.23
+            },
+            "reverseHolofoil": {
+              "low": 0.4,
+              "mid": 0.71,
+              "high": 10.0,
+              "market": 0.63,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv3pt5-142",
+          "updatedAt": "2025/11/21",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 1.14,
+            "reverseHoloLow": 0.05,
+            "reverseHoloTrend": 1.39,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.18,
+            "avg7": 0.2,
+            "avg30": 0.19,
+            "reverseHoloAvg1": 1.35,
+            "reverseHoloAvg7": 1.34,
+            "reverseHoloAvg30": 1.18
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 27,
+    "totalCount": 27
+  }
+}

@@ -1,0 +1,1652 @@
+{
+  "endpoint": "https://api.pokemontcg.io/v2/cards",
+  "params": {
+    "q": "name:orbeetle"
+  },
+  "cache_key": "df9b62ca424c5346149da178910ebdc3",
+  "cached_at": 1765913728.284733,
+  "response": {
+    "data": [
+      {
+        "id": "swsh1-19",
+        "name": "Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dottler",
+        "abilities": [
+          {
+            "name": "Bug's Radar",
+            "text": "Once during your turn, you may look at the top 3 cards of your opponent's deck and put them back in any order.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brainwave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each Psychic Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh1",
+          "name": "Sword & Shield",
+          "series": "Sword & Shield",
+          "printedTotal": 202,
+          "total": 216,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SSH",
+          "releaseDate": "2020/02/07",
+          "updatedAt": "2020/08/14 09:35:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh1/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh1/logo.png"
+          }
+        },
+        "number": "19",
+        "artist": "Hitoshi Ariga",
+        "rarity": "Rare",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh1/19.png",
+          "large": "https://images.pokemontcg.io/swsh1/19_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh1-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.06,
+              "mid": 0.23,
+              "high": 2.0,
+              "market": 0.17,
+              "directLow": null
+            },
+            "reverseHolofoil": {
+              "low": 0.2,
+              "mid": 0.36,
+              "high": 2.0,
+              "market": 0.33,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh1-19",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.28,
+            "lowPrice": 0.02,
+            "trendPrice": 0.31,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.63,
+            "reverseHoloLow": 0.25,
+            "reverseHoloTrend": 0.49,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.23,
+            "avg7": 0.33,
+            "avg30": 0.29,
+            "reverseHoloAvg1": 0.5,
+            "reverseHoloAvg7": 0.48,
+            "reverseHoloAvg30": 0.52
+          }
+        }
+      },
+      {
+        "id": "swsh4-20",
+        "name": "Orbeetle V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Mysterious Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/20.png",
+          "large": "https://images.pokemontcg.io/swsh4/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.25,
+              "mid": 0.99,
+              "high": 25.7,
+              "market": 0.72,
+              "directLow": 0.43
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.7,
+            "lowPrice": 0.2,
+            "trendPrice": 0.69,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 1.21,
+            "lowPriceExPlus": 0.2,
+            "avg1": 0.75,
+            "avg7": 0.63,
+            "avg30": 0.71,
+            "reverseHoloAvg1": 1.29,
+            "reverseHoloAvg7": 1.24,
+            "reverseHoloAvg30": 1.36
+          }
+        }
+      },
+      {
+        "id": "swsh4-21",
+        "name": "Orbeetle VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Orbeetle V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eerie Beam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may put 1 damage counter on each of your opponent's Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "G-Max Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 50 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "21",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/21.png",
+          "large": "https://images.pokemontcg.io/swsh4/21_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.64,
+              "mid": 1.89,
+              "high": 9.99,
+              "market": 1.5,
+              "directLow": 1.36
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-21",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.29,
+            "lowPrice": 0.79,
+            "trendPrice": 1.53,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 3.39,
+            "lowPriceExPlus": 0.85,
+            "avg1": 1.41,
+            "avg7": 1.4,
+            "avg30": 1.31,
+            "reverseHoloAvg1": 3.65,
+            "reverseHoloAvg7": 3.69,
+            "reverseHoloAvg30": 3.99
+          }
+        }
+      },
+      {
+        "id": "swsh4-166",
+        "name": "Orbeetle V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Mysterious Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "166",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Ultra",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/166.png",
+          "large": "https://images.pokemontcg.io/swsh4/166_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-166",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.0,
+              "mid": 1.88,
+              "high": 18.88,
+              "market": 1.54,
+              "directLow": 2.22
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-166",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 2.68,
+            "lowPrice": 1.49,
+            "trendPrice": 2.81,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 14.5,
+            "lowPriceExPlus": 1.49,
+            "avg1": 1.6,
+            "avg7": 2.23,
+            "avg30": 2.77,
+            "reverseHoloAvg1": 15.0,
+            "reverseHoloAvg7": 14.37,
+            "reverseHoloAvg30": 12.94
+          }
+        }
+      },
+      {
+        "id": "swsh4-186",
+        "name": "Orbeetle VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Orbeetle V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eerie Beam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may put 1 damage counter on each of your opponent's Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "G-Max Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 50 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh4",
+          "name": "Vivid Voltage",
+          "series": "Sword & Shield",
+          "printedTotal": 185,
+          "total": 203,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "VIV",
+          "releaseDate": "2020/11/13",
+          "updatedAt": "2020/11/13 16:20:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh4/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh4/logo.png"
+          }
+        },
+        "number": "186",
+        "artist": "5ban Graphics",
+        "rarity": "Rare Rainbow",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh4/186.png",
+          "large": "https://images.pokemontcg.io/swsh4/186_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh4-186",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 4.48,
+              "mid": 7.62,
+              "high": 29.38,
+              "market": 7.07,
+              "directLow": 6.38
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh4-186",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 7.29,
+            "lowPrice": 4.0,
+            "trendPrice": 6.44,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 25.08,
+            "lowPriceExPlus": 4.2,
+            "avg1": 4.6,
+            "avg7": 5.73,
+            "avg30": 6.31,
+            "reverseHoloAvg1": 30.0,
+            "reverseHoloAvg7": 23.56,
+            "reverseHoloAvg30": 21.68
+          }
+        }
+      },
+      {
+        "id": "swsh45sv-SV009",
+        "name": "Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dottler",
+        "abilities": [
+          {
+            "name": "Bug's Radar",
+            "text": "Once during your turn, you may look at the top 3 cards of your opponent's deck and put them back in any order.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Brainwave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "90+",
+            "text": "This attack does 30 more damage for each Psychic Energy attached to this Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh45sv",
+          "name": "Shining Fates Shiny Vault",
+          "series": "Sword & Shield",
+          "printedTotal": 122,
+          "total": 122,
+          "legalities": {
+            "unlimited": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "SHF",
+          "releaseDate": "2021/02/19",
+          "updatedAt": "2021/02/24 16:17:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh45sv/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh45sv/logo.png"
+          }
+        },
+        "number": "SV009",
+        "artist": "SATOSHI NAKAI",
+        "rarity": "Rare Shiny",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh45sv/SV009.png",
+          "large": "https://images.pokemontcg.io/swsh45sv/SV009_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh45sv-SV009",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 1.23,
+              "mid": 1.71,
+              "high": 9.99,
+              "market": 1.52,
+              "directLow": 1.23
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh45sv-SV009",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 1.97,
+            "lowPrice": 0.49,
+            "trendPrice": 1.93,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 6.78,
+            "lowPriceExPlus": 1.3,
+            "avg1": 1.78,
+            "avg7": 1.78,
+            "avg30": 1.89,
+            "reverseHoloAvg1": 6.23,
+            "reverseHoloAvg7": 7.23,
+            "reverseHoloAvg30": 7.97
+          }
+        }
+      },
+      {
+        "id": "swshp-SWSH078",
+        "name": "Orbeetle V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Mysterious Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swshp",
+          "name": "SWSH Black Star Promos",
+          "series": "Sword & Shield",
+          "printedTotal": 307,
+          "total": 304,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "PR-SW",
+          "releaseDate": "2019/11/15",
+          "updatedAt": "2022/07/23 20:15:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+            "logo": "https://images.pokemontcg.io/swshp/logo.png"
+          }
+        },
+        "number": "SWSH078",
+        "artist": "5ban Graphics",
+        "rarity": "Promo",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swshp/SWSH078.png",
+          "large": "https://images.pokemontcg.io/swshp/SWSH078_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH078",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.2,
+              "mid": 0.99,
+              "high": 4.97,
+              "market": 0.75,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH078",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.64,
+            "lowPrice": 0.1,
+            "trendPrice": 0.58,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.7,
+            "lowPriceExPlus": 0.39,
+            "avg1": 0.5,
+            "avg7": 0.66,
+            "avg30": 0.71,
+            "reverseHoloAvg1": 1.19,
+            "reverseHoloAvg7": 0.94,
+            "reverseHoloAvg30": 1.11
+          }
+        }
+      },
+      {
+        "id": "swsh5-65",
+        "name": "Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Dottler",
+        "attacks": [
+          {
+            "name": "Evomancy",
+            "cost": [
+              "Colorless"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "",
+            "text": "For each Energy attached to this Pokémon, search your deck for a Stage 2 Pokémon, except Orbeetle, and put it onto your Bench. Then, shuffle your deck."
+          },
+          {
+            "name": "Zen Headbutt",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "120",
+            "text": ""
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh5",
+          "name": "Battle Styles",
+          "series": "Sword & Shield",
+          "printedTotal": 163,
+          "total": 183,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "BST",
+          "releaseDate": "2021/03/19",
+          "updatedAt": "2021/03/19 15:12:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh5/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh5/logo.png"
+          }
+        },
+        "number": "65",
+        "artist": "Mizue",
+        "rarity": "Rare Holo",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "E",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh5/65.png",
+          "large": "https://images.pokemontcg.io/swsh5/65_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh5-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 4.99,
+              "market": 0.21,
+              "directLow": 0.08
+            },
+            "reverseHolofoil": {
+              "low": 0.07,
+              "mid": 0.25,
+              "high": 5.08,
+              "market": 0.19,
+              "directLow": 0.19
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh5-65",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.27,
+            "lowPrice": 0.02,
+            "trendPrice": 0.2,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.27,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.31,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.09,
+            "avg7": 0.23,
+            "avg30": 0.24,
+            "reverseHoloAvg1": 0.4,
+            "reverseHoloAvg7": 0.32,
+            "reverseHoloAvg30": 0.26
+          }
+        }
+      },
+      {
+        "id": "swsh11-20",
+        "name": "Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "110",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dottler",
+        "abilities": [
+          {
+            "name": "Jamming Attachment",
+            "text": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may attach up to 3 Energy cards from your opponent's discard pile to your opponent's Pokémon in any way you like.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Mysterious Wave",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "30+",
+            "text": "This attack does 50 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11",
+          "name": "Lost Origin",
+          "series": "Sword & Shield",
+          "printedTotal": 196,
+          "total": 217,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11/logo.png"
+          }
+        },
+        "number": "20",
+        "artist": "yuu",
+        "rarity": "Rare Holo",
+        "flavorText": "It's famous for its high level of intelligence, and the large size of its brain is proof that it also possesses immense psychic power.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "F",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11/20.png",
+          "large": "https://images.pokemontcg.io/swsh11/20_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.25,
+              "high": 2.95,
+              "market": 0.2,
+              "directLow": null
+            },
+            "holofoil": {
+              "low": 0.05,
+              "mid": 0.2,
+              "high": 5.0,
+              "market": 0.19,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11-20",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.19,
+            "lowPrice": 0.02,
+            "trendPrice": 0.24,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.28,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.28,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.15,
+            "avg7": 0.2,
+            "avg30": 0.2,
+            "reverseHoloAvg1": 0.29,
+            "reverseHoloAvg7": 0.24,
+            "reverseHoloAvg30": 0.22
+          }
+        }
+      },
+      {
+        "id": "swsh11tg-TG12",
+        "name": "Orbeetle V",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Basic",
+          "V"
+        ],
+        "hp": "180",
+        "types": [
+          "Grass"
+        ],
+        "rules": [
+          "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+        ],
+        "attacks": [
+          {
+            "name": "Strafe",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "20",
+            "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          },
+          {
+            "name": "Mysterious Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 30 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11tg",
+          "name": "Lost Origin Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11tg/logo.png"
+          }
+        },
+        "number": "TG12",
+        "artist": "Nisota Niso",
+        "rarity": "Rare Holo V",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11tg/TG12.png",
+          "large": "https://images.pokemontcg.io/swsh11tg/TG12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11tg-TG12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.99,
+              "mid": 4.1,
+              "high": 15.0,
+              "market": 3.88,
+              "directLow": 3.85
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11tg-TG12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 5.69,
+            "lowPrice": 1.9,
+            "trendPrice": 5.49,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 1.9,
+            "avg1": 4.87,
+            "avg7": 4.65,
+            "avg30": 5.59,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "swsh11tg-TG13",
+        "name": "Orbeetle VMAX",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "VMAX"
+        ],
+        "hp": "310",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Orbeetle V",
+        "rules": [
+          "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+        ],
+        "abilities": [
+          {
+            "name": "Eerie Beam",
+            "text": "Once during your turn, if this Pokémon is in the Active Spot, you may put 1 damage counter on each of your opponent's Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "G-Max Wave",
+            "cost": [
+              "Grass",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "50+",
+            "text": "This attack does 50 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "swsh11tg",
+          "name": "Lost Origin Trainer Gallery",
+          "series": "Sword & Shield",
+          "printedTotal": 30,
+          "total": 30,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "LOR",
+          "releaseDate": "2022/09/09",
+          "updatedAt": "2022/09/09 13:45:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/swsh11tg/symbol.png",
+            "logo": "https://images.pokemontcg.io/swsh11tg/logo.png"
+          }
+        },
+        "number": "TG13",
+        "artist": "Teeziro",
+        "rarity": "Rare Holo VMAX",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "D",
+        "images": {
+          "small": "https://images.pokemontcg.io/swsh11tg/TG13.png",
+          "large": "https://images.pokemontcg.io/swsh11tg/TG13_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/swsh11tg-TG13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 6.48,
+              "mid": 8.52,
+              "high": 24.99,
+              "market": 8.31,
+              "directLow": 9.24
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/swsh11tg-TG13",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 6.29,
+            "lowPrice": 4.0,
+            "trendPrice": 6.01,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 4.0,
+            "avg1": 8.0,
+            "avg7": 6.72,
+            "avg30": 6.47,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      },
+      {
+        "id": "sv4-12",
+        "name": "Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Grass"
+        ],
+        "evolvesFrom": "Dottler",
+        "attacks": [
+          {
+            "name": "Satellite Beam",
+            "cost": [
+              "Grass"
+            ],
+            "convertedEnergyCost": 1,
+            "damage": "30×",
+            "text": "This attack does 30 damage for each Energy card in your opponent's discard pile."
+          },
+          {
+            "name": "Brain Shake",
+            "cost": [
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 2,
+            "damage": "100",
+            "text": "Your opponent's Active Pokémon is now Confused."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Fire",
+            "value": "×2"
+          }
+        ],
+        "retreatCost": [
+          "Colorless"
+        ],
+        "convertedRetreatCost": 1,
+        "set": {
+          "id": "sv4",
+          "name": "Paradox Rift",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 266,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "releaseDate": "2023/11/03",
+          "updatedAt": "2023/11/03 15:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv4/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv4/logo.png"
+          }
+        },
+        "number": "12",
+        "artist": "Oku",
+        "rarity": "Uncommon",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "G",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv4/12.png",
+          "large": "https://images.pokemontcg.io/sv4/12_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv4-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "reverseHolofoil": {
+              "low": 0.05,
+              "mid": 0.18,
+              "high": 1.53,
+              "market": 0.11,
+              "directLow": 0.1
+            },
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.08,
+              "directLow": 0.03
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv4-12",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "averageSellPrice": 0.05,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.17,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.15,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.05,
+            "avg7": 0.03,
+            "avg30": 0.05,
+            "reverseHoloAvg1": 0.09,
+            "reverseHoloAvg7": 0.15,
+            "reverseHoloAvg30": 0.16
+          }
+        }
+      },
+      {
+        "id": "sv10-89",
+        "name": "Team Rocket's Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Team Rocket's Dottler",
+        "abilities": [
+          {
+            "name": "Rocket Brain",
+            "text": "As often as you like during your turn, you may move 1 damage counter from 1 of your Team Rocket's Pokémon to another of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "This attack does 40 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "89",
+        "artist": "Shin Nagasawa",
+        "rarity": "Uncommon",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/89.png",
+          "large": "https://images.pokemontcg.io/sv10/89_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-89",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "normal": {
+              "low": 0.01,
+              "mid": 0.1,
+              "high": 20.0,
+              "market": 0.04,
+              "directLow": 0.02
+            },
+            "reverseHolofoil": {
+              "low": 0.04,
+              "mid": 0.25,
+              "high": 10.48,
+              "market": 0.22,
+              "directLow": 0.2
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-89",
+          "updatedAt": "2025/12/13",
+          "prices": {
+            "averageSellPrice": 0.03,
+            "lowPrice": 0.02,
+            "trendPrice": 0.02,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.19,
+            "reverseHoloLow": 0.02,
+            "reverseHoloTrend": 0.17,
+            "lowPriceExPlus": 0.02,
+            "avg1": 0.02,
+            "avg7": 0.02,
+            "avg30": 0.03,
+            "reverseHoloAvg1": 0.22,
+            "reverseHoloAvg7": 0.21,
+            "reverseHoloAvg30": 0.2
+          }
+        }
+      },
+      {
+        "id": "sv10-198",
+        "name": "Team Rocket's Orbeetle",
+        "supertype": "Pokémon",
+        "subtypes": [
+          "Stage 2"
+        ],
+        "hp": "130",
+        "types": [
+          "Psychic"
+        ],
+        "evolvesFrom": "Team Rocket's Dottler",
+        "abilities": [
+          {
+            "name": "Rocket Brain",
+            "text": "As often as you like during your turn, you may move 1 damage counter from 1 of your Team Rocket's Pokémon to another of your Pokémon.",
+            "type": "Ability"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Psychic",
+            "cost": [
+              "Psychic",
+              "Colorless",
+              "Colorless"
+            ],
+            "convertedEnergyCost": 3,
+            "damage": "40+",
+            "text": "This attack does 40 more damage for each Energy attached to your opponent's Active Pokémon."
+          }
+        ],
+        "weaknesses": [
+          {
+            "type": "Darkness",
+            "value": "×2"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "Fighting",
+            "value": "-30"
+          }
+        ],
+        "retreatCost": [
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedRetreatCost": 2,
+        "set": {
+          "id": "sv10",
+          "name": "Destined Rivals",
+          "series": "Scarlet & Violet",
+          "printedTotal": 182,
+          "total": 244,
+          "legalities": {
+            "unlimited": "Legal",
+            "standard": "Legal",
+            "expanded": "Legal"
+          },
+          "ptcgoCode": "DRI",
+          "releaseDate": "2025/05/30",
+          "updatedAt": "2025/05/29 22:00:00",
+          "images": {
+            "symbol": "https://images.pokemontcg.io/sv10/symbol.png",
+            "logo": "https://images.pokemontcg.io/sv10/logo.png"
+          }
+        },
+        "number": "198",
+        "artist": "HYOGONOSUKE",
+        "rarity": "Illustration Rare",
+        "flavorText": "It emits psychic energy to observe and study what's around it—and what's around it can include things over six miles away.",
+        "nationalPokedexNumbers": [
+          826
+        ],
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "regulationMark": "I",
+        "images": {
+          "small": "https://images.pokemontcg.io/sv10/198.png",
+          "large": "https://images.pokemontcg.io/sv10/198_hires.png"
+        },
+        "tcgplayer": {
+          "url": "https://prices.pokemontcg.io/tcgplayer/sv10-198",
+          "updatedAt": "2025/12/16",
+          "prices": {
+            "holofoil": {
+              "low": 2.0,
+              "mid": 3.52,
+              "high": 9999.0,
+              "market": 2.57,
+              "directLow": null
+            }
+          }
+        },
+        "cardmarket": {
+          "url": "https://prices.pokemontcg.io/cardmarket/sv10-198",
+          "updatedAt": "2025/11/18",
+          "prices": {
+            "averageSellPrice": 3.99,
+            "lowPrice": 2.15,
+            "trendPrice": 4.06,
+            "germanProLow": 0.0,
+            "suggestedPrice": 0.0,
+            "reverseHoloSell": 0.0,
+            "reverseHoloLow": 0.0,
+            "reverseHoloTrend": 0.0,
+            "lowPriceExPlus": 2.15,
+            "avg1": 4.36,
+            "avg7": 4.11,
+            "avg30": 4.0,
+            "reverseHoloAvg1": 0.0,
+            "reverseHoloAvg7": 0.0,
+            "reverseHoloAvg30": 0.0
+          }
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 250,
+    "count": 14,
+    "totalCount": 14
+  }
+}
