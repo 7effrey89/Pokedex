@@ -249,6 +249,16 @@ TOOL_DEFINITIONS = [
         "handler_type": "frontend"
     },
     {
+        "name": "show_my_collection",
+        "description": "Navigate to the TCG Card Database and open the My Collection view that shows the cards saved locally in this browser. Use when the user asks to see owned cards, saved cards, or their collection.",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        },
+        "handler_type": "frontend"
+    },
+    {
         "name": "compare_pokemon",
         "description": "Navigate to the first Pokemon mentioned, scroll down to the Compare Pokemon section, and compare it against the second Pokemon mentioned. Use when the user says 'compare Pikachu with Charizard', 'Pikachu vs Bulbasaur', 'show VS mode', or asks to compare stats, types, weaknesses, abilities, height, or weight. If the user mentions two Pokemon, set pokemon_name to the first Pokemon and compare_pokemon_name to the second Pokemon.",
         "parameters": {
@@ -439,6 +449,7 @@ Guidelines:
 - When users say "go forward", "next page", or "forward", use navigate_forward
 - When users want to go home or see all Pokemon, use show_pokemon_index
 - When users want to browse TCG sets/expansions, use show_tcg_database
+- When users want to see their owned cards or saved collection, use show_my_collection
 - When users want to compare Pokemon or open VS mode, use compare_pokemon. If they mention two Pokemon, pass the first mentioned Pokemon as pokemon_name and the second mentioned Pokemon as compare_pokemon_name; the app will navigate to the first Pokemon, scroll to Compare Pokemon, and start the comparison against the second.
 - When users want to filter Pokemon by type, use filter_pokemon_by_type
 - When users want to filter by generation, use filter_pokemon_by_generation

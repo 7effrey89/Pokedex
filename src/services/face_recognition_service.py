@@ -28,7 +28,9 @@ class FaceRecognitionService:
         Args:
             profiles_dir: Directory containing profile pictures (default: profiles_pic)
         """
-        self.profiles_dir = Path(profiles_dir)
+        from src.config import get_storage_paths
+        self.profiles_dir = get_storage_paths().profile_images
+        self.known_face_records: List[Dict[str, Any]] = []
         self.known_face_encodings: List[np.ndarray] = []
         self.known_face_names: List[str] = []
         self.last_identified_user: Optional[str] = None
@@ -37,68 +39,71 @@ class FaceRecognitionService:
         self.tolerance = 0.6  # Lower is more strict (0.6 is default)
         self.model = "hog"  # "hog" is faster, "cnn" is more accurate but requires GPU
 
-        # Load known faces from profiles directory
+        # Load known faces from database and profiles directory
         self._load_known_faces()
 
     def _load_known_faces(self):
         """
-        Load and encode all face images from the profiles_pic directory.
-        Filename (without extension) is used as the person's name.
+        Load known faces from SQLite user account members and standalone profiles directory.
         """
-        if not self.profiles_dir.exists():
-            logger.warning(f"Profiles directory '{self.profiles_dir}' does not exist. Creating it.")
-            self.profiles_dir.mkdir(parents=True, exist_ok=True)
-            return
+        self.known_face_records = []
+        self.known_face_encodings = []
+        self.known_face_names = []
 
-        supported_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp'}
-        loaded_count = 0
+        # 1. Load from User Account Database
+        try:
+            from src.services.user_account_service import get_user_account_service
+            account_service = get_user_account_service()
+            db_records = account_service.get_known_face_encodings()
+            for rec in db_records:
+                self.known_face_records.append(rec)
+                self.known_face_encodings.append(rec["encoding"])
+                self.known_face_names.append(rec["name"])
+            logger.info("Loaded %d face encodings from SQLite account members", len(db_records))
+        except Exception as exc:
+            logger.warning("Could not load face encodings from account members: %s", exc)
 
-        for image_path in self.profiles_dir.iterdir():
-            if image_path.suffix.lower() not in supported_extensions:
-                continue
+        # 2. Legacy filesystem fallback from profiles directory
+        if self.profiles_dir.exists():
+            supported_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp'}
+            existing_names = set(self.known_face_names)
 
-            try:
-                # Load image
-                image = face_recognition.load_image_file(str(image_path))
-
-                # Get face encodings
-                face_encodings = face_recognition.face_encodings(image, model=self.model)
-
-                if len(face_encodings) == 0:
-                    logger.warning(f"No face detected in {image_path.name}")
+            for image_path in self.profiles_dir.iterdir():
+                if image_path.suffix.lower() not in supported_extensions:
+                    continue
+                person_name = image_path.stem
+                if person_name.startswith("user-") or person_name in existing_names:
                     continue
 
-                if len(face_encodings) > 1:
-                    logger.warning(f"Multiple faces detected in {image_path.name}, using the first one")
+                try:
+                    image = face_recognition.load_image_file(str(image_path))
+                    face_encodings = face_recognition.face_encodings(image, model=self.model)
+                    if len(face_encodings) > 0:
+                        self.known_face_records.append({
+                            "member_id": None,
+                            "user_id": None,
+                            "name": person_name,
+                            "avatar_path": str(image_path),
+                            "encoding": face_encodings[0],
+                        })
+                        self.known_face_encodings.append(face_encodings[0])
+                        self.known_face_names.append(person_name)
+                        existing_names.add(person_name)
+                except Exception as e:
+                    logger.error(f"Error loading legacy profile {image_path.name}: {e}")
 
-                # Store encoding and name (filename without extension)
-                self.known_face_encodings.append(face_encodings[0])
-                person_name = image_path.stem  # Filename without extension
-                self.known_face_names.append(person_name)
-                loaded_count += 1
+        logger.info(f"Total {len(self.known_face_encodings)} face encodings active in service")
 
-                logger.info(f"Loaded face encoding for: {person_name}")
-
-            except Exception as e:
-                logger.error(f"Error loading {image_path.name}: {e}")
-
-        logger.info(f"Loaded {loaded_count} face encodings from {self.profiles_dir}")
-
-    def identify_face_from_base64(self, base64_image: str) -> Optional[Dict[str, any]]:
+    def identify_face_from_base64(self, base64_image: str, user_id: Optional[int] = None) -> Optional[Dict[str, any]]:
         """
         Identify a person from a base64-encoded image
         
         Args:
             base64_image: Base64-encoded image string (with or without data URI prefix)
+            user_id: Optional user account ID to scope member identification to
         
         Returns:
-            Dict with identification result:
-            {
-                "name": "person_name" or None,
-                "confidence": float (0-1),
-                "is_new_user": bool,
-                "greeting_message": str or None
-            }
+            Dict with identification result
         """
         try:
             # Remove data URI prefix if present
@@ -112,31 +117,35 @@ class FaceRecognitionService:
             pil_image = Image.open(io.BytesIO(image_bytes))
             image_array = np.array(pil_image)
 
-            return self.identify_face_from_array(image_array)
+            return self.identify_face_from_array(image_array, user_id=user_id)
 
         except Exception as e:
             logger.error(f"Error identifying face from base64: {e}")
             return None
 
-    def identify_face_from_array(self, image_array: np.ndarray) -> Optional[Dict[str, any]]:
+    def identify_face_from_array(self, image_array: np.ndarray, user_id: Optional[int] = None) -> Optional[Dict[str, any]]:
         """
-        Identify a person from a numpy array image
-        
-        Args:
-            image_array: Numpy array representing an image (RGB format)
-        
-        Returns:
-            Dict with identification result or None if no face detected
+        Identify a person from a numpy array image, optionally scoped to an account's members.
         """
-        if len(self.known_face_encodings) == 0:
-            logger.warning("No known faces loaded. Cannot identify anyone.")
+        # Determine which encodings to compare against (scoped vs all)
+        target_records = self.known_face_records
+        if user_id is not None:
+            user_records = [r for r in self.known_face_records if r.get("user_id") == user_id]
+            if user_records:
+                target_records = user_records
+
+        if len(target_records) == 0:
+            logger.warning("No face profiles loaded for matching.")
             return {
                 "name": None,
                 "confidence": 0.0,
                 "is_new_user": False,
                 "greeting_message": None,
-                "error": "No profile pictures loaded. Please add photos to profiles_pic directory."
+                "error": "No member face profiles loaded. Add member photos in your Account menu."
             }
+
+        target_encodings = [r["encoding"] for r in target_records]
+        target_names = [r["name"] for r in target_records]
 
         try:
             # Detect faces in the captured image
@@ -176,7 +185,7 @@ class FaceRecognitionService:
 
             # Compare against known faces
             face_distances = face_recognition.face_distance(
-                self.known_face_encodings, 
+                target_encodings, 
                 captured_encoding
             )
 
@@ -186,7 +195,8 @@ class FaceRecognitionService:
 
             # Check if the match is within tolerance
             if best_distance <= self.tolerance:
-                identified_name = self.known_face_names[best_match_index]
+                matched_record = target_records[best_match_index]
+                identified_name = target_names[best_match_index]
                 confidence = 1.0 - best_distance  # Convert distance to confidence score
 
                 # Check if this is a new user (different from last identified)
@@ -203,6 +213,8 @@ class FaceRecognitionService:
 
                 return {
                     "name": identified_name,
+                    "member_id": matched_record.get("member_id"),
+                    "user_id": matched_record.get("user_id"),
                     "confidence": float(confidence),
                     "is_new_user": is_new_user,
                     "greeting_message": greeting_message
@@ -215,7 +227,7 @@ class FaceRecognitionService:
                     "confidence": 0.0,
                     "is_new_user": False,
                     "greeting_message": None,
-                    "error": "Face detected but not recognized. Please add your photo to profiles_pic."
+                    "error": "Face detected but not recognized in your account members."
                 }
 
         except Exception as e:

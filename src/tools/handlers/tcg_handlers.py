@@ -13,6 +13,7 @@ import os
 from flask import g
 
 from src.api import pokemon_tcg_api
+from src.db.tcg_repository import SqliteTcgRepository
 from src.tools.tool_manager import tool_manager
 from src.services.cache_service import get_cache_service
 
@@ -21,6 +22,7 @@ logger = logging.getLogger(__name__)
 # Instantiate API client
 default_tcg_api_client = pokemon_tcg_api.PokemonTCGTools()
 cache_service = get_cache_service()
+sqlite_tcg_repository = SqliteTcgRepository()
 
 # Get page size from environment or use default
 TCG_PAGE_SIZE = int(os.getenv('TCG_PAGE_SIZE', '250'))
@@ -288,6 +290,9 @@ def handle_search_cards_by_set(
     Returns:
         Dictionary with cards array and total_count
     """
+    if cache_service.get_data_source_mode() == "sqlite":
+        return sqlite_tcg_repository.get_cards_by_set(set_id, slim=slim, limit=limit)
+
     cache_key_params = {"set_id": set_id}
     if not force_refresh:
         cached_response, cache_status = cache_service.get_with_stale("search_cards_by_set", cache_key_params)
@@ -363,6 +368,9 @@ def handle_get_card_details(card_id: str) -> Dict[str, Any]:
     Returns:
         Dict containing formatted card data suitable for the detail view
     """
+    if cache_service.get_data_source_mode() == "sqlite":
+        return sqlite_tcg_repository.get_card(card_id)
+
     cache_key_params = {"card_id": card_id}
     cached_response, cache_status = cache_service.get_with_stale("get_card_details", cache_key_params)
     if cached_response:
@@ -373,6 +381,20 @@ def handle_get_card_details(card_id: str) -> Dict[str, Any]:
         else:
             logger.info(f"🎯 Returning cached card details for: {card_id}")
         return cached_response
+
+    if "-" in card_id:
+        set_id = card_id.rsplit("-", 1)[0]
+        cached_set, set_cache_status = cache_service.get_with_stale("search_cards_by_set", {"set_id": set_id})
+        if isinstance(cached_set, dict):
+            for card in cached_set.get("cards", []):
+                if isinstance(card, dict) and card.get("id") == card_id:
+                    logger.info(
+                        "🎯 Returning %s set-cached card details for: %s",
+                        "STALE" if set_cache_status == "stale" else "cached",
+                        card_id,
+                    )
+                    cache_service.set("get_card_details", cache_key_params, card)
+                    return card
 
     logger.info(f"🎴 Fetching card details for: {card_id}")
 
@@ -396,6 +418,9 @@ def handle_get_tcg_sets(force_refresh: bool = False) -> Dict[str, Any]:
     Returns:
         Dictionary with list of sets sorted by release date (newest first)
     """
+    if cache_service.get_data_source_mode() == "sqlite":
+        return sqlite_tcg_repository.get_sets()
+
     cache_key_params = {"all_sets": True}
     if not force_refresh:
         cached_response, cache_status = cache_service.get_with_stale("get_tcg_sets", cache_key_params)

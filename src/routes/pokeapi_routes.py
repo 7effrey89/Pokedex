@@ -49,6 +49,80 @@ _SPECIES_CACHE_FILE_RE = re.compile(r"^pokeapi-species-(\d+)-(.+)\.json$")
 _metadata_cache: Optional[Dict] = None
 _metadata_cache_count: int = 0  # number of cache files when last built
 
+_sqlite_metadata_cache: Optional[Dict[str, dict]] = None
+_sqlite_metadata_signature: Optional[str] = None
+
+
+def _catalog_metadata() -> Optional[Dict[str, dict]]:
+    """Build (and cache) lightweight Pokemon metadata from the SQLite catalog.
+
+    Runs a handful of indexed queries instead of scanning thousands of legacy
+    cache files, so it stays fast even on a cold app start.
+    """
+    global _sqlite_metadata_cache, _sqlite_metadata_signature
+
+    from src.config import get_storage_paths
+    from src.db.database import SqliteDatabase
+
+    database = SqliteDatabase(get_storage_paths().catalog_database)
+    if not database.path.is_file():
+        return None
+
+    connection = database.connect(read_only=True)
+    try:
+        row = connection.execute(
+            "SELECT COUNT(*) AS total, MAX(last_refreshed_at) AS latest FROM pokemon"
+        ).fetchone()
+        signature = f"{row['total']}:{row['latest'] or ''}"
+        if _sqlite_metadata_cache is not None and signature == _sqlite_metadata_signature:
+            return _sqlite_metadata_cache
+
+        logger.info("Building Pokemon metadata cache from SQLite catalog...")
+        metadata: Dict[str, dict] = {
+            str(item["id"]): {
+                "name": item["name"],
+                "types": [],
+                "abilities": [],
+                "height": item["height_decimetres"],
+                "weight": item["weight_hectograms"],
+                "is_legendary": bool(item["is_legendary"]),
+                "is_mythical": bool(item["is_mythical"]),
+            }
+            for item in connection.execute(
+                """
+                SELECT p.id, p.name, p.height_decimetres, p.weight_hectograms,
+                       s.is_legendary, s.is_mythical
+                FROM pokemon AS p
+                JOIN pokemon_species AS s ON s.id = p.species_id
+                """
+            )
+        }
+        for item in connection.execute(
+            """
+            SELECT pt.pokemon_id, t.name FROM pokemon_type AS pt
+            JOIN type AS t ON t.id = pt.type_id ORDER BY pt.pokemon_id, pt.slot
+            """
+        ):
+            entry = metadata.get(str(item["pokemon_id"]))
+            if entry is not None:
+                entry["types"].append(item["name"])
+        for item in connection.execute(
+            """
+            SELECT pa.pokemon_id, a.name FROM pokemon_ability AS pa
+            JOIN ability AS a ON a.id = pa.ability_id ORDER BY pa.pokemon_id, pa.slot
+            """
+        ):
+            entry = metadata.get(str(item["pokemon_id"]))
+            if entry is not None:
+                entry["abilities"].append(item["name"])
+
+        _sqlite_metadata_cache = metadata
+        _sqlite_metadata_signature = signature
+        logger.info("Pokemon metadata cache ready (%d entries)", len(metadata))
+        return metadata
+    finally:
+        connection.close()
+
 
 def _build_metadata() -> Dict[str, dict]:
     """Scan pokeapi cache files and extract lightweight metadata.
@@ -141,10 +215,15 @@ def _build_metadata() -> Dict[str, dict]:
 
 @pokeapi_bp.route("/metadata", methods=["GET"])
 def get_pokemon_metadata():
-    """Return lightweight metadata extracted from cached Pokemon JSON files."""
+    """Return lightweight Pokemon metadata for search filters and dex lookups."""
     global _metadata_cache, _metadata_cache_count
 
-    # Count current cache files to detect new additions
+    if cache_service.get_data_source_mode() == "sqlite":
+        catalog_metadata = _catalog_metadata()
+        if catalog_metadata is not None:
+            return jsonify(catalog_metadata)
+
+    # JSON seed mode, or the catalog has not been built yet: scan legacy cache files.
     current_count = 0
     if CACHE_DIR.is_dir():
         current_count = sum(
@@ -232,13 +311,13 @@ def _fetch_with_cache(
         raise
 
     data = resp.json()
-    if use_cache:
+    if use_cache and not refresh:
         cache_service.set(cache_key, params, data, force=force_cache)
     return data, cache_label
 
 
 def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
-                    force_cache: bool = False):
+                    force_cache: bool = False, persist_refresh=None):
     refresh = _should_refresh()
     use_cache = _is_pokeapi_cache_enabled() or force_cache
     try:
@@ -259,6 +338,16 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
         logger.info("PokeAPI proxy %s cache=%s status=%s", resource_path, cache_status, 404)
         return error_response
 
+    if refresh and persist_refresh is not None:
+        try:
+            persist_refresh(data)
+        except (KeyError, TypeError, ValueError, OSError) as exc:
+            logger.exception("Unable to persist refreshed PokeAPI resource %s", resource_path)
+            error_response = jsonify({"error": f"Fresh data was fetched but could not be persisted: {exc}"})
+            error_response.status_code = 500
+            error_response.headers["X-PokeAPI-Cache"] = "persist-error"
+            return error_response
+
     response = jsonify(data)
     response.headers["X-PokeAPI-Cache"] = cache_status
     if cache_status == "stale":
@@ -276,16 +365,24 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
 @pokeapi_bp.route("/<string:name_or_id>", methods=["GET"])
 def get_pokemon(name_or_id: str):
     """Return Pokemon data by name or ID via cache-aware proxy."""
+    from src.services.catalog_refresh import CatalogRefreshService
+
     params = {"pokemon": name_or_id.lower()}
     return _proxy_resource("pokeapi_pokemon", params, f"pokemon/{name_or_id}",
-                           force_cache=_is_form_variant(name_or_id))
+                           force_cache=_is_form_variant(name_or_id),
+                           persist_refresh=CatalogRefreshService().refresh_pokemon)
 
 
 @pokeapi_bp.route("/species/<string:name_or_id>", methods=["GET"])
 def get_pokemon_species(name_or_id: str):
     """Return Pokemon species data via cache-aware proxy."""
+    from src.services.catalog_refresh import CatalogRefreshService
+
     params = {"species": name_or_id.lower()}
-    return _proxy_resource("pokeapi_species", params, f"pokemon-species/{name_or_id}")
+    return _proxy_resource(
+        "pokeapi_species", params, f"pokemon-species/{name_or_id}",
+        persist_refresh=CatalogRefreshService().refresh_species,
+    )
 
 
 @pokeapi_bp.route("/type/<string:type_name>", methods=["GET"])

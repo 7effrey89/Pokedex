@@ -50,11 +50,26 @@ Thumbs.db
 # Logs
 *.log
 
+# Generated SQLite data and selective backup bundles
+data/*.sqlite3
+data/*.sqlite3-*
+data/assets/
+backups/
+*.pokedex-backup.zip
+
 # Tool config persistence
 tools_config.json
+
+# Azure onboarding session artifacts
+.copilot-azure/
 
 # Face recognition profiles (privacy - users should add their own)
 profiles_pic/*
 !profiles_pic/Jeffrey.png
 !profiles_pic/.gitkeep
 #cache/
+
+# TCG image pipeline downloads are rebuildable and too large for source control.
+tcg-image-cache/images/
+tcg-image-cache/index/*
+!tcg-image-cache/index/.gitkeep

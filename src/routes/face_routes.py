@@ -11,11 +11,13 @@ from pathlib import Path
 
 from flask import Blueprint, request, jsonify
 
+from src.config import get_storage_paths
+
 logger = logging.getLogger(__name__)
 
 face_bp = Blueprint('face', __name__, url_prefix='/api/face')
 
-PROFILES_DIR = Path('profiles_pic')
+PROFILES_DIR = get_storage_paths().profile_images
 
 
 @face_bp.route('/identify', methods=['POST'])
@@ -46,12 +48,13 @@ def identify_face():
             return jsonify({"error": "Image data is required"}), 400
 
         base64_image = data['image']
+        user_id = data.get('user_id')
 
         # Import face recognition service
         from src.services.face_recognition_service import get_face_recognition_service
 
         face_service = get_face_recognition_service()
-        result = face_service.identify_face_from_base64(base64_image)
+        result = face_service.identify_face_from_base64(base64_image, user_id=user_id)
 
         if result is None:
             return jsonify({"error": "Failed to process image"}), 500

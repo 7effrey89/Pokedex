@@ -30,6 +30,15 @@ class PokemonChatApp {
         this.spriteStyle = this.loadSpriteStyle();
         this.apiSettings = this.loadApiSettings();
         this.currency = typeof CurrencyConverter !== 'undefined' ? CurrencyConverter.getCurrency() : 'USD';
+        this.cardCollection = typeof CardCollectionStore !== 'undefined' ? new CardCollectionStore() : null;
+        this.cameraMode = 'insights';
+        this.scannerPipelineMode = this.loadScannerPipelineMode();
+        this.pendingCardScan = null;
+        this.currentScannerMatch = null;
+        this.scannerAttemptCount = 0;
+        this.scannerHintAttemptFloor = 3;
+        this.lastScannerFrame = null;
+        this.scannerDebugTrace = null;
 
         // Pokemon viewing status tracking (stored in cookies)
         this.viewingStatus = this.loadViewingStatus();
@@ -64,10 +73,39 @@ class PokemonChatApp {
         this.cameraButton = document.getElementById('cameraButton');
         this.cameraModalOverlay = document.getElementById('cameraModalOverlay');
         this.cameraModalClose = document.getElementById('cameraModalClose');
+        this.cameraModal = document.getElementById('cameraModal');
+        this.cameraModalSubtitle = document.getElementById('cameraModalSubtitle');
         this.cameraPreview = document.getElementById('cameraPreview');
+        this.cameraScanGuide = document.getElementById('cameraScanGuide');
         this.cameraStatusText = document.getElementById('cameraStatusText');
         this.cameraSwitchButton = document.getElementById('cameraSwitchButton');
         this.cameraSwitchText = document.getElementById('cameraSwitchText');
+        this.cameraIdentifyButton = document.getElementById('cameraIdentifyButton');
+        this.cameraInsightsModeBtn = document.getElementById('cameraInsightsModeBtn');
+        this.cameraCollectionModeBtn = document.getElementById('cameraCollectionModeBtn');
+        this.cameraSettingsButton = document.getElementById('cameraSettingsButton');
+        this.cameraSettingsPanel = document.getElementById('cameraSettingsPanel');
+        this.cameraDebugButton = document.getElementById('cameraDebugButton');
+        this.cameraDebugPanel = document.getElementById('cameraDebugPanel');
+        this.cameraDebugMode = document.getElementById('cameraDebugMode');
+        this.cameraDebugSummary = document.getElementById('cameraDebugSummary');
+        this.cameraDebugSteps = document.getElementById('cameraDebugSteps');
+        this.cameraDebugEvidence = document.getElementById('cameraDebugEvidence');
+        this.cameraCollectionPanel = document.getElementById('cameraCollectionPanel');
+        this.cameraCapturedPreview = document.getElementById('cameraCapturedPreview');
+        this.cameraCapturedImage = document.getElementById('cameraCapturedImage');
+        this.cameraCandidateList = document.getElementById('cameraCandidateList');
+        this.cameraIdentifiedCardImage = document.getElementById('cameraIdentifiedCardImage');
+        this.cameraCardLightbox = document.getElementById('cameraCardLightbox');
+        this.cameraPreviewPlaceholder = document.getElementById('cameraPreviewPlaceholder');
+        this.cameraRejectCardBtn = document.getElementById('cameraRejectCardBtn');
+        this.cameraHintSection = document.getElementById('cameraHintSection');
+        this.cameraHintInput = document.getElementById('cameraHintInput');
+        this.cameraHintSubmitBtn = document.getElementById('cameraHintSubmitBtn');
+        this.cameraHistoryList = document.getElementById('cameraHistoryList');
+        this.cameraSummaryList = document.getElementById('cameraSummaryList');
+        this.cameraPreviewCard = document.getElementById('cameraPreviewCard');
+        this.cameraSaveCollectionBtn = document.getElementById('cameraSaveCollectionBtn');
         this.cameraFacingMode = 'environment';
         this.cameraStream = null;
         this.isScanModeActive = false;
@@ -75,20 +113,13 @@ class PokemonChatApp {
         this.isSendingImage = false;
         this.currentCardContext = null;
 
-        // Face profile capture elements (Settings modal)
-        this.faceProfileVideo = document.getElementById('faceProfileVideo');
-        this.faceProfileStatus = document.getElementById('faceProfileStatus');
-        this.faceProfileNameInput = document.getElementById('faceProfileNameInput');
-        this.faceProfilePreviewWrapper = document.getElementById('faceProfilePreviewWrapper');
-        this.faceProfilePreview = document.getElementById('faceProfilePreview');
-        this.faceProfileStartButton = document.getElementById('faceProfileStartButton');
-        this.faceProfileCaptureButton = document.getElementById('faceProfileCaptureButton');
-        this.faceProfileSaveButton = document.getElementById('faceProfileSaveButton');
-        this.faceProfileCameraStream = null;
-        this.faceProfileCaptureDataUrl = null;
-        this.isSavingFaceProfile = false;
-        this.faceProfileControlsInitialized = false;
-        this.isFaceProfileCameraStarting = false;
+        // User Account & Multi-Member management state
+        this.currentAccount = null;
+        this.memberCameraStream = null;
+        this.memberCapturedDataUrl = null;
+        this.editingMemberId = null;
+        this.isMemberCameraStarting = false;
+        this.accountModalActiveTab = 'info';
 
         // Canvas context tracking
         this.currentCanvasState = {
@@ -114,6 +145,10 @@ class PokemonChatApp {
         this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
         this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
         this.realtimeLanguageSelect = document.getElementById('realtimeLanguageSelect');
+        this.collectionExportBtn = document.getElementById('collectionExportBtn');
+        this.collectionImportBtn = document.getElementById('collectionImportBtn');
+        this.collectionImportInput = document.getElementById('collectionImportInput');
+        this.collectionImportStatus = document.getElementById('collectionImportStatus');
 
         // TCG card modal elements
         this.tcgCardModalOverlay = document.getElementById('tcgCardModalOverlay');
@@ -192,10 +227,13 @@ class PokemonChatApp {
         this.initializeToolsModal();
         this.initializeCameraControls();
         this.initializeChatSidebar();
-        this.initializeFaceProfileCaptureControls();
+        this.initializeUserAccountControls();
+        this.cardCollection?.subscribe(() => this.handleCardCollectionUpdated());
+        this.handleCardCollectionUpdated();
         this.adjustTextareaHeight();
         this.loadTools();
         this.loadCacheConfig();
+        this.loadCurrentAccount();
         // Preload TCG data in background so it's ready when user navigates there
         this.tcgDatabase.preload();
         this.routeFromUrl(); // Route based on current URL instead of always showing grid
@@ -392,224 +430,970 @@ class PokemonChatApp {
         return newId;
     }
 
-    initializeFaceProfileCaptureControls() {
-        const hasFaceProfileElements = this.faceProfileVideo ||
-            this.faceProfileStartButton ||
-            this.faceProfileCaptureButton ||
-            this.faceProfileSaveButton ||
-            this.faceProfileNameInput;
+    // ==========================================
+    // User Account & Multi-Member Profile Manager
+    // ==========================================
 
-        if (!hasFaceProfileElements) {
-            return;
+    initializeUserAccountControls() {
+        const profileBtn = document.getElementById('userProfileBtn');
+        const dropdown = document.getElementById('userAccountDropdown');
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        const modalClose = document.getElementById('accountModalClose');
+
+        // Toggle Azure-style dropdown on avatar click
+        if (profileBtn && dropdown && profileBtn.dataset.listenerAttached !== 'true') {
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = dropdown.hidden;
+                dropdown.hidden = !isHidden;
+                profileBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            });
+            profileBtn.dataset.listenerAttached = 'true';
         }
 
-        if (!this.faceProfileControlsInitialized) {
-            if (this.faceProfileStartButton) {
-                this.faceProfileStartButton.addEventListener('click', () => this.toggleFaceProfileCamera());
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (dropdown && !dropdown.hidden && !e.target.closest('#userAccountContainer')) {
+                dropdown.hidden = true;
+                if (profileBtn) profileBtn.setAttribute('aria-expanded', 'false');
             }
+        });
 
-            if (this.faceProfileCaptureButton) {
-                this.faceProfileCaptureButton.addEventListener('click', () => this.captureFaceProfilePhoto());
+        // Dropdown buttons
+        const manageLink = document.getElementById('dropdownManageAccountLink');
+        const manageBtn = document.getElementById('dropdownManageBtn');
+        const switchAccBtn = document.getElementById('dropdownSwitchAccountBtn');
+        const addMemberMiniBtn = document.getElementById('dropdownAddMemberBtn');
+        const signoutBtn = document.getElementById('userAccountSignoutBtn');
+        const settingsAccountBtn = document.getElementById('openAccountFromSettingsBtn');
+
+        if (manageLink) manageLink.addEventListener('click', (e) => { e.preventDefault(); this.openAccountModal('info'); });
+        if (manageBtn) manageBtn.addEventListener('click', () => this.openAccountModal('info'));
+        if (switchAccBtn) switchAccBtn.addEventListener('click', () => this.openAccountModal('switch'));
+        if (addMemberMiniBtn) addMemberMiniBtn.addEventListener('click', () => {
+            this.openAccountModal('members');
+            this.openMemberEditor();
+        });
+        if (signoutBtn) signoutBtn.addEventListener('click', () => {
+            if (dropdown) dropdown.hidden = true;
+            this.logoutAccount();
+        });
+        if (settingsAccountBtn) settingsAccountBtn.addEventListener('click', () => {
+            if (this.toolsModalOverlay) this.toolsModalOverlay.classList.remove('active');
+            this.openAccountModal('members');
+        });
+
+        // Modal close
+        if (modalClose) modalClose.addEventListener('click', () => this.closeAccountModal());
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) this.closeAccountModal();
+            });
+        }
+
+        // Tab buttons
+        const tabBtns = modalOverlay ? modalOverlay.querySelectorAll('.account-tab-btn') : [];
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => this.switchAccountTab(btn.dataset.tab));
+        });
+
+        // Tab 1: Account Info
+        const saveAccBtn = document.getElementById('saveAccountInfoBtn');
+        const logoutAccBtn = document.getElementById('logoutAccountBtn');
+        const deleteAccBtn = document.getElementById('deleteAccountBtn');
+        const avatarInput = document.getElementById('accountAvatarFileInput');
+        if (saveAccBtn) saveAccBtn.addEventListener('click', () => this.saveAccountInfo());
+        if (logoutAccBtn) logoutAccBtn.addEventListener('click', () => this.logoutAccount());
+        if (deleteAccBtn) deleteAccBtn.addEventListener('click', () => this.deleteCurrentAccount());
+        if (avatarInput) avatarInput.addEventListener('change', () => this.handleAccountAvatarUpload(avatarInput));
+
+        // Tab 2: Members & Faces
+        const openAddMemberBtn = document.getElementById('openAddMemberFormBtn');
+        const closeMemberEditorBtn = document.getElementById('closeMemberEditorBtn');
+        const cancelMemberBtn = document.getElementById('cancelMemberBtn');
+        const saveMemberBtn = document.getElementById('saveMemberBtn');
+
+        if (openAddMemberBtn) openAddMemberBtn.addEventListener('click', () => this.openMemberEditor());
+        if (closeMemberEditorBtn) closeMemberEditorBtn.addEventListener('click', () => this.closeMemberEditor());
+        if (cancelMemberBtn) cancelMemberBtn.addEventListener('click', () => this.closeMemberEditor());
+        if (saveMemberBtn) saveMemberBtn.addEventListener('click', () => this.saveMember());
+
+        // Member photo source switcher (Live Camera vs Upload)
+        const sourceCamBtn = document.getElementById('memberSourceCameraBtn');
+        const sourceUploadBtn = document.getElementById('memberSourceUploadBtn');
+        const camSection = document.getElementById('memberCameraSection');
+        const uploadSection = document.getElementById('memberUploadSection');
+
+        if (sourceCamBtn && sourceUploadBtn) {
+            sourceCamBtn.addEventListener('click', () => {
+                sourceCamBtn.classList.add('active');
+                sourceUploadBtn.classList.remove('active');
+                if (camSection) camSection.hidden = false;
+                if (uploadSection) uploadSection.hidden = true;
+            });
+            sourceUploadBtn.addEventListener('click', () => {
+                sourceUploadBtn.classList.add('active');
+                sourceCamBtn.classList.remove('active');
+                if (camSection) camSection.hidden = true;
+                if (uploadSection) uploadSection.hidden = false;
+                this.stopMemberCamera();
+            });
+        }
+
+        // Member camera controls
+        const startCamBtn = document.getElementById('startMemberCameraBtn');
+        const captureCamBtn = document.getElementById('captureMemberFaceBtn');
+        const photoFileInput = document.getElementById('memberPhotoFileInput');
+
+        if (startCamBtn) startCamBtn.addEventListener('click', () => this.toggleMemberCamera());
+        if (captureCamBtn) captureCamBtn.addEventListener('click', () => this.captureMemberFace());
+        if (photoFileInput) photoFileInput.addEventListener('change', () => this.handleMemberPhotoUpload(photoFileInput));
+
+        // Tab 3: Switch / Login / Create Account
+        const loginAccBtn = document.getElementById('loginAccountBtn');
+        const createAccBtn = document.getElementById('createNewAccountBtn');
+        const showSignupBtn = document.getElementById('showSignupFormBtn');
+        const showLoginBtn = document.getElementById('showLoginFormBtn');
+        const loginEmailInput = document.getElementById('loginAccountEmail');
+        const loginPasswordInput = document.getElementById('loginAccountPassword');
+
+        if (loginAccBtn) loginAccBtn.addEventListener('click', () => this.loginWithCredentials());
+        if (createAccBtn) createAccBtn.addEventListener('click', () => this.createNewAccount());
+
+        if (showSignupBtn) {
+            showSignupBtn.addEventListener('click', () => {
+                const loginSec = document.getElementById('accountLoginSection');
+                const signupSec = document.getElementById('accountSignupSection');
+                if (loginSec) loginSec.hidden = true;
+                if (signupSec) signupSec.hidden = false;
+            });
+        }
+
+        if (showLoginBtn) {
+            showLoginBtn.addEventListener('click', () => {
+                const loginSec = document.getElementById('accountLoginSection');
+                const signupSec = document.getElementById('accountSignupSection');
+                if (loginSec) loginSec.hidden = false;
+                if (signupSec) signupSec.hidden = true;
+            });
+        }
+
+        if (loginPasswordInput) {
+            loginPasswordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') this.loginWithCredentials();
+            });
+        }
+    }
+
+    getRememberedAccountIds() {
+        try {
+            const raw = localStorage.getItem('pokedex_remembered_accounts');
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch {
+            return [];
+        }
+    }
+
+    rememberAccountId(userId) {
+        if (!userId) return;
+        const ids = this.getRememberedAccountIds();
+        if (!ids.includes(userId)) {
+            ids.push(userId);
+            try {
+                localStorage.setItem('pokedex_remembered_accounts', JSON.stringify(ids));
+            } catch (e) {
+                console.warn('Failed to save remembered account:', e);
             }
+        }
+    }
 
-            if (this.faceProfileSaveButton) {
-                this.faceProfileSaveButton.addEventListener('click', () => this.saveFaceProfilePhoto());
+    forgetAccountId(userId) {
+        if (!userId) return;
+        const ids = this.getRememberedAccountIds().filter(id => id !== userId);
+        try {
+            localStorage.setItem('pokedex_remembered_accounts', JSON.stringify(ids));
+        } catch (e) {
+            console.warn('Failed to update remembered accounts:', e);
+        }
+    }
+
+    async loadCurrentAccount(userId = null) {
+        try {
+            const url = userId ? `/api/account/current?user_id=${userId}` : '/api/account/current';
+            const response = await fetch(url);
+            if (!response.ok) return;
+            const data = await response.json();
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
             }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
+        } catch (error) {
+            console.warn('Unable to load current user account:', error);
+        }
+    }
 
-            if (this.faceProfileNameInput) {
-                this.faceProfileNameInput.addEventListener('input', () => {
-                    this.cacheFaceCapture({ name: this.faceProfileNameInput.value.trim() });
-                    this.updateFaceProfileUIState();
+    renderUserAccountHeaderAndDropdown(accountData) {
+        if (!accountData || !accountData.account) return;
+        const account = accountData.account;
+        const activeMember = accountData.active_member;
+        const members = accountData.members || [];
+
+        // Determine avatar image url (prefer active member avatar, then account avatar)
+        const avatarPath = activeMember?.avatar_path || account.avatar_path;
+        const avatarUrl = avatarPath ? `/api/account/avatar/${encodeURIComponent(avatarPath.split('/').pop())}` : null;
+
+        // Header Avatar
+        const headerImg = document.getElementById('headerUserAvatar');
+        const headerFallback = document.getElementById('headerUserAvatarFallback');
+        if (headerImg && headerFallback) {
+            if (avatarUrl) {
+                headerImg.src = avatarUrl;
+                headerImg.hidden = false;
+                headerFallback.hidden = true;
+            } else {
+                headerImg.hidden = true;
+                headerFallback.hidden = false;
+                const initials = (activeMember?.name || account.display_name || 'U').charAt(0).toUpperCase();
+                headerFallback.textContent = initials;
+            }
+        }
+
+        // Dropdown card
+        const dropdownName = document.getElementById('dropdownUserName');
+        const dropdownEmail = document.getElementById('dropdownUserEmail');
+        const dropdownMemberBadge = document.getElementById('dropdownActiveMemberBadge');
+        const dropdownActiveMemberName = document.getElementById('dropdownActiveMemberName');
+        const dropdownAvatarImg = document.getElementById('dropdownUserAvatar');
+        const dropdownAvatarFallback = document.getElementById('dropdownUserAvatarFallback');
+
+        if (dropdownName) dropdownName.textContent = account.display_name || 'Trainer Account';
+        if (dropdownEmail) dropdownEmail.textContent = account.email || 'Local Trainer';
+        if (dropdownActiveMemberName) dropdownActiveMemberName.textContent = activeMember ? activeMember.name : 'None';
+        if (dropdownMemberBadge) dropdownMemberBadge.hidden = !activeMember;
+
+        if (dropdownAvatarImg && dropdownAvatarFallback) {
+            if (avatarUrl) {
+                dropdownAvatarImg.src = avatarUrl;
+                dropdownAvatarImg.hidden = false;
+                dropdownAvatarFallback.hidden = true;
+            } else {
+                dropdownAvatarImg.hidden = true;
+                dropdownAvatarFallback.hidden = false;
+                const initials = (activeMember?.name || account.display_name || 'T').charAt(0).toUpperCase();
+                dropdownAvatarFallback.textContent = initials;
+            }
+        }
+
+        // Dropdown members mini list
+        const miniList = document.getElementById('dropdownMembersMiniList');
+        if (miniList) {
+            if (!members.length) {
+                miniList.innerHTML = '<div style="font-size: 0.75rem; color: #888; padding: 0.25rem;">No members yet</div>';
+            } else {
+                miniList.innerHTML = members.map(m => {
+                    const isActive = activeMember && activeMember.id === m.id;
+                    const mAvatar = m.avatar_path ? `/api/account/avatar/${encodeURIComponent(m.avatar_path.split('/').pop())}` : null;
+                    const mInitial = m.name.charAt(0).toUpperCase();
+                    return `
+                        <div class="user-account-member-item ${isActive ? 'active' : ''}" data-member-id="${m.id}">
+                            <div class="user-account-member-item-info">
+                                <div class="user-account-member-avatar-mini">
+                                    ${mAvatar ? `<img src="${mAvatar}" alt="${m.name}">` : `<span>${mInitial}</span>`}
+                                </div>
+                                <span class="user-account-member-name">${m.name}</span>
+                            </div>
+                            ${isActive ? '<span class="user-account-member-badge-active">Active</span>' : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                miniList.querySelectorAll('.user-account-member-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const mId = parseInt(item.dataset.memberId, 10);
+                        this.switchActiveMember(mId);
+                    });
                 });
             }
-
-            this.faceProfileControlsInitialized = true;
-        }
-
-        this.restoreCachedFaceProfileData();
-
-        if (!this.faceProfileCameraStream) {
-            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
-        }
-
-        this.updateFaceProfileUIState();
-    }
-
-    ensureFaceProfileCameraActive() {
-        if (!this.faceProfileVideo) {
-            return;
-        }
-
-        if (this.faceProfileCameraStream || this.isFaceProfileCameraStarting) {
-            return;
-        }
-
-        this.startFaceProfileCamera();
-    }
-
-    restoreCachedFaceProfileData() {
-        if (this.faceProfileNameInput) {
-            const detectedName = this.currentIdentifiedUser;
-            this.faceProfileNameInput.value = detectedName || this.loadCachedFaceCaptureName();
-        }
-
-        const cachedImage = this.loadCachedFaceCaptureImage();
-        if (cachedImage && this.faceProfilePreview && this.faceProfilePreviewWrapper) {
-            this.faceProfilePreview.src = cachedImage;
-            this.faceProfilePreviewWrapper.hidden = false;
-            this.faceProfileCaptureDataUrl = cachedImage;
-        } else if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = true;
         }
     }
 
-    loadCachedFaceCaptureName() {
+    renderAccountModalData(accountData) {
+        if (!accountData || !accountData.account) return;
+        const account = accountData.account;
+        const activeMember = accountData.active_member;
+        const members = accountData.members || [];
+
+        // Tab 1: Account Info fields
+        const nameInput = document.getElementById('accountDisplayNameInput');
+        const emailInput = document.getElementById('accountEmailInput');
+        const idText = document.getElementById('accountIdText');
+        const modalAvatarImg = document.getElementById('accountModalAvatarImg');
+        const modalAvatarFallback = document.getElementById('accountModalAvatarFallback');
+
+        if (nameInput) nameInput.value = account.display_name || '';
+        if (emailInput) emailInput.value = account.email || '';
+        if (idText) idText.textContent = account.id;
+
+        const accAvatarUrl = account.avatar_path ? `/api/account/avatar/${encodeURIComponent(account.avatar_path.split('/').pop())}` : null;
+        if (modalAvatarImg && modalAvatarFallback) {
+            if (accAvatarUrl) {
+                modalAvatarImg.src = accAvatarUrl;
+                modalAvatarImg.hidden = false;
+                modalAvatarFallback.hidden = true;
+            } else {
+                modalAvatarImg.hidden = true;
+                modalAvatarFallback.hidden = false;
+                modalAvatarFallback.textContent = (account.display_name || 'U').charAt(0).toUpperCase();
+            }
+        }
+
+        // Tab 2: Members Grid
+        const membersGrid = document.getElementById('accountMembersGrid');
+        if (membersGrid) {
+            if (!members.length) {
+                membersGrid.innerHTML = '<p style="color: #666; font-size: 0.85rem;">No members added to this account yet. Click "+ Add Member" to register faces.</p>';
+            } else {
+                membersGrid.innerHTML = members.map(m => {
+                    const isActive = activeMember && activeMember.id === m.id;
+                    const mAvatar = m.avatar_path ? `/api/account/avatar/${encodeURIComponent(m.avatar_path.split('/').pop())}` : null;
+                    const mInitial = m.name.charAt(0).toUpperCase();
+                    return `
+                        <div class="member-card ${isActive ? 'is-active' : ''}">
+                            <div class="member-card-avatar">
+                                ${mAvatar ? `<img src="${mAvatar}" alt="${m.name}">` : `<span>${mInitial}</span>`}
+                            </div>
+                            <div class="member-card-details">
+                                <div class="member-card-name">${m.name}</div>
+                                <div class="member-card-badge">
+                                    ${isActive ? '<span style="color:#2e7d32;">● Active Speaker</span>' : '<span style="color:#888;">● Member</span>'}
+                                </div>
+                                <div class="member-card-actions">
+                                    <button class="member-action-btn" onclick="window.app.editAccountMember(${m.id})">Edit</button>
+                                    ${!isActive ? `<button class="member-action-btn" onclick="window.app.switchActiveMember(${m.id})">Set Active</button>` : ''}
+                                    <button class="member-action-btn delete" onclick="window.app.deleteAccountMember(${m.id}, '${m.name.replace(/'/g, "\\'")}')">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Tab 3: List Existing Accounts
+        this.loadExistingAccountsList();
+    }
+
+    async loadExistingAccountsList() {
+        const listEl = document.getElementById('accountExistingList');
+        if (!listEl) return;
         try {
-            return localStorage.getItem('pokedex_last_face_name') || '';
+            const resp = await fetch('/api/account/list');
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const currentId = this.currentAccount?.account?.id;
+            if (currentId) this.rememberAccountId(currentId);
+            const rememberedIds = this.getRememberedAccountIds();
+
+            // Only display accounts that have been logged into previously on this browser
+            const visibleAccounts = (data.accounts || []).filter(acc => rememberedIds.includes(acc.id));
+
+            if (!visibleAccounts.length) {
+                listEl.innerHTML = '<div style="font-size: 0.85rem; color: #777; padding: 0.5rem 0;">No other remembered accounts on this device.</div>';
+                return;
+            }
+
+            listEl.innerHTML = visibleAccounts.map(acc => {
+                const isCurrent = acc.id === currentId;
+                const lockIcon = acc.has_password ? '🔒 ' : '';
+                const safeName = (acc.display_name || '').replace(/'/g, "\\'");
+                const safeEmail = (acc.email || '').replace(/'/g, "\\'");
+                return `
+                    <div class="account-existing-card ${isCurrent ? 'is-active' : ''}">
+                        <div class="account-existing-info" style="cursor:pointer;" onclick="window.app.switchAccount(${acc.id}, ${Boolean(acc.has_password)}, '${safeEmail}', '${safeName}')">
+                            <span class="account-existing-name">${lockIcon}${acc.display_name}</span>
+                            <span class="account-existing-email">${acc.email || 'Local Trainer'} · ${acc.member_count} member(s)</span>
+                        </div>
+                        <div class="account-existing-actions-group">
+                            <span class="account-existing-badge" style="cursor:pointer;" onclick="window.app.switchAccount(${acc.id}, ${Boolean(acc.has_password)}, '${safeEmail}', '${safeName}')">${isCurrent ? 'Current' : 'Switch'}</span>
+                            <button class="account-existing-forget-btn" title="Remove from this device" type="button" onclick="window.app.removeAccountFromDevice(${acc.id}, '${safeName}')">&times;</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } catch (e) {
+            console.warn('Failed to load accounts list:', e);
+        }
+    }
+
+    async removeAccountFromDevice(userId, name) {
+        if (!confirm(`Remove "${name}" from this device's remembered list?`)) return;
+        this.forgetAccountId(userId);
+        this.showToast('Account Removed', `"${name}" removed from this device.`, 'info');
+
+        // If they removed the currently active account, switch to another remembered account or reload
+        if (this.currentAccount?.account?.id === userId) {
+            const remaining = this.getRememberedAccountIds();
+            if (remaining.length > 0) {
+                await this.switchAccount(remaining[0]);
+            } else {
+                await this.loadCurrentAccount();
+            }
+        } else {
+            await this.loadExistingAccountsList();
+        }
+    }
+
+    async deleteCurrentAccount() {
+        const currentId = this.currentAccount?.account?.id;
+        const name = this.currentAccount?.account?.display_name || 'this account';
+        if (!currentId) return;
+
+        if (!confirm(`Are you sure you want to permanently delete "${name}"?\nAll associated members, card collection, and settings will be permanently removed.`)) {
+            return;
+        }
+
+        const statusMsg = document.getElementById('accountInfoStatusMsg');
+        try {
+            if (statusMsg) statusMsg.textContent = 'Deleting account...';
+            const response = await fetch('/api/account/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: currentId })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to delete account');
+
+            this.forgetAccountId(currentId);
+            this.showToast('Account Deleted', `Account "${name}" has been permanently deleted.`, 'info');
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
+            }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
         } catch (error) {
-            console.warn('Unable to read cached face name:', error);
-            return '';
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+            this.showToast('Error', error.message, 'error');
         }
     }
 
-    loadCachedFaceCaptureImage() {
+    openAccountModal(initialTab = 'info') {
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        const dropdown = document.getElementById('userAccountDropdown');
+        if (dropdown) dropdown.hidden = true;
+        if (!modalOverlay) return;
+
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        this.switchAccountTab(initialTab);
+        this.loadCurrentAccount();
+    }
+
+    closeAccountModal() {
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        if (modalOverlay) modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        this.closeMemberEditor();
+    }
+
+    switchAccountTab(tabName) {
+        this.accountModalActiveTab = tabName;
+        const modalOverlay = document.getElementById('accountModalOverlay');
+        if (!modalOverlay) return;
+
+        modalOverlay.querySelectorAll('.account-tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === tabName);
+        });
+
+        const panes = {
+            'info': document.getElementById('accountPaneInfo'),
+            'members': document.getElementById('accountPaneMembers'),
+            'switch': document.getElementById('accountPaneSwitch')
+        };
+
+        Object.entries(panes).forEach(([key, pane]) => {
+            if (pane) pane.classList.toggle('active', key === tabName);
+        });
+
+        if (tabName === 'switch') {
+            const loginSec = document.getElementById('accountLoginSection');
+            const signupSec = document.getElementById('accountSignupSection');
+            if (loginSec) loginSec.hidden = false;
+            if (signupSec) signupSec.hidden = true;
+            const loginStatus = document.getElementById('loginAccountStatusMsg');
+            const signupStatus = document.getElementById('newAccountStatusMsg');
+            if (loginStatus) loginStatus.textContent = '';
+            if (signupStatus) signupStatus.textContent = '';
+        }
+    }
+
+    async saveAccountInfo() {
+        const nameInput = document.getElementById('accountDisplayNameInput');
+        const emailInput = document.getElementById('accountEmailInput');
+        const passwordInput = document.getElementById('accountPasswordInput');
+        const statusMsg = document.getElementById('accountInfoStatusMsg');
+        const displayName = nameInput?.value.trim();
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+
+        if (!displayName) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Display name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
         try {
-            return localStorage.getItem('pokedex_last_face_capture') || '';
+            if (statusMsg) statusMsg.textContent = 'Saving...';
+            const body = {
+                display_name: displayName,
+                email: email,
+                avatar: this._pendingAccountAvatarData || null
+            };
+            if (password) {
+                body.password = password;
+            }
+
+            const response = await fetch('/api/account/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to save account');
+
+            this._pendingAccountAvatarData = null;
+            if (passwordInput) passwordInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Saved successfully!';
+                statusMsg.className = 'account-status-msg';
+            }
+            this.showToast('Account Updated', 'Your profile details have been saved.', 'success');
+            await this.loadCurrentAccount();
         } catch (error) {
-            console.warn('Unable to read cached face capture:', error);
-            return '';
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
         }
     }
 
-    updateFaceProfileUIState() {
-        const hasStream = Boolean(this.faceProfileCameraStream);
-        if (this.faceProfileStartButton) {
-            this.faceProfileStartButton.textContent = hasStream ? 'Stop Camera' : 'Start Camera';
-        }
-        if (this.faceProfileCaptureButton) {
-            this.faceProfileCaptureButton.disabled = !hasStream;
-        }
+    handleAccountAvatarUpload(input) {
+        const file = input.files?.[0];
+        if (!file) return;
 
-        const hasName = !!(this.faceProfileNameInput && this.faceProfileNameInput.value.trim());
-        const canSave = Boolean(hasName && this.faceProfileCaptureDataUrl && !this.isSavingFaceProfile);
-        if (this.faceProfileSaveButton) {
-            this.faceProfileSaveButton.disabled = !canSave;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const dataUrl = e.target.result;
+            this._pendingAccountAvatarData = dataUrl;
+            const img = document.getElementById('accountModalAvatarImg');
+            const fallback = document.getElementById('accountModalAvatarFallback');
+            if (img && fallback) {
+                img.src = dataUrl;
+                img.hidden = false;
+                fallback.hidden = true;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    editAccountMember(memberId) {
+        const member = (this.currentAccount?.members || []).find(m => m.id === memberId);
+        if (member) {
+            this.openMemberEditor(member);
+            const panel = document.getElementById('memberEditorPanel');
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
     }
 
-    updateFaceProfileStatus(message) {
-        if (this.faceProfileStatus) {
-            this.faceProfileStatus.textContent = message;
+    openMemberEditor(member = null) {
+        const panel = document.getElementById('memberEditorPanel');
+        const title = document.getElementById('memberEditorTitle');
+        const nameInput = document.getElementById('memberEditorNameInput');
+        const preview = document.getElementById('memberCapturedPreviewWrapper');
+        const previewImg = document.getElementById('memberCapturedPreviewImg');
+        const statusMsg = document.getElementById('memberEditorStatusMsg');
+
+        if (!panel) return;
+        panel.hidden = false;
+        this.editingMemberId = member?.id || null;
+        this.memberCapturedDataUrl = null;
+
+        if (title) title.textContent = member ? `Edit Member: ${member.name}` : 'Add Member';
+        if (nameInput) nameInput.value = member?.name || '';
+        if (statusMsg) statusMsg.textContent = '';
+
+        if (member?.avatar_path && preview && previewImg) {
+            previewImg.src = `/api/account/avatar/${encodeURIComponent(member.avatar_path.split('/').pop())}`;
+            preview.hidden = false;
+        } else if (preview) {
+            preview.hidden = true;
         }
     }
 
-    async toggleFaceProfileCamera() {
-        if (this.faceProfileCameraStream) {
-            this.stopFaceProfileCamera();
-            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
-            this.updateFaceProfileUIState();
+    closeMemberEditor() {
+        const panel = document.getElementById('memberEditorPanel');
+        if (panel) panel.hidden = true;
+        this.stopMemberCamera();
+        this.editingMemberId = null;
+        this.memberCapturedDataUrl = null;
+    }
+
+    async toggleMemberCamera() {
+        if (this.memberCameraStream) {
+            this.stopMemberCamera();
+            const status = document.getElementById('memberCameraStatus');
+            if (status) status.textContent = 'Camera idle.';
+            const btn = document.getElementById('startMemberCameraBtn');
+            if (btn) btn.textContent = 'Start Camera';
+            const captureBtn = document.getElementById('captureMemberFaceBtn');
+            if (captureBtn) captureBtn.disabled = true;
             return;
         }
-
-        await this.startFaceProfileCamera();
+        await this.startMemberCamera();
     }
 
-    async startFaceProfileCamera() {
-        if (!this.faceProfileVideo || this.isFaceProfileCameraStarting) {
-            return;
-        }
+    async startMemberCamera() {
+        const video = document.getElementById('memberCameraVideo');
+        const status = document.getElementById('memberCameraStatus');
+        const btn = document.getElementById('startMemberCameraBtn');
+        const captureBtn = document.getElementById('captureMemberFaceBtn');
 
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            this.updateFaceProfileStatus('Camera access is not supported on this device.');
-            return;
-        }
-
-        this.isFaceProfileCameraStarting = true;
-        this.updateFaceProfileStatus('Requesting camera permission...');
+        if (!video || this.isMemberCameraStarting) return;
+        this.isMemberCameraStarting = true;
+        if (status) status.textContent = 'Requesting camera access...';
 
         try {
-            this.faceProfileCameraStream = await navigator.mediaDevices.getUserMedia({
+            this.memberCameraStream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: { ideal: 'user' } },
                 audio: false
             });
-
-            this.faceProfileVideo.srcObject = this.faceProfileCameraStream;
-            await this.faceProfileVideo.play().catch(() => {});
-            this.updateFaceProfileStatus('Camera ready. Capture your face when centered.');
+            video.srcObject = this.memberCameraStream;
+            await video.play().catch(() => {});
+            if (status) status.textContent = 'Camera ready. Center your face and tap Capture.';
+            if (btn) btn.textContent = 'Stop Camera';
+            if (captureBtn) captureBtn.disabled = false;
         } catch (error) {
-            console.error('Face profile camera failed:', error);
-            this.updateFaceProfileStatus('Camera access denied or unavailable.');
-            this.stopFaceProfileCamera();
+            console.error('Member camera error:', error);
+            if (status) status.textContent = 'Camera access denied or unavailable.';
+            this.stopMemberCamera();
         } finally {
-            this.isFaceProfileCameraStarting = false;
-            this.updateFaceProfileUIState();
+            this.isMemberCameraStarting = false;
         }
     }
 
-    stopFaceProfileCamera() {
-        if (this.faceProfileCameraStream) {
-            this.faceProfileCameraStream.getTracks().forEach(track => track.stop());
-            this.faceProfileCameraStream = null;
+    stopMemberCamera() {
+        if (this.memberCameraStream) {
+            this.memberCameraStream.getTracks().forEach(t => t.stop());
+            this.memberCameraStream = null;
         }
-
-        if (this.faceProfileVideo) {
-            this.faceProfileVideo.pause();
-            this.faceProfileVideo.srcObject = null;
+        const video = document.getElementById('memberCameraVideo');
+        if (video) {
+            video.pause();
+            video.srcObject = null;
         }
-
-        this.isFaceProfileCameraStarting = false;
+        const btn = document.getElementById('startMemberCameraBtn');
+        if (btn) btn.textContent = 'Start Camera';
+        const captureBtn = document.getElementById('captureMemberFaceBtn');
+        if (captureBtn) captureBtn.disabled = true;
     }
 
-    captureFaceProfilePhoto() {
-        if (!this.faceProfileVideo || this.faceProfileVideo.readyState < 2) {
-            this.updateFaceProfileStatus('Camera is still warming up.');
-            return;
-        }
+    captureMemberFace() {
+        const video = document.getElementById('memberCameraVideo');
+        const status = document.getElementById('memberCameraStatus');
+        const previewWrapper = document.getElementById('memberCapturedPreviewWrapper');
+        const previewImg = document.getElementById('memberCapturedPreviewImg');
 
-        const dataUrl = this.getFaceCropDataUrl(this.faceProfileVideo);
+        if (!video || video.readyState < 2) return;
+        const dataUrl = this.getFaceCropDataUrl(video);
         if (!dataUrl) {
-            this.updateFaceProfileStatus('Unable to capture the image.');
-            this.showToast('Face Profile', 'Could not capture a frame. Try again.', 'error');
+            if (status) status.textContent = 'Unable to capture frame.';
             return;
         }
 
-        this.faceProfileCaptureDataUrl = dataUrl;
-        if (this.faceProfilePreview) {
-            this.faceProfilePreview.src = dataUrl;
-        }
-        if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = false;
+        this.memberCapturedDataUrl = dataUrl;
+        if (previewImg) previewImg.src = dataUrl;
+        if (previewWrapper) previewWrapper.hidden = false;
+        if (status) status.textContent = 'Face captured! Tap Save Member to complete.';
+    }
+
+    handleMemberPhotoUpload(input) {
+        const file = input.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const dataUrl = e.target.result;
+            this.memberCapturedDataUrl = dataUrl;
+            const previewWrapper = document.getElementById('memberCapturedPreviewWrapper');
+            const previewImg = document.getElementById('memberCapturedPreviewImg');
+            if (previewImg) previewImg.src = dataUrl;
+            if (previewWrapper) previewWrapper.hidden = false;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    async saveMember() {
+        const nameInput = document.getElementById('memberEditorNameInput');
+        const statusMsg = document.getElementById('memberEditorStatusMsg');
+        const name = nameInput?.value.trim();
+
+        if (!name) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Member name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
         }
 
-        this.updateFaceProfileStatus('Great! Name it and tap Save Profile to add it to face ID.');
-        this.cacheFaceCapture({ image: dataUrl });
-        this.updateFaceProfileUIState();
+        try {
+            if (statusMsg) statusMsg.textContent = 'Saving member & face profile...';
+            const endpoint = this.editingMemberId
+                ? `/api/account/members/${this.editingMemberId}`
+                : '/api/account/members';
+            const method = this.editingMemberId ? 'PUT' : 'POST';
+
+            const response = await fetch(endpoint, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    photo: this.memberCapturedDataUrl || null
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to save member');
+
+            this.showToast('Member Saved', `Member "${name}" is now registered.`, 'success');
+            this.closeMemberEditor();
+            await this.loadCurrentAccount();
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
+    }
+
+    async deleteAccountMember(memberId, name) {
+        if (!confirm(`Are you sure you want to remove member "${name}"?`)) return;
+        try {
+            const response = await fetch(`/api/account/members/${memberId}`, { method: 'DELETE' });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to delete member');
+            this.showToast('Member Removed', `Member "${name}" has been removed.`, 'info');
+            await this.loadCurrentAccount();
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async switchActiveMember(memberId) {
+        try {
+            const response = await fetch('/api/account/active-member', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ member_id: memberId })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to switch member');
+            this.showToast('Active Member', `Switched active speaker to ${data.active_member?.name || 'Member'}.`, 'success');
+            await this.loadCurrentAccount();
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async switchAccount(userId, hasPassword = false, email = '', displayName = '') {
+        if (hasPassword) {
+            // Focus and pre-fill the Login form on the right
+            this.switchAccountTab('switch');
+            const loginSec = document.getElementById('accountLoginSection');
+            const signupSec = document.getElementById('accountSignupSection');
+            if (loginSec) loginSec.hidden = false;
+            if (signupSec) signupSec.hidden = true;
+
+            const emailInput = document.getElementById('loginAccountEmail');
+            const passwordInput = document.getElementById('loginAccountPassword');
+            const statusMsg = document.getElementById('loginAccountStatusMsg');
+
+            if (emailInput) emailInput.value = email || '';
+            if (passwordInput) {
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+            if (statusMsg) {
+                statusMsg.textContent = displayName ? `Enter password for "${displayName}" to log in.` : 'Enter password to log in.';
+                statusMsg.className = 'account-status-msg';
+            }
+            return;
+        }
+
+        try {
+            const body = { user_id: userId };
+            const response = await fetch('/api/account/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to switch account');
+            this.showToast('Account Switched', `Logged into "${data.account?.display_name}".`, 'success');
+            await this.loadCurrentAccount(userId);
+            this.closeAccountModal();
+        } catch (error) {
+            this.showToast('Login Failed', error.message, 'error');
+        }
+    }
+
+    async logoutAccount() {
+        try {
+            const response = await fetch('/api/account/logout', { method: 'POST' });
+            const data = await response.json();
+            this.currentAccount = data;
+            if (data.account?.id) {
+                this.rememberAccountId(data.account.id);
+            }
+            this.renderUserAccountHeaderAndDropdown(data);
+            this.renderAccountModalData(data);
+            this.showToast('Logged Out', 'You have been signed out.', 'info');
+            this.openAccountModal('switch');
+        } catch (error) {
+            this.showToast('Error', error.message, 'error');
+        }
+    }
+
+    async loginWithCredentials() {
+        const emailInput = document.getElementById('loginAccountEmail');
+        const passwordInput = document.getElementById('loginAccountPassword');
+        const statusMsg = document.getElementById('loginAccountStatusMsg');
+
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+
+        if (!email) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Email address is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
+        try {
+            if (statusMsg) {
+                statusMsg.textContent = 'Logging in...';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            const response = await fetch('/api/account/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    password: password || undefined
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Login failed');
+
+            if (emailInput) emailInput.value = '';
+            if (passwordInput) passwordInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Logged in successfully!';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            this.showToast('Welcome Back', `Logged in as "${data.account?.display_name}".`, 'success');
+            await this.loadCurrentAccount(data.account?.id);
+            this.closeAccountModal();
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
+    }
+
+    async createNewAccount() {
+        const nameInput = document.getElementById('newAccountDisplayName');
+        const emailInput = document.getElementById('newAccountEmail');
+        const passwordInput = document.getElementById('newAccountPassword');
+        const memberInput = document.getElementById('newAccountInitialMember');
+        const statusMsg = document.getElementById('newAccountStatusMsg');
+
+        const displayName = nameInput?.value.trim();
+        const email = emailInput?.value.trim();
+        const password = passwordInput?.value.trim();
+        const memberName = memberInput?.value.trim();
+
+        if (!displayName) {
+            if (statusMsg) {
+                statusMsg.textContent = 'Account display name is required.';
+                statusMsg.className = 'account-status-msg error';
+            }
+            return;
+        }
+
+        try {
+            if (statusMsg) statusMsg.textContent = 'Creating account...';
+            const response = await fetch('/api/account/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    display_name: displayName,
+                    email: email,
+                    password: password,
+                    member_name: memberName || displayName
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to create account');
+
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (passwordInput) passwordInput.value = '';
+            if (memberInput) memberInput.value = '';
+            if (statusMsg) {
+                statusMsg.textContent = 'Account created!';
+                statusMsg.className = 'account-status-msg';
+            }
+
+            this.showToast('Account Created', `Welcome, ${displayName}!`, 'success');
+            await this.loadCurrentAccount(data.account?.id);
+            this.switchAccountTab('members');
+        } catch (error) {
+            if (statusMsg) {
+                statusMsg.textContent = error.message;
+                statusMsg.className = 'account-status-msg error';
+            }
+        }
     }
 
     getFaceCropDataUrl(videoElement) {
-        if (!videoElement) {
-            return null;
-        }
-
+        if (!videoElement) return null;
         const videoWidth = videoElement.videoWidth;
         const videoHeight = videoElement.videoHeight;
-
-        if (!videoWidth || !videoHeight) {
-            return null;
-        }
+        if (!videoWidth || !videoHeight) return null;
 
         const outputWidth = 512;
         const outputHeight = 640;
-        const desiredRatio = outputWidth / outputHeight; // Keep portrait output without distortion
+        const desiredRatio = outputWidth / outputHeight;
 
         let cropWidth = videoWidth * 0.55;
         let cropHeight = cropWidth / desiredRatio;
-
         if (cropHeight > videoHeight * 0.9) {
             cropHeight = videoHeight * 0.9;
             cropWidth = cropHeight * desiredRatio;
         }
-
         if (cropWidth > videoWidth) {
             cropWidth = videoWidth * 0.9;
             cropHeight = cropWidth / desiredRatio;
@@ -622,9 +1406,7 @@ class PokemonChatApp {
         canvas.width = outputWidth;
         canvas.height = outputHeight;
         const ctx = canvas.getContext('2d');
-        if (!ctx) {
-            return null;
-        }
+        if (!ctx) return null;
 
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, outputWidth, outputHeight);
@@ -634,169 +1416,69 @@ class PokemonChatApp {
         ctx.closePath();
         ctx.clip();
 
-        ctx.drawImage(
-            videoElement,
-            sourceX,
-            sourceY,
-            cropWidth,
-            cropHeight,
-            0,
-            0,
-            outputWidth,
-            outputHeight
-        );
+        ctx.drawImage(videoElement, sourceX, sourceY, cropWidth, cropHeight, 0, 0, outputWidth, outputHeight);
         ctx.restore();
-
         return canvas.toDataURL('image/png');
     }
 
-    cacheFaceCapture({ image = null, name = null } = {}) {
+    // ====================
+    // API Settings Management
+    // ====================
+
+    getDefaultApiSettings() {
+        return {
+            mode: 'app',
+            appPassword: '',
+            realtimeLanguage: 'english',
+            custom: {
+                chatEndpoint: '',
+                chatKey: '',
+                chatDeployment: '',
+                realtimeEndpoint: '',
+                realtimeKey: '',
+                realtimeDeployment: '',
+                realtimeApiVersion: '',
+                tcgApiKey: ''
+            }
+        };
+    }
+
+    loadApiSettings() {
+        const defaults = this.getDefaultApiSettings();
+        try {
+            if (typeof localStorage === 'undefined') {
+                return { ...defaults };
+            }
+            const raw = localStorage.getItem('pokedex_api_settings_v1');
+            if (!raw) {
+                return { ...defaults };
+            }
+
+            const parsed = JSON.parse(raw);
+            return {
+                ...defaults,
+                ...parsed,
+                custom: {
+                    ...defaults.custom,
+                    ...(parsed.custom || {})
+                }
+            };
+        } catch (error) {
+            console.warn('Unable to parse stored API settings:', error);
+            return { ...defaults };
+        }
+    }
+
+    persistApiSettings() {
         try {
             if (typeof localStorage === 'undefined') {
                 return;
             }
-
-            if (image) {
-                localStorage.setItem('pokedex_last_face_capture', image);
-            }
-
-            if (typeof name === 'string') {
-                if (name) {
-                    localStorage.setItem('pokedex_last_face_name', name);
-                } else {
-                    localStorage.removeItem('pokedex_last_face_name');
-                }
-            }
+            localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
         } catch (error) {
-            console.warn('Unable to cache face capture locally:', error);
+            console.warn('Unable to persist API settings:', error);
         }
     }
-
-    resetFaceProfilePreview() {
-        this.faceProfileCaptureDataUrl = null;
-        if (this.faceProfilePreview) {
-            this.faceProfilePreview.src = '';
-        }
-        if (this.faceProfilePreviewWrapper) {
-            this.faceProfilePreviewWrapper.hidden = true;
-        }
-    }
-
-    async saveFaceProfilePhoto() {
-        if (!this.faceProfileNameInput) {
-            return;
-        }
-
-        const name = this.faceProfileNameInput.value.trim();
-        if (!name) {
-            this.showToast('Face Profile', 'Give this photo a name before saving.', 'info');
-            this.faceProfileNameInput.focus();
-            return;
-        }
-
-        if (!this.faceProfileCaptureDataUrl) {
-            this.showToast('Face Profile', 'Capture a photo first.', 'info');
-            return;
-        }
-
-        if (this.isSavingFaceProfile) {
-            return;
-        }
-
-        this.isSavingFaceProfile = true;
-        this.updateFaceProfileUIState();
-        this.updateFaceProfileStatus('Saving profile photo...');
-
-        try {
-            const response = await fetch('/api/face/profiles', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    image: this.faceProfileCaptureDataUrl,
-                    name
-                })
-            });
-
-            const data = await response.json().catch(() => ({}));
-            if (!response.ok) {
-                throw new Error(data.error || 'Unable to save profile photo.');
-            }
-
-            const savedName = data?.profile?.displayName || name;
-            this.updateFaceProfileStatus('Profile saved! I can now recognize you by this photo.');
-            this.showToast('Face Profile', `Saved ${savedName}`, 'success');
-            this.cacheFaceCapture({ image: this.faceProfileCaptureDataUrl, name: savedName });
-            this.resetFaceProfilePreview();
-        } catch (error) {
-            console.error('Failed to save profile photo:', error);
-            const message = error.message || 'Could not save profile photo.';
-            this.updateFaceProfileStatus(message);
-            this.showToast('Face Profile', message, 'error');
-        } finally {
-            this.isSavingFaceProfile = false;
-            this.updateFaceProfileUIState();
-        }
-
-    }
-
-        // ====================
-        // API Settings Management
-        // ====================
-
-        getDefaultApiSettings() {
-            return {
-                mode: 'app',
-                appPassword: '',
-                realtimeLanguage: 'english',
-                custom: {
-                    chatEndpoint: '',
-                    chatKey: '',
-                    chatDeployment: '',
-                    realtimeEndpoint: '',
-                    realtimeKey: '',
-                    realtimeDeployment: '',
-                    realtimeApiVersion: '',
-                    tcgApiKey: ''
-                }
-            };
-        }
-
-        loadApiSettings() {
-            const defaults = this.getDefaultApiSettings();
-            try {
-                if (typeof localStorage === 'undefined') {
-                    return { ...defaults };
-                }
-                const raw = localStorage.getItem('pokedex_api_settings_v1');
-                if (!raw) {
-                    return { ...defaults };
-                }
-
-                const parsed = JSON.parse(raw);
-                return {
-                    ...defaults,
-                    ...parsed,
-                    custom: {
-                        ...defaults.custom,
-                        ...(parsed.custom || {})
-                    }
-                };
-            } catch (error) {
-                console.warn('Unable to parse stored API settings:', error);
-                return { ...defaults };
-            }
-        }
-
-        persistApiSettings() {
-            try {
-                if (typeof localStorage === 'undefined') {
-                    return;
-                }
-                localStorage.setItem('pokedex_api_settings_v1', JSON.stringify(this.apiSettings));
-            } catch (error) {
-                console.warn('Unable to persist API settings:', error);
-            }
-        }
 
         initializeApiSettingsControls() {
             // Controls might not exist on lightweight embeds
@@ -1615,6 +2297,9 @@ class PokemonChatApp {
             case 'show_tcg_database':
                 window.showTcgDatabaseCanvas?.();
                 break;
+            case 'show_my_collection':
+                await window.showMyCollectionCanvas?.();
+                break;
             case 'compare_pokemon':
                 await window.comparePokemonCanvas?.(action.pokemon_name || null, action.compare_pokemon_name || null);
                 break;
@@ -1826,12 +2511,306 @@ class PokemonChatApp {
                 this.setCameraSwitchEnabled(false);
             }
         }
+
+        this.cameraIdentifyButton?.addEventListener('click', () => this.identifyCurrentCard());
+        this.cameraInsightsModeBtn?.addEventListener('click', () => this.setCameraMode('insights'));
+        this.cameraCollectionModeBtn?.addEventListener('click', () => this.setCameraMode('collection'));
+        this.cameraSettingsButton?.addEventListener('click', () => this.toggleScannerSettings());
+        this.cameraDebugButton?.addEventListener('click', () => this.setScannerDebugOpen(this.cameraDebugPanel?.hidden !== false));
+        this.cameraSettingsPanel?.addEventListener('change', (event) => {
+            if (event.target.name === 'cameraPipelineMode') {
+                this.setScannerPipelineMode(event.target.value);
+            }
+        });
+        this.cameraRejectCardBtn?.addEventListener('click', () => this.retryScannerMatch());
+        this.cameraHintSubmitBtn?.addEventListener('click', () => this.identifyCurrentCard({ useHints: true }));
+        this.cameraCandidateList?.addEventListener('click', (event) => {
+            const addButton = event.target.closest('[data-scanner-add]');
+            if (addButton) {
+                this.acceptCurrentScannerMatch();
+                return;
+            }
+            const candidateButton = event.target.closest('[data-scanner-card-id]');
+            if (candidateButton) this.selectScannerCandidate(candidateButton.dataset.scannerCardId);
+        });
+        this.cameraCardLightbox?.addEventListener('click', () => this.closeScannerCardPreview());
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && this.cameraCardLightbox?.hidden === false) {
+                this.closeScannerCardPreview();
+            }
+        });
+        this.cameraSaveCollectionBtn?.addEventListener('click', () => {
+            this.cardCollection?.save?.();
+            this.showToast('Card Collection', 'Collection saved locally in this browser.', 'success', 2500);
+        });
+
+        this.cameraHistoryList?.addEventListener('click', (event) => {
+            const removeButton = event.target.closest('[data-history-id]');
+            if (!removeButton) return;
+            this.cardCollection?.removeHistoryEntry(removeButton.dataset.historyId);
+        });
+
+        this.cameraSummaryList?.addEventListener('click', (event) => {
+            const counterButton = event.target.closest('[data-card-id][data-action]');
+            if (!counterButton) return;
+            const cardId = counterButton.dataset.cardId;
+            const currentCount = this.cardCollection?.getCardCount(cardId) || 0;
+            const nextCount = counterButton.dataset.action === 'increment' ? currentCount + 1 : currentCount - 1;
+            const card = this.cardCollection?.state?.cards?.[cardId]?.card;
+            if (card) this.cardCollection?.setCardCount(card, nextCount);
+        });
+
+        this.cameraSummaryList?.addEventListener('change', (event) => {
+            const input = event.target.closest('input[data-card-id]');
+            if (!input) return;
+            const card = this.cardCollection?.state?.cards?.[input.dataset.cardId]?.card;
+            if (card) this.cardCollection?.setCardCount(card, input.value);
+        });
+
+        this.setCameraMode(this.cameraMode, { force: true });
+        this.resetScannerPreview();
     }
 
-    
+    setCameraMode(mode, { force = false } = {}) {
+        if (!force && mode === this.cameraMode) return;
+        this.cameraMode = mode === 'collection' ? 'collection' : 'insights';
+        const isCollection = this.cameraMode === 'collection';
+
+        this.cameraModal?.classList.toggle('is-collection-mode', isCollection);
+        this.cameraCollectionPanel && (this.cameraCollectionPanel.hidden = !isCollection);
+        this.cameraInsightsModeBtn?.classList.toggle('active', !isCollection);
+        this.cameraCollectionModeBtn?.classList.toggle('active', isCollection);
+        if (this.cameraSettingsButton) this.cameraSettingsButton.hidden = !isCollection;
+        if (this.cameraDebugButton) this.cameraDebugButton.hidden = !isCollection;
+        if (!isCollection) {
+            this.setScannerSettingsOpen(false);
+            this.setScannerDebugOpen(false);
+        }
+        if (this.cameraModalSubtitle) {
+            this.cameraModalSubtitle.textContent = isCollection
+                ? 'Identify cards with the camera, confirm the match, and save them to My Collection.'
+                : 'Share a card or poster and get real-time insights.';
+        }
+        if (this.cameraIdentifyButton) {
+            const buttonLabel = isCollection ? 'Scan Card' : 'Send Camera Frame';
+            const buttonText = this.cameraIdentifyButton.querySelector('.camera-scan-text');
+            if (buttonText) buttonText.textContent = buttonLabel;
+            this.cameraIdentifyButton.setAttribute('aria-label', buttonLabel);
+            this.cameraIdentifyButton.dataset.tooltip = buttonLabel;
+        }
+
+        if (isCollection) {
+            this.renderScannerCollectionPanels();
+        } else {
+            this.hideScannerHints();
+        }
+    }
+
+    hideScannerHints() {
+        if (this.cameraHintSection) this.cameraHintSection.hidden = true;
+    }
+
+    showScannerHints(message = null) {
+        if (this.cameraHintSection) this.cameraHintSection.hidden = false;
+        if (message) {
+            this.updateCameraStatus(message);
+        }
+    }
 
     getCameraFacingDescription(mode = this.cameraFacingMode) {
         return mode === 'environment' ? 'rear' : 'front';
+    }
+
+    loadScannerPipelineMode() {
+        try {
+            const stored = localStorage.getItem('pokedex_scanner_pipeline_v1');
+            return ['numpy', 'cosine', 'hybrid', 'rerank'].includes(stored) ? stored : 'rerank';
+        } catch (error) {
+            return 'rerank';
+        }
+    }
+
+    setScannerPipelineMode(mode) {
+        this.scannerPipelineMode = ['numpy', 'cosine', 'hybrid', 'rerank'].includes(mode) ? mode : 'rerank';
+        try {
+            localStorage.setItem('pokedex_scanner_pipeline_v1', this.scannerPipelineMode);
+        } catch (error) {
+            console.warn('Could not save scanner pipeline preference:', error);
+        }
+        this.syncScannerPipelineControls();
+        this.setScannerSettingsOpen(false);
+        const labels = {
+            numpy: 'Full-catalog NumPy visual search selected.',
+            cosine: 'Cosine-only visual ranking selected.',
+            hybrid: 'OCR and cosine ranking selected.',
+            rerank: 'OCR, cosine, and LLM reranking selected.'
+        };
+        this.updateCameraStatus(labels[this.scannerPipelineMode]);
+    }
+
+    syncScannerPipelineControls() {
+        this.cameraSettingsPanel?.querySelectorAll('input[name="cameraPipelineMode"]').forEach(input => {
+            input.checked = input.value === this.scannerPipelineMode;
+        });
+    }
+
+    toggleScannerSettings() {
+        this.setScannerSettingsOpen(this.cameraSettingsPanel?.hidden !== false);
+    }
+
+    setScannerSettingsOpen(isOpen) {
+        if (!this.cameraSettingsPanel || !this.cameraSettingsButton) return;
+        const shouldOpen = Boolean(isOpen && this.cameraMode === 'collection');
+        this.cameraSettingsPanel.hidden = !shouldOpen;
+        this.cameraSettingsButton.setAttribute('aria-expanded', String(shouldOpen));
+        if (shouldOpen) {
+            this.setScannerDebugOpen(false);
+            this.syncScannerPipelineControls();
+        }
+    }
+
+    setScannerDebugOpen(isOpen) {
+        if (!this.cameraDebugPanel || !this.cameraDebugButton) return;
+        const shouldOpen = Boolean(isOpen && this.cameraMode === 'collection');
+        this.cameraDebugPanel.hidden = !shouldOpen;
+        this.cameraDebugButton.setAttribute('aria-expanded', String(shouldOpen));
+        this.cameraModal?.classList.toggle('is-debug-open', shouldOpen);
+        if (shouldOpen) {
+            if (this.cameraSettingsPanel) this.cameraSettingsPanel.hidden = true;
+            this.cameraSettingsButton?.setAttribute('aria-expanded', 'false');
+            this.renderScannerDebugTrace();
+        }
+    }
+
+    resetScannerDebugTrace(imageDataUrl) {
+        const mode = this.scannerPipelineMode;
+        const usesMetadata = mode !== 'numpy';
+        this.scannerDebugTrace = {
+            mode,
+            startedAt: performance.now(),
+            imageDataUrl,
+            evidence: null,
+            descriptor: null,
+            descriptorMethod: '',
+            descriptorVariants: 0,
+            judgeContext: null,
+            judgeUsed: false,
+            judgeWarning: '',
+            rankings: [],
+            steps: [
+                { id: 'capture', label: 'Capture guide crop', status: 'done', duration: 0 },
+                { id: 'embed', label: mode === 'numpy' ? 'Build embedding and search full catalog' : 'Compare captured card with candidate images', status: 'pending' },
+                { id: 'text', label: 'Extract visible metadata with LLM', status: usesMetadata ? 'pending' : 'skipped' },
+                { id: 'score', label: 'Score metadata fields and image similarity', status: usesMetadata ? 'pending' : 'skipped' },
+                { id: 'judge', label: 'LLM judge rerank', status: mode === 'rerank' ? 'pending' : 'skipped' },
+                { id: 'render', label: 'Render ranking results', status: 'pending' }
+            ]
+        };
+        this.renderScannerDebugTrace();
+    }
+
+    updateScannerDebugStep(id, status, detail = '') {
+        const step = this.scannerDebugTrace?.steps.find(item => item.id === id);
+        if (!step) return;
+        if (status === 'active') step.startedAt = performance.now();
+        if ((status === 'done' || status === 'error') && step.startedAt) {
+            step.duration = performance.now() - step.startedAt;
+        }
+        step.status = status;
+        step.detail = detail;
+        if (id === 'render' && status === 'done') {
+            this.scannerDebugTrace.completedAt = performance.now();
+        }
+        this.renderScannerDebugTrace();
+    }
+
+    renderScannerDebugTrace() {
+        if (!this.cameraDebugSteps) return;
+        const trace = this.scannerDebugTrace;
+        if (!trace) {
+            this.cameraDebugSteps.innerHTML = '';
+            return;
+        }
+        const modeNames = { numpy: 'NumPy full catalog', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
+        if (this.cameraDebugMode) this.cameraDebugMode.textContent = modeNames[trace.mode];
+        if (this.cameraDebugSummary) {
+            const best = trace.rankings[0];
+            this.cameraDebugSummary.textContent = best
+                ? `${best.card?.name || 'Unknown'} leads at ${Math.round(best.score * 1000) / 10}% after ${Math.round((trace.completedAt || performance.now()) - trace.startedAt)} ms.`
+                : 'Trace updates live as the crop moves through the matching pipeline.';
+        }
+        this.cameraDebugSteps.innerHTML = trace.steps.map(step => `
+            <div class="camera-debug-step is-${step.status}">
+                <span class="camera-debug-step-dot" aria-hidden="true">${step.status === 'done' ? '✓' : step.status === 'skipped' ? '–' : step.status === 'error' ? '!' : ''}</span>
+                <span><strong>${this._escapeHtml(step.label)}</strong>${step.detail ? `<small>${this._escapeHtml(step.detail)}</small>` : ''}</span>
+                ${Number.isFinite(step.duration) ? `<time>${Math.round(step.duration)} ms</time>` : ''}
+            </div>`).join('');
+        const evidence = trace.evidence ? `
+            <section class="camera-debug-capture">
+                <div class="camera-debug-capture-heading">
+                    <strong>Cropped camera card</strong>
+                    <span>LLM text confidence: ${Math.round(Number(trace.evidence.confidence) || 0)}%</span>
+                </div>
+                <div class="camera-debug-capture-layout">
+                    <img src="${trace.imageDataUrl}" alt="Captured card crop">
+                    <div>
+                        <details open><summary>Extracted text</summary><pre>${this._escapeHtml(trace.evidence.text || 'No text extracted.')}</pre></details>
+                        <details open><summary>Extracted metadata</summary><pre>${this._escapeHtml(JSON.stringify(trace.evidence.metadata || {}, null, 2))}</pre></details>
+                        ${trace.evidence.notes ? `<details><summary>Extraction notes</summary><pre>${this._escapeHtml(trace.evidence.notes)}</pre></details>` : ''}
+                    </div>
+                </div>
+            </section>` : `<figure><img src="${trace.imageDataUrl}" alt="Captured card crop"><figcaption>Guide crop · 630 × 880 JPEG</figcaption></figure>`;
+        const descriptor = Array.isArray(trace.descriptor) && trace.descriptor.length
+            ? `<details><summary>Query visual descriptor (${trace.descriptor.length.toLocaleString()} dims${trace.descriptorVariants > 1 ? ` · ${trace.descriptorVariants} crop variants` : ''})</summary><small class="camera-debug-method">${this._escapeHtml(trace.descriptorMethod)}</small><pre>${this._escapeHtml(trace.descriptor.map(value => Number(value).toFixed(4)).join(', '))}</pre></details>`
+            : '';
+        const judgeContext = trace.judgeContext
+            ? `<details><summary>LLM judge request</summary><pre>${this._escapeHtml(JSON.stringify(trace.judgeContext, null, 2))}</pre></details>`
+            : '';
+        const rankings = trace.rankings.length
+            ? `<section class="camera-debug-rankings"><h4>${trace.judgeUsed ? 'LLM judge rerank' : 'Ranked candidates'}</h4>${trace.judgeWarning ? `<p class="camera-debug-warning">${this._escapeHtml(trace.judgeWarning)}</p>` : ''}${trace.rankings.map((entry, index) => {
+                const scores = entry.card?._scannerScores || {};
+                const imageUrl = entry.card?.images?.small || entry.card?.imageSmall || entry.card?.image || '';
+                const metadata = this.formatScannerDebugCardMetadata(entry.card);
+                return `<article class="camera-debug-rank ${index === 0 ? 'is-best' : ''}">
+                    <div class="camera-debug-rank-main">
+                        <b>${index + 1}</b>
+                        ${imageUrl ? `<img src="${this._escapeHtml(imageUrl)}" alt="${this._escapeHtml(entry.card?.name || 'Candidate card')}">` : ''}
+                        <span><strong>${this._escapeHtml(entry.card?.name || 'Unknown')}</strong><small>${this._escapeHtml(entry.card?.set?.name || entry.card?.id || '')} · #${this._escapeHtml(entry.card?.number || '?')}</small></span>
+                        <code>${Math.round(entry.score * 1000) / 10}%</code>
+                    </div>
+                    <div class="camera-debug-score-grid">
+                        <span>Text <strong>${scores.text == null ? '–' : `${Math.round(scores.text * 10) / 10}%`}</strong></span>
+                        <span>Visual <strong>${scores.visual == null ? '–' : `${Math.round(scores.visual * 10) / 10}%`}</strong></span>
+                        <span>Combined <strong>${scores.combined == null ? `${Math.round(entry.score * 1000) / 10}%` : `${Math.round(scores.combined * 10) / 10}%`}</strong></span>
+                    </div>
+                    ${entry.visualBreakdown ? `<details><summary>Visual score components</summary><pre>${this._escapeHtml(JSON.stringify(entry.visualBreakdown, null, 2))}</pre></details>` : ''}
+                    <details><summary>Candidate metadata</summary><pre>${this._escapeHtml(JSON.stringify(metadata, null, 2))}</pre></details>
+                    ${entry.judgeReason ? `<details open><summary>Judge reason</summary><pre>${this._escapeHtml(entry.judgeReason)}</pre></details>` : ''}
+                </article>`;
+            }).join('')}</section>`
+            : '';
+        if (this.cameraDebugEvidence) {
+            this.cameraDebugEvidence.innerHTML = `${evidence}${descriptor}${judgeContext}${rankings}`;
+        }
+    }
+
+    formatScannerDebugCardMetadata(card = {}) {
+        return {
+            id: card.id,
+            name: card.name,
+            hp: card.hp,
+            set: card.set?.name,
+            number: card.number,
+            rarity: card.rarity,
+            supertype: card.supertype,
+            subtypes: card.subtypes || [],
+            types: card.types || [],
+            attacks: card.attacks || [],
+            weaknesses: card.weaknesses || [],
+            resistances: card.resistances || [],
+            retreatCost: card.retreatCost || [],
+            convertedRetreatCost: card.convertedRetreatCost
+        };
     }
 
     updateCameraSwitchButton() {
@@ -1839,7 +2818,9 @@ class PokemonChatApp {
         const nextMode = this.cameraFacingMode === 'environment' ? 'Front' : 'Rear';
         this.cameraSwitchText.textContent = `Use ${nextMode} Camera`;
         if (this.cameraSwitchButton) {
-            this.cameraSwitchButton.setAttribute('aria-label', `Switch to ${nextMode.toLowerCase()} camera`);
+            const buttonLabel = `Switch to ${nextMode.toLowerCase()} camera`;
+            this.cameraSwitchButton.setAttribute('aria-label', buttonLabel);
+            this.cameraSwitchButton.dataset.tooltip = buttonLabel;
         }
     }
 
@@ -1869,7 +2850,9 @@ class PokemonChatApp {
         this.cameraModalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        this.setCameraMode(this.cameraMode, { force: true });
         this.updateCameraSwitchButton();
+        this.renderScannerCollectionPanels();
         await this.startCameraPreview();
         await this.startCameraScanningSession();
     }
@@ -1878,8 +2861,10 @@ class PokemonChatApp {
         if (!this.cameraModalOverlay) return;
         this.cameraModalOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        this.pendingCardScan = null;
         this.stopCameraScanning();
         this.stopCameraStream();
+        this.resetScannerPreview();
         this.updateCameraStatus('Camera closed. Reopen to scan more.');
     }
 
@@ -1973,6 +2958,719 @@ class PokemonChatApp {
             this.cameraPreview.pause();
             this.cameraPreview.srcObject = null;
         }
+    }
+
+    getCameraGuideSourceRect() {
+        if (!this.cameraPreview || !this.cameraScanGuide) {
+            return null;
+        }
+        const sourceWidth = this.cameraPreview.videoWidth;
+        const sourceHeight = this.cameraPreview.videoHeight;
+        const videoRect = this.cameraPreview.getBoundingClientRect();
+        const guideRect = this.cameraScanGuide.getBoundingClientRect();
+        if (!sourceWidth || !sourceHeight || !videoRect.width || !videoRect.height || !guideRect.width || !guideRect.height) {
+            return null;
+        }
+
+        const coverScale = Math.max(videoRect.width / sourceWidth, videoRect.height / sourceHeight);
+        const renderedWidth = sourceWidth * coverScale;
+        const renderedHeight = sourceHeight * coverScale;
+        const renderedLeft = videoRect.left + (videoRect.width - renderedWidth) / 2;
+        const renderedTop = videoRect.top + (videoRect.height - renderedHeight) / 2;
+        const sourceX = Math.max(0, (guideRect.left - renderedLeft) / coverScale);
+        const sourceY = Math.max(0, (guideRect.top - renderedTop) / coverScale);
+        const cropWidth = Math.min(guideRect.width / coverScale, sourceWidth - sourceX);
+        const cropHeight = Math.min(guideRect.height / coverScale, sourceHeight - sourceY);
+        return { sourceX, sourceY, cropWidth, cropHeight };
+    }
+
+    captureCurrentCameraFrame() {
+        if (!this.cameraPreview || this.cameraPreview.readyState < 2) {
+            return null;
+        }
+        const crop = this.getCameraGuideSourceRect();
+        if (!crop) return null;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = 630;
+        canvas.height = 880;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(
+            this.cameraPreview,
+            crop.sourceX,
+            crop.sourceY,
+            crop.cropWidth,
+            crop.cropHeight,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+        return canvas.toDataURL('image/jpeg', 0.92);
+    }
+
+    async identifyCurrentCard({ useHints = false } = {}) {
+        if (this.cameraMode !== 'collection') {
+            return this.sendCameraSnapshot('manual');
+        }
+
+        const imageDataUrl = this.captureCurrentCameraFrame();
+        if (!imageDataUrl) {
+            this.updateCameraStatus('Waiting for a clear camera frame before identifying the card.');
+            return false;
+        }
+
+        this.lastScannerFrame = imageDataUrl;
+        this.resetScannerDebugTrace(imageDataUrl);
+        if (this.cameraCapturedImage) this.cameraCapturedImage.src = imageDataUrl;
+        if (this.cameraCapturedPreview) this.cameraCapturedPreview.hidden = false;
+        this.updateCameraStatus('Identifying the card...');
+        this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = true);
+        this.hideScannerHints();
+
+        try {
+            const hints = useHints ? this.cameraHintInput?.value?.trim() : '';
+            let evidence;
+            let responseText = '';
+            let guess;
+            let rankedCandidates;
+            if (this.scannerPipelineMode === 'numpy') {
+                this.updateCameraStatus('Searching the full cached card catalog...');
+                this.updateScannerDebugStep('embed', 'active', 'Encoding four crop scales and comparing 15,909 vectors at 1,432 dimensions.');
+                rankedCandidates = await this.findNumpyMatchingCards(imageDataUrl);
+                this.updateScannerDebugStep('embed', 'done', `${rankedCandidates.length} highest cosine matches returned.`);
+                const bestEntry = rankedCandidates[0];
+                const bestCard = bestEntry?.card;
+                guess = {
+                    cardName: bestCard?.name || '',
+                    pokemonName: bestCard?.name || '',
+                    setName: bestCard?.set?.name || '',
+                    number: bestCard?.number || '',
+                    hp: bestCard?.hp || '',
+                    type: bestCard?.types?.[0] || '',
+                    rarity: bestCard?.rarity || '',
+                    attack1: bestCard?.attacks?.[0]?.name || '',
+                    attack2: bestCard?.attacks?.[1]?.name || '',
+                    confidence: bestEntry ? `${Math.round(bestEntry.score * 100)}%` : 'low'
+                };
+                evidence = {
+                    text: '',
+                    metadata: this.scannerGuessToMetadata(guess),
+                    confidence: bestEntry ? bestEntry.score * 100 : 0,
+                    source: 'numpy_full_catalog'
+                };
+                this.scannerDebugTrace.evidence = {
+                    source: evidence.source,
+                    descriptor: '32 × 44 standardized grayscale + 24 RGB histogram bins',
+                    dimensions: 1432,
+                    catalogSize: 15909,
+                    queryVariants: 4
+                };
+            } else {
+                try {
+                    this.updateScannerDebugStep('text', 'active', 'Reading printed card fields from the captured crop.');
+                    evidence = await this.extractScannerEvidence(imageDataUrl);
+                    this.updateScannerDebugStep('text', 'done', `${Math.round(evidence.confidence || 0)}% extraction confidence.`);
+                } catch (extractionError) {
+                    console.warn('Structured scanner extraction unavailable, using realtime fallback:', extractionError);
+                    const prompt = this.buildCardIdentificationPrompt({
+                        attempt: useHints ? Math.max(this.scannerHintAttemptFloor, this.scannerAttemptCount + 1) : this.scannerAttemptCount + 1,
+                        previousGuess: this.currentScannerMatch?.guess,
+                        hints
+                    });
+                    responseText = await this.requestScannerResponse(imageDataUrl, prompt);
+                    const fallbackGuess = this.parseScannerGuess(responseText);
+                    evidence = { text: responseText, metadata: this.scannerGuessToMetadata(fallbackGuess), confidence: fallbackGuess.confidence };
+                    this.updateScannerDebugStep('text', 'done', 'Structured extraction failed; realtime fallback used.');
+                }
+                guess = this.scannerEvidenceToGuess(evidence, hints);
+                this.scannerDebugTrace.evidence = evidence;
+                this.updateScannerDebugStep('score', 'active', 'Looking up candidates and combining field and visual scores.');
+                rankedCandidates = await this.findBestMatchingCards(guess, imageDataUrl, evidence);
+                this.updateScannerDebugStep('score', 'done', `${rankedCandidates.length} candidates ranked.`);
+            }
+            const matchedCard = rankedCandidates[0]?.card || null;
+            this.currentScannerMatch = {
+                guess,
+                matchedCard,
+                rankedCandidates,
+                evidence,
+                responseText,
+                imageDataUrl
+            };
+            this.scannerAttemptCount = useHints ? this.scannerHintAttemptFloor : this.scannerAttemptCount + 1;
+            this.scannerDebugTrace.rankings = rankedCandidates;
+            this.updateScannerDebugStep('render', 'active', 'Updating candidate previews and selected-card metadata.');
+            this.renderScannerMatch();
+            this.updateScannerDebugStep('render', 'done', matchedCard ? `${matchedCard.name} selected as the best match.` : 'No confident match found.');
+            this.updateCameraStatus(matchedCard
+                ? `Best match: ${matchedCard.name}${matchedCard.set?.name ? ` from ${matchedCard.set.name}` : ''}`
+                : 'I found a guess, but I could not confidently match it in the card database.');
+            return true;
+        } catch (error) {
+            console.error('Card identification failed:', error);
+            const activeStep = this.scannerDebugTrace?.steps.find(step => step.status === 'active');
+            if (activeStep) this.updateScannerDebugStep(activeStep.id, 'error', error.message || 'Stage failed.');
+            const message = error.message || 'Could not identify the card right now.';
+            this.updateCameraStatus(message);
+            this.showToast('Card Scanner', message, 'error', 3500);
+            return false;
+        } finally {
+            this.cameraIdentifyButton && (this.cameraIdentifyButton.disabled = false);
+        }
+    }
+
+    async extractScannerEvidence(imageDataUrl) {
+        const response = await fetch('/api/tcg/extract-card-text', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                image_data_url: imageDataUrl,
+                api_settings: this.buildApiSettingsPayload('chat')
+            })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || `Card extraction failed (${response.status})`);
+        return {
+            text: data.extracted_text || '',
+            metadata: data.metadata || {},
+            confidence: Number(data.confidence || 0),
+            notes: data.notes || ''
+        };
+    }
+
+    scannerGuessToMetadata(guess) {
+        return {
+            name: guess.cardName || guess.pokemonName,
+            hp: guess.hp,
+            types: guess.type ? [guess.type] : [],
+            set_name: guess.setName,
+            number: guess.number,
+            rarity: guess.rarity,
+            attacks: [guess.attack1, guess.attack2].filter(Boolean).map(name => ({ name }))
+        };
+    }
+
+    scannerEvidenceToGuess(evidence, hints = '') {
+        const metadata = evidence?.metadata || {};
+        const attacks = Array.isArray(metadata.attacks) ? metadata.attacks : [];
+        return {
+            cardName: metadata.name || '',
+            pokemonName: metadata.name || hints || '',
+            setName: metadata.set_name || '',
+            number: metadata.number || '',
+            hp: metadata.hp || '',
+            type: Array.isArray(metadata.types) ? metadata.types[0] || '' : metadata.types || '',
+            rarity: metadata.rarity || '',
+            attack1: attacks[0]?.name || '',
+            attack2: attacks[1]?.name || '',
+            confidence: evidence?.confidence ? `${Math.round(evidence.confidence)}%` : 'medium'
+        };
+    }
+
+    /**
+     * Build the strict scanner prompt used for card identification.
+     * Expected response format:
+     * Card: Pikachu ex
+     * Pokemon: Pikachu
+     * Set: Surging Sparks
+     * Number: 238
+     * HP: 200
+     * Type: Lightning
+     * Rarity: Special Illustration Rare
+     * Attack1: Resolute Heart
+     * Attack2: Topaz Bolt
+     * Confidence: medium
+     */
+    buildCardIdentificationPrompt({ attempt = 1, previousGuess = null, hints = '' } = {}) {
+        const promptParts = [
+            'Identify the most visible Pokémon TCG card in this image.',
+            'Use printed details to distinguish between different versions and illustrations of the same Pokémon.',
+            'Prioritize the printed set/card number, HP, type, rarity, and attack names when visible.',
+            'Reply with exactly ten lines in this format:',
+            'Card: <best full card name>',
+            'Pokemon: <pokemon name or unknown>',
+            'Set: <set name or unknown>',
+            'Number: <printed card number or unknown>',
+            'HP: <hp or unknown>',
+            'Type: <pokemon/card type or unknown>',
+            'Rarity: <rarity or unknown>',
+            'Attack1: <first visible attack name or unknown>',
+            'Attack2: <second visible attack name or unknown>',
+            'Confidence: <high|medium|low>',
+        ];
+
+        if (attempt >= 2 && previousGuess) {
+            promptParts.push(`The previous guess was wrong: ${previousGuess.cardName || previousGuess.pokemonName || 'unknown card'}${previousGuess.setName ? ` from ${previousGuess.setName}` : ''}. Suggest a different card.`);
+        }
+
+        if (hints) {
+            promptParts.push(`User hints: ${hints}`);
+        }
+
+        promptParts.push('Keep the answer short and do not add any extra commentary.');
+        return promptParts.join(' ');
+    }
+
+    requestScannerResponse(imageDataUrl, prompt) {
+        return new Promise((resolve, reject) => {
+            if (!this.realtimeVoice || !this.useRealtimeApi) {
+                reject(new Error('Realtime voice is not available'));
+                return;
+            }
+
+            this.pendingCardScan = { resolve, reject };
+
+            (async () => {
+                try {
+                    await this.activateRealtimeConversation({ announce: false });
+                    const sent = await this.realtimeVoice.sendImage(imageDataUrl, prompt);
+                    if (!sent) {
+                        this.pendingCardScan = null;
+                        reject(new Error('Image was not sent'));
+                    }
+                } catch (error) {
+                    this.pendingCardScan = null;
+                    reject(error);
+                }
+            })();
+        });
+    }
+
+    parseScannerGuess(text = '') {
+        const lines = text.split(/\n+/).map(line => line.trim()).filter(Boolean);
+        const readField = (label) => {
+            const match = lines.find(line => line.toLowerCase().startsWith(`${label.toLowerCase()}:`));
+            return match ? match.split(':').slice(1).join(':').trim() : '';
+        };
+        return {
+            cardName: readField('Card'),
+            pokemonName: readField('Pokemon'),
+            setName: readField('Set'),
+            number: readField('Number'),
+            hp: readField('HP'),
+            type: readField('Type'),
+            rarity: readField('Rarity'),
+            attack1: readField('Attack1'),
+            attack2: readField('Attack2'),
+            confidence: readField('Confidence') || 'medium'
+        };
+    }
+
+    async findBestMatchingCards(guess, imageDataUrl = null, evidence = null) {
+        const normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        const terms = [...new Set([guess.cardName, guess.pokemonName]
+            .map(term => String(term || '').trim())
+            .filter(term => term && normalize(term) !== 'unknown'))];
+        if (terms.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'Extraction did not provide a card name for candidate lookup.');
+            if (this.scannerPipelineMode === 'rerank') {
+                this.updateScannerDebugStep('judge', 'skipped', 'No candidates were available for LLM reranking.');
+            }
+            return [];
+        }
+
+        const candidates = [];
+        for (const term of terms) {
+            try {
+                const response = await fetch('/api/realtime/tool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tool_name: 'search_pokemon_cards',
+                        arguments: { pokemon_name: term }
+                    })
+                });
+                if (!response.ok) continue;
+                const data = await response.json();
+                const cards = data?.result?.cards || [];
+                cards.forEach(card => {
+                    if (!candidates.some(existing => existing.id === card.id)) {
+                        candidates.push(card);
+                    }
+                });
+            } catch (error) {
+                console.warn('Candidate lookup failed:', error);
+            }
+        }
+
+        if (candidates.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'No catalog candidates were found from the extracted metadata.');
+            if (this.scannerPipelineMode === 'rerank') {
+                this.updateScannerDebugStep('judge', 'skipped', 'No candidates were available for LLM reranking.');
+            }
+            return [];
+        }
+
+        const wantedName = normalize(guess.cardName);
+        const wantedSet = normalize(guess.setName);
+        const wantedNumber = normalize(guess.number);
+        const wantedHp = normalize(guess.hp);
+        const wantedType = normalize(guess.type);
+        const wantedRarity = normalize(guess.rarity);
+        const wantedAttacks = [guess.attack1, guess.attack2]
+            .map(attack => normalize(attack))
+            .filter(attack => attack && attack !== 'unknown');
+
+        const tokenOverlapScore = (wanted, actual) => {
+            if (!wanted || !actual || wanted === 'unknown') return 0;
+            if (actual === wanted) return 1;
+            if (actual.includes(wanted) || wanted.includes(actual)) return 0.7;
+            const wantedTokens = wanted.split(' ').filter(token => token.length > 2);
+            if (wantedTokens.length === 0) return 0;
+            const actualTokens = new Set(actual.split(' ').filter(Boolean));
+            const matchedTokens = wantedTokens.filter(token => actualTokens.has(token)).length;
+            return matchedTokens / wantedTokens.length;
+        };
+
+        const scored = candidates.map(card => {
+            let score = 0;
+            const cardName = normalize(card.name);
+            const setName = normalize(card.set?.name);
+            const cardTypes = Array.isArray(card.types) ? card.types.map(type => normalize(type)) : [];
+            const cardRarity = normalize(card.rarity);
+            const cardAttacks = Array.isArray(card.attacks)
+                ? card.attacks.map(attack => normalize(`${attack.name || ''} ${attack.damage || ''}`))
+                : [];
+            if (wantedName && cardName === wantedName) score += 70;
+            else if (wantedName && (cardName.includes(wantedName) || wantedName.includes(cardName))) score += 35;
+            if (wantedSet && setName === wantedSet) score += 35;
+            else if (wantedSet && (setName.includes(wantedSet) || wantedSet.includes(setName))) score += 15;
+            if (wantedNumber && normalize(card.number) === wantedNumber) score += 30;
+            if (wantedHp && normalize(card.hp) === wantedHp) score += 10;
+            if (wantedType && cardTypes.some(type => type === wantedType || type.includes(wantedType) || wantedType.includes(type))) score += 12;
+            if (wantedRarity && tokenOverlapScore(wantedRarity, cardRarity) > 0.6) score += 10;
+            wantedAttacks.forEach(wantedAttack => {
+                const bestAttackScore = Math.max(0, ...cardAttacks.map(cardAttack => tokenOverlapScore(wantedAttack, cardAttack)));
+                score += Math.round(bestAttackScore * 18);
+            });
+            const textScore = Math.min(1, score / 185);
+            return { card, score: textScore, textScore, visualScore: null };
+        }).sort((a, b) => b.score - a.score);
+
+        const visualOnly = this.scannerPipelineMode === 'cosine';
+        this.updateScannerDebugStep('embed', 'active', `Comparing the crop with ${Math.min(scored.length, 24)} candidate images.`);
+        const visuallyScored = await this.applyScannerImageSimilarity(scored, imageDataUrl, visualOnly);
+        const visualStep = this.scannerDebugTrace?.steps.find(step => step.id === 'embed');
+        if (visualStep?.status === 'active') {
+            this.updateScannerDebugStep('embed', 'done', 'Visual similarity scores normalized and sorted.');
+        }
+        let reranked = visuallyScored;
+        if (this.scannerPipelineMode === 'rerank') {
+            this.updateScannerDebugStep('judge', 'active', 'Sending the twelve strongest candidates and evidence to the LLM judge.');
+            reranked = await this.rerankScannerCandidates(visuallyScored.slice(0, 12), evidence);
+            this.updateScannerDebugStep('judge', 'done', `${reranked.length} candidates returned by the judge.`);
+        }
+        reranked.forEach(entry => {
+            entry.card._scannerScores = {
+                text: entry.textScore * 100,
+                visual: entry.visualScore == null ? null : entry.visualScore * 100,
+                combined: entry.score * 100
+            };
+        });
+        return reranked.slice(0, 6);
+    }
+
+    async findBestMatchingCard(guess, imageDataUrl = null) {
+        const ranked = await this.findBestMatchingCards(guess, imageDataUrl);
+        return ranked[0]?.card || null;
+    }
+
+    async findNumpyMatchingCards(imageDataUrl) {
+        const response = await fetch('/api/tcg/numpy-image-match', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image_data_url: imageDataUrl, limit: 6, debug: true })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(data.error || `NumPy catalog search failed (${response.status})`);
+        }
+        if (this.scannerDebugTrace) {
+            this.scannerDebugTrace.descriptor = data.query_descriptors?.[0] || null;
+            this.scannerDebugTrace.descriptorVariants = data.query_descriptors?.length || 0;
+            this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
+        }
+        return (data.matches || []).filter(match => match.card?.id).map(match => {
+            const score = Math.max(0, Math.min(1, Number(match.score || 0)));
+            match.card._scannerScores = { text: null, visual: score * 100, combined: score * 100 };
+            return { card: match.card, score, textScore: 0, visualScore: score };
+        });
+    }
+
+    async applyScannerImageSimilarity(scoredCandidates, imageDataUrl, visualOnly = false) {
+        if (!imageDataUrl || !Array.isArray(scoredCandidates) || scoredCandidates.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'No captured image or candidates were available for visual comparison.');
+            return scoredCandidates;
+        }
+
+        const candidatesForVisualMatch = scoredCandidates
+            .slice(0, 24)
+            .map(({ card }) => ({
+                id: card.id,
+                name: card.name,
+                images: card.images,
+                imageLarge: card.imageLarge,
+                imageSmall: card.imageSmall,
+                image: card.image
+            }))
+            .filter(card => card.id && (card.images?.large || card.images?.small || card.imageLarge || card.imageSmall || card.image));
+
+        if (candidatesForVisualMatch.length === 0) {
+            this.updateScannerDebugStep('embed', 'skipped', 'Candidate records did not include usable reference images.');
+            return scoredCandidates;
+        }
+
+        try {
+            const response = await fetch('/api/tcg/image-match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    image_data_url: imageDataUrl,
+                    candidates: candidatesForVisualMatch,
+                    debug: true
+                })
+            });
+
+            if (!response.ok) {
+                console.warn('Scanner image similarity failed:', response.status);
+                this.updateScannerDebugStep('embed', 'skipped', `Visual comparison service returned HTTP ${response.status}.`);
+                return scoredCandidates;
+            }
+
+            const data = await response.json();
+            if (this.scannerDebugTrace) {
+                this.scannerDebugTrace.descriptor = data.query_descriptor || null;
+                this.scannerDebugTrace.descriptorVariants = data.query_descriptor?.length ? 1 : 0;
+                this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
+            }
+            const visualMatches = new Map((data.matches || []).map(match => [match.id, match]));
+            if (visualMatches.size === 0) {
+                this.updateScannerDebugStep('embed', 'skipped', 'No candidate reference images could be compared.');
+                return scoredCandidates;
+            }
+            return scoredCandidates.map(entry => {
+                const visualMatch = visualMatches.get(entry.card.id);
+                if (!visualMatch) return entry;
+                const visualScore = Number(visualMatch.visual_score || 0) / 100;
+                return {
+                    ...entry,
+                    visualScore,
+                    visualBreakdown: {
+                        hash_score: visualMatch.hash_score,
+                        edge_score: visualMatch.edge_score,
+                        color_score: visualMatch.color_score
+                    },
+                    score: visualOnly ? visualScore : (entry.textScore * 0.42) + (visualScore * 0.58)
+                };
+            }).sort((a, b) => b.score - a.score);
+        } catch (error) {
+            console.warn('Scanner image similarity unavailable:', error);
+            this.updateScannerDebugStep('embed', 'skipped', error.message || 'Visual comparison was unavailable.');
+            return scoredCandidates;
+        }
+    }
+
+    async rerankScannerCandidates(ranked, evidence) {
+        if (!ranked.length || !evidence) return ranked;
+        const payload = {
+            extracted_text: evidence.text || '',
+            extracted_metadata: evidence.metadata || {},
+            api_settings: this.buildApiSettingsPayload('chat'),
+            candidates: ranked.map(entry => ({
+                id: entry.card.id,
+                name: entry.card.name,
+                set: entry.card.set?.name,
+                number: entry.card.number,
+                rarity: entry.card.rarity,
+                hp: entry.card.hp,
+                supertype: entry.card.supertype,
+                subtypes: entry.card.subtypes || [],
+                types: entry.card.types || [],
+                attacks: entry.card.attacks || [],
+                weaknesses: entry.card.weaknesses || [],
+                resistances: entry.card.resistances || [],
+                retreatCost: entry.card.retreatCost || [],
+                convertedRetreatCost: entry.card.convertedRetreatCost,
+                embedding_score: entry.visualScore || 0,
+                text_score: entry.textScore,
+                combined_score: entry.score,
+                text_matches: []
+            }))
+        };
+        try {
+            const response = await fetch('/api/tcg/rerank-match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!response.ok) return ranked;
+            const data = await response.json();
+            if (this.scannerDebugTrace) {
+                this.scannerDebugTrace.judgeContext = data.judge_context || payload;
+                this.scannerDebugTrace.judgeUsed = Boolean(data.judge_used);
+                this.scannerDebugTrace.judgeWarning = data.warning || '';
+            }
+            const byId = new Map(ranked.map(entry => [entry.card.id, entry]));
+            const reranked = (data.ranked || []).map(item => {
+                const original = byId.get(item.id);
+                return original ? { ...original, judgeReason: item.judge_reason || '' } : null;
+            }).filter(Boolean);
+            return reranked.length ? reranked : ranked;
+        } catch (error) {
+            console.warn('Scanner candidate rerank unavailable:', error);
+            return ranked;
+        }
+    }
+
+    renderScannerMatch() {
+        const match = this.currentScannerMatch;
+        const card = match?.matchedCard;
+        const rankedCandidates = match?.rankedCandidates || [];
+        if (this.cameraCandidateList) {
+            this.cameraCandidateList.innerHTML = rankedCandidates.length
+                ? rankedCandidates.map((entry, index) => {
+                    const candidate = entry.card;
+                    const imageUrl = candidate.images?.small || candidate.imageSmall || candidate.image || '';
+                    const score = Math.max(0, Math.min(100, Math.round(entry.score * 100)));
+                    const isSelected = candidate.id === card?.id;
+                    return `
+                        <div class="camera-candidate-shell ${isSelected ? 'is-selected' : ''}">
+                            <button class="camera-candidate ${index === 0 ? 'is-best' : ''} ${isSelected ? 'is-selected' : ''}"
+                                    type="button"
+                                    data-scanner-card-id="${this._escapeHtml(candidate.id)}"
+                                    aria-pressed="${isSelected}"
+                                    aria-label="${this._escapeHtml(isSelected ? `Enlarge ${candidate.name || 'selected card'}` : `Select ${candidate.name || 'card candidate'}`)}">
+                                <img src="${this._escapeHtml(imageUrl)}" alt="${this._escapeHtml(candidate.name || 'Card candidate')}">
+                                <div class="camera-candidate-rank">${index + 1}</div>
+                                <div class="camera-candidate-info">
+                                    <strong>${this._escapeHtml(candidate.name || 'Unknown card')}</strong>
+                                    <span>${this._escapeHtml(candidate.set?.name || 'Unknown set')} · #${this._escapeHtml(candidate.number || '?')}</span>
+                                    <span>${score}% match</span>
+                                </div>
+                            </button>
+                            ${isSelected ? '<button class="camera-selected-add" type="button" data-scanner-add>Add to collection</button>' : ''}
+                        </div>
+                    `;
+                }).join('')
+                : '<div class="camera-preview-card-placeholder">No close matches yet. Add a hint and scan again.</div>';
+        }
+        if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = !match;
+    }
+
+    resetScannerPreview() {
+        this.currentScannerMatch = null;
+        this.lastScannerFrame = null;
+        this.scannerAttemptCount = 0;
+        if (this.cameraHintInput) this.cameraHintInput.value = '';
+        if (this.cameraCapturedPreview) this.cameraCapturedPreview.hidden = true;
+        if (this.cameraCapturedImage) this.cameraCapturedImage.removeAttribute('src');
+        this.closeScannerCardPreview();
+        if (this.cameraCandidateList) {
+            this.cameraCandidateList.innerHTML = '<div class="camera-preview-card-placeholder" id="cameraPreviewPlaceholder">Align one card in the frame, then tap Scan Card.</div>';
+            this.cameraPreviewPlaceholder = document.getElementById('cameraPreviewPlaceholder');
+        }
+        if (this.cameraRejectCardBtn) this.cameraRejectCardBtn.disabled = true;
+        this.hideScannerHints();
+    }
+
+    async acceptCurrentScannerMatch() {
+        const card = this.currentScannerMatch?.matchedCard;
+        if (!card) return;
+        this.cardCollection?.recordScan(card, { source: 'scanner' });
+        this.animateScannerCardToHistory();
+        window.setTimeout(() => this.resetScannerPreview(), 220);
+        this.updateCameraStatus(`Saved ${card.name} to your collection.`);
+        this.showToast('Card Scanner', `${card.name} saved to My Collection.`, 'success', 2500);
+    }
+
+    selectScannerCandidate(cardId) {
+        const selected = this.currentScannerMatch?.rankedCandidates?.find(entry => entry.card.id === cardId);
+        if (!selected) return;
+        if (this.currentScannerMatch.matchedCard?.id === cardId) {
+            this.openScannerCardPreview(selected.card);
+            return;
+        }
+        this.currentScannerMatch.matchedCard = selected.card;
+        this.renderScannerMatch();
+        this.updateCameraStatus(`Selected ${selected.card.name}${selected.card.set?.name ? ` from ${selected.card.set.name}` : ''}.`);
+    }
+
+    openScannerCardPreview(card) {
+        const imageUrl = card?.images?.large || card?.imageLarge || card?.images?.small || card?.imageSmall || card?.image || '';
+        if (!imageUrl || !this.cameraCardLightbox || !this.cameraIdentifiedCardImage) return;
+        this.cameraIdentifiedCardImage.src = imageUrl;
+        this.cameraIdentifiedCardImage.alt = `${card.name || 'Selected card'} enlarged preview`;
+        this.cameraCardLightbox.hidden = false;
+        this.cameraCardLightbox.focus();
+    }
+
+    closeScannerCardPreview() {
+        if (this.cameraCardLightbox) this.cameraCardLightbox.hidden = true;
+        if (this.cameraIdentifiedCardImage) this.cameraIdentifiedCardImage.removeAttribute('src');
+    }
+
+    async retryScannerMatch() {
+        if (!this.currentScannerMatch) return;
+        if (this.scannerAttemptCount >= 2) {
+            this.showScannerHints('Still not right? Add a clue like Pokémon name, HP, attack, or expansion and try again.');
+            return;
+        }
+        await this.identifyCurrentCard();
+    }
+
+    renderScannerCollectionPanels() {
+        if (!this.cardCollection) return;
+        const history = this.cardCollection.getHistory();
+        const summary = this.cardCollection.getOwnedCards().sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+        if (this.cameraHistoryList) {
+            this.cameraHistoryList.innerHTML = history.length > 0
+                ? history.map(entry => `
+                    <div class="camera-history-item">
+                        ${entry.image ? `<img class="camera-history-thumb" src="${entry.image}" alt="${entry.cardName}">` : '<div class="camera-history-thumb"></div>'}
+                        <div class="camera-history-details">
+                            <strong>${entry.cardName}</strong>
+                            <span>${entry.setName || 'Set unknown'} · +${entry.countChange}</span>
+                        </div>
+                        <button class="camera-history-remove" type="button" data-history-id="${entry.id}" aria-label="Remove ${entry.cardName} from history">✕</button>
+                    </div>
+                `).join('')
+                : '<div class="camera-empty-state">Accepted cards will appear here.</div>';
+        }
+
+        if (this.cameraSummaryList) {
+            this.cameraSummaryList.innerHTML = summary.length > 0
+                ? summary.map(card => `
+                    <div class="camera-summary-item">
+                        <div class="camera-summary-details">
+                            <strong>${card.name}</strong>
+                            <span>${card.set?.name || 'Set unknown'}${card.number ? ` · #${card.number}` : ''}</span>
+                        </div>
+                        <div class="tcg-collection-counter camera-summary-counter">
+                            <button class="tcg-collection-counter-btn" type="button" data-card-id="${card.id}" data-action="decrement" aria-label="Decrease ${card.name} count">−</button>
+                            <input class="tcg-collection-counter-input" type="number" min="0" value="${card._collectionCount || 0}" data-card-id="${card.id}" aria-label="${card.name} count">
+                            <button class="tcg-collection-counter-btn" type="button" data-card-id="${card.id}" data-action="increment" aria-label="Increase ${card.name} count">+</button>
+                        </div>
+                    </div>
+                `).join('')
+                : '<div class="camera-empty-state">Your saved card counts will appear here.</div>';
+        }
+    }
+
+    handleCardCollectionUpdated() {
+        this.renderScannerCollectionPanels();
+        this.tcgDatabase?.refreshCollectionState?.();
+    }
+
+    animateScannerCardToHistory() {
+        if (!this.cameraPreviewCard) return;
+        this.cameraPreviewCard.classList.remove('is-saving');
+        void this.cameraPreviewCard.offsetWidth; // Force reflow so the CSS animation restarts for each accepted scan.
+        this.cameraPreviewCard.classList.add('is-saving');
+        window.setTimeout(() => {
+            this.cameraPreviewCard?.classList.remove('is-saving');
+        }, 520);
     }
 
     async sendCameraSnapshot(mode = 'manual') {
@@ -2228,6 +3926,61 @@ class PokemonChatApp {
             });
             resetBtn.dataset.listenerAttached = 'true';
         }
+    }
+
+    setupCollectionImportExportControls() {
+        if (this.collectionExportBtn && this.collectionExportBtn.dataset.listenerAttached !== 'true') {
+            this.collectionExportBtn.addEventListener('click', () => this.exportCardCollection());
+            this.collectionExportBtn.dataset.listenerAttached = 'true';
+        }
+
+        if (this.collectionImportBtn && this.collectionImportBtn.dataset.listenerAttached !== 'true') {
+            this.collectionImportBtn.addEventListener('click', () => this.collectionImportInput?.click());
+            this.collectionImportBtn.dataset.listenerAttached = 'true';
+        }
+
+        if (this.collectionImportInput && this.collectionImportInput.dataset.listenerAttached !== 'true') {
+            this.collectionImportInput.addEventListener('change', async (event) => {
+                const file = event.target.files?.[0];
+                if (!file) return;
+                try {
+                    const text = await file.text();
+                    this.cardCollection?.importState(text);
+                    this.updateCollectionImportStatus(`Imported ${file.name} successfully.`, 'success');
+                    this.showToast('Card Collection', 'Collection imported successfully.', 'success', 2500);
+                } catch (error) {
+                    console.error('Collection import failed:', error);
+                    this.updateCollectionImportStatus('Import failed. Please choose a valid JSON export.', 'error');
+                    this.showToast('Card Collection', 'Unable to import that file.', 'error', 3500);
+                } finally {
+                    event.target.value = '';
+                }
+            });
+            this.collectionImportInput.dataset.listenerAttached = 'true';
+        }
+    }
+
+    updateCollectionImportStatus(message, type = 'info') {
+        if (!this.collectionImportStatus) return;
+        this.collectionImportStatus.textContent = message;
+        this.collectionImportStatus.dataset.state = type;
+    }
+
+    exportCardCollection() {
+        if (!this.cardCollection) return;
+        const json = this.cardCollection.exportState();
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const stamp = new Date().toISOString().slice(0, 10);
+        link.href = url;
+        link.download = `pokedex-card-collection-${stamp}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        this.updateCollectionImportStatus('Collection exported from this browser.', 'success');
+        this.showToast('Card Collection', 'Collection exported to JSON.', 'success', 2500);
     }
 
     _renderBucketEditor() {
@@ -2682,7 +4435,8 @@ class PokemonChatApp {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    image: base64Image
+                    image: base64Image,
+                    user_id: this.currentAccount?.account?.id || null
                 }),
                 signal: controller.signal
             });
@@ -2704,6 +4458,9 @@ class PokemonChatApp {
 
             // Handle the result
             if (result.name) {
+                if (result.member_id && this.currentAccount?.account?.id) {
+                    this.switchActiveMember(result.member_id).catch(() => {});
+                }
                 this.handleIdentifiedUserResult(result.name, {
                     isNewUser: Boolean(result.is_new_user),
                     greetingMessage: result.is_new_user ? result.greeting_message : null
@@ -2873,6 +4630,426 @@ class PokemonChatApp {
         this.setupCryControls();
         this.setupScrollResetControls();
         this.setupCurrencyControls();
+        this.setupCollectionImportExportControls();
+        this.setupAdminDataControls();
+    }
+
+    async setupAdminDataControls() {
+        const section = document.getElementById('adminSection');
+        if (!section) return;
+
+        const downloadBtn = document.getElementById('adminAssetDownloadBtn');
+        const backupBtn = document.getElementById('adminBackupBtn');
+        const restoreBtn = document.getElementById('adminRestoreBtn');
+        const restoreInput = document.getElementById('adminRestoreInput');
+        const scanBtn = document.getElementById('adminScanBtn');
+
+        if (downloadBtn && downloadBtn.dataset.listenerAttached !== 'true') {
+            downloadBtn.addEventListener('click', () => this.startAdminAssetDownload());
+            downloadBtn.dataset.listenerAttached = 'true';
+        }
+        if (backupBtn && backupBtn.dataset.listenerAttached !== 'true') {
+            backupBtn.addEventListener('click', () => this.createAdminBackup());
+            backupBtn.dataset.listenerAttached = 'true';
+        }
+        if (restoreBtn && restoreInput && restoreBtn.dataset.listenerAttached !== 'true') {
+            restoreBtn.addEventListener('click', () => restoreInput.click());
+            restoreInput.addEventListener('change', () => this.restoreAdminBackup(restoreInput));
+            restoreBtn.dataset.listenerAttached = 'true';
+        }
+        if (scanBtn && scanBtn.dataset.listenerAttached !== 'true') {
+            scanBtn.addEventListener('click', () => this.startAdminContentScan());
+            scanBtn.dataset.listenerAttached = 'true';
+        }
+
+        await this.loadAdminStatus();
+    }
+
+    async loadAdminStatus() {
+        const section = document.getElementById('adminSection');
+        if (!section) return;
+
+        try {
+            const response = await fetch('/api/admin/status');
+            if (!response.ok) {
+                section.hidden = true;
+                return;
+            }
+            const data = await response.json();
+            section.hidden = !data.is_admin;
+            if (!data.is_admin) return;
+
+            this.renderAdminStorage(data);
+            this.renderAdminAssetComponents(data.assets);
+            this.renderAdminBackupComponents(data.backup_components);
+            if (data.asset_job && data.asset_job.status === 'running') {
+                this.pollAdminAssetJob();
+            }
+        } catch (error) {
+            console.warn('Admin status unavailable:', error);
+            section.hidden = true;
+        }
+    }
+
+    renderAdminStorage(data) {
+        const root = document.getElementById('adminDataRoot');
+        const catalog = document.getElementById('adminCatalogStatus');
+        const users = document.getElementById('adminUsersStatus');
+
+        if (root) {
+            root.textContent = `${data.storage.data_root}${data.storage.persistent ? ' (persistent)' : ' (local)'}`;
+        }
+        if (catalog) {
+            catalog.textContent = data.catalog.available
+                ? `v${data.catalog.schema_version} · ${data.catalog.pokemon_count.toLocaleString()} Pokémon · ${data.catalog.card_count.toLocaleString()} cards`
+                : (data.catalog.reason || 'Unavailable');
+        }
+        if (users) {
+            users.textContent = data.users.available
+                ? `${data.users.user_count.toLocaleString()} users · ${data.users.card_count.toLocaleString()} owned cards`
+                : 'Not initialized';
+        }
+    }
+
+    renderAdminAssetComponents(assets) {
+        const container = document.getElementById('adminAssetComponents');
+        if (!container) return;
+
+        if (!assets || !assets.available) {
+            container.innerHTML = `<p class="api-status-text">${assets?.reason || 'Catalog database unavailable'}</p>`;
+            return;
+        }
+
+        container.innerHTML = assets.components.map(component => `
+            <label class="admin-component">
+                <input type="checkbox" value="${component.key}" ${component.missing > 0 ? 'checked' : ''}>
+                <span class="admin-component-text">
+                    <span class="admin-component-name">${component.label}</span>
+                    <span class="admin-component-meta">
+                        ${component.stored.toLocaleString()} stored ·
+                        ${component.missing.toLocaleString()} missing ·
+                        ${component.disk_bytes == null ? 'stored on disk' : `${this.formatAdminBytes(component.disk_bytes)} on disk`}
+                    </span>
+                </span>
+            </label>
+        `).join('');
+    }
+
+    renderAdminBackupComponents(components) {
+        const container = document.getElementById('adminBackupComponents');
+        if (!container || !components) return;
+
+        container.innerHTML = components.map(component => `
+            <label class="admin-component">
+                <input type="checkbox" value="${component.key}" ${component.available ? 'checked' : ''} ${component.available ? '' : 'disabled'}>
+                <span class="admin-component-text">
+                    <span class="admin-component-name">${component.label}</span>
+                    <span class="admin-component-meta">
+                        ${component.available
+                            ? (component.size_bytes == null ? 'Size calculated during backup' : this.formatAdminBytes(component.size_bytes))
+                            : 'Not available'}
+                    </span>
+                </span>
+            </label>
+        `).join('');
+    }
+
+    getAdminSelection(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return [];
+        return Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
+    }
+
+    formatAdminBytes(bytes) {
+        if (!bytes) return '0 B';
+        const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+        const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+        return `${(bytes / Math.pow(1024, index)).toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+    }
+
+    setAdminStatusText(message, isError = false) {
+        const element = document.getElementById('adminStatusText');
+        if (!element) return;
+        element.textContent = message;
+        element.style.color = isError ? '#c62828' : '';
+    }
+
+    async startAdminAssetDownload() {
+        const components = this.getAdminSelection('adminAssetComponents');
+        if (!components.length) {
+            this.setAdminStatusText('Select at least one asset component.', true);
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/admin/assets/download', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ components })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Unable to start download', true);
+                return;
+            }
+            this.setAdminStatusText('Asset download started.');
+            this.pollAdminAssetJob();
+        } catch (error) {
+            this.setAdminStatusText(`Download failed: ${error.message}`, true);
+        }
+    }
+
+    async pollAdminAssetJob() {
+        const progress = document.getElementById('adminAssetProgress');
+        const fill = document.getElementById('adminAssetProgressFill');
+        const text = document.getElementById('adminAssetProgressText');
+        if (!progress) return;
+
+        progress.hidden = false;
+        clearInterval(this._adminAssetTimer);
+
+        const tick = async () => {
+            try {
+                const response = await fetch('/api/admin/assets/job');
+                const data = await response.json();
+                const job = data.job;
+                if (!job) {
+                    clearInterval(this._adminAssetTimer);
+                    return;
+                }
+                if (fill) fill.style.width = `${job.percent}%`;
+                if (text) {
+                    text.textContent = `${job.message} — ${job.completed.toLocaleString()}/${job.total.toLocaleString()}`
+                        + (job.failed ? ` (${job.failed.toLocaleString()} failed)` : '');
+                }
+                if (job.status !== 'running') {
+                    clearInterval(this._adminAssetTimer);
+                    this.renderAdminAssetComponents(data.assets);
+                }
+            } catch (error) {
+                clearInterval(this._adminAssetTimer);
+            }
+        };
+
+        await tick();
+        this._adminAssetTimer = setInterval(tick, 1500);
+    }
+
+    async createAdminBackup() {
+        const components = this.getAdminSelection('adminBackupComponents');
+        if (!components.length) {
+            this.setAdminStatusText('Select at least one backup component.', true);
+            return;
+        }
+
+        this.setAdminStatusText('Creating backup...');
+        try {
+            const response = await fetch('/api/admin/backup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ components })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Backup failed', true);
+                return;
+            }
+            this.setAdminStatusText(`Backup ready: ${data.name} (${this.formatAdminBytes(data.size_bytes)})`);
+            window.location.href = data.download_url;
+        } catch (error) {
+            this.setAdminStatusText(`Backup failed: ${error.message}`, true);
+        }
+    }
+
+    async restoreAdminBackup(input) {
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('bundle', file);
+        this.getAdminSelection('adminBackupComponents').forEach(value => formData.append('components', value));
+
+        this.setAdminStatusText('Restoring backup...');
+        try {
+            const response = await fetch('/api/admin/restore', { method: 'POST', body: formData });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Restore failed', true);
+                return;
+            }
+            this.setAdminStatusText(`Restored ${data.restored_components.join(', ')} (${data.file_count.toLocaleString()} files).`);
+            await this.loadAdminStatus();
+        } catch (error) {
+            this.setAdminStatusText(`Restore failed: ${error.message}`, true);
+        } finally {
+            input.value = '';
+        }
+    }
+
+    async startAdminContentScan() {
+        const results = document.getElementById('adminScanResults');
+        const pokemonGroup = document.getElementById('adminScanPokemon');
+        const setsGroup = document.getElementById('adminScanTcgSets');
+        const cardsGroup = document.getElementById('adminScanTcgCards');
+        if (!results) return;
+
+        results.hidden = false;
+        [pokemonGroup, setsGroup, cardsGroup].forEach(group => { if (group) group.hidden = true; });
+        this.setAdminStatusText('Scanning PokeAPI and the TCG API for new content...');
+
+        try {
+            const response = await fetch('/api/admin/scan');
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Scan failed', true);
+                return;
+            }
+            this._adminScanPokemon = data.pokemon;
+            this._adminScanTcg = data.tcg;
+            this.renderAdminScanResults(data.pokemon, data.tcg);
+            this.setAdminStatusText('');
+        } catch (error) {
+            this.setAdminStatusText(`Scan failed: ${error.message}`, true);
+        }
+    }
+
+    renderAdminScanResults(pokemon, tcg) {
+        const pokemonGroup = document.getElementById('adminScanPokemon');
+        const pokemonSummary = document.getElementById('adminScanPokemonSummary');
+        const addPokemonBtn = document.getElementById('adminAddPokemonBtn');
+        if (pokemonGroup && pokemonSummary) {
+            pokemonGroup.hidden = false;
+            pokemonSummary.textContent = pokemon.available
+                ? `${pokemon.missing_count.toLocaleString()} new Pokemon species available (checked ${pokemon.checked.toLocaleString()})`
+                : (pokemon.reason || 'Pokemon scan unavailable');
+            if (addPokemonBtn) {
+                addPokemonBtn.hidden = !pokemon.available || pokemon.missing_count === 0;
+                if (addPokemonBtn.dataset.listenerAttached !== 'true') {
+                    addPokemonBtn.addEventListener('click', () => this.addAdminNewPokemon());
+                    addPokemonBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+
+        const setsGroup = document.getElementById('adminScanTcgSets');
+        const setsSummary = document.getElementById('adminScanTcgSetsSummary');
+        const addSetsBtn = document.getElementById('adminAddTcgSetsBtn');
+        const cardsGroup = document.getElementById('adminScanTcgCards');
+        const cardsSummary = document.getElementById('adminScanTcgCardsSummary');
+        const addCardsBtn = document.getElementById('adminAddTcgCardsBtn');
+
+        if (!tcg.available) {
+            // Show the shared failure reason once rather than duplicating it in both TCG boxes.
+            if (setsGroup && setsSummary) {
+                setsGroup.hidden = false;
+                setsSummary.textContent = tcg.reason || 'TCG scan unavailable';
+                if (addSetsBtn) addSetsBtn.hidden = true;
+            }
+            if (cardsGroup) cardsGroup.hidden = true;
+            return;
+        }
+
+        if (setsGroup && setsSummary) {
+            setsGroup.hidden = false;
+            setsSummary.textContent = `${tcg.new_sets_count.toLocaleString()} new TCG sets available (checked ${tcg.checked.toLocaleString()})`;
+            if (addSetsBtn) {
+                addSetsBtn.hidden = tcg.new_sets_count === 0;
+                if (addSetsBtn.dataset.listenerAttached !== 'true') {
+                    addSetsBtn.addEventListener('click', () => this.addAdminNewTcgSets());
+                    addSetsBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+        if (cardsGroup && cardsSummary) {
+            cardsGroup.hidden = false;
+            cardsSummary.textContent = `${tcg.sets_with_new_cards_count.toLocaleString()} existing sets have new cards`;
+            if (addCardsBtn) {
+                addCardsBtn.hidden = tcg.sets_with_new_cards_count === 0;
+                if (addCardsBtn.dataset.listenerAttached !== 'true') {
+                    addCardsBtn.addEventListener('click', () => this.addAdminNewTcgCards());
+                    addCardsBtn.dataset.listenerAttached = 'true';
+                }
+            }
+        }
+    }
+
+    async _startAdminIngestBatch(kind, ids) {
+        if (!ids.length) return;
+
+        const progress = document.getElementById('adminScanProgress');
+        const fill = document.getElementById('adminScanProgressFill');
+        const text = document.getElementById('adminScanProgressText');
+        if (progress) progress.hidden = false;
+        if (fill) fill.style.width = '0%';
+        if (text) text.textContent = `Starting... (0/${ids.length})`;
+
+        try {
+            const response = await fetch('/api/admin/ingest/batch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ kind, ids })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.setAdminStatusText(data.error || 'Unable to start ingest', true);
+                return;
+            }
+            await this._pollAdminIngestJob();
+        } catch (error) {
+            this.setAdminStatusText(`Ingest failed: ${error.message}`, true);
+        }
+    }
+
+    async _pollAdminIngestJob() {
+        const fill = document.getElementById('adminScanProgressFill');
+        const text = document.getElementById('adminScanProgressText');
+        clearInterval(this._adminIngestTimer);
+
+        const tick = async () => {
+            try {
+                const response = await fetch('/api/admin/ingest/batch/job');
+                const data = await response.json();
+                const job = data.job;
+                if (!job) {
+                    clearInterval(this._adminIngestTimer);
+                    return;
+                }
+                if (fill) fill.style.width = `${job.percent}%`;
+                if (text) {
+                    const subProgress = job.sub_total
+                        ? ` — ${job.current_label} (${job.sub_completed}/${job.sub_total})`
+                        : (job.current_label ? ` — fetching ${job.current_label}...` : '');
+                    text.textContent = `Adding ${job.completed}/${job.total}${subProgress}`;
+                }
+                if (job.status !== 'running') {
+                    clearInterval(this._adminIngestTimer);
+                    if (text) text.textContent = job.message;
+                    this.setAdminStatusText(job.message, job.errors.length > 0);
+                    await this.loadAdminStatus();
+                    await this.startAdminContentScan();
+                }
+            } catch (error) {
+                clearInterval(this._adminIngestTimer);
+            }
+        };
+
+        await tick();
+        this._adminIngestTimer = setInterval(tick, 1000);
+    }
+
+    async addAdminNewPokemon() {
+        const missing = this._adminScanPokemon?.missing || [];
+        await this._startAdminIngestBatch('pokemon_species', missing.map(item => item.id));
+    }
+
+    async addAdminNewTcgSets() {
+        const missing = this._adminScanTcg?.new_sets || [];
+        await this._startAdminIngestBatch('tcg_set', missing.map(item => item.id));
+    }
+
+    async addAdminNewTcgCards() {
+        const missing = this._adminScanTcg?.sets_with_new_cards || [];
+        await this._startAdminIngestBatch('tcg_set', missing.map(item => item.id));
     }
     
     async loadCacheConfig() {
@@ -2887,16 +5064,21 @@ class PokemonChatApp {
     }
     
     setupCacheControls() {
+        this.setupDataSourceControls();
+
         // Cache toggle
         const cacheToggle = document.getElementById('cacheToggle');
         if (cacheToggle) {
             cacheToggle.checked = this.cacheConfig?.enabled ?? true;
-            cacheToggle.addEventListener('change', async (e) => {
-                const enabled = Boolean(e.target.checked);
-                this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
-                this.applyCacheDependencies(enabled);
-                await this.updateCacheEnabled(enabled);
-            });
+            if (cacheToggle.dataset.listenerAttached !== 'true') {
+                cacheToggle.addEventListener('change', async (e) => {
+                    const enabled = Boolean(e.target.checked);
+                    this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
+                    this.applyCacheDependencies(enabled);
+                    await this.updateCacheEnabled(enabled);
+                });
+                cacheToggle.dataset.listenerAttached = 'true';
+            }
         }
 
         // PokeAPI cache toggle
@@ -2944,6 +5126,33 @@ class PokemonChatApp {
         // Update cache stats
         this.updateCacheStats();
         this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
+    }
+
+    setupDataSourceControls() {
+        const options = document.getElementById('dataSourceOptions');
+        if (!options) return;
+
+        const currentMode = this.cacheConfig?.data_source_mode || 'json';
+        const sqliteStatus = this.cacheConfig?.sqlite || {};
+        const radios = options.querySelectorAll('input[name="dataSourceMode"]');
+        radios.forEach((radio) => {
+            radio.checked = radio.value === currentMode;
+            radio.disabled = radio.value === 'sqlite' && !sqliteStatus.available;
+        });
+
+        const status = document.getElementById('dataSourceStatus');
+        if (status) {
+            status.textContent = sqliteStatus.available
+                ? `${sqliteStatus.pokemon_count} Pokemon and ${sqliteStatus.card_count} cards available locally`
+                : (sqliteStatus.reason || 'Database has not been built');
+        }
+
+        if (options.dataset.listenerAttached === 'true') return;
+        options.addEventListener('change', async (event) => {
+            const input = event.target.closest('input[name="dataSourceMode"]');
+            if (input) await this.updateDataSourceMode(input.value);
+        });
+        options.dataset.listenerAttached = 'true';
     }
 
     setupFaceIdentificationControls() {
@@ -3135,6 +5344,8 @@ class PokemonChatApp {
     }
 
     applyCacheDependencies(isEnabled) {
+        const jsonMode = (this.cacheConfig?.data_source_mode || 'json') === 'json';
+        const cacheControlsEnabled = isEnabled && jsonMode;
         const dependentToggles = [
             document.getElementById('pokeapiCacheToggle'),
             document.getElementById('tcgCacheToggle')
@@ -3145,7 +5356,7 @@ class PokemonChatApp {
                 return;
             }
             const forceDisabled = toggle.dataset.forceDisabled === 'true';
-            toggle.disabled = forceDisabled || !isEnabled;
+            toggle.disabled = forceDisabled || !cacheControlsEnabled;
             const row = toggle.closest('.control-row');
             if (row) {
                 row.classList.toggle('disabled', toggle.disabled);
@@ -3154,17 +5365,17 @@ class PokemonChatApp {
 
         const cacheExpiryInput = document.getElementById('cacheExpiry');
         if (cacheExpiryInput) {
-            cacheExpiryInput.disabled = !isEnabled;
+            cacheExpiryInput.disabled = !cacheControlsEnabled;
             const row = cacheExpiryInput.closest('.control-row');
             if (row) {
-                row.classList.toggle('disabled', !isEnabled);
+                row.classList.toggle('disabled', !cacheControlsEnabled);
             }
         }
 
         const cacheClearBtn = document.getElementById('cacheClearBtn');
         if (cacheClearBtn) {
-            cacheClearBtn.disabled = !isEnabled;
-            cacheClearBtn.classList.toggle('disabled', !isEnabled);
+            cacheClearBtn.disabled = !cacheControlsEnabled;
+            cacheClearBtn.classList.toggle('disabled', !cacheControlsEnabled);
         }
     }
 
@@ -3275,6 +5486,32 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error updating cache:', error);
+        }
+    }
+
+    async updateDataSourceMode(mode) {
+        const previousMode = this.cacheConfig?.data_source_mode || 'json';
+        try {
+            const response = await fetch('/api/cache/data-source-mode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode })
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Unable to change data source');
+
+            this.cacheConfig = {
+                ...(this.cacheConfig || {}),
+                ...data.config,
+                sqlite: data.sqlite
+            };
+            this.setupDataSourceControls();
+            this.applyCacheDependencies(this.cacheConfig.enabled ?? true);
+            this.showToast('Data Source', mode === 'sqlite' ? 'Using the local database.' : 'Using JSON seed data.', 'success', 2500);
+        } catch (error) {
+            this.cacheConfig = { ...(this.cacheConfig || {}), data_source_mode: previousMode };
+            this.setupDataSourceControls();
+            this.showToast('Data Source', error.message, 'error', 4500);
         }
     }
 
@@ -3785,6 +6022,14 @@ class PokemonChatApp {
             },
             
             onResponse: (text, isPartial) => {
+                if (this.pendingCardScan) {
+                    if (!isPartial && text) {
+                        this.pendingCardScan.resolve(text);
+                        this.pendingCardScan = null;
+                    }
+                    return;
+                }
+
                 if (this.voicePreviewPending) {
                     if (!isPartial) {
                         this.voicePreviewPending = false;
@@ -3846,6 +6091,10 @@ class PokemonChatApp {
             },
             
             onError: (error) => {
+                if (this.pendingCardScan) {
+                    this.pendingCardScan.reject(new Error(error));
+                    this.pendingCardScan = null;
+                }
                 console.error('Realtime voice error:', error);
                 this.setVoiceBackendState({
                     mode: 'error',
@@ -5509,6 +7758,10 @@ class PokemonChatApp {
                     const setCount = data?.selectedSets || 0;
                     return `User is viewing the TCG Card Database in All Cards mode with ${cardCount} cards loaded from ${setCount} expansion(s). Cards are numbered #1 through #${cardCount}. User can say "show card 5" or "open card number 12" to view a specific card's details.${currNote}`;
                 }
+                if (data?.viewMode === 'collection') {
+                    const cardCount = this.currentTcgCards?.length || 0;
+                    return `User is viewing My Collection in the TCG Card Database with ${cardCount} owned card(s) saved locally in this browser. They can adjust counts or open any saved card.${currNote}`;
+                }
                 return `User is currently viewing the TCG Card Database page showing all Pokemon TCG sets/expansions. They can browse and explore any expansion to see its cards.${currNote}`;
             
             case 'pokemon':
@@ -5834,16 +8087,39 @@ class PokemonChatApp {
             }
 
             if (pathname.startsWith('/api/pokemon/')) {
-                return {
-                    label: 'Loading Pokemon data...',
-                    detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
-                };
+                return this.describePokeApiProxyLoading(parsed);
             }
         } catch (error) {
             return fallback;
         }
 
         return fallback;
+    }
+
+    describePokeApiProxyLoading(parsedUrl) {
+        const isRefresh = ['1', 'true', 'yes'].includes(
+            (parsedUrl.searchParams.get('refresh') || '').toLowerCase()
+        );
+        const isSqliteMode = (this.cacheConfig?.data_source_mode || 'json') === 'sqlite';
+
+        if (isRefresh) {
+            return {
+                label: 'Refreshing Pokemon data...',
+                detail: 'Rotom is fetching fresh data from PokeAPI and saving it to the database.'
+            };
+        }
+
+        if (isSqliteMode) {
+            return {
+                label: 'Loading Pokemon data...',
+                detail: 'Rotom is loading Pokemon details from the local database.'
+            };
+        }
+
+        return {
+            label: 'Loading Pokemon data...',
+            detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
+        };
     }
 
     parseLoadingRequestBody(body) {
@@ -6339,6 +8615,7 @@ class PokemonChatApp {
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     window.pokemonChatApp = new PokemonChatApp();
+    window.app = window.pokemonChatApp;
     
     // Expose functions for realtime API to call
     window.showTcgCardByIndex = (cardIndex, pokemonName = null) => {
@@ -6361,6 +8638,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return { success: true };
         }
         return { error: 'TCG Database not available' };
+    };
+
+    window.showMyCollectionCanvas = async () => {
+        if (window.pokemonChatApp?.tcgDatabase) {
+            await window.pokemonChatApp.tcgDatabase.show();
+            await window.pokemonChatApp.tcgDatabase.showMyCollection();
+            return { success: true };
+        }
+        return { error: 'My Collection view is not available' };
     };
 
     window.navigateBackCanvas = () => {
