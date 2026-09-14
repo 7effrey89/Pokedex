@@ -59,7 +59,9 @@ class TcgCardDetailView {
 
     render(card) {
         // Support both formats: card.images.large (raw API) and card.imageLarge/card.image (formatted)
-        const largeImage = card.images?.large || card.imageLarge || card.images?.small || card.image;
+        const largeImage = card.id
+            ? `/api/tcg/card-image/${encodeURIComponent(card.id)}/large`
+            : (card.images?.large || card.imageLarge || card.images?.small || card.image);
         const setName = card.set?.name || card.set || 'Unknown Set';
         
         // Generate prices HTML
@@ -278,7 +280,9 @@ class TcgCardDetailView {
     buildSetInfoHTML(card) {
         const setName = card.set?.name || card.set || 'Unknown Set';
         const setId = card.set?.id;
-        const setLogo = card.set?.images?.logo;
+        const setLogo = card.set?.id
+            ? `/api/tcg/set-image/${encodeURIComponent(card.set.id)}/logo`
+            : card.set?.images?.logo;
         const safeSetName = this.escapeHTML(setName);
         const safeSetLogo = setLogo ? this.escapeHTML(setLogo) : '';
         const setPath = setId ? `/tcg/set/${encodeURIComponent(setId)}` : '';

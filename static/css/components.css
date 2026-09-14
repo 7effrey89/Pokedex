@@ -458,6 +458,31 @@
     border: 1px solid rgba(255, 193, 7, 0.35);
 }
 
+.admin-discovery-workflow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 2px solid rgba(184, 134, 11, 0.55);
+    border-radius: 12px;
+    padding: 0.9rem;
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.admin-discovery-workflow > div + div {
+    border-top: 1px solid rgba(184, 134, 11, 0.28);
+    margin-top: 1rem;
+    padding-top: 0.4rem;
+}
+
+.admin-discovery-workflow #adminDiscoverStep {
+    order: 1;
+}
+
+.admin-discovery-workflow #adminMaterializeStep {
+    order: 2;
+}
+
 .admin-badge {
     display: inline-block;
     margin-left: 0.5rem;
@@ -928,6 +953,21 @@
 .slider-labels .slider-tick {
     font-weight: 700;
     color: var(--text-secondary);
+}
+
+.price-refresh-labels {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    text-align: center;
+}
+
+.price-refresh-labels span:first-child {
+    text-align: left;
+}
+
+.price-refresh-labels span:last-child {
+    text-align: right;
 }
 
 .cache-clear-btn {

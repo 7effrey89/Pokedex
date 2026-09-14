@@ -401,8 +401,8 @@ class TcgDatabaseView {
         section.dataset.setId = set.id;
 
         const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
-        const logoUrl = set.images?.logo || '';
-        const symbolUrl = set.images?.symbol || '';
+        const logoUrl = set.id ? `/api/tcg/set-image/${encodeURIComponent(set.id)}/logo` : (set.images?.logo || '');
+        const symbolUrl = set.id ? `/api/tcg/set-image/${encodeURIComponent(set.id)}/symbol` : (set.images?.symbol || '');
 
         section.innerHTML = `
             <div class="tcg-set-header" data-set-id="${set.id}">
@@ -495,7 +495,9 @@ class TcgDatabaseView {
             const cardEl = document.createElement('div');
             cardEl.className = 'tcg-db-card-item';
             cardEl.style.position = 'relative';
-            const imageUrl = card.images?.small || card.imageSmall || '';
+            const imageUrl = card.id
+                ? `/api/tcg/card-image/${encodeURIComponent(card.id)}/large`
+                : (card.images?.small || card.imageSmall || '');
             const cardName = card.name || 'Unknown';
             const showCollectionControls = this.collectionModePreference;
             const collectionCount = this.app.cardCollection?.getCardCount?.(card.id) || 0;
@@ -722,7 +724,9 @@ class TcgDatabaseView {
         const sorted = this._sortSets(this.allSets, 'release-desc');
         list.innerHTML += sorted.map(set => {
             const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
-            const symbolUrl = set.images?.symbol || '';
+            const symbolUrl = set.id
+                ? `/api/tcg/set-image/${encodeURIComponent(set.id)}/symbol`
+                : (set.images?.symbol || '');
             const checked = this._selectedSetIds.has(set.id) ? 'checked' : '';
             const loading = '';
             return `<label class="tcg-picker-item" data-set-id="${set.id}">
@@ -1153,7 +1157,9 @@ class TcgDatabaseView {
         el.className = 'tcg-card-item';
         el.style.position = 'relative';
 
-        const imageUrl = card.images?.small || card.imageSmall || '';
+        const imageUrl = card.id
+            ? `/api/tcg/card-image/${encodeURIComponent(card.id)}/large`
+            : (card.images?.small || card.imageSmall || '');
         const name = card.name || 'Unknown';
         const setName = card.set?.name || '';
         const price = this._getCardPrice(card);

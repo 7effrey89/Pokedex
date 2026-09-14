@@ -27,33 +27,6 @@ def get_cache_config():
     })
 
 
-@cache_bp.route('/data-source-mode', methods=['POST'])
-def set_data_source_mode():
-    """Select JSON seed mode or a validated SQLite database."""
-    from src.db import SqliteDatabase
-    from src.services.cache_service import get_cache_service
-
-    data = request.get_json(silent=True) or {}
-    mode = data.get('mode')
-    if mode not in {'json', 'sqlite'}:
-        return jsonify({"error": "mode must be 'json' or 'sqlite'"}), 400
-
-    database_status = SqliteDatabase().status()
-    if mode == 'sqlite' and not database_status.available:
-        return jsonify({
-            "error": database_status.reason or "SQLite database is unavailable",
-            "sqlite": database_status.to_dict(),
-        }), 409
-
-    cache_service = get_cache_service()
-    cache_service.set_data_source_mode(mode)
-    return jsonify({
-        "message": f"Data source switched to {mode}",
-        "config": cache_service.get_config(),
-        "sqlite": database_status.to_dict(),
-    })
-
-
 @cache_bp.route('/enable', methods=['POST'])
 def set_cache_enabled():
     """Enable or disable caching"""
@@ -102,53 +75,31 @@ def set_pokeapi_cache_enabled():
         return jsonify({"error": str(e)}), 500
 
 
-@cache_bp.route('/tcg', methods=['POST'])
-def set_tcg_cache_enabled():
-    """Enable or disable caching for Pokemon TCG API requests"""
-    from src.services.cache_service import get_cache_service
-
-    try:
-        data = request.get_json() or {}
-        enabled = data.get('enabled')
-
-        if enabled is None:
-            return jsonify({"error": "enabled field is required"}), 400
-
-        cache_service = get_cache_service()
-        cache_service.set_tcg_cache_enabled(enabled)
-
-        return jsonify({
-            "message": f"TCG cache {'enabled' if enabled else 'disabled'}",
-            "config": cache_service.get_config()
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
 @cache_bp.route('/expiry', methods=['POST'])
 def set_cache_expiry():
-    """Set cache expiry time in days"""
+    """Set the TCG price refresh interval in seconds."""
     from src.services.cache_service import get_cache_service
     
     try:
         data = request.get_json()
-        days = data.get('days')
+        seconds = data.get('seconds')
         
-        if days is None:
-            return jsonify({"error": "days field is required"}), 400
+        if seconds is None:
+            return jsonify({"error": "seconds field is required"}), 400
         
         cache_service = get_cache_service()
-        days_value = int(days)
-        cache_service.set_expiry_days(days_value)
+        seconds_value = int(seconds)
+        cache_service.set_tcg_price_expiry_seconds(seconds_value)
 
-        message = "Cache expiry set to unlimited" if days_value == 0 else f"Cache expiry set to {days_value} days"
+        message = "TCG prices never expire" if seconds_value == 0 else f"TCG prices refresh after {seconds_value} seconds"
         
         return jsonify({
             "message": message,
             "config": cache_service.get_config()
         })
-    
+
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

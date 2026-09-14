@@ -14,6 +14,7 @@ import shutil
 import sqlite3
 import tempfile
 import zipfile
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
@@ -46,6 +47,67 @@ class BackupService:
 
     def __init__(self):
         self.paths = get_storage_paths()
+        self._job_lock = threading.Lock()
+        self._job: Dict[str, Any] | None = None
+        self._job_thread: threading.Thread | None = None
+
+    def job_status(self) -> Dict[str, Any] | None:
+        with self._job_lock:
+            return dict(self._job) if self._job else None
+
+    def start_backup(self, components: Iterable[str]) -> Dict[str, Any]:
+        selected = [key for key in components if key in COMPONENT_LABELS]
+        if not selected:
+            raise ValueError("Select at least one component to back up")
+        with self._job_lock:
+            if self._job_thread and self._job_thread.is_alive():
+                raise RuntimeError("A backup is already running")
+            self._job = {
+                "status": "running", "message": "Preparing backup", "total": 0,
+                "completed": 0, "percent": 0, "name": None, "size_bytes": 0,
+                "download_url": None, "error": None,
+            }
+            self._job_thread = threading.Thread(
+                target=self._run_backup, args=(selected,), daemon=True
+            )
+            self._job_thread.start()
+            return dict(self._job)
+
+    def _run_backup(self, components: List[str]) -> None:
+        try:
+            total = self._count_files(components)
+            with self._job_lock:
+                self._job["total"] = total
+                self._job["message"] = f"Backing up {total:,} files"
+            bundle = self.create_backup(components, progress=self._update_job)
+            with self._job_lock:
+                self._job.update({
+                    "status": "completed", "message": "Backup ready",
+                    "percent": 100, "name": bundle.name,
+                    "size_bytes": bundle.stat().st_size,
+                    "download_url": f"/api/admin/backup/download/{bundle.name}",
+                })
+        except Exception as exc:
+            logger.exception("Background backup failed")
+            with self._job_lock:
+                self._job.update({"status": "failed", "message": str(exc), "error": str(exc)})
+
+    def _update_job(self, completed: int) -> None:
+        with self._job_lock:
+            if self._job:
+                total = self._job["total"]
+                self._job["completed"] = completed
+                self._job["percent"] = round(completed / total * 100, 1) if total else 100
+
+    def _count_files(self, components: Iterable[str]) -> int:
+        count = 0
+        for key in components:
+            if key in DATABASE_COMPONENTS:
+                count += 1 if getattr(self.paths, key).is_file() else 0
+            else:
+                directory = self.paths.asset_directories()[key]
+                count += sum(1 for item in directory.rglob("*") if item.is_file()) if directory.is_dir() else 0
+        return count
 
     def available_components(self) -> List[Dict[str, Any]]:
         components = []
@@ -59,14 +121,23 @@ class BackupService:
         for key in DIRECTORY_COMPONENTS:
             directory = self.paths.asset_directories()[key]
             available = directory.is_dir() and any(directory.iterdir())
+            size_bytes = self._directory_size(directory) if available else 0
             components.append({
                 "key": key, "label": COMPONENT_LABELS[key],
                 "available": available,
-                "size_bytes": None,
+                "size_bytes": size_bytes,
+                "size_estimated": True,
             })
         return components
 
-    def create_backup(self, components: Iterable[str]) -> Path:
+    @staticmethod
+    def _directory_size(directory: Path) -> int:
+        try:
+            return sum(item.stat().st_size for item in directory.rglob("*") if item.is_file())
+        except OSError:
+            return 0
+
+    def create_backup(self, components: Iterable[str], progress=None) -> Path:
         selected = [key for key in components if key in COMPONENT_LABELS]
         if not selected:
             raise ValueError("Select at least one component to back up")
@@ -88,8 +159,10 @@ class BackupService:
                 for key in selected:
                     if key in DATABASE_COMPONENTS:
                         self._add_database(archive, manifest, key, staging)
+                        if progress:
+                            progress(len(manifest["files"]))
                     else:
-                        self._add_directory(archive, manifest, key)
+                        self._add_directory(archive, manifest, key, progress)
                 archive.writestr("manifest.json", json.dumps(manifest, indent=2))
         except Exception:
             bundle_path.unlink(missing_ok=True)
@@ -118,7 +191,7 @@ class BackupService:
             "sha256": _file_hash(snapshot),
         })
 
-    def _add_directory(self, archive: zipfile.ZipFile, manifest: Dict[str, Any], key: str) -> None:
+    def _add_directory(self, archive: zipfile.ZipFile, manifest: Dict[str, Any], key: str, progress=None) -> None:
         directory = self.paths.asset_directories()[key]
         if not directory.is_dir():
             return
@@ -131,6 +204,8 @@ class BackupService:
                 "component": key, "path": entry, "size_bytes": item.stat().st_size,
                 "sha256": _file_hash(item),
             })
+            if progress:
+                progress(len(manifest["files"]))
 
     def restore_backup(self, bundle_path: Path, components: Iterable[str] | None = None) -> Dict[str, Any]:
         with zipfile.ZipFile(bundle_path) as archive:

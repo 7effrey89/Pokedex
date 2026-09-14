@@ -24,10 +24,9 @@ For the existing production environment, use the repository deployment script fr
 The deployment reads required settings from the process environment or the ignored `.env` file. It stops if Azure what-if includes a deletion, or if required Azure OpenAI configuration is missing.
 
 **Quick Setup:**
-1. Create Azure Container Registry (ACR)
-2. Create Azure App Service (Linux Container)
-3. Configure GitHub Secrets
-4. Push to `main` - Auto-deploys via GitHub Actions!
+1. Configure the required deployment environment values.
+2. Run `.\deploy.ps1 -Plan` and review the delete-free Azure what-if.
+3. Run `.\deploy.ps1 -Deploy` to update the existing Bicep, ACR, and App Service resources.
 
 **Why Docker?**
 - ✅ Handles native dependencies (dlib, cmake, build-essential)
@@ -74,15 +73,12 @@ The app features a clean, mobile-first design with:
 
 ## PokeAPI Fair Use & Caching
 
-- Every client-side Pokemon lookup now goes through the Flask proxy blueprint mounted at `/api/pokemon`. The proxy forwards to PokeAPI, writes the response through `CacheService`, and serves subsequent requests from disk so we comply with PokeAPI’s “locally cache resources whenever you request them” rule.
-- Available proxy routes (all support `?refresh=1` to bypass the cache and pull fresh data):
-   - `GET /api/pokemon/<name_or_id>` – core Pokemon payloads used by the grid, detail view, and evolution previews.
-   - `GET /api/pokemon/species/<name_or_id>` – species metadata (entries, egg groups, evolution chain pointer).
-   - `GET /api/pokemon/evolution-chain/<chain_id>` – deep evolution data.
-   - `GET /api/pokemon/type/<type_name>` – damage relations for weakness calculations.
-- The cache directory (`/cache`) keeps descriptive filenames; expiration defaults to 7 days but can be tuned in `cache/cache_config.json` or via the existing cache settings routes.
-- Force-refresh actions in the UI invalidate both the chat tool cache (`get_pokemon`) and the new proxy caches by issuing `refresh=1` requests, so the next render picks up live data without manual file edits.
-- Override the upstream host with the `POKEMON_API_URL` environment variable if you need to point at a mirror during development; the proxy uses that value for every outbound request.
+- Every client-side Pokemon lookup goes through the Flask blueprint mounted at `/api/pokemon`.
+- Normal Pokemon, species, evolution-chain, and type-effectiveness requests are reconstructed from normalized SQLite tables; they do not create runtime JSON cache files.
+- `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/evolution-chain/<chain_id>`, and `/type/<type_name>` support `?refresh=1` as the explicit PokeAPI update path. Successful refreshes are normalized back into SQLite.
+- Pokemon sprites and cries are served through materializing Flask routes and persisted under `data/assets` before reuse.
+- The `cache/` directory is a disposable response cache for external API data that is not part of the stable catalog. TCG price responses use the Settings interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited.
+- Override the upstream host with `POKEMON_API_URL` when a development mirror is required.
 
 ## Installation
 
@@ -157,8 +153,9 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    ```
 
    This builds `data/pokedex.sqlite3` from the raw PokeAPI and TCG JSON seeds,
-   fetches missing PokeAPI forms and evolution chains directly into SQLite,
-   downloads official Pokemon artwork, and registers existing TCG card images.
+   fetches missing PokeAPI forms, evolution chains, and type-effectiveness charts,
+   downloads required primary artwork and TCG card images, and registers every
+   selectable sprite, cry, card, logo, and symbol for persistent materialization.
    The generated database and downloaded assets are ignored by Git. Use
    `--no-network --skip-artwork` for an offline structural import check; it
    intentionally fails if the seed archive does not contain every form.
@@ -173,7 +170,7 @@ docker run -p 8000:8000 --env-file .env pokedex-app
 
 8. **Open in browser**
    - Navigate to `http://localhost:5050`
-   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
+   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5050`)
 
 ## Deploying to Azure App Service
 
@@ -477,9 +474,14 @@ sleep 5
 az webapp start --resource-group $RESOURCE_GROUP --name $APP_NAME
 ```
 
-### Manual Azure CLI Deployment (Alternative)
+### Historical Manual Deployment Reference
 
-If you prefer manual deployment or don't need face recognition features:
+> Do not use the Zip Deploy/Oryx or publish-profile instructions below for the
+> current production environment. Use `deploy.ps1 -Plan` followed by
+> `deploy.ps1 -Deploy`; the maintained workflow preserves the existing Bicep,
+> ACR, App Service, monitoring, and security configuration.
+
+The following commands are retained only for historical context.
 
 ### Prerequisites
 
@@ -585,7 +587,9 @@ az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 
 #### Option B — Deploy with GitHub Actions (CI/CD)
 
-The repository includes `.github/workflows/deploy-azure-webapp.yml`, which automatically packages and deploys the app to Azure App Service. The workflow includes `requirements.txt` in the deployment, and Azure's Oryx build system handles dependency installation. To enable it:
+The former Oryx workflow is no longer in the repository. The following
+publish-profile steps are historical reference only and must not be used for
+the current production environment:
 
 1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
 2. **Create the following GitHub Action repository secrets** in *Settings → Secrets and variables → Actions*:
@@ -700,7 +704,7 @@ Talk to the assistant using your voice:
 
 **Supported browsers**: Chrome, Edge, Safari (iOS/macOS)
 
-For detailed setup and Azure OpenAI integration, see [VOICE_SETUP.md](VOICE_SETUP.md)
+For detailed setup and Azure OpenAI integration, see [docs/VOICE_SETUP.md](docs/VOICE_SETUP.md)
 
 ### Face Recognition (NEW! 👤)
 
@@ -912,7 +916,7 @@ For native MCP support where the Realtime API calls MCP servers directly:
    - Windows: `ipconfig`
    - Mac/Linux: `ifconfig` or `ip addr`
 3. **Access from mobile**
-   - Navigate to `http://YOUR_IP:5000` on your mobile device
+   - Navigate to `http://YOUR_IP:5050` on your mobile device
 4. **Add to Home Screen** (iOS/Android)
    - Tap the share/menu button
    - Select "Add to Home Screen"

@@ -351,7 +351,9 @@ class TcgCardsGalleryView {
         cardDiv.className = 'tcg-card-item';
         cardDiv.style.position = 'relative';
         
-        const imageUrl = card.images?.small || card.imageSmall || card.images?.large || card.image;
+        const imageUrl = card.id
+            ? `/api/tcg/card-image/${encodeURIComponent(card.id)}/large`
+            : (card.images?.small || card.imageSmall || card.images?.large || card.image);
         const cardName = card.name || 'Unknown';
         const setInfo = card.set?.name || card.set || '';
         const setId = this.getSetId(card);

@@ -116,20 +116,22 @@ class SqliteImporter:
                 (utc_now(), IMPORTER_VERSION, SCHEMA_VERSION),
             )
             run_id = int(cursor.lastrowid)
-            self.progress("Phase 1/5: importing Pokemon species")
+            self.progress("Phase 1/6: importing Pokemon species")
             species_by_name = self._import_species(connection)
-            self.progress("Phase 2/5: importing Pokemon forms and artwork")
+            self.progress("Phase 2/6: importing Pokemon forms and artwork")
             self._import_pokemon(connection, species_by_name)
-            self.progress("Phase 3/5: importing and deduplicating TCG cards")
+            self.progress("Phase 3/6: importing type effectiveness")
+            self._import_type_relations(connection)
+            self.progress("Phase 4/6: importing and deduplicating TCG cards")
             self._import_tcg(connection, species_by_name)
-            self.progress("Phase 4/5: recording import provenance")
+            self.progress("Phase 5/6: recording import provenance")
             self._record_import_files(connection, run_id)
             connection.execute(
                 "UPDATE import_run SET status = 'completed', completed_at = ? WHERE id = ?",
                 (utc_now(), run_id),
             )
             connection.commit()
-            self.progress("Phase 5/5: validating database integrity and required assets")
+            self.progress("Phase 6/6: validating database integrity and required assets")
             summary = self._validate(connection)
         except Exception as exc:
             connection.rollback()
@@ -465,6 +467,35 @@ class SqliteImporter:
                 (pokemon_id, stat_id, item["base_stat"], item.get("effort", 0)),
             )
 
+    def _import_type_relations(self, connection: sqlite3.Connection) -> None:
+        types = connection.execute("SELECT id, name FROM type ORDER BY id").fetchall()
+        for position, type_row in enumerate(types, start=1):
+            seed_path = self.pokeapi_dir / f"pokeapi-type-{type_row['name']}.json"
+            if seed_path.exists():
+                payload = self._read_seed(seed_path, "pokeapi", "type")
+            elif self.allow_network:
+                payload = self._fetch_json(f"{POKEAPI_ROOT}/type/{type_row['id']}/")
+            else:
+                self._report_count("type effectiveness", position, len(types), every=1)
+                continue
+            groups = payload.get("damage_relations") or {}
+            for relation_kind in (
+                "double_damage_from", "double_damage_to",
+                "half_damage_from", "half_damage_to",
+                "no_damage_from", "no_damage_to",
+            ):
+                for related in groups.get(relation_kind) or []:
+                    related_id = self._lookup(connection, "type", related)
+                    connection.execute(
+                        """
+                        INSERT OR IGNORE INTO type_damage_relation
+                            (type_id, related_type_id, relation_kind)
+                        VALUES (?, ?, ?)
+                        """,
+                        (type_row["id"], related_id, relation_kind),
+                    )
+            self._report_count("type effectiveness", position, len(types), every=1)
+
     def _import_pokemon_assets(self, connection: sqlite3.Connection, pokemon: dict[str, Any]) -> None:
         sprites = pokemon.get("sprites") if isinstance(pokemon.get("sprites"), dict) else {}
         other = sprites.get("other") if isinstance(sprites.get("other"), dict) else {}
@@ -503,6 +534,18 @@ class SqliteImporter:
             """,
             (pokemon["id"], local_path, artwork_url, sha256, width, height),
         )
+        sprite_assets = (
+            ("home_artwork", ((other.get("home") or {}).get("front_default")), "image/png"),
+            ("dream_world", ((other.get("dream_world") or {}).get("front_default")), "image/svg+xml"),
+            ("showdown", ((other.get("showdown") or {}).get("front_default")), "image/gif"),
+            ("default_sprite", sprites.get("front_default"), "image/png"),
+        )
+        for kind, url, media_type in sprite_assets:
+            if url:
+                connection.execute(
+                    "INSERT INTO pokemon_asset (pokemon_id, asset_kind, source_url, media_type) VALUES (?, ?, ?, ?)",
+                    (pokemon["id"], kind, url, media_type),
+                )
         for kind, url in (("cry_latest", pokemon.get("cries", {}).get("latest")), ("cry_legacy", pokemon.get("cries", {}).get("legacy"))):
             if url:
                 connection.execute(

@@ -157,10 +157,11 @@ case 'your-screen-type':
 
 ## PokéAPI Fair Use & Caching
 
-- **Never call `https://pokeapi.co` directly from the frontend or backend helpers.** All live Pokémon data is recommended to flow through the Flask proxy blueprint mounted at `/api/pokemon/*` so we can cache every response locally and avoid rate limiting.
-- The proxy already exposes `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/type/<type_name>`, and `/evolution-chain/<chain_id>` and transparently stores results via `CacheService`. Add new proxy endpoints (instead of raw fetches) if you need more PokéAPI resources.
-- Use the `?refresh=1` query string when you intentionally want to bypass the cache (force refresh buttons, admin workflows, etc.). Do **not** delete cache files manually.
-- Keep proxy routes lightweight (<300 lines) and reuse shared helpers for cache key generation so filenames stay descriptive in the `/cache` directory.
+- **Never call `https://pokeapi.co` directly from the frontend or ad hoc backend helpers.** Upstream access belongs in Flask routes and catalog services so persistence, validation, and rate limits remain centralized.
+- Normal `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/type/<type_name>`, and `/evolution-chain/<chain_id>` requests reconstruct their response contracts from SQLite. Do not reintroduce runtime JSON-cache reads for these stable catalog resources.
+- Use `?refresh=1` only for an intentional upstream refresh. Successful refreshes must be normalized into SQLite through `CatalogRefreshService`; do not write new catalog responses into `cache/`.
+- Pokemon sprites and cries must use the materializing asset routes and `AssetManager`, which validate files, store them under the configured persistent data root, and update SQLite metadata.
+- Keep routes lightweight (<300 lines). Add repository/service methods rather than embedding normalization or persistence logic in route handlers.
 
 ## Feature Documentation
 

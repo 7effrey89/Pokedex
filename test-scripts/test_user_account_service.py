@@ -1,6 +1,7 @@
 import sqlite3
 import tempfile
 import unittest
+import os
 from pathlib import Path
 
 from src.db.database import UsersDatabase, apply_users_schema
@@ -8,6 +9,31 @@ from src.services.user_account_service import UserAccountService
 
 
 class UserAccountServiceTests(unittest.TestCase):
+    def test_default_admin_account_is_created_without_environment_password(self):
+        original = os.environ.get("ADMIN_PASSWORD")
+        os.environ.pop("ADMIN_PASSWORD", None)
+        try:
+            with tempfile.TemporaryDirectory() as temporary:
+                db_path = Path(temporary) / "users.sqlite3"
+                db = UsersDatabase(db_path)
+                service = UserAccountService(db)
+
+                data = service.get_or_create_default_account()
+                self.assertEqual("trainer@pokedex.local", data["account"]["email"])
+                admin_account = next(
+                    (account for account in service.list_all_accounts() if account["email"] == "admin@pokedex.local"),
+                    None,
+                )
+
+                self.assertIsNotNone(admin_account)
+                self.assertTrue(admin_account["is_admin"])
+                self.assertTrue(service.verify_password(admin_account["id"], "admin123"))
+        finally:
+            if original is None:
+                os.environ.pop("ADMIN_PASSWORD", None)
+            else:
+                os.environ["ADMIN_PASSWORD"] = original
+
     def test_account_and_multi_member_lifecycle(self):
         with tempfile.TemporaryDirectory() as temporary:
             db_path = Path(temporary) / "users.sqlite3"
@@ -65,7 +91,7 @@ class UserAccountServiceTests(unittest.TestCase):
             self.assertFalse(service.verify_password(acc2_id, "secret_rocket_pwd"))
 
             all_accounts = service.list_all_accounts()
-            self.assertEqual(2, len(all_accounts))
+            self.assertEqual(3, len(all_accounts))
             rocket_listed = next(a for a in all_accounts if a["id"] == acc2_id)
             self.assertTrue(rocket_listed["has_password"])
             self.assertNotIn("password_hash", rocket_listed)
@@ -74,7 +100,7 @@ class UserAccountServiceTests(unittest.TestCase):
             deleted_acc = service.delete_account(acc2_id)
             self.assertTrue(deleted_acc)
             self.assertIsNone(service.get_account_by_id(acc2_id))
-            self.assertEqual(1, len(service.list_all_accounts()))
+            self.assertEqual(2, len(service.list_all_accounts()))
 
 
 if __name__ == "__main__":

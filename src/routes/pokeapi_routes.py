@@ -3,12 +3,13 @@ import json
 import logging
 import os
 import re
+import sqlite3
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
 import requests
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, send_file
 
 from src.services.cache_service import get_cache_service
 
@@ -218,12 +219,11 @@ def get_pokemon_metadata():
     """Return lightweight Pokemon metadata for search filters and dex lookups."""
     global _metadata_cache, _metadata_cache_count
 
-    if cache_service.get_data_source_mode() == "sqlite":
-        catalog_metadata = _catalog_metadata()
-        if catalog_metadata is not None:
-            return jsonify(catalog_metadata)
+    catalog_metadata = _catalog_metadata()
+    if catalog_metadata is not None:
+        return jsonify(catalog_metadata)
 
-    # JSON seed mode, or the catalog has not been built yet: scan legacy cache files.
+    # Compatibility fallback for initial database bootstrap only.
     current_count = 0
     if CACHE_DIR.is_dir():
         current_count = sum(
@@ -239,6 +239,51 @@ def get_pokemon_metadata():
         logger.info("Pokemon metadata cache ready (%d entries)", len(_metadata_cache))
 
     return jsonify(_metadata_cache)
+
+
+@pokeapi_bp.route("/<int:pokemon_id>/cry", methods=["GET"])
+def get_pokemon_cry(pokemon_id: int):
+    """Materialize a catalog cry on first playback and serve the local file."""
+    from src.services.asset_manager import get_asset_manager
+
+    try:
+        materialized = get_asset_manager().materialize_pokemon_cry(pokemon_id)
+    except (OSError, requests.RequestException) as exc:
+        logger.warning("Unable to materialize cry for Pokemon %s: %s", pokemon_id, exc)
+        return jsonify({"error": "Unable to fetch Pokemon cry"}), 502
+
+    if materialized is None:
+        return jsonify({"error": "Pokemon cry not found"}), 404
+
+    path, media_type = materialized
+    return send_file(path, mimetype=media_type, conditional=True, max_age=86400)
+
+
+@pokeapi_bp.route("/<int:pokemon_id>/sprite/<style>", methods=["GET"])
+def get_pokemon_sprite(pokemon_id: int, style: str):
+    """Materialize the selected sprite style and serve the persistent file."""
+    from src.services.asset_manager import get_asset_manager
+
+    manager = get_asset_manager()
+    try:
+        materialized = manager.materialize_pokemon_sprite(pokemon_id, style)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except OSError as exc:
+        logger.warning("Unable to materialize %s sprite for Pokemon %s: %s", style, pokemon_id, exc)
+        materialized = None
+
+    if materialized is None and style != "official-artwork":
+        try:
+            materialized = manager.materialize_pokemon_sprite(pokemon_id, "official-artwork")
+        except OSError as exc:
+            logger.warning("Unable to load fallback artwork for Pokemon %s: %s", pokemon_id, exc)
+
+    if materialized is None:
+        return jsonify({"error": "Pokemon sprite not found"}), 404
+
+    path, media_type = materialized
+    return send_file(path, mimetype=media_type, conditional=True, max_age=86400)
 
 
 def _should_refresh() -> bool:
@@ -364,8 +409,17 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
 
 @pokeapi_bp.route("/<string:name_or_id>", methods=["GET"])
 def get_pokemon(name_or_id: str):
-    """Return Pokemon data by name or ID via cache-aware proxy."""
+    """Return Pokemon data from SQLite, using PokeAPI only for explicit refresh."""
     from src.services.catalog_refresh import CatalogRefreshService
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh():
+        data = SqlitePokemonRepository().get_pokemon(name_or_id)
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
 
     params = {"pokemon": name_or_id.lower()}
     return _proxy_resource("pokeapi_pokemon", params, f"pokemon/{name_or_id}",
@@ -375,8 +429,17 @@ def get_pokemon(name_or_id: str):
 
 @pokeapi_bp.route("/species/<string:name_or_id>", methods=["GET"])
 def get_pokemon_species(name_or_id: str):
-    """Return Pokemon species data via cache-aware proxy."""
+    """Return species data from SQLite, using PokeAPI only for explicit refresh."""
     from src.services.catalog_refresh import CatalogRefreshService
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh():
+        data = SqlitePokemonRepository().get_species(name_or_id)
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
 
     params = {"species": name_or_id.lower()}
     return _proxy_resource(
@@ -387,13 +450,48 @@ def get_pokemon_species(name_or_id: str):
 
 @pokeapi_bp.route("/type/<string:type_name>", methods=["GET"])
 def get_type(type_name: str):
-    """Return Pokemon type data via cache-aware proxy."""
-    params = {"type": type_name.lower()}
-    return _proxy_resource("pokeapi_type", params, f"type/{type_name}")
+    """Return normalized type effectiveness, fetching once when not yet stored."""
+    from src.db.pokemon_repository import SqlitePokemonRepository
+    from src.services.catalog_refresh import CatalogRefreshService
+
+    repository = SqlitePokemonRepository()
+    if not _should_refresh():
+        stored = repository.get_type(type_name)
+        if stored is not None:
+            response = jsonify(stored)
+            response.headers["X-PokeAPI-Source"] = "sqlite"
+            return response
+
+    url = f"{POKEAPI_BASE_URL.rstrip('/')}/type/{type_name}"
+    try:
+        upstream = requests.get(url, timeout=15)
+        if upstream.status_code == 404:
+            return jsonify({"error": "Resource not found"}), 404
+        upstream.raise_for_status()
+        payload = upstream.json()
+        CatalogRefreshService().refresh_type(payload, store_raw=_should_refresh())
+    except (requests.RequestException, ValueError, sqlite3.Error) as exc:
+        logger.warning("Unable to normalize Pokemon type %s: %s", type_name, exc)
+        return jsonify({"error": "Failed to load Pokemon type"}), 502
+
+    data = repository.get_type(str(payload["id"]))
+    response = jsonify(data or payload)
+    response.headers["X-PokeAPI-Source"] = "sqlite"
+    return response
 
 
 @pokeapi_bp.route("/evolution-chain/<string:chain_id>", methods=["GET"])
 def get_evolution_chain(chain_id: str):
-    """Return evolution chain data by ID."""
+    """Return evolution data from SQLite, using PokeAPI only for explicit refresh."""
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh() and chain_id.isdigit():
+        data = SqlitePokemonRepository().get_evolution_chain(int(chain_id))
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
+
     params = {"chain": chain_id}
     return _proxy_resource("pokeapi_evolution_chain", params, f"evolution-chain/{chain_id}")

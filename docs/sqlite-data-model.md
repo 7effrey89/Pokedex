@@ -1,6 +1,6 @@
-# SQLite Data Model Proposal
+# SQLite Data Model
 
-Status: **Approved for phased implementation.**
+Status: **Implemented.** SQLite is the single runtime catalog source.
 
 ## Decision Summary
 
@@ -10,19 +10,12 @@ the existing API download scripts and raw JSON directories only as reproducible
 seed material. Add a separate import step that validates and normalizes those
 snapshots into SQLite.
 
-The application should continue returning its current JSON response shapes.
-Routes and tool handlers will read through a repository interface whose active
-implementation is selected in Settings:
-
-- **JSON seed mode**: preserve current behavior temporarily for migration and
-  contract comparison; this is not a production runtime target.
-- **SQLite/local mode**: query normalized tables and return local image URLs.
-
-SQLite mode never falls back to JSON. Normal reads use only SQLite and local
-assets. An explicit lookup or refresh may call an upstream API when data is
-missing or stale, but successful responses are normalized directly into SQLite
-rather than written as runtime JSON cache files. A failed upstream lookup
-returns a clear unavailable state.
+Routes and tool handlers preserve their JSON response contracts while repository
+adapters query normalized SQLite tables. Raw JSON under `seeds/` is reproducible
+import material, not a selectable runtime source. Normal Pokemon, species,
+evolution, type-effectiveness, TCG set, card-search, and card-detail reads use
+SQLite. Explicit refreshes and changing TCG prices may call upstream APIs;
+successful catalog refreshes are normalized into SQLite.
 
 ## Goals
 
@@ -32,8 +25,7 @@ returns a clear unavailable state.
   TCG gallery, set browsing, card detail, and prices from one data model.
 - Preserve raw API responses so imports are repeatable and source changes can
   be diagnosed.
-- Serve local Pokemon and TCG images in SQLite mode instead of image URLs stored
-  in API payloads.
+- Serve Pokemon and TCG assets through persistent materializing Flask routes.
 - Import every PokeAPI form, not only default National Pokedex entries.
 - Support selective backup and restore of the database and downloaded assets.
 
@@ -58,16 +50,14 @@ flowchart LR
     TR --> I
     I --> DB[(pokedex.sqlite3)]
     I --> A[Local image and audio files]
-    S[Settings data source] --> R[Repository selector]
-    J[Current JSON/cache repository] --> R
     DB --> Q[SQLite repository]
     A --> Q
     Q -->|explicit miss or refresh| P
     Q -->|explicit miss or refresh| T
     P -->|normalize directly| DB
     T -->|normalize directly| DB
-    Q --> R
-    R --> E[Existing Flask API response contracts]
+    Q --> E[Existing Flask API response contracts]
+    C[Runtime response cache] -->|volatile API data only| E
     DB --> B[Selective backup bundle]
     A --> B
     B --> X[Restore after redeployment]
@@ -85,6 +75,8 @@ erDiagram
     EVOLUTION_NODE ||--o{ EVOLUTION_NODE : parent_of
     POKEMON ||--o{ POKEMON_TYPE : has
     TYPE ||--o{ POKEMON_TYPE : classifies
+    TYPE ||--o{ TYPE_DAMAGE_RELATION : attacks_or_defends
+    TYPE ||--o{ TYPE_DAMAGE_RELATION : relates_to
     POKEMON ||--o{ POKEMON_ABILITY : has
     ABILITY ||--o{ POKEMON_ABILITY : identifies
     POKEMON ||--o{ POKEMON_STAT : has
@@ -202,6 +194,7 @@ Indexes: `(display_order)`, `(species_id, is_default)`, and `(name COLLATE NOCAS
 | --- | --- | --- |
 | `type` | `id`, `name` | Unique type name |
 | `pokemon_type` | `pokemon_id`, `type_id`, `slot` | PK `(pokemon_id, type_id)` |
+| `type_damage_relation` | `type_id`, `related_type_id`, `relation_kind` | Six normalized PokeAPI attack/defense relation groups; PK across all columns |
 | `ability` | `id`, `name` | Unique ability name |
 | `pokemon_ability` | `pokemon_id`, `ability_id`, `slot`, `is_hidden` | PK `(pokemon_id, ability_id, slot)` |
 | `stat` | `id`, `name` | Unique stat name |
@@ -211,6 +204,10 @@ Indexes: `(display_order)`, `(species_id, is_default)`, and `(name COLLATE NOCAS
 `species_text.text_kind` is constrained to `name`, `genus`, or
 `flavor_text`. Keeping language and version explicit avoids selecting an
 arbitrary English flavor entry during import.
+
+`type_damage_relation.relation_kind` is constrained to `double_damage_from`,
+`double_damage_to`, `half_damage_from`, `half_damage_to`, `no_damage_from`, or
+`no_damage_to`. Both type columns reference `type.id`.
 
 ### Evolution tables
 
@@ -412,58 +409,27 @@ TcgRepository
   get_card(card_id)
 ```
 
-`JsonPokemonRepository` and `JsonTcgRepository` temporarily wrap current
-behavior during migration and provide seed-contract comparisons.
-`SqlitePokemonRepository` and `SqliteTcgRepository` query this schema and become
-the production default. Existing Flask routes and tool handlers depend on the
-interfaces, so voice and text chat continue receiving the same data contracts.
+`SqlitePokemonRepository` and `SqliteTcgRepository` query this schema while
+preserving the PokeAPI- and TCG-shaped response contracts consumed by the
+frontend, voice assistant, and text chat. Raw seed payloads remain useful for
+import reproducibility and contract tests, but are not runtime repositories.
 
-## Settings Toggle
+## Runtime Selection
 
-During migration, add one persisted setting named `data_source_mode` with
-allowed values `json` and `sqlite`. Present it as a two-option segmented control
-in the existing Data or Cache section rather than two independent toggles.
-
-Behavior:
-
-1. Default to `json` only until a valid database has been built; deployment
-  initialization switches the production default to `sqlite` after validation.
-2. Disable the `sqlite` option when the database is absent, has an unsupported
-   schema version, or failed integrity checks. Show the reason beside it.
-3. Persist the setting server-side so text chat, realtime voice, routes, and
-   frontend navigation all use the same source.
-4. Switching source invalidates in-memory metadata and current list caches.
-5. Existing cache enable/expiry controls apply only to temporary JSON seed mode
-  and are visibly disabled or relabeled in SQLite mode.
-6. Return active mode and database status from the settings configuration API.
-7. Remove JSON mode from production settings after contract migration and
-  stabilization; raw JSON remains an importer input, not a runtime fallback.
-
-Suggested status payload:
-
-```json
-{
-  "data_source_mode": "json",
-  "sqlite": {
-    "available": false,
-    "schema_version": null,
-    "last_imported_at": null,
-    "pokemon_count": 0,
-    "card_count": 0,
-    "missing_asset_count": 0,
-    "reason": "Database has not been built"
-  }
-}
-```
+There is no runtime data-source selector. SQLite is mandatory for stable catalog
+data. Settings exposes only the TCG price refresh interval because prices are
+volatile: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited. The selected
+interval is persisted as `tcg_price_expiry_seconds`.
 
 ## Local Asset URL Strategy
 
-Use dedicated Flask asset routes, for example:
+Dedicated Flask asset routes include:
 
 ```text
-/assets/pokemon/<pokemon_id>/<asset_kind>
-/assets/tcg/cards/<card_id>/<size>
-/assets/tcg/sets/<set_id>/<asset_kind>
+/api/pokemon/<pokemon_id>/sprite/<style>
+/api/pokemon/<pokemon_id>/cry
+/api/tcg/card-image/<card_id>/<size>
+/api/tcg/set-image/<set_id>/<asset_kind>
 ```
 
 The route resolves only a database-registered project-relative path and serves
@@ -471,12 +437,9 @@ it with `send_from_directory`; callers never supply filesystem paths. Responses
 should use long-lived cache headers plus an ETag based on the stored SHA-256.
 This keeps deployment paths portable and avoids exposing arbitrary files.
 
-The initial preload downloads official Pokemon artwork only. The other sprite
-styles may remain unavailable in SQLite mode until selected for a later asset
-download. The current repository contains cached TCG card images, but Pokemon
-sprites and some set artwork still appear to be rendered from remote URLs.
-SQLite mode therefore should not be marked ready until an asset import/download
-pass reports zero required official artwork and primary-view assets.
+All selectable Pokemon sprite styles, cries, TCG card faces, set logos, and set
+symbols are cataloged and materialized on first use or through the admin bulk
+workflow. Browser views use local Flask routes rather than upstream asset URLs.
 
 Pokemon cries remain files referenced by `pokemon_asset`; they are never stored
 as SQLite BLOBs. Cry assets are downloaded on first play, written atomically to
@@ -486,11 +449,11 @@ persisted. Failed or partial downloads are not registered.
 
 ## Backup and Restore
 
-Add a production settings workflow that creates and restores a versioned backup
-bundle. A multi-select control lets an administrator include:
+The production settings workflow creates and restores a versioned backup bundle.
+A multi-select control lets an administrator include:
 
 - SQLite database.
-- Pokemon images.
+- Pokemon artwork and selectable sprite variants.
 - Pokemon cries downloaded on demand.
 - TCG card images.
 - TCG set logos and symbols.
@@ -539,20 +502,22 @@ recreates only the temporary `.building` database. When a complete import fails
 only at validation, `python scripts/05-import_sqlite.py --resume` repairs missing
 assets in the retained build, validates it again, and atomically promotes it.
 
-Suggested project locations:
+Project locations:
 
 ```text
-data/raw/                 # future consolidation target; current folders remain valid initially
-data/pokedex.sqlite3      # generated and ignored; built by init/release pipeline
-data/schema/001.sql       # versioned DDL
-src/repositories/         # repository interfaces and implementations
-static/assets/pokemon/    # local Pokemon visual assets
-tcg-image-cache/images/   # existing local card images
+seeds/pokeapi/            # reproducible raw PokeAPI inputs
+seeds/tcg/                # reproducible raw TCG inputs
+data/pokedex.sqlite3      # normalized runtime catalog
+data/schema/              # versioned catalog and user DDL
+src/db/                   # SQLite databases, importers, and repositories
+data/assets/pokemon/      # materialized Pokemon visual assets
+data/assets/cries/        # materialized Pokemon cries
+data/assets/tcg/          # materialized TCG card and set images
 ```
 
 ## Validation Gates
 
-SQLite mode is available only when all required gates pass:
+The SQLite catalog is ready only when all required gates pass:
 
 - `PRAGMA integrity_check` returns `ok`.
 - `PRAGMA foreign_key_check` returns no rows.
@@ -561,11 +526,10 @@ SQLite mode is available only when all required gates pass:
   species, type, and official local artwork records.
 - Every imported TCG card has a set and a local display image.
 - Duplicate Pokemon IDs/names and duplicate card IDs are zero.
-- Representative JSON and SQLite responses are contract-equivalent for at
-  least one standard Pokemon, one form variant, one evolution chain, one card,
-  one set, and one filtered search.
-- The UI makes no remote image request for required primary-view assets while
-  SQLite mode is active.
+- Representative repository responses satisfy the existing frontend contracts
+  for a standard Pokemon, form variant, evolution chain, type chart, card, set,
+  and filtered search.
+- The UI makes no remote image request for required primary-view assets.
 - A backup/restore round trip preserves each selected component and passes all
   database and asset integrity checks.
 
@@ -590,20 +554,20 @@ Measure before and after rather than assuming the result:
 ## Approved Decisions
 
 1. Import all PokeAPI forms.
-2. Preload official Pokemon artwork first; other sprite styles can be added as
-  selectable asset downloads later.
+2. Register every selectable Pokemon artwork style and materialize assets on
+  demand or through the admin bulk workflow.
 3. Store cries as files referenced by SQLite and download them on first use.
 4. Store only the latest TCG price values.
 5. Do not commit the generated database; build and hydrate it during
   initialization or the release pipeline.
-6. SQLite mode is strict and never falls back to JSON. Raw JSON exists to seed
-  imports, while subsequent upstream API results populate SQLite directly.
+6. SQLite is the strict runtime catalog source. Raw JSON exists to seed imports,
+  while subsequent upstream catalog refreshes populate SQLite directly.
 7. Provide selective, versioned backup and restore for the database and asset
   directories so production state survives teardown and redeployment.
 
-## Recommended First Implementation Slice
+## Implemented Scope
 
-After approval, implement Pokemon index/search/filter/detail plus official
-artwork first. This slice directly replaces the current metadata directory scan
-and is small enough to compare JSON and SQLite contracts rigorously. Add TCG
-sets/cards/prices and the remaining sprite styles only after that gate passes.
+The implementation covers Pokemon index/search/filter/detail, species and
+evolution payloads, normalized type effectiveness, all selectable sprite styles,
+cries, TCG sets/cards/search, latest prices, persistent card/set assets, and
+selective backup/restore.

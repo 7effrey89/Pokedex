@@ -1,11 +1,17 @@
--- Catalog schema v2: per-record refresh provenance for explicit upstream refreshes.
+-- Catalog schema v2: normalized PokeAPI type damage relations.
 
-ALTER TABLE pokemon ADD COLUMN last_refreshed_at TEXT;
-ALTER TABLE pokemon_species ADD COLUMN last_refreshed_at TEXT;
-ALTER TABLE tcg_card ADD COLUMN last_refreshed_at TEXT;
-ALTER TABLE tcg_set ADD COLUMN last_refreshed_at TEXT;
+CREATE TABLE type_damage_relation (
+	type_id INTEGER NOT NULL REFERENCES type(id) ON DELETE CASCADE,
+	related_type_id INTEGER NOT NULL REFERENCES type(id) ON DELETE CASCADE,
+	relation_kind TEXT NOT NULL CHECK (relation_kind IN (
+		'double_damage_from', 'double_damage_to',
+		'half_damage_from', 'half_damage_to',
+		'no_damage_from', 'no_damage_to'
+	)),
+	PRIMARY KEY (type_id, related_type_id, relation_kind)
+);
 
-CREATE INDEX idx_pokemon_refreshed ON pokemon(last_refreshed_at);
-CREATE INDEX idx_tcg_card_refreshed ON tcg_card(last_refreshed_at);
+CREATE INDEX idx_type_damage_relation_kind
+	ON type_damage_relation(type_id, relation_kind);
 
 PRAGMA user_version = 2;

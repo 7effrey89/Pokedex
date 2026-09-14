@@ -344,7 +344,7 @@ class PokemonChatApp {
         const pokemonMatch = path.match(/^\/pokemon\/([^\/]+)\/?$/);
         if (pokemonMatch) {
             const identifier = decodeURIComponent(pokemonMatch[1]);
-            await this.gridView.show();
+            await this.gridView.loadPokemonGrid();
             await this.detailView.loadPokemon(identifier);
             this._suppressPushState = false;
             history.replaceState({ viewKey: `pokemon-${identifier}` }, '', path);
@@ -3811,6 +3811,7 @@ class PokemonChatApp {
             localStorage.setItem('pokedex_sprite_style', this.spriteStyle);
         } catch { /* ignore */ }
         this.gridView.refreshSprites();
+        this.detailView.refreshSprite();
     }
 
     loadCryPreference() {
@@ -4625,6 +4626,16 @@ class PokemonChatApp {
         this.toolsModalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         this.pendingToolChanges = {};
+
+        // Bind local settings immediately; remote/admin status can load afterward.
+        this.setupCacheControls();
+        this.setupFaceIdentificationControls();
+        this.setupVoiceControls();
+        this.setupSpriteStyleControls();
+        this.setupCryControls();
+        this.setupScrollResetControls();
+        this.setupCurrencyControls();
+        this.setupCollectionImportExportControls();
         
         // Load cache config and tools
         await Promise.all([
@@ -4634,13 +4645,6 @@ class PokemonChatApp {
         this.renderToolsModal();
         await this.setupAdminDataControls();
         this.setupCacheControls();
-        this.setupFaceIdentificationControls();
-        this.setupVoiceControls();
-        this.setupSpriteStyleControls();
-        this.setupCryControls();
-        this.setupScrollResetControls();
-        this.setupCurrencyControls();
-        this.setupCollectionImportExportControls();
     }
 
     async setupAdminDataControls() {
@@ -4755,7 +4759,7 @@ class PokemonChatApp {
                     <span class="admin-component-name">${component.label}</span>
                     <span class="admin-component-meta">
                         ${component.available
-                            ? (component.size_bytes == null ? 'Size calculated during backup' : this.formatAdminBytes(component.size_bytes))
+                            ? `${this.formatAdminBytes(component.size_bytes)} estimated`
                             : 'Not available'}
                     </span>
                 </span>
@@ -4851,7 +4855,7 @@ class PokemonChatApp {
             return;
         }
 
-        this.setAdminStatusText('Creating backup...');
+        this.setAdminStatusText('Starting backup...');
         try {
             const response = await fetch('/api/admin/backup', {
                 method: 'POST',
@@ -4863,11 +4867,41 @@ class PokemonChatApp {
                 this.setAdminStatusText(data.error || 'Backup failed', true);
                 return;
             }
-            this.setAdminStatusText(`Backup ready: ${data.name} (${this.formatAdminBytes(data.size_bytes)})`);
-            window.location.href = data.download_url;
+            this.pollAdminBackupJob();
         } catch (error) {
             this.setAdminStatusText(`Backup failed: ${error.message}`, true);
         }
+    }
+
+    async pollAdminBackupJob() {
+        const progress = document.getElementById('adminBackupProgress');
+        const fill = document.getElementById('adminBackupProgressFill');
+        const text = document.getElementById('adminBackupProgressText');
+        if (!progress) return;
+        progress.hidden = false;
+        const tick = async () => {
+            try {
+                const response = await fetch('/api/admin/backup/job');
+                const data = await response.json();
+                const job = data.job;
+                if (!job) return;
+                if (fill) fill.style.width = `${job.percent || 0}%`;
+                if (text) text.textContent = `${job.message} - ${job.completed.toLocaleString()}/${job.total.toLocaleString()}`;
+                if (job.status === 'completed') {
+                    clearInterval(this._adminBackupTimer);
+                    this.setAdminStatusText(`Backup ready: ${job.name} (${this.formatAdminBytes(job.size_bytes)})`);
+                    window.location.href = job.download_url;
+                } else if (job.status === 'failed') {
+                    clearInterval(this._adminBackupTimer);
+                    this.setAdminStatusText(`Backup failed: ${job.error || job.message}`, true);
+                }
+            } catch (error) {
+                clearInterval(this._adminBackupTimer);
+                this.setAdminStatusText(`Backup status failed: ${error.message}`, true);
+            }
+        };
+        await tick();
+        this._adminBackupTimer = setInterval(tick, 1500);
     }
 
     async restoreAdminBackup(input) {
@@ -5073,95 +5107,21 @@ class PokemonChatApp {
     }
     
     setupCacheControls() {
-        this.setupDataSourceControls();
-
-        // Cache toggle
-        const cacheToggle = document.getElementById('cacheToggle');
-        if (cacheToggle) {
-            cacheToggle.checked = this.cacheConfig?.enabled ?? true;
-            if (cacheToggle.dataset.listenerAttached !== 'true') {
-                cacheToggle.addEventListener('change', async (e) => {
-                    const enabled = Boolean(e.target.checked);
-                    this.cacheConfig = { ...(this.cacheConfig || {}), enabled };
-                    this.applyCacheDependencies(enabled);
-                    await this.updateCacheEnabled(enabled);
-                });
-                cacheToggle.dataset.listenerAttached = 'true';
-            }
-        }
-
-        // PokeAPI cache toggle
-        const pokeapiCacheToggle = document.getElementById('pokeapiCacheToggle');
-        if (pokeapiCacheToggle) {
-            pokeapiCacheToggle.checked = this.cacheConfig?.pokeapi_cache_enabled ?? true;
-            pokeapiCacheToggle.disabled = !(this.cacheConfig?.enabled ?? true);
-            pokeapiCacheToggle.addEventListener('change', async (e) => {
-                await this.updatePokeapiCacheEnabled(e.target.checked);
-            });
-        }
-
-        // TCG cache toggle
-        const tcgCacheToggle = document.getElementById('tcgCacheToggle');
-        if (tcgCacheToggle) {
-            tcgCacheToggle.checked = this.cacheConfig?.tcg_cache_enabled ?? true;
-            tcgCacheToggle.disabled = true;
-            tcgCacheToggle.dataset.forceDisabled = tcgCacheToggle.dataset.forceDisabled || 'true';
-            const row = tcgCacheToggle.closest('.control-row');
-            if (row) {
-                row.classList.add('disabled');
-            }
-        }
-        
-        // Cache expiry slider
         const cacheExpiry = document.getElementById('cacheExpiry');
         if (cacheExpiry) {
-            this.updateCacheExpiryUI(this.cacheConfig?.expiry_days ?? Number(cacheExpiry.value));
+            const seconds = this.cacheConfig?.tcg_price_expiry_seconds ?? 259200;
+            this.updateCacheExpiryUI(this.getTcgPriceRefreshIndex(seconds));
 
-            cacheExpiry.addEventListener('input', (e) => {
-                this.updateCacheExpiryUI(Number(e.target.value));
-            });
-            
-            cacheExpiry.addEventListener('change', async (e) => {
-                await this.updateCacheExpiry(parseInt(e.target.value, 10));
-            });
+            if (cacheExpiry.dataset.listenerAttached !== 'true') {
+                cacheExpiry.addEventListener('input', (e) => {
+                    this.updateCacheExpiryUI(Number(e.target.value));
+                });
+                cacheExpiry.addEventListener('change', async (e) => {
+                    await this.updateCacheExpiry(parseInt(e.target.value, 10));
+                });
+                cacheExpiry.dataset.listenerAttached = 'true';
+            }
         }
-        
-        // Clear cache button
-        const cacheClearBtn = document.getElementById('cacheClearBtn');
-        if (cacheClearBtn) {
-            cacheClearBtn.addEventListener('click', () => this.clearCache());
-        }
-        
-        // Update cache stats
-        this.updateCacheStats();
-        this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
-    }
-
-    setupDataSourceControls() {
-        const options = document.getElementById('dataSourceOptions');
-        if (!options) return;
-
-        const currentMode = this.cacheConfig?.data_source_mode || 'json';
-        const sqliteStatus = this.cacheConfig?.sqlite || {};
-        const radios = options.querySelectorAll('input[name="dataSourceMode"]');
-        radios.forEach((radio) => {
-            radio.checked = radio.value === currentMode;
-            radio.disabled = radio.value === 'sqlite' && !sqliteStatus.available;
-        });
-
-        const status = document.getElementById('dataSourceStatus');
-        if (status) {
-            status.textContent = sqliteStatus.available
-                ? `${sqliteStatus.pokemon_count} Pokemon and ${sqliteStatus.card_count} cards available locally`
-                : (sqliteStatus.reason || 'Database has not been built');
-        }
-
-        if (options.dataset.listenerAttached === 'true') return;
-        options.addEventListener('change', async (event) => {
-            const input = event.target.closest('input[name="dataSourceMode"]');
-            if (input) await this.updateDataSourceMode(input.value);
-        });
-        options.dataset.listenerAttached = 'true';
     }
 
     setupFaceIdentificationControls() {
@@ -5179,9 +5139,6 @@ class PokemonChatApp {
                 overlayToggle.dataset.listenerAttached = 'true';
             }
         }
-
-        this.initializeFaceProfileCaptureControls();
-        this.ensureFaceProfileCameraActive();
     }
 
     setupVoiceControls() {
@@ -5309,91 +5266,24 @@ class PokemonChatApp {
     
     updateCacheStats() {
         if (!this.cacheConfig) return;
-        
-        const cacheStatus = document.getElementById('cacheStatus');
-        const cacheFiles = document.getElementById('cacheFiles');
-        const cacheSize = document.getElementById('cacheSize');
-        
-        if (cacheStatus) {
-            cacheStatus.textContent = this.cacheConfig.enabled ? '✅ Enabled' : '❌ Disabled';
-            cacheStatus.style.color = this.cacheConfig.enabled ? '#28a745' : '#dc3545';
-        }
-        if (cacheFiles) {
-            cacheFiles.textContent = this.cacheConfig.total_files ?? 0;
-        }
-        if (cacheSize) {
-            cacheSize.textContent = `${this.cacheConfig.total_size_mb ?? 0} MB`;
-        }
-
-        this.updateCacheExpiryUI(this.cacheConfig?.expiry_days);
-        this.syncCacheControlAvailability();
-        this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
+        this.updateCacheExpiryUI(this.getTcgPriceRefreshIndex(this.cacheConfig?.tcg_price_expiry_seconds));
     }
 
-    syncCacheControlAvailability() {
-        const pokeapiCacheToggle = document.getElementById('pokeapiCacheToggle');
-        const tcgCacheToggle = document.getElementById('tcgCacheToggle');
-        const toggles = [
-            { element: pokeapiCacheToggle, key: 'pokeapi_cache_enabled' },
-            { element: tcgCacheToggle, key: 'tcg_cache_enabled' }
+    getTcgPriceRefreshIntervals() {
+        return [
+            { seconds: 300, label: '5 minutes' },
+            { seconds: 3600, label: '1 hour' },
+            { seconds: 86400, label: '1 day' },
+            { seconds: 259200, label: '3 days' },
+            { seconds: 604800, label: '7 days' },
+            { seconds: 0, label: 'Unlimited' }
         ];
-        const globalEnabled = this.cacheConfig?.enabled ?? true;
-        toggles.forEach(({ element, key }) => {
-            if (!element) return;
-            const forceDisabled = element.dataset.forceDisabled === 'true';
-            element.disabled = forceDisabled || !globalEnabled;
-            if (typeof this.cacheConfig?.[key] !== 'undefined') {
-                element.checked = this.cacheConfig[key];
-            }
-            const row = element.closest('.control-row');
-            if (row) {
-                row.classList.toggle('disabled', element.disabled);
-            }
-        });
     }
 
-    applyCacheDependencies(isEnabled) {
-        const jsonMode = (this.cacheConfig?.data_source_mode || 'json') === 'json';
-        const cacheControlsEnabled = isEnabled && jsonMode;
-        const dependentToggles = [
-            document.getElementById('pokeapiCacheToggle'),
-            document.getElementById('tcgCacheToggle')
-        ];
-
-        dependentToggles.forEach((toggle) => {
-            if (!toggle) {
-                return;
-            }
-            const forceDisabled = toggle.dataset.forceDisabled === 'true';
-            toggle.disabled = forceDisabled || !cacheControlsEnabled;
-            const row = toggle.closest('.control-row');
-            if (row) {
-                row.classList.toggle('disabled', toggle.disabled);
-            }
-        });
-
-        const cacheExpiryInput = document.getElementById('cacheExpiry');
-        if (cacheExpiryInput) {
-            cacheExpiryInput.disabled = !cacheControlsEnabled;
-            const row = cacheExpiryInput.closest('.control-row');
-            if (row) {
-                row.classList.toggle('disabled', !cacheControlsEnabled);
-            }
-        }
-
-        const cacheClearBtn = document.getElementById('cacheClearBtn');
-        if (cacheClearBtn) {
-            cacheClearBtn.disabled = !cacheControlsEnabled;
-            cacheClearBtn.classList.toggle('disabled', !cacheControlsEnabled);
-        }
-    }
-
-    formatCacheExpiryLabel(days) {
-        const value = Number(days);
-        if (!Number.isFinite(value) || value <= 0) {
-            return 'Unlimited';
-        }
-        return value === 1 ? '1 day' : `${value} days`;
+    getTcgPriceRefreshIndex(seconds) {
+        const intervals = this.getTcgPriceRefreshIntervals();
+        const index = intervals.findIndex(interval => interval.seconds === Number(seconds));
+        return index >= 0 ? index : 3;
     }
 
     updateCacheExpiryUI(value) {
@@ -5406,15 +5296,16 @@ class PokemonChatApp {
         const sliderMin = Number(cacheExpiry.min ?? 0);
         const sliderMax = Number(cacheExpiry.max ?? 90);
         const numericValue = value === undefined || value === null ? Number(cacheExpiry.value) : Number(value);
+        const intervals = this.getTcgPriceRefreshIntervals();
+        const interval = intervals[numericValue] || intervals[3];
         cacheExpiry.value = numericValue;
-        const titleText = this.formatCacheExpiryLabel(numericValue);
         if (cacheExpiryTitle) {
-            cacheExpiryTitle.textContent = `Cache Expiry: ${titleText}`;
+            cacheExpiryTitle.textContent = `Price Refresh: ${interval.label}`;
         }
         if (cacheExpiryDescription) {
-            cacheExpiryDescription.textContent = numericValue <= 0
-                ? 'Cache never expires until you clear it'
-                : 'Cached data will refresh after this time';
+            cacheExpiryDescription.textContent = interval.seconds === 0
+                ? 'Stored TCG prices do not expire automatically'
+                : 'Stored TCG prices are fetched again after this interval';
         }
         const range = sliderMax - sliderMin || 1;
         const percentRaw = ((numericValue - sliderMin) / range) * 100;
@@ -5423,10 +5314,7 @@ class PokemonChatApp {
     }
 
     shouldUsePokemonProxy() {
-        if (!this.cacheConfig) {
-            return true;
-        }
-        return this.cacheConfig.pokeapi_cache_enabled !== false;
+        return true;
     }
 
     normalizePokemonIdentifier(identifier, { preserveCase = false } = {}) {
@@ -5478,104 +5366,21 @@ class PokemonChatApp {
         return directPaths[resource];
     }
     
-    async updateCacheEnabled(enabled) {
-        try {
-            const response = await fetch('/api/cache/enable', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ enabled })
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                this.cacheConfig = { ...this.cacheConfig, ...data.config };
-                this.updateCacheStats();
-                this.applyCacheDependencies(this.cacheConfig?.enabled ?? true);
-                console.log('✅ Cache', enabled ? 'enabled' : 'disabled');
-            }
-        } catch (error) {
-            console.error('Error updating cache:', error);
-        }
-    }
-
-    async updateDataSourceMode(mode) {
-        const previousMode = this.cacheConfig?.data_source_mode || 'json';
-        try {
-            const response = await fetch('/api/cache/data-source-mode', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mode })
-            });
-            const data = await response.json();
-            if (!response.ok) throw new Error(data.error || 'Unable to change data source');
-
-            this.cacheConfig = {
-                ...(this.cacheConfig || {}),
-                ...data.config,
-                sqlite: data.sqlite
-            };
-            this.setupDataSourceControls();
-            this.applyCacheDependencies(this.cacheConfig.enabled ?? true);
-            this.showToast('Data Source', mode === 'sqlite' ? 'Using the local database.' : 'Using JSON seed data.', 'success', 2500);
-        } catch (error) {
-            this.cacheConfig = { ...(this.cacheConfig || {}), data_source_mode: previousMode };
-            this.setupDataSourceControls();
-            this.showToast('Data Source', error.message, 'error', 4500);
-        }
-    }
-
-    async updatePokeapiCacheEnabled(enabled) {
-        try {
-            const response = await fetch('/api/cache/pokeapi', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ enabled })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                this.cacheConfig = { ...this.cacheConfig, ...data.config };
-                this.updateCacheStats();
-                console.log('✅ PokeAPI cache', enabled ? 'enabled' : 'disabled');
-            }
-        } catch (error) {
-            console.error('Error updating PokeAPI cache:', error);
-        }
-    }
-
-    async updateTcgCacheEnabled(enabled) {
-        try {
-            const response = await fetch('/api/cache/tcg', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ enabled })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                this.cacheConfig = { ...this.cacheConfig, ...data.config };
-                this.updateCacheStats();
-                console.log('✅ TCG cache', enabled ? 'enabled' : 'disabled');
-            }
-        } catch (error) {
-            console.error('Error updating TCG cache:', error);
-        }
-    }
-    
-    async updateCacheExpiry(days) {
+    async updateCacheExpiry(index) {
+        const interval = this.getTcgPriceRefreshIntervals()[index];
+        if (!interval) return;
         try {
             const response = await fetch('/api/cache/expiry', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ days })
+                body: JSON.stringify({ seconds: interval.seconds })
             });
             
             if (response.ok) {
                 const data = await response.json();
                 this.cacheConfig = { ...this.cacheConfig, ...data.config };
                 this.updateCacheStats();
-                const label = days === 0 ? 'unlimited' : `${days} day${days === 1 ? '' : 's'}`;
-                console.log(`✅ Cache expiry set to ${label}`);
+                console.log(`✅ TCG price refresh set to ${interval.label}`);
             }
         } catch (error) {
             console.error('Error updating cache expiry:', error);
@@ -5647,14 +5452,6 @@ class PokemonChatApp {
         if (this.toolsModalOverlay) {
             this.toolsModalOverlay.classList.remove('active');
             document.body.style.overflow = '';
-        }
-
-        if (this.faceProfileCameraStream) {
-            this.stopFaceProfileCamera();
-        }
-
-        if (!this.faceProfileCameraStream) {
-            this.updateFaceProfileStatus('Camera idle. Tap Start Camera to begin.');
         }
 
         this.updateFaceProfileUIState();
@@ -8109,8 +7906,6 @@ class PokemonChatApp {
         const isRefresh = ['1', 'true', 'yes'].includes(
             (parsedUrl.searchParams.get('refresh') || '').toLowerCase()
         );
-        const isSqliteMode = (this.cacheConfig?.data_source_mode || 'json') === 'sqlite';
-
         if (isRefresh) {
             return {
                 label: 'Refreshing Pokemon data...',
@@ -8118,16 +7913,9 @@ class PokemonChatApp {
             };
         }
 
-        if (isSqliteMode) {
-            return {
-                label: 'Loading Pokemon data...',
-                detail: 'Rotom is loading Pokemon details from the local database.'
-            };
-        }
-
         return {
             label: 'Loading Pokemon data...',
-            detail: 'Rotom is fetching Pokemon details through the cached PokeAPI proxy.'
+            detail: 'Rotom is loading Pokemon data through the local catalog and API cache.'
         };
     }
 

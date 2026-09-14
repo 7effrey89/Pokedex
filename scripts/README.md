@@ -1,13 +1,17 @@
-# Pokemon TCG Cache Pipeline
+# Pokemon and TCG Data Pipeline
 
-Four numbered scripts keep offline Pokemon and TCG data in sync with the format this app expects:
+Six numbered scripts support raw data acquisition, legacy cache conversion,
+SQLite catalog builds, and immutable snapshots. SQLite and persistent assets are
+the runtime sources; `cache/` is not a catalog source.
 
 | Step | Script | Purpose | Output |
 | --- | --- | --- | --- |
 | 01 | `scripts/01-download_tcg_cache.py` | Bulk download every Pokémon’s raw TCG response directly from the public API. | Raw JSON snapshots in `tcg-cache/` plus `data/pokemon_list.json`. |
-| 02 | `scripts/02-normalize_tcg_cache.py` | Reformat those raw files so they exactly match the CacheService schema. | Canonical files in `cache/` (or in-place when requested). |
-| 03 | `scripts/03-preload_pokeapi_cache.py` | Warm the local CacheService with live PokeAPI responses so the UI never needs to hit pokéapi.co directly. | Fresh `pokeapi-*` files inside `cache/`. |
+| 02 | `scripts/02-normalize_tcg_cache.py` | Convert historical TCG payloads to the legacy CacheService envelope for diagnostics or migration. | Legacy files in `cache/` or an explicit destination. |
+| 03 | `scripts/03-preload_pokeapi_cache.py` | Legacy utility for warming API-response cache files; not required by normal SQLite-backed detail routes. | Disposable `pokeapi-*` files in `cache/`. |
 | 04 | `scripts/04-cache_tcg_images.py` | Cache every unique official card image and build the exact NumPy cosine index. | Images in `tcg-image-cache/images/` and runtime artifacts in `tcg-image-cache/index/`. |
+| 05 | `scripts/05-import_sqlite.py` | Normalize raw Pokemon/TCG seeds, type effectiveness, and asset metadata into the runtime catalog. | `data/pokedex.sqlite3` and registered assets. |
+| 06 | `scripts/06-create_snapshot.py` | Archive immutable raw seed inputs and their checksums. | Versioned snapshot under the configured data root. |
 
 ## Step 01 – Download raw caches
 
@@ -37,7 +41,9 @@ Outputs:
 
 ## Step 02 – Normalize for the app
 
-`scripts/02-normalize_tcg_cache.py` consumes any raw file (legacy, downloader, download-manager, etc.) and emits the exact structure the app’s CacheService expects.
+`scripts/02-normalize_tcg_cache.py` consumes historical raw files and emits the
+legacy CacheService envelope. Current TCG catalog handlers do not read these
+files; use this utility only for migration, diagnostics, or compatibility work.
 
 - Default behavior: write normalized copies into `cache/` while leaving `tcg-cache/` untouched.
 - Use `--in-place` if you truly want to rewrite the originals.
@@ -57,11 +63,14 @@ python scripts/02-normalize_tcg_cache.py tcg-cache --verbose
 python scripts/02-normalize_tcg_cache.py tcg-cache/tcg-002-ivysaur.json --in-place --verbose
 ```
 
-Outputs land in `cache/` (unless `--in-place`), so the app can immediately pick them up via `CacheService` while your raw archive remains safely stored in `tcg-cache/`.
+Outputs land in `cache/` unless overridden. They do not replace the SQLite import
+performed by Step 05.
 
 ## Step 03 – Preload PokeAPI caches
 
-`scripts/03-preload_pokeapi_cache.py` iterates the national dex, fetches the selected PokeAPI resources (`pokemon`, `species`, optional `evolution` chains and `type` metadata), and stores the payloads via `CacheService`. Run it anytime you want the `cache/` folder to be fully hydrated so the frontend stays offline-friendly.
+`scripts/03-preload_pokeapi_cache.py` is retained for legacy response-cache
+testing. Normal Pokemon, species, evolution, and type routes now read SQLite, so
+preloading those JSON files is not part of application startup or deployment.
 
 Highlights:
 
@@ -108,10 +117,31 @@ python scripts/04-cache_tcg_images.py --index-only
 
 The downloaded `images/` directory is a rebuildable local cache and is ignored by Git. The smaller `vectors.npy`, `cards.json`, and `manifest.json` files under `index/` are the runtime artifacts used by the **NumPy full catalog** scanner mode.
 
+## Step 05 – Build the SQLite catalog
+
+`scripts/05-import_sqlite.py` reads `seeds/pokeapi/` and `seeds/tcg/`, normalizes
+Pokemon, species, evolution chains, all six type-damage relation groups, TCG
+sets/cards/latest prices, and asset metadata, then atomically promotes a validated
+`data/pokedex.sqlite3`.
+
+```bash
+python scripts/05-import_sqlite.py
+```
+
+## Step 06 – Snapshot raw seeds
+
+`scripts/06-create_snapshot.py` archives the reproducible raw seed inputs. It
+deliberately excludes derived runtime response caches.
+
+```bash
+python scripts/06-create_snapshot.py --compress
+```
+
 ## FAQ
 
-- **Do I need every step every time?** No. Run Step 01 for fresh card metadata, Step 02 for app cache normalization, Step 03 for PokeAPI warming, and Step 04 when card metadata or the image encoder changes.
+- **Do I need every step every time?** No. Use Steps 01 and the PokeAPI seed tooling to refresh raw inputs, Step 04 when scanner images/indexes change, Step 05 to rebuild SQLite, and Step 06 to preserve source snapshots. Steps 02 and 03 are legacy utilities.
 - **Where do I set the TCG API key?** Add `POKEMON_TCG_API_KEY=...` to `.env` or export it in your shell before running Step 01.
 - **Can I normalize third-party files?** Yes—pass any path(s) to Step 02; it detects names, rebuilds params, and outputs the canonical schema.
 
-That’s it: archive everything in `tcg-cache/`, feed the app via `cache/`, and rerun either script whenever you need updated data.
+Runtime reads come from SQLite and persistent asset directories. Raw archives
+remain rebuild inputs; `cache/` remains disposable API-response acceleration.

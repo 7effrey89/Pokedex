@@ -74,11 +74,15 @@ All implemented features, categorized. Every new feature must be added here.
 | PokeAPI Proxy | All PokeAPI calls proxied through Flask for local caching | N/A |
 | TCG Cache | Card data cached with 7-day TTL, stale data served while refreshing | N/A |
 | Cache Management API | Enable/disable cache, set TTL, clear/invalidate entries | ❌ |
-| SQLite Data Source Foundation | Versioned normalized schema, readiness checks, and guarded JSON/SQLite source selection | N/A |
-| SQLite Hydration Pipeline | Atomic step-05 importer normalizes wrapped Pokemon/species/forms and deduplicated TCG sets/cards/latest prices; selected SQLite mode reads TCG sets/cards and serves registered local card images | N/A |
+| SQLite Data Source Foundation | Versioned normalized schema and readiness checks provide the single runtime source for stable Pokemon and TCG catalog data | N/A |
+| SQLite Hydration Pipeline | Atomic step-05 importer normalizes wrapped Pokemon/species/forms and deduplicated TCG sets/cards/latest prices; runtime reads TCG sets/cards and serves registered local card images from SQLite | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
 | Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |
-| SQLite-Backed Metadata Lookup | Pokemon search/dex metadata is built from indexed SQLite queries (not a legacy cache-file scan) whenever SQLite mode is active | N/A |
+| SQLite-Backed Metadata Lookup | Pokemon search/dex metadata is built from indexed SQLite queries instead of legacy cache-file scans | N/A |
+| SQLite-Backed Pokemon Detail | Normal Pokemon, species, and evolution detail requests are reconstructed from SQLite; only explicit refresh requests call PokeAPI | N/A |
+| SQLite Type Effectiveness | All six PokeAPI damage-relation groups are normalized per type and used for weakness calculations without runtime JSON cache files | N/A |
+| TCG Price Refresh Interval | Settings slider offers 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited; the next lookup after expiration synchronously fetches and stores fresh TCG price data | N/A |
+| Persistent Asset Materialization | Pokemon artwork variants, sprites, cries, TCG card faces, set logos, and set symbols are served through Flask from persistent storage; first use stores missing catalog assets for admin inventory and later reuse | N/A |
 | Admin: Scan for New Content | Diffs the live PokeAPI species list and TCG API set/card totals against the local catalog to report new Pokemon, new TCG sets, and sets with newly released cards | ❌ |
 | Admin: Add New Content | Inserts only the missing Pokemon species/forms or TCG sets/cards discovered by the scan, reusing the importer's normalization so new rows match the existing schema | ❌ |
 
@@ -86,6 +90,7 @@ All implemented features, categorized. Every new feature must be added here.
 
 | Feature | Description | GPT Realtime |
 |---------|-------------|:------------:|
+| Sprite Style Selector | Switch Pokemon artwork across the index and active detail view, with the preference saved locally | N/A |
 | Help Overlay | Interactive guide showing available commands | ❌ |
 | Loading Indicator | Rotom loading bubble with hover tooltip describing the active request reason | N/A |
 | Voice Backend Badge | Header badge shows whether voice is using GPT Realtime or browser fallback with connection details on hover | N/A |

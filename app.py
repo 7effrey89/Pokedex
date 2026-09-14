@@ -22,6 +22,7 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
+os.environ.setdefault('ADMIN_PASSWORD', 'admin123')
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = os.environ.get('SECRET_KEY', 'pokedex-demo-session-secret-key-3289a')
@@ -30,7 +31,7 @@ init_realtime_socket_routes(app)
 
 # Persistent storage must exist before any blueprint touches the databases.
 from src.config import PROJECT_ROOT, get_storage_paths
-from src.db.database import UsersDatabase
+from src.db.database import SqliteDatabase, UsersDatabase
 
 _storage_paths = get_storage_paths()
 _storage_paths.ensure_directories()
@@ -60,6 +61,7 @@ def _promote_packaged_seed_data() -> None:
 
 
 _promote_packaged_seed_data()
+SqliteDatabase().initialize()
 UsersDatabase().initialize()
 from src.services.user_account_service import get_user_account_service
 

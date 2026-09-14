@@ -108,7 +108,9 @@ class PokemonSearchView {
 
         this.tcgExpansionList.innerHTML = sorted.map(set => {
             const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
-            const symbolUrl = set.images?.symbol || '';
+            const symbolUrl = set.id
+                ? `/api/tcg/set-image/${encodeURIComponent(set.id)}/symbol`
+                : (set.images?.symbol || '');
             return `<label class="tcg-expansion-item" data-set-id="${set.id}">
                 <input type="checkbox" value="${set.id}">
                 ${symbolUrl ? `<img src="${symbolUrl}" alt="" class="tcg-expansion-symbol" loading="lazy">` : ''}

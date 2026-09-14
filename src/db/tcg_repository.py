@@ -36,11 +36,75 @@ class SqliteTcgRepository:
                     "series": row["series"],
                     "releaseDate": row["release_date"],
                     "total": row["total"] or 0,
-                    "images": {"logo": row["logo_url"], "symbol": row["symbol_url"]},
+                    "images": {
+                        "logo": f"/api/tcg/set-image/{row['id']}/logo" if row["logo_url"] else None,
+                        "symbol": f"/api/tcg/set-image/{row['id']}/symbol" if row["symbol_url"] else None,
+                    },
                 }
                 for row in rows
             ]
             return {"sets": sets, "total_count": len(sets)}
+        finally:
+            connection.close()
+
+    def search_cards(
+        self,
+        pokemon_name: str | None = None,
+        card_type: str | None = None,
+        hp_min: int | None = None,
+        hp_max: int | None = None,
+        rarity: str | None = None,
+    ) -> dict[str, Any]:
+        """Search stable card catalog fields without calling the TCG API."""
+        connection = self.database.connect(read_only=True)
+        try:
+            clauses = []
+            parameters: list[Any] = []
+            if pokemon_name:
+                clauses.append("c.name LIKE ? COLLATE NOCASE")
+                parameters.append(f"%{pokemon_name}%")
+            if card_type:
+                clauses.append(
+                    "EXISTS (SELECT 1 FROM card_type ct JOIN type t ON t.id = ct.type_id "
+                    "WHERE ct.card_id = c.id AND t.name = ? COLLATE NOCASE)"
+                )
+                parameters.append(card_type)
+            if hp_min is not None:
+                clauses.append("CAST(c.hp AS INTEGER) >= ?")
+                parameters.append(hp_min)
+            if hp_max is not None:
+                clauses.append("CAST(c.hp AS INTEGER) <= ?")
+                parameters.append(hp_max)
+            if rarity:
+                clauses.append("c.rarity = ? COLLATE NOCASE")
+                parameters.append(rarity)
+            where = " AND ".join(clauses) if clauses else "1 = 1"
+            rows = connection.execute(
+                f"""
+                SELECT c.*, s.name AS set_name, s.release_date
+                FROM tcg_card c JOIN tcg_set s ON s.id = c.set_id
+                WHERE {where}
+                ORDER BY s.release_date DESC, c.name COLLATE NOCASE
+                LIMIT 250
+                """,
+                parameters,
+            ).fetchall()
+            cards = []
+            by_set: dict[str, list[Any]] = defaultdict(list)
+            for row in rows:
+                by_set[row["set_id"]].append(row)
+            for set_id, set_rows in by_set.items():
+                first = set_rows[0]
+                cards.extend(self._hydrate_cards(connection, set_rows, {
+                    "id": set_id,
+                    "name": first["set_name"],
+                    "release_date": first["release_date"],
+                }, slim=False))
+            return {
+                "cards": cards,
+                "total_count": len(cards),
+                "search_query": pokemon_name or card_type or rarity or "filtered cards",
+            }
         finally:
             connection.close()
 

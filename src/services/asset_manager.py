@@ -12,6 +12,7 @@ import os
 import sqlite3
 import threading
 import urllib.request
+import xml.etree.ElementTree as ElementTree
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
@@ -26,11 +27,20 @@ logger = logging.getLogger(__name__)
 USER_AGENT = "Pokedex-Asset-Manager/1.0"
 DOWNLOAD_TIMEOUT_SECONDS = 30
 
+POKEMON_SPRITE_STYLES = {
+    "official-artwork": ("official_artwork", "other/official-artwork/{id}.png", "image/png"),
+    "home": ("home_artwork", "other/home/{id}.png", "image/png"),
+    "dream-world": ("dream_world", "other/dream-world/{id}.svg", "image/svg+xml"),
+    "showdown": ("showdown", "other/showdown/{id}.gif", "image/gif"),
+    "default": ("default_sprite", "{id}.png", "image/png"),
+}
+POKEMON_SPRITE_BASE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
+
 COMPONENTS = {
     "pokemon_images": {
-        "label": "Pokemon artwork",
+        "label": "Pokemon artwork and sprites",
         "table": "pokemon_asset",
-        "kinds": ("official_artwork",),
+        "kinds": tuple(spec[0] for spec in POKEMON_SPRITE_STYLES.values()),
         "media": "image",
     },
     "pokemon_cries": {
@@ -40,7 +50,7 @@ COMPONENTS = {
         "media": "audio",
     },
     "tcg_images": {
-        "label": "TCG card images",
+        "label": "TCG card and set images",
         "table": "card_asset",
         "kinds": ("large",),
         "media": "image",
@@ -105,18 +115,33 @@ class AssetManager:
         }
 
     def _component_inventory(self, connection, key: str, spec: Dict[str, Any]) -> Dict[str, Any]:
-        placeholders = ",".join("?" for _ in spec["kinds"])
-        row = connection.execute(
-            f"""
-            SELECT COUNT(*) AS total,
-                   SUM(CASE WHEN local_path IS NOT NULL AND local_path != '' THEN 1 ELSE 0 END) AS stored,
-                   SUM(CASE WHEN (local_path IS NULL OR local_path = '')
-                             AND source_url IS NOT NULL AND source_url != '' THEN 1 ELSE 0 END) AS missing
-            FROM {spec['table']}
-            WHERE asset_kind IN ({placeholders})
-            """,
-            spec["kinds"],
-        ).fetchone()
+        if key == "tcg_images":
+            row = connection.execute(
+                """
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN local_path IS NOT NULL AND local_path != '' THEN 1 ELSE 0 END) AS stored,
+                       SUM(CASE WHEN (local_path IS NULL OR local_path = '')
+                                 AND source_url IS NOT NULL AND source_url != '' THEN 1 ELSE 0 END) AS missing
+                FROM (
+                    SELECT local_path, source_url FROM card_asset WHERE asset_kind = 'large'
+                    UNION ALL
+                    SELECT local_path, source_url FROM set_asset WHERE asset_kind IN ('logo', 'symbol')
+                )
+                """
+            ).fetchone()
+        else:
+            placeholders = ",".join("?" for _ in spec["kinds"])
+            row = connection.execute(
+                f"""
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN local_path IS NOT NULL AND local_path != '' THEN 1 ELSE 0 END) AS stored,
+                       SUM(CASE WHEN (local_path IS NULL OR local_path = '')
+                                 AND source_url IS NOT NULL AND source_url != '' THEN 1 ELSE 0 END) AS missing
+                FROM {spec['table']}
+                WHERE asset_kind IN ({placeholders})
+                """,
+                spec["kinds"],
+            ).fetchone()
         directory = self.paths.asset_directories().get(key)
         return {
             "key": key,
@@ -145,6 +170,216 @@ class AssetManager:
             )
             self._thread.start()
             return self._job.to_dict()
+
+    def materialize_pokemon_cry(self, pokemon_id: int) -> tuple[Path, str] | None:
+        """Return a local cry, downloading and cataloging it on first playback."""
+        connection = self.database.connect(read_only=True)
+        try:
+            rows = connection.execute(
+                """
+                SELECT id, pokemon_id, asset_kind, source_url, local_path, media_type
+                FROM pokemon_asset
+                WHERE pokemon_id = ? AND asset_kind IN ('cry_latest', 'cry_legacy')
+                ORDER BY CASE asset_kind WHEN 'cry_latest' THEN 0 ELSE 1 END
+                """,
+                (pokemon_id,),
+            ).fetchall()
+        finally:
+            connection.close()
+
+        for row in rows:
+            if row["local_path"]:
+                stored = self.paths.resolve_stored(row["local_path"])
+                if stored is not None:
+                    return stored, row["media_type"] or "audio/ogg"
+            if not row["source_url"]:
+                continue
+
+            asset = {
+                "component": "pokemon_cries",
+                "table": "pokemon_asset",
+                "media": "audio",
+                "id": row["id"],
+                "asset_kind": row["asset_kind"],
+                "source_url": row["source_url"],
+                "owner_id": row["pokemon_id"],
+            }
+            destination = self._destination(asset)
+            metadata = self._store(row["source_url"], destination, "audio")
+            if metadata is None:
+                continue
+
+            sha256, media_type, width, height = metadata
+            connection = self.database.connect()
+            try:
+                connection.execute(
+                    """
+                    UPDATE pokemon_asset
+                    SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
+                    WHERE id = ?
+                    """,
+                    (self.paths.relative_to_root(destination), media_type, sha256,
+                     width, height, row["id"]),
+                )
+                connection.commit()
+            finally:
+                connection.close()
+            return destination, media_type
+        return None
+
+    def materialize_pokemon_sprite(self, pokemon_id: int, style: str) -> tuple[Path, str] | None:
+        """Register and persist a selected Pokemon sprite on first use."""
+        requested = POKEMON_SPRITE_STYLES.get(style)
+        if requested is None:
+            raise ValueError("Unsupported Pokemon sprite style")
+
+        connection = self.database.connect()
+        try:
+            if connection.execute("SELECT 1 FROM pokemon WHERE id = ?", (pokemon_id,)).fetchone() is None:
+                return None
+            asset_kind, source_path, media_type = requested
+            source_url = f"{POKEMON_SPRITE_BASE_URL}/{source_path.format(id=pokemon_id)}"
+            connection.execute(
+                """
+                INSERT INTO pokemon_asset (pokemon_id, asset_kind, source_url, media_type)
+                VALUES (?, ?, ?, ?)
+                ON CONFLICT(pokemon_id, asset_kind) DO UPDATE SET
+                    source_url = excluded.source_url,
+                    media_type = excluded.media_type,
+                    local_path = CASE
+                        WHEN pokemon_asset.source_url = excluded.source_url THEN pokemon_asset.local_path
+                        ELSE NULL
+                    END
+                """,
+                (pokemon_id, asset_kind, source_url, media_type),
+            )
+            connection.commit()
+            row = connection.execute(
+                """
+                SELECT id, pokemon_id, asset_kind, source_url, local_path, media_type
+                FROM pokemon_asset WHERE pokemon_id = ? AND asset_kind = ?
+                """,
+                (pokemon_id, asset_kind),
+            ).fetchone()
+        finally:
+            connection.close()
+
+        if row["local_path"]:
+            stored = self.paths.resolve_stored(row["local_path"])
+            if stored is not None:
+                return stored, row["media_type"] or media_type
+
+        asset = {
+            "component": "pokemon_images",
+            "table": "pokemon_asset",
+            "media": "svg" if media_type == "image/svg+xml" else "image",
+            "id": row["id"],
+            "asset_kind": row["asset_kind"],
+            "source_url": row["source_url"],
+            "owner_id": row["pokemon_id"],
+        }
+        destination = self._destination(asset)
+        metadata = self._store(row["source_url"], destination, asset["media"])
+        if metadata is None:
+            return None
+
+        sha256, stored_media_type, width, height = metadata
+        connection = self.database.connect()
+        try:
+            connection.execute(
+                """
+                UPDATE pokemon_asset
+                SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
+                WHERE id = ?
+                """,
+                (self.paths.relative_to_root(destination), stored_media_type, sha256,
+                 width, height, row["id"]),
+            )
+            connection.commit()
+        finally:
+            connection.close()
+        return destination, stored_media_type
+
+    def materialize_tcg_card_image(self, card_id: str, asset_kind: str) -> tuple[Path, str] | None:
+        """Return a persistent TCG card image, preferring the requested size."""
+        if asset_kind not in {"small", "large"}:
+            raise ValueError("Unsupported TCG card image kind")
+        connection = self.database.connect(read_only=True)
+        try:
+            rows = connection.execute(
+                """
+                SELECT id, card_id, asset_kind, source_url, local_path, media_type
+                FROM card_asset
+                WHERE card_id = ? AND asset_kind IN (?, 'large')
+                ORDER BY CASE asset_kind WHEN ? THEN 0 ELSE 1 END
+                """,
+                (card_id, asset_kind, asset_kind),
+            ).fetchall()
+        finally:
+            connection.close()
+        return self._materialize_tcg_rows(rows, "card_asset", "card_id")
+
+    def materialize_tcg_set_image(self, set_id: str, asset_kind: str) -> tuple[Path, str] | None:
+        """Return a persistent TCG set logo or symbol."""
+        if asset_kind not in {"logo", "symbol"}:
+            raise ValueError("Unsupported TCG set image kind")
+        connection = self.database.connect(read_only=True)
+        try:
+            rows = connection.execute(
+                """
+                SELECT id, set_id, asset_kind, source_url, local_path, media_type
+                FROM set_asset WHERE set_id = ? AND asset_kind = ?
+                """,
+                (set_id, asset_kind),
+            ).fetchall()
+        finally:
+            connection.close()
+        return self._materialize_tcg_rows(rows, "set_asset", "set_id")
+
+    def _materialize_tcg_rows(self, rows, table: str, owner_column: str) -> tuple[Path, str] | None:
+        for row in rows:
+            if row["local_path"]:
+                stored = self.paths.resolve_stored(row["local_path"])
+                if stored is not None:
+                    return stored, row["media_type"] or "image/png"
+            if not row["source_url"]:
+                continue
+            asset = {
+                "component": "tcg_images", "table": table, "media": "image",
+                "id": row["id"], "asset_kind": row["asset_kind"],
+                "source_url": row["source_url"], "owner_id": row[owner_column],
+            }
+            destination = self._destination(asset)
+            metadata = self._store(row["source_url"], destination, "image")
+            if metadata is None:
+                continue
+            sha256, media_type, width, height = metadata
+            connection = self.database.connect()
+            try:
+                if table == "set_asset":
+                    connection.execute(
+                        """
+                        UPDATE set_asset
+                        SET local_path = ?, media_type = ?, sha256 = ?
+                        WHERE id = ?
+                        """,
+                        (self.paths.relative_to_root(destination), media_type, sha256, row["id"]),
+                    )
+                else:
+                    connection.execute(
+                        """
+                        UPDATE card_asset
+                        SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
+                        WHERE id = ?
+                        """,
+                        (self.paths.relative_to_root(destination), media_type, sha256,
+                         width, height, row["id"]),
+                    )
+                connection.commit()
+            finally:
+                connection.close()
+            return destination, media_type
+        return None
 
     def _run_download(self, components: List[str], limit: int) -> None:
         job = self._job
@@ -177,7 +412,7 @@ class AssetManager:
                 placeholders = ",".join("?" for _ in spec["kinds"])
                 rows = connection.execute(
                     f"""
-                    SELECT id, asset_kind, source_url,
+                          SELECT id, asset_kind, source_url, media_type,
                            {'pokemon_id' if spec['table'] == 'pokemon_asset' else 'card_id'} AS owner_id
                     FROM {spec['table']}
                     WHERE asset_kind IN ({placeholders})
@@ -188,11 +423,31 @@ class AssetManager:
                     spec["kinds"],
                 ).fetchall()
                 for row in rows:
+                    media = spec["media"]
+                    if row["media_type"] == "image/svg+xml":
+                        media = "svg"
                     pending.append({
-                        "component": key, "table": spec["table"], "media": spec["media"],
+                        "component": key, "table": spec["table"], "media": media,
                         "id": row["id"], "asset_kind": row["asset_kind"],
                         "source_url": row["source_url"], "owner_id": row["owner_id"],
                     })
+                if key == "tcg_images":
+                    set_rows = connection.execute(
+                        """
+                        SELECT id, asset_kind, source_url, media_type, set_id AS owner_id
+                        FROM set_asset
+                        WHERE asset_kind IN ('logo', 'symbol')
+                          AND (local_path IS NULL OR local_path = '')
+                          AND source_url IS NOT NULL AND source_url != ''
+                        ORDER BY set_id, asset_kind
+                        """
+                    ).fetchall()
+                    for row in set_rows:
+                        pending.append({
+                            "component": key, "table": "set_asset", "media": "image",
+                            "id": row["id"], "asset_kind": row["asset_kind"],
+                            "source_url": row["source_url"], "owner_id": row["owner_id"],
+                        })
         finally:
             connection.close()
         if limit > 0:
@@ -228,10 +483,20 @@ class AssetManager:
                     (self.paths.relative_to_root(destination), media_type, sha256,
                      width, height, asset["id"]),
                 )
-            else:
+            elif asset["table"] == "card_asset":
                 connection.execute(
                     """
                     UPDATE card_asset
+                    SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
+                    WHERE id = ?
+                    """,
+                    (self.paths.relative_to_root(destination), media_type, sha256,
+                     width, height, asset["id"]),
+                )
+            else:
+                connection.execute(
+                    """
+                    UPDATE set_asset
                     SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
                     WHERE id = ?
                     """,
@@ -264,6 +529,10 @@ class AssetManager:
                 metadata = _image_metadata(temporary)
                 if metadata is None:
                     return None
+            elif media == "svg":
+                metadata = _svg_metadata(temporary)
+                if metadata is None:
+                    return None
             else:
                 payload = temporary.read_bytes()
                 if not payload:
@@ -283,6 +552,17 @@ def _image_metadata(path: Path):
             image.verify()
         return hashlib.sha256(path.read_bytes()).hexdigest(), media_type, width, height
     except (OSError, UnidentifiedImageError, ValueError):
+        return None
+
+
+def _svg_metadata(path: Path):
+    try:
+        payload = path.read_bytes()
+        root = ElementTree.fromstring(payload)
+        if root.tag.split("}")[-1].lower() != "svg":
+            return None
+        return hashlib.sha256(payload).hexdigest(), "image/svg+xml", None, None
+    except (OSError, ElementTree.ParseError):
         return None
 
 

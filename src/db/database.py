@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional
 from src.config import get_storage_paths
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 USERS_SCHEMA_VERSION = 1
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_DIR = PROJECT_ROOT / "data" / "schema"

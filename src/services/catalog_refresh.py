@@ -119,6 +119,52 @@ class CatalogRefreshService:
             connection.close()
         return raw_path
 
+    def refresh_type(self, payload: dict[str, Any], *, store_raw: bool = True) -> Path | None:
+        """Replace one type's normalized damage relations."""
+        type_id = int(payload["id"])
+        raw_path = self._store_raw("pokeapi", "type", type_id, payload) if store_raw else None
+        groups = payload.get("damage_relations") or {}
+        connection = self.database.connect()
+        try:
+            row = connection.execute("SELECT id FROM type WHERE id = ?", (type_id,)).fetchone()
+            if row is None:
+                row = connection.execute(
+                    "SELECT id FROM type WHERE name = ? COLLATE NOCASE", (payload["name"],)
+                ).fetchone()
+            if row is None:
+                raise ValueError(f"Pokemon type {type_id} is not present in the catalog")
+            stored_type_id = int(row["id"])
+            connection.execute("DELETE FROM type_damage_relation WHERE type_id = ?", (stored_type_id,))
+            for relation_kind in (
+                "double_damage_from", "double_damage_to",
+                "half_damage_from", "half_damage_to",
+                "no_damage_from", "no_damage_to",
+            ):
+                for related in groups.get(relation_kind) or []:
+                    related_id = resource_id(related)
+                    if related_id is None:
+                        match = connection.execute(
+                            "SELECT id FROM type WHERE name = ? COLLATE NOCASE",
+                            (self._resource_name(related),),
+                        ).fetchone()
+                        related_id = int(match["id"]) if match else None
+                    if related_id is not None:
+                        connection.execute(
+                            """
+                            INSERT OR IGNORE INTO type_damage_relation
+                                (type_id, related_type_id, relation_kind)
+                            VALUES (?, ?, ?)
+                            """,
+                            (stored_type_id, related_id, relation_kind),
+                        )
+            connection.commit()
+        except Exception:
+            connection.rollback()
+            raise
+        finally:
+            connection.close()
+        return raw_path
+
     def _store_raw(self, domain: str, resource_kind: str, identifier: Any, payload: dict[str, Any]) -> Path:
         encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
         digest = hashlib.sha256(encoded).hexdigest()[:12]
@@ -194,6 +240,10 @@ class CatalogRefreshService:
         official = other.get("official-artwork") if isinstance(other.get("official-artwork"), dict) else {}
         assets = {
             "official_artwork": (official.get("front_default"), "image/png"),
+            "home_artwork": (((other.get("home") or {}).get("front_default")), "image/png"),
+            "dream_world": (((other.get("dream_world") or {}).get("front_default")), "image/svg+xml"),
+            "showdown": (((other.get("showdown") or {}).get("front_default")), "image/gif"),
+            "default_sprite": (sprites.get("front_default"), "image/png"),
             "cry_latest": ((payload.get("cries") or {}).get("latest"), "audio/ogg"),
             "cry_legacy": ((payload.get("cries") or {}).get("legacy"), "audio/ogg"),
         }

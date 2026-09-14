@@ -65,7 +65,7 @@ When using service principal auth in the browser, the app uses a same-origin Fla
 ### Step 3: Test the Connection
 
 1. Start your Flask app: `python app.py`
-2. Open browser to `http://localhost:5000`
+2. Open browser to `http://localhost:5050`
 3. Click the **Voice** button in the header
 4. You should see "Real-time voice mode activated!" message
 5. Speak naturally - the AI will respond in real-time with audio

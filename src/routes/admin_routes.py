@@ -196,7 +196,7 @@ def get_ingest_batch_job():
 
 @admin_bp.route('/backup', methods=['POST'])
 def create_backup():
-    """Create a versioned backup bundle for the selected components."""
+    """Start a background versioned backup bundle."""
     denied = require_admin()
     if denied:
         return denied
@@ -207,19 +207,26 @@ def create_backup():
     components = data.get('components') or []
 
     try:
-        bundle = get_backup_service().create_backup(components)
+        job = get_backup_service().start_backup(components)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
+    except RuntimeError as exc:
+        return jsonify({"error": str(exc)}), 409
     except Exception as exc:
         logger.exception("Backup failed")
         return jsonify({"error": str(exc)}), 500
 
-    return jsonify({
-        "message": "Backup created",
-        "name": bundle.name,
-        "size_bytes": bundle.stat().st_size,
-        "download_url": f"/api/admin/backup/download/{bundle.name}",
-    })
+    return jsonify({"message": "Backup started", "job": job}), 202
+
+
+@admin_bp.route('/backup/job', methods=['GET'])
+def get_backup_job():
+    """Poll the active or most recent backup job."""
+    denied = require_admin()
+    if denied:
+        return denied
+    from src.services.backup_service import get_backup_service
+    return jsonify({"job": get_backup_service().job_status()})
 
 
 @admin_bp.route('/backup/download/<name>', methods=['GET'])

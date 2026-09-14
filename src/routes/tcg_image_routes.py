@@ -34,18 +34,37 @@ _SQLITE_TCG_REPOSITORY = SqliteTcgRepository()
 
 @tcg_image_bp.route('/card-image/<card_id>/<asset_kind>', methods=['GET'])
 def get_local_tcg_card_image(card_id, asset_kind):
-    """Serve a card image registered by the SQLite importer."""
-    relative_path = _SQLITE_TCG_REPOSITORY.get_image_path(card_id, asset_kind)
-    if not relative_path:
-        return jsonify({"error": "card image not found"}), 404
+    """Materialize and serve a catalog-registered card image."""
+    from src.services.asset_manager import get_asset_manager
 
-    image_path = get_storage_paths().resolve_stored(relative_path)
-    if image_path is None:
-        return jsonify({"error": "invalid card image path"}), 500
-    if not image_path.is_file():
-        return jsonify({"error": "card image file not found"}), 404
-    with Image.open(image_path) as image:
-        media_type = Image.MIME.get(image.format, 'application/octet-stream')
+    try:
+        materialized = get_asset_manager().materialize_tcg_card_image(card_id, asset_kind)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except OSError as exc:
+        logger.warning("Unable to materialize TCG card image %s: %s", card_id, exc)
+        materialized = None
+    if materialized is None:
+        return jsonify({"error": "card image not found"}), 404
+    image_path, media_type = materialized
+    return send_file(image_path, mimetype=media_type, conditional=True, max_age=86400)
+
+
+@tcg_image_bp.route('/set-image/<set_id>/<asset_kind>', methods=['GET'])
+def get_local_tcg_set_image(set_id, asset_kind):
+    """Materialize and serve a catalog-registered set logo or symbol."""
+    from src.services.asset_manager import get_asset_manager
+
+    try:
+        materialized = get_asset_manager().materialize_tcg_set_image(set_id, asset_kind)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except OSError as exc:
+        logger.warning("Unable to materialize TCG set image %s: %s", set_id, exc)
+        materialized = None
+    if materialized is None:
+        return jsonify({"error": "set image not found"}), 404
+    image_path, media_type = materialized
     return send_file(image_path, mimetype=media_type, conditional=True, max_age=86400)
 
 

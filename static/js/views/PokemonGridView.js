@@ -40,6 +40,7 @@ class PokemonGridView {
         
         // Load Pokemon if not already loaded
         await this.loadPokemonGrid();
+        this.refreshSprites();
         
         // Re-apply active filters (preserves filter state after navigation)
         if (this.app.searchView?.hasActiveFilter) {
@@ -71,6 +72,7 @@ class PokemonGridView {
             this.app.tcgDatabaseViewEl.style.display = 'none';
         }
         this.gridView.style.display = 'block';
+        this.refreshSprites();
         
         // Re-apply active filters (preserves filter state after navigation)
         if (this.app.searchView?.hasActiveFilter) {
@@ -149,8 +151,6 @@ class PokemonGridView {
         card.onclick = () => this.app.detailView.loadPokemon(pokemon.id);
         card.style.position = 'relative';
 
-        const imageUrl = this.getArtworkUrl(pokemon.id);
-        
         // Get viewing badge
         const badge = this.app.getViewingBadge(pokemon.id);
         const badgeHtml = badge ? `<div class="viewing-status-badge">${badge}</div>` : '';
@@ -159,7 +159,7 @@ class PokemonGridView {
             ${badgeHtml}
             <div class="number-wrap">#${String(pokemon.id).padStart(3, '0')}</div>
             <div class="img-wrap">
-                <img src="${imageUrl}" alt="${pokemon.name}" loading="lazy">
+                <img data-pokemon-id="${pokemon.id}" alt="${pokemon.name}" loading="lazy">
             </div>
             <div class="name-wrap">${pokemon.name}</div>
         `;
@@ -177,29 +177,16 @@ class PokemonGridView {
 
     getArtworkUrl(pokemonId) {
         const style = this.app.spriteStyle || 'official-artwork';
-        const base = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
-        switch (style) {
-            case 'home':
-                return `${base}/other/home/${pokemonId}.png`;
-            case 'dream-world':
-                return `${base}/other/dream-world/${pokemonId}.svg`;
-            case 'showdown':
-                return `${base}/other/showdown/${pokemonId}.gif`;
-            case 'default':
-                return `${base}/${pokemonId}.png`;
-            default:
-                return `${base}/other/official-artwork/${pokemonId}.png`;
-        }
+        return `/api/pokemon/${encodeURIComponent(pokemonId)}/sprite/${encodeURIComponent(style)}`;
     }
 
     refreshSprites() {
         const container = this.app.pokemonList || document.getElementById('pokemonList');
-        if (!container) return;
+        if (!container || this.gridView.style.display === 'none') return;
         container.querySelectorAll('.list-item').forEach(card => {
-            const numEl = card.querySelector('.number-wrap');
             const imgEl = card.querySelector('.img-wrap img');
-            if (!numEl || !imgEl) return;
-            const id = parseInt(numEl.textContent.replace('#', ''));
+            if (!imgEl) return;
+            const id = parseInt(imgEl.dataset.pokemonId, 10);
             if (id) imgEl.src = this.getArtworkUrl(id);
         });
     }

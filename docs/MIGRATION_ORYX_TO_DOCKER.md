@@ -1,10 +1,14 @@
 # Migration Guide: Oryx to Docker/ACR Deployment
 
-This guide helps you migrate from the legacy Oryx-based deployment to the new Docker + Azure Container Registry (ACR) deployment method.
+Status: **Archived migration history.** The Oryx workflow has been removed and
+the migration is complete. Current deployments use the guarded repository
+`deploy.ps1` workflow documented in [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md).
+
+This guide records the migration from the legacy Oryx-based deployment to the Docker + Azure Container Registry (ACR) deployment method.
 
 ## Why Migrate?
 
-The legacy Oryx deployment (`.github/workflows/deploy-azure-webapp.yml`) has limitations:
+The former Oryx deployment had these limitations:
 
 ❌ **Issues with Native Dependencies**
 - Oryx may fail to build `dlib` (required by face-recognition)
@@ -158,17 +162,7 @@ git push origin main
 
 ### 7. Clean Up (Optional)
 
-After successful migration, you can disable the legacy workflow:
-
-**The legacy workflow is already disabled** in this repository. It's kept for reference but won't run automatically on push to main.
-
-If you want to completely remove it:
-```bash
-rm .github/workflows/deploy-azure-webapp.yml
-git add .
-git commit -m "Remove legacy Oryx deployment workflow"
-git push origin main
-```
+The legacy workflow has already been removed. No cleanup action is required.
 
 ## Troubleshooting Migration Issues
 
@@ -211,16 +205,10 @@ git push origin main
 
 ## Rollback Plan
 
-If you need to rollback to the old deployment:
-
-1. **Re-enable legacy workflow**
-   - Uncomment the `on: push:` section in `deploy-azure-webapp.yml`
-
-2. **Reconfigure App Service**
-   - Change Deployment Center back to "GitHub Actions"
-   - Or manually deploy ZIP file
-
-3. **Note:** Face recognition may not work with Oryx deployment
+Rollback to Oryx is no longer supported: the workflow was removed, native
+dependencies require the container image, and production keeps SCM publishing
+credentials disabled. Roll back by deploying a previously known-good ACR image
+through the guarded `deploy.ps1` workflow.
 
 ## Need Help?
 
