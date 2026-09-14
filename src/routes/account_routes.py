@@ -75,24 +75,30 @@ def list_accounts():
 
 @account_bp.route('/login', methods=['POST'])
 def login():
-    """Log in / switch to an existing account by id or email, with optional password verification."""
+    """Log in or switch accounts by username, email, or ID."""
     service = get_user_account_service()
     data = request.get_json(silent=True) or {}
     user_id = data.get('user_id')
+    username = (data.get('username') or '').strip()
     email = (data.get('email') or '').strip().lower()
     password = data.get('password')
 
     if user_id:
         account_data = service.get_account_by_id(int(user_id), include_hash=True)
-    elif email:
+    elif username or email:
         all_accounts = service.list_all_accounts()
-        matched = next((a for a in all_accounts if (a.get('email') or '').lower() == email), None)
+        login_name = username or email
+        matched = next((
+            a for a in all_accounts
+            if a.get('display_name', '').lower() == login_name.lower()
+            or (a.get('email') or '').lower() == login_name.lower()
+        ), None)
         if matched:
             account_data = service.get_account_by_id(matched['id'], include_hash=True)
         else:
-            return jsonify({"error": f"No account found with email '{email}'"}), 404
+            return jsonify({"error": f"No account found with username or email '{login_name}'"}), 404
     else:
-        return jsonify({"error": "user_id or email is required"}), 400
+        return jsonify({"error": "user_id, username, or email is required"}), 400
 
     if not account_data:
         return jsonify({"error": "Account not found"}), 404

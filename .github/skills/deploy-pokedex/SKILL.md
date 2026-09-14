@@ -29,7 +29,7 @@ Treat these names as existing resources. Never create parallel resources merely 
 - Never print, log, commit, or include secret values in chat responses.
 - Load configuration from process environment or the ignored `.env` file.
 - The script may reuse the ignored deployment-session secret file on the original deployment machine.
-- On a fresh clone, require `APP_API_PASSWORD`, `AZURE_CLIENT_SECRET`, `POKEMON_TCG_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT`. Require `AZURE_OPENAI_API_KEY` when `AZURE_AUTH_MODE=key`.
+- On a fresh clone, require `ADMIN_PASSWORD`, `AZURE_CLIENT_SECRET`, `POKEMON_TCG_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT`. Require `AZURE_OPENAI_API_KEY` when `AZURE_AUTH_MODE=key`.
 - Keep `AZURE_OPENAI_ENDPOINT` and `FOUNDRY_PROJECT_ENDPOINT` as separate App Service settings. The former is the canonical chat endpoint; the latter remains a compatibility alias.
 - Tenant policy `MCAPSGovDeployPolicies / KeyVault_PublicNetwork_Modify` forces Key Vault public network access to `Disabled`. Do not retry enabling it.
 - The approved demo architecture uses encrypted App Service settings because no VNet integration or private endpoint is provisioned.

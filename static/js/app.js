@@ -140,7 +140,7 @@ class PokemonChatApp {
         this.toolsSaveBtn = document.getElementById('toolsSaveBtn');
         this.apiModeInputs = Array.from(document.querySelectorAll('input[name="apiMode"]'));
         this.appPasswordPanel = document.getElementById('appPasswordPanel');
-        this.appPasswordInput = document.getElementById('appApiPassword');
+        this.appPasswordInput = document.getElementById('adminPassword');
         this.customApiFields = document.getElementById('customApiFields');
         this.apiSettingsStatus = document.getElementById('apiSettingsStatus');
         this.apiSettingsSaveBtn = document.getElementById('apiSettingsSaveBtn');
@@ -1249,6 +1249,9 @@ class PokemonChatApp {
             if (!response.ok) throw new Error(data.error || 'Failed to switch account');
             this.showToast('Account Switched', `Logged into "${data.account?.display_name}".`, 'success');
             await this.loadCurrentAccount(userId);
+            if (this.toolsModalOverlay?.classList.contains('active')) {
+                await this.loadAdminStatus();
+            }
             this.closeAccountModal();
         } catch (error) {
             this.showToast('Login Failed', error.message, 'error');
@@ -1265,6 +1268,9 @@ class PokemonChatApp {
             }
             this.renderUserAccountHeaderAndDropdown(data);
             this.renderAccountModalData(data);
+            if (this.toolsModalOverlay?.classList.contains('active')) {
+                await this.loadAdminStatus();
+            }
             this.showToast('Logged Out', 'You have been signed out.', 'info');
             this.openAccountModal('switch');
         } catch (error) {
@@ -1282,7 +1288,7 @@ class PokemonChatApp {
 
         if (!email) {
             if (statusMsg) {
-                statusMsg.textContent = 'Email address is required.';
+                statusMsg.textContent = 'Username or email is required.';
                 statusMsg.className = 'account-status-msg error';
             }
             return;
@@ -1298,7 +1304,7 @@ class PokemonChatApp {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    email: email,
+                    username: email,
                     password: password || undefined
                 })
             });
@@ -1314,6 +1320,9 @@ class PokemonChatApp {
 
             this.showToast('Welcome Back', `Logged in as "${data.account?.display_name}".`, 'success');
             await this.loadCurrentAccount(data.account?.id);
+            if (this.toolsModalOverlay?.classList.contains('active')) {
+                await this.loadAdminStatus();
+            }
             this.closeAccountModal();
         } catch (error) {
             if (statusMsg) {
@@ -4623,6 +4632,7 @@ class PokemonChatApp {
             this.loadTools()
         ]);
         this.renderToolsModal();
+        await this.setupAdminDataControls();
         this.setupCacheControls();
         this.setupFaceIdentificationControls();
         this.setupVoiceControls();
@@ -4631,7 +4641,6 @@ class PokemonChatApp {
         this.setupScrollResetControls();
         this.setupCurrencyControls();
         this.setupCollectionImportExportControls();
-        this.setupAdminDataControls();
     }
 
     async setupAdminDataControls() {

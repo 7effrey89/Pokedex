@@ -131,7 +131,7 @@ Now create an App Service that will run your Docker container from ACR.
    | `AZURE_OPENAI_REALTIME_API_VERSION` | `2024-10-01-preview` | API version |
    | `POKEMON_API_URL` | `https://pokeapi.co/api/v2` | PokeAPI base URL |
    | `POKEMON_TCG_API_KEY` | `your-tcg-api-key` | Pokemon TCG API key |
-   | `APP_API_PASSWORD` | `YourSecurePassword` | App authentication password |
+   | `ADMIN_PASSWORD` | `YourSecurePassword` | Admin account password |
    | `USE_NATIVE_MCP` | `false` | MCP mode (false for client-side) |
    
    **Note:** For production workloads, consider adjusting `GUNICORN_WORKERS` based on your App Service tier:
@@ -198,7 +198,7 @@ az webapp config appsettings set \
     AZURE_OPENAI_REALTIME_API_VERSION="2024-10-01-preview" \
     POKEMON_API_URL="https://pokeapi.co/api/v2" \
     POKEMON_TCG_API_KEY="<your-key>" \
-    APP_API_PASSWORD="YourSecurePassword" \
+   ADMIN_PASSWORD="YourSecurePassword" \
     USE_NATIVE_MCP=false
 
 # Enable continuous deployment

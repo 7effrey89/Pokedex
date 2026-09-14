@@ -68,9 +68,11 @@ cache/
 tcg-image-cache/images/
 __pycache__/
 
+# Large catalog media is persistent App Service data and is hydrated separately.
+data/assets/tcg/
+seeds/
+
 # Docker files
-Dockerfile
-.dockerignore
 docker-compose.yml
 
 # CI/CD

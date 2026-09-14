@@ -26,7 +26,7 @@ param pokemonApiUrl string
 param pokemonTcgApiKey string
 param tcgPageSize int
 @secure()
-param appApiPassword string
+param adminPassword string
 
 resource appService 'Microsoft.Web/sites@2026-07-15' = {
   name: appServiceName
@@ -152,8 +152,8 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
           value: string(tcgPageSize)
         }
         {
-          name: 'APP_API_PASSWORD'
-          value: appApiPassword
+          name: 'ADMIN_PASSWORD'
+          value: adminPassword
         }
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'

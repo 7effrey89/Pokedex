@@ -39,11 +39,8 @@ def get_local_tcg_card_image(card_id, asset_kind):
     if not relative_path:
         return jsonify({"error": "card image not found"}), 404
 
-    project_root = Path(__file__).resolve().parents[2]
-    image_path = (project_root / relative_path).resolve()
-    try:
-        image_path.relative_to(project_root)
-    except ValueError:
+    image_path = get_storage_paths().resolve_stored(relative_path)
+    if image_path is None:
         return jsonify({"error": "invalid card image path"}), 500
     if not image_path.is_file():
         return jsonify({"error": "card image file not found"}), 404

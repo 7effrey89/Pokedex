@@ -61,6 +61,9 @@ def _promote_packaged_seed_data() -> None:
 
 _promote_packaged_seed_data()
 UsersDatabase().initialize()
+from src.services.user_account_service import get_user_account_service
+
+get_user_account_service().get_or_create_default_account()
 
 # Register blueprints
 from src.routes import chat_bp, realtime_bp, tool_bp, cache_bp, face_bp, pokeapi_bp, tcg_image_bp, admin_bp, account_bp

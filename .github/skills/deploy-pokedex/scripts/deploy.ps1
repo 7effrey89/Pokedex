@@ -108,7 +108,7 @@ try {
     $azureOpenAiApiKey = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_API_KEY'
     $azureClientSecret = Get-DeploymentValue $dotEnv 'AZURE_CLIENT_SECRET'
     $pokemonTcgApiKey = Get-DeploymentValue $dotEnv 'POKEMON_TCG_API_KEY'
-    $appApiPassword = Get-DeploymentValue $dotEnv 'APP_API_PASSWORD'
+    $adminPassword = Get-DeploymentValue $dotEnv 'ADMIN_PASSWORD'
     $azureOpenAiEndpoint = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_ENDPOINT'
     $azureOpenAiDeployment = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_DEPLOYMENT'
     $azureOpenAiRealtimeEndpoint = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_REALTIME_ENDPOINT' $azureOpenAiEndpoint
@@ -120,7 +120,7 @@ try {
     $required = @{
         AZURE_CLIENT_SECRET = $azureClientSecret
         POKEMON_TCG_API_KEY = $pokemonTcgApiKey
-        APP_API_PASSWORD = $appApiPassword
+        ADMIN_PASSWORD = $adminPassword
         AZURE_OPENAI_ENDPOINT = $azureOpenAiEndpoint
         AZURE_OPENAI_DEPLOYMENT = $azureOpenAiDeployment
     }
@@ -137,7 +137,7 @@ try {
         "azureOpenAiApiKey=$azureOpenAiApiKey"
         "azureClientSecret=$azureClientSecret"
         "pokemonTcgApiKey=$pokemonTcgApiKey"
-        "appApiPassword=$appApiPassword"
+        "adminPassword=$adminPassword"
         "containerImageName=$ImageName"
     )
 
@@ -191,6 +191,14 @@ try {
         return
     }
 
+    Invoke-Az @(
+        'acr', 'build',
+        '--subscription', $SubscriptionId,
+        '--registry', $RegistryName,
+        '--image', $ImageName,
+        '.', '--no-logs'
+    ) | Out-Null
+
     $deploymentArguments = @(
         'deployment', 'sub', 'create',
         '--name', $DeploymentName,
@@ -200,14 +208,6 @@ try {
         '--parameters', "@$parameterFile"
     ) + $secureParameters + @('--output', 'none')
     Invoke-Az $deploymentArguments | Out-Null
-
-    Invoke-Az @(
-        'acr', 'build',
-        '--subscription', $SubscriptionId,
-        '--registry', $RegistryName,
-        '--image', $ImageName,
-        '.', '--no-logs'
-    ) | Out-Null
 
     Invoke-Az @(
         'webapp', 'restart',

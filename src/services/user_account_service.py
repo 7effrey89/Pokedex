@@ -43,11 +43,14 @@ class UserAccountService:
         self.profiles_dir.mkdir(parents=True, exist_ok=True)
 
     def get_or_create_default_account(self) -> Dict[str, Any]:
-        """Ensure at least one default account exists and return it."""
+        """Ensure the configured admin account and a default account exist."""
         self.database.initialize()
         connection = self.database.connect()
         try:
-            row = connection.execute("SELECT * FROM app_user ORDER BY id ASC LIMIT 1").fetchone()
+            self._ensure_admin_account(connection)
+            row = connection.execute(
+                "SELECT * FROM app_user ORDER BY is_admin DESC, id ASC LIMIT 1"
+            ).fetchone()
             if row:
                 account = dict(row)
                 members = self._get_account_members(connection, account["id"])
@@ -90,6 +93,53 @@ class UserAccountService:
         finally:
             connection.close()
 
+    def _ensure_admin_account(self, connection) -> None:
+        """Create or refresh the reserved admin account from environment config."""
+        password = os.environ.get("ADMIN_PASSWORD", "").strip()
+        if not password:
+            logger.warning("Admin account was not provisioned: ADMIN_PASSWORD is not configured")
+            return
+
+        now = utc_now()
+        row = connection.execute(
+            "SELECT id FROM app_user WHERE email = ? COLLATE NOCASE",
+            ("admin@pokedex.local",),
+        ).fetchone()
+        password_hash = generate_password_hash(password)
+        if row:
+            connection.execute(
+                """
+                UPDATE app_user
+                SET display_name = 'admin', password_hash = ?, is_admin = 1, last_seen_at = ?
+                WHERE id = ?
+                """,
+                (password_hash, now, row["id"]),
+            )
+            connection.commit()
+            return
+
+        cursor = connection.execute(
+            """
+            INSERT INTO app_user
+                (display_name, email, password_hash, is_admin, created_at, last_seen_at)
+            VALUES (?, ?, ?, 1, ?, ?)
+            """,
+            ("admin", "admin@pokedex.local", password_hash, now, now),
+        )
+        user_id = int(cursor.lastrowid)
+        member_cursor = connection.execute(
+            """
+            INSERT INTO account_member (user_id, name, created_at, last_seen_at)
+            VALUES (?, ?, ?, ?)
+            """,
+            (user_id, "admin", now, now),
+        )
+        connection.execute(
+            "UPDATE app_user SET active_member_id = ? WHERE id = ?",
+            (int(member_cursor.lastrowid), user_id),
+        )
+        connection.commit()
+
     def get_account_by_id(self, user_id: int, include_hash: bool = False) -> Optional[Dict[str, Any]]:
         self.database.initialize()
         connection = self.database.connect()
@@ -116,6 +166,7 @@ class UserAccountService:
         self.database.initialize()
         connection = self.database.connect()
         try:
+            self._ensure_admin_account(connection)
             rows = connection.execute("SELECT id, external_id, display_name, email, is_admin, password_hash, created_at, last_seen_at FROM app_user ORDER BY id ASC").fetchall()
             accounts = []
             for r in rows:

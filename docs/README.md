@@ -171,7 +171,7 @@ az webapp config appsettings set \
       POKEMON_API_URL="https://pokeapi.co/api/v2" \
       POKEMON_TCG_API_KEY="<key>" \
       TCG_PAGE_SIZE=250 \
-      APP_API_PASSWORD="PasswordExample" \
+      ADMIN_PASSWORD="PasswordExample" \
       USE_NATIVE_MCP=false \
       SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```

@@ -53,7 +53,7 @@ param azureClientSecret string
 param pokemonTcgApiKey string
 
 @secure()
-param appApiPassword string
+param adminPassword string
 
 @minValue(1)
 @maxValue(250)
@@ -160,7 +160,7 @@ module appService './modules/app-service.bicep' = {
     pokemonApiUrl: pokemonApiUrl
     pokemonTcgApiKey: pokemonTcgApiKey
     tcgPageSize: tcgPageSize
-    appApiPassword: appApiPassword
+    adminPassword: adminPassword
   }
 }
 
