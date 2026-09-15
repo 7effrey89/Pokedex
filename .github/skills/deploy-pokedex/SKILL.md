@@ -67,7 +67,8 @@ Treat these names as existing resources. Never create parallel resources merely 
    - Build `pokedex-app:latest` using ACR Build.
    - Restart the existing Web App.
    - Verify `/api/health` reports `status: healthy`.
-   - Verify `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_DEPLOYMENT` are present and non-empty without printing their values.
+   - Verify `ADMIN_PASSWORD`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT` are present and non-empty without printing their values.
+   - Verify `/api/account/list` contains exactly one password-protected `admin@pokedex.local` administrator.
    - Disable and verify SCM basic publishing credentials.
    - Verify the Web App state is `Running`.
 8. Independently request the home page and health endpoint after the script completes. Reject Azure placeholder pages and non-200 responses.

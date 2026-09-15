@@ -65,6 +65,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Tyrantrum Embedding POC | Standalone browser POC linked from Image Scanner, with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
 | Face Recognition | Identify account members in real time via camera and precomputed SQLite embeddings | ❌ |
 | User Accounts & Multi-Member Profiles | SQLite-backed user accounts supporting email/password registration, multiple members with custom names, avatar photos, camera face enrollment, and active member switching | ❌ |
+| Reserved Admin Bootstrap | Every startup idempotently creates or repairs `admin@pokedex.local` from `ADMIN_PASSWORD`; Azure startup fails when the required secret is absent | N/A |
 
 ## Caching & Performance
 

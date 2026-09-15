@@ -68,8 +68,13 @@ cache/
 tcg-image-cache/images/
 __pycache__/
 
-# Large catalog media is persistent App Service data and is hydrated separately.
-data/assets/tcg/
+# Runtime data is stored on persistent App Service storage and is hydrated separately.
+data/**
+!data/pokedex.sqlite3
+!data/users.sqlite3
+!data/pokemon_list.json
+!data/schema/
+!data/schema/**
 seeds/
 
 # Docker files

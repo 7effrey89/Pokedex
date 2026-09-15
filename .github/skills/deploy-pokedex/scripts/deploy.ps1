@@ -236,6 +236,14 @@ try {
         throw 'The Web App health endpoint did not report healthy.'
     }
 
+    $accounts = Invoke-RestMethod -Uri "https://$WebAppName.azurewebsites.net/api/account/list" -TimeoutSec 120
+    $reservedAdmin = @($accounts.accounts | Where-Object {
+        $_.email -eq 'admin@pokedex.local' -and $_.is_admin -eq $true -and $_.has_password -eq $true
+    })
+    if ($reservedAdmin.Count -ne 1) {
+        throw 'The reserved admin account was not provisioned correctly.'
+    }
+
     $scmPolicyId = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Web/sites/$WebAppName/basicPublishingCredentialsPolicies/scm"
     Invoke-Az @(
         'resource', 'update', '--ids', $scmPolicyId,
@@ -258,20 +266,20 @@ try {
         throw "Web App state is $state."
     }
 
-    $configuredOpenAiSettings = @(Invoke-Az @(
+    $configuredRequiredSettings = @(Invoke-Az @(
         'webapp', 'config', 'appsettings', 'list',
         '--subscription', $SubscriptionId,
         '--resource-group', $ResourceGroupName,
         '--name', $WebAppName,
-        '--query', "[?value!='' && (name=='AZURE_OPENAI_ENDPOINT' || name=='AZURE_OPENAI_DEPLOYMENT')].name",
+        '--query', "[?value!='' && (name=='ADMIN_PASSWORD' || name=='AZURE_OPENAI_ENDPOINT' || name=='AZURE_OPENAI_DEPLOYMENT')].name",
         '--output', 'tsv'
     ))
-    $missingOpenAiSettings = @(
-        'AZURE_OPENAI_ENDPOINT', 'AZURE_OPENAI_DEPLOYMENT' |
-            Where-Object { $_ -notin $configuredOpenAiSettings }
+    $missingRequiredSettings = @(
+        'ADMIN_PASSWORD', 'AZURE_OPENAI_ENDPOINT', 'AZURE_OPENAI_DEPLOYMENT' |
+            Where-Object { $_ -notin $configuredRequiredSettings }
     )
-    if ($missingOpenAiSettings.Count -gt 0) {
-        throw "Web App is missing required Azure OpenAI settings: $($missingOpenAiSettings -join ', ')"
+    if ($missingRequiredSettings.Count -gt 0) {
+        throw "Web App is missing required settings: $($missingRequiredSettings -join ', ')"
     }
 
     [pscustomobject]@{
@@ -280,7 +288,8 @@ try {
         webApp = $WebAppName
         url = "https://$WebAppName.azurewebsites.net"
         healthStatus = $health.status
-        azureOpenAiSettingsConfigured = $true
+        requiredSettingsConfigured = $true
+        reservedAdminProvisioned = $true
         scmBasicPublishingAllowed = $false
     }
 }

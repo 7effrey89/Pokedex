@@ -66,7 +66,7 @@ class UserAccountService:
             cursor = connection.execute(
                 """
                 INSERT INTO app_user (display_name, email, is_admin, created_at, last_seen_at)
-                VALUES (?, ?, 1, ?, ?)
+                VALUES (?, ?, 0, ?, ?)
                 """,
                 ("Default Trainer", "trainer@pokedex.local", now, now),
             )
@@ -93,31 +93,45 @@ class UserAccountService:
         finally:
             connection.close()
 
-    def _ensure_admin_account(self, connection) -> None:
+    def ensure_admin_account(self, *, required: bool = False) -> bool:
+        """Idempotently provision the reserved admin from environment config."""
+        self.database.initialize()
+        connection = self.database.connect()
+        try:
+            return self._ensure_admin_account(connection, required=required)
+        finally:
+            connection.close()
+
+    def _ensure_admin_account(self, connection, *, required: bool = False) -> bool:
         """Create or refresh the reserved admin account from environment config."""
-        password = os.environ.get("ADMIN_PASSWORD", "admin123").strip()
+        password = os.environ.get("ADMIN_PASSWORD", "").strip()
         if not password:
-            password = "admin123"
-            os.environ["ADMIN_PASSWORD"] = password
+            message = "ADMIN_PASSWORD is required to provision the reserved admin account"
+            if required:
+                raise RuntimeError(message)
+            logger.warning(message)
+            return False
 
         now = utc_now()
         row = connection.execute(
-            "SELECT id FROM app_user WHERE email = ? COLLATE NOCASE",
+            "SELECT id, password_hash, is_admin FROM app_user WHERE email = ? COLLATE NOCASE",
             ("admin@pokedex.local",),
         ).fetchone()
-        password_hash = generate_password_hash(password)
         if row:
-            connection.execute(
-                """
-                UPDATE app_user
-                SET display_name = 'admin', password_hash = ?, is_admin = 1, last_seen_at = ?
-                WHERE id = ?
-                """,
-                (password_hash, now, row["id"]),
-            )
+            password_matches = bool(row["password_hash"] and check_password_hash(row["password_hash"], password))
+            if not password_matches or not row["is_admin"]:
+                connection.execute(
+                    """
+                    UPDATE app_user
+                    SET display_name = 'admin', password_hash = ?, is_admin = 1, last_seen_at = ?
+                    WHERE id = ?
+                    """,
+                    (generate_password_hash(password), now, row["id"]),
+                )
             connection.commit()
-            return
+            return True
 
+        password_hash = generate_password_hash(password)
         cursor = connection.execute(
             """
             INSERT INTO app_user
@@ -139,6 +153,7 @@ class UserAccountService:
             (int(member_cursor.lastrowid), user_id),
         )
         connection.commit()
+        return True
 
     def get_account_by_id(self, user_id: int, include_hash: bool = False) -> Optional[Dict[str, Any]]:
         self.database.initialize()

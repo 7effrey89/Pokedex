@@ -9,7 +9,7 @@ from src.services.user_account_service import UserAccountService
 
 
 class UserAccountServiceTests(unittest.TestCase):
-    def test_default_admin_account_is_created_without_environment_password(self):
+    def test_admin_account_requires_environment_password(self):
         original = os.environ.get("ADMIN_PASSWORD")
         os.environ.pop("ADMIN_PASSWORD", None)
         try:
@@ -25,9 +25,35 @@ class UserAccountServiceTests(unittest.TestCase):
                     None,
                 )
 
-                self.assertIsNotNone(admin_account)
-                self.assertTrue(admin_account["is_admin"])
-                self.assertTrue(service.verify_password(admin_account["id"], "admin123"))
+                self.assertIsNone(admin_account)
+                with self.assertRaises(RuntimeError):
+                    service.ensure_admin_account(required=True)
+        finally:
+            if original is None:
+                os.environ.pop("ADMIN_PASSWORD", None)
+            else:
+                os.environ["ADMIN_PASSWORD"] = original
+
+    def test_admin_account_is_idempotently_created_and_repaired(self):
+        original = os.environ.get("ADMIN_PASSWORD")
+        os.environ["ADMIN_PASSWORD"] = "configured-admin-password"
+        try:
+            with tempfile.TemporaryDirectory() as temporary:
+                db = UsersDatabase(Path(temporary) / "users.sqlite3")
+                service = UserAccountService(db)
+
+                self.assertTrue(service.ensure_admin_account(required=True))
+                first = next(a for a in service.list_all_accounts() if a["email"] == "admin@pokedex.local")
+                self.assertTrue(service.verify_password(first["id"], "configured-admin-password"))
+
+                connection = db.connect()
+                connection.execute("UPDATE app_user SET is_admin = 0 WHERE id = ?", (first["id"],))
+                connection.commit()
+                connection.close()
+
+                self.assertTrue(service.ensure_admin_account(required=True))
+                repaired = service.get_account_by_id(first["id"])
+                self.assertTrue(repaired["account"]["is_admin"])
         finally:
             if original is None:
                 os.environ.pop("ADMIN_PASSWORD", None)
@@ -35,6 +61,12 @@ class UserAccountServiceTests(unittest.TestCase):
                 os.environ["ADMIN_PASSWORD"] = original
 
     def test_account_and_multi_member_lifecycle(self):
+        original = os.environ.get("ADMIN_PASSWORD")
+        os.environ["ADMIN_PASSWORD"] = "configured-admin-password"
+        self.addCleanup(
+            lambda: os.environ.pop("ADMIN_PASSWORD", None)
+            if original is None else os.environ.__setitem__("ADMIN_PASSWORD", original)
+        )
         with tempfile.TemporaryDirectory() as temporary:
             db_path = Path(temporary) / "users.sqlite3"
             db = UsersDatabase(db_path)

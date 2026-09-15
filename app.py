@@ -22,7 +22,6 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
-os.environ.setdefault('ADMIN_PASSWORD', 'admin123')
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = os.environ.get('SECRET_KEY', 'pokedex-demo-session-secret-key-3289a')
@@ -65,7 +64,9 @@ SqliteDatabase().initialize()
 UsersDatabase().initialize()
 from src.services.user_account_service import get_user_account_service
 
-get_user_account_service().get_or_create_default_account()
+_user_account_service = get_user_account_service()
+_user_account_service.ensure_admin_account(required=bool(os.environ.get('WEBSITE_SITE_NAME')))
+_user_account_service.get_or_create_default_account()
 
 # Register blueprints
 from src.routes import chat_bp, realtime_bp, tool_bp, cache_bp, face_bp, pokeapi_bp, tcg_image_bp, admin_bp, account_bp
