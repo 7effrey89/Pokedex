@@ -14,6 +14,11 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+# ACR build logs can contain Unicode characters; keep Azure CLI streaming on
+# Windows from failing under the legacy cp1252 console encoding.
+$env:PYTHONIOENCODING = 'utf-8'
+$env:PYTHONUTF8 = '1'
+
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path
 $templateFile = Join-Path $repoRoot 'infra\main.bicep'
 $parameterFile = Join-Path $repoRoot 'infra\main.parameters.json'
@@ -199,6 +204,18 @@ try {
         '.', '--no-logs'
     ) | Out-Null
 
+    $builtImage = (Invoke-Az @(
+        'acr', 'repository', 'show',
+        '--subscription', $SubscriptionId,
+        '--name', $RegistryName,
+        '--image', $ImageName,
+        '--query', '{digest:digest,createdTime:createdTime}',
+        '--output', 'json'
+    ) | Out-String | ConvertFrom-Json)
+    if ($null -eq $builtImage -or [string]::IsNullOrWhiteSpace($builtImage.digest)) {
+        throw "ACR image was not found after build: $ImageName"
+    }
+
     $deploymentArguments = @(
         'deployment', 'sub', 'create',
         '--name', $DeploymentName,
@@ -208,6 +225,19 @@ try {
         '--parameters', "@$parameterFile"
     ) + $secureParameters + @('--output', 'none')
     Invoke-Az $deploymentArguments | Out-Null
+
+    $expectedImage = "DOCKER|$RegistryName.azurecr.io/$ImageName"
+    $configuredImage = (Invoke-Az @(
+        'webapp', 'config', 'show',
+        '--subscription', $SubscriptionId,
+        '--resource-group', $ResourceGroupName,
+        '--name', $WebAppName,
+        '--query', 'linuxFxVersion',
+        '--output', 'tsv'
+    )).Trim()
+    if ($configuredImage -ne $expectedImage) {
+        throw "Web App is configured with '$configuredImage' instead of the freshly built '$expectedImage'."
+    }
 
     Invoke-Az @(
         'webapp', 'restart',
@@ -266,6 +296,18 @@ try {
         throw "Web App state is $state."
     }
 
+    $runningImage = (Invoke-Az @(
+        'webapp', 'config', 'show',
+        '--subscription', $SubscriptionId,
+        '--resource-group', $ResourceGroupName,
+        '--name', $WebAppName,
+        '--query', 'linuxFxVersion',
+        '--output', 'tsv'
+    )).Trim()
+    if ($runningImage -ne $expectedImage) {
+        throw "Running Web App image mismatch: '$runningImage' instead of '$expectedImage'."
+    }
+
     $configuredRequiredSettings = @(Invoke-Az @(
         'webapp', 'config', 'appsettings', 'list',
         '--subscription', $SubscriptionId,
@@ -287,6 +329,8 @@ try {
         status = 'succeeded'
         webApp = $WebAppName
         url = "https://$WebAppName.azurewebsites.net"
+        image = $ImageName
+        imageDigest = $builtImage.digest
         healthStatus = $health.status
         requiredSettingsConfigured = $true
         reservedAdminProvisioned = $true
