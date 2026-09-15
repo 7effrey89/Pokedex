@@ -130,14 +130,11 @@ def execute_realtime_tool():
         tool_name = data.get('tool_name')
         arguments = data.get('arguments', {})
         
-        print(f"\n{'='*60}")
-        print(f"🔧 REALTIME TOOL CALL")
-        print(f"{'='*60}")
-        print(f"📌 Tool: {tool_name}")
-        print(f"📋 Arguments: {arguments}")
+        logger.info("Realtime tool call: %s", tool_name)
+        logger.info("Realtime tool arguments: %s", arguments)
         
         if not tool_name:
-            print(f"❌ Error: tool_name is required")
+            logger.warning("Realtime tool error: tool_name is required")
             return jsonify({"error": "tool_name is required"}), 400
         
         # Map realtime tool names to standard names if needed
@@ -151,16 +148,13 @@ def execute_realtime_tool():
         
         # Log the result
         if "error" in result:
-            print(f"❌ Result: ERROR - {result.get('error')}")
+            logger.warning("Realtime tool result error: %s", result.get('error'))
         else:
             result_preview = str(result)[:200] + "..." if len(str(result)) > 200 else str(result)
-            print(f"✅ Result: SUCCESS")
-            print(f"📦 Preview: {result_preview}")
-        print(f"{'='*60}\n")
+            logger.info("Realtime tool result success: %s", result_preview)
         
         return jsonify({"result": result})
         
     except Exception as e:
-        print(f"💥 EXCEPTION: {str(e)}")
-        print(f"{'='*60}\n")
+        logger.exception("Realtime tool exception")
         return jsonify({"error": str(e)}), 500

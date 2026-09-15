@@ -18,25 +18,19 @@ class PokemonDetailView {
         this.compareLoading = false;
         this.compareRenderToken = 0;
         this.compareSelectionToken = 0;
+        this.currentPokemon = null;
         this.setupNavigationArrows();
     }
 
     getSpriteUrl(pokemon) {
-        const style = this.app.spriteStyle || 'official-artwork';
-        const sprites = pokemon.sprites;
-        if (!sprites) return this.app.gridView.getArtworkUrl(pokemon.id);
-        switch (style) {
-            case 'home':
-                return sprites.other?.home?.front_default || sprites.other?.['official-artwork']?.front_default || sprites.front_default;
-            case 'dream-world':
-                return sprites.other?.dream_world?.front_default || sprites.other?.['official-artwork']?.front_default || sprites.front_default;
-            case 'showdown':
-                return sprites.other?.showdown?.front_default || sprites.front_default;
-            case 'default':
-                return sprites.front_default;
-            default:
-                return sprites.other?.['official-artwork']?.front_default || sprites.front_default;
-        }
+        return this.app.gridView.getArtworkUrl(pokemon.id);
+    }
+
+    refreshSprite() {
+        if (!this.currentPokemon) return;
+        const imageEl = this.detailView.querySelector('.pokemon-main-image');
+        const imageUrl = this.getSpriteUrl(this.currentPokemon);
+        if (imageEl && imageUrl) imageEl.src = imageUrl;
     }
 
     stopPokemonCry() {
@@ -51,8 +45,8 @@ class PokemonDetailView {
         if (!pokemon || !pokemon.cries) return;
         if (pokemon.id === this.lastCryPokemonId) return;
 
-        const cryUrl = pokemon.cries.latest || pokemon.cries.legacy;
-        if (!cryUrl) return;
+        if (!pokemon.cries.latest && !pokemon.cries.legacy) return;
+        const cryUrl = `/api/pokemon/${encodeURIComponent(pokemon.id)}/cry`;
 
         this.lastCryPokemonId = pokemon.id;
         this.stopPokemonCry();
@@ -402,6 +396,7 @@ class PokemonDetailView {
     }
 
     updateDisplay(pokemon, species, evolutionChain = null) {
+        this.currentPokemon = pokemon;
         if (this.compareBasePokemonId !== pokemon.id) {
             this.compareBasePokemonId = pokemon.id;
             this.compareSelection = null;
@@ -990,6 +985,15 @@ class PokemonDetailView {
                 `;
             }
         }
+
+        const classification = species.classification
+            || (species.is_mythical ? 'mythical' : species.is_legendary ? 'legendary' : 'common');
+        detailsHTML += `
+            <div class="detail-item">
+                <span class="detail-label">Classification</span>
+                <span class="detail-value pokemon-classification pokemon-classification-${classification}">${this.formatDisplayName(classification)}</span>
+            </div>
+        `;
         
         // Egg Groups
         if (species.egg_groups && species.egg_groups.length > 0) {

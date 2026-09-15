@@ -108,7 +108,9 @@ class PokemonSearchView {
 
         this.tcgExpansionList.innerHTML = sorted.map(set => {
             const year = set.releaseDate ? set.releaseDate.substring(0, 4) : '';
-            const symbolUrl = set.images?.symbol || '';
+            const symbolUrl = set.id
+                ? `/api/tcg/set-image/${encodeURIComponent(set.id)}/symbol`
+                : (set.images?.symbol || '');
             return `<label class="tcg-expansion-item" data-set-id="${set.id}">
                 <input type="checkbox" value="${set.id}">
                 ${symbolUrl ? `<img src="${symbolUrl}" alt="" class="tcg-expansion-symbol" loading="lazy">` : ''}
@@ -538,12 +540,14 @@ class PokemonSearchView {
                 if (!inGen) visible = false;
             }
 
-            // Classification filter – OR logic: legendary and/or mythical (requires species metadata)
+            // Classification filter – OR logic across legendary, mythical, and common.
             if (visible && hasClassFilter && this.metadata) {
                 const meta = this.metadata[String(id)];
                 const matchesLegendary = this.selectedClasses.has('legendary') && meta?.is_legendary === true;
                 const matchesMythical = this.selectedClasses.has('mythical') && meta?.is_mythical === true;
-                if (!matchesLegendary && !matchesMythical) visible = false;
+                const matchesCommon = this.selectedClasses.has('common')
+                    && meta && meta.is_legendary !== true && meta.is_mythical !== true;
+                if (!matchesLegendary && !matchesMythical && !matchesCommon) visible = false;
             }
 
             // Type filter – AND logic: must have ALL selected types (requires metadata)

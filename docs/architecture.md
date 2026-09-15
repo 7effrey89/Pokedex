@@ -1,58 +1,43 @@
 # Architecture
 
-## Stale-While-Revalidate Caching
+## API Response Caching
 
-The entire app follows a **stale-while-revalidate** caching pattern. Cached data is served instantly, even if expired. If stale, a background refresh runs silently and re-renders only if data changed.
+Stable Pokemon and TCG catalog records are read from SQLite, while downloaded
+assets are persisted under `data/assets`. The file-based response cache is only
+for data fetched from external APIs. TCG prices have a dedicated refresh interval
+because they change regularly.
+
+Normal Pokemon detail, species, and evolution-chain routes reconstruct their
+PokeAPI-shaped response contracts from normalized SQLite tables. They do not read
+or create runtime JSON response-cache files. An explicit `?refresh=1` request is
+the update path: it fetches PokeAPI and persists normalized changes to SQLite.
+Type damage relations are normalized in `type_damage_relation`. SQLite rebuilds
+hydrate all six relation groups for every type. Migrated databases backfill a
+type once on first use when rows are absent, then serve subsequent weakness
+lookups entirely from SQLite without a runtime JSON cache file.
 
 ### Flow
 
 ```
-Request → Cache hit?
-  ├─ FRESH  → Return data immediately
-  ├─ STALE  → Return data immediately + trigger background refresh
-  └─ MISS   → Fetch from API → cache → return
+TCG price request → Cached response still current?
+  ├─ YES → Return stored response
+  └─ NO  → Fetch price from TCG API → store response → return
 ```
 
 ### Backend (`CacheService`)
 
 - File-based JSON cache in `/cache/` directory
-- `get_with_stale(tool_name, params)` returns `(data, status)` where status is `'hit'`, `'stale'`, or `'miss'`
-- Stale responses get `_cache_stale: true` injected into the response dict
-- `force_refresh: true` in tool arguments bypasses cache entirely
-- TTL configured in `cache/cache_config.json` (`expiry_days`, default: 7)
+- TCG price TTL is configured by `tcg_price_expiry_seconds` using an allowed discrete interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or unlimited
+- `get_card_price` deletes an expired response and synchronously fetches fresh data
+- `force_refresh: true` bypasses the stored price response
+- PokeAPI proxy responses retain their internal cache policy separately
 - Cache keys are hashed from tool name + params, filenames are descriptive
-
-### Frontend Revalidation
-
-Each view handles its own background revalidation:
-
-| View | Stale Signal | Revalidation Method | Re-render |
-|------|-------------|---------------------|-----------|
-| Pokemon Detail | `X-PokeAPI-Stale` header | `_revalidateAndRerender()` | `updateDisplay()` without history |
-| TCG Gallery Search | `_cache_stale` flag | `_revalidateTcgSearch()` | `displayWithoutHistory()` |
-| TCG Database – Sets list | `_cache_stale` flag | `_revalidateSets()` | `_renderDatabase()` |
-| TCG Database – Expansion previews | `_cache_stale` flag | `_revalidateSetCards()` | `_renderSetCards()` |
-| TCG Database – All Cards | `_cache_stale` flag | `_revalidateAllCardsSet()` | `_renderCardGrid()` |
-| TCG Card Details | `_cache_stale` flag | Fetches full details on click | N/A (detail shown fresh) |
-
-### Pattern for New Features
-
-When adding cached data flows:
-
-1. **Backend handler**: Use `cache_service.get_with_stale()` instead of `get()`
-2. **Set stale flag**: When `cache_status == 'stale'`, add `response['_cache_stale'] = True`
-3. **Frontend**: After rendering stale data, check for `_cache_stale` and re-fetch with `force_refresh: true`
-4. **Silent re-render**: Only update UI if fresh data differs from stale (compare JSON)
-5. **No history**: Use `WithoutHistory` variants or `addToHistory=false` for background re-renders
 
 ### Cache Management Endpoints
 
 ```
 GET  /api/cache/config      → Current config + stats
-POST /api/cache/enable      → Toggle all caching
-POST /api/cache/pokeapi     → Toggle PokeAPI cache
-POST /api/cache/tcg         → Toggle TCG cache
-POST /api/cache/expiry      → Set expiry days (0-90)
+POST /api/cache/expiry      → Set TCG price refresh interval (`seconds`: 300, 3600, 86400, 259200, 604800, or 0)
 POST /api/cache/clear       → Delete all cache files
 POST /api/cache/invalidate  → Delete specific cache entry
 ```
@@ -69,6 +54,26 @@ For grid/list views that display many cards, the backend supports a `slim: true`
 
 Detail views fetch full card data on click via `get_card_details`.
 
+TCG set listing, searches, cards-by-set, and card-detail handlers query the
+normalized SQLite database without a JSON response-cache lookup. Card image
+URLs point to `/api/tcg/card-image/<card_id>/<asset_kind>`, which resolves only
+the importer-registered local path and never falls back to a remote image.
+
+Pokemon artwork, selectable sprite variants, and cries follow the same persistent
+materialization boundary. Browser URLs point to `/api/pokemon/<id>/sprite/<style>`
+or `/api/pokemon/<id>/cry`; the Flask asset manager validates the upstream payload,
+writes it under `data/assets`, and updates `pokemon_asset.local_path` before serving
+it. Catalog imports and refreshes register every available sprite style so the
+admin bulk workflow can hydrate the same rows ahead of first use. Frontend code
+must not render upstream sprite or cry URLs directly.
+
+TCG card faces, set logos, and set symbols use the same rule. Browser views derive
+`/api/tcg/card-image/<card-id>/<kind>` and `/api/tcg/set-image/<set-id>/<kind>`
+URLs from stable catalog IDs. Those endpoints serve an existing local file or
+download, validate, persist, and catalog the registered source before responding.
+Frontend TCG views must not prefer upstream image URLs when a stable card or set ID
+is available.
+
 ---
 
 ## Progressive Rendering
@@ -79,6 +84,51 @@ The All Cards grid uses progressive DOM rendering to avoid jank with 1000+ cards
 2. IntersectionObserver watches a sentinel element
 3. As user scrolls near bottom (600px margin), next batch of 60 appended
 4. Observer disconnects when all cards rendered
+
+---
+
+## Local Card Collection Store
+
+Owned card data is stored entirely in the browser via `localStorage` using the `CardCollectionStore` helper (`static/js/card-collection.js`).
+
+- `cards` map stores normalized card snapshots keyed by card ID plus the owned count
+- `history` stores recent accepted scanner events so the scanner modal can show removable scan history
+- TCG database counters update the same store directly, so scanner saves, My Collection, and inline count editing stay in sync
+- Settings export/import simply serialize and restore this local JSON payload
+
+---
+
+## TCG Scanner Image Matching
+
+The collection scanner supports two retrieval architectures so their accuracy and latency can be compared:
+
+### Candidate-first pipelines
+
+1. `app.js` maps the visible card guide through the video's `object-fit: cover` scale and offsets, then crops that exact intrinsic camera region. One resulting data URL drives the captured-shot preview and every matching request.
+2. `POST /api/tcg/extract-card-text` uses the configured vision model to extract structured card metadata. The realtime ten-line parser remains a fallback when structured extraction is unavailable.
+3. `findBestMatchingCards()` searches the JSON-backed TCG cache by the extracted card name and scores printed fields locally.
+4. At most 24 candidates are sent with the crop to `POST /api/tcg/image-match`.
+5. `tcg_image_routes.py` fetches official candidate images server-side and compares them with Pillow-based average hash, difference hash, edge hash, and color signature scores. Candidate image features are cached in process memory.
+6. The frontend combines visual similarity at 58% with metadata similarity at 42%, then sends at most 12 candidates to `POST /api/tcg/rerank-match` for an optional LLM judge pass.
+7. The six highest-ranked candidates appear over the camera feed; the user explicitly chooses the correct card before it is added to local collection storage.
+
+This route exists server-side so browser canvas security rules do not block comparisons against remote card images.
+
+### Full-catalog NumPy pipeline
+
+The experimental `numpy` setting deliberately bypasses OCR, metadata candidate lookup, and the LLM judge:
+
+1. `scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive and deduplicates cards by stable TCG card ID.
+2. Official card images are downloaded resumably to `data/assets/tcg/` and validated with Pillow.
+3. `src/services/tcg_image_index.py` center-crops each image and builds a deterministic 1,432-dimensional vector from `32×44` standardized grayscale pixels plus eight histogram buckets for each RGB channel.
+4. Step 04 L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `data/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
+5. `POST /api/tcg/numpy-image-match` receives the same guide crop shown in the captured-shot preview, uses the shared encoder, and builds four query variants containing 100%, 90%, 86%, and 82% of the captured content. The padded variants compensate for cards framed too tightly without increasing the runtime index size.
+6. The service lazy-loads the generated matrix once per process, performs exact cosine similarity for every query scale, and keeps each card's highest score.
+7. The endpoint returns the six highest-scoring complete card records for the existing scanner candidate UI.
+
+The JSON archive remains the source of truth. Images and vectors are disposable build artifacts; rerunning Step 04 rebuilds them whenever source URLs or `ENCODER_VERSION` change. Downloaded images are not required at runtime after the index is built. Deployments must include the complete `data/index/` directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
+
+The standalone POC at `/static/tyrantrum-embedding-poc.html` uses `GET /api/tcg/image-proxy?url=...` to load official card images into a browser canvas, builds local grayscale/color image embeddings, starts the camera by default, and shows a live lightbox alignment zone over the camera feed. The default scan zone uses a narrower card-like ratio, and the user can drag its yellow edges to resize the crop area. Snapshot matching captures the camera frame and crops the current guide area at its visible proportions, then uses that cropped image for the browser image-embedding ranking pipeline. It can run in either cosine-only mode or rerank mode, with rerank mode selected by default. Rerank mode sends the cropped card image to `POST /api/tcg/extract-card-text`, where the configured Azure OpenAI vision model extracts structured card metadata: name, HP, card types, set/number, rarity, attacks, attack energy costs, weakness, resistance, and retreat. The browser scores those extracted attributes against candidate card metadata using weighted field matching, combines the attribute score with image cosine similarity as `image_embedding * 0.58 + text * 0.42`, then calls `POST /api/tcg/rerank-match` so an Azure OpenAI judge can rerank the candidates with the same structured evidence. The UI exposes candidate metadata and score calculation tooltips. If API settings are missing or the judge fails, the endpoint returns the deterministic combined-score order.
 
 ---
 
@@ -149,6 +199,44 @@ Realtime Voice:
 2. If backend: add handler in `src/routes/chat_routes.py` tool_handlers dict + `src/tools/tool_handlers.py`
 3. If frontend: add case in `executeFrontendAction()` (app.js) AND in `realtime-voice.js` executeToolCall()
 4. Both APIs auto-pick up the definition — no edits to `azure_openai_chat.py` or `realtime_chat.py`
+
+---
+
+## Database Architecture & Versioned Migrations
+
+The application uses two separate SQLite databases stored under `POKEDEX_DATA_ROOT` (defaults to `./data/` locally, `/home/data/data/` in Azure persistent storage):
+
+1. **Catalog Database (`pokedex.sqlite3`)**:
+   - Source of truth for Pokémon, species, evolutions, TCG cards, expansions, market listings, and local asset mappings.
+   - Built and updated reproducibly from raw API seed data and explicit upstream syncs.
+2. **User Database (`users.sqlite3`)**:
+   - Stores user accounts, password hashes, multi-member face enrollments, card collections, and user preferences.
+   - Kept completely separate from the catalog so catalog rebuilds, restores, or re-indexes can never overwrite user-owned data.
+
+### Schema Versioning & Migration Mechanism
+
+Database migrations are managed via versioned SQL files located in `data/schema/` and tracked using SQLite's native `PRAGMA user_version`:
+
+| Database | Migration File Pattern | Schema Version Constant (`src/db/database.py`) | Runner Function |
+|----------|------------------------|------------------------------------------------|-----------------|
+| Catalog | `data/schema/001.sql`, `002.sql`, ... | `SCHEMA_VERSION` | `apply_catalog_schema(connection)` |
+| User DB | `data/schema/users-001.sql`, `users-002.sql`, ... | `USERS_SCHEMA_VERSION` | `apply_users_schema(connection)` |
+
+### Workflow for Future Database Changes
+
+When modifying the database schema in the future:
+
+1. **Do not modify existing migration scripts** if databases exist in deployment environments.
+2. **Create a new migration script**:
+   - For catalog schema changes: add `data/schema/<version:03d>.sql` (e.g. `003.sql`).
+   - For user database changes: add `data/schema/users-<version:03d>.sql` (e.g. `users-004.sql`).
+3. **Write incremental DDL**:
+   - Use `ALTER TABLE`, `CREATE TABLE`, `CREATE INDEX`, etc.
+   - Conclude the file with `PRAGMA user_version = <N>;`.
+4. **Update the version constant in `src/db/database.py`**:
+   - Set `SCHEMA_VERSION = <N>` or `USERS_SCHEMA_VERSION = <N>`.
+5. **Automatic Execution**:
+   - On application startup, `apply_catalog_schema()` and `apply_users_schema()` check the database's current `PRAGMA user_version` and sequentially apply any newer migration scripts inside a transaction.
 
 ---
 

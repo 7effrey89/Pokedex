@@ -8,11 +8,25 @@ This app includes **Docker support** for seamless deployment to Azure App Servic
 
 📦 **[Complete Deployment Guide →](docs/AZURE_DEPLOYMENT.md)**
 
+For the existing production environment, use the repository deployment script from PowerShell:
+
+```powershell
+# Validate Bicep locally without changing Azure
+.\deploy.ps1
+
+# Preview the complete infrastructure redeploy without changing Azure
+.\deploy.ps1 -Plan
+
+# Apply Bicep, rebuild the container in ACR, restart App Service, and verify health
+.\deploy.ps1 -Deploy
+```
+
+The deployment reads required settings from the process environment or the ignored `.env` file. It stops if Azure what-if includes a deletion, or if required Azure OpenAI configuration is missing.
+
 **Quick Setup:**
-1. Create Azure Container Registry (ACR)
-2. Create Azure App Service (Linux Container)
-3. Configure GitHub Secrets
-4. Push to `main` - Auto-deploys via GitHub Actions!
+1. Configure the required deployment environment values.
+2. Run `.\deploy.ps1 -Plan` and review the delete-free Azure what-if.
+3. Run `.\deploy.ps1 -Deploy` to update the existing Bicep, ACR, and App Service resources.
 
 **Why Docker?**
 - ✅ Handles native dependencies (dlib, cmake, build-essential)
@@ -49,7 +63,7 @@ The app features a clean, mobile-first design with:
 
 - **Backend**: Python Flask
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **APIs**: 
+- **APIs**:
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
   - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
 - **Face Recognition**: face_recognition library (based on dlib)
@@ -59,15 +73,12 @@ The app features a clean, mobile-first design with:
 
 ## PokeAPI Fair Use & Caching
 
-- Every client-side Pokemon lookup now goes through the Flask proxy blueprint mounted at `/api/pokemon`. The proxy forwards to PokeAPI, writes the response through `CacheService`, and serves subsequent requests from disk so we comply with PokeAPI’s “locally cache resources whenever you request them” rule.
-- Available proxy routes (all support `?refresh=1` to bypass the cache and pull fresh data):
-   - `GET /api/pokemon/<name_or_id>` – core Pokemon payloads used by the grid, detail view, and evolution previews.
-   - `GET /api/pokemon/species/<name_or_id>` – species metadata (entries, egg groups, evolution chain pointer).
-   - `GET /api/pokemon/evolution-chain/<chain_id>` – deep evolution data.
-   - `GET /api/pokemon/type/<type_name>` – damage relations for weakness calculations.
-- The cache directory (`/cache`) keeps descriptive filenames; expiration defaults to 7 days but can be tuned in `cache/cache_config.json` or via the existing cache settings routes.
-- Force-refresh actions in the UI invalidate both the chat tool cache (`get_pokemon`) and the new proxy caches by issuing `refresh=1` requests, so the next render picks up live data without manual file edits.
-- Override the upstream host with the `POKEMON_API_URL` environment variable if you need to point at a mirror during development; the proxy uses that value for every outbound request.
+- Every client-side Pokemon lookup goes through the Flask blueprint mounted at `/api/pokemon`.
+- Normal Pokemon, species, evolution-chain, and type-effectiveness requests are reconstructed from normalized SQLite tables; they do not create runtime JSON cache files.
+- `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/evolution-chain/<chain_id>`, and `/type/<type_name>` support `?refresh=1` as the explicit PokeAPI update path. Successful refreshes are normalized back into SQLite.
+- Pokemon sprites and cries are served through materializing Flask routes and persisted under `data/assets` before reuse.
+- The `cache/` directory is a disposable response cache for external API data that is not part of the stable catalog. TCG price responses use the Settings interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited.
+- Override the upstream host with `POKEMON_API_URL` when a development mirror is required.
 
 ## Installation
 
@@ -104,13 +115,13 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    ```
 
 2. **Install system dependencies (for face-recognition)**
-   
+
    **Ubuntu/Debian:**
    ```bash
    sudo apt-get update
    sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev
    ```
-   
+
    **macOS:**
    ```bash
    xcode-select --install
@@ -127,7 +138,7 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    ```bash
    pip install -r requirements.txt
    ```
-   
+
    **Note:** On Windows, installing `dlib` (required by face-recognition) can be challenging. Consider using Docker or WSL2 for easier setup.
 
 5. **Set up environment variables** (optional)
@@ -136,14 +147,30 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    # Edit .env if you want to add Azure OpenAI integration in the future
    ```
 
-6. **Run the application**
+6. **Hydrate the local SQLite database**
+   ```bash
+   python scripts/05-import_sqlite.py
+   ```
+
+   This builds `data/pokedex.sqlite3` from the raw PokeAPI and TCG JSON seeds,
+   fetches missing PokeAPI forms, evolution chains, and type-effectiveness charts,
+   downloads required primary artwork and TCG card images, and registers every
+   selectable sprite, cry, card, logo, and symbol for persistent materialization.
+   The generated database and downloaded assets are ignored by Git. Use
+   `--no-network --skip-artwork` for an offline structural import check; it
+   intentionally fails if the seed archive does not contain every form.
+   If validation reports missing local assets after a full import, rerun with
+   `--resume` to repair the retained `.building` database without rebuilding
+   Pokemon, evolution, and TCG rows.
+
+7. **Run the application**
    ```bash
    python app.py
    ```
 
-7. **Open in browser**
-   - Navigate to `http://localhost:5000`
-   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
+8. **Open in browser**
+   - Navigate to `http://localhost:5050`
+   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5050`)
 
 ## Deploying to Azure App Service
 
@@ -169,8 +196,8 @@ For reliable deployment with native dependencies like `face-recognition` (dlib, 
 ```bash
 az login
 RESOURCE_GROUP=pokedex-rg
-LOCATION=eastus
-ACR_NAME=pokedexacr  # Must be globally unique, alphanumeric only
+LOCATION=swedencentral
+ACR_NAME=pokedexacr2  # Must be globally unique, alphanumeric only
 
 # Create resource group
 az group create --name $RESOURCE_GROUP --location $LOCATION
@@ -447,9 +474,14 @@ sleep 5
 az webapp start --resource-group $RESOURCE_GROUP --name $APP_NAME
 ```
 
-### Manual Azure CLI Deployment (Alternative)
+### Historical Manual Deployment Reference
 
-If you prefer manual deployment or don't need face recognition features:
+> Do not use the Zip Deploy/Oryx or publish-profile instructions below for the
+> current production environment. Use `deploy.ps1 -Plan` followed by
+> `deploy.ps1 -Deploy`; the maintained workflow preserves the existing Bicep,
+> ACR, App Service, monitoring, and security configuration.
+
+The following commands are retained only for historical context.
 
 ### Prerequisites
 
@@ -555,7 +587,9 @@ az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 
 #### Option B — Deploy with GitHub Actions (CI/CD)
 
-The repository includes `.github/workflows/deploy-azure-webapp.yml`, which automatically packages and deploys the app to Azure App Service. The workflow includes `requirements.txt` in the deployment, and Azure's Oryx build system handles dependency installation. To enable it:
+The former Oryx workflow is no longer in the repository. The following
+publish-profile steps are historical reference only and must not be used for
+the current production environment:
 
 1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
 2. **Create the following GitHub Action repository secrets** in *Settings → Secrets and variables → Actions*:
@@ -605,6 +639,46 @@ Search for Pokemon Trading Card Game cards:
   - Format legality (Standard, Expanded, Unlimited)
   - Rarity and artist information
 
+#### TCG Camera Matching Scoring
+
+The standalone Tyrantrum POC at `/static/tyrantrum-embedding-poc.html` ranks candidate cards with transparent scoring:
+
+- **Image Embedding score**: cosine similarity between the camera crop image embedding and each candidate card image embedding. The image embedding is built in the browser from normalized grayscale pixels plus a compact RGB histogram.
+- **Text score**: not cosine similarity. The LLM extracts structured Pokemon TCG metadata from the camera crop, then the browser compares those fields against each candidate card using deterministic weighted field matching. Once the LLM extraction result is available, the same extracted metadata and candidate metadata will produce the same Text score. Compared fields include card name, HP, set, collector number, rarity, Pokemon type, stage/subtype, attack names, attack energy costs, attack damage, weakness, resistance, retreat cost, and fallback summary text.
+- **Combined score**: in Text + LLM rerank mode, the deterministic score is `Image Embedding * 0.58 + Text * 0.42`. In cosine-only mode, the combined score is the Image Embedding score.
+- **LLM judge rerank**: after deterministic scoring, the app can send the extracted metadata, candidate metadata, image score, text score, combined score, and matched fields to the LLM judge. The judge may reorder candidates, but if the judge is unavailable the deterministic combined-score order is used.
+
+Text scoring uses a normalized weighted average. For every field that has a value in both the extracted metadata and the candidate card metadata, the browser adds `fieldWeight * fieldMatchScore` to the numerator and `fieldWeight` to the denominator. The final Text score is `sum(weight * fieldMatchScore) / sum(availableWeights)`, capped at `1.0`. Fields missing on either side are skipped rather than counted as zero.
+
+| Field | Weight | Match method |
+|-------|--------|--------------|
+| Card name | `0.20` | Token match: full score when all candidate tokens are contained in the extracted text; otherwise token overlap. |
+| HP | `0.08` | Exact normalized text match. |
+| Set name | `0.08` | Token match. |
+| Collector number | `0.12` | Exact-ish match: full score when either value contains the other; otherwise token overlap. |
+| Rarity | `0.05` | Token match. |
+| Pokemon type | `0.12` | Set overlap between extracted types and candidate types. |
+| Stage/subtype | `0.05` | Set overlap between extracted stage and candidate subtypes. |
+| Attack name | `0.08` per extracted attack | Token match against the candidate attack at the same attack index. |
+| Attack energy cost | `0.06` per extracted attack | Set overlap between extracted energy symbols and candidate attack cost at the same attack index. |
+| Attack damage | `0.04` per extracted attack | Exact-ish match. |
+| Weakness | `0.08` | Set overlap between extracted weakness types and candidate weakness types. |
+| Resistance | `0.04` | Set overlap between extracted resistance types and candidate resistance types. |
+| Retreat cost | `0.08` | Exact-ish match between extracted retreat count and candidate converted retreat cost. |
+| Summary fallback: name | `0.04` | Token match against the fallback extracted text summary. |
+| Summary fallback: collector number | `0.04` | Token match against the fallback extracted text summary. |
+| Summary fallback: attack name | `0.04` per candidate attack, first 3 attacks | Token match against the fallback extracted text summary. |
+
+The deterministic Text score is then combined with the Image Embedding score before the optional judge step:
+
+```text
+combined_score = (image_embedding_score * 0.58) + (text_score * 0.42)
+```
+
+The result displayed as a percentage is the score multiplied by `100` and rounded to one decimal place.
+
+The POC UI exposes expandable candidate metadata and tooltips beside each score so the calculation can be inspected while testing.
+
 ### Tool Management (NEW! 🛠️)
 
 Click the **Tools** button in the header to manage available features:
@@ -630,7 +704,7 @@ Talk to the assistant using your voice:
 
 **Supported browsers**: Chrome, Edge, Safari (iOS/macOS)
 
-For detailed setup and Azure OpenAI integration, see [VOICE_SETUP.md](VOICE_SETUP.md)
+For detailed setup and Azure OpenAI integration, see [docs/VOICE_SETUP.md](docs/VOICE_SETUP.md)
 
 ### Face Recognition (NEW! 👤)
 
@@ -842,7 +916,7 @@ For native MCP support where the Realtime API calls MCP servers directly:
    - Windows: `ipconfig`
    - Mac/Linux: `ifconfig` or `ip addr`
 3. **Access from mobile**
-   - Navigate to `http://YOUR_IP:5000` on your mobile device
+   - Navigate to `http://YOUR_IP:5050` on your mobile device
 4. **Add to Home Screen** (iOS/Android)
    - Tap the share/menu button
    - Select "Add to Home Screen"
@@ -898,6 +972,10 @@ Go to your GitHub repo → Settings → Secrets and variables → Actions
 Update AZURE_WEBAPP_PUBLISH_PROFILE with the new XML
 Also verify AZURE_WEBAPP_NAME matches your Azure Web App's exact name
 Alternatively, you can switch to using azure/login@v2 with a service principal (OIDC), which is more robust than publish profile
+
+## RBAC Permissions
+Provide "Cognitive Services Data Contributor" and "
+Cognitive Services OpenAI User" for the service principal to your Foundry Project
 
 ## Credits
 

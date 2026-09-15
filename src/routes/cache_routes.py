@@ -14,6 +14,7 @@ cache_bp = Blueprint('cache', __name__, url_prefix='/api/cache')
 def get_cache_config():
     """Get current cache configuration and stats"""
     from src.services.cache_service import get_cache_service
+    from src.db import SqliteDatabase
     
     cache_service = get_cache_service()
     config = cache_service.get_config()
@@ -21,7 +22,8 @@ def get_cache_config():
     
     return jsonify({
         **config,
-        **stats
+        **stats,
+        "sqlite": SqliteDatabase().status().to_dict(),
     })
 
 
@@ -73,53 +75,31 @@ def set_pokeapi_cache_enabled():
         return jsonify({"error": str(e)}), 500
 
 
-@cache_bp.route('/tcg', methods=['POST'])
-def set_tcg_cache_enabled():
-    """Enable or disable caching for Pokemon TCG API requests"""
-    from src.services.cache_service import get_cache_service
-
-    try:
-        data = request.get_json() or {}
-        enabled = data.get('enabled')
-
-        if enabled is None:
-            return jsonify({"error": "enabled field is required"}), 400
-
-        cache_service = get_cache_service()
-        cache_service.set_tcg_cache_enabled(enabled)
-
-        return jsonify({
-            "message": f"TCG cache {'enabled' if enabled else 'disabled'}",
-            "config": cache_service.get_config()
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
 @cache_bp.route('/expiry', methods=['POST'])
 def set_cache_expiry():
-    """Set cache expiry time in days"""
+    """Set the TCG price refresh interval in seconds."""
     from src.services.cache_service import get_cache_service
     
     try:
         data = request.get_json()
-        days = data.get('days')
+        seconds = data.get('seconds')
         
-        if days is None:
-            return jsonify({"error": "days field is required"}), 400
+        if seconds is None:
+            return jsonify({"error": "seconds field is required"}), 400
         
         cache_service = get_cache_service()
-        days_value = int(days)
-        cache_service.set_expiry_days(days_value)
+        seconds_value = int(seconds)
+        cache_service.set_tcg_price_expiry_seconds(seconds_value)
 
-        message = "Cache expiry set to unlimited" if days_value == 0 else f"Cache expiry set to {days_value} days"
+        message = "TCG prices never expire" if seconds_value == 0 else f"TCG prices refresh after {seconds_value} seconds"
         
         return jsonify({
             "message": message,
             "config": cache_service.get_config()
         })
-    
+
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

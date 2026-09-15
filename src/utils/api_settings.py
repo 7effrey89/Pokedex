@@ -2,7 +2,7 @@
 import os
 from typing import Any, Dict, Optional
 
-APP_API_PASSWORD = os.getenv('APP_API_PASSWORD', 'Password1')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'Password1')
 
 
 def _sanitize_endpoint(value: str) -> str:
@@ -167,7 +167,7 @@ def resolve_api_settings(payload: Optional[Dict[str, Any]], *, require_chat: boo
 
     if mode == 'app':
         password = payload.get('app_password', '')
-        if password != APP_API_PASSWORD:
+        if password != ADMIN_PASSWORD:
             raise ValueError('Invalid API access password.')
         if require_chat:
             settings['chat'] = _resolve_env_chat_config()

@@ -3,12 +3,13 @@ import json
 import logging
 import os
 import re
+import sqlite3
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
 import requests
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, send_file
 
 from src.services.cache_service import get_cache_service
 
@@ -48,6 +49,80 @@ _SPECIES_CACHE_FILE_RE = re.compile(r"^pokeapi-species-(\d+)-(.+)\.json$")
 # In-memory metadata cache (built lazily on first request)
 _metadata_cache: Optional[Dict] = None
 _metadata_cache_count: int = 0  # number of cache files when last built
+
+_sqlite_metadata_cache: Optional[Dict[str, dict]] = None
+_sqlite_metadata_signature: Optional[str] = None
+
+
+def _catalog_metadata() -> Optional[Dict[str, dict]]:
+    """Build (and cache) lightweight Pokemon metadata from the SQLite catalog.
+
+    Runs a handful of indexed queries instead of scanning thousands of legacy
+    cache files, so it stays fast even on a cold app start.
+    """
+    global _sqlite_metadata_cache, _sqlite_metadata_signature
+
+    from src.config import get_storage_paths
+    from src.db.database import SqliteDatabase
+
+    database = SqliteDatabase(get_storage_paths().catalog_database)
+    if not database.path.is_file():
+        return None
+
+    connection = database.connect(read_only=True)
+    try:
+        row = connection.execute(
+            "SELECT COUNT(*) AS total, MAX(last_refreshed_at) AS latest FROM pokemon"
+        ).fetchone()
+        signature = f"{row['total']}:{row['latest'] or ''}"
+        if _sqlite_metadata_cache is not None and signature == _sqlite_metadata_signature:
+            return _sqlite_metadata_cache
+
+        logger.info("Building Pokemon metadata cache from SQLite catalog...")
+        metadata: Dict[str, dict] = {
+            str(item["id"]): {
+                "name": item["name"],
+                "types": [],
+                "abilities": [],
+                "height": item["height_decimetres"],
+                "weight": item["weight_hectograms"],
+                "is_legendary": bool(item["is_legendary"]),
+                "is_mythical": bool(item["is_mythical"]),
+            }
+            for item in connection.execute(
+                """
+                SELECT p.id, p.name, p.height_decimetres, p.weight_hectograms,
+                       s.is_legendary, s.is_mythical
+                FROM pokemon AS p
+                JOIN pokemon_species AS s ON s.id = p.species_id
+                """
+            )
+        }
+        for item in connection.execute(
+            """
+            SELECT pt.pokemon_id, t.name FROM pokemon_type AS pt
+            JOIN type AS t ON t.id = pt.type_id ORDER BY pt.pokemon_id, pt.slot
+            """
+        ):
+            entry = metadata.get(str(item["pokemon_id"]))
+            if entry is not None:
+                entry["types"].append(item["name"])
+        for item in connection.execute(
+            """
+            SELECT pa.pokemon_id, a.name FROM pokemon_ability AS pa
+            JOIN ability AS a ON a.id = pa.ability_id ORDER BY pa.pokemon_id, pa.slot
+            """
+        ):
+            entry = metadata.get(str(item["pokemon_id"]))
+            if entry is not None:
+                entry["abilities"].append(item["name"])
+
+        _sqlite_metadata_cache = metadata
+        _sqlite_metadata_signature = signature
+        logger.info("Pokemon metadata cache ready (%d entries)", len(metadata))
+        return metadata
+    finally:
+        connection.close()
 
 
 def _build_metadata() -> Dict[str, dict]:
@@ -141,10 +216,14 @@ def _build_metadata() -> Dict[str, dict]:
 
 @pokeapi_bp.route("/metadata", methods=["GET"])
 def get_pokemon_metadata():
-    """Return lightweight metadata extracted from cached Pokemon JSON files."""
+    """Return lightweight Pokemon metadata for search filters and dex lookups."""
     global _metadata_cache, _metadata_cache_count
 
-    # Count current cache files to detect new additions
+    catalog_metadata = _catalog_metadata()
+    if catalog_metadata is not None:
+        return jsonify(catalog_metadata)
+
+    # Compatibility fallback for initial database bootstrap only.
     current_count = 0
     if CACHE_DIR.is_dir():
         current_count = sum(
@@ -160,6 +239,51 @@ def get_pokemon_metadata():
         logger.info("Pokemon metadata cache ready (%d entries)", len(_metadata_cache))
 
     return jsonify(_metadata_cache)
+
+
+@pokeapi_bp.route("/<int:pokemon_id>/cry", methods=["GET"])
+def get_pokemon_cry(pokemon_id: int):
+    """Materialize a catalog cry on first playback and serve the local file."""
+    from src.services.asset_manager import get_asset_manager
+
+    try:
+        materialized = get_asset_manager().materialize_pokemon_cry(pokemon_id)
+    except (OSError, requests.RequestException) as exc:
+        logger.warning("Unable to materialize cry for Pokemon %s: %s", pokemon_id, exc)
+        return jsonify({"error": "Unable to fetch Pokemon cry"}), 502
+
+    if materialized is None:
+        return jsonify({"error": "Pokemon cry not found"}), 404
+
+    path, media_type = materialized
+    return send_file(path, mimetype=media_type, conditional=True, max_age=86400)
+
+
+@pokeapi_bp.route("/<int:pokemon_id>/sprite/<style>", methods=["GET"])
+def get_pokemon_sprite(pokemon_id: int, style: str):
+    """Materialize the selected sprite style and serve the persistent file."""
+    from src.services.asset_manager import get_asset_manager
+
+    manager = get_asset_manager()
+    try:
+        materialized = manager.materialize_pokemon_sprite(pokemon_id, style)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except OSError as exc:
+        logger.warning("Unable to materialize %s sprite for Pokemon %s: %s", style, pokemon_id, exc)
+        materialized = None
+
+    if materialized is None and style != "official-artwork":
+        try:
+            materialized = manager.materialize_pokemon_sprite(pokemon_id, "official-artwork")
+        except OSError as exc:
+            logger.warning("Unable to load fallback artwork for Pokemon %s: %s", pokemon_id, exc)
+
+    if materialized is None:
+        return jsonify({"error": "Pokemon sprite not found"}), 404
+
+    path, media_type = materialized
+    return send_file(path, mimetype=media_type, conditional=True, max_age=86400)
 
 
 def _should_refresh() -> bool:
@@ -232,13 +356,13 @@ def _fetch_with_cache(
         raise
 
     data = resp.json()
-    if use_cache:
+    if use_cache and not refresh:
         cache_service.set(cache_key, params, data, force=force_cache)
     return data, cache_label
 
 
 def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
-                    force_cache: bool = False):
+                    force_cache: bool = False, persist_refresh=None):
     refresh = _should_refresh()
     use_cache = _is_pokeapi_cache_enabled() or force_cache
     try:
@@ -259,6 +383,16 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
         logger.info("PokeAPI proxy %s cache=%s status=%s", resource_path, cache_status, 404)
         return error_response
 
+    if refresh and persist_refresh is not None:
+        try:
+            persist_refresh(data)
+        except (KeyError, TypeError, ValueError, OSError) as exc:
+            logger.exception("Unable to persist refreshed PokeAPI resource %s", resource_path)
+            error_response = jsonify({"error": f"Fresh data was fetched but could not be persisted: {exc}"})
+            error_response.status_code = 500
+            error_response.headers["X-PokeAPI-Cache"] = "persist-error"
+            return error_response
+
     response = jsonify(data)
     response.headers["X-PokeAPI-Cache"] = cache_status
     if cache_status == "stale":
@@ -275,28 +409,89 @@ def _proxy_resource(cache_key: str, params: Dict[str, str], resource_path: str,
 
 @pokeapi_bp.route("/<string:name_or_id>", methods=["GET"])
 def get_pokemon(name_or_id: str):
-    """Return Pokemon data by name or ID via cache-aware proxy."""
+    """Return Pokemon data from SQLite, using PokeAPI only for explicit refresh."""
+    from src.services.catalog_refresh import CatalogRefreshService
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh():
+        data = SqlitePokemonRepository().get_pokemon(name_or_id)
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
+
     params = {"pokemon": name_or_id.lower()}
     return _proxy_resource("pokeapi_pokemon", params, f"pokemon/{name_or_id}",
-                           force_cache=_is_form_variant(name_or_id))
+                           force_cache=_is_form_variant(name_or_id),
+                           persist_refresh=CatalogRefreshService().refresh_pokemon)
 
 
 @pokeapi_bp.route("/species/<string:name_or_id>", methods=["GET"])
 def get_pokemon_species(name_or_id: str):
-    """Return Pokemon species data via cache-aware proxy."""
+    """Return species data from SQLite, using PokeAPI only for explicit refresh."""
+    from src.services.catalog_refresh import CatalogRefreshService
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh():
+        data = SqlitePokemonRepository().get_species(name_or_id)
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
+
     params = {"species": name_or_id.lower()}
-    return _proxy_resource("pokeapi_species", params, f"pokemon-species/{name_or_id}")
+    return _proxy_resource(
+        "pokeapi_species", params, f"pokemon-species/{name_or_id}",
+        persist_refresh=CatalogRefreshService().refresh_species,
+    )
 
 
 @pokeapi_bp.route("/type/<string:type_name>", methods=["GET"])
 def get_type(type_name: str):
-    """Return Pokemon type data via cache-aware proxy."""
-    params = {"type": type_name.lower()}
-    return _proxy_resource("pokeapi_type", params, f"type/{type_name}")
+    """Return normalized type effectiveness, fetching once when not yet stored."""
+    from src.db.pokemon_repository import SqlitePokemonRepository
+    from src.services.catalog_refresh import CatalogRefreshService
+
+    repository = SqlitePokemonRepository()
+    if not _should_refresh():
+        stored = repository.get_type(type_name)
+        if stored is not None:
+            response = jsonify(stored)
+            response.headers["X-PokeAPI-Source"] = "sqlite"
+            return response
+
+    url = f"{POKEAPI_BASE_URL.rstrip('/')}/type/{type_name}"
+    try:
+        upstream = requests.get(url, timeout=15)
+        if upstream.status_code == 404:
+            return jsonify({"error": "Resource not found"}), 404
+        upstream.raise_for_status()
+        payload = upstream.json()
+        CatalogRefreshService().refresh_type(payload, store_raw=_should_refresh())
+    except (requests.RequestException, ValueError, sqlite3.Error) as exc:
+        logger.warning("Unable to normalize Pokemon type %s: %s", type_name, exc)
+        return jsonify({"error": "Failed to load Pokemon type"}), 502
+
+    data = repository.get_type(str(payload["id"]))
+    response = jsonify(data or payload)
+    response.headers["X-PokeAPI-Source"] = "sqlite"
+    return response
 
 
 @pokeapi_bp.route("/evolution-chain/<string:chain_id>", methods=["GET"])
 def get_evolution_chain(chain_id: str):
-    """Return evolution chain data by ID."""
+    """Return evolution data from SQLite, using PokeAPI only for explicit refresh."""
+    from src.db.pokemon_repository import SqlitePokemonRepository
+
+    if not _should_refresh() and chain_id.isdigit():
+        data = SqlitePokemonRepository().get_evolution_chain(int(chain_id))
+        if data is None:
+            return jsonify({"error": "Resource not found"}), 404
+        response = jsonify(data)
+        response.headers["X-PokeAPI-Source"] = "sqlite"
+        return response
+
     params = {"chain": chain_id}
     return _proxy_resource("pokeapi_evolution_chain", params, f"evolution-chain/{chain_id}")

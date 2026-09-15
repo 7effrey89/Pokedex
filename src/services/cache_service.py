@@ -12,6 +12,8 @@ from typing import Optional, Dict, Any, Tuple
 
 logger = logging.getLogger(__name__)
 
+TCG_PRICE_REFRESH_INTERVALS = (300, 3600, 86400, 259200, 604800, 0)
+
 
 class CacheService:
     """Manages caching of API responses with expiration"""
@@ -38,31 +40,33 @@ class CacheService:
             "pokeapi_type",
             "pokeapi_evolution_chain",
         }
-        self._tcg_cache_keys = {
-            "search_pokemon_cards",
-            "get_card_price",
-            "get_card_details",
-            "search_cards_by_set",
-            "get_tcg_sets",
-        }
     
     def _load_config(self) -> Dict[str, Any]:
         """Load cache configuration"""
         default_config = {
             "enabled": True,
             "expiry_days": 7,
+            "tcg_price_expiry_seconds": 604800,
             "pokeapi_cache_enabled": True,
-            "tcg_cache_enabled": True,
         }
         
         if self.config_file.exists():
             try:
                 with open(self.config_file, 'r') as f:
                     config = json.load(f)
+                    legacy_days = config.pop("tcg_price_expiry_days", None)
+                    if "tcg_price_expiry_seconds" not in config and legacy_days is not None:
+                        legacy_seconds = max(0, int(legacy_days) * 86400)
+                        config["tcg_price_expiry_seconds"] = min(
+                            TCG_PRICE_REFRESH_INTERVALS,
+                            key=lambda value: (abs(value - legacy_seconds), -value),
+                        )
                     # Ensure all required keys exist
                     for key, value in default_config.items():
                         if key not in config:
                             config[key] = value
+                    config.pop("data_source_mode", None)
+                    config.pop("tcg_cache_enabled", None)
                     return config
             except Exception as e:
                 logger.error(f"Error loading cache config: {e}")
@@ -101,17 +105,26 @@ class CacheService:
         else:
             logger.info(f"Cache expiry set to {days} days")
 
+    def set_tcg_price_expiry_seconds(self, seconds: int):
+        """Set how long fetched TCG price responses remain current."""
+        if seconds not in TCG_PRICE_REFRESH_INTERVALS:
+            raise ValueError("Unsupported TCG price refresh interval")
+        self.config["tcg_price_expiry_seconds"] = seconds
+        self._save_config()
+        logger.info("TCG price refresh interval set to %s seconds", seconds)
+
     def set_pokeapi_cache_enabled(self, enabled: bool):
         """Enable or disable caching specifically for PokeAPI proxy calls"""
         self.config["pokeapi_cache_enabled"] = enabled
         self._save_config()
         logger.info("PokeAPI cache %s", "enabled" if enabled else "disabled")
 
-    def set_tcg_cache_enabled(self, enabled: bool):
-        """Enable or disable caching for Pokemon TCG API requests"""
-        self.config["tcg_cache_enabled"] = enabled
-        self._save_config()
-        logger.info("TCG cache %s", "enabled" if enabled else "disabled")
+    def _expiry_seconds(self, endpoint: str) -> Optional[int]:
+        if endpoint == "get_card_price":
+            seconds = int(self.config.get("tcg_price_expiry_seconds", 604800))
+            return None if seconds == 0 else seconds
+        days = int(self.config.get("expiry_days", 7))
+        return None if days <= 0 else days * 24 * 60 * 60
 
     def should_use_pokeapi_cache(self) -> bool:
         """Check if the cache should be used for PokeAPI requests"""
@@ -119,11 +132,11 @@ class CacheService:
 
     def _is_endpoint_cacheable(self, endpoint: Optional[str]) -> bool:
         """Determine whether the given endpoint should read/write cache."""
+        if endpoint == "get_card_price":
+            return True
         if not self.config.get("enabled", True):
             return False
         if endpoint in self._pokeapi_cache_keys and not self.config.get("pokeapi_cache_enabled", True):
-            return False
-        if endpoint in self._tcg_cache_keys and not self.config.get("tcg_cache_enabled", True):
             return False
         return True
     
@@ -151,7 +164,7 @@ class CacheService:
         descriptor = self._build_descriptor(endpoint, params)
         # For numeric-only lookups (e.g. form variants like 10034), enrich with
         # the name from the API response so the file is descriptive.
-        if response and descriptor:
+        if response and descriptor and self._allows_enriched_descriptor_lookup(endpoint):
             name = response.get("name")
             if name and isinstance(name, str):
                 slug = self._slugify(name)
@@ -182,9 +195,12 @@ class CacheService:
         if legacy_path != base_path and legacy_path.exists():
             return legacy_path
 
-        # Glob for enriched descriptors: e.g. pokeapi-10034-*.json
+        # Glob for enriched descriptors: e.g. pokeapi-10034-*.json.
+        # This only applies to Pokemon lookups where a bare numeric ID may be
+        # enriched with a name. TCG card IDs such as me3-45 must stay exact;
+        # otherwise tcg-price-me3-45 can incorrectly match tcg-price-me3-87.
         descriptor = self._build_descriptor(endpoint, params)
-        if descriptor:
+        if descriptor and self._allows_enriched_descriptor_lookup(endpoint):
             parts = descriptor.rsplit("-", 1)
             if len(parts) == 2 and parts[1].isdigit():
                 pattern = f"{parts[0]}-*.json"
@@ -193,6 +209,14 @@ class CacheService:
                     return matches[0]
 
         return None
+
+    def _allows_enriched_descriptor_lookup(self, endpoint: str) -> bool:
+        """Whether cache lookup can glob for name-enriched numeric filenames."""
+        return endpoint in {
+            "get_pokemon",
+            "pokeapi_pokemon",
+            "pokeapi_species",
+        }
     
     def get(self, endpoint: str, params: Dict[str, Any] = None) -> Optional[Dict[str, Any]]:
         """
@@ -222,8 +246,7 @@ class CacheService:
             
             # Check if expired
             cached_time = cached_data.get("cached_at", 0)
-            expiry_days = self.config.get("expiry_days", 7)
-            expiry_seconds = None if expiry_days <= 0 else expiry_days * 24 * 60 * 60
+            expiry_seconds = self._expiry_seconds(endpoint)
 
             if expiry_seconds is not None and time.time() - cached_time > expiry_seconds:
                 logger.info(f"Cache expired for {endpoint}")
@@ -262,8 +285,7 @@ class CacheService:
                 cached_data = json.load(f)
 
             cached_time = cached_data.get("cached_at", 0)
-            expiry_days = self.config.get("expiry_days", 7)
-            expiry_seconds = None if expiry_days <= 0 else expiry_days * 24 * 60 * 60
+            expiry_seconds = self._expiry_seconds(endpoint)
 
             if expiry_seconds is not None and time.time() - cached_time > expiry_seconds:
                 logger.info(f"Cache stale for {endpoint} (serving stale-while-revalidate)")
@@ -381,6 +403,7 @@ class CacheService:
         return {
             "enabled": self.config["enabled"],
             "expiry_days": self.config["expiry_days"],
+            "tcg_price_expiry_seconds": self.config["tcg_price_expiry_seconds"],
             "total_files": len(cache_files),
             "total_size_mb": round(total_size / (1024 * 1024), 2)
         }

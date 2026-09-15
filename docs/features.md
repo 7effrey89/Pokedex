@@ -10,7 +10,7 @@ All implemented features, categorized. Every new feature must be added here.
 |---------|-------------|:------------:|
 | Pokemon Grid/Index | Browse all Pokemon in a visual grid with sprites | ✅ `show_pokemon_index` |
 | Pokemon Detail View | Full stats, abilities, evolution chain, typing, flavor text | ✅ `get_pokemon_info` |
-| Pokemon Search & Filter | Search by name, type, generation, legendary/mythical status, number range, height/weight, ability | ❌ |
+| Pokemon Search & Filter | Search by name, type, generation, common/legendary/mythical classification, number range, height/weight, ability | ❌ |
 | Random Pokemon | Get a random Pokemon from the entire Pokedex | ✅ `get_random_pokemon` |
 | Random by Region | Get a random Pokemon from a specific region (Kanto, Johto, etc.) | ✅ `get_random_pokemon_from_region` |
 | Random by Type | Get a random Pokemon of a specific type | ✅ `get_random_pokemon_by_type` |
@@ -27,6 +27,8 @@ All implemented features, categorized. Every new feature must be added here.
 | TCG Database | Browse all 172+ card expansions/sets | ❌ |
 | Expansions View | Lazy-loaded set previews with card thumbnails | ❌ |
 | All Cards View | Flat grid of all cards across selected expansions | ❌ |
+| My Collection Toggle | Switch TCG Database and Trading Card Gallery between clean default cards and collection mode where owned cards stay color and unowned cards appear monochrome with editable counts | ✅ `show_my_collection` |
+| Collection Counters | Adjust owned counts inline from the TCG database and auto-save to browser storage | N/A |
 | Expansion Picker | Collapsible checklist to select which sets to load | ❌ |
 | TCG Sort Options | Sort by set, card #, Pokédex #, name, rarity, price (10 options) | ❌ |
 | TCG Gallery Sort | Sort gallery cards by 13 options including dex#, rarity, price, year | ❌ |
@@ -55,7 +57,15 @@ All implemented features, categorized. Every new feature must be added here.
 | Voice Conversation | Real-time voice chat with AI Pokédex assistant | ✅ (core) |
 | Text Chat Sidebar | Text-based chat with streaming responses | N/A |
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
-| Face Recognition | Identify people via camera | ❌ |
+| Collection Scanner | Mobile-first camera mode with crop-tolerant matching, selectable ranked previews, an Add action beneath the selected match, second-click image enlargement, scan history, and collection summary | N/A |
+| TCG Image Similarity Matching | POC-derived crop with either candidate-first Pillow scoring or exact full-catalog NumPy cosine retrieval, plus optional structured metadata and LLM reranking | N/A |
+| Scanner Pipeline Settings | Persisted scanner control for independent full-catalog NumPy search, cosine-only ranking, deterministic OCR + cosine scoring, or full OCR + cosine + LLM reranking | N/A |
+| Scanner Pipeline Debug View | Toggleable responsive trace with stages, timings, crop and LLM evidence, raw query descriptors, candidate metadata and score components, judge request context, and per-candidate reasoning | N/A |
+| TCG Image Index Pipeline | Resumable Step 04 script caches unique official card images and generates a versioned 1,432-dimensional NumPy matrix, aligned card mapping, manifest, and failure report | N/A |
+| Tyrantrum Embedding POC | Standalone browser POC linked from Image Scanner, with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
+| Face Recognition | Identify account members in real time via camera and precomputed SQLite embeddings | ❌ |
+| User Accounts & Multi-Member Profiles | SQLite-backed user accounts supporting email/password registration, multiple members with custom names, avatar photos, camera face enrollment, and active member switching | ❌ |
+| Reserved Admin Bootstrap | Every startup idempotently creates or repairs `admin@pokedex.local` from `ADMIN_PASSWORD`; Azure startup fails when the required secret is absent | N/A |
 
 ## Caching & Performance
 
@@ -65,18 +75,30 @@ All implemented features, categorized. Every new feature must be added here.
 | PokeAPI Proxy | All PokeAPI calls proxied through Flask for local caching | N/A |
 | TCG Cache | Card data cached with 7-day TTL, stale data served while refreshing | N/A |
 | Cache Management API | Enable/disable cache, set TTL, clear/invalidate entries | ❌ |
+| SQLite Data Source Foundation | Versioned normalized schema and readiness checks provide the single runtime source for stable Pokemon and TCG catalog data | N/A |
+| SQLite Hydration Pipeline | Atomic step-05 importer normalizes wrapped Pokemon/species/forms and deduplicated TCG sets/cards/latest prices; runtime reads TCG sets/cards and serves registered local card images from SQLite | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
+| Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |
+| SQLite-Backed Metadata Lookup | Pokemon search/dex metadata is built from indexed SQLite queries instead of legacy cache-file scans | N/A |
+| SQLite-Backed Pokemon Detail | Normal Pokemon, species, and evolution detail requests are reconstructed from SQLite; only explicit refresh requests call PokeAPI | N/A |
+| SQLite Type Effectiveness | All six PokeAPI damage-relation groups are normalized per type and used for weakness calculations without runtime JSON cache files | N/A |
+| TCG Price Refresh Interval | Settings slider offers 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited; the next lookup after expiration synchronously fetches and stores fresh TCG price data | N/A |
+| Persistent Asset Materialization | Pokemon artwork variants, sprites, cries, TCG card faces, set logos, and set symbols are served through Flask from persistent storage; first use stores missing catalog assets for admin inventory and later reuse | N/A |
+| Admin: Scan for New Content | Diffs the live PokeAPI species list and TCG API set/card totals against the local catalog to report new Pokemon, new TCG sets, and sets with newly released cards | ❌ |
+| Admin: Add New Content | Inserts only the missing Pokemon species/forms or TCG sets/cards discovered by the scan, reusing the importer's normalization so new rows match the existing schema | ❌ |
 
 ## UI/UX
 
 | Feature | Description | GPT Realtime |
 |---------|-------------|:------------:|
+| Sprite Style Selector | Switch Pokemon artwork across the index and active detail view, with the preference saved locally | N/A |
 | Help Overlay | Interactive guide showing available commands | ❌ |
 | Loading Indicator | Rotom loading bubble with hover tooltip describing the active request reason | N/A |
 | Voice Backend Badge | Header badge shows whether voice is using GPT Realtime or browser fallback with connection details on hover | N/A |
 | Status Indicator | Online/Offline connection status | N/A |
 | Purple Gradient Theme | TCG views use consistent purple gradient background | N/A |
 | Transparent Card Backgrounds | TCG cards display with transparent backgrounds | N/A |
+| Collection Import/Export | Save and restore the local card collection as JSON from Settings | N/A |
 
 ---
 
@@ -94,12 +116,13 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `show_tcg_card_by_index` | Show a specific card by number in the current gallery |
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
 | `show_tcg_database` | Navigate to the TCG Card Database page |
+| `show_my_collection` | Navigate to the TCG Database and open the locally saved My Collection view |
 | `compare_pokemon` | Navigate to the first named Pokemon, scroll to Compare Pokemon, and compare against the second named Pokemon |
 | `navigate_back` | Go back to the previous page in history |
 | `navigate_forward` | Go forward to the next page in history |
 | `filter_pokemon_by_type` | Filter the grid by one or more Pokemon types |
 | `filter_pokemon_by_generation` | Filter the grid by one or more generations |
-| `filter_pokemon_by_classification` | Filter the grid by legendary and/or mythical status |
+| `filter_pokemon_by_classification` | Filter the grid by common, legendary, and/or mythical classification |
 | `sort_tcg_cards` | Sort the current TCG card gallery (price, rarity, name, etc.) |
 | `sort_tcg_database` | Sort the TCG Database view (by release date, name, card count, etc.) |
 | `search_cards_by_set` | Browse all cards in a specific TCG expansion |

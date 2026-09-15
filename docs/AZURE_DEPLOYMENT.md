@@ -2,9 +2,17 @@
 
 This guide covers deploying the Pokédex app to Azure App Service using **Docker containers** and **Azure Container Registry (ACR)**. This approach is required for applications with native dependencies like `dlib` (used by face-recognition) that need custom build environments.
 
-The repository includes two deployment workflows:
-- **`.github/workflows/build-and-deploy-acr.yml`** - Docker-based deployment using Azure Container Registry (RECOMMENDED)
-- **`.github/workflows/deploy-azure-webapp.yml`** - Legacy Oryx-based deployment (kept for reference, not suitable for native dependencies)
+For the existing production environment, use the guarded repository script:
+
+```powershell
+.\deploy.ps1          # local validation
+.\deploy.ps1 -Plan    # delete-free Azure what-if
+.\deploy.ps1 -Deploy  # Bicep, ACR build, App Service restart, and health verification
+```
+
+The repository also contains `.github/workflows/build-and-deploy-acr.yml`, but
+its publish-profile deployment is not approved while SCM basic publishing
+credentials are disabled. Do not weaken that policy; use `deploy.ps1`.
 
 ## Why Docker + ACR?
 
@@ -131,7 +139,7 @@ Now create an App Service that will run your Docker container from ACR.
    | `AZURE_OPENAI_REALTIME_API_VERSION` | `2024-10-01-preview` | API version |
    | `POKEMON_API_URL` | `https://pokeapi.co/api/v2` | PokeAPI base URL |
    | `POKEMON_TCG_API_KEY` | `your-tcg-api-key` | Pokemon TCG API key |
-   | `APP_API_PASSWORD` | `YourSecurePassword` | App authentication password |
+   | `ADMIN_PASSWORD` | `YourSecurePassword` | Admin account password |
    | `USE_NATIVE_MCP` | `false` | MCP mode (false for client-side) |
    
    **Note:** For production workloads, consider adjusting `GUNICORN_WORKERS` based on your App Service tier:
@@ -198,7 +206,7 @@ az webapp config appsettings set \
     AZURE_OPENAI_REALTIME_API_VERSION="2024-10-01-preview" \
     POKEMON_API_URL="https://pokeapi.co/api/v2" \
     POKEMON_TCG_API_KEY="<your-key>" \
-    APP_API_PASSWORD="YourSecurePassword" \
+   ADMIN_PASSWORD="YourSecurePassword" \
     USE_NATIVE_MCP=false
 
 # Enable continuous deployment
@@ -208,7 +216,11 @@ az webapp deployment container config \
   --enable-cd true
 ```
 
-## 3. Configure GitHub Secrets for CI/CD
+## 3. Historical CI/CD Reference
+
+> The current production deployment keeps SCM basic publishing credentials
+> disabled. The publish-profile workflow below is retained for historical or
+> separately approved environments and is not the production deployment path.
 
 To enable automated Docker builds and deployments via GitHub Actions, you need to add these secrets to your GitHub repository.
 
@@ -246,14 +258,9 @@ To enable automated Docker builds and deployments via GitHub Actions, you need t
 7. Paste it as the value for `AZURE_WEBAPP_PUBLISH_PROFILE` secret in GitHub
 
 #### Troubleshooting:
-If Downloading Publish Profile gives you this error: **“Basic authentication is disabled”** then in the webapp go to:
-
-Webapp
-   → Settings
-       → Configuration
-           → General settings
-
-SCM Basic Auth Publishing Credentials. **Turn On**
+If downloading the publish profile reports that basic authentication is
+disabled, do not enable SCM basic authentication for the current production
+environment. Use the guarded `deploy.ps1` workflow instead.
 
 ### Example Values
 
@@ -273,7 +280,7 @@ AZURE_WEBAPP_PUBLISH_PROFILE=<publishData>...</publishData>  # Full XML
 - ✅ Rotate credentials periodically for security
 
 
-## 4. Deploy Using GitHub Actions
+## 4. Historical GitHub Actions Deployment
 
 Once your secrets are configured, GitHub Actions will automatically build and deploy your Docker container.
 
@@ -428,20 +435,20 @@ When you make code changes:
 
 ## Summary
 
-✅ **Docker-based deployment** handles native dependencies (dlib, face-recognition)  
-✅ **Azure Container Registry** stores your Docker images  
-✅ **GitHub Actions** automates build and deployment  
-✅ **Azure App Service** runs your containerized app  
-✅ **WebSockets enabled** for realtime voice features  
-✅ **Scalable and maintainable** infrastructure  
+- **Docker-based deployment** handles native dependencies (dlib, face-recognition)
+- **Azure Container Registry** stores your Docker images
+- **The guarded deployment script** automates validation, build, deployment, and verification
+- **Azure App Service** runs your containerized app
+- **WebSockets are enabled** for realtime voice features
+- **Scalable and maintainable** infrastructure
 
 For questions or issues, check:
 - GitHub Actions logs (build errors)
 - Azure App Service logs (runtime errors)
 - Azure Portal Deployment Center (deployment status)
 
-## Legacy Deployment (Not Recommended)
+## Legacy Deployment
 
-The repository still includes `.github/workflows/deploy-azure-webapp.yml` for Oryx-based deployment, but this is **not recommended for apps with native dependencies**. The Oryx build system may fail to install `dlib` and other complex dependencies.
-
-**Use the Docker + ACR approach described above for reliable deployments.**
+The former Oryx workflow is no longer present. Zip Deploy/Oryx instructions in
+historical documents are not suitable for this application or its native
+dependencies. Use the Docker + ACR deployment script described above.

@@ -830,6 +830,20 @@ class RealtimeVoiceClient {
                 return;
             }
 
+            if (toolName === 'show_my_collection') {
+                if (window.showMyCollectionCanvas) {
+                    const collectionResult = await window.showMyCollectionCanvas();
+                    result = collectionResult?.error
+                        ? { error: collectionResult.error }
+                        : { success: true, message: 'Showing My Collection in the TCG database' };
+                    success = !collectionResult?.error;
+                } else {
+                    result = { error: 'My Collection view is not available' };
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
             // Frontend-only: compare_pokemon
             if (toolName === 'compare_pokemon') {
                 if (window.comparePokemonCanvas) {

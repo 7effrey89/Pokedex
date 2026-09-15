@@ -41,15 +41,12 @@ The app features a clean, mobile-first design with:
 
 ## PokeAPI Fair Use & Caching
 
-- Every client-side Pokemon lookup now goes through the Flask proxy blueprint mounted at `/api/pokemon`. The proxy forwards to PokeAPI, writes the response through `CacheService`, and serves subsequent requests from disk so we comply with PokeAPI’s “locally cache resources whenever you request them” rule.
-- Available proxy routes (all support `?refresh=1` to bypass the cache and pull fresh data):
-   - `GET /api/pokemon/<name_or_id>` – core Pokemon payloads used by the grid, detail view, and evolution previews.
-   - `GET /api/pokemon/species/<name_or_id>` – species metadata (entries, egg groups, evolution chain pointer).
-   - `GET /api/pokemon/evolution-chain/<chain_id>` – deep evolution data.
-   - `GET /api/pokemon/type/<type_name>` – damage relations for weakness calculations.
-- The cache directory (`/cache`) keeps descriptive filenames; expiration defaults to 7 days but can be tuned in `cache/cache_config.json` or via the existing cache settings routes.
-- Force-refresh actions in the UI invalidate both the chat tool cache (`get_pokemon`) and the new proxy caches by issuing `refresh=1` requests, so the next render picks up live data without manual file edits.
-- Override the upstream host with the `POKEMON_API_URL` environment variable if you need to point at a mirror during development; the proxy uses that value for every outbound request.
+- Every client-side Pokemon lookup goes through the Flask blueprint mounted at `/api/pokemon`.
+- Normal Pokemon, species, evolution-chain, and type-effectiveness requests are reconstructed from normalized SQLite tables; they do not create runtime JSON cache files.
+- `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/evolution-chain/<chain_id>`, and `/type/<type_name>` support `?refresh=1` as the explicit PokeAPI update path. Successful refreshes are normalized back into SQLite.
+- Pokemon sprites and cries are served through materializing Flask routes and persisted under `data/assets` before reuse.
+- The `cache/` directory is a disposable response cache for external API data that is not part of the stable catalog. TCG price responses use the Settings interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited.
+- Override the upstream host with `POKEMON_API_URL` when a development mirror is required.
 
 ## Installation
 
@@ -83,14 +80,19 @@ The app features a clean, mobile-first design with:
    # Edit .env if you want to add Azure OpenAI integration in the future
    ```
 
-5. **Run the application**
+5. **Hydrate the SQLite catalog**
+   ```bash
+   python scripts/05-import_sqlite.py
+   ```
+
+6. **Run the application**
    ```bash
    python app.py
    ```
 
-6. **Open in browser**
-   - Navigate to `http://localhost:5000`
-   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5000`)
+7. **Open in browser**
+   - Navigate to `http://localhost:5050`
+   - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5050`)
 
 ## Deploying to Azure App Service
 
@@ -102,11 +104,9 @@ For reliable deployment with native dependencies like `face-recognition` (dlib, 
 
 📦 **See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md) for comprehensive step-by-step instructions**
 
-**Quick Overview:**
-1. Create Azure Container Registry (ACR)
-2. Create Azure App Service (Linux, Docker Container)
-3. Configure GitHub Secrets (ACR credentials)
-4. Push to `main` branch - GitHub Actions builds and deploys automatically
+**Current workflow:** use the repository `deploy.ps1` script to validate Bicep,
+run a delete-free Azure what-if, build the image in ACR, update the existing App
+Service, and verify health. See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md).
 
 **Why Docker?**
 - ✅ Handles native dependencies (dlib, cmake, build-essential)
@@ -114,7 +114,12 @@ For reliable deployment with native dependencies like `face-recognition` (dlib, 
 - ✅ Full control over system packages
 - ✅ Reliable and reproducible deployments
 
-### Manual Azure CLI Deployment (Alternative)
+### Historical Manual Deployment Reference
+
+> Do not use the Zip Deploy/Oryx or publish-profile instructions below for the
+> current production environment. Use `deploy.ps1 -Plan` followed by
+> `deploy.ps1 -Deploy`. The following commands are retained only for historical
+> context.
 
 If you prefer manual deployment or don't need face recognition features:
 
@@ -171,7 +176,7 @@ az webapp config appsettings set \
       POKEMON_API_URL="https://pokeapi.co/api/v2" \
       POKEMON_TCG_API_KEY="<key>" \
       TCG_PAGE_SIZE=250 \
-      APP_API_PASSWORD="PasswordExample" \
+      ADMIN_PASSWORD="PasswordExample" \
       USE_NATIVE_MCP=false \
       SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
@@ -222,7 +227,9 @@ az webapp log tail --resource-group $RESOURCE_GROUP --name $APP_NAME
 
 #### Option B — Deploy with GitHub Actions (CI/CD)
 
-The repository includes `.github/workflows/deploy-azure-webapp.yml`, which automatically packages and deploys the app to Azure App Service. The workflow includes `requirements.txt` in the deployment, and Azure's Oryx build system handles dependency installation. To enable it:
+The former Oryx workflow is no longer in the repository. The following
+publish-profile steps are historical reference only and must not be used for
+the current production environment:
 
 1. **Download your publish profile** from the Azure Portal (`App Service → Deployment → Get publish profile`).
 2. **Create the following GitHub Action repository secrets** in *Settings → Secrets and variables → Actions*:
@@ -495,7 +502,7 @@ For native MCP support where the Realtime API calls MCP servers directly:
    - Windows: `ipconfig`
    - Mac/Linux: `ifconfig` or `ip addr`
 3. **Access from mobile**
-   - Navigate to `http://YOUR_IP:5000` on your mobile device
+   - Navigate to `http://YOUR_IP:5050` on your mobile device
 4. **Add to Home Screen** (iOS/Android)
    - Tap the share/menu button
    - Select "Add to Home Screen"
