@@ -985,6 +985,15 @@ class PokemonDetailView {
                 `;
             }
         }
+
+        const classification = species.classification
+            || (species.is_mythical ? 'mythical' : species.is_legendary ? 'legendary' : 'common');
+        detailsHTML += `
+            <div class="detail-item">
+                <span class="detail-label">Classification</span>
+                <span class="detail-value pokemon-classification pokemon-classification-${classification}">${this.formatDisplayName(classification)}</span>
+            </div>
+        `;
         
         // Egg Groups
         if (species.egg_groups && species.egg_groups.length > 0) {

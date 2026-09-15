@@ -125,6 +125,11 @@ class SqlitePokemonRepository:
             if row is None:
                 return None
             species_id = int(row["id"])
+            classification = (
+                "mythical" if bool(row["is_mythical"])
+                else "legendary" if bool(row["is_legendary"])
+                else "common"
+            )
             flavor = [
                 {
                     "flavor_text": item["text"],
@@ -164,6 +169,7 @@ class SqlitePokemonRepository:
                 "is_baby": bool(row["is_baby"]),
                 "is_legendary": bool(row["is_legendary"]),
                 "is_mythical": bool(row["is_mythical"]),
+                "classification": classification,
                 "growth_rate": _resource(row["growth_rate_name"], "growth-rate"),
                 "habitat": _resource(row["habitat_name"], "pokemon-habitat"),
                 "egg_groups": [],

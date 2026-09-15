@@ -317,7 +317,7 @@ TOOL_DEFINITIONS = [
     },
     {
         "name": "filter_pokemon_by_classification",
-        "description": "Filter the Pokemon grid to show legendary and/or mythical Pokemon. Navigates to the grid first if not already there. Use when user says 'show legendary Pokemon', 'mythical Pokemon only', or 'show legendary and mythical Pokemon'.",
+        "description": "Filter the Pokemon grid by common, legendary, and/or mythical classification. Navigates to the grid first if not already there. Use when user asks to show common, legendary, or mythical Pokemon.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -325,9 +325,9 @@ TOOL_DEFINITIONS = [
                     "type": "array",
                     "items": {
                         "type": "string",
-                        "enum": ["legendary", "mythical"]
+                        "enum": ["common", "legendary", "mythical"]
                     },
-                    "description": "One or more classifications to filter by: legendary, mythical, or both"
+                    "description": "One or more classifications to filter by: common, legendary, mythical, or a combination"
                 }
             },
             "required": ["classifications"]

@@ -8570,7 +8570,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         (classifications || []).forEach(classification => {
             const normalized = String(classification).toLowerCase();
-            if (!['legendary', 'mythical'].includes(normalized)) return;
+            if (!['common', 'legendary', 'mythical'].includes(normalized)) return;
             sv.selectedClasses.add(normalized);
             const chip = sv.classGrid?.querySelector(`[data-class="${normalized}"]`);
             if (chip) chip.classList.add('selected');
