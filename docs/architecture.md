@@ -74,6 +74,14 @@ download, validate, persist, and catalog the registered source before responding
 Frontend TCG views must not prefer upstream image URLs when a stable card or set ID
 is available.
 
+## SQLite Journaling
+
+Local development uses SQLite WAL mode. Azure App Service stores both databases
+under the network-mounted `/home/data` path, where WAL shared-memory semantics are
+not reliable. App Service connections therefore use SQLite's DELETE rollback
+journal mode. The container remains limited to one Gunicorn worker so catalog asset
+materialization and account writes have a single process coordinating them.
+
 ---
 
 ## Progressive Rendering

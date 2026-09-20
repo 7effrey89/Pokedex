@@ -1249,9 +1249,7 @@ class PokemonChatApp {
             if (!response.ok) throw new Error(data.error || 'Failed to switch account');
             this.showToast('Account Switched', `Logged into "${data.account?.display_name}".`, 'success');
             await this.loadCurrentAccount(userId);
-            if (this.toolsModalOverlay?.classList.contains('active')) {
-                await this.loadAdminStatus();
-            }
+            await this.loadAdminStatus();
             this.closeAccountModal();
         } catch (error) {
             this.showToast('Login Failed', error.message, 'error');
@@ -1268,9 +1266,7 @@ class PokemonChatApp {
             }
             this.renderUserAccountHeaderAndDropdown(data);
             this.renderAccountModalData(data);
-            if (this.toolsModalOverlay?.classList.contains('active')) {
-                await this.loadAdminStatus();
-            }
+            await this.loadAdminStatus();
             this.showToast('Logged Out', 'You have been signed out.', 'info');
             this.openAccountModal('switch');
         } catch (error) {
@@ -1320,9 +1316,7 @@ class PokemonChatApp {
 
             this.showToast('Welcome Back', `Logged in as "${data.account?.display_name}".`, 'success');
             await this.loadCurrentAccount(data.account?.id);
-            if (this.toolsModalOverlay?.classList.contains('active')) {
-                await this.loadAdminStatus();
-            }
+            await this.loadAdminStatus();
             this.closeAccountModal();
         } catch (error) {
             if (statusMsg) {
@@ -5066,8 +5060,10 @@ class PokemonChatApp {
                 }
                 if (job.status !== 'running') {
                     clearInterval(this._adminIngestTimer);
-                    if (text) text.textContent = job.message;
-                    this.setAdminStatusText(job.message, job.errors.length > 0);
+                    if (text) {
+                        text.textContent = job.message;
+                        text.style.color = job.errors.length > 0 ? '#c62828' : '';
+                    }
                     await this.loadAdminStatus();
                     await this.startAdminContentScan();
                 }

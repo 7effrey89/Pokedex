@@ -494,14 +494,15 @@ class AssetManager:
                      width, height, asset["id"]),
                 )
             else:
+                # set_asset has no width/height columns (logos/symbols aren't card-sized assets).
                 connection.execute(
                     """
                     UPDATE set_asset
-                    SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ?
+                    SET local_path = ?, media_type = ?, sha256 = ?
                     WHERE id = ?
                     """,
                     (self.paths.relative_to_root(destination), media_type, sha256,
-                     width, height, asset["id"]),
+                     asset["id"]),
                 )
             connection.commit()
         finally:
