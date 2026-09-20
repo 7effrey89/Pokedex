@@ -5,11 +5,12 @@ import tempfile
 import unittest
 from contextlib import closing
 from pathlib import Path
+from unittest.mock import patch
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.db.database import SCHEMA_VERSION, SqliteDatabase  # noqa: E402
+from src.db.database import SCHEMA_VERSION, SqliteDatabase, UsersDatabase  # noqa: E402
 from src.services.cache_service import CacheService  # noqa: E402
 
 
@@ -44,6 +45,21 @@ class SqliteDatabaseTests(unittest.TestCase):
                     connection.execute(
                         "INSERT INTO pokemon (id, species_id, name, display_order) VALUES (1, 999, 'test', 1)"
                     )
+
+    def test_azure_uses_rollback_journals_for_network_storage(self):
+        with tempfile.TemporaryDirectory() as temp_dir, patch.dict(
+            "os.environ", {"WEBSITE_SITE_NAME": "app-pokedex-test"}
+        ):
+            catalog = SqliteDatabase(Path(temp_dir) / "pokedex.sqlite3")
+            users = UsersDatabase(Path(temp_dir) / "users.sqlite3")
+
+            catalog.initialize()
+            users.initialize()
+
+            with closing(catalog.connect()) as connection:
+                self.assertEqual(connection.execute("PRAGMA journal_mode").fetchone()[0], "delete")
+            with closing(users.connect()) as connection:
+                self.assertEqual(connection.execute("PRAGMA journal_mode").fetchone()[0], "delete")
 
     def test_data_source_mode_is_persisted_and_validated(self):
         with tempfile.TemporaryDirectory() as temp_dir:

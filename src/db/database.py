@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sqlite3
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -18,6 +19,11 @@ SCHEMA_PATH = SCHEMA_DIR / "001.sql"
 USERS_SCHEMA_PATH = SCHEMA_DIR / "users-001.sql"
 DEFAULT_DATABASE_PATH = get_storage_paths().catalog_database
 DEFAULT_USERS_DATABASE_PATH = get_storage_paths().users_database
+
+
+def _write_journal_mode() -> str:
+    """WAL is local-only because App Service persistent storage is network-mounted."""
+    return "DELETE" if os.environ.get("WEBSITE_SITE_NAME") else "WAL"
 
 
 def apply_catalog_schema(connection: sqlite3.Connection) -> None:
@@ -68,7 +74,7 @@ class SqliteDatabase:
         connection.execute("PRAGMA foreign_keys = ON")
         connection.execute("PRAGMA busy_timeout = 5000")
         if not read_only:
-            connection.execute("PRAGMA journal_mode = WAL")
+            connection.execute(f"PRAGMA journal_mode = {_write_journal_mode()}")
         return connection
 
     def initialize(self) -> None:
@@ -141,7 +147,7 @@ class UsersDatabase:
         connection.row_factory = sqlite3.Row
         connection.execute("PRAGMA foreign_keys = ON")
         connection.execute("PRAGMA busy_timeout = 5000")
-        connection.execute("PRAGMA journal_mode = WAL")
+        connection.execute(f"PRAGMA journal_mode = {_write_journal_mode()}")
         return connection
 
     def initialize(self) -> None:
