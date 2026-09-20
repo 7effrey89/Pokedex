@@ -3714,36 +3714,6 @@
     }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .example-chip,
-    .pokemon-display {
-        background: #2d2d2d;
-        color: var(--text-primary);
-    }
-
-    .message-input {
-        background: #3a3a3a;
-        color: white;
-        border-color: #404040;
-    }
-
-    .quick-action-btn {
-        background: #3a3a3a;
-        color: white;
-        border-color: #404040;
-    }
-
-    .tools-modal {
-        background: #2d2d2d;
-    }
-
-    .tool-item {
-        background: #3a3a3a;
-        border-color: #404040;
-    }
-}
-
 /* Dropdown Menu */
 .dropdown-menu-container {
     position: relative;
