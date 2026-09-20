@@ -3716,15 +3716,6 @@
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #1a1a1a;
-        --chat-bg: #2d2d2d;
-        --assistant-bubble: #3a3a3a;
-        --text-primary: #ffffff;
-        --text-secondary: #b0b0b0;
-        --border-color: #404040;
-    }
-
     .example-chip,
     .pokemon-display {
         background: #2d2d2d;
@@ -4836,4 +4827,3 @@
         display: none;
     }
 }
-
