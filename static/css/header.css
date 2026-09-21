@@ -565,3 +565,107 @@
     background: #005a9e;
     border-color: #004578;
 }
+
+/* Mobile: compact the header so it doesn't dominate the viewport */
+@media (max-width: 600px) {
+    .app-header {
+        padding: 0.5rem 0.6rem 0.4rem;
+    }
+
+    .header-content {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pokedex-lights {
+        gap: 0.5rem;
+    }
+
+    .power-light {
+        width: 36px;
+        height: 36px;
+        border-width: 3px;
+    }
+
+    .indicator-lights {
+        display: none;
+    }
+
+    .status-indicator {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+        gap: 0.3rem;
+        margin-top: 0;
+    }
+
+    .header-spacer {
+        display: none;
+    }
+
+    .header-controls {
+        flex: 1;
+        min-width: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.4rem;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+    }
+
+    .header-actions {
+        gap: 0.4rem;
+    }
+
+    .voice-button,
+    .camera-button {
+        padding: 0.4rem;
+        gap: 0;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+    }
+
+    .voice-button .voice-text,
+    .camera-button .camera-text {
+        display: none;
+    }
+
+    .voice-button svg,
+    .camera-button svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .user-profile-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 380px) {
+    .status-indicator .status-text {
+        display: none;
+    }
+
+    .status-indicator {
+        padding: 0.3rem;
+    }
+
+    .logo h1 {
+        font-size: 0.85rem;
+    }
+
+    .header-content {
+        gap: 0.3rem;
+    }
+
+    .header-actions {
+        gap: 0.3rem;
+    }
+}

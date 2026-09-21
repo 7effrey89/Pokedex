@@ -17,6 +17,13 @@
     gap: 0.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.footer-actions::-webkit-scrollbar {
+    display: none;
 }
 
 .footer-btn {
@@ -267,5 +274,49 @@
 
     .footer-random-img {
         width: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-actions {
+        gap: 0.1rem;
+        justify-content: flex-start;
+    }
+
+    .footer-btn {
+        min-width: 42px;
+        padding: 0.35rem 0.25rem;
+        flex-shrink: 0;
+    }
+
+    .footer-btn-icon-only,
+    .footer-btn-image-only {
+        padding: 0.2rem;
+    }
+
+    .footer-btn-icon-only .footer-btn-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer-setting-icon,
+    .footer-tcg-icon {
+        width: 34px;
+    }
+
+    .footer-help-icon {
+        width: 32px;
+    }
+
+    .footer-index-icon {
+        width: 30px;
+    }
+
+    .footer-btn svg.footer-btn-icon-simple {
+        width: 34px;
+    }
+
+    .footer-random-img {
+        width: 42px;
     }
 }
