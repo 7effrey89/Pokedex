@@ -230,15 +230,19 @@
 }
 
 @media (max-width: 768px) {
+    .pokedex-footer {
+        padding: 0.5rem 0.5rem;
+    }
+
     .footer-actions {
-        gap: 0.15rem;
-        justify-content: flex-start;
+        gap: 0.1rem;
+        justify-content: space-around;
     }
 
     .footer-btn {
-        min-width: 44px;
-        padding: 0.35rem 0.3rem;
-        font-size: 0.65rem;
+        min-width: 36px;
+        padding: 0.3rem 0.15rem;
+        font-size: 0.6rem;
         flex-shrink: 0;
     }
     
@@ -248,80 +252,32 @@
     }
     
     .footer-btn span {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
 
     .footer-btn-icon-only,
     .footer-btn-image-only {
-        padding: 0.2rem;
+        padding: 0.1rem;
     }
     
     .footer-btn-icon-only .footer-btn-icon {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
     }
 
     .footer-setting-icon,
-    .footer-tcg-icon {
-        width: 36px;
-    }
-
-    .footer-help-icon {
-        width: 34px;
-    }
-
+    .footer-tcg-icon,
+    .footer-help-icon,
     .footer-index-icon {
-        width: 32px;
+        width: 26px;
     }
 
     .footer-btn svg.footer-btn-icon-simple {
-        width: 34px;
+        width: 26px;
         height: auto;
     }
 
     .footer-random-img {
-        width: 44px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-actions {
-        gap: 0.1rem;
-    }
-
-    .footer-btn {
-        min-width: 38px;
-        padding: 0.3rem 0.2rem;
-    }
-
-    .footer-btn-icon-only,
-    .footer-btn-image-only {
-        padding: 0.15rem;
-    }
-
-    .footer-btn-icon-only .footer-btn-icon {
-        width: 26px;
-        height: 26px;
-    }
-
-    .footer-setting-icon,
-    .footer-tcg-icon {
-        width: 32px;
-    }
-
-    .footer-help-icon {
         width: 30px;
-    }
-
-    .footer-index-icon {
-        width: 28px;
-    }
-
-    .footer-btn svg.footer-btn-icon-simple {
-        width: 30px;
-    }
-
-    .footer-random-img {
-        width: 42px;
     }
 }
