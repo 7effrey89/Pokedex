@@ -71,6 +71,8 @@ TCG card faces, set logos, and set symbols use the same rule. Browser views deri
 `/api/tcg/card-image/<card-id>/<kind>` and `/api/tcg/set-image/<set-id>/<kind>`
 URLs from stable catalog IDs. Those endpoints serve an existing local file or
 download, validate, persist, and catalog the registered source before responding.
+Existing card files are revalidated before serving; corrupt files trigger a fresh
+download or fall back to the other registered card size in preference order.
 Frontend TCG views must not prefer upstream image URLs when a stable card or set ID
 is available.
 

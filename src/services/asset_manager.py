@@ -310,10 +310,10 @@ class AssetManager:
                 """
                 SELECT id, card_id, asset_kind, source_url, local_path, media_type
                 FROM card_asset
-                WHERE card_id = ? AND asset_kind IN (?, 'large')
+                WHERE card_id = ? AND asset_kind IN ('small', 'large')
                 ORDER BY CASE asset_kind WHEN ? THEN 0 ELSE 1 END
                 """,
-                (card_id, asset_kind, asset_kind),
+                (card_id, asset_kind),
             ).fetchall()
         finally:
             connection.close()
@@ -341,7 +341,9 @@ class AssetManager:
             if row["local_path"]:
                 stored = self.paths.resolve_stored(row["local_path"])
                 if stored is not None:
-                    return stored, row["media_type"] or "image/png"
+                    metadata = _image_metadata(stored)
+                    if metadata is not None:
+                        return stored, metadata[1] or row["media_type"] or "image/png"
             if not row["source_url"]:
                 continue
             asset = {

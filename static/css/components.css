@@ -3714,45 +3714,6 @@
     }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #1a1a1a;
-        --chat-bg: #2d2d2d;
-        --assistant-bubble: #3a3a3a;
-        --text-primary: #ffffff;
-        --text-secondary: #b0b0b0;
-        --border-color: #404040;
-    }
-
-    .example-chip,
-    .pokemon-display {
-        background: #2d2d2d;
-        color: var(--text-primary);
-    }
-
-    .message-input {
-        background: #3a3a3a;
-        color: white;
-        border-color: #404040;
-    }
-
-    .quick-action-btn {
-        background: #3a3a3a;
-        color: white;
-        border-color: #404040;
-    }
-
-    .tools-modal {
-        background: #2d2d2d;
-    }
-
-    .tool-item {
-        background: #3a3a3a;
-        border-color: #404040;
-    }
-}
-
 /* Dropdown Menu */
 .dropdown-menu-container {
     position: relative;
@@ -4836,4 +4797,3 @@
         display: none;
     }
 }
-
