@@ -231,13 +231,15 @@
 
 @media (max-width: 768px) {
     .footer-actions {
-        gap: 0.25rem;
+        gap: 0.15rem;
+        justify-content: flex-start;
     }
-    
+
     .footer-btn {
-        min-width: 60px;
-        padding: 0.5rem 0.5rem;
-        font-size: 0.7rem;
+        min-width: 44px;
+        padding: 0.35rem 0.3rem;
+        font-size: 0.65rem;
+        flex-shrink: 0;
     }
     
     .footer-btn svg {
@@ -246,70 +248,73 @@
     }
     
     .footer-btn span {
-        font-size: 0.65rem;
-    }
-
-    .footer-btn-icon-only,
-    .footer-btn-image-only {
-        padding: 0.35rem;
-    }
-    
-    .footer-btn-icon-only .footer-btn-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .footer-setting-icon {
-        width: 68px;
-    }
-
-    .footer-help-icon {
-        width: 58px;
-    }
-
-    .footer-btn svg.footer-btn-icon-simple {
-        width: 60px;
-        height: auto;
-    }
-
-    .footer-random-img {
-        width: 75px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-actions {
-        gap: 0.1rem;
-        justify-content: flex-start;
-    }
-
-    .footer-btn {
-        min-width: 42px;
-        padding: 0.35rem 0.25rem;
-        flex-shrink: 0;
+        font-size: 0.6rem;
     }
 
     .footer-btn-icon-only,
     .footer-btn-image-only {
         padding: 0.2rem;
     }
-
+    
     .footer-btn-icon-only .footer-btn-icon {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
     }
 
     .footer-setting-icon,
     .footer-tcg-icon {
-        width: 34px;
+        width: 36px;
     }
 
     .footer-help-icon {
-        width: 32px;
+        width: 34px;
     }
 
     .footer-index-icon {
+        width: 32px;
+    }
+
+    .footer-btn svg.footer-btn-icon-simple {
+        width: 34px;
+        height: auto;
+    }
+
+    .footer-random-img {
+        width: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-actions {
+        gap: 0.1rem;
+    }
+
+    .footer-btn {
+        min-width: 38px;
+        padding: 0.3rem 0.2rem;
+    }
+
+    .footer-btn-icon-only,
+    .footer-btn-image-only {
+        padding: 0.15rem;
+    }
+
+    .footer-btn-icon-only .footer-btn-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .footer-setting-icon,
+    .footer-tcg-icon {
+        width: 32px;
+    }
+
+    .footer-help-icon {
         width: 30px;
+    }
+
+    .footer-index-icon {
+        width: 28px;
     }
 
     .footer-btn svg.footer-btn-icon-simple {
