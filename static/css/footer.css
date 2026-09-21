@@ -19,11 +19,17 @@
     margin: 0 auto;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
 .footer-actions::-webkit-scrollbar {
-    display: none;
+    height: 4px;
+}
+
+.footer-actions::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
 }
 
 .footer-btn {
@@ -236,11 +242,14 @@
 
     .footer-actions {
         gap: 0.1rem;
-        justify-content: space-around;
+        /* flex-start (not space-around/center) keeps the first button pinned to
+           the scroll origin, so overflow scrolling never hides content off the
+           left edge on the rare viewport narrower than ~347px. */
+        justify-content: flex-start;
     }
 
     .footer-btn {
-        min-width: 36px;
+        min-width: 40px;
         padding: 0.3rem 0.15rem;
         font-size: 0.6rem;
         flex-shrink: 0;
