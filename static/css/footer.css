@@ -231,7 +231,9 @@
         gap: 0.2rem;
         /* flex-start (not space-around/center) keeps the first button pinned to
            the scroll origin, so overflow scrolling never hides content off the
-           left edge on the rare viewport narrower than ~358px. */
+           left edge on the rare viewport narrower than ~358px (8 buttons x
+           40px min-width + 7 x 0.2rem gaps + 0.5rem x 2 footer padding,
+           in 16px-rem px: 8x40 + 7x3.2 + 2x8 = 320 + 22.4 + 16 = ~358px). */
         justify-content: flex-start;
         overflow-x: auto;
         /* Explicitly hidden (not the default "visible") so the browser never
@@ -290,7 +292,10 @@
        since these PNGs have a lot of transparent padding around the visible
        glyph (the real artwork is much smaller than the image canvas). Rather
        than continuing to chase a blur value that still reads as an oversized
-       halo at this icon size, drop the shadow entirely on mobile. */
+       halo at this icon size, drop the shadow entirely on mobile.
+       .footer-index-icon is intentionally excluded here: its base rule only
+       applies a brightness/invert/opacity tint filter (no drop-shadow), so
+       resetting it to "none" would strip that tint instead of a shadow. */
     .footer-setting-icon,
     .footer-tcg-icon,
     .footer-random-img,
