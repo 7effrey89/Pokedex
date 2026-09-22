@@ -253,11 +253,10 @@
     }
 
     .footer-btn {
-        /* 40px is intentionally below the 44px WCAG touch-target guideline:
-           at this breakpoint 8 buttons must share the width of small phone
-           screens, and the horizontal overflow-x scroll above is the
-           fallback for viewports too narrow to fit 44px targets. */
-        min-width: 40px;
+        /* Since .footer-actions now scrolls horizontally (overflow-x: auto
+           above) when content is too wide, buttons no longer need to shrink
+           below the 44px WCAG touch-target guideline to all fit on screen. */
+        min-width: 44px;
         padding: 0.3rem 0.15rem;
         font-size: 0.6rem;
         flex-shrink: 0;
@@ -291,8 +290,8 @@
 
     /* Shadows removed on mobile: the desktop drop-shadow blur is sized for
        much larger icons and doesn't scale down cleanly to these smaller
-       ones. .footer-index-icon (below) is left out of this reset because
-       its filter is only a color tint, not a shadow. */
+       ones. .footer-index-icon is intentionally excluded from this reset:
+       its filter (above) is only a color tint, not a shadow. */
     .footer-setting-icon,
     .footer-tcg-icon,
     .footer-random-img,
