@@ -229,12 +229,9 @@
 
     .footer-actions {
         gap: 0.2rem;
-        /* flex-start (not space-around/center) keeps the first button pinned to
-           the scroll origin, so overflow scrolling never hides content off the
-           left edge if total button width ever exceeds the viewport (e.g. on
-           very narrow phones, or if a button is added/removed later): sum of
-           each button's min-width + inter-button gaps + left/right footer
-           padding. Recompute if those values change. */
+        /* flex-start (not space-around/center) keeps the first button pinned
+           to the scroll origin, so overflow-x scrolling never hides content
+           off the left edge if total button width ever exceeds the viewport. */
         justify-content: flex-start;
         overflow-x: auto;
         /* Explicitly hidden (not the default "visible") so the browser never
@@ -288,17 +285,10 @@
         width: 26px;
     }
 
-    /* The desktop drop-shadow filters (see base rules above/in tcg.css) are
-       sized for much larger icons and cannot be scaled down proportionally,
-       since these PNGs have a lot of transparent padding around the visible
-       glyph (the real artwork is much smaller than the image canvas). Rather
-       than continuing to chase a blur value that still reads as an oversized
-       halo at this icon size, drop the shadow entirely on mobile.
-       Note: unlike the width rule above, .footer-index-icon is intentionally
-       left out of this filter reset (it applies only to filter: none, not
-       to sizing): its base rule uses only a brightness/invert/opacity tint
-       filter (no drop-shadow), so resetting it to "none" here would strip
-       that tint instead of a shadow. */
+    /* Shadows removed on mobile: the desktop drop-shadow blur is sized for
+       much larger icons and doesn't scale down cleanly to these smaller
+       ones. .footer-index-icon is excluded because its filter is a color
+       tint, not a shadow. */
     .footer-setting-icon,
     .footer-tcg-icon,
     .footer-random-img,
