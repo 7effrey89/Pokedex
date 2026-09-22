@@ -223,14 +223,45 @@
 }
 
 @media (max-width: 768px) {
-    .footer-actions {
-        gap: 0.25rem;
+    .pokedex-footer {
+        padding: 0.5rem;
     }
-    
+
+    .footer-actions {
+        gap: 0.2rem;
+        /* flex-start (not space-around/center) keeps the first button pinned
+           to the scroll origin, so overflow-x scrolling never hides content
+           off the left edge if total button width ever exceeds the viewport. */
+        justify-content: flex-start;
+        overflow-x: auto;
+        /* Explicitly hidden (not the default "visible") so the browser never
+           promotes this axis to "auto" as a side effect of overflow-x: auto,
+           which was intermittently drawing an unwanted vertical scrollbar. */
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+    }
+
+    .footer-actions::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .footer-actions::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 2px;
+    }
+
     .footer-btn {
-        min-width: 60px;
-        padding: 0.5rem 0.5rem;
-        font-size: 0.7rem;
+        /* Since .footer-actions now scrolls horizontally (overflow-x: auto
+           above) when content is too wide, buttons no longer need to shrink
+           below the 44px WCAG touch-target guideline (both dimensions) to
+           all fit on screen. */
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0.3rem 0.15rem;
+        font-size: 0.6rem;
+        flex-shrink: 0;
     }
     
     .footer-btn svg {
@@ -239,33 +270,45 @@
     }
     
     .footer-btn span {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
     }
 
     .footer-btn-icon-only,
     .footer-btn-image-only {
-        padding: 0.35rem;
+        padding: 0.1rem;
     }
     
     .footer-btn-icon-only .footer-btn-icon {
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
     }
 
-    .footer-setting-icon {
-        width: 68px;
+    .footer-setting-icon,
+    .footer-tcg-icon,
+    .footer-help-icon,
+    .footer-index-icon {
+        /* Sizing only; filter handling for these classes is separate below. */
+        width: 26px;
     }
 
+    /* Reset the desktop drop-shadow to none on mobile: that blur is sized for
+       much larger icons and doesn't scale down cleanly to these smaller
+       ones. .footer-index-icon is NOT in this selector list on purpose: its
+       base (non-media-query) rule earlier in this file uses a color tint
+       filter, not a drop-shadow, so it must not be reset here. */
+    .footer-setting-icon,
+    .footer-tcg-icon,
+    .footer-random-img,
     .footer-help-icon {
-        width: 58px;
+        filter: none;
     }
 
     .footer-btn svg.footer-btn-icon-simple {
-        width: 60px;
+        width: 26px;
         height: auto;
     }
 
     .footer-random-img {
-        width: 75px;
+        width: 30px;
     }
 }
