@@ -255,8 +255,10 @@
     .footer-btn {
         /* Since .footer-actions now scrolls horizontally (overflow-x: auto
            above) when content is too wide, buttons no longer need to shrink
-           below the 44px WCAG touch-target guideline to all fit on screen. */
+           below the 44px WCAG touch-target guideline (both dimensions) to
+           all fit on screen. */
         min-width: 44px;
+        min-height: 44px;
         padding: 0.3rem 0.15rem;
         font-size: 0.6rem;
         flex-shrink: 0;
@@ -291,7 +293,8 @@
     /* Shadows removed on mobile: the desktop drop-shadow blur is sized for
        much larger icons and doesn't scale down cleanly to these smaller
        ones. .footer-index-icon is intentionally excluded from this reset:
-       its filter (above) is only a color tint, not a shadow. */
+       its base (non-media-query) rule earlier in this file applies only a
+       color tint filter, not a drop-shadow. */
     .footer-setting-icon,
     .footer-tcg-icon,
     .footer-random-img,
