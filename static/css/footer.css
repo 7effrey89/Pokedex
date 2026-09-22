@@ -287,14 +287,15 @@
     .footer-tcg-icon,
     .footer-help-icon,
     .footer-index-icon {
+        /* Sizing only; filter handling for these classes is separate below. */
         width: 26px;
     }
 
-    /* Shadows removed on mobile: the desktop drop-shadow blur is sized for
+    /* Reset the desktop drop-shadow to none on mobile: that blur is sized for
        much larger icons and doesn't scale down cleanly to these smaller
-       ones. .footer-index-icon is intentionally excluded from this reset:
-       its base (non-media-query) rule earlier in this file applies only a
-       color tint filter, not a drop-shadow. */
+       ones. .footer-index-icon is NOT in this selector list on purpose: its
+       base (non-media-query) rule earlier in this file uses a color tint
+       filter, not a drop-shadow, so it must not be reset here. */
     .footer-setting-icon,
     .footer-tcg-icon,
     .footer-random-img,
