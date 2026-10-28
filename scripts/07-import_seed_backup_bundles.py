@@ -20,7 +20,8 @@ def main() -> None:
     parser.add_argument("--components", nargs="+", choices=COMPONENT_LABELS,
                         help="Select newest category ZIPs; accounts require explicit selection")
     parser.add_argument("--target-root", type=Path, default=get_storage_paths().data_root)
-    parser.add_argument("--apply", action="store_true", help="Actually replace target data; default is verification only")
+    parser.add_argument("--apply", action="store_true",
+                        help="Merge catalog rows and install selected files; default is verification only")
     parser.add_argument("--server-stopped", action="store_true", help="Confirm the target Flask/Gunicorn server is stopped")
     args = parser.parse_args()
     if args.bundles and args.components:
@@ -32,6 +33,10 @@ def main() -> None:
     for bundle in bundles:
         manifest = service.verify_backup(bundle)
         print(f"Verified {bundle.name}: {', '.join(COMPONENT_LABELS[key] for key in manifest['components'])}")
+        if "catalog_database" in manifest["components"]:
+            print("  Catalog: SQL merge, newer records win; existing settings and valid local assets are preserved.")
+        if "users_database" in manifest["components"]:
+            print("  Accounts: replaces the separate accounts database (not merged).")
     print(f"Target: {args.target_root.resolve()}")
     if not args.apply:
         print("Verification only. No target files changed. Use --apply --server-stopped to restore.")

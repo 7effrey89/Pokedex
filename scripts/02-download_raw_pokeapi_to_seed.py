@@ -156,7 +156,7 @@ def preload_pokemon_entry(
         )
         statuses["pokemon"] = state
 
-    if "species" in resources or "evolution" in resources:
+    if "pokemon" in resources or "species" in resources or "evolution" in resources:
         state, species_data = ensure_cached(
             session,
             "pokeapi_species",
@@ -165,6 +165,18 @@ def preload_pokemon_entry(
             refresh,
         )
         statuses["species"] = state
+
+    if "pokemon" in resources and species_data:
+        for variety in species_data.get("varieties", []):
+            if variety.get("is_default"):
+                continue
+            reference = variety.get("pokemon") or {}
+            form = str(reference.get("url") or "").rstrip("/").rsplit("/", 1)[-1] or reference.get("name")
+            if not form:
+                raise ValueError(f"Species {number} has a variety without a Pokemon reference")
+            state, _ = ensure_cached(session, "pokeapi_pokemon", {"pokemon": str(form)},
+                                     f"pokemon/{form}", refresh)
+            print(f"  Form {form}: {state}")
 
     if "evolution" in resources:
         chain_id = extract_chain_id(species_data)

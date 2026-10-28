@@ -427,10 +427,11 @@ class SqliteImporter:
         for species in self._species_payloads:
             varieties.extend(species.get("varieties", []))
         missing_varieties = []
+        available_ids = {pokemon["id"] for pokemon in payloads.values() if isinstance(pokemon.get("id"), int)}
         for variety in varieties:
             pokemon_ref = variety.get("pokemon", {})
             name = str(pokemon_ref.get("name", "")).casefold()
-            if name and name not in payloads:
+            if name and name not in payloads and resource_id(pokemon_ref) not in available_ids:
                 missing_varieties.append((name, pokemon_ref.get("url") or f"{POKEAPI_ROOT}/pokemon/{name}"))
         self.progress(f"  Fetching {len(missing_varieties):,} forms missing from seed files")
         for position, (name, url) in enumerate(missing_varieties, start=1):

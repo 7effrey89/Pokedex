@@ -76,10 +76,11 @@ All implemented features, categorized. Every new feature must be added here.
 | TCG Catalog Storage | Card and set metadata are stored in SQLite; price expiry triggers a synchronous upstream refresh and persists the result | N/A |
 | Database Refresh Policy API | Inspect SQLite catalog status and persist the TCG price refresh interval without deleting catalog data | N/A |
 | SQLite Data Source Foundation | Versioned normalized schema and readiness checks provide the single runtime source for stable Pokemon and TCG catalog data | N/A |
-| SQLite Hydration Pipeline | Atomic seed catalog importer normalizes wrapped Pokemon/species/forms and deduplicated TCG sets/cards/latest prices before explicit ZIP installation | N/A |
-| Seed Preparation and Category ZIPs | API data and media are prepared under seeds, then packaged by the admin backup writer into category-named ZIPs for UI or CLI restore | N/A |
-| Seed Workspace Snapshot | Checksummed archive of raw and prepared seed contents, excluding redundant category ZIPs and private accounts unless opted in | N/A |
+| SQLite Hydration Pipeline | Raw seeds are validated in disposable storage and explicitly SQL-merged into the runtime catalog, without a seed database or catalog ZIP | N/A |
+| Seed Preparation and Category ZIPs | Raw API files and an asset manifest drive database-free media/embedding preparation and admin-compatible category ZIPs; optional accounts use transient snapshots | N/A |
+| Seed Workspace Snapshot | Checksummed raw data, asset manifest, media, and embeddings archive excludes derived SQLite artifacts and category ZIPs; legacy accounts require opt-in | N/A |
 | Shared Backup and Restore | Catalog, explicit accounts/collections, Pokemon artwork, cries, TCG card/set images, and TCG image embeddings share checksummed ZIP export/import with portable asset registrations | N/A |
+| Non-Destructive Catalog Import | UI/CLI imports merge catalog rows transactionally with newer-wins metadata/prices, ID remapping, and preserved local settings/assets; embeddings-only imports never open databases | N/A |
 | TCG Image Embeddings Backup | Settings exports/restores embeddings as one validated category and reloads the scanner index after restore | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
 | Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |

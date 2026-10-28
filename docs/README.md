@@ -82,12 +82,12 @@ The app features a clean, mobile-first design with:
 
 5. **Hydrate the SQLite catalog**
    ```bash
-   python scripts/03-build_seed_catalog.py
-   python scripts/06-create_seed_backup_bundles.py --components catalog_database
-   python scripts/07-import_seed_backup_bundles.py --components catalog_database --apply --server-stopped
+   python scripts/03-import_seed_catalog.py
+   python scripts/03-import_seed_catalog.py --apply --server-stopped
    ```
 
-   Stop the server before applying a restore. Preparation stays under `seeds/`;
+   Stop the server before applying. Validation uses disposable storage; applying
+   SQL-merges raw seeds into the runtime catalog, never a seed database.
    [the pipeline guide](../scripts/README.md) covers assets, embeddings, accounts,
    category ZIPs, and verification-only imports.
 

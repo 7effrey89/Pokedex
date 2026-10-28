@@ -1094,7 +1094,7 @@
                         <div class="admin-backup-section">
                             <h4 class="admin-subheading">Backup and Restore</h4>
                             <p class="section-description">
-                                Backups are verified ZIP bundles. Restore imports all categories included in the selected ZIP, including categories not yet stored locally, after verifying every checksum.
+                                Backups are verified ZIP bundles. Import processes all categories included in the selected ZIP after verifying every checksum. Catalog data is merged without replacing the database: newer records win, while local settings and valid assets are preserved. Embeddings-only imports do not touch databases. A ZIP containing user accounts replaces the separate accounts database.
                             </p>
                             <div class="admin-component-list" id="adminBackupComponents">
                                 <div class="tools-loading">Loading backup components...</div>

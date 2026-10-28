@@ -250,7 +250,7 @@ def download_backup(name):
 
 @admin_bp.route('/restore', methods=['POST'])
 def restore_backup():
-    """Restore selected components from an uploaded bundle."""
+    """Import selected components, merging catalog rows without replacing its database."""
     denied = require_admin()
     if denied:
         return denied

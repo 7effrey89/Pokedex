@@ -4876,7 +4876,11 @@ class PokemonChatApp {
                 this.setAdminStatusText(data.error || 'Restore failed', true);
                 return;
             }
-            this.setAdminStatusText(`Restored ${(data.restored_labels || data.restored_components).join(', ')} (${data.file_count.toLocaleString()} files).`);
+            const merge = data.catalog_merge;
+            const mergeSummary = merge
+                ? ` Catalog: ${merge.inserted.toLocaleString()} added, ${merge.updated.toLocaleString()} updated, ${merge.preserved.toLocaleString()} preserved.`
+                : '';
+            this.setAdminStatusText(`Imported ${(data.restored_labels || data.restored_components).join(', ')} (${data.file_count.toLocaleString()} files checked).${mergeSummary}`);
             await this.loadAdminStatus();
         } catch (error) {
             this.setAdminStatusText(`Restore failed: ${error.message}`, true);

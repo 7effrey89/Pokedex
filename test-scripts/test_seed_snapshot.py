@@ -27,7 +27,12 @@ class SeedSnapshotTests(unittest.TestCase):
             ("pokemon_list.json", b"[]"),
             ("prepared/data/assets/tcg/card.img", b"image bytes"),
             ("prepared/data/index/vectors.npy", b"embedding bytes"),
-            ("prepared/data/pokedex.sqlite3", b"catalog bytes"),
+            ("prepared/asset-manifest.json", b'{"asset_records": []}'),
+            ("prepared/data/seed-preparation-catalog.sqlite3", b"catalog bytes"),
+            ("prepared/data/seed-preparation-catalog.sqlite3-wal", b"catalog sidecar"),
+            ("prepared/data/pokedex.sqlite3", b"legacy catalog bytes"),
+            ("prepared/data/seed-preparation-catalog.sqlite3.building-wal", b"failed build sidecar"),
+            ("prepared/data/users.sqlite3-wal", b"private accounts sidecar"),
             ("prepared/data/users.sqlite3", b"private accounts"),
             ("backup-bundles/catalog.zip", b"redundant category bundle"),
         ):
@@ -44,7 +49,8 @@ class SeedSnapshotTests(unittest.TestCase):
             self.assertIn("pokemon_list.json", names)
             self.assertIn("prepared/data/assets/tcg/card.img", names)
             self.assertIn("prepared/data/index/vectors.npy", names)
-            self.assertIn("prepared/data/pokedex.sqlite3", names)
+            self.assertIn("prepared/asset-manifest.json", names)
+            self.assertFalse(any(".sqlite" in name for name in names))
             self.assertNotIn("prepared/data/users.sqlite3", names)
             self.assertFalse(any(name.startswith("backup-bundles/") for name in names))
             manifest = json.load(archive.extractfile("snapshot-manifest.json"))

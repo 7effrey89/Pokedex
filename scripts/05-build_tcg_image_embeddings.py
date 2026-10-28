@@ -5,11 +5,9 @@ import argparse
 import hashlib
 import json
 import os
-import sqlite3
 import sys
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,23 +18,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.services.seed_pipeline import DEFAULT_SEED_ROOT, seed_paths
+from src.services.seed_assets import asset_path, load_unique_cards, read_seed_manifest
+from src.services.backup_assets import local_asset_path
 from src.services.tcg_image_index import ENCODER_VERSION, VECTOR_SIZE, encode_card_image, validate_index
-
-
-def load_unique_cards(source_dir: Path) -> list[dict]:
-    cards = {}
-    for path in sorted(source_dir.glob("*.json")):
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        response = payload.get("response", payload)
-        if not isinstance(response, dict):
-            raise ValueError(f"Invalid TCG seed response: {path}")
-        for card in response.get("data") or response.get("cards") or []:
-            if not isinstance(card, dict) or not card.get("id"):
-                raise ValueError(f"Invalid card in TCG seed: {path}")
-            cards.setdefault(str(card["id"]), card)
-    if not cards:
-        raise ValueError(f"No TCG cards found in {source_dir}")
-    return [cards[key] for key in sorted(cards)]
 
 
 def build_embeddings(
@@ -46,15 +30,18 @@ def build_embeddings(
     cards = load_unique_cards(source_dir)
     if limit is not None:
         cards = cards[:limit]
-    with closing(sqlite3.connect(f"{paths.catalog_database.as_uri()}?mode=ro", uri=True)) as connection:
-        images = {}
-        for card_id, stored in connection.execute(
-            "SELECT card_id, local_path FROM card_asset WHERE local_path IS NOT NULL AND local_path != '' "
-            "ORDER BY CASE asset_kind WHEN 'large' THEN 0 ELSE 1 END"
+    images = {}
+    by_id = {str(card["id"]): card for card in cards}
+    for record in sorted(read_seed_manifest(paths), key=lambda row: row["asset_kind"] != "large"):
+        card_id = str(record["owner_id"])
+        if record["table"] != "card_asset" or card_id not in by_id:
+            continue
+        url = (by_id[card_id].get("images") or {}).get(record["asset_kind"])
+        candidate = asset_path(paths, record)
+        if record["source_url"] == url and local_asset_path(
+            paths, "tcg_images", candidate.relative_to(paths.data_root).as_posix(), record["sha256"],
         ):
-            candidate = (paths.data_root / stored).resolve()
-            if candidate.is_relative_to(paths.tcg_images.resolve()) and candidate.is_file():
-                images.setdefault(card_id, candidate)
+            images.setdefault(card_id, candidate)
 
     def encode(card):
         image_path = images.get(str(card["id"]))

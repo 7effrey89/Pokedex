@@ -90,6 +90,22 @@ test('restore imports ZIP categories instead of restricting them to locally avai
     assert.equal(refreshed, true);
 });
 
+test('catalog import reports added, updated, and preserved records', async () => {
+    const messages = [];
+    const { view } = createView({
+        FormData: class { append() {} },
+        fetch: async () => ({ ok: true, json: async () => ({
+            restored_labels: ['Catalog database'], file_count: 1,
+            catalog_merge: { inserted: 3, updated: 2, preserved: 7 },
+        }) }),
+    });
+    const app = Object.create(view);
+    app.setAdminStatusText = message => messages.push(message);
+    app.loadAdminStatus = async () => {};
+    await app.restoreAdminBackup({ files: [{ name: 'catalog.zip' }], value: 'selected' });
+    assert.ok(messages.at(-1).includes('3 added, 2 updated, 7 preserved'), messages.at(-1));
+});
+
 test('an empty catalog still displays its unavailable reason', () => {
     const { view, elements } = createView();
     view.renderAdminStorage({

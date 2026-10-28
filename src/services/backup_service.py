@@ -1,7 +1,7 @@
 """Versioned backup and restore for the catalog, user data, and local assets.
 
 Backups are ZIP bundles with a manifest describing every file and its SHA-256.
-Restores validate the manifest before anything is swapped into place.
+Imports validate the manifest, merge catalog rows, and install selected files.
 """
 
 from __future__ import annotations
@@ -24,7 +24,9 @@ from typing import Any, Dict, Iterable, List
 from src.config import get_storage_paths
 from src.config.paths import StoragePaths
 from src.db.database import SCHEMA_VERSION, USERS_SCHEMA_VERSION
-from src.services.backup_assets import collect_asset_records, restore_asset_records, validate_asset_records
+from src.services.backup_assets import (
+    collect_asset_records, protected_asset_paths, restore_asset_records, validate_asset_records,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -142,7 +144,8 @@ class BackupService:
         except OSError:
             return 0
 
-    def create_backup(self, components: Iterable[str], progress=None, *, output_dir: Path | None = None) -> Path:
+    def create_backup(self, components: Iterable[str], progress=None, *, output_dir: Path | None = None,
+                      asset_records: list[dict] | None = None) -> Path:
         selected = list(dict.fromkeys(components))
         unknown = set(selected) - set(COMPONENT_LABELS)
         if unknown:
@@ -179,7 +182,10 @@ class BackupService:
                             progress(len(manifest["files"]))
                     else:
                         self._add_directory(archive, manifest, key, progress)
-                manifest["asset_records"] = collect_asset_records(self.paths, selected, manifest["files"])
+                manifest["asset_records"] = (
+                    collect_asset_records(self.paths, selected, manifest["files"]) if asset_records is None
+                    else [record for record in asset_records if record["component"] in selected]
+                )
                 empty = set(selected) - {entry["component"] for entry in manifest["files"]}
                 if empty:
                     raise ValueError(f"No files found for: {', '.join(sorted(empty))}")
@@ -256,7 +262,7 @@ class BackupService:
                 else:
                     guard = nullcontext()
                 with guard:
-                    self._promote(restored, requested, staging)
+                    catalog_merge = self._promote(restored, requested, staging)
                 registrations = restore_asset_records(self.paths, manifest, requested)
             finally:
                 shutil.rmtree(staging, ignore_errors=True)
@@ -265,6 +271,7 @@ class BackupService:
             "restored_components": sorted(requested),
             "restored_labels": [COMPONENT_LABELS[key] for key in sorted(requested)],
             "asset_records_updated": registrations,
+            "catalog_merge": catalog_merge,
             "file_count": len([entry for entry in manifest["files"]
                                if entry["component"] in requested]),
             "created_at": manifest.get("created_at"),
@@ -360,28 +367,39 @@ class BackupService:
             restored.append(entry)
         return restored
 
-    def _promote(self, restored: List[Dict[str, Any]], requested: set, staging: Path) -> None:
+    def _promote(self, restored: List[Dict[str, Any]], requested: set, staging: Path) -> dict | None:
         self.paths.ensure_directories()
-        for key in requested:
+        catalog_merge = None
+        protected = None
+        for key in sorted(requested, key=lambda key: (key != "catalog_database", key)):
             if key in DATABASE_COMPONENTS:
                 staged = next((staging / entry["path"] for entry in restored
                                if entry["component"] == key), None)
                 if staged and staged.is_file():
-                    target = getattr(self.paths, key)
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    os.replace(staged, target)
+                    if key == "catalog_database":
+                        from src.services.catalog_merge import merge_catalog
+                        catalog_merge = merge_catalog(staged, self.paths)
+                    else:
+                        target = getattr(self.paths, key)
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        os.replace(staged, target)
                 continue
 
             directory = self.paths.backup_directories()[key]
             directory.mkdir(parents=True, exist_ok=True)
+            if protected is None:
+                protected = protected_asset_paths(self.paths, requested)
             for entry in restored:
                 if entry["component"] != key:
                     continue
                 staged = staging / entry["path"]
                 relative = Path(entry["path"]).relative_to(key)
                 target = directory / relative
+                if target.resolve() in protected:
+                    continue
                 target.parent.mkdir(parents=True, exist_ok=True)
                 os.replace(staged, target)
+        return catalog_merge
 
     def list_backups(self) -> List[Dict[str, Any]]:
         if not self.paths.backups.is_dir():

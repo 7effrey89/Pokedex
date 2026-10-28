@@ -4,7 +4,8 @@
 The archive preserves paths under seeds/: pokeapi/, tcg/, prepared/ when
 present, and root-level seed files such as pokemon_list.json. Extract a
 .snapshot.tar.gz at the seeds/ root to repopulate an empty seed directory.
-Generated backup-bundles/ and staged user accounts are excluded by default.
+Generated backup-bundles/, derived SQLite databases and sidecars are excluded.
+Legacy staged user accounts require --include-users.
 """
 
 from __future__ import annotations
@@ -51,6 +52,12 @@ def collect_seed_files(seed_root: Path, output_root: Path, include_users: bool) 
         if relative.parts[0] in EXCLUDED_DIRECTORIES:
             continue
         if not include_users and relative == USERS_DATABASE:
+            continue
+        name = item.name.lower()
+        if relative != USERS_DATABASE and any(
+            name.endswith(suffix) or f"{suffix}." in name or f"{suffix}-" in name
+            for suffix in (".sqlite", ".sqlite3", ".db")
+        ):
             continue
         resolved = item.resolve()
         if not resolved.is_relative_to(resolved_seed_root):

@@ -174,21 +174,20 @@ docker run -p 8000:8000 --env-file .env pokedex-app
 
 6. **Hydrate the local SQLite database**
    ```bash
-   python scripts/03-build_seed_catalog.py
-   python scripts/06-create_seed_backup_bundles.py --components catalog_database
-   python scripts/07-import_seed_backup_bundles.py --components catalog_database --apply --server-stopped
+   python scripts/03-import_seed_catalog.py
+   python scripts/03-import_seed_catalog.py --apply --server-stopped
    ```
 
-   Stop the target server before the final command. Preparation builds a catalog
-   under `seeds/prepared/`, packages it in the admin backup ZIP format, then
-   explicitly installs it into runtime storage. Assets are registered for
+   Stop the target server before the final command. The first command validates
+   raw seeds in disposable storage; the second SQL-merges normalized rows into
+   runtime storage without replacing existing data. No database is stored as a
+   seed item. Assets are registered for
    persistent materialization without bulk downloading them. See
    [the seed pipeline](scripts/README.md) to prepare artwork, cries, TCG images,
    embeddings, and optional accounts ZIPs. Prepared data and bundles are ignored
-   by Git. Use `--no-network` on script 03 for an offline structural check; it
-   intentionally fails if the seed archive does not contain every form.
-   If a completed seed build fails validation, use script 03's `--resume` to
-   revalidate the retained `.building` database. Media acquisition is a separate
+   by Git. Script 03 is offline by default and fails if required form metadata
+   is absent. `--allow-network` explicitly permits fetching missing metadata.
+   Media acquisition is a separate
    seed-preparation step, not a catalog-import side effect.
 
 7. **Run the application**

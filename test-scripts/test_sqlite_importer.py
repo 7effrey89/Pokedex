@@ -69,6 +69,41 @@ class SqliteImporterTests(unittest.TestCase):
         self.assertEqual(unwrap_payload({"response": {"id": 25}}), {"id": 25})
         self.assertEqual(unwrap_payload({"id": 25}), {"id": 25})
 
+    def test_offline_import_matches_renamed_form_by_id_but_rejects_missing_forms(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            pokeapi_dir = root / "seeds" / "pokeapi"
+            tcg_dir = root / "seeds" / "tcg"
+            pokeapi_dir.mkdir(parents=True)
+            tcg_dir.mkdir(parents=True)
+            species = {
+                "id": 25, "name": "pikachu",
+                "varieties": [{"pokemon": {"name": "old-name", "url": "https://pokeapi.co/api/v2/pokemon/25/"}}],
+            }
+            species_path = pokeapi_dir / "pokeapi-species-0025-pikachu.json"
+            self._write(species_path, species)
+            self._write(pokeapi_dir / "pokeapi-0025-pikachu.json", {
+                "id": 25, "name": "pikachu", "is_default": True,
+                "species": {"name": "pikachu", "url": "https://pokeapi.co/api/v2/pokemon-species/25/"},
+            })
+            self._write(tcg_dir / "cards.json", {"data": [{
+                "id": "test-1", "name": "Pikachu", "set": {"id": "test"},
+            }]})
+            importer = SqliteImporter(
+                root, root / "data" / "pokedex.sqlite3", pokeapi_dir, tcg_dir,
+                root / "data" / "assets", allow_network=False, download_artwork=False,
+                require_artwork=False, require_card_images=False,
+            )
+            self.assertEqual(importer.build().pokemon_count, 1)
+            original = importer.database_path.read_bytes()
+            species["varieties"].append({
+                "pokemon": {"name": "missing-form", "url": "https://pokeapi.co/api/v2/pokemon/26/"}
+            })
+            self._write(species_path, species)
+            with self.assertRaisesRegex(RuntimeError, "Missing seed requires network hydration"):
+                importer.build()
+            self.assertEqual(importer.database_path.read_bytes(), original)
+
     def test_build_deduplicates_cards_and_atomically_replaces_database(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

@@ -1,6 +1,7 @@
 """Portable catalog registrations accompanying asset ZIP components."""
 
 import logging
+import hashlib
 import sqlite3
 from contextlib import closing
 from pathlib import Path
@@ -14,6 +15,38 @@ ASSET_TABLES = {
     "pokemon_cries": (("pokemon_asset", "pokemon_id", COMPONENTS["pokemon_cries"]["kinds"]),),
     "tcg_images": (("card_asset", "card_id", ("large", "small")), ("set_asset", "set_id", ("logo", "symbol"))),
 }
+
+
+def local_asset_path(paths: StoragePaths, component: str, stored: str | None,
+                     sha256: str | None = None) -> Path | None:
+    if not stored:
+        return None
+    candidate = (paths.data_root / stored).resolve()
+    if not candidate.is_relative_to(paths.asset_directories()[component].resolve()) or not candidate.is_file():
+        return None
+    if sha256:
+        with candidate.open("rb") as handle:
+            if hashlib.file_digest(handle, "sha256").hexdigest() != sha256:
+                return None
+    return candidate
+
+
+def protected_asset_paths(paths: StoragePaths, requested: set[str]) -> set[Path]:
+    selected = requested & set(ASSET_TABLES)
+    if not selected or not paths.catalog_database.is_file():
+        return set()
+    protected = set()
+    with closing(sqlite3.connect(f"{paths.catalog_database.as_uri()}?mode=ro", uri=True)) as connection:
+        for component in selected:
+            for table, _, kinds in ASSET_TABLES[component]:
+                placeholders = ",".join("?" for _ in kinds)
+                for stored, sha256 in connection.execute(
+                    f"SELECT local_path, sha256 FROM {table} WHERE asset_kind IN ({placeholders})", kinds
+                ):
+                    candidate = local_asset_path(paths, component, stored, sha256)
+                    if candidate:
+                        protected.add(candidate)
+    return protected
 
 
 def collect_asset_records(paths: StoragePaths, components: list[str], files: list[dict]) -> list[dict]:
@@ -66,6 +99,8 @@ def validate_asset_records(manifest: dict, requested: set[str]) -> None:
 
 
 def restore_asset_records(paths: StoragePaths, manifest: dict, requested: set[str]) -> int:
+    if not requested & (set(ASSET_TABLES) | {"catalog_database"}):
+        return 0
     if not paths.catalog_database.is_file():
         if any(record["component"] in requested for record in manifest.get("asset_records", [])):
             logger.warning("Asset files restored without a catalog; import the catalog database to register them")
@@ -88,6 +123,12 @@ def restore_asset_records(paths: StoragePaths, manifest: dict, requested: set[st
             owner = next(owner for name, owner, _ in ASSET_TABLES[component] if name == table)
             relative = Path(record["path"]).relative_to(component)
             target = paths.asset_directories()[component] / relative
+            existing = connection.execute(
+                f"SELECT local_path, sha256 FROM {table} WHERE {owner} = ? AND asset_kind = ?",
+                (record["owner_id"], record["asset_kind"]),
+            ).fetchone()
+            if existing and local_asset_path(paths, component, existing[0], existing[1]):
+                continue
             columns = ["local_path", "media_type", "sha256"]
             values = [target.relative_to(paths.data_root).as_posix(), record.get("media_type"), record.get("sha256")]
             if table != "set_asset":

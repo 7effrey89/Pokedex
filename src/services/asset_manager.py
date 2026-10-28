@@ -472,7 +472,7 @@ class AssetManager:
     def _download_asset(self, asset: Dict[str, Any], job: AssetJob) -> None:
         destination = self._destination(asset)
         try:
-            metadata = self._store(asset["source_url"], destination, asset["media"])
+            destination, metadata = self.store_file(asset)
         except Exception as exc:
             metadata = None
             logger.warning("Asset download failed for %s: %s", asset["source_url"], exc)
@@ -522,6 +522,14 @@ class AssetManager:
             connection.commit()
         finally:
             connection.close()
+
+    def store_file(self, asset: Dict[str, Any]) -> tuple[Path, tuple[str, str | None, int | None, int | None]]:
+        """Materialize and validate media without reading or updating a database."""
+        destination = self._destination(asset)
+        metadata = self._store(asset["source_url"], destination, asset["media"])
+        if metadata is None:
+            raise ValueError(f"Downloaded media failed validation: {asset['source_url']}")
+        return destination, metadata
 
     def _destination(self, asset: Dict[str, Any]) -> Path:
         component = asset["component"]

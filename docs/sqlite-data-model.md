@@ -468,8 +468,14 @@ The backup is a ZIP containing a manifest with bundle version, schema version,
 creation timestamp, selected components, file sizes, and SHA-256 hashes. The
 database is captured with SQLite's online backup API so the exported copy is
 consistent while the app is running. Restore validates every manifest path and
-hash, rejects path traversal and unsupported schema versions, places files in a
-staging directory, and swaps them into place only after all checks pass.
+hash, rejects path traversal and unsupported schema versions, and places files
+in a staging directory. Catalog data is imported through transactional SQL
+inserts/updates, not a database-file swap. Newer metadata/provider-dated prices
+win; existing settings, destination-only rows, and valid local assets remain.
+Natural identities remap generated IDs and their foreign keys. A failed merge
+rolls back; an absent catalog is initialized through SQL. Media/index files are
+installed after validation; valid registered media files are not overwritten.
+Explicit accounts restores still replace the separate accounts database.
 
 Backup files must be downloadable by the administrator rather than retained
 only on ephemeral App Service storage. Restore is an explicit upload in
@@ -477,46 +483,46 @@ Settings. Both operations require the same administrative protection used for
 other sensitive settings and must impose upload and expanded-size limits.
 The seed CLI uses this exact writer/reader. Category ZIP filenames use the
 panel labels, and asset registrations accompany media so an asset-only import
-updates the target catalog's local paths. Embeddings restore validates alignment
-and releases/reloads any active scanner mapping.
+updates the target catalog's local paths without discarding valid existing
+registrations. Embeddings restore validates alignment and releases/reloads any
+active scanner mapping; an embeddings-only ZIP does not open either database.
 
 ## Import and Deployment Strategy
 
 1. Scripts 01 and 02 acquire raw API responses under `seeds/`.
-2. `python scripts/03-build_seed_catalog.py` imports all available forms, type
-   relations, and deduplicated TCG cards into a temporary seed-only database.
-   Lookup, parent, and junction/detail tables are normalized transactionally;
-   integrity, foreign keys, and row counts are validated before stage promotion.
+2. `python scripts/03-import_seed_catalog.py` validates raw forms, type
+   relations, and deduplicated TCG cards in disposable storage. Explicit
+   `--apply --server-stopped` SQL-merges the normalized rows into runtime
+   storage; the temporary database is removed, not stored as a seed item.
 3. Script 04 uses the shared asset manager to download selected Pokemon images,
-   cries, and TCG card/set images under the prepared seed root. SQLite holds
-   registrations and metadata, not media bytes.
+   cries, and TCG card/set images under the prepared seed root.
+   `asset-manifest.json` holds portable registrations, hashes, and metadata;
+   media preparation does not open SQLite.
 4. Script 05 builds TCG image embeddings offline from those registered files.
-5. Script 06 packages selected categories with the same checksummed ZIP writer
-   as the admin panel, under `seeds/backup-bundles/`. Existing accounts require an
-   explicit source database; no accounts are generated automatically.
+5. Script 06 packages media and embeddings with the admin checksummed ZIP writer,
+   under `seeds/backup-bundles/`, without a catalog category. Existing accounts
+   require an explicit source and use a disposable snapshot, never a seed DB.
 6. Script 07 verifies every ZIP, then requires `--apply --server-stopped` to
    install it. Alternatively, upload the same ZIP through Settings. Catalog
-   installation precedes asset installation, and portable asset registrations
+   merging precedes asset installation, and portable asset registrations
    reconnect files to matching rows.
 7. Script 08 optionally archives the full seed workspace, including raw JSON,
-   prepared catalog, downloaded media, and embeddings; it excludes generated
-   backup bundles and excludes private accounts unless explicitly opted in.
+   asset manifest, downloaded media, and embeddings; it excludes derived SQLite
+   artifacts/sidecars and backup bundles. Legacy accounts require explicit opt-in.
 8. In production, explicit upstream refreshes continue to normalize directly
    into runtime SQLite without JSON response-cache files.
 
-For an offline seed-catalog check, pass `--no-network` to script 03. Complete
-preparation can permit network access because species seeds may identify form
-and evolution resources absent from the raw archive. Failed stage builds do not
-affect live data. `python scripts/03-build_seed_catalog.py --resume` validates a
-retained validation-failed `.building` catalog; bulk media download is a separate
-step. See [the pipeline guide](../scripts/README.md) for all command options.
+Script 03 is offline by default. `--allow-network` explicitly permits fetching
+form/evolution metadata missing from older raw archives. Failed normalization
+never changes the target; failed SQL merges roll back. Bulk media download is a
+separate database-free step. See [the pipeline guide](../scripts/README.md).
 
 Project locations:
 
 ```text
 seeds/pokeapi/            # reproducible raw PokeAPI inputs
 seeds/tcg/                # reproducible raw TCG inputs
-seeds/prepared/           # staged catalog, optional accounts, assets, and embeddings
+seeds/prepared/           # asset manifest, downloaded media, and embeddings; no DB
 seeds/backup-bundles/     # category ZIPs shared with admin export/restore
 data/pokedex.sqlite3      # normalized runtime catalog
 data/schema/              # versioned catalog and user DDL
