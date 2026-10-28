@@ -1,5 +1,5 @@
 # Use Python 3.11 slim image as base
-FROM python:3.11-slim
+FROM python:3.11-slim-trixie
 
 # Set working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ WORKDIR /app
 # libx11-dev: X11 development files for display support
 # libgtk-3-dev: GTK+ development files for GUI support
 # curl: for Docker HEALTHCHECK
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     cmake \
     libopenblas-dev \
@@ -23,14 +23,16 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip to latest version
-RUN pip install --no-cache-dir --upgrade pip
+RUN --mount=type=secret,id=pip_config,target=/etc/pip.conf \
+    pip install --no-cache-dir --upgrade pip
 
 # Copy requirements file
 COPY requirements.txt .
 
 # Install Python dependencies
 # Using --no-cache-dir to reduce image size
-RUN pip install --no-cache-dir -r requirements.txt
+RUN --mount=type=secret,id=pip_config,target=/etc/pip.conf \
+    pip install --no-cache-dir -r requirements.txt
 
 # Copy application code (specific directories and files only)
 COPY app.py .

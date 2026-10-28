@@ -84,9 +84,11 @@ The app features a clean, mobile-first design with:
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.11 or higher (production uses Python 3.11)
 - pip (Python package manager)
+- Node.js 24.22.1 or later in the 24.x line for the optional MCP servers
 - **For face-recognition feature**: cmake, build-essential (Linux) or Xcode Command Line Tools (macOS)
+- **For native Windows face recognition**: Visual Studio's **Desktop development with C++** workload, MSVC x64 tools, and a Windows SDK
 
 ### Setup
 
@@ -128,6 +130,13 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    brew install cmake
    ```
 
+   **Windows:**
+   In Visual Studio Installer, modify the installed Visual Studio instance and
+   add **Desktop development with C++**, including the MSVC x64 tools and a
+   Windows SDK. Close Visual Studio before modifying it. An x64 Python interpreter
+   requires x64 target tools even when the computer itself runs Windows on ARM.
+   Installing Visual Studio without its C++ workload is not sufficient.
+
 3. **Create a virtual environment** (recommended)
    ```bash
    python -m venv venv
@@ -139,7 +148,21 @@ docker run -p 8000:8000 --env-file .env pokedex-app
    pip install -r requirements.txt
    ```
 
-   **Note:** On Windows, installing `dlib` (required by face-recognition) can be challenging. Consider using Docker or WSL2 for easier setup.
+   For native Windows builds, install CMake into the activated virtual environment
+   and explicitly select the generator matching your Visual Studio installation:
+
+   ```powershell
+   python -m pip install --upgrade cmake
+   $env:CMAKE_GENERATOR = 'Visual Studio 18 2026'
+   python -m pip install -r requirements.txt
+   ```
+
+   For Visual Studio 2022, use `Visual Studio 17 2022` instead. These environment
+   settings apply to the current terminal only. An error showing
+   `Building for: NMake Makefiles` means the expected Visual Studio generator was
+   not selected. If `vcvars64.bat` cannot find `vcvarsall.bat`, repair or add the
+   C++ workload before retrying; upgrading pip alone cannot repair the compiler.
+   Docker remains the recommended alternative to native Windows builds.
 
 5. **Set up environment variables** (optional)
    ```bash

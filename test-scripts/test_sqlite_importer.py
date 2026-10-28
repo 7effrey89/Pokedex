@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from contextlib import closing
 from pathlib import Path
+from unittest.mock import patch
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -15,6 +16,55 @@ from src.db.importer import SqliteImporter, unwrap_payload  # noqa: E402
 
 
 class SqliteImporterTests(unittest.TestCase):
+    def test_skip_artwork_does_not_download_tcg_images(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            pokeapi_dir = root / "seeds" / "pokeapi"
+            tcg_dir = root / "seeds" / "tcg"
+            pokeapi_dir.mkdir(parents=True)
+            tcg_dir.mkdir(parents=True)
+            self._write(pokeapi_dir / "pokeapi-species-0001-bulbasaur.json", {
+                "id": 1, "name": "bulbasaur",
+            })
+            self._write(pokeapi_dir / "pokeapi-0001-bulbasaur.json", {
+                "id": 1, "name": "bulbasaur", "is_default": True,
+                "species": {"name": "bulbasaur", "url": "https://pokeapi.co/api/v2/pokemon-species/1/"},
+            })
+            self._write(tcg_dir / "cards.json", {"data": [{
+                "id": "base1-1", "name": "Bulbasaur", "set": {"id": "base1"},
+                "images": {"large": "https://example.test/card.png"},
+            }]})
+            importer = SqliteImporter(
+                root, root / "data" / "pokedex.sqlite3", pokeapi_dir, tcg_dir,
+                root / "data" / "assets", allow_network=True, download_artwork=False,
+                require_artwork=False, require_card_images=False,
+            )
+
+            with patch.object(importer, "_download_image", side_effect=AssertionError(
+                "Skipping artwork must not download TCG images"
+            )) as download:
+                summary = importer.build()
+
+            download.assert_not_called()
+            self.assertEqual(summary.card_count, 1)
+            with closing(sqlite3.connect(importer.database_path)) as connection:
+                asset = connection.execute(
+                    "SELECT source_url, local_path FROM card_asset WHERE card_id = 'base1-1'"
+                ).fetchone()
+            self.assertEqual(asset, ("https://example.test/card.png", None))
+
+            temporary_path = importer.database_path.with_suffix(".sqlite3.building")
+            importer.database_path.replace(temporary_path)
+            with closing(sqlite3.connect(temporary_path)) as connection:
+                connection.execute("UPDATE import_run SET status = 'failed'")
+                connection.commit()
+            with patch.object(importer, "_download_image", side_effect=AssertionError(
+                "Resuming with artwork skipped must not download TCG images"
+            )) as download:
+                resumed = importer.resume()
+            download.assert_not_called()
+            self.assertEqual(resumed.card_count, 1)
+
     def test_unwrap_payload_accepts_wrapped_and_raw_values(self):
         self.assertEqual(unwrap_payload({"response": {"id": 25}}), {"id": 25})
         self.assertEqual(unwrap_payload({"id": 25}), {"id": 25})

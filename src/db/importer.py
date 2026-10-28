@@ -170,7 +170,8 @@ class SqliteImporter:
                 "UPDATE import_run SET status = 'running', completed_at = NULL, error_message = NULL WHERE id = ?",
                 (run_id,),
             )
-            self._hydrate_missing_card_images(connection)
+            if self.download_artwork:
+                self._hydrate_missing_card_images(connection)
             self.progress("Validating repaired database integrity and required assets")
             summary = self._validate(connection)
             connection.execute(
@@ -672,7 +673,7 @@ class SqliteImporter:
         metadata = self._image_metadata(cached_path)
         images = card.get("images", {})
         large_url = images.get("large") if isinstance(images, dict) else None
-        if metadata is None and large_url and self.allow_network:
+        if metadata is None and large_url and self.allow_network and self.download_artwork:
             self.progress(f"  Downloading missing TCG image for {card['id']} ({card.get('name', 'unknown')})")
             metadata = self._download_image(large_url, cached_path)
             small_url = images.get("small")

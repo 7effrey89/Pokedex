@@ -14,9 +14,22 @@ pip install -r requirements.txt
 
 This will install:
 - `face-recognition` (1.3.0) - Face detection and recognition
-- `opencv-python` (4.8.1.78) - Image processing
-- `Pillow` (>= 10.2.0) - Image handling
+- `opencv-python` - Image processing
+- `Pillow` - Image handling
 - All other required dependencies
+
+Exact versions are maintained in [requirements.txt](../requirements.txt).
+On Windows, `dlib` may need to compile from source. Follow the
+[native installation prerequisites and CMake generator instructions](../README.md#installation)
+before running pip; a Python virtual environment alone does not provide MSVC or
+the Windows SDK.
+
+`face-recognition-models` 0.3.0 still imports `pkg_resources`, which was removed
+in Setuptools 82. The requirements explicitly install Setuptools 81.0.0 for that
+runtime dependency. If `face_recognition` asks to install models that are already
+installed, import `face_recognition_models` directly to expose the underlying
+error, then reinstall the project requirements. Do not replace the package with
+an arbitrary third-party wheel or Git checkout.
 
 ### 2. Add Profile Pictures
 

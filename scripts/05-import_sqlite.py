@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tcg-dir", type=Path, default=PROJECT_ROOT / "seeds" / "tcg")
     parser.add_argument("--asset-dir", type=Path, default=PROJECT_ROOT / "data" / "assets")
     parser.add_argument("--no-network", action="store_true", help="Fail rather than fetch missing forms or artwork")
-    parser.add_argument("--skip-artwork", action="store_true", help="Build a development database without downloading artwork")
+    parser.add_argument("--skip-artwork", action="store_true", help="Import catalog metadata without downloading Pokemon or TCG images")
     parser.add_argument("--resume", action="store_true", help="Repair and validate an existing failed .building database")
     return parser.parse_args()
 

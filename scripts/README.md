@@ -128,6 +128,32 @@ sets/cards/latest prices, and asset metadata, then atomically promotes a validat
 python scripts/05-import_sqlite.py
 ```
 
+### Recover a new computer from replenished seeds (no ZIP required)
+
+The admin ZIP restore accepts versioned backup bundles, not raw seed folders.
+Having files under `seeds/pokeapi/` and `seeds/tcg/` does not populate SQLite:
+an empty catalog can still show the static Pokemon index while every detail and
+sprite request returns 404.
+
+Stop the local Flask server before replacing its SQLite catalog. Then run from
+the repository root in PowerShell:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\05-import_sqlite.py --skip-artwork
+```
+
+This rebuilds only the catalog, preserving the separate accounts/collections
+database. It imports the available seeds and fetches missing evolution chains,
+forms, and type metadata as needed; it does not bulk-download Pokemon or TCG
+images. Existing valid cached TCG images can still be registered. After the
+import succeeds, restart Flask and refresh the browser. Image and cry routes
+materialize missing assets on demand, or an administrator can selectively
+download them using the existing asset-download controls.
+
+Do not add `--no-network` unless the seeds include every required form: incomplete
+form seeds make an offline import fail rather than silently produce an incomplete
+catalog. The live catalog is replaced only after import validation succeeds.
+
 ## Step 06 – Snapshot raw seeds
 
 `scripts/06-create_snapshot.py` archives the reproducible raw seed inputs. It

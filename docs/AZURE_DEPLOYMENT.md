@@ -14,6 +14,71 @@ The repository also contains `.github/workflows/build-and-deploy-acr.yml`, but
 its publish-profile deployment is not approved while SCM basic publishing
 credentials are disabled. Do not weaken that policy; use `deploy.ps1`.
 
+## Dependency updates and emergency patching
+
+The container uses Python 3.11 on Debian Trixie. Its build upgrades installed
+Debian packages before installing native dependencies. Python dependencies are
+pinned in `requirements.txt`; NumPy 2.4.6 is the latest compatible release for
+Python 3.11 as of October 27, 2026. Packages already at their latest release,
+including `face-recognition` and `flask-sock`, retain their existing versions.
+Transitive dependencies still resolve according to each package's constraints.
+OpenAI is pinned to 3.38.0, the newest release available from the configured
+package feed during this update; the public 3.40.0 release could not be downloaded
+in the validation environment.
+Setuptools 81.0.0 is an explicit runtime compatibility dependency because
+`face-recognition-models` still imports `pkg_resources`, removed in Setuptools 82.
+
+The updated Linux x64 image was validated with Python 3.11.18 and dlib 20.0.1.
+Native face detection, image encoding, Gunicorn startup, health/homepage/CORS
+checks, and 21 offline regression tests passed. Two unchanged baseline tests
+still assert removed data-source-mode methods and the old five-phase importer
+progress text; they were excluded from the passing regression run, not fixed
+by the dependency update. The image's installed `libbrotli1` revision was
+`1.1.0-2+deb13u1`, the Debian Trixie security fix for CVE-2026-111497.
+These checks do not replace a complete image vulnerability scan or incident
+owner approval before restoring a stopped production resource.
+
+The optional `poke-mcp` and `ptcg-mcp` projects use Node.js 24.22.1 or newer
+within the 24.x line. Run `npm ci` and `npm run build` in each project after
+updating the checked-in lockfiles. Installing Node type definitions does not
+update the Node runtime.
+
+As of this dependency update, `npm audit` still reports the high-severity
+`body-parser` advisory GHSA-27r3-jxmh-p828 through Express and the MCP SDK.
+The registry's latest Express 5.3.0 still selects `body-parser` 2.3.0, which
+the advisory marks affected. Updating to the newest packages is not equivalent
+to a clean security scan; reassess this advisory before exposing the MCP HTTP
+servers. Do not blindly apply `npm audit fix --force`, which recommends
+major-version downgrades.
+
+For emergency image patching, pull the current base and rebuild all layers:
+
+```powershell
+docker build --pull --no-cache -t pokedex-app:patched .
+```
+
+If the build environment requires an approved Python package mirror, supply a
+local pip configuration through BuildKit rather than baking credentials into
+the image:
+
+```powershell
+docker build --pull --no-cache --secret "id=pip_config,src=C:\path\to\pip.ini" -t pokedex-app:patched .
+```
+
+The optional secret is mounted only during pip installation. Do not commit the
+pip configuration or disable TLS verification to work around download failures.
+
+Changing source manifests does not patch the deployed image. Inspect the built
+image's package inventory and security scan before deploying, and record its
+digest. Debian security backports must be checked using the full package
+revision, not only the upstream version. An OS update does not patch decoder
+copies bundled into Python wheels or other runtimes.
+
+If Azure has stopped a resource under an incident response, leave it stopped
+until the patched image is verified and the incident owner approves re-enabling
+it. Do not run `deploy.ps1 -Deploy` merely to test package updates: it restarts
+App Service.
+
 ## Why Docker + ACR?
 
 Native Python dependencies like `face-recognition` (which requires `dlib`, `cmake`, and build tools) often fail with Azure's default Oryx build system. Using Docker containers gives you full control over the build environment and ensures consistent, reproducible deployments.
