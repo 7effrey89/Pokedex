@@ -20,6 +20,7 @@ from typing import Any, Dict, Iterable, List, Optional
 from PIL import Image, UnidentifiedImageError
 
 from src.config import get_storage_paths
+from src.config.paths import StoragePaths
 from src.db.database import SqliteDatabase
 
 logger = logging.getLogger(__name__)
@@ -85,8 +86,8 @@ class AssetJob:
 class AssetManager:
     """Inventories and downloads catalog-registered assets."""
 
-    def __init__(self, database: SqliteDatabase | None = None):
-        self.paths = get_storage_paths()
+    def __init__(self, database: SqliteDatabase | None = None, *, paths: StoragePaths | None = None):
+        self.paths = paths or get_storage_paths()
         self.database = database or SqliteDatabase(self.paths.catalog_database)
         self._lock = threading.Lock()
         self._job: Optional[AssetJob] = None
@@ -147,6 +148,7 @@ class AssetManager:
             "key": key,
             "label": spec["label"],
             "total": int(row["total"] or 0),
+            "available_count": int(row["stored"] or 0) + int(row["missing"] or 0),
             "stored": int(row["stored"] or 0),
             "missing": int(row["missing"] or 0),
             "disk_bytes": None if directory and directory.is_dir() else 0,
@@ -170,6 +172,17 @@ class AssetManager:
             )
             self._thread.start()
             return self._job.to_dict()
+
+    def download(self, components: Iterable[str], limit: int = 0) -> Dict[str, Any]:
+        """Run the same download job as the admin panel and wait for its result."""
+        self.start_download(components, limit)
+        assert self._thread is not None
+        self._thread.join()
+        result = self.job_status()
+        assert result is not None
+        if result["status"] != "completed" or result["failed"]:
+            raise RuntimeError(f"Asset download did not complete successfully: {result}")
+        return result
 
     def materialize_pokemon_cry(self, pokemon_id: int) -> tuple[Path, str] | None:
         """Return a local cry, downloading and cataloging it on first playback."""

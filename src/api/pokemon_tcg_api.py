@@ -75,7 +75,8 @@ class PokemonTCGTools:
                               legality: str = None,
                               retreat_cost: int = None,
                               page: int = 1,
-                              page_size: int = 10) -> Optional[Dict]:
+                              page_size: int = 10,
+                              rarity: str = None) -> Optional[Dict]:
         """
         Advanced search for Pokemon TCG cards with multiple filters
         
@@ -106,6 +107,8 @@ class PokemonTCGTools:
             if types:
                 for t in types:
                     query_parts.append(f"types:{t}")
+            if rarity:
+                query_parts.append(f'rarity:"{rarity}"')
             
             if subtypes:
                 for st in subtypes:

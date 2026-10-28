@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import threading
+import weakref
+from contextlib import ExitStack, contextmanager
 from pathlib import Path
 
 import numpy as np
@@ -16,6 +18,52 @@ HISTOGRAM_BINS = 8
 HISTOGRAM_WEIGHT = 8.0
 QUERY_CONTENT_SCALES = (1.0, 0.90, 0.86, 0.82)
 VECTOR_SIZE = (GRAYSCALE_SIZE[0] * GRAYSCALE_SIZE[1]) + (HISTOGRAM_BINS * 3)
+_INDEXES = weakref.WeakSet()
+_INDEXES_LOCK = threading.Lock()
+
+
+def _read_index(index_dir: Path, *, mmap_mode: str | None = None):
+    required = ("manifest.json", "vectors.npy", "cards.json")
+    if not all((index_dir / name).is_file() for name in required):
+        raise FileNotFoundError("TCG image embeddings are incomplete; run scripts/05-build_tcg_image_embeddings.py")
+    manifest = json.loads((index_dir / "manifest.json").read_text(encoding="utf-8"))
+    if manifest.get("encoder_version") != ENCODER_VERSION:
+        raise ValueError("TCG image index encoder version does not match the application")
+    if manifest.get("vector_size") != VECTOR_SIZE:
+        raise ValueError("TCG image index manifest has an unexpected vector size")
+    if manifest.get("dtype") != "float32" or manifest.get("normalized") is not True:
+        raise ValueError("TCG image index manifest has an unsupported storage format")
+    cards = json.loads((index_dir / "cards.json").read_text(encoding="utf-8"))
+    vectors = np.load(index_dir / "vectors.npy", mmap_mode=mmap_mode, allow_pickle=False)
+    if vectors.dtype != np.float32 or vectors.ndim != 2 or vectors.shape[1] != VECTOR_SIZE:
+        raise ValueError("TCG image index has an unexpected vector shape or dtype")
+    if not isinstance(cards, list) or not cards or vectors.shape[0] != len(cards):
+        raise ValueError("TCG image index card mapping is not aligned with its vectors")
+    if manifest.get("card_count") != len(cards):
+        raise ValueError("TCG image index manifest has an unexpected card count")
+    return vectors, cards
+
+
+def validate_index(index_dir: Path) -> None:
+    try:
+        vectors, _ = _read_index(index_dir)
+        if not np.isfinite(vectors).all():
+            raise ValueError("TCG image embeddings contain non-finite vector values")
+    except FileNotFoundError as exc:
+        raise ValueError(str(exc)) from exc
+
+
+@contextmanager
+def suspend_indexes(index_dir: Path):
+    """Release mapped files and block searches while an admin restore replaces them."""
+    with _INDEXES_LOCK:
+        indexes = [index for index in _INDEXES if index.index_dir.resolve() == index_dir.resolve()]
+    with ExitStack() as stack:
+        for index in indexes:
+            stack.enter_context(index._lock)
+            index._vectors = None
+            index._cards = None
+        yield
 
 
 def crop_to_card_aspect(image: Image.Image) -> Image.Image:
@@ -89,7 +137,9 @@ class TcgImageIndex:
         self.index_dir = Path(index_dir)
         self._vectors = None
         self._cards = None
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
+        with _INDEXES_LOCK:
+            _INDEXES.add(self)
 
     def _load(self) -> None:
         if self._vectors is not None and self._cards is not None:
@@ -97,31 +147,13 @@ class TcgImageIndex:
         with self._lock:
             if self._vectors is not None and self._cards is not None:
                 return
-            manifest_path = self.index_dir / "manifest.json"
-            vectors_path = self.index_dir / "vectors.npy"
-            cards_path = self.index_dir / "cards.json"
-            if not manifest_path.exists() or not vectors_path.exists() or not cards_path.exists():
-                raise FileNotFoundError("TCG NumPy image index is missing; run scripts/04-cache_tcg_images.py")
-
-            with manifest_path.open("r", encoding="utf-8") as handle:
-                manifest = json.load(handle)
-            if manifest.get("encoder_version") != ENCODER_VERSION:
-                raise ValueError("TCG image index encoder version does not match the application")
-            if manifest.get("vector_size") != VECTOR_SIZE:
-                raise ValueError("TCG image index manifest has an unexpected vector size")
-            if manifest.get("dtype") != "float32" or manifest.get("normalized") is not True:
-                raise ValueError("TCG image index manifest has an unsupported storage format")
-            with cards_path.open("r", encoding="utf-8") as handle:
-                cards = json.load(handle)
-            vectors = np.load(vectors_path, mmap_mode="r")
-            if vectors.ndim != 2 or vectors.shape[1] != VECTOR_SIZE:
-                raise ValueError("TCG image index has an unexpected vector shape")
-            if vectors.shape[0] != len(cards):
-                raise ValueError("TCG image index card mapping is not aligned with its vectors")
-            self._vectors = vectors
-            self._cards = cards
+            self._vectors, self._cards = _read_index(self.index_dir, mmap_mode="r")
 
     def search(self, image: Image.Image, limit: int = 6) -> list[dict]:
+        with self._lock:
+            return self._search(image, limit)
+
+    def _search(self, image: Image.Image, limit: int) -> list[dict]:
         self._load()
         query_vectors = np.stack([encode_card_image(variant) for variant in query_scale_variants(image)])
         scores = np.max(np.asarray(self._vectors @ query_vectors.T, dtype=np.float32), axis=1)

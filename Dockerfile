@@ -44,7 +44,6 @@ COPY templates/ ./templates/
 COPY data/ ./data/
 
 # Create necessary directories for runtime
-RUN mkdir -p cache
 # Expose port 80
 EXPOSE 80
 

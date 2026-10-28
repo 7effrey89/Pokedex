@@ -165,6 +165,40 @@ class SqliteTcgRepository:
         finally:
             connection.close()
 
+    def get_card_price(self, card_id: str) -> dict[str, Any] | None:
+        connection = self.database.connect(read_only=True)
+        try:
+            card = connection.execute(
+                "SELECT c.*, s.name AS set_name FROM tcg_card c "
+                "JOIN tcg_set s ON s.id = c.set_id WHERE c.id = ?", (card_id,)
+            ).fetchone()
+            if card is None:
+                return None
+            result = {
+                "id": card_id, "name": card["name"], "set": card["set_name"],
+                "number": card["number"], "rarity": card["rarity"],
+                "image": f"/api/tcg/card-image/{card_id}/small",
+                "_refreshed_at": card["last_refreshed_at"],
+                "tcgplayer": {"url": None, "updated": None, "prices": {}},
+                "cardmarket": {"url": None, "updated": None, "prices": {}},
+            }
+            for listing in connection.execute(
+                "SELECT * FROM card_market_listing WHERE card_id = ?", (card_id,)
+            ):
+                provider = result[listing["provider"]]
+                provider["url"] = listing["listing_url"]
+                provider["updated"] = listing["source_updated_at"]
+                for price in connection.execute(
+                    "SELECT * FROM card_price WHERE listing_id = ?", (listing["id"],)
+                ):
+                    if listing["provider"] == "tcgplayer":
+                        provider["prices"].setdefault(price["variant"], {})[price["metric"]] = price["amount"]
+                    else:
+                        provider["prices"][price["metric"]] = price["amount"]
+            return result
+        finally:
+            connection.close()
+
     def _hydrate_cards(self, connection, rows, set_row, *, slim: bool) -> list[dict[str, Any]]:
         if not rows:
             return []

@@ -165,6 +165,44 @@ class CatalogRefreshService:
             connection.close()
         return raw_path
 
+    def refresh_evolution(self, payload: dict[str, Any]) -> Path:
+        from src.db.importer import SqliteImporter
+
+        chain_id = int(payload["id"])
+        if not isinstance(payload.get("chain"), dict):
+            raise ValueError("Evolution chain payload is missing its root")
+        raw_path = self._store_raw("pokeapi", "evolution", chain_id, payload)
+        paths = get_storage_paths()
+        importer = SqliteImporter(
+            paths.data_root, self.database.path, paths.data_root / "seeds" / "pokeapi",
+            paths.data_root / "seeds" / "tcg", paths.data_root / "data" / "assets",
+            allow_network=False, download_artwork=False,
+        )
+        connection = self.database.connect()
+        try:
+            species = {
+                row["name"].casefold(): row["id"]
+                for row in connection.execute("SELECT id, name FROM pokemon_species")
+            }
+            connection.execute(
+                "INSERT INTO evolution_chain (id, baby_trigger_item_name) VALUES (?, ?) "
+                "ON CONFLICT(id) DO UPDATE SET baby_trigger_item_name = excluded.baby_trigger_item_name",
+                (chain_id, self._resource_name(payload.get("baby_trigger_item"))),
+            )
+            connection.execute("DELETE FROM evolution_node WHERE chain_id = ?", (chain_id,))
+            importer._import_evolution_node(connection, chain_id, payload["chain"], None, 0, species)
+            if not connection.execute(
+                "SELECT 1 FROM evolution_node WHERE chain_id = ?", (chain_id,)
+            ).fetchone():
+                raise ValueError("Evolution chain contains no catalog species")
+            connection.commit()
+        except Exception:
+            connection.rollback()
+            raise
+        finally:
+            connection.close()
+        return raw_path
+
     def _store_raw(self, domain: str, resource_kind: str, identifier: Any, payload: dict[str, Any]) -> Path:
         encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
         digest = hashlib.sha256(encoded).hexdigest()[:12]

@@ -1,155 +1,42 @@
-"""
-Cache Routes - Handle cache management endpoints
-"""
+"""Database cache status and refresh policy; no destructive clearing endpoints."""
 
 import logging
-from flask import Blueprint, request, jsonify
+
+from flask import Blueprint, jsonify, request
+
+from src.db.database import SqliteDatabase
+from src.services.catalog_settings import get_catalog_settings
 
 logger = logging.getLogger(__name__)
+cache_bp = Blueprint("cache", __name__, url_prefix="/api/cache")
 
-cache_bp = Blueprint('cache', __name__, url_prefix='/api/cache')
 
-
-@cache_bp.route('/config', methods=['GET'])
+@cache_bp.route("/config", methods=["GET"])
 def get_cache_config():
-    """Get current cache configuration and stats"""
-    from src.services.cache_service import get_cache_service
-    from src.db import SqliteDatabase
-    
-    cache_service = get_cache_service()
-    config = cache_service.get_config()
-    stats = cache_service.get_stats()
-    
     return jsonify({
-        **config,
-        **stats,
+        **get_catalog_settings().get_config(),
         "sqlite": SqliteDatabase().status().to_dict(),
     })
 
 
-@cache_bp.route('/enable', methods=['POST'])
-def set_cache_enabled():
-    """Enable or disable caching"""
-    from src.services.cache_service import get_cache_service
-    
-    try:
-        data = request.get_json()
-        enabled = data.get('enabled')
-        
-        if enabled is None:
-            return jsonify({"error": "enabled field is required"}), 400
-        
-        cache_service = get_cache_service()
-        cache_service.set_enabled(enabled)
-        
-        return jsonify({
-            "message": f"Cache {'enabled' if enabled else 'disabled'}",
-            "config": cache_service.get_config()
-        })
-    
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-@cache_bp.route('/pokeapi', methods=['POST'])
-def set_pokeapi_cache_enabled():
-    """Enable or disable caching for PokeAPI proxy requests only"""
-    from src.services.cache_service import get_cache_service
-
-    try:
-        data = request.get_json() or {}
-        enabled = data.get('enabled')
-
-        if enabled is None:
-            return jsonify({"error": "enabled field is required"}), 400
-
-        cache_service = get_cache_service()
-        cache_service.set_pokeapi_cache_enabled(enabled)
-
-        return jsonify({
-            "message": f"PokeAPI cache {'enabled' if enabled else 'disabled'}",
-            "config": cache_service.get_config()
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-@cache_bp.route('/expiry', methods=['POST'])
+@cache_bp.route("/expiry", methods=["POST"])
 def set_cache_expiry():
-    """Set the TCG price refresh interval in seconds."""
-    from src.services.cache_service import get_cache_service
-    
+    data = request.get_json() or {}
+    if not isinstance(data, dict):
+        logger.warning("Rejected a non-object catalog refresh policy")
+        return jsonify({"error": "Request body must be an object"}), 400
+    seconds = data.get("seconds")
+    if not isinstance(seconds, int) or isinstance(seconds, bool):
+        logger.warning("Rejected a non-integer catalog refresh interval")
+        return jsonify({"error": "seconds must be an integer"}), 400
     try:
-        data = request.get_json()
-        seconds = data.get('seconds')
-        
-        if seconds is None:
-            return jsonify({"error": "seconds field is required"}), 400
-        
-        cache_service = get_cache_service()
-        seconds_value = int(seconds)
-        cache_service.set_tcg_price_expiry_seconds(seconds_value)
-
-        message = "TCG prices never expire" if seconds_value == 0 else f"TCG prices refresh after {seconds_value} seconds"
-        
-        return jsonify({
-            "message": message,
-            "config": cache_service.get_config()
-        })
-
+        settings = get_catalog_settings()
+        settings.set_tcg_price_expiry_seconds(seconds)
     except ValueError as exc:
+        logger.warning("Rejected catalog refresh interval: %s", exc)
         return jsonify({"error": str(exc)}), 400
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-@cache_bp.route('/clear', methods=['POST'])
-def clear_cache():
-    """Clear all cached data"""
-    from src.services.cache_service import get_cache_service
-    
-    try:
-        cache_service = get_cache_service()
-        count = cache_service.clear()
-        
-        return jsonify({
-            "message": f"Cleared {count} cache files",
-            "stats": cache_service.get_stats()
-        })
-    
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-@cache_bp.route('/invalidate', methods=['POST'])
-def invalidate_cache():
-    """Invalidate specific cache entry by tool name and parameters"""
-    from src.services.cache_service import get_cache_service
-    
-    try:
-        data = request.get_json()
-        tool = data.get('tool')
-        params = data.get('params', {})
-        
-        if not tool:
-            return jsonify({"error": "tool name is required"}), 400
-        
-        cache_service = get_cache_service()
-        
-        # Delete specific cache entry
-        deleted = cache_service.delete(tool, params)
-        
-        logger.info(f"🗑️ Cache invalidation for tool: {tool}, params: {params} - Deleted: {deleted}")
-        
-        return jsonify({
-            "message": f"Cache invalidated for {tool}",
-            "tool": tool,
-            "params": params,
-            "deleted": deleted,
-            "stats": cache_service.get_stats()
-        })
-    
-    except Exception as e:
-        logger.error(f"Error invalidating cache: {e}")
-        return jsonify({"error": str(e)}), 500
+    logger.info("TCG database price refresh interval set to %s seconds", seconds)
+    return jsonify({
+        "message": "TCG price refresh interval saved",
+        "config": settings.get_config(),
+    })

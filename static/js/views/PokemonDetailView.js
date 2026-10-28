@@ -70,22 +70,7 @@ class PokemonDetailView {
     }
 
     async fetchResourceWithFallback(resource, identifier) {
-        if (!this.app.cacheConfig) {
-            await this.app.loadCacheConfig();
-        }
-
-        // Always use proxy for form variants (IDs > 10000) so they get cached
-        const isFormVariant = /^\d+$/.test(String(identifier)) && parseInt(identifier) > 10000;
-
-        if (this.app.shouldUsePokemonProxy() || isFormVariant) {
-            return this.fetchPokemonResource(resource, identifier, 'proxy');
-        }
-        try {
-            return await this.fetchPokemonResource(resource, identifier, 'direct');
-        } catch (error) {
-            console.warn(`Direct ${resource} fetch failed, falling back to proxy`, error);
-            return this.fetchPokemonResource(resource, identifier, 'proxy');
-        }
+        return this.fetchPokemonResource(resource, identifier, 'proxy');
     }
 
     /**

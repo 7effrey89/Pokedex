@@ -11,7 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.db.database import SCHEMA_VERSION, SqliteDatabase, UsersDatabase  # noqa: E402
-from src.services.cache_service import CacheService  # noqa: E402
+from src.services.catalog_settings import CatalogSettings  # noqa: E402
 
 
 class SqliteDatabaseTests(unittest.TestCase):
@@ -24,6 +24,8 @@ class SqliteDatabaseTests(unittest.TestCase):
 
             self.assertEqual(status.schema_version, SCHEMA_VERSION)
             self.assertEqual(status.pokemon_count, 0)
+            self.assertEqual(status.species_count, 0)
+            self.assertEqual(status.set_count, 0)
             self.assertFalse(status.available)
             self.assertIn("needs Pokemon data", status.reason)
 
@@ -34,6 +36,33 @@ class SqliteDatabaseTests(unittest.TestCase):
             self.assertFalse(status.available)
             self.assertIsNone(status.schema_version)
             self.assertEqual(status.reason, "Database has not been built")
+
+    def test_catalog_counts_do_not_require_downloaded_artwork(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            database = SqliteDatabase(Path(temp_dir) / "pokedex.sqlite3")
+            database.initialize()
+            with closing(database.connect()) as connection:
+                connection.execute("INSERT INTO pokemon_species (id, name) VALUES (1, 'bulbasaur')")
+                connection.execute(
+                    "INSERT INTO pokemon (id, species_id, name, display_order, is_default) "
+                    "VALUES (1, 1, 'bulbasaur', 1, 1), (10001, 1, 'bulbasaur-form', 2, 0)"
+                )
+                connection.execute("INSERT INTO tcg_set (id, name) VALUES ('base1', 'Base')")
+                connection.execute(
+                    "INSERT INTO tcg_card (id, set_id, name, number) "
+                    "VALUES ('base1-1', 'base1', 'Bulbasaur', '1')"
+                )
+                connection.commit()
+
+            status = database.status()
+
+            self.assertEqual(status.species_count, 1)
+            self.assertEqual(status.pokemon_count, 2)
+            self.assertEqual(status.card_count, 1)
+            self.assertEqual(status.set_count, 1)
+            self.assertEqual(status.to_dict()["species_count"], 1)
+            self.assertFalse(status.available)
+            self.assertEqual(status.missing_asset_count, 1)
 
     def test_schema_enforces_foreign_keys(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -61,16 +90,15 @@ class SqliteDatabaseTests(unittest.TestCase):
             with closing(users.connect()) as connection:
                 self.assertEqual(connection.execute("PRAGMA journal_mode").fetchone()[0], "delete")
 
-    def test_data_source_mode_is_persisted_and_validated(self):
+    def test_refresh_policy_is_persisted_and_validated(self):
         with tempfile.TemporaryDirectory() as temp_dir:
-            service = CacheService(temp_dir)
-            self.assertEqual(service.get_data_source_mode(), "json")
-
-            service.set_data_source_mode("sqlite")
-            self.assertEqual(CacheService(temp_dir).get_data_source_mode(), "sqlite")
+            database = SqliteDatabase(Path(temp_dir) / "catalog.sqlite3")
+            service = CatalogSettings(database, Path(temp_dir) / "missing.json")
+            service.set_tcg_price_expiry_seconds(300)
+            self.assertEqual(CatalogSettings(database).get_config()["tcg_price_expiry_seconds"], 300)
 
             with self.assertRaises(ValueError):
-                service.set_data_source_mode("remote")
+                service.set_tcg_price_expiry_seconds(123)
 
 
 if __name__ == "__main__":

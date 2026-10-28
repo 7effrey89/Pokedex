@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Preload PokeAPI cache files via the CacheService descriptors.
-
-This utility walks the national dex, fetches the requested PokéAPI resources,
-and writes them into `cache/` using the exact schema emitted by
-`CacheService`. It is the fast way to warm every `pokeapi-*` entry so the
-frontend never has to touch the public API at runtime.
-"""
+"""Download raw PokeAPI responses into seed archives for a later SQLite import."""
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -25,15 +20,14 @@ from urllib3.util.retry import Retry
 load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DATA_FILE = PROJECT_ROOT / "data" / "pokemon_list.json"
+DATA_FILE = PROJECT_ROOT / "seeds" / "pokemon_list.json"
 DEFAULT_LIMIT = 1025
 RESOURCES = ("pokemon", "species", "evolution", "types")
 
 sys.path.insert(0, str(PROJECT_ROOT))
-from src.services.cache_service import get_cache_service  # noqa: E402
 
 POKEAPI_BASE_URL = os.environ.get("POKEMON_API_URL", "https://pokeapi.co/api/v2")
-cache_service = get_cache_service()
+POKEAPI_SEED_DIR = PROJECT_ROOT / "seeds" / "pokeapi"
 
 
 def parse_resource_arg(raw: str) -> List[str]:
@@ -102,12 +96,29 @@ def ensure_cached(
     resource_path: str,
     refresh: bool,
 ) -> Tuple[str, Dict[str, Any]]:
+    resource, identifier = resource_path.strip("/").split("/", 1)
+    if resource in {"pokemon", "pokemon-species"}:
+        prefix = "pokeapi" if resource == "pokemon" else "pokeapi-species"
+        pattern = f"{prefix}-{int(identifier):04d}-*.json" if identifier.isdigit() else f"{prefix}-*-{identifier}.json"
+    elif resource == "evolution-chain":
+        pattern = f"pokeapi-evolution-chain-{int(identifier):04d}.json"
+    else:
+        pattern = f"pokeapi-type-{identifier}.json"
     if not refresh:
-        cached = cache_service.get(endpoint, params)
-        if cached is not None:
-            return "cached", cached
+        for path in sorted(POKEAPI_SEED_DIR.glob(pattern)):
+            return "cached", json.loads(path.read_text(encoding="utf-8"))["response"]
     data = fetch_json(session, resource_path)
-    cache_service.set(endpoint, params, data)
+    if resource in {"pokemon", "pokemon-species"}:
+        filename = f"{prefix}-{data['id']:04d}-{data['name']}.json"
+    else:
+        filename = pattern
+    POKEAPI_SEED_DIR.mkdir(parents=True, exist_ok=True)
+    archive = {
+        "endpoint": endpoint, "params": params, "response": data,
+        "cache_key": hashlib.md5(f"{endpoint}:{json.dumps(params, sort_keys=True)}".encode()).hexdigest(),
+        "cached_at": time.time(),
+    }
+    (POKEAPI_SEED_DIR / filename).write_text(json.dumps(archive, ensure_ascii=False), encoding="utf-8")
     return "fetched", data
 
 
@@ -202,7 +213,7 @@ def format_status(statuses: Dict[str, str], order: Iterable[str]) -> str:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Warm the PokéAPI cache via CacheService")
+    parser = argparse.ArgumentParser(description="Download raw PokeAPI seeds for SQLite import")
     parser.add_argument("--start", type=int, default=1, help="First dex number to process")
     parser.add_argument("--end", type=int, default=DEFAULT_LIMIT, help="Last dex number to process")
     parser.add_argument("--limit", type=int, default=None, help="Optional cap on how many entries to visit")
@@ -214,7 +225,7 @@ def main() -> None:
     parser.add_argument(
         "--refresh",
         action="store_true",
-        help="Force refresh even when cache entries already exist",
+        help="Replace existing seed archives with fresh upstream responses",
     )
     parser.add_argument(
         "--delay",
@@ -243,7 +254,7 @@ def main() -> None:
         f"Preloading resources {resources} for {len(subset)} Pokemon (#{args.start}-#{args.start + len(subset) - 1})"
     )
     if args.refresh:
-        print("Refresh mode: existing cache entries will be overwritten")
+        print("Refresh mode: existing seed archives will be overwritten")
 
     stats: Dict[str, Counter] = {res: Counter() for res in resources if res != "types"}
     error_count = 0
@@ -269,10 +280,10 @@ def main() -> None:
         try:
             type_stats = preload_types(session, args.refresh)
             print(
-                "Type cache -> "
+                "Type seeds -> "
                 + ", ".join(f"{key}:{count}" for key, count in sorted(type_stats.items()))
                 if type_stats
-                else "Type cache -> no-op"
+                else "Type seeds -> no-op"
             )
         except requests.RequestException as exc:
             error_count += 1

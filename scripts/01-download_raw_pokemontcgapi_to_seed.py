@@ -3,8 +3,8 @@
 Download Pokemon TCG API responses for all Pokemon (001-1025)
 
 This script fetches TCG card data for each Pokemon and stores the responses
-in the tcg-cache directory. Each response is saved with the same structure
-used by CacheService to enable easy migration or import.
+in seeds/tcg. Each response uses the historical seed-envelope structure
+for reproducible SQLite imports, not runtime response caching.
 
 The script supports resume functionality - if interrupted, you can restart it
 and it will skip Pokemon that have already been cached (unless --no-skip-existing
@@ -13,7 +13,7 @@ is specified).
 Parallel downloads are supported for faster processing using multiple threads.
 
 Usage:
-    python scripts/download_tcg_cache.py [--start NUM] [--end NUM] [--limit NUM]
+    python scripts/01-download_raw_pokemontcgapi_to_seed.py [--start NUM] [--end NUM] [--limit NUM]
 
 Options:
     --start NUM             Start from Pokemon number NUM (default: 1)
@@ -51,8 +51,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Base directories
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
-TCG_CACHE_DIR = PROJECT_DIR / "tcg-cache"
-DATA_DIR = PROJECT_DIR / "data"
+TCG_SEED_DIR = PROJECT_DIR / "seeds" / "tcg"
+DATA_DIR = PROJECT_DIR / "seeds"
 
 # API Configuration
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
@@ -73,7 +73,7 @@ def build_cache_filename(pokemon_number: int, pokemon_name: str) -> str:
 
 def get_cache_key(endpoint: str, params: Dict[str, Any]) -> str:
     """
-    Generate cache key using the same algorithm as CacheService
+    Generate the historical seed-envelope identifier.
     
     Args:
         endpoint: API endpoint URL
@@ -82,10 +82,9 @@ def get_cache_key(endpoint: str, params: Dict[str, Any]) -> str:
     Returns:
         MD5 hash as cache key
     """
-    # Remove None values to normalize cache keys (same as CacheService)
+    # Preserve the historical envelope hash for existing seed archives.
     normalized_params = {k: v for k, v in params.items() if v is not None}
     
-    # Create stable string representation (same as CacheService)
     key_data = f"{endpoint}:{json.dumps(normalized_params, sort_keys=True)}"
     
     # Hash it for clean filename
@@ -223,11 +222,11 @@ def is_pokemon_cached(pokemon_number: int, pokemon_name: str) -> bool:
     Returns:
         True if cache file exists for this Pokemon
     """
-    if not TCG_CACHE_DIR.exists():
+    if not TCG_SEED_DIR.exists():
         return False
     
     filename = build_cache_filename(pokemon_number, pokemon_name)
-    return (TCG_CACHE_DIR / filename).exists()
+    return (TCG_SEED_DIR / filename).exists()
 
 
 def process_single_pokemon(
@@ -280,7 +279,7 @@ def process_single_pokemon(
 def save_tcg_cache(pokemon_number: int, pokemon_name: str, 
                    response_data: Dict, endpoint: str, params: Dict) -> Path:
     """
-    Save TCG response to cache file with CacheService-compatible structure
+    Save a raw TCG response in an importer-compatible seed envelope.
     
     Args:
         pokemon_number: Pokemon national dex number
@@ -292,10 +291,8 @@ def save_tcg_cache(pokemon_number: int, pokemon_name: str,
     Returns:
         Path to the saved cache file
     """
-    # Ensure cache directory exists
-    TCG_CACHE_DIR.mkdir(exist_ok=True)
+    TCG_SEED_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Generate cache key using CacheService algorithm
     cache_key = get_cache_key(endpoint, params)
     
     # Create timestamp for cached_at field
@@ -304,9 +301,9 @@ def save_tcg_cache(pokemon_number: int, pokemon_name: str,
     
     # Build filename without timestamp for deterministic rewrites
     filename = build_cache_filename(pokemon_number, pokemon_name)
-    filepath = TCG_CACHE_DIR / filename
+    filepath = TCG_SEED_DIR / filename
     
-    # Build cache data structure (same as CacheService)
+    # Historical field names remain compatible with existing seed imports.
     cache_data = {
         "endpoint": endpoint,
         "params": params,
@@ -397,7 +394,7 @@ def main():
     
     print()
     print(f"Processing {len(pokemon_subset)} Pokemon (#{args.start} to #{min(args.end, start_idx + len(pokemon_subset))})")
-    print(f"Output directory: {TCG_CACHE_DIR}")
+    print(f"Seed directory: {TCG_SEED_DIR}")
     if args.skip_existing:
         print("Resume mode: Skipping already-cached Pokemon")
     else:
@@ -507,7 +504,7 @@ def main():
         for pokemon in exhausted_pokemon:
             print(f"    - #{pokemon['number']:03d} {pokemon['name'].title()}")
     print(f"  Total cards found: {cards_found_count}")
-    print(f"  Cache directory: {TCG_CACHE_DIR}")
+    print(f"  Seed directory: {TCG_SEED_DIR}")
     print("=" * 60)
 
 

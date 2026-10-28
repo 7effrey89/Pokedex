@@ -77,7 +77,9 @@ The app features a clean, mobile-first design with:
 - Normal Pokemon, species, evolution-chain, and type-effectiveness requests are reconstructed from normalized SQLite tables; they do not create runtime JSON cache files.
 - `GET /api/pokemon/<name_or_id>`, `/species/<name_or_id>`, `/evolution-chain/<chain_id>`, and `/type/<type_name>` support `?refresh=1` as the explicit PokeAPI update path. Successful refreshes are normalized back into SQLite.
 - Pokemon sprites and cries are served through materializing Flask routes and persisted under `data/assets` before reuse.
-- The `cache/` directory is a disposable response cache for external API data that is not part of the stable catalog. TCG price responses use the Settings interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited.
+- The database is the API cache: Pokemon tool responses, TCG cards/sets, and prices come from normalized SQLite records. There is no runtime JSON response-cache folder or Clear Cache action.
+- Explicit Pokemon and TCG refresh actions fetch upstream and persist fresh records before updating the view. TCG price refresh settings are stored in SQLite and survive catalog rebuilds; the intervals are 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited.
+- Downloaded image/audio files remain in `data/assets` with their paths and metadata tracked in SQLite. Settings calls these files "stored locally"; remote source registrations do not imply that files have already been downloaded or that an upstream host is reachable.
 - Override the upstream host with `POKEMON_API_URL` when a development mirror is required.
 
 ## Installation
@@ -172,19 +174,22 @@ docker run -p 8000:8000 --env-file .env pokedex-app
 
 6. **Hydrate the local SQLite database**
    ```bash
-   python scripts/05-import_sqlite.py
+   python scripts/03-build_seed_catalog.py
+   python scripts/06-create_seed_backup_bundles.py --components catalog_database
+   python scripts/07-import_seed_backup_bundles.py --components catalog_database --apply --server-stopped
    ```
 
-   This builds `data/pokedex.sqlite3` from the raw PokeAPI and TCG JSON seeds,
-   fetches missing PokeAPI forms, evolution chains, and type-effectiveness charts,
-   downloads required primary artwork and TCG card images, and registers every
-   selectable sprite, cry, card, logo, and symbol for persistent materialization.
-   The generated database and downloaded assets are ignored by Git. Use
-   `--no-network --skip-artwork` for an offline structural import check; it
+   Stop the target server before the final command. Preparation builds a catalog
+   under `seeds/prepared/`, packages it in the admin backup ZIP format, then
+   explicitly installs it into runtime storage. Assets are registered for
+   persistent materialization without bulk downloading them. See
+   [the seed pipeline](scripts/README.md) to prepare artwork, cries, TCG images,
+   embeddings, and optional accounts ZIPs. Prepared data and bundles are ignored
+   by Git. Use `--no-network` on script 03 for an offline structural check; it
    intentionally fails if the seed archive does not contain every form.
-   If validation reports missing local assets after a full import, rerun with
-   `--resume` to repair the retained `.building` database without rebuilding
-   Pokemon, evolution, and TCG rows.
+   If a completed seed build fails validation, use script 03's `--resume` to
+   revalidate the retained `.building` database. Media acquisition is a separate
+   seed-preparation step, not a catalog-import side effect.
 
 7. **Run the application**
    ```bash

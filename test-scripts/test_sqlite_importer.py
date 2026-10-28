@@ -116,7 +116,7 @@ class SqliteImporterTests(unittest.TestCase):
 
             self.assertEqual(summary.pokemon_count, 1)
             self.assertEqual(summary.card_count, 1)
-            self.assertTrue(any("Phase 1/5" in message for message in progress_messages))
+            self.assertTrue(any("Phase 1/6" in message for message in progress_messages))
             self.assertTrue(any("TCG cards: 1/1 (100%)" in message for message in progress_messages))
             self.assertTrue(any("Validation passed" in message for message in progress_messages))
             self.assertFalse(database_path.with_suffix(".sqlite3.building").exists())

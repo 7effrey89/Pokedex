@@ -1,173 +1,180 @@
-# Pokemon and TCG Data Pipeline
+# Seed Preparation, Backup Bundles, and Restore
 
-Six numbered scripts support raw data acquisition, legacy cache conversion,
-SQLite catalog builds, and immutable snapshots. SQLite and persistent assets are
-the runtime sources; `cache/` is not a catalog source.
+Preparation writes only under `seeds/`. Downloaded source data is not installed
+into the running application. Script 07, or **Settings > Backup and Restore**,
+is the explicit installation boundary.
 
-| Step | Script | Purpose | Output |
-| --- | --- | --- | --- |
-| 01 | `scripts/01-download_tcg_cache.py` | Bulk download every Pokémon’s raw TCG response directly from the public API. | Raw JSON snapshots in `tcg-cache/` plus `data/pokemon_list.json`. |
-| 02 | `scripts/02-normalize_tcg_cache.py` | Convert historical TCG payloads to the legacy CacheService envelope for diagnostics or migration. | Legacy files in `cache/` or an explicit destination. |
-| 03 | `scripts/03-preload_pokeapi_cache.py` | Legacy utility for warming API-response cache files; not required by normal SQLite-backed detail routes. | Disposable `pokeapi-*` files in `cache/`. |
-| 04 | `scripts/04-cache_tcg_images.py` | Cache every unique official card image and build the exact NumPy cosine index. | Images in `tcg-image-cache/images/` and runtime artifacts in `tcg-image-cache/index/`. |
-| 05 | `scripts/05-import_sqlite.py` | Normalize raw Pokemon/TCG seeds, type effectiveness, and asset metadata into the runtime catalog. | `data/pokedex.sqlite3` and registered assets. |
-| 06 | `scripts/06-create_snapshot.py` | Archive immutable raw seed inputs and their checksums. | Versioned snapshot under the configured data root. |
+| Order | Script | Purpose and default output |
+| --- | --- | --- |
+| 01 | `01-download_raw_pokemontcgapi_to_seed.py` | Raw TCG responses in `seeds/tcg/`; shared dex input in `seeds/pokemon_list.json`. |
+| 02 | `02-download_raw_pokeapi_to_seed.py` | Raw Pokemon, species, evolution, and type responses in `seeds/pokeapi/`. |
+| 03 | `03-build_seed_catalog.py` | Normalized catalog at `seeds/prepared/data/pokedex.sqlite3`, without image downloads. |
+| 04 | `04-download_raw_pokeapi_and_pokemontcgapi_assets_to_seed.py` | Validated Pokemon artwork/sprites, cries, and TCG card/set images under `seeds/prepared/data/assets/`, registered in the prepared catalog. |
+| 05 | `05-build_tcg_image_embeddings.py` | Offline NumPy embeddings, card mapping, manifest, and failure report under `seeds/prepared/data/index/`. |
+| 06 | `06-create_seed_backup_bundles.py` | One admin-compatible ZIP per category under `seeds/backup-bundles/`. |
+| 07 | `07-import_seed_backup_bundles.py` | Verify ZIPs, then optionally restore them using the admin panel's `BackupService`. |
+| 08 | `08-create_snapshot.py` | Optional checksummed snapshot of the seed workspace, including prepared assets and catalog. |
 
-## Step 01 – Download raw caches
+Scripts 01 and 02 are independent. If the raw seeds are already complete, skip
+them. Embeddings are optional for ordinary catalog browsing. Other categories
+can also be selected individually; not every script must run every time.
 
-`scripts/01-download_tcg_cache.py` pulls API responses and stores them verbatim under `tcg-cache/` using deterministic filenames (`tcg-<dex>-<slug>.json`). Highlights:
+## 01–02: Acquire raw API inputs
 
-- Resumable by default (`--skip-existing` is on) so reruns only fetch missing Pokémon.
-- Supports ranges (`--start`, `--end`, `--limit`), parallelism (`--parallel 1-10`), and multi-pass retries (`--max-retries`).
-- Accepts `POKEMON_TCG_API_KEY` via `.env` or environment variable for higher rate limits.
-
-Quick commands:
-
-```bash
-# Full dataset (1-1025) with resume mode
-python scripts/01-download_tcg_cache.py
-
-# First 10 Pokémon only (useful for testing)
-python scripts/01-download_tcg_cache.py --limit 10
-
-# Parallelized Kanto run with aggressive retry budget
-python scripts/01-download_tcg_cache.py --start 1 --end 151 --parallel 5 --max-retries 8
-```
-
-Outputs:
-
-1. `tcg-cache/` containing raw API payloads (cached forever so you keep an archive).
-2. `data/pokemon_list.json` with the full dex listing (auto-fetched the first time).
-
-## Step 02 – Normalize for the app
-
-`scripts/02-normalize_tcg_cache.py` consumes historical raw files and emits the
-legacy CacheService envelope. Current TCG catalog handlers do not read these
-files; use this utility only for migration, diagnostics, or compatibility work.
-
-- Default behavior: write normalized copies into `cache/` while leaving `tcg-cache/` untouched.
-- Use `--in-place` if you truly want to rewrite the originals.
-- Automatically renames files to `tcg-<dex>-<slug>.json` when the dex number is known (disable with `--no-rename`).
-- Works on individual files, folders, or the entire `tcg-cache/` directory; `--dry-run` + `--verbose` shows the plan.
-
-Quick commands:
-
-```bash
-# Preview the normalization plan for the entire archive
-python scripts/02-normalize_tcg_cache.py tcg-cache --dry-run --verbose
-
-# Normalize everything and copy into cache/
-python scripts/02-normalize_tcg_cache.py tcg-cache --verbose
-
-# Normalize a single file but keep it in tcg-cache/
-python scripts/02-normalize_tcg_cache.py tcg-cache/tcg-002-ivysaur.json --in-place --verbose
-```
-
-Outputs land in `cache/` unless overridden. They do not replace the SQLite import
-performed by Step 05.
-
-## Step 03 – Preload PokeAPI caches
-
-`scripts/03-preload_pokeapi_cache.py` is retained for legacy response-cache
-testing. Normal Pokemon, species, evolution, and type routes now read SQLite, so
-preloading those JSON files is not part of application startup or deployment.
-
-Highlights:
-
-- Honors cache hits unless `--refresh` is supplied, making it safe to rerun.
-- Supports dex windows (`--start`, `--end`, `--limit`) so you can warm only the regions you care about.
-- Lets you pick resources (`--resources pokemon,species,evolution`) and adds a global type sweep when `types` is included.
-- Reuses the same descriptor logic as the Flask proxy, producing files like `pokeapi-0001-bulbasaur.json` automatically.
-
-Quick commands:
-
-```bash
-# Hydrate pokemon + species caches for the entire dex
-python scripts/03-preload_pokeapi_cache.py
-
-# Refresh the first 151 entries, including evolution chains
-python scripts/03-preload_pokeapi_cache.py --end 151 --resources pokemon,species,evolution --refresh
-
-# Warm type metadata only
-python scripts/03-preload_pokeapi_cache.py --resources types
-```
-
-## Step 04 – Cache card images and build the NumPy index
-
-`scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive, deduplicates cards by ID, downloads each official card image once, and encodes every valid image with the same shared Pillow/NumPy encoder used by the Flask scanner endpoint.
-
-- Resumes by validating and skipping existing images unless `--refresh` is supplied.
-- Retries failed downloads and records cards that could not be indexed in `tcg-image-cache/index/failures.json`.
-- Writes normalized `float32` vectors in row-for-row alignment with `cards.json`.
-- Writes an encoder version and source fingerprint to `manifest.json` so stale or incompatible indexes fail clearly.
-- Supports separate download and rebuild passes with `--download-only` and `--index-only`.
-
-Quick commands:
-
-```bash
-# Cache every unique card and build the production index
-python scripts/04-cache_tcg_images.py
-
-# Validate the pipeline with a small subset
-python scripts/04-cache_tcg_images.py --limit 25 --parallel 4
-
-# Rebuild vectors after an encoder change without downloading again
-python scripts/04-cache_tcg_images.py --index-only
-```
-
-The downloaded `images/` directory is a rebuildable local cache and is ignored by Git. The smaller `vectors.npy`, `cards.json`, and `manifest.json` files under `index/` are the runtime artifacts used by the **NumPy full catalog** scanner mode.
-
-## Step 05 – Build the SQLite catalog
-
-`scripts/05-import_sqlite.py` reads `seeds/pokeapi/` and `seeds/tcg/`, normalizes
-Pokemon, species, evolution chains, all six type-damage relation groups, TCG
-sets/cards/latest prices, and asset metadata, then atomically promotes a validated
-`data/pokedex.sqlite3`.
-
-```bash
-python scripts/05-import_sqlite.py
-```
-
-### Recover a new computer from replenished seeds (no ZIP required)
-
-The admin ZIP restore accepts versioned backup bundles, not raw seed folders.
-Having files under `seeds/pokeapi/` and `seeds/tcg/` does not populate SQLite:
-an empty catalog can still show the static Pokemon index while every detail and
-sprite request returns 404.
-
-Stop the local Flask server before replacing its SQLite catalog. Then run from
-the repository root in PowerShell:
+From the repository root in PowerShell:
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\05-import_sqlite.py --skip-artwork
+.\.venv\Scripts\python.exe .\scripts\01-download_raw_pokemontcgapi_to_seed.py
+.\.venv\Scripts\python.exe .\scripts\02-download_raw_pokeapi_to_seed.py --resources all
 ```
 
-This rebuilds only the catalog, preserving the separate accounts/collections
-database. It imports the available seeds and fetches missing evolution chains,
-forms, and type metadata as needed; it does not bulk-download Pokemon or TCG
-images. Existing valid cached TCG images can still be registered. After the
-import succeeds, restart Flask and refresh the browser. Image and cry routes
-materialize missing assets on demand, or an administrator can selectively
-download them using the existing asset-download controls.
+TCG acquisition accepts `--start`, `--end`, `--limit`, `--parallel`, and
+`--max-retries`. Existing seeds are skipped by default; `--no-skip-existing`
+redownloads them. `POKEMON_TCG_API_KEY` provides higher upstream rate limits.
 
-Do not add `--no-network` unless the seeds include every required form: incomplete
-form seeds make an offline import fail rather than silently produce an incomplete
-catalog. The live catalog is replaced only after import validation succeeds.
+PokeAPI acquisition accepts dex ranges, `--resources`, `--delay`, and `--refresh`.
+The raw seeds contain metadata and URLs, not downloaded image/audio bytes.
 
-## Step 06 – Snapshot raw seeds
+## 03: Build the seed catalog
 
-`scripts/06-create_snapshot.py` archives the reproducible raw seed inputs. It
-deliberately excludes derived runtime response caches.
-
-```bash
-python scripts/06-create_snapshot.py --compress
+```powershell
+.\.venv\Scripts\python.exe .\scripts\03-build_seed_catalog.py
 ```
 
-## FAQ
+The importer normalizes species, forms, evolution chains, type relations, TCG
+sets/cards/prices, and asset references. Missing forms or metadata can be fetched
+upstream during preparation. `--no-network` requires a complete raw archive;
+it fails rather than silently omitting required forms.
 
-- **Do I need every step every time?** No. Use Steps 01 and the PokeAPI seed tooling to refresh raw inputs, Step 04 when scanner images/indexes change, Step 05 to rebuild SQLite, and Step 06 to preserve source snapshots. Steps 02 and 03 are legacy utilities.
-- **Where do I set the TCG API key?** Add `POKEMON_TCG_API_KEY=...` to `.env` or export it in your shell before running Step 01.
-- **Can I normalize third-party files?** Yes—pass any path(s) to Step 02; it detects names, rebuilds params, and outputs the canonical schema.
+The staged catalog is validated before replacement. Rebuilding retains compatible
+registrations for downloaded seed assets and catalog refresh settings.
+`--resume` validates a retained failed `.building` catalog. Neither build nor
+resume replaces the live catalog or accounts database.
 
-Runtime reads come from SQLite and persistent asset directories. Raw archives
-remain rebuild inputs; `cache/` remains disposable API-response acceleration.
+## 04: Download selected seed assets
+
+```powershell
+# All three asset categories
+.\.venv\Scripts\python.exe .\scripts\04-download_raw_pokeapi_and_pokemontcgapi_assets_to_seed.py
+
+# A small trial run, or just one category
+.\.venv\Scripts\python.exe .\scripts\04-download_raw_pokeapi_and_pokemontcgapi_assets_to_seed.py --components tcg_images --limit 25
+```
+
+Categories are `pokemon_images`, `pokemon_cries`, and `tcg_images`. The last
+includes card faces, set logos, and set symbols. This uses the same asset manager
+as the admin download controls, but with seed-only storage paths. Validated files,
+hashes, media types, and portable paths are recorded in the prepared catalog.
+Existing registered files are reused; failed downloads make the command fail.
+Bulk downloads can involve tens of thousands of files.
+
+## 05: Build TCG image embeddings
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\05-build_tcg_image_embeddings.py
+```
+
+This step makes no network requests. It reads TCG seed records and images
+registered in the prepared catalog, applies the application's shared encoder,
+and produces the aligned `vectors.npy`, `cards.json`, and `manifest.json`.
+Missing/corrupt card images fail the build by default. `--allow-partial` explicitly
+permits omissions, recorded in `failures.json`; `--limit` is useful for tests.
+The admin panel and scanner call this category **TCG image embeddings**.
+
+## 06: Create admin-compatible category ZIPs
+
+```powershell
+# Catalog, three asset categories, and embeddings
+.\.venv\Scripts\python.exe .\scripts\06-create_seed_backup_bundles.py
+
+# Package only the catalog and artwork
+.\.venv\Scripts\python.exe .\scripts\06-create_seed_backup_bundles.py --components catalog_database pokemon_images
+
+# Explicitly add real accounts/collections from an existing database
+.\.venv\Scripts\python.exe .\scripts\06-create_seed_backup_bundles.py --users-database .\data\users.sqlite3
+```
+
+The last command takes an online SQLite snapshot into seed preparation storage;
+it does not modify the source database. No accounts are invented, and the live
+accounts database is never selected implicitly. Missing selected categories fail
+packaging rather than producing empty backups.
+
+| Admin panel category | Component key | ZIP filename prefix |
+| --- | --- | --- |
+| Catalog database | `catalog_database` | `catalog-database--` |
+| User accounts and collections | `users_database` | `user-accounts-and-collections--` |
+| Pokemon artwork | `pokemon_images` | `pokemon-artwork--` |
+| Pokemon cries | `pokemon_cries` | `pokemon-cries--` |
+| TCG card images | `tcg_images` | `tcg-card-images--` |
+| TCG image embeddings | `tcg_embeddings` | `tcg-image-embeddings--` |
+
+Every filename ends with a UTC timestamp and `.pokedex-backup.zip`. For example:
+`tcg-image-embeddings--20261028T120000000000Z.pokedex-backup.zip`.
+
+The CLI and admin export use the exact same ZIP writer: same bundle/schema
+versions, component keys, manifest, paths, file sizes, and SHA-256 checksums.
+Timestamps naturally differ between separate exports. Asset registrations travel
+with asset bundles so restoring artwork updates SQLite as well as copying files.
+Older version-1 bundles without registrations remain readable.
+
+Prepared data and generated ZIPs are ignored by Git. Account bundles contain
+sensitive personal/account data: protect them and do not commit or publish them.
+
+## 07: Verify or install seed ZIPs
+
+```powershell
+# Verification only: newest single-category ZIP for each non-user category
+.\.venv\Scripts\python.exe .\scripts\07-import_seed_backup_bundles.py
+
+# Select only categories being installed
+.\.venv\Scripts\python.exe .\scripts\07-import_seed_backup_bundles.py --components catalog_database tcg_images
+
+# After stopping the target Flask/Gunicorn server, actually restore
+.\.venv\Scripts\python.exe .\scripts\07-import_seed_backup_bundles.py --apply --server-stopped
+```
+
+Automatic category selection excludes accounts unless `--components
+users_database` is explicit. Combined admin-exported ZIPs are supported by
+passing their paths explicitly:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\07-import_seed_backup_bundles.py .\seeds\backup-bundles\my-admin-export.pokedex-backup.zip
+```
+
+Add `--apply --server-stopped` only when ready to replace the categories printed
+by verification. `--target-root` selects another local/persistent data root.
+Every ZIP is verified before a batch changes any target files; catalog bundles
+are restored before asset bundles. Duplicate categories in explicit ZIPs are
+rejected. Filesystem failures during installation are surfaced; a multi-ZIP batch
+is not one cross-file transaction.
+
+Alternatively, upload any generated ZIP through **Settings > Restore From File**.
+Restore imports the categories declared in the uploaded ZIP, not the categories
+currently available for export. Embeddings are validated as an aligned unit;
+active scanner mappings are released and reloaded after an admin restore.
+
+After a CLI restore, restart the server and refresh the browser. Seed preparation
+and ZIP verification alone do not require stopping/restarting the server.
+
+## 08: Optional seed-workspace snapshot
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\08-create_snapshot.py --compress
+```
+
+This snapshots the full contents of `seeds/` except the generated
+`seeds/backup-bundles/` ZIPs, which are already transferable admin backups. It
+archives the `pokeapi/`, `tcg/`, and (when present) `prepared/` folders, plus
+root-level seed files such as `pokemon_list.json`. It therefore includes raw API
+JSON, the prepared catalog, downloaded assets, and embeddings. Files are listed
+with sizes and SHA-256 checksums in `snapshot-manifest.json`. By default, staged
+`users.sqlite3` is excluded because it contains private account data;
+`--include-users` opts in explicitly.
+
+The output defaults to the configured data root's `snapshots/` directory, not
+inside `seeds/`. To repopulate an empty `seeds/` directory, extract the archive
+at the `seeds/` root (for example,
+`tar -xzf <snapshot-file> -C .\seeds`) so the archived folders and root-level
+files return to their expected paths. A snapshot is an archival copy, not an
+admin restore ZIP; there is no automatic snapshot-restore command. Alternatively,
+use script 06/07 for app-compatible category restore.

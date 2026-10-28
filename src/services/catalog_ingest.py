@@ -219,8 +219,8 @@ class _StorageAwareTcgImporter(SqliteImporter):
         super().__init__(
             project_root=paths.data_root,
             database_path=database_path,
-            pokeapi_dir=paths.data_root / "cache",
-            tcg_dir=paths.data_root / "tcg-cache",
+            pokeapi_dir=paths.data_root / "seeds" / "pokeapi",
+            tcg_dir=paths.data_root / "seeds" / "tcg",
             asset_dir=paths.data_root / "data" / "assets",
             allow_network=True,
             download_artwork=True,

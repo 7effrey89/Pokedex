@@ -8,20 +8,17 @@ Handles all Pokemon data lookups via PokeAPI:
 """
 
 import random
-import requests
 from typing import Dict, Any
 import logging
 
 from src.api import pokemon_api
 from src.tools.tool_manager import tool_manager
-from src.services.cache_service import get_cache_service
 from .formatters import annotate_pokemon_result_with_text
 
 logger = logging.getLogger(__name__)
 
 # Instantiate API client
 pokemon_api_client = pokemon_api.PokemonTools()
-cache_service = get_cache_service()
 
 
 def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
@@ -34,31 +31,17 @@ def handle_get_pokemon(pokemon_name: str) -> Dict[str, Any]:
     Returns:
         Dictionary with Pokemon data or error
     """
-    # Check cache first (stale-while-revalidate)
-    cache_key_params = {"pokemon_name": pokemon_name.lower()}
-    cached_response, cache_status = cache_service.get_with_stale("get_pokemon", cache_key_params)
-    if cached_response:
-        if cache_status == 'stale':
-            logger.info(f"⏳ Returning STALE cached Pokemon data for: {pokemon_name}")
-            if isinstance(cached_response, dict):
-                cached_response['_cache_stale'] = True
-        else:
-            logger.info(f"🎯 Returning cached Pokemon data for: {pokemon_name}")
-        return cached_response
-    
     use_pokeapi = tool_manager.is_tool_enabled("pokeapi")
     
     if not use_pokeapi:
         return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI in Tools settings."}
     
-    # Use direct PokeAPI
+    # Read the normalized catalog.
     pokemon_info = pokemon_api_client.get_pokemon(pokemon_name)
     if pokemon_info:
         species_info = pokemon_api_client.get_pokemon_species(pokemon_name)
         formatted = pokemon_api_client.format_pokemon_info(pokemon_info, species_info)
         result = annotate_pokemon_result_with_text(formatted)
-        # Cache the successful response
-        cache_service.set("get_pokemon", cache_key_params, result)
         return result
     
     return {"error": f"Pokemon '{pokemon_name}' not found"}
@@ -76,7 +59,7 @@ def handle_get_random_pokemon() -> Dict[str, Any]:
     if not use_pokeapi:
         return {"error": "Pokemon lookup tools are disabled. Please enable PokeAPI in Tools settings."}
     
-    # Use direct PokeAPI
+    # Read the normalized catalog.
     random_id = random.randint(1, 1000)
     pokemon_data = pokemon_api_client.get_pokemon(str(random_id))
     if pokemon_data:
@@ -146,24 +129,18 @@ def handle_get_random_pokemon_by_type(pokemon_type: str) -> Dict[str, Any]:
     if not use_pokeapi:
         return {"error": "Pokemon lookup tools are disabled"}
     
+    connection = pokemon_api_client.repository.database.connect(read_only=True)
     try:
-        response = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon_type.lower()}", timeout=10)
-        if response.status_code == 200:
-            type_data = response.json()
-            pokemon_list = type_data.get("pokemon", [])
-            if pokemon_list:
-                random_pokemon = random.choice(pokemon_list)
-                pokemon_name = random_pokemon["pokemon"]["name"]
-                pokemon_data = pokemon_api_client.get_pokemon(pokemon_name)
-                if pokemon_data:
-                    species_info = pokemon_api_client.get_pokemon_species(pokemon_name)
-                    formatted = pokemon_api_client.format_pokemon_info(pokemon_data, species_info)
-                    return annotate_pokemon_result_with_text(formatted)
-                return {"error": f"Failed to get {pokemon_type} Pokemon"}
-            return {"error": f"No {pokemon_type} type Pokemon found"}
-        return {"error": f"Invalid type: {pokemon_type}"}
-    except Exception as e:
-        return {"error": str(e)}
+        rows = connection.execute(
+            "SELECT p.name FROM pokemon p JOIN pokemon_type pt ON pt.pokemon_id = p.id "
+            "JOIN type t ON t.id = pt.type_id WHERE t.name = ? COLLATE NOCASE",
+            (pokemon_type,),
+        ).fetchall()
+    finally:
+        connection.close()
+    if not rows:
+        return {"error": f"No {pokemon_type} type Pokemon found in the catalog"}
+    return handle_get_pokemon(random.choice(rows)["name"])
 
 
 def handle_get_pokemon_list(limit: int = 10, offset: int = 0) -> Dict[str, Any]:

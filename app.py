@@ -107,7 +107,6 @@ if __name__ == '__main__':
     os.makedirs('static', exist_ok=True)
     os.makedirs('static/css', exist_ok=True)
     os.makedirs('static/js', exist_ok=True)
-    os.makedirs('cache', exist_ok=True)
     
     # Run the app
     port = int(os.environ.get('PORT', 5050))

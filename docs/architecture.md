@@ -3,9 +3,10 @@
 ## API Response Caching
 
 Stable Pokemon and TCG catalog records are read from SQLite, while downloaded
-assets are persisted under `data/assets`. The file-based response cache is only
-for data fetched from external APIs. TCG prices have a dedicated refresh interval
-because they change regularly.
+assets are persisted under `data/assets` and tracked in SQLite. There is no
+runtime JSON response cache. Raw seeds and immutable refresh snapshots are rebuild
+and provenance inputs, not runtime lookup sources. TCG prices have a dedicated
+database-backed refresh interval because they change regularly.
 
 Normal Pokemon detail, species, and evolution-chain routes reconstruct their
 PokeAPI-shaped response contracts from normalized SQLite tables. They do not read
@@ -19,28 +20,61 @@ lookups entirely from SQLite without a runtime JSON cache file.
 ### Flow
 
 ```
-TCG price request → Cached response still current?
-  ├─ YES → Return stored response
-  └─ NO  → Fetch price from TCG API → store response → return
+TCG price request → SQLite card refresh timestamp still current?
+  ├─ YES → Build response from normalized market listings/prices
+  └─ NO  → Fetch raw card from TCG API → normalize into SQLite → return
 ```
 
-### Backend (`CacheService`)
+### Database Cache and Refresh Policy
 
-- File-based JSON cache in `/cache/` directory
-- TCG price TTL is configured by `tcg_price_expiry_seconds` using an allowed discrete interval: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or unlimited
-- `get_card_price` deletes an expired response and synchronously fetches fresh data
-- `force_refresh: true` bypasses the stored price response
-- PokeAPI proxy responses retain their internal cache policy separately
-- Cache keys are hashed from tool name + params, filenames are descriptive
+- Schema v3 adds `catalog_setting`; `CatalogSettings` migrates the legacy price interval once and never creates a JSON cache directory.
+- TCG price TTL uses `tcg_price_expiry_seconds`: 5 minutes, 1 hour, 1 day, 3 days, 7 days, or unlimited. It compares `tcg_card.last_refreshed_at` with the interval, without deleting catalog rows.
+- `force_refresh: true` always calls the TCG API for searches, set cards, sets, or card prices. Pagination completes before an atomic write; failures leave existing catalog data intact.
+- TCG refresh reuses importer normalization, preserves local card/set assets whose source URLs are unchanged, and stores both providers' price metrics.
+- Pokemon tools read the same normalized catalog as the detail routes. The Pokemon refresh button explicitly refreshes Pokemon, species, and evolution data through Flask.
+- Catalog rebuilds preserve `catalog_setting`; accounts, collections, and existing asset files are not cleared.
 
 ### Cache Management Endpoints
 
 ```
-GET  /api/cache/config      → Current config + stats
+GET  /api/cache/config      → SQLite refresh config + catalog status
 POST /api/cache/expiry      → Set TCG price refresh interval (`seconds`: 300, 3600, 86400, 259200, 604800, or 0)
-POST /api/cache/clear       → Delete all cache files
-POST /api/cache/invalidate  → Delete specific cache entry
 ```
+
+The legacy clear, invalidate, enable, and PokeAPI-cache toggle endpoints have been
+removed. Refresh updates catalog data; it is not implemented by deleting files.
+
+## Seed Preparation and Shared Backup Bundles
+
+Raw API acquisition and bulk asset preparation never write into the live data
+root. `seeds/prepared/` is a separate `StoragePaths` root with a normalized
+catalog, `data/assets/{pokemon,cries,tcg}`, and `data/index` for **TCG image
+embeddings**. The asset downloader reuses the admin `AssetManager` with those
+explicit paths. The embeddings build is offline and uses catalog-registered
+seed image paths rather than guessing filenames or reading runtime assets.
+
+`seeds/backup-bundles/` holds one category-named ZIP per prepared component.
+The CLI and admin panel both use `BackupService.create_backup` and
+`restore_backup`; there is no second ZIP format or bespoke extraction path.
+Catalog and optional accounts databases use SQLite's online backup API.
+Accounts require an explicit existing source and are excluded from automatic
+CLI restores by default. Generated account data and bundles are private,
+Git-ignored outputs; no default seed accounts are generated.
+
+The shared version-1 manifest optionally includes portable asset registrations.
+Asset-only restores attach installed files to matching catalog owner/kind/source
+URL rows; restoring a catalog clears local paths whose files do not exist on the
+target. Older manifests without registrations remain supported. Embeddings are
+an additional directory component, validated for encoder, dtype, vector shape,
+and aligned card count before promotion. Active mapped indexes are locked,
+released, and reloaded after an admin restore.
+
+CLI import verifies all selected ZIPs before changing the target, rejects
+duplicate categories, restores the catalog first, and requires explicit
+`--apply --server-stopped`. UI restore imports the categories declared in the
+ZIP, independently of locally available export selections. Neither multi-ZIP
+installation nor an operating-system file replacement failure is advertised as
+a cross-file transaction.
 
 ---
 
@@ -56,8 +90,8 @@ Detail views fetch full card data on click via `get_card_details`.
 
 TCG set listing, searches, cards-by-set, and card-detail handlers query the
 normalized SQLite database without a JSON response-cache lookup. Card image
-URLs point to `/api/tcg/card-image/<card_id>/<asset_kind>`, which resolves only
-the importer-registered local path and never falls back to a remote image.
+URLs point to `/api/tcg/card-image/<card_id>/<asset_kind>`; that route serves the
+registered local file or materializes the registered upstream asset before serving.
 
 Pokemon artwork, selectable sprite variants, and cries follow the same persistent
 materialization boundary. Browser URLs point to `/api/pokemon/<id>/sprite/<style>`
@@ -75,6 +109,16 @@ Existing card files are revalidated before serving; corrupt files trigger a fres
 download or fall back to the other registered card size in preference order.
 Frontend TCG views must not prefer upstream image URLs when a stable card or set ID
 is available.
+
+Settings reports catalog content independently of local image downloads: species,
+forms, cards, and sets come from SQLite row counts. Asset inventory
+`available_count` includes rows with a local path or a nonempty source URL, counted
+once; `stored` and `missing` remain the separate local-file and registered-remote-source
+counts. These are catalog counts, not live upstream connectivity checks. TCG
+inventory counts large card faces and set logos/symbols, without double-counting
+small card thumbnails. Legacy database `available` still measures full default
+artwork hydration; the settings catalog summary does not use it to hide metadata
+that is already browsable.
 
 ## SQLite Journaling
 
@@ -116,7 +160,7 @@ The collection scanner supports two retrieval architectures so their accuracy an
 
 1. `app.js` maps the visible card guide through the video's `object-fit: cover` scale and offsets, then crops that exact intrinsic camera region. One resulting data URL drives the captured-shot preview and every matching request.
 2. `POST /api/tcg/extract-card-text` uses the configured vision model to extract structured card metadata. The realtime ten-line parser remains a fallback when structured extraction is unavailable.
-3. `findBestMatchingCards()` searches the JSON-backed TCG cache by the extracted card name and scores printed fields locally.
+3. `findBestMatchingCards()` searches the SQLite-backed TCG catalog by the extracted card name and scores printed fields locally.
 4. At most 24 candidates are sent with the crop to `POST /api/tcg/image-match`.
 5. `tcg_image_routes.py` fetches official candidate images server-side and compares them with Pillow-based average hash, difference hash, edge hash, and color signature scores. Candidate image features are cached in process memory.
 6. The frontend combines visual similarity at 58% with metadata similarity at 42%, then sends at most 12 candidates to `POST /api/tcg/rerank-match` for an optional LLM judge pass.
@@ -128,15 +172,21 @@ This route exists server-side so browser canvas security rules do not block comp
 
 The experimental `numpy` setting deliberately bypasses OCR, metadata candidate lookup, and the LLM judge:
 
-1. `scripts/04-cache_tcg_images.py` reads the Step 01 JSON archive and deduplicates cards by stable TCG card ID.
-2. Official card images are downloaded resumably to `data/assets/tcg/` and validated with Pillow.
+1. `scripts/05-build_tcg_image_embeddings.py` reads the TCG seed archive and deduplicates cards by stable TCG card ID.
+2. Script 04 first downloads and validates official card images into `seeds/prepared/data/assets/tcg/`, registering paths in the prepared catalog. The embeddings build itself performs no downloads.
 3. `src/services/tcg_image_index.py` center-crops each image and builds a deterministic 1,432-dimensional vector from `32×44` standardized grayscale pixels plus eight histogram buckets for each RGB channel.
-4. Step 04 L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `data/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
+4. The index build L2-normalizes the vectors and writes `vectors.npy`, a row-aligned `cards.json`, and a version/source manifest under `seeds/prepared/data/index/`. The TCG image embeddings ZIP installs that unit into the configured runtime `data/index/`. The matrix is persisted as contiguous `float32` rows and memory-mapped by the application rather than stored as individual JSON vectors.
 5. `POST /api/tcg/numpy-image-match` receives the same guide crop shown in the captured-shot preview, uses the shared encoder, and builds four query variants containing 100%, 90%, 86%, and 82% of the captured content. The padded variants compensate for cards framed too tightly without increasing the runtime index size.
 6. The service lazy-loads the generated matrix once per process, performs exact cosine similarity for every query scale, and keeps each card's highest score.
 7. The endpoint returns the six highest-scoring complete card records for the existing scanner candidate UI.
 
-The JSON archive remains the source of truth. Images and vectors are disposable build artifacts; rerunning Step 04 rebuilds them whenever source URLs or `ENCODER_VERSION` change. Downloaded images are not required at runtime after the index is built. Deployments must include the complete `data/index/` directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
+The JSON archive remains the source of truth for index rebuilding. Rerun the seed asset downloader and embeddings builder whenever source URLs or `ENCODER_VERSION` change, then package/install the corresponding ZIPs. Missing card images fail the embeddings build unless partial output is explicitly requested. Downloaded images are not required for index searches after the embeddings are installed. Deployments must include the complete configured TCG index directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
+
+Script 08 archives the full `seeds/` workspace (raw responses, prepared catalog,
+downloaded media, and embeddings) with per-file hashes, excluding generated
+`backup-bundles/` to avoid redundant copies. A staged user accounts database is
+excluded unless `--include-users` is explicitly supplied. This is an archival
+format, distinct from the category ZIPs used for application restore.
 
 The standalone POC at `/static/tyrantrum-embedding-poc.html` uses `GET /api/tcg/image-proxy?url=...` to load official card images into a browser canvas, builds local grayscale/color image embeddings, starts the camera by default, and shows a live lightbox alignment zone over the camera feed. The default scan zone uses a narrower card-like ratio, and the user can drag its yellow edges to resize the crop area. Snapshot matching captures the camera frame and crops the current guide area at its visible proportions, then uses that cropped image for the browser image-embedding ranking pipeline. It can run in either cosine-only mode or rerank mode, with rerank mode selected by default. Rerank mode sends the cropped card image to `POST /api/tcg/extract-card-text`, where the configured Azure OpenAI vision model extracts structured card metadata: name, HP, card types, set/number, rarity, attacks, attack energy costs, weakness, resistance, and retreat. The browser scores those extracted attributes against candidate card metadata using weighted field matching, combines the attribute score with image cosine similarity as `image_embedding * 0.58 + text * 0.42`, then calls `POST /api/tcg/rerank-match` so an Azure OpenAI judge can rerank the candidates with the same structured evidence. The UI exposes candidate metadata and score calculation tooltips. If API settings are missing or the judge fails, the endpoint returns the deterministic combined-score order.
 

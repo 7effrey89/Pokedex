@@ -1020,7 +1020,7 @@
                     <div class="settings-section admin-section" id="adminSection">
                         <h3>🔐 Data Management <span class="admin-badge">Admin</span></h3>
                         <p class="section-description">
-                            Manage persistent storage, download missing assets once, and move data between environments.
+                            View the available catalog, optionally download assets for offline use, and move data between environments.
                         </p>
 
                         <div class="admin-storage" id="adminStorage">
@@ -1074,9 +1074,9 @@
                             </div>
 
                             <div id="adminMaterializeStep">
-                                <h4 class="admin-subheading">Step 2: Materialize Assets</h4>
+                                <h4 class="admin-subheading">Step 2: Available Assets</h4>
                                 <p class="section-description">
-                                    After Step 1, download only the images, artwork, and cries that the database knows about but has not stored locally.
+                                    Catalog images, artwork, and cries are available on demand. Downloads are optional and save local copies for offline use.
                                 </p>
                                 <div class="admin-component-list" id="adminAssetComponents">
                                     <div class="tools-loading">Loading asset inventory...</div>
@@ -1094,7 +1094,7 @@
                         <div class="admin-backup-section">
                             <h4 class="admin-subheading">Backup and Restore</h4>
                             <p class="section-description">
-                                Backups are verified ZIP bundles. Restores validate every checksum before replacing files.
+                                Backups are verified ZIP bundles. Restore imports all categories included in the selected ZIP, including categories not yet stored locally, after verifying every checksum.
                             </p>
                             <div class="admin-component-list" id="adminBackupComponents">
                                 <div class="tools-loading">Loading backup components...</div>
@@ -1350,7 +1350,7 @@
                         <legend>Scanning pipeline</legend>
                         <label>
                             <input type="radio" name="cameraPipelineMode" value="numpy">
-                            <span><strong>NumPy full catalog</strong><small>Search every cached card image directly, without OCR or an LLM.</small></span>
+                            <span><strong>TCG image embeddings</strong><small>Search the imported card image embeddings directly, without OCR or an LLM.</small></span>
                         </label>
                         <label>
                             <input type="radio" name="cameraPipelineMode" value="cosine">

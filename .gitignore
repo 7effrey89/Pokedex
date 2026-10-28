@@ -68,7 +68,11 @@ tools_config.json
 profiles_pic/*
 !profiles_pic/Jeffrey.png
 !profiles_pic/.gitkeep
-#cache/
+# Retired runtime JSON response cache
+/cache/
+/seeds/prepared/
+/seeds/backup-bundles/*
+!/seeds/backup-bundles/.gitkeep
 
 # TCG image pipeline downloads are rebuildable and too large for source control.
 tcg-image-cache/images/

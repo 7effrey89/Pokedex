@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import mimetypes
 import os
 import re
 import sqlite3
 import urllib.request
+from contextlib import closing
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -126,6 +128,7 @@ class SqliteImporter:
             self._import_tcg(connection, species_by_name)
             self.progress("Phase 5/6: recording import provenance")
             self._record_import_files(connection, run_id)
+            self._preserve_settings(connection)
             connection.execute(
                 "UPDATE import_run SET status = 'completed', completed_at = ? WHERE id = ?",
                 (utc_now(), run_id),
@@ -170,6 +173,7 @@ class SqliteImporter:
                 "UPDATE import_run SET status = 'running', completed_at = NULL, error_message = NULL WHERE id = ?",
                 (run_id,),
             )
+            self._preserve_settings(connection)
             if self.download_artwork:
                 self._hydrate_missing_card_images(connection)
             self.progress("Validating repaired database integrity and required assets")
@@ -194,6 +198,25 @@ class SqliteImporter:
         self.progress(f"Validation passed. Replacing active database: {self.database_path}")
         os.replace(temporary_path, self.database_path)
         return summary
+
+    def _preserve_settings(self, connection: sqlite3.Connection) -> None:
+        if not self.database_path.is_file():
+            return
+        with self.database_path.open("rb") as source:
+            if source.read(16) != b"SQLite format 3\x00":
+                logging.getLogger(__name__).warning("Previous catalog is not SQLite; no refresh settings can be preserved")
+                return
+        # A rebuild replaces the catalog, but must not reset its refresh policy.
+        with closing(sqlite3.connect(f"file:{self.database_path.as_posix()}?mode=ro", uri=True)) as previous:
+            exists = previous.execute(
+                "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'catalog_setting'"
+            ).fetchone()
+            if exists:
+                connection.executemany(
+                    "INSERT INTO catalog_setting (key, value) VALUES (?, ?) "
+                    "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                    previous.execute("SELECT key, value FROM catalog_setting").fetchall(),
+                )
 
     def _hydrate_missing_card_images(self, connection: sqlite3.Connection) -> None:
         missing_assets = connection.execute(
@@ -588,9 +611,14 @@ class SqliteImporter:
             return
         connection.execute(
             """
-            INSERT OR IGNORE INTO tcg_set
+            INSERT INTO tcg_set
                 (id, name, series, printed_total, total, ptcgo_code, release_date, api_updated_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+                name = excluded.name, series = excluded.series,
+                printed_total = excluded.printed_total, total = excluded.total,
+                ptcgo_code = excluded.ptcgo_code, release_date = excluded.release_date,
+                api_updated_at = excluded.api_updated_at
             """,
             (
                 value["id"], value.get("name", value["id"]), value.get("series"), value.get("printedTotal"),
@@ -599,11 +627,18 @@ class SqliteImporter:
             ),
         )
         for name, status in value.get("legalities", {}).items():
-            connection.execute("INSERT OR IGNORE INTO set_legality VALUES (?, ?, ?)", (value["id"], name, status))
+            connection.execute(
+                "INSERT INTO set_legality VALUES (?, ?, ?) "
+                "ON CONFLICT(set_id, format_name) DO UPDATE SET status = excluded.status",
+                (value["id"], name, status),
+            )
         for kind, url in value.get("images", {}).items():
             if kind in {"logo", "symbol"}:
                 connection.execute(
-                    "INSERT OR IGNORE INTO set_asset (set_id, asset_kind, source_url) VALUES (?, ?, ?)",
+                    "INSERT INTO set_asset (set_id, asset_kind, source_url) VALUES (?, ?, ?) "
+                    "ON CONFLICT(set_id, asset_kind) DO UPDATE SET source_url = excluded.source_url, "
+                    "local_path = CASE WHEN set_asset.source_url = excluded.source_url THEN set_asset.local_path ELSE NULL END, "
+                    "sha256 = CASE WHEN set_asset.source_url = excluded.source_url THEN set_asset.sha256 ELSE NULL END",
                     (value["id"], kind, url),
                 )
 
@@ -790,7 +825,11 @@ class SqliteImporter:
 
     def _record_import_files(self, connection: sqlite3.Connection, run_id: int) -> None:
         for source_kind, resource_kind, path, cached_at, record_count in self.imported_files:
-            relative_path = path.relative_to(self.project_root).as_posix()
+            if path.is_relative_to(self.project_root):
+                relative_path = path.relative_to(self.project_root).as_posix()
+            else:
+                source_root = self.pokeapi_dir if source_kind == "pokeapi" else self.tcg_dir
+                relative_path = (Path("seeds") / source_kind / path.relative_to(source_root)).as_posix()
             connection.execute(
                 """
                 INSERT INTO import_file (

@@ -9,18 +9,19 @@ Handles all Pokemon Trading Card Game operations:
 from typing import Dict, Any, Optional
 import logging
 import os
+from datetime import datetime, timezone
 
 from flask import g
 
 from src.api import pokemon_tcg_api
 from src.db.tcg_repository import SqliteTcgRepository
-from src.services.cache_service import get_cache_service
+from src.services.catalog_settings import get_catalog_settings
+from src.services.tcg_refresh import TcgRefreshService
 
 logger = logging.getLogger(__name__)
 
 # Instantiate API client
 default_tcg_api_client = pokemon_tcg_api.PokemonTCGTools()
-cache_service = get_cache_service()
 sqlite_tcg_repository = SqliteTcgRepository()
 
 # Get page size from environment or use default
@@ -85,6 +86,11 @@ def handle_search_pokemon_cards(
     Returns:
         Dictionary with cards array and total_count, or error
     """
+    if force_refresh:
+        TcgRefreshService(_get_tcg_client(), sqlite_tcg_repository.database).refresh_search(
+            name=pokemon_name, types=[card_type] if card_type else None,
+            hp_min=hp_min, hp_max=hp_max, rarity=rarity,
+        )
     return sqlite_tcg_repository.search_cards(
         pokemon_name=pokemon_name,
         card_type=card_type,
@@ -105,33 +111,22 @@ def handle_get_card_price(card_id: str, force_refresh: bool = False) -> Dict[str
     Returns:
         Dict containing card pricing info from TCGPlayer and Cardmarket
     """
-    # Check cache first (stale-while-revalidate)
-    cache_key_params = {"card_id": card_id}
-    if not force_refresh:
-        cached_response = cache_service.get("get_card_price", cache_key_params)
-        if cached_response:
-            logger.info(f"🎯 Returning cached TCG card price for: {card_id}")
-            return cached_response
-    
-    logger.info(f"🎴 Getting price for card: {card_id}")
-    
-    client = _get_tcg_client()
-    try:
-        price_info = client.get_card_price(card_id)
-        
-        if price_info:
-            result = {
-                "card": price_info,
-                "card_id": card_id
-            }
-            # Cache the successful response (prices change, so shorter cache is good)
-            cache_service.set("get_card_price", cache_key_params, result)
-            return result
-        else:
-            return {"error": f"Card not found: {card_id}"}
-    except Exception as e:
-        logger.warning(f"⚠️ Error fetching card price: {e}")
-        return {"error": str(e)}
+    stored = sqlite_tcg_repository.get_card_price(card_id)
+    seconds = get_catalog_settings().get_config()["tcg_price_expiry_seconds"]
+    refreshed_at = stored.pop("_refreshed_at", None) if stored else None
+    current = seconds == 0
+    if refreshed_at:
+        current = current or (
+            datetime.now(timezone.utc) - datetime.fromisoformat(refreshed_at)
+        ).total_seconds() < seconds
+    if not force_refresh and stored is not None and current:
+        return {"card": stored, "card_id": card_id}
+    TcgRefreshService(_get_tcg_client(), sqlite_tcg_repository.database).refresh_card(card_id)
+    fresh = sqlite_tcg_repository.get_card_price(card_id)
+    if fresh is None:
+        raise RuntimeError(f"Refreshed TCG card {card_id} is missing from SQLite")
+    fresh.pop("_refreshed_at", None)
+    return {"card": fresh, "card_id": card_id}
 
 
 def handle_search_cards_by_set(
@@ -152,6 +147,8 @@ def handle_search_cards_by_set(
     Returns:
         Dictionary with cards array and total_count
     """
+    if force_refresh:
+        TcgRefreshService(_get_tcg_client(), sqlite_tcg_repository.database).refresh_set(set_id)
     return sqlite_tcg_repository.get_cards_by_set(set_id, slim=slim, limit=limit)
 
 
@@ -175,4 +172,6 @@ def handle_get_tcg_sets(force_refresh: bool = False) -> Dict[str, Any]:
     Returns:
         Dictionary with list of sets sorted by release date (newest first)
     """
+    if force_refresh:
+        TcgRefreshService(_get_tcg_client(), sqlite_tcg_repository.database).refresh_sets()
     return sqlite_tcg_repository.get_sets()

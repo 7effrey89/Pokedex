@@ -74,6 +74,9 @@ class StoragePaths:
             "profile_images": self.profile_images,
         }
 
+    def backup_directories(self) -> dict[str, Path]:
+        return {**self.asset_directories(), "tcg_embeddings": self.tcg_index}
+
     def ensure_directories(self) -> None:
         for path in (
             self.catalog_database.parent, self.pokemon_assets, self.cry_assets,

@@ -488,7 +488,7 @@ class TcgCardsGalleryView {
             const toolName = tcgData.set_id ? 'search_cards_by_set' : 'search_pokemon_cards';
             const args = tcgData.set_id
                 ? { set_id: tcgData.set_id, force_refresh: true }
-                : { pokemon_name: tcgData.search_query || tcgData.pokemon_name, force_refresh: true };
+                : { ...(tcgData._search_params || { pokemon_name: tcgData.search_query || tcgData.pokemon_name }), force_refresh: true };
 
             const response = await fetch('/api/realtime/tool', {
                 method: 'POST',
@@ -499,6 +499,7 @@ class TcgCardsGalleryView {
             if (!response.ok) throw new Error('Failed to refresh cards');
 
             const data = await response.json();
+            if (data.result?.error) throw new Error(data.result.error);
             this.app.setLoading(false);
 
             if (data.result && data.result.cards && data.result.cards.length > 0) {
@@ -511,7 +512,7 @@ class TcgCardsGalleryView {
         } catch (error) {
             console.error('❌ Error refreshing gallery:', error);
             this.app.setLoading(false);
-            this.app.addMessage('assistant', 'Error refreshing cards.');
+            this.app.addMessage('assistant', `Error refreshing cards: ${error.message}`);
         }
     }
 }

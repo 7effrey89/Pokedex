@@ -15,12 +15,16 @@ import sqlite3
 import tempfile
 import zipfile
 import threading
+import re
+from contextlib import closing, nullcontext
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
 from src.config import get_storage_paths
-from src.db.database import SCHEMA_VERSION
+from src.config.paths import StoragePaths
+from src.db.database import SCHEMA_VERSION, USERS_SCHEMA_VERSION
+from src.services.backup_assets import collect_asset_records, restore_asset_records, validate_asset_records
 
 logger = logging.getLogger(__name__)
 
@@ -28,13 +32,14 @@ BUNDLE_VERSION = 1
 MAX_RESTORE_BYTES = 40 * 1024 * 1024 * 1024
 
 DATABASE_COMPONENTS = {"catalog_database": "catalog_database", "users_database": "users_database"}
-DIRECTORY_COMPONENTS = ("pokemon_images", "pokemon_cries", "tcg_images")
+DIRECTORY_COMPONENTS = ("pokemon_images", "pokemon_cries", "tcg_images", "tcg_embeddings")
 COMPONENT_LABELS = {
     "catalog_database": "Catalog database",
     "users_database": "User accounts and collections",
     "pokemon_images": "Pokemon artwork",
     "pokemon_cries": "Pokemon cries",
     "tcg_images": "TCG card images",
+    "tcg_embeddings": "TCG image embeddings",
 }
 
 
@@ -45,8 +50,8 @@ def utc_now() -> str:
 class BackupService:
     """Creates and restores selective backup bundles."""
 
-    def __init__(self):
-        self.paths = get_storage_paths()
+    def __init__(self, paths: StoragePaths | None = None):
+        self.paths = paths or get_storage_paths()
         self._job_lock = threading.Lock()
         self._job: Dict[str, Any] | None = None
         self._job_thread: threading.Thread | None = None
@@ -105,7 +110,7 @@ class BackupService:
             if key in DATABASE_COMPONENTS:
                 count += 1 if getattr(self.paths, key).is_file() else 0
             else:
-                directory = self.paths.asset_directories()[key]
+                directory = self.paths.backup_directories()[key]
                 count += sum(1 for item in directory.rglob("*") if item.is_file()) if directory.is_dir() else 0
         return count
 
@@ -119,7 +124,7 @@ class BackupService:
                 "size_bytes": path.stat().st_size if path.is_file() else 0,
             })
         for key in DIRECTORY_COMPONENTS:
-            directory = self.paths.asset_directories()[key]
+            directory = self.paths.backup_directories()[key]
             available = directory.is_dir() and any(directory.iterdir())
             size_bytes = self._directory_size(directory) if available else 0
             components.append({
@@ -137,14 +142,25 @@ class BackupService:
         except OSError:
             return 0
 
-    def create_backup(self, components: Iterable[str], progress=None) -> Path:
-        selected = [key for key in components if key in COMPONENT_LABELS]
+    def create_backup(self, components: Iterable[str], progress=None, *, output_dir: Path | None = None) -> Path:
+        selected = list(dict.fromkeys(components))
+        unknown = set(selected) - set(COMPONENT_LABELS)
+        if unknown:
+            raise ValueError(f"Unknown components: {', '.join(sorted(unknown))}")
         if not selected:
             raise ValueError("Select at least one component to back up")
-
-        self.paths.backups.mkdir(parents=True, exist_ok=True)
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-        bundle_path = self.paths.backups / f"{stamp}.pokedex-backup.zip"
+        available = {item["key"] for item in self.available_components() if item["available"]}
+        missing = set(selected) - available
+        if missing:
+            raise ValueError(f"Components are not stored locally: {', '.join(sorted(missing))}")
+        if "tcg_embeddings" in selected:
+            from src.services.tcg_image_index import validate_index
+            validate_index(self.paths.tcg_index)
+        output = output_dir or self.paths.backups
+        output.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        categories = "--".join(re.sub(r"[^a-z0-9]+", "-", COMPONENT_LABELS[key].lower()).strip("-") for key in selected)
+        bundle_path = output / f"{categories}--{stamp}.pokedex-backup.zip"
         manifest: Dict[str, Any] = {
             "bundle_version": BUNDLE_VERSION,
             "schema_version": SCHEMA_VERSION,
@@ -163,6 +179,11 @@ class BackupService:
                             progress(len(manifest["files"]))
                     else:
                         self._add_directory(archive, manifest, key, progress)
+                manifest["asset_records"] = collect_asset_records(self.paths, selected, manifest["files"])
+                empty = set(selected) - {entry["component"] for entry in manifest["files"]}
+                if empty:
+                    raise ValueError(f"No files found for: {', '.join(sorted(empty))}")
+                validate_asset_records(manifest, set(selected))
                 archive.writestr("manifest.json", json.dumps(manifest, indent=2))
         except Exception:
             bundle_path.unlink(missing_ok=True)
@@ -184,6 +205,7 @@ class BackupService:
         finally:
             target_connection.close()
             source_connection.close()
+        self._validate_database(snapshot, key)
         entry = f"{key}/{source.name}"
         archive.write(snapshot, entry)
         manifest["files"].append({
@@ -192,7 +214,7 @@ class BackupService:
         })
 
     def _add_directory(self, archive: zipfile.ZipFile, manifest: Dict[str, Any], key: str, progress=None) -> None:
-        directory = self.paths.asset_directories()[key]
+        directory = self.paths.backup_directories()[key]
         if not directory.is_dir():
             return
         for item in sorted(directory.rglob("*")):
@@ -214,6 +236,10 @@ class BackupService:
             unknown = requested - set(COMPONENT_LABELS)
             if unknown:
                 raise ValueError(f"Unknown components: {', '.join(sorted(unknown))}")
+            missing = requested - set(manifest["components"])
+            if missing:
+                raise ValueError(f"Components are not present in this backup: {', '.join(sorted(missing))}")
+            validate_asset_records(manifest, requested)
 
             total_bytes = sum(entry["size_bytes"] for entry in manifest["files"]
                               if entry["component"] in requested)
@@ -223,16 +249,67 @@ class BackupService:
             staging = Path(tempfile.mkdtemp(prefix="pokedex-restore-"))
             try:
                 restored = self._extract_and_verify(archive, manifest, requested, staging)
-                self._promote(restored, requested, staging)
+                self._validate_staged(restored, requested, staging)
+                if "tcg_embeddings" in requested:
+                    from src.services.tcg_image_index import suspend_indexes
+                    guard = suspend_indexes(self.paths.tcg_index)
+                else:
+                    guard = nullcontext()
+                with guard:
+                    self._promote(restored, requested, staging)
+                registrations = restore_asset_records(self.paths, manifest, requested)
             finally:
                 shutil.rmtree(staging, ignore_errors=True)
 
         return {
             "restored_components": sorted(requested),
+            "restored_labels": [COMPONENT_LABELS[key] for key in sorted(requested)],
+            "asset_records_updated": registrations,
             "file_count": len([entry for entry in manifest["files"]
                                if entry["component"] in requested]),
             "created_at": manifest.get("created_at"),
         }
+
+    def inspect_backup(self, bundle_path: Path) -> Dict[str, Any]:
+        with zipfile.ZipFile(bundle_path) as archive:
+            return self._read_manifest(archive)
+
+    def verify_backup(self, bundle_path: Path) -> Dict[str, Any]:
+        """Perform the admin restore's checks without changing application storage."""
+        with zipfile.ZipFile(bundle_path) as archive:
+            manifest = self._read_manifest(archive)
+            requested = set(manifest["components"])
+            validate_asset_records(manifest, requested)
+            with tempfile.TemporaryDirectory(prefix="pokedex-verify-") as directory:
+                staging = Path(directory)
+                restored = self._extract_and_verify(archive, manifest, requested, staging)
+                self._validate_staged(restored, requested, staging)
+        return manifest
+
+    @staticmethod
+    def _validate_staged(restored: list[dict], requested: set[str], staging: Path) -> None:
+        for key in requested & set(DATABASE_COMPONENTS):
+            entries = [entry for entry in restored if entry["component"] == key]
+            if len(entries) != 1:
+                raise ValueError(f"Backup must contain exactly one database for {key}")
+            BackupService._validate_database(staging / entries[0]["path"], key)
+        if "tcg_embeddings" in requested:
+            from src.services.tcg_image_index import validate_index
+            validate_index(staging / "tcg_embeddings")
+
+    @staticmethod
+    def _validate_database(path: Path, key: str) -> None:
+        try:
+            with closing(sqlite3.connect(f"{path.resolve().as_uri()}?mode=ro", uri=True)) as connection:
+                version = SCHEMA_VERSION if key == "catalog_database" else USERS_SCHEMA_VERSION
+                if connection.execute("PRAGMA user_version").fetchone()[0] != version:
+                    raise ValueError(f"Unsupported database schema in {key}")
+                if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+                    raise ValueError(f"Database integrity check failed for {key}")
+                if connection.execute("PRAGMA foreign_key_check").fetchall():
+                    raise ValueError(f"Database foreign key check failed for {key}")
+        except sqlite3.Error as exc:
+            raise ValueError(f"Invalid database in {key}: {exc}") from exc
 
     def _read_manifest(self, archive: zipfile.ZipFile) -> Dict[str, Any]:
         try:
@@ -246,21 +323,37 @@ class BackupService:
                 f"Backup schema version {manifest.get('schema_version')} "
                 f"does not match supported version {SCHEMA_VERSION}"
             )
+        if not isinstance(manifest.get("components"), list) or not manifest["components"]:
+            raise ValueError("Backup has no components")
+        if set(manifest["components"]) - set(COMPONENT_LABELS):
+            raise ValueError("Backup contains unknown components")
+        if not isinstance(manifest.get("files"), list) or not manifest["files"]:
+            raise ValueError("Backup has no files")
+        if sum(entry["size_bytes"] for entry in manifest["files"]) > MAX_RESTORE_BYTES:
+            raise ValueError("Backup exceeds the maximum restore size")
         return manifest
 
     def _extract_and_verify(self, archive: zipfile.ZipFile, manifest: Dict[str, Any],
                             requested: set, staging: Path) -> List[Dict[str, Any]]:
         restored = []
+        seen = set()
         for entry in manifest["files"]:
             if entry["component"] not in requested:
                 continue
             relative = Path(entry["path"])
-            if relative.is_absolute() or ".." in relative.parts:
+            if (
+                relative.is_absolute() or relative.drive or ".." in relative.parts
+                or not relative.parts or relative.parts[0] != entry["component"]
+                or entry["path"] in seen
+            ):
                 raise ValueError(f"Rejected unsafe path in backup: {entry['path']}")
+            seen.add(entry["path"])
             destination = (staging / relative).resolve()
             destination.relative_to(staging.resolve())
             destination.parent.mkdir(parents=True, exist_ok=True)
             with archive.open(entry["path"]) as source, open(destination, "wb") as target:
+                if archive.getinfo(entry["path"]).file_size != entry["size_bytes"]:
+                    raise ValueError(f"Size mismatch for {entry['path']}")
                 shutil.copyfileobj(source, target)
             if _file_hash(destination) != entry["sha256"]:
                 raise ValueError(f"Checksum mismatch for {entry['path']}")
@@ -279,7 +372,7 @@ class BackupService:
                     os.replace(staged, target)
                 continue
 
-            directory = self.paths.asset_directories()[key]
+            directory = self.paths.backup_directories()[key]
             directory.mkdir(parents=True, exist_ok=True)
             for entry in restored:
                 if entry["component"] != key:

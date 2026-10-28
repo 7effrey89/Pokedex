@@ -2,8 +2,8 @@
 Pokemon lookup tools integration
 Provides functions to fetch Pokemon data from PokeAPI
 """
-import requests
 from typing import Dict, Optional, List
+from src.db.pokemon_repository import SqlitePokemonRepository
 from src.utils.mock_pokemon_data import MOCK_POKEMON_DATA, MOCK_SPECIES_DATA, MOCK_POKEMON_LIST
 
 class PokemonTools:
@@ -11,7 +11,8 @@ class PokemonTools:
     
     def __init__(self):
         self.base_url = "https://pokeapi.co/api/v2"
-        self.use_mock = False  # Will be set to True if API is unavailable
+        self.use_mock = False
+        self.repository = SqlitePokemonRepository()
     
     def get_pokemon(self, name_or_id: str) -> Optional[Dict]:
         """
@@ -30,18 +31,7 @@ class PokemonTools:
                 print(f"Using mock data for {name_or_id}")
                 return mock_data
         
-        try:
-            url = f"{self.base_url}/pokemon/{name_or_id.lower()}"
-            response = requests.get(url, timeout=10)
-            response.raise_for_status()
-            return response.json()
-        except requests.RequestException as e:
-            print(f"Error fetching Pokemon from API: {e}, using mock data")
-            # Only use mock as fallback
-            mock_data = MOCK_POKEMON_DATA.get(name_or_id.lower())
-            if mock_data:
-                return mock_data
-            return None
+        return self.repository.get_pokemon(name_or_id)
     
     def get_pokemon_species(self, name_or_id: str) -> Optional[Dict]:
         """
@@ -59,18 +49,7 @@ class PokemonTools:
             if mock_data:
                 return mock_data
         
-        try:
-            url = f"{self.base_url}/pokemon-species/{name_or_id.lower()}"
-            response = requests.get(url, timeout=10)
-            response.raise_for_status()
-            return response.json()
-        except requests.RequestException as e:
-            print(f"Error fetching Pokemon species from API: {e}, using mock data")
-            # Only use mock as fallback
-            mock_data = MOCK_SPECIES_DATA.get(name_or_id.lower())
-            if mock_data:
-                return mock_data
-            return None
+        return self.repository.get_species(name_or_id)
     
     def format_pokemon_info(self, pokemon_data: Dict, species_data: Optional[Dict] = None) -> Dict:
         """
@@ -91,8 +70,8 @@ class PokemonTools:
             "name": pokemon_data.get("name", "Unknown").title(),
             "id": pokemon_data.get("id"),
             "types": [t["type"]["name"] for t in pokemon_data.get("types", [])],
-            "height": pokemon_data.get("height", 0) / 10,  # Convert to meters
-            "weight": pokemon_data.get("weight", 0) / 10,  # Convert to kg
+            "height": (pokemon_data.get("height") or 0) / 10,  # Convert to meters
+            "weight": (pokemon_data.get("weight") or 0) / 10,  # Convert to kg
             "abilities": [a["ability"]["name"] for a in pokemon_data.get("abilities", [])],
             "image": pokemon_data.get("sprites", {}).get("other", {}).get("official-artwork", {}).get("front_default") or 
                      pokemon_data.get("sprites", {}).get("front_default"),
@@ -171,13 +150,14 @@ class PokemonTools:
         if self.use_mock:
             return MOCK_POKEMON_LIST[:limit]
         
+        connection = self.repository.database.connect(read_only=True)
         try:
-            url = f"{self.base_url}/pokemon?limit={limit}&offset={offset}"
-            response = requests.get(url, timeout=5)
-            response.raise_for_status()
-            data = response.json()
-            return data.get("results", [])
-        except requests.RequestException as e:
-            print(f"Error fetching Pokemon list from API: {e}, using mock data")
-            self.use_mock = True
-            return MOCK_POKEMON_LIST[:limit]
+            return [
+                {"name": row["name"], "url": f"{self.base_url}/pokemon/{row['id']}/"}
+                for row in connection.execute(
+                    "SELECT id, name FROM pokemon WHERE is_default = 1 "
+                    "ORDER BY display_order LIMIT ? OFFSET ?", (limit, offset)
+                )
+            ]
+        finally:
+            connection.close()

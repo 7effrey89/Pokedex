@@ -11,7 +11,7 @@ from typing import Any, Dict, Optional
 from src.config import get_storage_paths
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 USERS_SCHEMA_VERSION = 1
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_DIR = PROJECT_ROOT / "data" / "schema"
@@ -53,6 +53,8 @@ class DatabaseStatus:
     card_count: int
     missing_asset_count: int
     reason: Optional[str]
+    species_count: int = 0
+    set_count: int = 0
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -103,7 +105,9 @@ class SqliteDatabase:
                     )
 
                 pokemon_count = connection.execute("SELECT COUNT(*) FROM pokemon").fetchone()[0]
+                species_count = connection.execute("SELECT COUNT(*) FROM pokemon_species").fetchone()[0]
                 card_count = connection.execute("SELECT COUNT(*) FROM tcg_card").fetchone()[0]
+                set_count = connection.execute("SELECT COUNT(*) FROM tcg_set").fetchone()[0]
                 missing_asset_count = connection.execute(
                     """
                     SELECT COUNT(*)
@@ -128,6 +132,7 @@ class SqliteDatabase:
                 return DatabaseStatus(
                     available, schema_version, last_imported_at, pokemon_count,
                     card_count, missing_asset_count, reason,
+                    species_count=species_count, set_count=set_count,
                 )
             finally:
                 connection.close()

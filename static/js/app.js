@@ -1820,43 +1820,6 @@ class PokemonChatApp {
         return badges[status] || null;
     }
     
-    async forceRefreshCurrentPokemon() {
-        const pokemonNameEl = this.pokemonDetailView.querySelector('.pokemon-name');
-        if (!pokemonNameEl) return;
-        
-        const pokemonName = pokemonNameEl.textContent.toLowerCase();
-        console.log('🔄 Force refreshing Pokemon:', pokemonName);
-        
-        try {
-            const invalidateResponse = await fetch('/api/cache/invalidate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tool: 'get_pokemon',
-                    params: { pokemon_name: pokemonName }
-                })
-            });
-            if (!invalidateResponse.ok) {
-                throw new Error('Failed to invalidate chat cache');
-            }
-
-            const warmupResponses = await Promise.all([
-                fetch(`/api/pokemon/${pokemonName}?refresh=1`),
-                fetch(`/api/pokemon/species/${pokemonName}?refresh=1`)
-            ]);
-            warmupResponses.forEach(res => {
-                if (!res.ok) {
-                    throw new Error('Failed to refresh Pokemon proxy cache');
-                }
-            });
-            console.log('✅ Cache refreshed, reloading...');
-            await this.detailView.loadPokemon(pokemonName);
-        } catch (error) {
-            console.error('❌ Error force refreshing:', error);
-            alert('Failed to refresh Pokemon data');
-        }
-    }
-    
     initializeEventListeners() {
         // Browser back/forward button support
         window.addEventListener('popstate', (e) => this.handlePopState(e));
@@ -2734,7 +2697,7 @@ class PokemonChatApp {
             this.cameraDebugSteps.innerHTML = '';
             return;
         }
-        const modeNames = { numpy: 'NumPy full catalog', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
+        const modeNames = { numpy: 'TCG image embeddings', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
         if (this.cameraDebugMode) this.cameraDebugMode.textContent = modeNames[trace.mode];
         if (this.cameraDebugSummary) {
             const best = trace.rankings[0];
@@ -4707,8 +4670,8 @@ class PokemonChatApp {
             root.textContent = `${data.storage.data_root}${data.storage.persistent ? ' (persistent)' : ' (local)'}`;
         }
         if (catalog) {
-            catalog.textContent = data.catalog.available
-                ? `v${data.catalog.schema_version} · ${data.catalog.pokemon_count.toLocaleString()} Pokémon · ${data.catalog.card_count.toLocaleString()} cards`
+            catalog.textContent = data.catalog.pokemon_count > 0
+                ? `v${data.catalog.schema_version} · ${data.catalog.species_count.toLocaleString()} species · ${data.catalog.pokemon_count.toLocaleString()} forms · ${data.catalog.card_count.toLocaleString()} cards · ${data.catalog.set_count.toLocaleString()} sets`
                 : (data.catalog.reason || 'Unavailable');
         }
         if (users) {
@@ -4733,9 +4696,9 @@ class PokemonChatApp {
                 <span class="admin-component-text">
                     <span class="admin-component-name">${component.label}</span>
                     <span class="admin-component-meta">
-                        ${component.stored.toLocaleString()} stored ·
-                        ${component.missing.toLocaleString()} missing ·
-                        ${component.disk_bytes == null ? 'stored on disk' : `${this.formatAdminBytes(component.disk_bytes)} on disk`}
+                        <strong>${component.available_count.toLocaleString()} catalog assets</strong> ·
+                        ${component.stored.toLocaleString()} stored locally ·
+                        ${component.missing.toLocaleString()} remote sources registered
                     </span>
                 </span>
             </label>
@@ -4904,7 +4867,6 @@ class PokemonChatApp {
 
         const formData = new FormData();
         formData.append('bundle', file);
-        this.getAdminSelection('adminBackupComponents').forEach(value => formData.append('components', value));
 
         this.setAdminStatusText('Restoring backup...');
         try {
@@ -4914,7 +4876,7 @@ class PokemonChatApp {
                 this.setAdminStatusText(data.error || 'Restore failed', true);
                 return;
             }
-            this.setAdminStatusText(`Restored ${data.restored_components.join(', ')} (${data.file_count.toLocaleString()} files).`);
+            this.setAdminStatusText(`Restored ${(data.restored_labels || data.restored_components).join(', ')} (${data.file_count.toLocaleString()} files).`);
             await this.loadAdminStatus();
         } catch (error) {
             this.setAdminStatusText(`Restore failed: ${error.message}`, true);
@@ -5327,13 +5289,10 @@ class PokemonChatApp {
         return preserveCase ? text : text.toLowerCase();
     }
 
-    buildPokemonApiUrl(resource, identifier, options = {}) {
-        const mode = options.mode || (this.shouldUsePokemonProxy() ? 'proxy' : 'direct');
-        const useProxy = mode === 'proxy';
+    buildPokemonApiUrl(resource, identifier) {
         const preserveCase = resource === 'evolution';
         const normalized = this.normalizePokemonIdentifier(identifier, { preserveCase });
         const encoded = encodeURIComponent(normalized);
-        const directBase = this.pokeapiBaseUrl.replace(/\/$/, '');
 
         const proxyPaths = {
             pokemon: `/api/pokemon/${encoded}`,
@@ -5342,24 +5301,10 @@ class PokemonChatApp {
             evolution: `/api/pokemon/evolution-chain/${encoded}`
         };
 
-        const directPaths = {
-            pokemon: `${directBase}/pokemon/${encoded}`,
-            species: `${directBase}/pokemon-species/${encoded}`,
-            type: `${directBase}/type/${encoded}`,
-            evolution: `${directBase}/evolution-chain/${encoded}`
-        };
-
-        if (useProxy) {
-            if (!proxyPaths[resource]) {
-                throw new Error(`Unknown PokéAPI proxy resource: ${resource}`);
-            }
-            return proxyPaths[resource];
+        if (!proxyPaths[resource]) {
+            throw new Error(`Unknown PokéAPI resource: ${resource}`);
         }
-
-        if (!directPaths[resource]) {
-            throw new Error(`Unknown PokéAPI direct resource: ${resource}`);
-        }
-        return directPaths[resource];
+        return proxyPaths[resource];
     }
     
     async updateCacheExpiry(index) {
@@ -5380,28 +5325,6 @@ class PokemonChatApp {
             }
         } catch (error) {
             console.error('Error updating cache expiry:', error);
-        }
-    }
-    
-    async clearCache() {
-        if (!confirm('Are you sure you want to clear all cached data? This will make the next API calls slower until data is cached again.')) {
-            return;
-        }
-        
-        try {
-            const response = await fetch('/api/cache/clear', {
-                method: 'POST'
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                this.cacheConfig = { ...this.cacheConfig, ...data.stats };
-                this.updateCacheStats();
-                alert(`✅ ${data.message}`);
-            }
-        } catch (error) {
-            console.error('Error clearing cache:', error);
-            alert('❌ Error clearing cache');
         }
     }
     
@@ -6529,78 +6452,44 @@ class PokemonChatApp {
     
     async forceRefreshCurrentPokemon() {
         if (!this.currentPokemonName) {
-            console.error('No current Pokemon to refresh');
+            this.showToast('Refresh', 'No current Pokemon to refresh.', 'error');
             return;
         }
-        
-        console.log('🔄 Force refreshing Pokemon:', this.currentPokemonName);
-        
+        this.setLoading(true);
         try {
-            // Clear cache for this Pokemon
-            const response = await fetch('/api/cache/invalidate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tool: 'get_pokemon',
-                    params: { pokemon_name: this.currentPokemonName.toLowerCase() }
-                })
-            });
-            
-            if (response.ok) {
-                console.log('✅ Cache cleared, reloading Pokemon...');
-                
-                // Find Pokemon ID
-                const pokemon = this.allPokemons.find(p => p.name === this.currentPokemonName);
-                if (pokemon) {
-                    await this.detailView.loadPokemon(pokemon.id);
-                }
-            } else {
-                console.error('Failed to clear cache');
+            const refresh = async (resource, identifier) => {
+                const response = await fetch(`${this.buildPokemonApiUrl(resource, identifier)}?refresh=1`);
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || `Failed to refresh ${resource}`);
+                return data;
+            };
+            const pokemon = await refresh('pokemon', this.currentPokemonName);
+            const speciesId = pokemon.species?.url?.split('/').filter(Boolean).pop() || pokemon.species?.name;
+            if (!speciesId) throw new Error('Fresh Pokemon data has no species reference');
+            const species = await refresh('species', speciesId);
+            let evolution = null;
+            if (species.evolution_chain?.url) {
+                const chainId = species.evolution_chain.url.split('/').filter(Boolean).pop();
+                evolution = await refresh('evolution', chainId);
             }
+            this.detailView.display(pokemon, species, evolution);
+            this.showToast('Refresh', 'Fresh Pokemon data saved to the database.', 'success');
         } catch (error) {
-            console.error('Error force refreshing:', error);
+            console.error('Error refreshing Pokemon:', error);
+            this.showToast('Refresh Failed', error.message, 'error');
+        } finally {
+            this.setLoading(false);
         }
     }
     
     async forceRefreshTcgCards() {
         const searchName = this.currentSpeciesName || this.currentPokemonName;
-        if (!searchName) {
-            console.error('No current Pokemon to refresh cards for');
+        const data = this.currentTcgData || (searchName ? { search_query: searchName } : null);
+        if (!data) {
+            this.showToast('Refresh', 'No current TCG search to refresh.', 'error');
             return;
         }
-        
-        console.log('🔄 Force refreshing TCG cards for:', searchName);
-        
-        try {
-            // Clear cache for TCG cards
-            console.log('🗑️ Calling cache invalidation API...');
-            const response = await fetch('/api/cache/invalidate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tool: 'search_pokemon_cards',
-                    params: { pokemon_name: searchName.toLowerCase() }
-                })
-            });
-            
-            if (response.ok) {
-                const result = await response.json();
-                console.log('✅ TCG cache invalidation response:', result);
-                
-                if (result.deleted) {
-                    console.log('✅ Cache file deleted successfully, reloading cards...');
-                } else {
-                    console.warn('⚠️ No cache file was deleted - it may not have existed');
-                }
-                
-                // Reload cards
-                await this.viewPokemonCards();
-            } else {
-                console.error('Failed to clear TCG cache, status:', response.status);
-            }
-        } catch (error) {
-            console.error('Error force refreshing TCG cards:', error);
-        }
+        await this.tcgGallery.forceRefresh(data);
     }
     
     async handleQuickAction(action) {
@@ -7876,12 +7765,6 @@ class PokemonChatApp {
                 };
             }
 
-            if (pathname === '/api/cache/invalidate') {
-                return {
-                    label: 'Refreshing cache...',
-                    detail: 'Rotom is clearing cached data so the next result is freshly loaded.'
-                };
-            }
 
             if (pathname === '/api/realtime/tool') {
                 const payload = this.parseLoadingRequestBody(init?.body);

@@ -306,7 +306,7 @@ source text. `card_type` maps known values to the shared `type` lookup.
 
 Unique constraints are `(card_id, asset_kind)` and `(set_id, asset_kind)`.
 `asset_kind` is `small` or `large` for cards and `logo` or `symbol` for sets.
-The existing `tcg-image-cache/images/` files should be registered here rather
+Card files are registered here with portable `data/assets/tcg/` paths rather
 than copied into the database.
 
 ### Market and price tables
@@ -452,12 +452,17 @@ persisted. Failed or partial downloads are not registered.
 The production settings workflow creates and restores a versioned backup bundle.
 A multi-select control lets an administrator include:
 
-- SQLite database.
+- Catalog database.
+- User accounts and collections, selected explicitly.
 - Pokemon artwork and selectable sprite variants.
 - Pokemon cries downloaded on demand.
 - TCG card images.
 - TCG set logos and symbols.
-- Runtime configuration that is safe to export. Secrets are always excluded.
+- TCG image embeddings, including the aligned vector matrix, card mapping, and manifest.
+
+Catalog refresh settings are included in the catalog database. Environment files
+and API keys are not exported. Accounts bundles contain sensitive account data
+and must not be published or committed.
 
 The backup is a ZIP containing a manifest with bundle version, schema version,
 creation timestamp, selected components, file sizes, and SHA-256 hashes. The
@@ -470,43 +475,49 @@ Backup files must be downloadable by the administrator rather than retained
 only on ephemeral App Service storage. Restore is an explicit upload in
 Settings. Both operations require the same administrative protection used for
 other sensitive settings and must impose upload and expanded-size limits.
+The seed CLI uses this exact writer/reader. Category ZIP filenames use the
+panel labels, and asset registrations accompany media so an asset-only import
+updates the target catalog's local paths. Embeddings restore validates alignment
+and releases/reloads any active scanner mapping.
 
 ## Import and Deployment Strategy
 
-1. Leave numbered raw download scripts intact.
-2. Run `python scripts/05-import_sqlite.py`. The importer creates a temporary
-   database, imports inside transactions, validates it, then atomically replaces
-   the active database.
-3. Import all PokeAPI forms exposed by the source dataset.
-4. Deduplicate TCG cards by API card ID because raw search files overlap.
-5. Upsert lookup tables, then parent tables, then junction/detail tables.
-6. Preload official Pokemon artwork, register existing TCG images, and download
-  any missing TCG display images during network-enabled hydration. Do not store
-  binary content in SQLite; cries are downloaded only when first played.
-  If an upstream card record exists but both published image sizes are
-  permanently unavailable, generate a clearly labeled local unavailable-image
-  card while preserving the upstream URL as provenance.
-7. Run `PRAGMA foreign_key_check`, `PRAGMA integrity_check`, row-count checks,
-   orphan checks, and representative contract comparisons.
-8. Build and hydrate the uncommitted database during initialization or the
-  release pipeline. Do not commit the generated database.
-9. In production, normalize explicit upstream API results directly into SQLite;
-  do not create new runtime JSON cache files.
+1. Scripts 01 and 02 acquire raw API responses under `seeds/`.
+2. `python scripts/03-build_seed_catalog.py` imports all available forms, type
+   relations, and deduplicated TCG cards into a temporary seed-only database.
+   Lookup, parent, and junction/detail tables are normalized transactionally;
+   integrity, foreign keys, and row counts are validated before stage promotion.
+3. Script 04 uses the shared asset manager to download selected Pokemon images,
+   cries, and TCG card/set images under the prepared seed root. SQLite holds
+   registrations and metadata, not media bytes.
+4. Script 05 builds TCG image embeddings offline from those registered files.
+5. Script 06 packages selected categories with the same checksummed ZIP writer
+   as the admin panel, under `seeds/backup-bundles/`. Existing accounts require an
+   explicit source database; no accounts are generated automatically.
+6. Script 07 verifies every ZIP, then requires `--apply --server-stopped` to
+   install it. Alternatively, upload the same ZIP through Settings. Catalog
+   installation precedes asset installation, and portable asset registrations
+   reconnect files to matching rows.
+7. Script 08 optionally archives the full seed workspace, including raw JSON,
+   prepared catalog, downloaded media, and embeddings; it excludes generated
+   backup bundles and excludes private accounts unless explicitly opted in.
+8. In production, explicit upstream refreshes continue to normalize directly
+   into runtime SQLite without JSON response-cache files.
 
-For an offline structural check, pass `--no-network --skip-artwork`. A complete
-production hydration intentionally permits network access because species seeds
-identify form and evolution resources that may not exist in the raw archive.
-Downloaded artwork resumes by retaining already valid destination files. A
-failed database build leaves the active database untouched; the next run
-recreates only the temporary `.building` database. When a complete import fails
-only at validation, `python scripts/05-import_sqlite.py --resume` repairs missing
-assets in the retained build, validates it again, and atomically promotes it.
+For an offline seed-catalog check, pass `--no-network` to script 03. Complete
+preparation can permit network access because species seeds may identify form
+and evolution resources absent from the raw archive. Failed stage builds do not
+affect live data. `python scripts/03-build_seed_catalog.py --resume` validates a
+retained validation-failed `.building` catalog; bulk media download is a separate
+step. See [the pipeline guide](../scripts/README.md) for all command options.
 
 Project locations:
 
 ```text
 seeds/pokeapi/            # reproducible raw PokeAPI inputs
 seeds/tcg/                # reproducible raw TCG inputs
+seeds/prepared/           # staged catalog, optional accounts, assets, and embeddings
+seeds/backup-bundles/     # category ZIPs shared with admin export/restore
 data/pokedex.sqlite3      # normalized runtime catalog
 data/schema/              # versioned catalog and user DDL
 src/db/                   # SQLite databases, importers, and repositories

@@ -4,6 +4,7 @@ Test script to verify TCG cache download functionality
 This validates the cache file structure without making real API calls
 """
 
+import importlib.util
 import json
 import sys
 import os
@@ -14,7 +15,13 @@ from datetime import datetime
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from scripts.download_tcg_cache import get_cache_key, save_tcg_cache
+SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts" / "01-download_raw_pokemontcgapi_to_seed.py"
+SCRIPT_SPEC = importlib.util.spec_from_file_location("tcg_seed_downloader", SCRIPT_PATH)
+assert SCRIPT_SPEC is not None and SCRIPT_SPEC.loader is not None
+script_module = importlib.util.module_from_spec(SCRIPT_SPEC)
+SCRIPT_SPEC.loader.exec_module(script_module)
+get_cache_key = script_module.get_cache_key
+save_tcg_cache = script_module.save_tcg_cache
 
 
 def test_cache_key_generation():
@@ -68,10 +75,9 @@ def test_cache_file_structure():
     pokemon_number = 25
     pokemon_name = "pikachu"
     
-    # Temporarily change TCG_CACHE_DIR for testing
-    import scripts.download_tcg_cache as script_module
-    original_cache_dir = script_module.TCG_CACHE_DIR
-    script_module.TCG_CACHE_DIR = test_cache_dir
+    # Temporarily change TCG_SEED_DIR for testing
+    original_seed_dir = script_module.TCG_SEED_DIR
+    script_module.TCG_SEED_DIR = test_cache_dir
     
     try:
         # Save test cache file
@@ -108,8 +114,8 @@ def test_cache_file_structure():
         print("  ✓ Field types and values correct")
         
         # Verify filename format
-        expected_pattern = f"tcg-{pokemon_number:03d}-{pokemon_name}-"
-        assert filepath.name.startswith(expected_pattern), f"Filename should start with {expected_pattern}"
+        expected_filename = f"tcg-{pokemon_number:03d}-{pokemon_name}.json"
+        assert filepath.name == expected_filename, f"Expected filename {expected_filename}, got {filepath.name}"
         assert filepath.name.endswith(".json"), "Filename should end with .json"
         
         print(f"  ✓ Filename format correct: {filepath.name}")
@@ -122,7 +128,7 @@ def test_cache_file_structure():
         
     finally:
         # Restore original cache dir
-        script_module.TCG_CACHE_DIR = original_cache_dir
+        script_module.TCG_SEED_DIR = original_seed_dir
         
         # Cleanup test files
         for f in test_cache_dir.glob("*.json"):
