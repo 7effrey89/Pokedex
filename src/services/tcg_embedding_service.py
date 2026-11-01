@@ -34,20 +34,37 @@ INDEX_FILES = ("vectors.npy", "cards.json", "manifest.json")
 
 
 class TcgEmbeddingService:
-    def __init__(self, paths: StoragePaths | None = None):
+    def __init__(self, paths: StoragePaths | None = None, *, encoder: str = "legacy"):
         self.paths = paths or get_storage_paths()
+        if encoder not in ("legacy", "clip"):
+            raise ValueError("Unknown TCG image encoder")
+        self.encoder = encoder
+        self.index_dir = self.paths.tcg_clip_index if encoder == "clip" else self.paths.tcg_index
+        self.encoder_version, self.vector_size = ENCODER_VERSION, VECTOR_SIZE
+        self.clip_encoder = None
+        if encoder == "clip":
+            from src.services.tcg_clip_encoder import (
+                ClipEncoder, ENCODER_VERSION as clip_version, VECTOR_SIZE as clip_size, get_clip_encoder,
+            )
+            self.encoder_version, self.vector_size = clip_version, clip_size
+            self.clip_encoder = (
+                get_clip_encoder() if self.paths == get_storage_paths() else ClipEncoder(self.paths.clip_model)
+            )
         self.database = SqliteDatabase(self.paths.catalog_database)
         self.repository = SqliteTcgRepository(self.database)
         self._thread: threading.Thread | None = None
-        self._job_file = self.paths.tcg_index.parent / ".tcg-embedding-job.json"
-        self._job_database = SqliteDatabase(self.paths.tcg_index.parent / ".tcg-embedding-job.sqlite3")
-        self._job_lock = self.paths.tcg_index.parent / ".tcg-embedding-job.lock"
+        prefix = ".tcg-embedding-job" if encoder == "legacy" else ".tcg-embedding-job-clip"
+        self._job_file = self.index_dir.parent / f"{prefix}.json"
+        self._job_database = SqliteDatabase(self.index_dir.parent / f"{prefix}.sqlite3")
+        self._job_lock = self.index_dir.parent / f"{prefix}.lock"
 
     def _snapshot(self) -> tuple[np.ndarray, list[dict]]:
-        with index_access(self.paths.tcg_index):
-            if not any((self.paths.tcg_index / name).exists() for name in INDEX_FILES):
-                return np.empty((0, VECTOR_SIZE), dtype=np.float32), []
-            vectors, cards = _read_index(self.paths.tcg_index)
+        with index_access(self.index_dir):
+            if not any((self.index_dir / name).exists() for name in INDEX_FILES):
+                return np.empty((0, self.vector_size), dtype=np.float32), []
+            vectors, cards = _read_index(
+                self.index_dir, encoder_version=self.encoder_version, vector_size=self.vector_size,
+            )
             if not np.isfinite(vectors).all():
                 raise ValueError("TCG image embeddings contain non-finite values")
             return vectors, cards
@@ -153,13 +170,17 @@ class TcgEmbeddingService:
 
     def _run(self, job: dict, guard) -> None:
         try:
+            if self.clip_encoder is not None:
+                job["message"] = "Preparing verified CLIP model (first use downloads 336 MiB)"
+                self._write_job(job)
+                self.clip_encoder.prepare()
             _, indexed = self._snapshot()
             existing = {card["id"] for card in indexed}
             pending = [(card_id, assets) for card_id, assets in self._catalog_assets().items()
                        if card_id not in existing and self._local_image(assets) is not None]
             job["total"] = len(pending)
-            cards, vectors = [], []
-            for card_id, assets in pending:
+            cards, vectors, clip_images = [], [], []
+            for position, (card_id, assets) in enumerate(pending):
                 try:
                     path = self._local_image(assets, verify_hash=True)
                     if path is None:
@@ -167,17 +188,34 @@ class TcgEmbeddingService:
                     with Image.open(path) as image:
                         image.verify()
                     with Image.open(path) as image:
-                        vector = encode_card_image(image)
+                        if self.clip_encoder is not None:
+                            from src.services.tcg_card_crop import rectify_card
+                            rectified, _ = rectify_card(image, reference=True)
+                        else:
+                            vector = encode_card_image(image)
                     card = self.repository.get_card(card_id)
                     if "error" in card:
                         raise ValueError(card["error"])
                     cards.append(card)
-                    vectors.append(vector)
+                    if self.clip_encoder is not None:
+                        clip_images.append(rectified)
+                    else:
+                        vectors.append(vector)
                     logger.info("Generated TCG embedding for %s (%s) from %s", card_id, card["name"], path)
                 except (OSError, ValueError) as exc:
                     logger.warning("TCG embedding failed for %s: %s", card_id, exc)
                     job["failed"] += 1
                     job["errors"] = (job["errors"] + [f"{card_id}: {exc}"])[-20:]
+                if self.clip_encoder is not None and clip_images and (
+                    len(clip_images) >= 8 or position == len(pending) - 1
+                ):
+                    vectors.extend(self.clip_encoder.encode(clip_images))
+                    clip_images = []
+                if self.clip_encoder is not None and len(vectors) >= 256:
+                    job["message"] = "Checkpointing CLIP embeddings"
+                    self._write_job(job)
+                    job["added"] += self._append(cards, vectors)
+                    cards, vectors = [], []
                 job["completed"] += 1
                 job["percent"] = round(job["completed"] / job["total"] * 100, 1)
                 job["message"] = f"Processing {card_id}"
@@ -185,11 +223,11 @@ class TcgEmbeddingService:
             if vectors:
                 job["message"] = "Publishing updated scanner index"
                 self._write_job(job)
-                job["added"] = self._append(cards, vectors)
+                job["added"] += self._append(cards, vectors)
             job["status"] = "completed" if not job["failed"] else "completed_with_errors"
             job["percent"] = 100
             job["message"] = f"Added {job['added']:,} embeddings; {job['failed']:,} failed."
-            logger.info("TCG embedding job complete: %s Index: %s", job["message"], self.paths.tcg_index)
+            logger.info("TCG embedding job complete: %s Index: %s", job["message"], self.index_dir)
         except Exception as exc:
             logger.exception("TCG embedding job failed")
             job["status"] = "failed"
@@ -201,7 +239,7 @@ class TcgEmbeddingService:
                 guard.__exit__(None, None, None)
 
     def _append(self, cards: list[dict], vectors: list[np.ndarray]) -> int:
-        directory = self.paths.tcg_index
+        directory = self.index_dir
         with index_access(directory):
             old_vectors, old_cards = self._snapshot()
             existing = {card["id"] for card in old_cards}
@@ -216,13 +254,13 @@ class TcgEmbeddingService:
                 np.save(staging / "vectors.npy", combined_vectors, allow_pickle=False)
                 (staging / "cards.json").write_text(json.dumps(combined_cards), encoding="utf-8")
                 manifest = {
-                    "encoder_version": ENCODER_VERSION, "vector_size": VECTOR_SIZE, "dtype": "float32",
+                    "encoder_version": self.encoder_version, "vector_size": self.vector_size, "dtype": "float32",
                     "normalized": True, "card_count": len(combined_cards),
                     "generated_at": datetime.now(timezone.utc).isoformat(),
                     "source_fingerprint": hashlib.sha256(json.dumps(combined_cards, sort_keys=True).encode()).hexdigest(),
                 }
                 (staging / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
-                validate_index(staging)
+                validate_index(staging, encoder_version=self.encoder_version, vector_size=self.vector_size)
                 backup = staging / "previous"
                 backup.mkdir()
                 directory.mkdir(parents=True, exist_ok=True)
@@ -246,10 +284,17 @@ class TcgEmbeddingService:
 
 
 _SERVICE: TcgEmbeddingService | None = None
+_CLIP_SERVICE: TcgEmbeddingService | None = None
 
 
-def get_tcg_embedding_service() -> TcgEmbeddingService:
-    global _SERVICE
+def get_tcg_embedding_service(encoder: str = "legacy") -> TcgEmbeddingService:
+    global _SERVICE, _CLIP_SERVICE
+    if encoder == "clip":
+        if _CLIP_SERVICE is None:
+            _CLIP_SERVICE = TcgEmbeddingService(encoder="clip")
+        return _CLIP_SERVICE
+    if encoder != "legacy":
+        raise ValueError("Unknown TCG image encoder")
     if _SERVICE is None:
         _SERVICE = TcgEmbeddingService()
     return _SERVICE

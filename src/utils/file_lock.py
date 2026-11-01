@@ -1,6 +1,8 @@
 """Cross-process locks for mutable index files and background jobs."""
 
+import errno
 import os
+import time
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -17,8 +19,14 @@ def exclusive_file_lock(path: Path, *, blocking: bool = True):
                 handle.write(b"\0")
                 handle.flush()
             handle.seek(0)
-            mode = msvcrt.LK_LOCK if blocking else msvcrt.LK_NBLCK
-            msvcrt.locking(handle.fileno(), mode, 1)
+            while True:
+                try:
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    break
+                except OSError as exc:
+                    if not blocking or exc.errno not in (errno.EACCES, errno.EAGAIN, errno.EDEADLK):
+                        raise
+                    time.sleep(0.05)
         else:
             import fcntl
 

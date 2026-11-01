@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from collections.abc import Iterable
 from typing import Any
 
 from src.db.database import SqliteDatabase
@@ -162,6 +163,63 @@ class SqliteTcgRepository:
                 return {"error": f"Card not found: {card_id}"}
             set_row = {"id": row["set_id"], "name": row["set_name"], "release_date": row["release_date"]}
             return self._hydrate_cards(connection, [row], set_row, slim=False)[0]
+        finally:
+            connection.close()
+
+    def get_print_metadata(
+        self,
+        *,
+        candidate_ids: Iterable[str] = (),
+        attack_names: Iterable[str] = (),
+        artists: Iterable[str] = (),
+        printed_totals: Iterable[int] = (),
+        set_codes: Iterable[str] = (),
+    ) -> dict[str, dict[str, Any]]:
+        """Find scanner candidates and their print-specific catalog metadata."""
+        candidates = set(candidate_ids)
+        lookups = (
+            (set(attack_names), "SELECT DISTINCT card_id AS id FROM card_attack WHERE name COLLATE NOCASE IN"),
+            (set(artists), "SELECT id FROM tcg_card WHERE artist COLLATE NOCASE IN"),
+            (set(printed_totals), "SELECT c.id FROM tcg_card c JOIN tcg_set s ON s.id = c.set_id WHERE s.printed_total IN"),
+            (set(set_codes), "SELECT c.id FROM tcg_card c JOIN tcg_set s ON s.id = c.set_id WHERE s.ptcgo_code COLLATE NOCASE IN"),
+        )
+        if not candidates and not any(values for values, _ in lookups):
+            return {}
+
+        connection = self.database.connect(read_only=True)
+        try:
+            connection.execute("BEGIN")
+            for values, query in lookups:
+                values = list(values)
+                for start in range(0, len(values), 400):
+                    batch = values[start:start + 400]
+                    placeholders = ",".join("?" for _ in batch)
+                    candidates.update(row["id"] for row in connection.execute(f"{query} ({placeholders})", batch))
+
+            records: dict[str, dict[str, Any]] = {}
+            ids = sorted(candidates)
+            for start in range(0, len(ids), 400):
+                batch = ids[start:start + 400]
+                placeholders = ",".join("?" for _ in batch)
+                for row in connection.execute(
+                    f"""
+                    SELECT c.id, c.number, c.artist, s.printed_total, s.ptcgo_code
+                    FROM tcg_card c JOIN tcg_set s ON s.id = c.set_id
+                    WHERE c.id IN ({placeholders})
+                    """, batch,
+                ):
+                    records[row["id"]] = {
+                        "number": row["number"], "artist": row["artist"],
+                        "printed_total": row["printed_total"], "set_code": row["ptcgo_code"],
+                        "attacks": [],
+                    }
+                for row in connection.execute(
+                    f"SELECT card_id, name FROM card_attack WHERE card_id IN ({placeholders}) ORDER BY sort_order",
+                    batch,
+                ):
+                    if row["card_id"] in records:
+                        records[row["card_id"]]["attacks"].append(row["name"])
+            return records
         finally:
             connection.close()
 

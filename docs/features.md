@@ -60,7 +60,9 @@ All implemented features, categorized. Every new feature must be added here.
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
 | Collection Scanner | Mobile-first camera mode with crop-tolerant matching, selectable ranked previews, an Add action beneath the selected match, second-click image enlargement, scan history, and collection summary | N/A |
 | TCG Image Similarity Matching | POC-derived crop with either candidate-first Pillow scoring or exact full-catalog NumPy cosine retrieval, plus optional structured metadata and LLM reranking | N/A |
-| Scanner Pipeline Settings | Persisted scanner control for independent full-catalog NumPy search, cosine-only ranking, deterministic OCR + cosine scoring, or full OCR + cosine + LLM reranking | N/A |
+| Scanner Pipeline Settings | Persisted scanner control for OCR-assisted CLIP + crop, full-catalog NumPy search, cosine-only ranking, deterministic OCR + cosine scoring, or full OCR + cosine + LLM reranking | ✅ `set_scanner_pipeline` |
+| OCR-Assisted CLIP + Perspective Crop Experiment | Local title OCR reranking with learned 512-dimensional card matching, OpenCV rectification, full-card framing, and Debug comparisons against original/cropped legacy rankings | ✅ `set_scanner_pipeline` |
+| Print-Specific Scanner OCR | Reads attack and illustrator text plus cross-checked collector numbers, using live SQLite metadata to distinguish card printings without rebuilding embeddings | ✅ `set_scanner_pipeline` |
 | Scanner Pipeline Debug View | Toggleable responsive trace with stages, timings, crop and LLM evidence, raw query descriptors, candidate metadata and score components, judge request context, and per-candidate reasoning | N/A |
 | TCG Image Embeddings | Offline seed-image build produces a versioned 1,432-dimensional NumPy matrix, aligned card mapping, manifest, and explicit partial-build report | N/A |
 | Tyrantrum Embedding POC | Standalone browser POC linked from Image Scanner, with camera-on load, resizable card-ratio alignment overlay, simple guide-area snapshots, expandable candidate metadata and image embeddings, structured LLM metadata extraction, attribute scoring with calculation tooltips, cosine fallback, and default LLM judge reranking | N/A |
@@ -83,6 +85,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Shared Backup and Restore | Catalog, explicit accounts/collections, Pokemon artwork, cries, TCG card/set images, and TCG image embeddings share checksummed ZIP export/import with portable asset registrations | N/A |
 | Non-Destructive Catalog Import | UI/CLI imports merge catalog rows transactionally with newer-wins metadata/prices, ID remapping, and preserved local settings/assets; embeddings-only imports never open databases | N/A |
 | TCG Image Embeddings Backup | Settings exports/restores embeddings as one validated category and reloads the scanner index after restore | N/A |
+| CLIP Embeddings Backup | Separate validated backup category transfers CLIP vectors, card mapping, manifest, and pinned vision model without replacing the legacy index | N/A |
 | Incremental TCG Embedding Generation | Settings Step 3 shows coverage, generates only missing card embeddings from local catalog images, reports progress/errors, and reloads scanner workers without rebuilding existing vectors | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
 | Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |
@@ -127,6 +130,7 @@ Tools the voice AI can call to navigate and act on behalf of the user:
 | `show_pokemon_index` | Navigate back to the Pokemon grid |
 | `show_tcg_database` | Navigate to the TCG Card Database page |
 | `show_my_collection` | Navigate to the TCG Database and open the locally saved My Collection view |
+| `set_scanner_pipeline` | Open the collection camera scanner and choose OCR-assisted CLIP + crop, including print-specific text, or a baseline matching pipeline |
 | `compare_pokemon` | Navigate to the first named Pokemon, scroll to Compare Pokemon, and compare against the second named Pokemon |
 | `navigate_back` | Go back to the previous page in history |
 | `navigate_forward` | Go forward to the next page in history |

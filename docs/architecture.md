@@ -268,6 +268,76 @@ catalog, TCG images, and TCG embeddings in the same admin backup. Scanner debug
 counts come from the installed index rather than a fixed historical card count.
 Generation progress and failures are logged to the catalog activity log.
 
+### Experimental CLIP scanner
+
+The optional scanner mode `clip` preserves the legacy encoder/index and uses
+a separate `data/clip-index/` with 512-dimensional CLIP ViT-B/32 vectors.
+Settings Step 3 selects either encoder; job locks and SQLite progress are
+separate. CLIP generation batches eight validated local images and publishes
+checkpoints every 256 cards. A failed/interrupted build retains those checkpoints;
+retrying processes only the remaining IDs. The legacy index is never rebuilt.
+
+`tcg_card_crop.py` first detects convex, card-shaped outer quadrilaterals with
+OpenCV. When edge contours fail, a color-segmentation fallback evaluates
+minimum-area rectangles, rejecting frame-touching candidates and favoring the
+standard card aspect ratio. Both paths order corners consistently and
+perspective-warp camera captures to 630 x 880. Detection failure is explicit in
+the response/Debug UI and uses the guide crop with a warning instead of
+pretending a card boundary was found. Small landscape regions in portrait
+frames are rejected because they can be interior artwork or text panels.
+Catalog images already contain only a card, so they bypass detection to avoid
+cropping to an interior artwork rectangle. Both references and queries then
+remove a 2% edge inset and pad the
+complete card to a neutral 224 x 224 square. This avoids CLIP's usual square
+center crop discarding the card name or number. Query retrieval also evaluates
+the 180-degree orientation.
+
+For CLIP scans with a detected crop, RapidOCR runs locally in recognition-only
+mode on the card's fixed title area. It also detects short text boxes in the
+card body and footer, recognizes up to 16 selected boxes, and looks for attack
+names, illustrator, collector number and set code. A second grayscale read
+must agree before a collector number can affect ranking; its printed total
+must also match the catalog. A labeled illustrator above the footer is supported
+for older layouts. Detection and recognition share a locked CPU session, with
+explicit settings for each call. If no card boundary is detected, OCR is
+skipped and the response explains why.
+
+The scanner obtains current print metadata and candidate IDs from the local
+SQLite catalog, including exact attack or number matches when the title is
+unreadable; no image-index rebuild is needed. It fuzzy-matches suitable attack
+and artist text, ignores weak or missing evidence, and adds only positive,
+bounded boosts: up to 0.15 for the title and up to 0.24 for print text.
+If the initial title has no catalog match, the scanner checks the 180-degree
+title and, when needed, print text, so an upside-down card can still supply OCR
+evidence.
+Print evidence weights collector number, attacks, artist and set code at
+0.50, 0.30, 0.15 and 0.05 respectively. These are heuristics, not calibrated
+probabilities, and the returned CLIP cosine remains unchanged. OCR and catalog
+lookup errors are logged and exposed in Debug while visual ranking remains
+available. The OCR models ship with the pinned RapidOCR package, and card
+images are never sent to an external service. The first use loads the models.
+
+CPU-only ONNX Runtime loads the FP32 vision-only model from
+`Xenova/clip-vit-base-patch32`, pinned to revision
+`6b7c523703ae26e39be4b03774966f8571c7f523`. First admin generation downloads
+336 MiB and verifies the fixed SHA-256 before publication. Inference never
+downloads weights or sends card images to any external service. The model
+uses two intra-op threads per process; multiple Gunicorn workers may each load
+their own model, so budget memory/CPU before enabling this on a small capacity.
+Model, crop version, and vector size are part of the encoder contract; legacy
+and CLIP vectors cannot be mixed. Generated model/index files are ignored by Git.
+
+`POST /api/tcg/clip-image-match` returns the rectified preview, detection
+diagnostics, recognized text and print evidence, CLIP candidates, and optional
+original/cropped legacy candidates for the identical capture. Cosine similarities are not
+calibrated probabilities and should not be compared numerically across
+encoders. This remains an experiment: contour failure, glare, occlusion, OCR
+errors, incomplete metadata, and printings sharing the same identifiers can
+still produce incorrect nearest neighbors. Keep manual candidate confirmation,
+especially for foil or finish variants.
+The separate **TCG CLIP embeddings and model** backup category validates and
+restores the entire offline unit, independent of legacy embeddings and catalog.
+
 Script 08 archives the `seeds/` workspace (raw responses, asset manifest,
 downloaded media, and embeddings) with per-file hashes, excluding derived
 SQLite artifacts/sidecars and generated `backup-bundles/` to avoid redundant

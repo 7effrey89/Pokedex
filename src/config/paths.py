@@ -55,6 +55,14 @@ class StoragePaths:
         return self.data_root / "data" / "index"
 
     @property
+    def tcg_clip_index(self) -> Path:
+        return self.data_root / "data" / "clip-index"
+
+    @property
+    def clip_model(self) -> Path:
+        return self.tcg_clip_index / "model.onnx"
+
+    @property
     def snapshots(self) -> Path:
         return self.data_root / "data" / "snapshots"
 
@@ -75,7 +83,8 @@ class StoragePaths:
         }
 
     def backup_directories(self) -> dict[str, Path]:
-        return {**self.asset_directories(), "tcg_embeddings": self.tcg_index}
+        return {**self.asset_directories(), "tcg_embeddings": self.tcg_index,
+                "tcg_clip_embeddings": self.tcg_clip_index}
 
     def ensure_directories(self) -> None:
         for path in (

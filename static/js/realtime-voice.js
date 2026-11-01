@@ -870,6 +870,18 @@ class RealtimeVoiceClient {
                 return;
             }
 
+            if (toolName === 'set_scanner_pipeline') {
+                if (!window.app?.openScannerPipeline) {
+                    result = { error: 'Card scanner is not available' };
+                } else {
+                    result = await window.app.openScannerPipeline(args.mode);
+                    if (generation !== this.connectionGeneration) return;
+                    success = result.success === true;
+                }
+                this._sendFrontendToolResult(callId, toolName, args, result, success);
+                return;
+            }
+
             // Frontend-only: compare_pokemon
             if (toolName === 'compare_pokemon') {
                 if (window.comparePokemonCanvas) {

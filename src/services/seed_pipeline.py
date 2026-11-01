@@ -17,7 +17,10 @@ from src.services.seed_assets import download_seed_media, manifest_path, read_se
 
 DEFAULT_SEED_ROOT = PROJECT_ROOT / "seeds" / "prepared"
 DEFAULT_BUNDLE_DIR = PROJECT_ROOT / "seeds" / "backup-bundles"
-SEED_COMPONENTS = {key: label for key, label in COMPONENT_LABELS.items() if key != "catalog_database"}
+SEED_COMPONENTS = {
+    key: label for key, label in COMPONENT_LABELS.items()
+    if key not in {"catalog_database", "tcg_clip_embeddings"}
+}
 DEFAULT_COMPONENTS = tuple(key for key in SEED_COMPONENTS if key != "users_database")
 logger = logging.getLogger(__name__)
 
