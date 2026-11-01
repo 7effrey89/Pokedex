@@ -1,9 +1,11 @@
 import sqlite3
+import io
 import sys
 import tempfile
 import unittest
 from contextlib import closing
 from pathlib import Path
+from unittest import mock
 
 from PIL import Image
 
@@ -16,6 +18,66 @@ from src.services.asset_manager import AssetManager
 
 
 class AssetManagerTests(unittest.TestCase):
+    def test_valid_unregistered_tcg_image_is_reused_and_registered(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            paths = StoragePaths(Path(temporary))
+            paths.ensure_directories()
+            database = SqliteDatabase(paths.catalog_database)
+            database.initialize()
+            with closing(database.connect()) as connection:
+                connection.execute("INSERT INTO tcg_set (id, name) VALUES ('base1', 'Base')")
+                connection.execute(
+                    "INSERT INTO tcg_card (id, set_id, name, number) VALUES ('base1-1', 'base1', 'Alakazam', '1')"
+                )
+                connection.execute(
+                    "INSERT INTO card_asset (card_id, asset_kind, source_url) "
+                    "VALUES ('base1-1', 'large', 'https://example.test/card.png')"
+                )
+                connection.commit()
+            manager = AssetManager(database, paths=paths)
+            destination = manager._destination({
+                "component": "tcg_images", "owner_id": "base1-1", "asset_kind": "large",
+            })
+            Image.new("RGB", (2, 2), "red").save(destination, format="PNG")
+            original = destination.read_bytes()
+            modified = destination.stat().st_mtime_ns
+            with mock.patch("urllib.request.urlopen") as download:
+                job = manager.download(["tcg_images"])
+                result = manager.materialize_tcg_card_image("base1-1", "large")
+                repeated = manager.materialize_tcg_card_image("base1-1", "large")
+            download.assert_not_called()
+            self.assertEqual(0, job["downloaded"])
+            self.assertEqual(1, job["skipped"])
+            self.assertEqual((destination, "image/png"), result)
+            self.assertEqual(result, repeated)
+            self.assertEqual(original, destination.read_bytes())
+            self.assertEqual(modified, destination.stat().st_mtime_ns)
+            with closing(database.connect(read_only=True)) as connection:
+                row = connection.execute("SELECT local_path, sha256 FROM card_asset").fetchone()
+                self.assertEqual(paths.relative_to_root(destination), row["local_path"])
+                self.assertTrue(row["sha256"])
+
+    def test_missing_or_corrupt_images_download_once_with_destination_logs(self):
+        for corrupt in (False, True):
+            with self.subTest(corrupt=corrupt), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                manager = AssetManager(paths=StoragePaths(root))
+                destination = root / "card.img"
+                if corrupt:
+                    destination.write_bytes(b"not an image")
+                payload = io.BytesIO()
+                Image.new("RGB", (2, 2), "red").save(payload, format="PNG")
+                with mock.patch("urllib.request.urlopen", return_value=io.BytesIO(payload.getvalue())) as download, \
+                     self.assertLogs("src.services.asset_manager", level="INFO") as logs:
+                    first = manager._store("https://example.test/card.png", destination, "image")
+                    second = manager._store("https://example.test/card.png", destination, "image")
+                download.assert_called_once()
+                self.assertEqual(first, second)
+                self.assertEqual(payload.getvalue(), destination.read_bytes())
+                self.assertTrue(any("https://example.test/card.png -> " + str(destination) in line for line in logs.output))
+                self.assertTrue(any("Stored validated image" in line for line in logs.output))
+                self.assertTrue(any("Reusing validated image" in line for line in logs.output))
+
     def test_inventory_counts_catalog_assets_independently_of_local_downloads(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

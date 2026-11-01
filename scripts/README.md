@@ -38,6 +38,14 @@ The `pokemon` resource also saves species-listed alternate forms so the catalog
 can be regenerated offline. Rerun script 02 for older archives missing these
 form files; existing raw responses are reused unless `--refresh` is supplied.
 The raw seeds contain metadata and URLs, not downloaded image/audio bytes.
+Runtime refresh/ingestion snapshots in `data/snapshots/tcg/sets/` are separate
+provenance files, not prerequisites for browsing or restored catalog data.
+Script 03 imports both `response.data` and historical `response.cards` seed
+envelopes. A set's metadata can be present while some card rows are absent;
+the admin scan compares SQLite counts, not the presence of JSON files.
+Seed ZIPs restore prepared images/embeddings, not catalog rows or runtime
+snapshots. Recreate catalog rows with script 03, or restore an admin catalog
+database export together with the relevant asset categories.
 
 ## 03: Validate and import the runtime catalog
 

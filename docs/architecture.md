@@ -44,6 +44,28 @@ POST /api/cache/expiry      → Set TCG price refresh interval (`seconds`: 300, 
 The legacy clear, invalidate, enable, and PokeAPI-cache toggle endpoints have been
 removed. Refresh updates catalog data; it is not implemented by deleting files.
 
+### Incremental TCG ingestion and activity logs
+
+The new-content scan compares upstream set totals with SQLite card counts.
+It does not check snapshot files. An incomplete existing set is reported even
+when its missing cards are old, not newly released. Adding a set fetches its
+cards, writes a provenance snapshot under `data/snapshots/tcg/sets`, and imports
+only card IDs absent from SQLite. Existing cards and their images are untouched.
+
+Runtime ingestion uses the shared `AssetManager` image destination and validated
+materializer. Valid legacy importer files (hashed by card ID alone) are also
+reused without renaming. Shared destinations hash owner ID plus asset kind.
+Valid destination images are reused even when their SQLite registration is
+missing; only missing or invalid files are downloaded.
+
+Catalog ingestion, refresh, and asset-manager messages are copied to
+`data/logs/catalog.log` under the configured persistent root, while retaining
+terminal output. The file rotates at 5 MiB with three retained backups.
+Download logs include source URL, destination, validation/reuse, and ingestion
+summaries. This is an operational log, not an HTTP or conversation transcript;
+it is not a backup component. Raw runtime snapshots are also not included in
+category backups and are not required to serve restored SQLite catalog rows.
+
 ## Seed Preparation and Shared Backup Bundles
 
 Raw API acquisition and bulk asset preparation never write into the live data

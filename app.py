@@ -34,6 +34,9 @@ from src.db.database import SqliteDatabase, UsersDatabase
 
 _storage_paths = get_storage_paths()
 _storage_paths.ensure_directories()
+from src.utils.catalog_logging import configure_catalog_logging
+
+logger.info("Catalog and asset activity log: %s", configure_catalog_logging(_storage_paths.data_root / "data" / "logs"))
 
 
 def _promote_packaged_seed_data() -> None:

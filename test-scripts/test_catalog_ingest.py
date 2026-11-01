@@ -1,13 +1,21 @@
 import sqlite3
+import io
+import hashlib
+import logging
 import tempfile
 import time
 import unittest
 from pathlib import Path
 from unittest import mock
 
+from PIL import Image
+
+from src.config.paths import StoragePaths
 from src.db.database import SqliteDatabase, apply_catalog_schema
 from src.services import catalog_ingest
 from src.services.catalog_ingest import CatalogIngestService, CatalogScanService
+from src.services.asset_manager import AssetManager
+from src.utils.catalog_logging import configure_catalog_logging
 
 
 def _seed_pikachu(database_path: Path) -> None:
@@ -59,6 +67,93 @@ class CatalogScanTests(unittest.TestCase):
 
 
 class CatalogIngestTests(unittest.TestCase):
+    def test_new_card_download_uses_shared_destination_and_reports_name(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            paths = StoragePaths(Path(temporary).resolve())
+            paths.ensure_directories()
+            _seed_pikachu(paths.catalog_database)
+            service = CatalogIngestService(SqliteDatabase(paths.catalog_database))
+            service.refresh.snapshots_root = paths.snapshots
+            card = {
+                "id": "base1-2", "name": "Blastoise", "number": "2",
+                "set": {"id": "base1", "name": "Base", "total": 2},
+                "images": {"large": "https://example.test/card.png"},
+            }
+            service._fetch_all_cards_for_set = lambda _id: [card]
+            destination = AssetManager(paths=paths)._destination({
+                "component": "tcg_images", "owner_id": "base1-2", "asset_kind": "large",
+            })
+            payload = io.BytesIO()
+            Image.new("RGB", (2, 2), "blue").save(payload, format="PNG")
+            with mock.patch.object(catalog_ingest, "get_storage_paths", return_value=paths), \
+                 mock.patch("urllib.request.urlopen", return_value=io.BytesIO(payload.getvalue())) as download, \
+                 self.assertLogs(catalog_ingest.logger, level="INFO") as logs:
+                result = service.add_tcg_set("base1")
+                repeated = service.add_tcg_set("base1")
+            download.assert_called_once()
+            self.assertEqual(1, result["new_card_count"])
+            self.assertEqual(0, repeated["new_card_count"])
+            self.assertEqual(payload.getvalue(), destination.read_bytes())
+            self.assertTrue(any(
+                "Downloading missing TCG image for base1-2 (Blastoise)" in line
+                and "https://example.test/card.png -> " + str(destination) in line
+                for line in logs.output
+            ))
+
+    def test_ingest_reuses_both_image_conventions_and_skips_existing_cards(self):
+        for legacy in (False, True):
+            with self.subTest(legacy=legacy), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary).resolve()
+                paths = StoragePaths(root)
+                paths.ensure_directories()
+                _seed_pikachu(paths.catalog_database)
+                database = SqliteDatabase(paths.catalog_database)
+                service = CatalogIngestService(database)
+                service.refresh.snapshots_root = paths.snapshots
+                card = {
+                    "id": "base1-2", "name": "Blastoise", "number": "2",
+                    "set": {"id": "base1", "name": "Base", "total": 2},
+                    "images": {"large": "https://example.test/large.png"},
+                }
+                manager = AssetManager(database, paths=paths)
+                if legacy:
+                    digest = hashlib.sha1(b"base1-2").hexdigest()[:8]
+                    destination = paths.tcg_images / f"base1-2-{digest}.img"
+                else:
+                    destination = manager._destination({
+                        "component": "tcg_images", "owner_id": "base1-2", "asset_kind": "large",
+                    })
+                Image.new("RGB", (2, 2), "red").save(destination, format="PNG")
+                original = destination.read_bytes()
+                modified = destination.stat().st_mtime_ns
+                service._fetch_all_cards_for_set = lambda _id: [
+                    {"id": "base1-1", "set": card["set"], "images": card["images"]}, card,
+                ]
+                with mock.patch.object(catalog_ingest, "get_storage_paths", return_value=paths), \
+                     mock.patch("urllib.request.urlopen") as download, \
+                     self.assertLogs(catalog_ingest.logger, level="INFO") as logs:
+                    result = service.add_tcg_set("base1")
+                    repeated = service.add_tcg_set("base1")
+                download.assert_not_called()
+                self.assertEqual(1, result["new_card_count"])
+                self.assertEqual(0, repeated["new_card_count"])
+                self.assertEqual(original, destination.read_bytes())
+                self.assertEqual(modified, destination.stat().st_mtime_ns)
+                self.assertEqual(1, len(list(paths.tcg_images.glob("*.img"))))
+                self.assertTrue(any("Reusing existing TCG image" in line and str(destination) in line for line in logs.output))
+                self.assertTrue(any("1 new cards added, 1 existing cards skipped" in line for line in logs.output))
+                connection = database.connect(read_only=True)
+                try:
+                    row = connection.execute(
+                        "SELECT local_path FROM card_asset WHERE card_id = 'base1-2' AND asset_kind = 'large'"
+                    ).fetchone()
+                    self.assertEqual(paths.relative_to_root(destination), row["local_path"])
+                    self.assertEqual("Alakazam", connection.execute(
+                        "SELECT name FROM tcg_card WHERE id = 'base1-1'"
+                    ).fetchone()["name"])
+                finally:
+                    connection.close()
+
     def test_add_species_inserts_new_species_and_forms(self):
         with tempfile.TemporaryDirectory() as temporary:
             database_path = Path(temporary) / "catalog.sqlite3"
@@ -153,6 +248,42 @@ class CatalogIngestTests(unittest.TestCase):
             connection = database.connect(read_only=True)
             self.assertIsNotNone(connection.execute("SELECT 1 FROM tcg_set WHERE id = 'jungle'").fetchone())
             connection.close()
+
+
+class CatalogLoggingTests(unittest.TestCase):
+    def test_activity_log_is_bounded_idempotent_and_excludes_chat(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary).resolve()
+            names = ("src.services.catalog_ingest", "src.services.catalog_refresh", "src.services.asset_manager")
+            log_path = configure_catalog_logging(directory)
+            handlers = [handler for handler in logging.getLogger(names[0]).handlers
+                        if getattr(handler, "baseFilename", None) == str(log_path.resolve())]
+            try:
+                self.assertEqual(log_path, configure_catalog_logging(directory))
+                self.assertEqual(1, len(handlers))
+                handler = handlers[0]
+                self.assertEqual(5 * 1024 * 1024, handler.maxBytes)
+                self.assertEqual(3, handler.backupCount)
+                for name in names:
+                    logging.getLogger(name).warning("test activity: %s", name)
+                with mock.patch.object(logging.getLogger("src.routes.chat_routes"), "propagate", False):
+                    null_handler = logging.NullHandler()
+                    logging.getLogger("src.routes.chat_routes").addHandler(null_handler)
+                    try:
+                        logging.getLogger("src.routes.chat_routes").warning("private conversation")
+                    finally:
+                        logging.getLogger("src.routes.chat_routes").removeHandler(null_handler)
+                handler.flush()
+                content = log_path.read_text(encoding="utf-8")
+                for name in names:
+                    self.assertIn(name, content)
+                self.assertNotIn("private conversation", content)
+            finally:
+                for name in names:
+                    for handler in handlers:
+                        logging.getLogger(name).removeHandler(handler)
+                for handler in handlers:
+                    handler.close()
 
 
 if __name__ == "__main__":

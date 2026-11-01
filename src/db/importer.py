@@ -710,11 +710,14 @@ class SqliteImporter:
         images = card.get("images", {})
         large_url = images.get("large") if isinstance(images, dict) else None
         if metadata is None and large_url and self.allow_network and self.download_artwork:
-            self.progress(f"  Downloading missing TCG image for {card['id']} ({card.get('name', 'unknown')})")
+            self.progress(
+                f"  Downloading missing TCG image for {card['id']} ({card.get('name', 'unknown')}): "
+                f"{large_url} -> {cached_path}"
+            )
             metadata = self._download_image(large_url, cached_path)
             small_url = images.get("small")
             if metadata is None and small_url:
-                self.progress(f"  Falling back to small TCG image for {card['id']}")
+                self.progress(f"  Falling back to small TCG image for {card['id']}: {small_url} -> {cached_path}")
                 metadata = self._download_image(small_url, cached_path)
             if metadata is None:
                 self.progress(f"  Creating unavailable-image card for {card['id']}")
@@ -722,6 +725,8 @@ class SqliteImporter:
                     cached_path, card.get("name", "Unknown card"),
                     card.get("set", {}).get("id", "Unknown set"), card.get("number", "?"),
                 )
+        elif metadata is not None:
+            self.progress(f"  Reusing existing TCG image for {card['id']} ({card.get('name', 'unknown')}): {cached_path}")
         for kind, url in images.items():
             if kind not in {"small", "large"}:
                 continue

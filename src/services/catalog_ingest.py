@@ -26,6 +26,7 @@ from src.api.pokemon_tcg_api import PokemonTCGTools
 from src.config import get_storage_paths
 from src.db.database import SqliteDatabase
 from src.db.importer import SqliteImporter, resource_id, resource_name
+from src.services.asset_manager import AssetManager
 from src.services.catalog_refresh import CatalogRefreshService
 
 logger = logging.getLogger(__name__)
@@ -229,13 +230,26 @@ class _StorageAwareTcgImporter(SqliteImporter):
             progress=lambda message: logger.info(message),
         )
         self._storage_paths = paths
+        self._asset_manager = AssetManager(paths=paths)
 
     def _tcg_image_path(self, card_id: str) -> Path:
         safe_id = re.sub(r"[^a-zA-Z0-9._-]+", "-", card_id).strip("-")
         import hashlib
 
         suffix = hashlib.sha1(card_id.encode("utf-8")).hexdigest()[:8]
-        return self._storage_paths.tcg_images / f"{safe_id}-{suffix}.img"
+        legacy_path = self._storage_paths.tcg_images / f"{safe_id}-{suffix}.img"
+        if self._image_metadata(legacy_path) is not None:
+            return legacy_path
+        return self._asset_manager._destination({
+            "component": "tcg_images", "owner_id": card_id, "asset_kind": "large",
+        })
+
+    def _download_image(self, url: str, destination: Path) -> tuple[str, str | None, int, int] | None:
+        try:
+            return self._asset_manager._store(url, destination, "image")
+        except (OSError, ValueError) as exc:
+            logger.warning("TCG image download failed: %s -> %s: %s", url, destination, exc)
+            return None
 
 
 class CatalogIngestService:
@@ -375,6 +389,7 @@ class CatalogIngestService:
         return {"species_id": species_id, "added": True, "pokemon_ids": added_pokemon}
 
     def add_tcg_set(self, set_id: str, progress: Callable[[int, int, str | None], None] | None = None) -> dict[str, Any]:
+        logger.info("Fetching TCG set %s from upstream to compare card IDs with SQLite", set_id)
         cards = self._fetch_all_cards_for_set(set_id)
         if not cards:
             return {"set_id": set_id, "added": False, "reason": "No cards returned from TCG API"}
@@ -383,7 +398,8 @@ class CatalogIngestService:
         if progress:
             progress(0, len(cards), set_name)
 
-        self.refresh._store_raw("tcg", "sets", set_id, {"set_id": set_id, "cards": cards})
+        raw_path = self.refresh._store_raw("tcg", "sets", set_id, {"set_id": set_id, "cards": cards})
+        logger.info("Saved TCG set %s (%s), %s upstream cards, snapshot: %s", set_id, set_name, len(cards), raw_path)
 
         importer = _StorageAwareTcgImporter(self.database.path)
         connection = self.database.connect()
@@ -397,6 +413,10 @@ class CatalogIngestService:
                 row["name"].casefold(): row["id"]
                 for row in connection.execute("SELECT id, name FROM pokemon_species")
             }
+            logger.info(
+                "TCG set %s: %s upstream cards, %s already in SQLite; only missing card IDs will be imported",
+                set_id, len(cards), len(existing_ids),
+            )
             importer._import_set(connection, cards[0].get("set", {}))
             added = 0
             for card_index, card in enumerate(cards, start=1):
@@ -411,6 +431,7 @@ class CatalogIngestService:
             raise
         finally:
             connection.close()
+        logger.info("TCG set %s complete: %s new cards added, %s existing cards skipped", set_id, added, len(cards) - added)
         return {"set_id": set_id, "added": True, "card_count": len(cards), "new_card_count": added}
 
     def _fetch_all_cards_for_set(self, set_id: str) -> list[dict[str, Any]]:

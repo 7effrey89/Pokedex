@@ -410,6 +410,7 @@ class AssetManager:
                 job.status = "completed"
                 job.message = (
                     f"Downloaded {job.downloaded:,} assets"
+                    + (f", {job.skipped:,} existing files reused" if job.skipped else "")
                     + (f", {job.failed:,} failed" if job.failed else "")
                 )
         except Exception as exc:  # surface unexpected failures to the admin UI
@@ -471,6 +472,7 @@ class AssetManager:
 
     def _download_asset(self, asset: Dict[str, Any], job: AssetJob) -> None:
         destination = self._destination(asset)
+        reused = asset["media"] == "image" and _image_metadata(destination) is not None
         try:
             destination, metadata = self.store_file(asset)
         except Exception as exc:
@@ -483,7 +485,10 @@ class AssetManager:
                 job.failed += 1
                 job.errors.append(f"{asset['owner_id']}: {asset['source_url']}")
                 return
-            job.downloaded += 1
+            if reused:
+                job.skipped += 1
+            else:
+                job.downloaded += 1
 
         sha256, media_type, width, height = metadata
         connection = self.database.connect()
@@ -543,15 +548,22 @@ class AssetManager:
         return directory / f"{owner}-{asset['asset_kind']}-{suffix}.bin"
 
     def _store(self, url: str, destination: Path, media: str):
+        if media == "image":
+            metadata = _image_metadata(destination)
+            if metadata is not None:
+                logger.info("Reusing validated image (no download): %s", destination)
+                return metadata
         destination.parent.mkdir(parents=True, exist_ok=True)
         temporary = destination.with_suffix(destination.suffix + ".tmp")
         request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        logger.info("Downloading missing or invalid %s asset: %s -> %s", media, url, destination)
         try:
             with urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT_SECONDS) as response:
                 temporary.write_bytes(response.read())
             if media == "image":
                 metadata = _image_metadata(temporary)
                 if metadata is None:
+                    logger.warning("Downloaded image failed validation: %s -> %s", url, destination)
                     return None
             elif media == "svg":
                 metadata = _svg_metadata(temporary)
@@ -563,6 +575,7 @@ class AssetManager:
                     return None
                 metadata = (hashlib.sha256(payload).hexdigest(), "audio/ogg", None, None)
             os.replace(temporary, destination)
+            logger.info("Stored validated %s asset: %s (%s bytes)", media, destination, destination.stat().st_size)
             return metadata
         finally:
             temporary.unlink(missing_ok=True)

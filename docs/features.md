@@ -90,6 +90,7 @@ All implemented features, categorized. Every new feature must be added here.
 | SQLite Type Effectiveness | All six PokeAPI damage-relation groups are normalized per type and used for weakness calculations without runtime JSON cache files | N/A |
 | TCG Price Refresh Interval | Settings slider offers 5 minutes, 1 hour, 1 day, 3 days, 7 days, or Unlimited; the next lookup after expiration synchronously fetches and stores fresh TCG price data | N/A |
 | Persistent Asset Materialization | Pokemon artwork variants, sprites, cries, TCG card faces, set logos, and set symbols are served through Flask from persistent storage; first use stores missing catalog assets for admin inventory and later reuse | N/A |
+| TCG Image Reuse and Activity Log | Ingestion reuses valid legacy or shared-manager card files; catalog/asset logs include source URLs, destinations, reuse, and per-set counts in rotating `data/logs/catalog.log` | N/A |
 | Admin Catalog Availability Statistics | Settings shows species, forms, cards, sets, and assets available from the catalog; locally stored files are separate offline-download statistics | N/A |
 | Admin: Scan for New Content | Diffs the live PokeAPI species list and TCG API set/card totals against the local catalog to report new Pokemon, new TCG sets, and sets with newly released cards | ❌ |
 | Admin: Add New Content | Inserts only the missing Pokemon species/forms or TCG sets/cards discovered by the scan, reusing the importer's normalization so new rows match the existing schema | ❌ |
