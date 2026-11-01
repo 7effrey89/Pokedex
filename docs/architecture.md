@@ -413,6 +413,14 @@ Both are managed centrally through `updateCanvasState()`.
 
 ## Shared Context Resources (Text Chat ↔ Realtime Voice)
 
+Disabling voice closes the realtime session rather than retaining a warm
+WebSocket. It cancels playback and discards uncommitted microphone input without
+requesting a final response. Connection, microphone, and playback generations
+invalidate asynchronous work that finishes after disabling. Browser recognition
+events and delayed chat replies cannot restart speech while voice is off.
+Enabling voice again opens a new session and synchronizes the current context.
+Ordinary recording stops still submit the buffered turn; disconnects do not.
+
 The text chat (Chat Completions API) and realtime voice (Realtime API) share **all** context resources through a single source of truth. This guarantees both interfaces behave identically and stay in sync.
 
 ### Shared Resource Map

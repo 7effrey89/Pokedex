@@ -55,6 +55,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Feature | Description | GPT Realtime |
 |---------|-------------|:------------:|
 | Voice Conversation | Real-time voice chat with AI Pokédex assistant | ✅ (core) |
+| Voice Disable Lifecycle | Switching voice off discards buffered microphone input, stops playback, closes realtime, and prevents pending startup or late replies from reactivating speech | N/A |
 | Text Chat Sidebar | Text-based chat with streaming responses | N/A |
 | Camera/Scan | Identify physical Pokemon cards via camera | ❌ |
 | Collection Scanner | Mobile-first camera mode with crop-tolerant matching, selectable ranked previews, an Add action beneath the selected match, second-click image enlargement, scan history, and collection summary | N/A |

@@ -16,6 +16,9 @@ class RealtimeVoiceClient {
         this.audioWorklet = null;
         this.isConnected = false;
         this.isRecording = false;
+        this.connectionGeneration = 0;
+        this.recordingGeneration = 0;
+        this.playbackGeneration = 0;
         this.sessionConfig = null;
         this.tools = [];
         this.useNativeMcp = false; // If true, API handles tool calls automatically
@@ -184,6 +187,7 @@ class RealtimeVoiceClient {
      * Connect to Azure OpenAI Realtime API via WebSocket
      */
     async connect() {
+        const generation = this.connectionGeneration;
         if (this.isConnected) {
             this.log('Already connected');
             return true;
@@ -191,6 +195,7 @@ class RealtimeVoiceClient {
         
         if (!this.wsUrl || (!this.apiKey && !this.accessToken)) {
             const initialized = await this.initialize();
+            if (generation !== this.connectionGeneration) return false;
             if (!initialized) return false;
         }
         
@@ -209,9 +214,11 @@ class RealtimeVoiceClient {
                 } else {
                     wsUrlWithAuth = `${this.wsUrl}&api-key=${this.apiKey}`;
                 }
-                this.ws = new WebSocket(wsUrlWithAuth);
+                const socket = new WebSocket(wsUrlWithAuth);
+                this.ws = socket;
                 
-                this.ws.onopen = () => {
+                socket.onopen = () => {
+                    if (this.ws !== socket || generation !== this.connectionGeneration) return;
                     this.log('WebSocket connected');
                     this.isConnected = true;
                     this.onStatusChange('connected', 'Connected to Azure OpenAI');
@@ -223,18 +230,22 @@ class RealtimeVoiceClient {
                     resolve(true);
                 };
                 
-                this.ws.onmessage = (event) => {
+                socket.onmessage = (event) => {
+                    if (this.ws !== socket || generation !== this.connectionGeneration) return;
                     this.handleMessage(event.data);
                 };
                 
-                this.ws.onerror = (error) => {
+                socket.onerror = (error) => {
+                    if (this.ws !== socket || generation !== this.connectionGeneration) return;
                     this.log('WebSocket error:', error);
                     this.onError('WebSocket connection error');
                     this.onStatusChange('error', 'Connection error');
                     reject(error);
                 };
                 
-                this.ws.onclose = (event) => {
+                socket.onclose = (event) => {
+                    resolve(false);
+                    if (this.ws !== socket || generation !== this.connectionGeneration) return;
                     this.log('WebSocket closed:', event.code, event.reason);
                     this.isConnected = false;
                     this.isRecording = false;
@@ -546,6 +557,7 @@ class RealtimeVoiceClient {
      */
     async playAudioQueueSmooth() {
         if (this.isPlaying) return;
+        const generation = this.playbackGeneration;
         
         this.isPlaying = true;
 
@@ -562,17 +574,27 @@ class RealtimeVoiceClient {
         
         // Resume if suspended
         if (this.playbackContext.state === 'suspended') {
-            await this.playbackContext.resume();
+            try {
+                await this.playbackContext.resume();
+            } catch (error) {
+                if (generation !== this.playbackGeneration) return;
+                this.isPlaying = false;
+                this.onError(`Unable to resume audio playback: ${error.message}`);
+                this.onAudioEnd();
+                return;
+            }
         }
+        if (generation !== this.playbackGeneration) return;
         
         // Track when next audio should start (for gapless playback)
         let nextStartTime = this.playbackContext.currentTime + 0.05; // Small initial delay
         
         const processQueue = async () => {
-            while (this.audioQueue.length > 0 || this.isPlaying) {
+            while (generation === this.playbackGeneration && (this.audioQueue.length > 0 || this.isPlaying)) {
                 if (this.audioQueue.length === 0) {
                     // Wait a bit for more audio to arrive
                     await new Promise(resolve => setTimeout(resolve, 50));
+                    if (generation !== this.playbackGeneration) return;
                     
                     // If still empty after waiting, we're done
                     if (this.audioQueue.length === 0) {
@@ -650,6 +672,7 @@ class RealtimeVoiceClient {
                 }
             }
             
+            if (generation !== this.playbackGeneration) return;
             this.isPlaying = false;
             this.onPlaybackLevel(0);
             this.onAudioEnd();
@@ -662,6 +685,7 @@ class RealtimeVoiceClient {
      * Cancel the current AI response (for interruption handling)
      */
     cancelCurrentResponse() {
+        this.playbackGeneration++;
         // 1. Clear the audio queue
         this.audioQueue = [];
         if (this.audioPlaybackStartTimeout) {
@@ -720,6 +744,7 @@ class RealtimeVoiceClient {
      * Handle tool calls from the AI
      */
     async handleToolCall(message) {
+        const generation = this.connectionGeneration;
         const toolName = message.name;
         const args = JSON.parse(message.arguments || '{}');
         const callId = message.call_id;
@@ -833,6 +858,7 @@ class RealtimeVoiceClient {
             if (toolName === 'show_my_collection') {
                 if (window.showMyCollectionCanvas) {
                     const collectionResult = await window.showMyCollectionCanvas();
+                    if (generation !== this.connectionGeneration) return;
                     result = collectionResult?.error
                         ? { error: collectionResult.error }
                         : { success: true, message: 'Showing My Collection in the TCG database' };
@@ -848,6 +874,7 @@ class RealtimeVoiceClient {
             if (toolName === 'compare_pokemon') {
                 if (window.comparePokemonCanvas) {
                     const compareResult = await window.comparePokemonCanvas(args.pokemon_name || null, args.compare_pokemon_name || null);
+                    if (generation !== this.connectionGeneration) return;
                     result = compareResult?.error
                         ? { error: compareResult.error }
                         : {
@@ -928,6 +955,7 @@ class RealtimeVoiceClient {
             if (toolName === 'filter_pokemon_by_classification') {
                 if (window.filterPokemonByClassification) {
                     const filterResult = await window.filterPokemonByClassification(args.classifications || []);
+                    if (generation !== this.connectionGeneration) return;
                     result = filterResult?.error
                         ? { error: filterResult.error }
                         : { success: true, message: `Filtering Pokemon grid by classification: ${(args.classifications || []).join(', ')}`, match_count: filterResult.matchCount };
@@ -994,6 +1022,7 @@ class RealtimeVoiceClient {
         }
         
         // Notify about tool result
+        if (generation !== this.connectionGeneration) return;
         this.onToolResult(toolName, args, result, success);
         
         // Send tool result back to the API
@@ -1019,13 +1048,14 @@ class RealtimeVoiceClient {
      */
     async startRecording() {
         if (this.isRecording) return;
+        const generation = ++this.recordingGeneration;
         
         // Reset audio bytes counter for new recording session
         this.audioBytesSent = 0;
         
         try {
             // Request microphone access
-            this.mediaStream = await navigator.mediaDevices.getUserMedia({
+            const stream = await navigator.mediaDevices.getUserMedia({
                 audio: {
                     sampleRate: this.inputSampleRate,
                     channelCount: 1,
@@ -1033,6 +1063,11 @@ class RealtimeVoiceClient {
                     noiseSuppression: true
                 }
             });
+            if (generation !== this.recordingGeneration) {
+                stream.getTracks().forEach(track => track.stop());
+                return false;
+            }
+            this.mediaStream = stream;
             
             if (!this.audioContext) {
                 this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
@@ -1044,6 +1079,7 @@ class RealtimeVoiceClient {
             if (this.audioContext.state === 'suspended') {
                 await this.audioContext.resume();
             }
+            if (generation !== this.recordingGeneration) return false;
             
             // Create audio processing pipeline
             const source = this.audioContext.createMediaStreamSource(this.mediaStream);
@@ -1070,8 +1106,10 @@ class RealtimeVoiceClient {
             
             this.onStatusChange('recording', 'Listening...');
             this.log('Recording started');
+            return true;
             
         } catch (error) {
+            if (generation !== this.recordingGeneration) return false;
             this.log('Recording error:', error);
             this.onError('Microphone access denied or not available');
             throw error;
@@ -1081,8 +1119,9 @@ class RealtimeVoiceClient {
     /**
      * Stop recording audio
      */
-    stopRecording() {
-        if (!this.isRecording) return;
+    stopRecording({ commit = true } = {}) {
+        this.recordingGeneration++;
+        const wasRecording = this.isRecording;
         
         this.isRecording = false;
         
@@ -1099,7 +1138,7 @@ class RealtimeVoiceClient {
         
         // Only commit if we have enough audio data (at least 100ms)
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-            if (this.audioBytesSent >= this.minAudioBytesForCommit) {
+            if (commit && wasRecording && this.audioBytesSent >= this.minAudioBytesForCommit) {
                 this.ws.send(JSON.stringify({
                     type: 'input_audio_buffer.commit'
                 }));
@@ -1232,11 +1271,14 @@ class RealtimeVoiceClient {
      * Disconnect from the WebSocket
      */
     disconnect() {
-        this.stopRecording();
+        this.connectionGeneration++;
+        this.cancelCurrentResponse();
+        this.stopRecording({ commit: false });
         
         if (this.ws) {
-            this.ws.close();
+            const socket = this.ws;
             this.ws = null;
+            socket.close();
         }
         
         if (this.audioContext) {
@@ -1250,11 +1292,16 @@ class RealtimeVoiceClient {
         }
         
         this.isConnected = false;
+        this.isResponseActive = false;
         this.audioQueue = [];
         this.isPlaying = false;
         if (this.audioPlaybackStartTimeout) {
             clearTimeout(this.audioPlaybackStartTimeout);
             this.audioPlaybackStartTimeout = null;
+        }
+        if (this.nativeMcpTimeout) {
+            clearTimeout(this.nativeMcpTimeout);
+            this.nativeMcpTimeout = null;
         }
         
         this.onStatusChange('disconnected', 'Disconnected');

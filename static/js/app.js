@@ -216,6 +216,8 @@ class PokemonChatApp {
         this.realtimeVoice = null;
         this.useRealtimeApi = false; // Will be set to true if available
         this.realtimeVoiceSessionAnnounced = false;
+        this.isVoiceStarting = false;
+        this.voiceActivationVersion = 0;
         this.voicePreviewPending = false;
         this.restartingRealtimeVoice = null;
 
@@ -5188,7 +5190,7 @@ class PokemonChatApp {
         const restartRoutine = (async () => {
             if (this.realtimeVoice) {
                 try { this.realtimeVoice.cancelCurrentResponse(); } catch (error) { console.warn('Unable to cancel response before restart', error); }
-                try { this.realtimeVoice.stopRecording(); } catch (error) { console.warn('Unable to stop recording before restart', error); }
+                try { this.realtimeVoice.stopRecording({ commit: false }); } catch (error) { console.warn('Unable to stop recording before restart', error); }
                 try { this.realtimeVoice.disconnect(); } catch (error) { console.warn('Unable to disconnect realtime voice before restart', error); }
             }
 
@@ -5209,7 +5211,7 @@ class PokemonChatApp {
                 }
             }
 
-            if (shouldResumeVoice) {
+            if (shouldResumeVoice && this.isVoiceActive) {
                 try {
                     await this.activateRealtimeConversation({ announce: false });
                 } catch (error) {
@@ -6086,8 +6088,11 @@ class PokemonChatApp {
         this.recognition.lang = 'en-US';
         
         this.recognition.onstart = () => {
+            if (!this.isVoiceActive) {
+                this.recognition.stop();
+                return;
+            }
             console.log('Voice recognition started');
-            this.isVoiceActive = true;
             this.voiceButton.classList.add('active');
             this.statusText.textContent = 'Listening...';
             const voiceText = this.voiceButton.querySelector('.voice-text');
@@ -6095,6 +6100,7 @@ class PokemonChatApp {
         };
         
         this.recognition.onresult = (event) => {
+            if (!this.isVoiceActive) return;
             const transcript = event.results[0][0].transcript;
             console.log('Voice input:', transcript);
             
@@ -6145,7 +6151,7 @@ class PokemonChatApp {
     }
     
     toggleVoiceConversation() {
-        if (this.isVoiceActive) {
+        if (this.isVoiceActive || this.isVoiceStarting) {
             this.stopVoiceConversation();
         } else {
             this.startVoiceConversation();
@@ -6163,10 +6169,13 @@ class PokemonChatApp {
 
         // Use Realtime API if available
         if (this.useRealtimeApi && this.realtimeVoice) {
+            const activationVersion = this.voiceActivationVersion;
+            this.isVoiceStarting = true;
             try {
                 await this.activateRealtimeConversation({ announce: true });
                 return;
             } catch (error) {
+                if (activationVersion !== this.voiceActivationVersion) return;
                 console.error('Error starting realtime voice:', error);
                 this.setVoiceBackendState({
                     mode: 'browser',
@@ -6183,6 +6192,10 @@ class PokemonChatApp {
                 this.initializeVoiceRecognition();
                 this.startVoiceConversation();
                 return;
+            } finally {
+                if (activationVersion === this.voiceActivationVersion) {
+                    this.isVoiceStarting = false;
+                }
             }
         }
 
@@ -6209,6 +6222,8 @@ class PokemonChatApp {
     }
 
     async activateRealtimeConversation({ announce = false } = {}) {
+        const activationVersion = this.voiceActivationVersion;
+        const client = this.realtimeVoice;
         if (!this.useRealtimeApi) {
             throw new Error('Realtime API is not enabled');
         }
@@ -6217,8 +6232,10 @@ class PokemonChatApp {
             throw new Error('Realtime voice client is not initialized');
         }
 
-        if (!this.realtimeVoice.isConnected) {
-            await this.realtimeVoice.connect();
+        if (!client.isConnected) {
+            const connected = await client.connect();
+            if (activationVersion !== this.voiceActivationVersion || client !== this.realtimeVoice) return false;
+            if (!connected) throw new Error('Realtime voice connection could not be established');
             
             // Set the current view context when connection is established
             console.log('🎯 Setting initial canvas context after connection');
@@ -6226,8 +6243,10 @@ class PokemonChatApp {
             this.flushPendingRealtimeUserContext({ force: true });
         }
 
-        if (!this.realtimeVoice.isRecording) {
-            await this.realtimeVoice.startRecording();
+        if (!client.isRecording) {
+            const recording = await client.startRecording();
+            if (activationVersion !== this.voiceActivationVersion || client !== this.realtimeVoice) return false;
+            if (recording === false) return false;
         }
 
         const becameActive = !this.isVoiceActive;
@@ -6242,9 +6261,12 @@ class PokemonChatApp {
             this.addMessage('assistant', "🎤 **Real-time voice mode activated!** Using Azure OpenAI Realtime API. Just speak naturally and I'll respond in real-time.");
             this.realtimeVoiceSessionAnnounced = true;
         }
+        return true;
     }
     
     stopVoiceConversation() {
+        this.voiceActivationVersion++;
+        this.isVoiceStarting = false;
         this.isVoiceActive = false;
         this.voiceButton.classList.remove('active');
         this.setPowerLightVoiceMode(false);
@@ -6254,9 +6276,7 @@ class PokemonChatApp {
         
         // Stop Realtime API if active
         if (this.useRealtimeApi && this.realtimeVoice) {
-            this.realtimeVoice.cancelCurrentResponse();
-            this.realtimeVoice.stopRecording();
-            // Don't disconnect - keep connection for quick restart
+            this.realtimeVoice.disconnect();
         }
         
         // Stop browser recognition
@@ -6275,9 +6295,12 @@ class PokemonChatApp {
         
         this.addMessage('assistant', '🔇 Voice mode deactivated.');
         this.realtimeVoiceSessionAnnounced = false;
+        this.voicePreviewPending = false;
+        this.statusText.textContent = 'Online';
     }
     
     async processVoiceMessage(message) {
+        const activationVersion = this.voiceActivationVersion;
         this.setLoading(true);
         const apiSettingsPayload = this.buildApiSettingsPayload('chat', { notifyOnError: true });
         if (!apiSettingsPayload) {
@@ -6310,14 +6333,18 @@ class PokemonChatApp {
             this.addMessage('assistant', data.message, data.pokemon_data, data.tcg_data);
             
             // Speak the response
-            this.speakText(data.message);
+            if (this.isVoiceActive && activationVersion === this.voiceActivationVersion) {
+                this.speakText(data.message);
+            }
             
         } catch (error) {
             console.error('Error processing voice message:', error);
             const detail = error?.message || 'Unexpected error while processing your voice query.';
             const assistantMessage = `Sorry, I ran into a problem: ${detail}`;
             this.addMessage('assistant', assistantMessage);
-            this.speakText(assistantMessage);
+            if (this.isVoiceActive && activationVersion === this.voiceActivationVersion) {
+                this.speakText(assistantMessage);
+            }
         } finally {
             this.setLoading(false);
         }
