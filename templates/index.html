@@ -1089,6 +1089,21 @@
                                     <p class="api-status-text" id="adminAssetProgressText"></p>
                                 </div>
                             </div>
+                            <div id="adminEmbeddingStep">
+                                <h4 class="admin-subheading">Step 3: TCG Image Embeddings</h4>
+                                <p class="section-description">
+                                    Add downloaded cards to the scanner index. Only cards without embeddings are processed;
+                                    existing embeddings are preserved. This step uses local images and makes no API requests.
+                                </p>
+                                <p class="api-status-text" id="adminEmbeddingInventory">Loading embedding coverage...</p>
+                                <div class="admin-actions">
+                                    <button class="tools-save-btn" id="adminEmbeddingGenerateBtn" type="button" disabled>Generate Missing Embeddings</button>
+                                </div>
+                                <div class="admin-progress" id="adminEmbeddingProgress" hidden>
+                                    <div class="admin-progress-bar"><div class="admin-progress-fill" id="adminEmbeddingProgressFill"></div></div>
+                                    <p class="api-status-text" id="adminEmbeddingProgressText"></p>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="admin-backup-section">

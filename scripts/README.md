@@ -101,6 +101,16 @@ and produces the aligned `vectors.npy`, `cards.json`, and `manifest.json`.
 Missing/corrupt card images fail the build by default. `--allow-partial` explicitly
 permits omissions, recorded in `failures.json`; `--limit` is useful for tests.
 The admin panel and scanner call this category **TCG image embeddings**.
+For runtime cards acquired after seed preparation, use **Settings > Data
+Management > Step 3: TCG Image Embeddings > Generate Missing Embeddings**.
+Download missing TCG images in Step 2 first. Step 3 uses SQLite card records and
+local images, does not call upstream APIs, and appends missing card IDs without
+re-encoding existing entries. Its output uses the same backup category as this
+offline seed build; include embeddings when exporting an updated environment.
+Generated runtime files under `data/index/` are ignored by Git; only `.gitkeep`
+is tracked. Transfer the complete index through the **TCG image embeddings**
+backup category rather than committing it. A fresh checkout must restore that
+category or generate embeddings locally before using the webcam scanner.
 
 ## 06: Create admin-compatible category ZIPs
 

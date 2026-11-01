@@ -83,6 +83,7 @@ All implemented features, categorized. Every new feature must be added here.
 | Shared Backup and Restore | Catalog, explicit accounts/collections, Pokemon artwork, cries, TCG card/set images, and TCG image embeddings share checksummed ZIP export/import with portable asset registrations | N/A |
 | Non-Destructive Catalog Import | UI/CLI imports merge catalog rows transactionally with newer-wins metadata/prices, ID remapping, and preserved local settings/assets; embeddings-only imports never open databases | N/A |
 | TCG Image Embeddings Backup | Settings exports/restores embeddings as one validated category and reloads the scanner index after restore | N/A |
+| Incremental TCG Embedding Generation | Settings Step 3 shows coverage, generates only missing card embeddings from local catalog images, reports progress/errors, and reloads scanner workers without rebuilding existing vectors | N/A |
 | Pagination Fix | Sets with >250 cards now paginate properly | N/A |
 | Catalog Refresh Persistence | Explicit `?refresh=1` Pokemon/species fetches store an immutable raw snapshot and write normalized updates straight into SQLite instead of the legacy JSON cache | N/A |
 | Explicit Catalog Refresh Buttons | Pokemon refresh fetches and persists Pokemon/species/evolution data; TCG search, set, and price refreshes fetch upstream and update SQLite atomically | N/A |

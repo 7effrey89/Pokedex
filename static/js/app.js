@@ -3004,7 +3004,7 @@ class PokemonChatApp {
             let rankedCandidates;
             if (this.scannerPipelineMode === 'numpy') {
                 this.updateCameraStatus('Searching the full cached card catalog...');
-                this.updateScannerDebugStep('embed', 'active', 'Encoding four crop scales and comparing 15,909 vectors at 1,432 dimensions.');
+                this.updateScannerDebugStep('embed', 'active', 'Encoding crop variants and searching the current TCG embedding index.');
                 rankedCandidates = await this.findNumpyMatchingCards(imageDataUrl);
                 this.updateScannerDebugStep('embed', 'done', `${rankedCandidates.length} highest cosine matches returned.`);
                 const bestEntry = rankedCandidates[0];
@@ -3030,9 +3030,9 @@ class PokemonChatApp {
                 this.scannerDebugTrace.evidence = {
                     source: evidence.source,
                     descriptor: '32 × 44 standardized grayscale + 24 RGB histogram bins',
-                    dimensions: 1432,
-                    catalogSize: 15909,
-                    queryVariants: 4
+                    dimensions: this.scannerDebugTrace.indexMetadata?.vector_size,
+                    catalogSize: this.scannerDebugTrace.indexMetadata?.card_count,
+                    queryVariants: this.scannerDebugTrace.descriptorVariants
                 };
             } else {
                 try {
@@ -3358,6 +3358,7 @@ class PokemonChatApp {
             this.scannerDebugTrace.descriptor = data.query_descriptors?.[0] || null;
             this.scannerDebugTrace.descriptorVariants = data.query_descriptors?.length || 0;
             this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
+            this.scannerDebugTrace.indexMetadata = data.index_metadata || null;
         }
         return (data.matches || []).filter(match => match.card?.id).map(match => {
             const score = Math.max(0, Math.min(1, Number(match.score || 0)));
@@ -4615,6 +4616,12 @@ class PokemonChatApp {
         const restoreBtn = document.getElementById('adminRestoreBtn');
         const restoreInput = document.getElementById('adminRestoreInput');
         const scanBtn = document.getElementById('adminScanBtn');
+        const embeddingBtn = document.getElementById('adminEmbeddingGenerateBtn');
+
+        if (embeddingBtn && embeddingBtn.dataset.listenerAttached !== 'true') {
+            embeddingBtn.addEventListener('click', () => this.startAdminEmbeddingGeneration());
+            embeddingBtn.dataset.listenerAttached = 'true';
+        }
 
         if (downloadBtn && downloadBtn.dataset.listenerAttached !== 'true') {
             downloadBtn.addEventListener('click', () => this.startAdminAssetDownload());
@@ -4654,6 +4661,7 @@ class PokemonChatApp {
             this.renderAdminStorage(data);
             this.renderAdminAssetComponents(data.assets);
             this.renderAdminBackupComponents(data.backup_components);
+            await this.loadAdminEmbeddingStatus();
             if (data.asset_job && data.asset_job.status === 'running') {
                 this.pollAdminAssetJob();
             }
@@ -4680,6 +4688,83 @@ class PokemonChatApp {
             users.textContent = data.users.available
                 ? `${data.users.user_count.toLocaleString()} users · ${data.users.card_count.toLocaleString()} owned cards`
                 : 'Not initialized';
+        }
+    }
+
+    async loadAdminEmbeddingStatus() {
+        const inventory = document.getElementById('adminEmbeddingInventory');
+        if (!inventory) return;
+        try {
+            const response = await fetch('/api/admin/embeddings');
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Unable to load embedding coverage');
+            this.renderAdminEmbeddingInventory(data.embeddings, data.job);
+            if (data.job?.status === 'running') this.pollAdminEmbeddingJob();
+        } catch (error) {
+            inventory.textContent = `Embedding coverage unavailable: ${error.message}`;
+            const button = document.getElementById('adminEmbeddingGenerateBtn');
+            if (button) button.disabled = true;
+            this.setAdminStatusText(inventory.textContent, true);
+        }
+    }
+
+    renderAdminEmbeddingInventory(embeddings, job) {
+        const inventory = document.getElementById('adminEmbeddingInventory');
+        const button = document.getElementById('adminEmbeddingGenerateBtn');
+        if (!inventory) return;
+        if (!embeddings?.available) {
+            inventory.textContent = embeddings?.reason || 'Embedding inventory unavailable';
+            if (button) button.disabled = true;
+            return;
+        }
+        inventory.textContent = `${embeddings.indexed.toLocaleString()} / ${embeddings.total.toLocaleString()} catalog cards indexed · `
+            + `${embeddings.missing.toLocaleString()} missing embeddings · ${embeddings.ready.toLocaleString()} with local images ready to process · `
+            + `${embeddings.waiting_for_images.toLocaleString()} need local images from Step 2.`
+            + (embeddings.orphaned ? ` ${embeddings.orphaned.toLocaleString()} index cards are not in this catalog and will be preserved.` : '');
+        if (button) button.disabled = embeddings.ready === 0 || job?.status === 'running';
+    }
+
+    async startAdminEmbeddingGeneration() {
+        const button = document.getElementById('adminEmbeddingGenerateBtn');
+        if (button) button.disabled = true;
+        try {
+            const response = await fetch('/api/admin/embeddings/generate', { method: 'POST' });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Unable to start embedding generation');
+            this.setAdminStatusText('Generating missing TCG embeddings from local images...');
+            this.pollAdminEmbeddingJob();
+        } catch (error) {
+            await this.loadAdminEmbeddingStatus();
+            this.setAdminStatusText(`Embedding generation failed: ${error.message}`, true);
+        }
+    }
+
+    async pollAdminEmbeddingJob() {
+        const progress = document.getElementById('adminEmbeddingProgress');
+        const fill = document.getElementById('adminEmbeddingProgressFill');
+        const text = document.getElementById('adminEmbeddingProgressText');
+        if (!progress) return;
+        clearTimeout(this._adminEmbeddingTimer);
+        progress.hidden = false;
+        try {
+            const response = await fetch('/api/admin/embeddings/job');
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Unable to read embedding progress');
+            const job = data.job;
+            if (!job) throw new Error('Embedding job is unavailable');
+            if (fill) fill.style.width = `${job.percent}%`;
+            if (text) {
+                text.textContent = `${job.message} ${job.completed.toLocaleString()}/${job.total.toLocaleString()}`
+                    + (job.errors?.length ? ` Errors: ${job.errors.join('; ')}` : '');
+            }
+            if (job.status === 'running') {
+                this._adminEmbeddingTimer = setTimeout(() => this.pollAdminEmbeddingJob(), 1500);
+            } else {
+                await this.loadAdminStatus();
+                this.setAdminStatusText(job.message, job.status !== 'completed');
+            }
+        } catch (error) {
+            this.setAdminStatusText(`Embedding status failed: ${error.message}`, true);
         }
     }
 
@@ -4797,6 +4882,7 @@ class PokemonChatApp {
                 if (job.status !== 'running') {
                     clearInterval(this._adminAssetTimer);
                     this.renderAdminAssetComponents(data.assets);
+                    await this.loadAdminEmbeddingStatus();
                 }
             } catch (error) {
                 clearInterval(this._adminAssetTimer);

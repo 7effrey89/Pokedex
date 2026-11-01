@@ -55,7 +55,12 @@ Thumbs.db
 # Generated SQLite data and selective backup bundles
 data/*.sqlite3
 data/*.sqlite3-*
+/data/.tcg-index.lock
+/data/.tcg-embedding-job.*
+/data/.embedding-job-*
 data/assets/
+/data/index/*
+!/data/index/.gitkeep
 backups/
 *.pokedex-backup.zip
 

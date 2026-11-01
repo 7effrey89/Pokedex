@@ -13,6 +13,7 @@ def configure_catalog_logging(log_directory: Path) -> Path:
         "src.services.catalog_ingest",
         "src.services.catalog_refresh",
         "src.services.asset_manager",
+        "src.services.tcg_embedding_service",
     )
     if any(
         isinstance(handler, RotatingFileHandler) and handler.baseFilename == str(log_path.resolve())

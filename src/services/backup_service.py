@@ -181,7 +181,13 @@ class BackupService:
                         if progress:
                             progress(len(manifest["files"]))
                     else:
-                        self._add_directory(archive, manifest, key, progress)
+                        if key == "tcg_embeddings":
+                            from src.services.tcg_image_index import index_access
+                            with index_access(self.paths.tcg_index):
+                                validate_index(self.paths.tcg_index)
+                                self._add_directory(archive, manifest, key, progress)
+                        else:
+                            self._add_directory(archive, manifest, key, progress)
                 manifest["asset_records"] = (
                     collect_asset_records(self.paths, selected, manifest["files"]) if asset_records is None
                     else [record for record in asset_records if record["component"] in selected]

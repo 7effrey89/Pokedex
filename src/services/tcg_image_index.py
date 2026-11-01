@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import threading
 import weakref
 from contextlib import ExitStack, contextmanager
@@ -10,6 +11,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageOps
+from src.utils.file_lock import exclusive_file_lock
 
 CARD_ASPECT_RATIO = 63 / 88
 ENCODER_VERSION = "pillow-standardized-grayscale-histogram-v2"
@@ -20,9 +22,36 @@ QUERY_CONTENT_SCALES = (1.0, 0.90, 0.86, 0.82)
 VECTOR_SIZE = (GRAYSCALE_SIZE[0] * GRAYSCALE_SIZE[1]) + (HISTOGRAM_BINS * 3)
 _INDEXES = weakref.WeakSet()
 _INDEXES_LOCK = threading.Lock()
+_PATH_LOCKS: dict[Path, threading.RLock] = {}
+_ACCESS_DEPTH = threading.local()
+
+
+@contextmanager
+def index_access(index_dir: Path):
+    """Coordinate readers, writers, and backup/restore across server workers."""
+    path = index_dir.resolve().parent / ".tcg-index.lock"
+    with _INDEXES_LOCK:
+        lock = _PATH_LOCKS.setdefault(path, threading.RLock())
+    with lock:
+        depths = getattr(_ACCESS_DEPTH, "paths", {})
+        _ACCESS_DEPTH.paths = depths
+        if depths.get(path, 0):
+            yield
+        else:
+            with exclusive_file_lock(path):
+                depths[path] = 1
+                try:
+                    yield
+                finally:
+                    depths.pop(path)
 
 
 def _read_index(index_dir: Path, *, mmap_mode: str | None = None):
+    with index_access(index_dir):
+        return _read_index_files(index_dir, mmap_mode=mmap_mode)
+
+
+def _read_index_files(index_dir: Path, *, mmap_mode: str | None = None):
     required = ("manifest.json", "vectors.npy", "cards.json")
     if not all((index_dir / name).is_file() for name in required):
         raise FileNotFoundError("TCG image embeddings are incomplete; run scripts/05-build_tcg_image_embeddings.py")
@@ -41,6 +70,11 @@ def _read_index(index_dir: Path, *, mmap_mode: str | None = None):
         raise ValueError("TCG image index card mapping is not aligned with its vectors")
     if manifest.get("card_count") != len(cards):
         raise ValueError("TCG image index manifest has an unexpected card count")
+    if any(not isinstance(card, dict) for card in cards):
+        raise ValueError("TCG image index contains invalid card records")
+    ids = [card.get("id") for card in cards]
+    if any(not isinstance(card_id, str) or not card_id for card_id in ids) or len(set(ids)) != len(ids):
+        raise ValueError("TCG image index has missing or duplicate card IDs")
     return vectors, cards
 
 
@@ -56,14 +90,15 @@ def validate_index(index_dir: Path) -> None:
 @contextmanager
 def suspend_indexes(index_dir: Path):
     """Release mapped files and block searches while an admin restore replaces them."""
-    with _INDEXES_LOCK:
-        indexes = [index for index in _INDEXES if index.index_dir.resolve() == index_dir.resolve()]
-    with ExitStack() as stack:
-        for index in indexes:
-            stack.enter_context(index._lock)
-            index._vectors = None
-            index._cards = None
-        yield
+    with index_access(index_dir):
+        with _INDEXES_LOCK:
+            indexes = [index for index in _INDEXES if index.index_dir.resolve() == index_dir.resolve()]
+        with ExitStack() as stack:
+            for index in indexes:
+                stack.enter_context(index._lock)
+                index._vectors = None
+                index._cards = None
+            yield
 
 
 def crop_to_card_aspect(image: Image.Image) -> Image.Image:
@@ -137,21 +172,34 @@ class TcgImageIndex:
         self.index_dir = Path(index_dir)
         self._vectors = None
         self._cards = None
+        self._revision = None
         self._lock = threading.RLock()
         with _INDEXES_LOCK:
             _INDEXES.add(self)
 
     def _load(self) -> None:
+        revision = (self.index_dir / "manifest.json").stat().st_mtime_ns if (self.index_dir / "manifest.json").is_file() else None
+        if revision != self._revision:
+            self._vectors = None
+            self._cards = None
         if self._vectors is not None and self._cards is not None:
             return
         with self._lock:
             if self._vectors is not None and self._cards is not None:
                 return
-            self._vectors, self._cards = _read_index(self.index_dir, mmap_mode="r")
+            self._vectors, self._cards = _read_index(self.index_dir, mmap_mode=None if os.name == "nt" else "r")
+            self._revision = revision
 
     def search(self, image: Image.Image, limit: int = 6) -> list[dict]:
-        with self._lock:
-            return self._search(image, limit)
+        with index_access(self.index_dir):
+            with self._lock:
+                return self._search(image, limit)
+
+    def metadata(self) -> dict:
+        with index_access(self.index_dir):
+            with self._lock:
+                self._load()
+                return {"card_count": len(self._cards), "vector_size": VECTOR_SIZE, "encoder_version": ENCODER_VERSION}
 
     def _search(self, image: Image.Image, limit: int) -> list[dict]:
         self._load()

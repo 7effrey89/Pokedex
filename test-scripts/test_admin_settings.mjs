@@ -12,6 +12,11 @@ function createView(overrides = {}) {
         ['adminUsersStatus', {}],
         ['adminAssetComponents', {}],
         ['adminBackupComponents', {}],
+        ['adminEmbeddingInventory', {}],
+        ['adminEmbeddingGenerateBtn', {}],
+        ['adminEmbeddingProgress', {}],
+        ['adminEmbeddingProgressFill', { style: {} }],
+        ['adminEmbeddingProgressText', {}],
     ]);
     const context = vm.createContext({
         document: {
@@ -50,6 +55,57 @@ test('settings displays browsable catalog totals before artwork is downloaded', 
     assert.ok(!summary.includes('needs'));
 });
 
+test('embedding step distinguishes indexed cards, ready images, and missing downloads', () => {
+        const { view, elements } = createView();
+        view.renderAdminEmbeddingInventory({
+            available: true, total: 100, indexed: 80, missing: 20, ready: 12, waiting_for_images: 8, orphaned: 0,
+        });
+        const summary = elements.get('adminEmbeddingInventory').textContent;
+        assert.ok(summary.includes('80 / 100 catalog cards indexed'));
+        assert.ok(summary.includes('20 missing embeddings'));
+        assert.ok(summary.includes('12 with local images ready'));
+        assert.ok(summary.includes('8 need local images from Step 2'));
+        assert.equal(elements.get('adminEmbeddingGenerateBtn').disabled, false);
+        view.renderAdminEmbeddingInventory({ available: true, total: 100, indexed: 100, missing: 0, ready: 0, waiting_for_images: 0 });
+        assert.equal(elements.get('adminEmbeddingGenerateBtn').disabled, true);
+    });
+
+    test('embedding generation uses dedicated endpoint and starts progress polling', async () => {
+        let polled = false;
+        const { view, elements } = createView({
+            fetch: async (url, options) => {
+                assert.equal(url, '/api/admin/embeddings/generate');
+                assert.equal(options.method, 'POST');
+                return { ok: true, json: async () => ({ job: { status: 'running' } }) };
+            },
+        });
+        const app = Object.create(view);
+        app.setAdminStatusText = () => {};
+        app.pollAdminEmbeddingJob = () => { polled = true; };
+        await app.startAdminEmbeddingGeneration();
+        assert.equal(polled, true);
+        assert.equal(elements.get('adminEmbeddingGenerateBtn').disabled, true);
+    });
+
+    test('finished embedding jobs refresh coverage and report failed cards', async () => {
+        const messages = [];
+        let refreshed = false;
+        const { view, elements } = createView({
+            clearTimeout() {},
+            fetch: async () => ({ ok: true, json: async () => ({
+                job: { status: 'completed_with_errors', percent: 100, completed: 3, total: 3,
+                    message: 'Added 2 embeddings; 1 failed.', errors: ['card-3: invalid image'] },
+            }) }),
+        });
+        const app = Object.create(view);
+        app.loadAdminStatus = async () => { refreshed = true; };
+        app.setAdminStatusText = (message, error) => messages.push({ message, error });
+        await app.pollAdminEmbeddingJob();
+        assert.equal(refreshed, true);
+        assert.equal(elements.get('adminEmbeddingProgressFill').style.width, '100%');
+        assert.ok(elements.get('adminEmbeddingProgressText').textContent.includes('card-3: invalid image'));
+        assert.equal(messages.at(-1).error, true);
+    });
 test('backup categories include TCG image embeddings using the shared service label', () => {
     const { view, elements } = createView();
     view.renderAdminBackupComponents([{

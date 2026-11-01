@@ -155,6 +155,7 @@ def match_tcg_card_image_numpy():
         source_image = _load_data_url_image(image_data_url)
         limit = max(1, min(int(data.get('limit', 6)), 24))
         matches = _NUMPY_INDEX.search(source_image, limit=limit)
+        index_metadata = _NUMPY_INDEX.metadata()
         query_descriptors = None
         if data.get('debug') is True:
             query_descriptors = [
@@ -174,6 +175,7 @@ def match_tcg_card_image_numpy():
         "best_id": matches[0]["id"] if matches else None,
         "matched_count": len(matches),
         "index_ready": True,
+        "index_metadata": index_metadata,
     }
     if query_descriptors is not None:
         result["query_descriptors"] = query_descriptors

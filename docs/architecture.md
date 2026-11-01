@@ -224,6 +224,50 @@ The experimental `numpy` setting deliberately bypasses OCR, metadata candidate l
 
 The JSON archive remains the source of truth for index rebuilding. Rerun the seed asset downloader and embeddings builder whenever source URLs or `ENCODER_VERSION` change, then package/install the corresponding ZIPs. Missing card images fail the embeddings build unless partial output is explicitly requested. Downloaded images are not required for index searches after the embeddings are installed. Deployments must include the complete configured TCG index directory because `vectors.npy`, `cards.json`, and `manifest.json` are one row-aligned unit. The large generated artifacts should be supplied by the build or release pipeline instead of being committed with source images. Exact search is intentional for the current catalog size; an approximate index is unnecessary until measured latency or catalog growth justifies it.
 
+#### Incremental runtime updates
+
+Settings > Data Management adds **Step 3: TCG Image Embeddings** after discovery
+and asset downloads. Coverage compares SQLite card IDs with `cards.json`;
+missing embeddings are split into cards with registered local images and cards
+still requiring a Step 2 download. This is an explicit action, not an automatic
+build on every image request. Rerun it after downloads, catalog imports, or
+asset restores. New cards can come from runtime SQLite without being copied
+back into raw seeds.
+
+`TcgEmbeddingService` validates local card image checksums and media, uses the
+same encoder as script 05, and appends only absent card IDs. Existing vectors
+and metadata, including index-only cards, are retained. Generation makes no
+network requests. Missing images wait for download; corrupt images are reported
+as failures, and successful additions can still be published. Incomplete or
+incompatible existing indexes block generation explicitly rather than silently
+rebuilding or discarding them.
+
+Admin endpoints `/api/admin/embeddings`, `/embeddings/generate`, and
+`/embeddings/job` provide coverage, job start, and progress respectively.
+Job state in `data/.tcg-embedding-job.sqlite3` and an exclusive job lock are
+persisted beside `data/index` so all
+Gunicorn workers observe the same operation; a stopped worker is reported as an
+interrupted job that can be retried. Progress uses transactional SQLite updates,
+not per-card JSON-file replacement: an open file handle outside the application's
+locks can make Windows reject replacement even when application readers are
+serialized. The repository's journal policy is reused (WAL locally, DELETE on
+App Service), with SQLite coordinating concurrent readers and writes rather than
+a per-update Windows byte-range lock. Legacy JSON progress remains readable
+until a new job writes SQLite; the old JSON is not rewritten or deleted.
+A separate cross-process index lock protects
+searches, publication, and embedding backup/restore. Publication validates
+staged files and rolls back file replacements on an installation error.
+Loaded indexes invalidate when the manifest revision changes, including in
+other workers. Windows uses in-memory vectors to avoid open memory-map handles
+blocking file replacement; other platforms retain memory mapping.
+
+Generated files remain the existing `vectors.npy`, `cards.json`, and
+`manifest.json` unit and work with the **TCG image embeddings** backup category.
+To move an up-to-date catalog and its scanner coverage together, include the
+catalog, TCG images, and TCG embeddings in the same admin backup. Scanner debug
+counts come from the installed index rather than a fixed historical card count.
+Generation progress and failures are logged to the catalog activity log.
+
 Script 08 archives the `seeds/` workspace (raw responses, asset manifest,
 downloaded media, and embeddings) with per-file hashes, excluding derived
 SQLite artifacts/sidecars and generated `backup-bundles/` to avoid redundant
