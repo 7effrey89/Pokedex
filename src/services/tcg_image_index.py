@@ -20,6 +20,8 @@ HISTOGRAM_BINS = 8
 HISTOGRAM_WEIGHT = 8.0
 QUERY_CONTENT_SCALES = (1.0, 0.90, 0.86, 0.82)
 VECTOR_SIZE = (GRAYSCALE_SIZE[0] * GRAYSCALE_SIZE[1]) + (HISTOGRAM_BINS * 3)
+MAX_OCR_RERANK_BOOST = 0.15
+MAX_PRINT_OCR_RERANK_BOOST = 0.24
 _INDEXES = weakref.WeakSet()
 _INDEXES_LOCK = threading.Lock()
 _PATH_LOCKS: dict[Path, threading.RLock] = {}
@@ -46,25 +48,28 @@ def index_access(index_dir: Path):
                     depths.pop(path)
 
 
-def _read_index(index_dir: Path, *, mmap_mode: str | None = None):
+def _read_index(index_dir: Path, *, mmap_mode: str | None = None,
+                encoder_version: str = ENCODER_VERSION, vector_size: int = VECTOR_SIZE):
     with index_access(index_dir):
-        return _read_index_files(index_dir, mmap_mode=mmap_mode)
+        return _read_index_files(index_dir, mmap_mode=mmap_mode,
+                                 encoder_version=encoder_version, vector_size=vector_size)
 
 
-def _read_index_files(index_dir: Path, *, mmap_mode: str | None = None):
+def _read_index_files(index_dir: Path, *, mmap_mode: str | None = None,
+                      encoder_version: str = ENCODER_VERSION, vector_size: int = VECTOR_SIZE):
     required = ("manifest.json", "vectors.npy", "cards.json")
     if not all((index_dir / name).is_file() for name in required):
         raise FileNotFoundError("TCG image embeddings are incomplete; run scripts/05-build_tcg_image_embeddings.py")
     manifest = json.loads((index_dir / "manifest.json").read_text(encoding="utf-8"))
-    if manifest.get("encoder_version") != ENCODER_VERSION:
+    if manifest.get("encoder_version") != encoder_version:
         raise ValueError("TCG image index encoder version does not match the application")
-    if manifest.get("vector_size") != VECTOR_SIZE:
+    if manifest.get("vector_size") != vector_size:
         raise ValueError("TCG image index manifest has an unexpected vector size")
     if manifest.get("dtype") != "float32" or manifest.get("normalized") is not True:
         raise ValueError("TCG image index manifest has an unsupported storage format")
     cards = json.loads((index_dir / "cards.json").read_text(encoding="utf-8"))
     vectors = np.load(index_dir / "vectors.npy", mmap_mode=mmap_mode, allow_pickle=False)
-    if vectors.dtype != np.float32 or vectors.ndim != 2 or vectors.shape[1] != VECTOR_SIZE:
+    if vectors.dtype != np.float32 or vectors.ndim != 2 or vectors.shape[1] != vector_size:
         raise ValueError("TCG image index has an unexpected vector shape or dtype")
     if not isinstance(cards, list) or not cards or vectors.shape[0] != len(cards):
         raise ValueError("TCG image index card mapping is not aligned with its vectors")
@@ -78,9 +83,10 @@ def _read_index_files(index_dir: Path, *, mmap_mode: str | None = None):
     return vectors, cards
 
 
-def validate_index(index_dir: Path) -> None:
+def validate_index(index_dir: Path, *, encoder_version: str = ENCODER_VERSION,
+                   vector_size: int = VECTOR_SIZE) -> None:
     try:
-        vectors, _ = _read_index(index_dir)
+        vectors, _ = _read_index(index_dir, encoder_version=encoder_version, vector_size=vector_size)
         if not np.isfinite(vectors).all():
             raise ValueError("TCG image embeddings contain non-finite vector values")
     except FileNotFoundError as exc:
@@ -168,8 +174,15 @@ def query_scale_variants(image: Image.Image) -> list[Image.Image]:
 class TcgImageIndex:
     """Lazy-loading exact cosine index backed by generated NumPy artifacts."""
 
-    def __init__(self, index_dir: Path):
+    def __init__(self, index_dir: Path, *, encoder: str = "legacy"):
         self.index_dir = Path(index_dir)
+        if encoder not in ("legacy", "clip"):
+            raise ValueError("Unknown TCG image encoder")
+        self.encoder = encoder
+        self.encoder_version, self.vector_size = ENCODER_VERSION, VECTOR_SIZE
+        if encoder == "clip":
+            from src.services.tcg_clip_encoder import ENCODER_VERSION as clip_version, VECTOR_SIZE as clip_size
+            self.encoder_version, self.vector_size = clip_version, clip_size
         self._vectors = None
         self._cards = None
         self._revision = None
@@ -187,7 +200,10 @@ class TcgImageIndex:
         with self._lock:
             if self._vectors is not None and self._cards is not None:
                 return
-            self._vectors, self._cards = _read_index(self.index_dir, mmap_mode=None if os.name == "nt" else "r")
+            self._vectors, self._cards = _read_index(
+                self.index_dir, mmap_mode=None if os.name == "nt" else "r",
+                encoder_version=self.encoder_version, vector_size=self.vector_size,
+            )
             self._revision = revision
 
     def search(self, image: Image.Image, limit: int = 6) -> list[dict]:
@@ -195,15 +211,68 @@ class TcgImageIndex:
             with self._lock:
                 return self._search(image, limit)
 
+    def card_records(self) -> list[dict]:
+        with index_access(self.index_dir):
+            with self._lock:
+                self._load()
+                return list(self._cards)
+
+    def search_with_reranking(
+        self, image: Image.Image, limit: int, name_scores: dict[str, float],
+        *, print_scores: dict[str, float] | None = None,
+    ) -> list[dict]:
+        if self.encoder != "clip":
+            raise ValueError("Text reranking is supported only by the CLIP image index")
+        print_scores = print_scores or {}
+        if any(
+            not np.isfinite(score) or not 0 <= score <= 1
+            for scores in (name_scores, print_scores) for score in scores.values()
+        ):
+            raise ValueError("OCR reranking scores are outside the supported range")
+        with index_access(self.index_dir):
+            with self._lock:
+                self._load()
+                from src.services.tcg_clip_encoder import get_clip_encoder
+
+                query_vectors = get_clip_encoder().encode([image, image.rotate(180)])
+                scores = np.max(np.asarray(self._vectors @ query_vectors.T, dtype=np.float32), axis=1)
+                boosts = np.fromiter(
+                    (name_scores.get(card["id"], 0.0) * MAX_OCR_RERANK_BOOST for card in self._cards),
+                    dtype=np.float32, count=len(self._cards),
+                )
+                print_boosts = np.fromiter(
+                    (print_scores.get(card["id"], 0.0) * MAX_PRINT_OCR_RERANK_BOOST for card in self._cards),
+                    dtype=np.float32, count=len(self._cards),
+                )
+                ranked_scores = scores + boosts + print_boosts
+                limit = max(1, min(int(limit), len(scores), 24))
+                rows = np.argpartition(ranked_scores, -limit)[-limit:]
+                rows = rows[np.argsort(ranked_scores[rows])[::-1]]
+                return [
+                    {
+                        "id": self._cards[row].get("id"),
+                        "score": round(float(scores[row]), 6),
+                        "ocr_rerank_boost": round(float(boosts[row]), 6),
+                        "ocr_print_boost": round(float(print_boosts[row]), 6),
+                        "card": self._cards[row],
+                    }
+                    for row in rows
+                ]
+
     def metadata(self) -> dict:
         with index_access(self.index_dir):
             with self._lock:
                 self._load()
-                return {"card_count": len(self._cards), "vector_size": VECTOR_SIZE, "encoder_version": ENCODER_VERSION}
+                return {"card_count": len(self._cards), "vector_size": self.vector_size,
+                        "encoder_version": self.encoder_version}
 
     def _search(self, image: Image.Image, limit: int) -> list[dict]:
         self._load()
-        query_vectors = np.stack([encode_card_image(variant) for variant in query_scale_variants(image)])
+        if self.encoder == "clip":
+            from src.services.tcg_clip_encoder import get_clip_encoder
+            query_vectors = get_clip_encoder().encode([image, image.rotate(180)])
+        else:
+            query_vectors = np.stack([encode_card_image(variant) for variant in query_scale_variants(image)])
         scores = np.max(np.asarray(self._vectors @ query_vectors.T, dtype=np.float32), axis=1)
         limit = max(1, min(int(limit), len(scores), 24))
         candidate_rows = np.argpartition(scores, -limit)[-limit:]

@@ -16,7 +16,7 @@ import tempfile
 import zipfile
 import threading
 import re
-from contextlib import closing, nullcontext
+from contextlib import closing, ExitStack
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
@@ -34,7 +34,8 @@ BUNDLE_VERSION = 1
 MAX_RESTORE_BYTES = 40 * 1024 * 1024 * 1024
 
 DATABASE_COMPONENTS = {"catalog_database": "catalog_database", "users_database": "users_database"}
-DIRECTORY_COMPONENTS = ("pokemon_images", "pokemon_cries", "tcg_images", "tcg_embeddings")
+DIRECTORY_COMPONENTS = ("pokemon_images", "pokemon_cries", "tcg_images", "tcg_embeddings", "tcg_clip_embeddings")
+EMBEDDING_COMPONENTS = {"tcg_embeddings", "tcg_clip_embeddings"}
 COMPONENT_LABELS = {
     "catalog_database": "Catalog database",
     "users_database": "User accounts and collections",
@@ -42,6 +43,7 @@ COMPONENT_LABELS = {
     "pokemon_cries": "Pokemon cries",
     "tcg_images": "TCG card images",
     "tcg_embeddings": "TCG image embeddings",
+    "tcg_clip_embeddings": "TCG CLIP embeddings and model",
 }
 
 
@@ -156,9 +158,8 @@ class BackupService:
         missing = set(selected) - available
         if missing:
             raise ValueError(f"Components are not stored locally: {', '.join(sorted(missing))}")
-        if "tcg_embeddings" in selected:
-            from src.services.tcg_image_index import validate_index
-            validate_index(self.paths.tcg_index)
+        for key in set(selected) & EMBEDDING_COMPONENTS:
+            self._validate_embedding(key, self.paths.backup_directories()[key])
         output = output_dir or self.paths.backups
         output.mkdir(parents=True, exist_ok=True)
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
@@ -181,10 +182,11 @@ class BackupService:
                         if progress:
                             progress(len(manifest["files"]))
                     else:
-                        if key == "tcg_embeddings":
+                        if key in EMBEDDING_COMPONENTS:
                             from src.services.tcg_image_index import index_access
-                            with index_access(self.paths.tcg_index):
-                                validate_index(self.paths.tcg_index)
+                            directory = self.paths.backup_directories()[key]
+                            with index_access(directory):
+                                self._validate_embedding(key, directory)
                                 self._add_directory(archive, manifest, key, progress)
                         else:
                             self._add_directory(archive, manifest, key, progress)
@@ -262,12 +264,10 @@ class BackupService:
             try:
                 restored = self._extract_and_verify(archive, manifest, requested, staging)
                 self._validate_staged(restored, requested, staging)
-                if "tcg_embeddings" in requested:
+                with ExitStack() as guard:
                     from src.services.tcg_image_index import suspend_indexes
-                    guard = suspend_indexes(self.paths.tcg_index)
-                else:
-                    guard = nullcontext()
-                with guard:
+                    for key in requested & EMBEDDING_COMPONENTS:
+                        guard.enter_context(suspend_indexes(self.paths.backup_directories()[key]))
                     catalog_merge = self._promote(restored, requested, staging)
                 registrations = restore_asset_records(self.paths, manifest, requested)
             finally:
@@ -306,9 +306,18 @@ class BackupService:
             if len(entries) != 1:
                 raise ValueError(f"Backup must contain exactly one database for {key}")
             BackupService._validate_database(staging / entries[0]["path"], key)
-        if "tcg_embeddings" in requested:
-            from src.services.tcg_image_index import validate_index
-            validate_index(staging / "tcg_embeddings")
+        for key in requested & EMBEDDING_COMPONENTS:
+            BackupService._validate_embedding(key, staging / key)
+
+    @staticmethod
+    def _validate_embedding(key: str, directory: Path) -> None:
+        from src.services.tcg_image_index import validate_index
+        if key == "tcg_clip_embeddings":
+            from src.services.tcg_clip_encoder import ClipEncoder, ENCODER_VERSION, VECTOR_SIZE
+            validate_index(directory, encoder_version=ENCODER_VERSION, vector_size=VECTOR_SIZE)
+            ClipEncoder(directory / "model.onnx")._verify_model()
+        else:
+            validate_index(directory)
 
     @staticmethod
     def _validate_database(path: Path, key: str) -> None:

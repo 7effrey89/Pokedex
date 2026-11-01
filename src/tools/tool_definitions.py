@@ -259,6 +259,18 @@ TOOL_DEFINITIONS = [
         "handler_type": "frontend"
     },
     {
+        "name": "set_scanner_pipeline",
+        "description": "Open the card camera scanner and select its matching pipeline. Use clip for experimental CLIP plus perspective cropping and same-capture baseline comparison; numpy for the existing full-catalog image encoder.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "mode": {"type": "string", "enum": ["clip", "numpy", "cosine", "hybrid", "rerank"]}
+            },
+            "required": ["mode"]
+        },
+        "handler_type": "frontend"
+    },
+    {
         "name": "compare_pokemon",
         "description": "Navigate to the first Pokemon mentioned, scroll down to the Compare Pokemon section, and compare it against the second Pokemon mentioned. Use when the user says 'compare Pikachu with Charizard', 'Pikachu vs Bulbasaur', 'show VS mode', or asks to compare stats, types, weaknesses, abilities, height, or weight. If the user mentions two Pokemon, set pokemon_name to the first Pokemon and compare_pokemon_name to the second Pokemon.",
         "parameters": {

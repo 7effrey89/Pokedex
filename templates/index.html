@@ -1093,8 +1093,16 @@
                                 <h4 class="admin-subheading">Step 3: TCG Image Embeddings</h4>
                                 <p class="section-description">
                                     Add downloaded cards to the scanner index. Only cards without embeddings are processed;
-                                    existing embeddings are preserved. This step uses local images and makes no API requests.
+                                    existing embeddings are preserved. CLIP builds a separate experimental index from local images
+                                    and downloads its verified 336 MiB vision model on first use. No card images leave this server.
                                 </p>
+                                <label class="admin-component">
+                                    <span>Embedding encoder</span>
+                                    <select id="adminEmbeddingEncoder">
+                                        <option value="legacy">Current grayscale + color (baseline)</option>
+                                        <option value="clip">OCR-assisted CLIP + crop (experimental)</option>
+                                    </select>
+                                </label>
                                 <p class="api-status-text" id="adminEmbeddingInventory">Loading embedding coverage...</p>
                                 <div class="admin-actions">
                                     <button class="tools-save-btn" id="adminEmbeddingGenerateBtn" type="button" disabled>Generate Missing Embeddings</button>
@@ -1366,6 +1374,10 @@
                         <label>
                             <input type="radio" name="cameraPipelineMode" value="numpy">
                             <span><strong>TCG image embeddings</strong><small>Search the imported card image embeddings directly, without OCR or an LLM.</small></span>
+                        </label>
+                        <label class="camera-pipeline-option">
+                            <input type="radio" name="cameraPipelineMode" value="clip">
+                            <span><strong>OCR-assisted CLIP + crop (experimental)</strong><small>When a card boundary is detected, reads the title, attacks and footer locally and combines them with visual matching. Debug shows the crop, recognized text and rankings. Build CLIP embeddings in Settings first.</small></span>
                         </label>
                         <label>
                             <input type="radio" name="cameraPipelineMode" value="cosine">

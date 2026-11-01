@@ -2268,6 +2268,9 @@ class PokemonChatApp {
             case 'show_my_collection':
                 await window.showMyCollectionCanvas?.();
                 break;
+            case 'set_scanner_pipeline':
+                await this.openScannerPipeline(action.mode);
+                break;
             case 'compare_pokemon':
                 await window.comparePokemonCanvas?.(action.pokemon_name || null, action.compare_pokemon_name || null);
                 break;
@@ -2592,14 +2595,14 @@ class PokemonChatApp {
     loadScannerPipelineMode() {
         try {
             const stored = localStorage.getItem('pokedex_scanner_pipeline_v1');
-            return ['numpy', 'cosine', 'hybrid', 'rerank'].includes(stored) ? stored : 'rerank';
+            return ['clip', 'numpy', 'cosine', 'hybrid', 'rerank'].includes(stored) ? stored : 'rerank';
         } catch (error) {
             return 'rerank';
         }
     }
 
     setScannerPipelineMode(mode) {
-        this.scannerPipelineMode = ['numpy', 'cosine', 'hybrid', 'rerank'].includes(mode) ? mode : 'rerank';
+        this.scannerPipelineMode = ['clip', 'numpy', 'cosine', 'hybrid', 'rerank'].includes(mode) ? mode : 'rerank';
         try {
             localStorage.setItem('pokedex_scanner_pipeline_v1', this.scannerPipelineMode);
         } catch (error) {
@@ -2608,12 +2611,23 @@ class PokemonChatApp {
         this.syncScannerPipelineControls();
         this.setScannerSettingsOpen(false);
         const labels = {
+            clip: 'OCR-assisted CLIP + perspective crop selected. Open Debug to inspect the title match and current-encoder comparison.',
             numpy: 'Full-catalog NumPy visual search selected.',
             cosine: 'Cosine-only visual ranking selected.',
             hybrid: 'OCR and cosine ranking selected.',
             rerank: 'OCR, cosine, and LLM reranking selected.'
         };
         this.updateCameraStatus(labels[this.scannerPipelineMode]);
+    }
+
+    async openScannerPipeline(mode) {
+        if (!['clip', 'numpy', 'cosine', 'hybrid', 'rerank'].includes(mode)) {
+            throw new Error('Unknown scanner pipeline');
+        }
+        this.setScannerPipelineMode(mode);
+        this.setCameraMode('collection');
+        await this.openCameraModal();
+        return { success: true, mode };
     }
 
     syncScannerPipelineControls() {
@@ -2652,7 +2666,7 @@ class PokemonChatApp {
 
     resetScannerDebugTrace(imageDataUrl) {
         const mode = this.scannerPipelineMode;
-        const usesMetadata = mode !== 'numpy';
+        const usesMetadata = !['numpy', 'clip'].includes(mode);
         this.scannerDebugTrace = {
             mode,
             startedAt: performance.now(),
@@ -2667,7 +2681,7 @@ class PokemonChatApp {
             rankings: [],
             steps: [
                 { id: 'capture', label: 'Capture guide crop', status: 'done', duration: 0 },
-                { id: 'embed', label: mode === 'numpy' ? 'Build embedding and search full catalog' : 'Compare captured card with candidate images', status: 'pending' },
+                { id: 'embed', label: !usesMetadata ? 'Build embedding and search full catalog' : 'Compare captured card with candidate images', status: 'pending' },
                 { id: 'text', label: 'Extract visible metadata with LLM', status: usesMetadata ? 'pending' : 'skipped' },
                 { id: 'score', label: 'Score metadata fields and image similarity', status: usesMetadata ? 'pending' : 'skipped' },
                 { id: 'judge', label: 'LLM judge rerank', status: mode === 'rerank' ? 'pending' : 'skipped' },
@@ -2699,12 +2713,12 @@ class PokemonChatApp {
             this.cameraDebugSteps.innerHTML = '';
             return;
         }
-        const modeNames = { numpy: 'TCG image embeddings', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
+        const modeNames = { clip: 'OCR-assisted CLIP + crop', numpy: 'TCG image embeddings', cosine: 'Cosine only', hybrid: 'OCR + cosine', rerank: 'OCR + cosine + LLM' };
         if (this.cameraDebugMode) this.cameraDebugMode.textContent = modeNames[trace.mode];
         if (this.cameraDebugSummary) {
             const best = trace.rankings[0];
             this.cameraDebugSummary.textContent = best
-                ? `${best.card?.name || 'Unknown'} leads at ${Math.round(best.score * 1000) / 10}% after ${Math.round((trace.completedAt || performance.now()) - trace.startedAt)} ms.`
+                ? `${best.card?.name || 'Unknown'} leads at ${trace.mode === 'clip' ? `cosine ${best.score.toFixed(3)}` : `${Math.round(best.score * 1000) / 10}%`} after ${Math.round((trace.completedAt || performance.now()) - trace.startedAt)} ms.`
                 : 'Trace updates live as the crop moves through the matching pipeline.';
         }
         this.cameraDebugSteps.innerHTML = trace.steps.map(step => `
@@ -2713,11 +2727,11 @@ class PokemonChatApp {
                 <span><strong>${this._escapeHtml(step.label)}</strong>${step.detail ? `<small>${this._escapeHtml(step.detail)}</small>` : ''}</span>
                 ${Number.isFinite(step.duration) ? `<time>${Math.round(step.duration)} ms</time>` : ''}
             </div>`).join('');
-        const evidence = trace.evidence ? `
+        const evidence = trace.evidence && trace.mode !== 'clip' ? `
             <section class="camera-debug-capture">
                 <div class="camera-debug-capture-heading">
                     <strong>Cropped camera card</strong>
-                    <span>LLM text confidence: ${Math.round(Number(trace.evidence.confidence) || 0)}%</span>
+                    <span>${trace.mode === 'clip' ? 'Visual similarity is not calibrated confidence' : `LLM text confidence: ${Math.round(Number(trace.evidence.confidence) || 0)}%`}</span>
                 </div>
                 <div class="camera-debug-capture-layout">
                     <img src="${trace.imageDataUrl}" alt="Captured card crop">
@@ -2734,6 +2748,36 @@ class PokemonChatApp {
         const judgeContext = trace.judgeContext
             ? `<details><summary>LLM judge request</summary><pre>${this._escapeHtml(JSON.stringify(trace.judgeContext, null, 2))}</pre></details>`
             : '';
+        const ocrSummary = trace.ocr ? `
+            <section class="camera-debug-capture">
+                <h4>Local card text</h4>
+                <p>${trace.ocr.enabled === false
+                    ? `OCR skipped: ${this._escapeHtml(trace.ocr.skipped_reason || 'No reliable card crop.')}`
+                    : `Title: ${this._escapeHtml(trace.ocr.recognized_text || 'not recognized')}${trace.ocr.confidence == null ? '' : ` · ${Math.round(trace.ocr.confidence * 100)}% OCR score`}${trace.ocr.matched_names?.length ? ` · matched ${this._escapeHtml(trace.ocr.matched_names.join(', '))}` : ''}`}</p>
+                ${trace.ocr.error ? `<p>Title OCR error: ${this._escapeHtml(trace.ocr.error)}</p>` : ''}
+                ${trace.ocr.print_error ? `<p>Print OCR error: ${this._escapeHtml(trace.ocr.print_error)}</p>` : ''}
+                ${trace.ocr.metadata_error ? `<p>Print metadata error: ${this._escapeHtml(trace.ocr.metadata_error)}</p>` : ''}
+                ${trace.ocr.rotation_error ? `<p>Rotated OCR error: ${this._escapeHtml(trace.ocr.rotation_error)}</p>` : ''}
+                ${trace.ocr.orientation_degrees === 180 ? '<p>Text was read after rotating the crop 180°.</p>' : ''}
+                ${trace.ocr.enabled !== false ? `<details open><summary>Attack and footer text</summary><pre>${this._escapeHtml(
+                    (trace.ocr.print_lines || []).map(line => `${line.region}: ${line.text} (OCR score ${Number(line.confidence).toFixed(2)})${line.verification_text !== undefined ? ` · cross-check: ${line.verification_text || 'not readable'}` : ''}`).join('\n') || 'No readable print text.'
+                )}</pre></details>` : ''}
+            </section>` : '';
+        const comparison = trace.comparison ? `
+            <section class="camera-debug-capture">
+                <h4>Same-capture comparison (cosine similarity, not confidence)</h4>
+                <div class="camera-debug-capture-layout">
+                    ${trace.cropImage ? `<img src="${this._escapeHtml(trace.cropImage)}" alt="Perspective-corrected card">` : ''}
+                    <div><p>${this._escapeHtml(trace.crop?.warning || `Crop: ${trace.crop?.method || 'unknown'}`)}</p></div>
+                </div>
+                ${trace.comparison.error ? `<p>${this._escapeHtml(trace.comparison.error)}</p>` : ''}
+                ${[['legacy', 'Current encoder, original capture'], ['legacy_crop', 'Current encoder, corrected crop']].map(([key, label]) =>
+                    `<h5>${label}</h5><ol>${(trace.comparison[key] || []).map(match =>
+                        `<li>${this._escapeHtml(match.card?.name || match.id)} (${this._escapeHtml(match.id)}) · cosine ${Number(match.score).toFixed(3)}</li>`
+                    ).join('')}</ol>`
+                ).join('')}
+                <p>OCR-assisted CLIP + crop candidates appear below. Similarity scores from different encoders are not directly comparable.</p>
+            </section>` : '';
         const rankings = trace.rankings.length
             ? `<section class="camera-debug-rankings"><h4>${trace.judgeUsed ? 'LLM judge rerank' : 'Ranked candidates'}</h4>${trace.judgeWarning ? `<p class="camera-debug-warning">${this._escapeHtml(trace.judgeWarning)}</p>` : ''}${trace.rankings.map((entry, index) => {
                 const scores = entry.card?._scannerScores || {};
@@ -2744,13 +2788,13 @@ class PokemonChatApp {
                         <b>${index + 1}</b>
                         ${imageUrl ? `<img src="${this._escapeHtml(imageUrl)}" alt="${this._escapeHtml(entry.card?.name || 'Candidate card')}">` : ''}
                         <span><strong>${this._escapeHtml(entry.card?.name || 'Unknown')}</strong><small>${this._escapeHtml(entry.card?.set?.name || entry.card?.id || '')} · #${this._escapeHtml(entry.card?.number || '?')}</small></span>
-                        <code>${Math.round(entry.score * 1000) / 10}%</code>
+                        <code>${trace.mode === 'clip' ? `cosine ${entry.score.toFixed(3)}` : `${Math.round(entry.score * 1000) / 10}%`}</code>
                     </div>
-                    <div class="camera-debug-score-grid">
+                    ${trace.mode === 'clip' ? `<p>Cosine similarity ${entry.score.toFixed(3)}; not calibrated confidence.</p>` : `<div class="camera-debug-score-grid">
                         <span>Text <strong>${scores.text == null ? '–' : `${Math.round(scores.text * 10) / 10}%`}</strong></span>
                         <span>Visual <strong>${scores.visual == null ? '–' : `${Math.round(scores.visual * 10) / 10}%`}</strong></span>
                         <span>Combined <strong>${scores.combined == null ? `${Math.round(entry.score * 1000) / 10}%` : `${Math.round(scores.combined * 10) / 10}%`}</strong></span>
-                    </div>
+                    </div>`}
                     ${entry.visualBreakdown ? `<details><summary>Visual score components</summary><pre>${this._escapeHtml(JSON.stringify(entry.visualBreakdown, null, 2))}</pre></details>` : ''}
                     <details><summary>Candidate metadata</summary><pre>${this._escapeHtml(JSON.stringify(metadata, null, 2))}</pre></details>
                     ${entry.judgeReason ? `<details open><summary>Judge reason</summary><pre>${this._escapeHtml(entry.judgeReason)}</pre></details>` : ''}
@@ -2758,7 +2802,7 @@ class PokemonChatApp {
             }).join('')}</section>`
             : '';
         if (this.cameraDebugEvidence) {
-            this.cameraDebugEvidence.innerHTML = `${evidence}${descriptor}${judgeContext}${rankings}`;
+            this.cameraDebugEvidence.innerHTML = `${evidence}${descriptor}${ocrSummary}${comparison}${judgeContext}${rankings}`;
         }
     }
 
@@ -2849,6 +2893,10 @@ class PokemonChatApp {
     }
 
     async startCameraScanningSession() {
+        if (this.cameraMode === 'collection' && this.scannerPipelineMode === 'clip') {
+            this.updateCameraStatus('OCR-assisted CLIP scanner ready. Title reading and image matching run locally.');
+            return true;
+        }
         if (this.isScanModeActive) {
             return true;
         }
@@ -3002,11 +3050,13 @@ class PokemonChatApp {
             let responseText = '';
             let guess;
             let rankedCandidates;
-            if (this.scannerPipelineMode === 'numpy') {
+            if (['numpy', 'clip'].includes(this.scannerPipelineMode)) {
                 this.updateCameraStatus('Searching the full cached card catalog...');
                 this.updateScannerDebugStep('embed', 'active', 'Encoding crop variants and searching the current TCG embedding index.');
                 rankedCandidates = await this.findNumpyMatchingCards(imageDataUrl);
-                this.updateScannerDebugStep('embed', 'done', `${rankedCandidates.length} highest cosine matches returned.`);
+                this.updateScannerDebugStep('embed', 'done', this.scannerPipelineMode === 'clip'
+                    ? `${rankedCandidates.length} candidates ranked using visual and local OCR evidence.`
+                    : `${rankedCandidates.length} highest cosine matches returned.`);
                 const bestEntry = rankedCandidates[0];
                 const bestCard = bestEntry?.card;
                 guess = {
@@ -3019,17 +3069,19 @@ class PokemonChatApp {
                     rarity: bestCard?.rarity || '',
                     attack1: bestCard?.attacks?.[0]?.name || '',
                     attack2: bestCard?.attacks?.[1]?.name || '',
-                    confidence: bestEntry ? `${Math.round(bestEntry.score * 100)}%` : 'low'
+                    confidence: this.scannerPipelineMode === 'clip'
+                        ? `cosine ${bestEntry?.score.toFixed(3) || '0'} (not confidence)`
+                        : bestEntry ? `${Math.round(bestEntry.score * 100)}%` : 'low'
                 };
                 evidence = {
                     text: '',
                     metadata: this.scannerGuessToMetadata(guess),
                     confidence: bestEntry ? bestEntry.score * 100 : 0,
-                    source: 'numpy_full_catalog'
+                    source: this.scannerPipelineMode === 'clip' ? 'clip_full_catalog' : 'numpy_full_catalog'
                 };
                 this.scannerDebugTrace.evidence = {
                     source: evidence.source,
-                    descriptor: '32 × 44 standardized grayscale + 24 RGB histogram bins',
+                    descriptor: this.scannerDebugTrace.descriptorMethod,
                     dimensions: this.scannerDebugTrace.indexMetadata?.vector_size,
                     catalogSize: this.scannerDebugTrace.indexMetadata?.card_count,
                     queryVariants: this.scannerDebugTrace.descriptorVariants
@@ -3064,7 +3116,8 @@ class PokemonChatApp {
                 rankedCandidates,
                 evidence,
                 responseText,
-                imageDataUrl
+                imageDataUrl,
+                pipelineMode: this.scannerPipelineMode
             };
             this.scannerAttemptCount = useHints ? this.scannerHintAttemptFloor : this.scannerAttemptCount + 1;
             this.scannerDebugTrace.rankings = rankedCandidates;
@@ -3345,10 +3398,11 @@ class PokemonChatApp {
     }
 
     async findNumpyMatchingCards(imageDataUrl) {
-        const response = await fetch('/api/tcg/numpy-image-match', {
+        const useClip = this.scannerPipelineMode === 'clip';
+        const response = await fetch(useClip ? '/api/tcg/clip-image-match' : '/api/tcg/numpy-image-match', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image_data_url: imageDataUrl, limit: 6, debug: true })
+            body: JSON.stringify({ image_data_url: imageDataUrl, limit: 6, debug: true, ...(useClip ? { compare: true } : {}) })
         });
         const data = await response.json().catch(() => ({}));
         if (!response.ok) {
@@ -3359,11 +3413,22 @@ class PokemonChatApp {
             this.scannerDebugTrace.descriptorVariants = data.query_descriptors?.length || 0;
             this.scannerDebugTrace.descriptorMethod = data.descriptor_method || '';
             this.scannerDebugTrace.indexMetadata = data.index_metadata || null;
+            this.scannerDebugTrace.comparison = data.comparison || null;
+            this.scannerDebugTrace.crop = data.crop || null;
+            this.scannerDebugTrace.cropImage = data.cropped_image_data_url || null;
+            this.scannerDebugTrace.ocr = data.ocr || null;
         }
         return (data.matches || []).filter(match => match.card?.id).map(match => {
-            const score = Math.max(0, Math.min(1, Number(match.score || 0)));
+            const score = useClip ? Number(match.score || 0) : Math.max(0, Math.min(1, Number(match.score || 0)));
             match.card._scannerScores = { text: null, visual: score * 100, combined: score * 100 };
-            return { card: match.card, score, textScore: 0, visualScore: score };
+            return { card: match.card, score, textScore: 0, visualScore: score,
+                ...(useClip ? { visualBreakdown: {
+                    cosine_similarity: match.score,
+                    calibrated_confidence: false,
+                    ocr_rerank_boost: match.ocr_rerank_boost || 0,
+                    ocr_print_boost: match.ocr_print_boost || 0,
+                    matched_print_text: match.ocr_print_evidence || null
+                } } : {}) };
         });
     }
 
@@ -3515,7 +3580,7 @@ class PokemonChatApp {
                                 <div class="camera-candidate-info">
                                     <strong>${this._escapeHtml(candidate.name || 'Unknown card')}</strong>
                                     <span>${this._escapeHtml(candidate.set?.name || 'Unknown set')} · #${this._escapeHtml(candidate.number || '?')}</span>
-                                    <span>${score}% match</span>
+                                    <span>${match?.pipelineMode === 'clip' ? `cosine ${entry.score.toFixed(3)} · not confidence` : `${score}% match`}</span>
                                 </div>
                             </button>
                             ${isSelected ? '<button class="camera-selected-add" type="button" data-scanner-add>Add to collection</button>' : ''}
@@ -4617,6 +4682,10 @@ class PokemonChatApp {
         const restoreInput = document.getElementById('adminRestoreInput');
         const scanBtn = document.getElementById('adminScanBtn');
         const embeddingBtn = document.getElementById('adminEmbeddingGenerateBtn');
+        document.getElementById('adminEmbeddingEncoder')?.addEventListener('change', () => {
+            clearTimeout(this._adminEmbeddingTimer);
+            this.loadAdminEmbeddingStatus();
+        });
 
         if (embeddingBtn && embeddingBtn.dataset.listenerAttached !== 'true') {
             embeddingBtn.addEventListener('click', () => this.startAdminEmbeddingGeneration());
@@ -4691,11 +4760,15 @@ class PokemonChatApp {
         }
     }
 
+    embeddingEndpoint(suffix = '', encoder = document.getElementById('adminEmbeddingEncoder')?.value || 'legacy') {
+        return `/api/admin/embeddings${suffix}${encoder === 'clip' ? '?encoder=clip' : ''}`;
+    }
+
     async loadAdminEmbeddingStatus() {
         const inventory = document.getElementById('adminEmbeddingInventory');
         if (!inventory) return;
         try {
-            const response = await fetch('/api/admin/embeddings');
+            const response = await fetch(this.embeddingEndpoint());
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || 'Unable to load embedding coverage');
             this.renderAdminEmbeddingInventory(data.embeddings, data.job);
@@ -4728,7 +4801,7 @@ class PokemonChatApp {
         const button = document.getElementById('adminEmbeddingGenerateBtn');
         if (button) button.disabled = true;
         try {
-            const response = await fetch('/api/admin/embeddings/generate', { method: 'POST' });
+            const response = await fetch(this.embeddingEndpoint('/generate'), { method: 'POST' });
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || 'Unable to start embedding generation');
             this.setAdminStatusText('Generating missing TCG embeddings from local images...');
@@ -4739,7 +4812,7 @@ class PokemonChatApp {
         }
     }
 
-    async pollAdminEmbeddingJob() {
+    async pollAdminEmbeddingJob(encoder = document.getElementById('adminEmbeddingEncoder')?.value || 'legacy') {
         const progress = document.getElementById('adminEmbeddingProgress');
         const fill = document.getElementById('adminEmbeddingProgressFill');
         const text = document.getElementById('adminEmbeddingProgressText');
@@ -4747,7 +4820,7 @@ class PokemonChatApp {
         clearTimeout(this._adminEmbeddingTimer);
         progress.hidden = false;
         try {
-            const response = await fetch('/api/admin/embeddings/job');
+            const response = await fetch(this.embeddingEndpoint('/job', encoder));
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || 'Unable to read embedding progress');
             const job = data.job;
@@ -4758,7 +4831,7 @@ class PokemonChatApp {
                     + (job.errors?.length ? ` Errors: ${job.errors.join('; ')}` : '');
             }
             if (job.status === 'running') {
-                this._adminEmbeddingTimer = setTimeout(() => this.pollAdminEmbeddingJob(), 1500);
+                this._adminEmbeddingTimer = setTimeout(() => this.pollAdminEmbeddingJob(encoder), 1500);
             } else {
                 await this.loadAdminStatus();
                 this.setAdminStatusText(job.message, job.status !== 'completed');

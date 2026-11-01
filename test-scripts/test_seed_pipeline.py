@@ -175,7 +175,9 @@ class SeedPipelineTests(unittest.TestCase):
         self.prepare_all()
         app, service = self.admin_app(self.source)
         with app.test_client() as client:
-            response = client.post("/api/admin/backup", json={"components": list(COMPONENT_LABELS)})
+            response = client.post("/api/admin/backup", json={
+                "components": [item["key"] for item in service.available_components() if item["available"]],
+            })
             self.assertEqual(response.status_code, 202)
             service._job_thread.join(timeout=10)
             job = service.job_status()

@@ -112,6 +112,20 @@ is tracked. Transfer the complete index through the **TCG image embeddings**
 backup category rather than committing it. A fresh checkout must restore that
 category or generate embeddings locally before using the webcam scanner.
 
+For the learned-image experiment, select **CLIP + crop (experimental)** in
+Settings Step 3 and generate its separate reference index. The first run
+downloads a checksum-verified 336 MiB CLIP vision model; inference and card
+processing remain local. Generation uses batches and checkpoints every 256
+cards, so retries preserve completed checkpoints. Existing legacy embeddings
+remain available for comparison. In Image Scanner, select **CLIP + perspective
+crop**, then open Debug to see the corrected crop and both legacy rankings for
+the exact same capture. Similarity is not confidence.
+
+Transfer this index with the separate **TCG CLIP embeddings and model** backup
+category. It includes the model so restoration works offline. Script 05 still
+builds the legacy seed index; CLIP is built from runtime SQLite records/local
+images using Settings, not from the seed script.
+
 ## 06: Create admin-compatible category ZIPs
 
 ```powershell

@@ -2,7 +2,7 @@
 
 import logging
 
-from flask import jsonify
+from flask import jsonify, request
 
 from src.routes.admin_routes import admin_bp
 from src.services.admin_access import require_admin
@@ -16,7 +16,10 @@ def get_embedding_inventory():
     denied = require_admin()
     if denied:
         return denied
-    service = get_tcg_embedding_service()
+    try:
+        service = get_tcg_embedding_service(request.args.get("encoder", "legacy"))
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
     return jsonify({"embeddings": service.inventory(), "job": service.job_status()})
 
 
@@ -26,7 +29,7 @@ def generate_missing_embeddings():
     if denied:
         return denied
     try:
-        job = get_tcg_embedding_service().start()
+        job = get_tcg_embedding_service(request.args.get("encoder", "legacy")).start()
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
     except RuntimeError as exc:
@@ -42,4 +45,7 @@ def get_embedding_job():
     denied = require_admin()
     if denied:
         return denied
-    return jsonify({"job": get_tcg_embedding_service().job_status()})
+    try:
+        return jsonify({"job": get_tcg_embedding_service(request.args.get("encoder", "legacy")).job_status()})
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
