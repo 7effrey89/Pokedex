@@ -17,6 +17,7 @@ from .cache_routes import cache_bp
 from .face_routes import face_bp
 from .pokeapi_routes import pokeapi_bp
 from .tcg_image_routes import tcg_image_bp
+from . import tcg_catalog_routes
 from . import clip_image_routes
 from .admin_routes import admin_bp
 from . import embedding_routes

@@ -33,7 +33,7 @@ The app features a clean, mobile-first design with:
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **APIs**: 
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
-  - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
+  - [TCGdex](https://tcgdex.dev/) for free trading card data and market prices
 - **Face Recognition**: face_recognition library (based on dlib)
 - **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
@@ -137,7 +137,7 @@ If you prefer manual deployment or don't need face recognition features:
 
 ### 1. Prepare environment variables
 
-Create or update a `.env` file with the secrets you want in production (Azure OpenAI keys, PokeAPI overrides, `POKEMON_TCG_API_KEY`, etc.). These values will be mirrored into App Service settings.
+Create or update a `.env` file with the secrets you want in production (Azure OpenAI keys and PokeAPI overrides). TCGdex needs no TCG API key.
 
 ### 2. Log in and create Azure resources
 
@@ -180,7 +180,6 @@ az webapp config appsettings set \
       AZURE_OPENAI_REALTIME_DEPLOYMENT="gpt-realtime" \
       AZURE_OPENAI_REALTIME_API_VERSION="2024-10-01-preview" \
       POKEMON_API_URL="https://pokeapi.co/api/v2" \
-      POKEMON_TCG_API_KEY="<key>" \
       TCG_PAGE_SIZE=250 \
       ADMIN_PASSWORD="PasswordExample" \
       USE_NATIVE_MCP=false \

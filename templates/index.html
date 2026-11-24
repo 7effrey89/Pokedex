@@ -729,13 +729,9 @@
                                     <label for="customRealtimeApiVersion">Realtime API Version</label>
                                     <input type="text" id="customRealtimeApiVersion" placeholder="2024-10-01-preview">
                                 </div>
-                                <div class="api-field">
-                                    <label for="customTcgApiKey">Pokemon TCG API Key</label>
-                                    <input type="password" id="customTcgApiKey" placeholder="Paste Pokemon TCG API key">
-                                    <small>Used for card searches and TCG price lookups. Get one at pokemontcg.io.</small>
-                                </div>
                             </div>
                             <small>Realtime fields are optional if you only use chat. Missing values fall back to chat credentials.</small>
+                            <small>Trading card data and prices use free TCGdex access; no TCG API key is required.</small>
                         </div>
 
                         <div class="api-field api-language-field">
@@ -952,7 +948,7 @@
 
                         <h4 class="settings-subsection-title">💹 TCG Price Refresh</h4>
                         <p class="section-description">
-                            Choose when stored TCG prices expire and are fetched again from the TCG API.
+                            Choose when stored TCG prices expire and are fetched again from TCGdex.
                         </p>
                         <div class="cache-controls">
                             <div class="control-row cache-expiry-row">
@@ -1042,7 +1038,7 @@
                             <div id="adminDiscoverStep">
                                 <h4 class="admin-subheading">Step 1: Discover New Content</h4>
                                 <p class="section-description">
-                                    Check the live PokeAPI and TCG API for new Pokemon species or card sets not yet in the database.
+                                    Check the live PokeAPI and TCGdex for new Pokemon species or card sets not yet in the database.
                                 </p>
                                 <div class="admin-actions">
                                     <button class="tools-reset-btn" id="adminScanBtn" type="button">Scan for New Content</button>

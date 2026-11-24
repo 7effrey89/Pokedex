@@ -1,20 +1,15 @@
-import requests
 import json
 import os
+import sys
+from pathlib import Path
 
-# Test the Pokemon TCG API - Search for Pikachu cards
-API = "https://api.pokemontcg.io/v2/cards"
-PARAMS = {"q": "name:pikachu", "pageSize": 5}
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.api.pokemon_tcg_api import PokemonTCGTools
 
-print("Fetching Pikachu cards from Pokemon TCG API...")
-print(f"URL: {API}")
-print(f"Query: {PARAMS['q']}")
+print("Fetching Pikachu cards from free TCGdex...")
 print("-" * 60)
 
-resp = requests.get(API, params=PARAMS, timeout=60)
-resp.raise_for_status()
-
-data = resp.json()
+data = PokemonTCGTools().search_cards("Pikachu", page_size=5)
 
 # Pretty print the response
 print(f"\nTotal cards found: {data.get('totalCount', 0)}")

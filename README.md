@@ -65,7 +65,7 @@ The app features a clean, mobile-first design with:
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **APIs**:
   - [PokeAPI](https://pokeapi.co/) for Pokemon game data
-  - [Pokemon TCG API](https://pokemontcg.io/) for trading card data
+  - [TCGdex](https://tcgdex.dev/) for free, keyless trading card data and TCGPlayer/Cardmarket prices
 - **Face Recognition**: face_recognition library (based on dlib)
 - **Voice**: Web Speech API (Speech Recognition + Synthesis)
 - **Styling**: Custom CSS with mobile-first responsive design
@@ -198,6 +198,12 @@ docker run -p 8000:8000 --env-file .env pokedex-app
 8. **Open in browser**
    - Navigate to `http://localhost:5050`
    - For mobile testing, use your local IP address (e.g., `http://192.168.1.100:5050`)
+
+TCG data fetching uses TCGdex, not the deprecated Pokémon TCG API. No
+`POKEMON_TCG_API_KEY` or paid subscription is needed. Existing SQLite card IDs,
+collections, and valid downloaded images are retained. Use the gallery's
+Refresh action to persist current TCGdex prices for an existing set.
+See [the TCGdex migration details](docs/architecture.md#tcgdex-provider-migration).
 
 ## Deploying to Azure App Service
 

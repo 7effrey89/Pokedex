@@ -112,7 +112,6 @@ try {
     $azureAuthMode = Get-DeploymentValue $dotEnv 'AZURE_AUTH_MODE' 'service_principal'
     $azureOpenAiApiKey = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_API_KEY'
     $azureClientSecret = Get-DeploymentValue $dotEnv 'AZURE_CLIENT_SECRET'
-    $pokemonTcgApiKey = Get-DeploymentValue $dotEnv 'POKEMON_TCG_API_KEY'
     $adminPassword = Get-DeploymentValue $dotEnv 'ADMIN_PASSWORD'
     $azureOpenAiEndpoint = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_ENDPOINT'
     $azureOpenAiDeployment = Get-DeploymentValue $dotEnv 'AZURE_OPENAI_DEPLOYMENT'
@@ -124,7 +123,6 @@ try {
 
     $required = @{
         AZURE_CLIENT_SECRET = $azureClientSecret
-        POKEMON_TCG_API_KEY = $pokemonTcgApiKey
         ADMIN_PASSWORD = $adminPassword
         AZURE_OPENAI_ENDPOINT = $azureOpenAiEndpoint
         AZURE_OPENAI_DEPLOYMENT = $azureOpenAiDeployment
@@ -141,7 +139,6 @@ try {
         "azureAuthMode=$azureAuthMode"
         "azureOpenAiApiKey=$azureOpenAiApiKey"
         "azureClientSecret=$azureClientSecret"
-        "pokemonTcgApiKey=$pokemonTcgApiKey"
         "adminPassword=$adminPassword"
         "containerImageName=$ImageName"
     )

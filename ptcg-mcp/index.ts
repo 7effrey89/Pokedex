@@ -54,38 +54,32 @@ const server = new McpServer({
 });
 
 // Helper function to build query string
-function buildQuery(params: Record<string, unknown>): string {
-  const conditions: string[] = [];
-  
-  if (params.name && typeof params.name === 'string') {
-    conditions.push(`name:"${params.name}*"`);
+const catalogBaseUrl = process.env.POKEDEX_API_URL || 'http://localhost:5050';
+
+function buildQuery(params: Record<string, unknown>): URLSearchParams {
+  const query = new URLSearchParams();
+  for (const key of ['name', 'supertype', 'subtypes', 'types', 'set', 'rarity']) {
+    if (typeof params[key] === 'string' && params[key]) query.set(key, params[key]);
   }
-  if (params.supertype && typeof params.supertype === 'string') {
-    conditions.push(`supertype:${params.supertype}`);
+  if (typeof params.hp === 'string') {
+    const range = params.hp.match(/^\[(\d+|\*) TO (\d+|\*)\]$/);
+    if (range) {
+      if (range[1] !== '*') query.set('hp_min', range[1]);
+      if (range[2] !== '*') query.set('hp_max', range[2]);
+    } else if (/^\d+$/.test(params.hp)) {
+      query.set('hp_min', params.hp);
+      query.set('hp_max', params.hp);
+    } else {
+      throw new Error('HP must be a number or a range such as [200 TO *].');
+    }
   }
-  if (params.subtypes && typeof params.subtypes === 'string') {
-    conditions.push(`subtypes:${params.subtypes}`);
-  }
-  if (params.types && typeof params.types === 'string') {
-    conditions.push(`types:${params.types}`);
-  }
-  if (params.hp && typeof params.hp === 'string') {
-    conditions.push(`hp:${params.hp}`);
-  }
-  if (params.set && typeof params.set === 'string') {
-    conditions.push(`set.id:${params.set}`);
-  }
-  if (params.rarity && typeof params.rarity === 'string') {
-    conditions.push(`rarity:"${params.rarity}"`);
-  }
-  
-  return conditions.join(' ');
+  return query;
 }
 
 // Search function
-async function ptcg_search(query: string, pageSize: number = 20): Promise<Card[]> {
-  const url = new URL('https://api.pokemontcg.io/v2/cards');
-  url.searchParams.set('q', query);
+async function ptcg_search(query: URLSearchParams, pageSize: number = 20): Promise<Card[]> {
+  const url = new URL('/api/tcg/catalog/cards', catalogBaseUrl);
+  url.search = query.toString();
   url.searchParams.set('pageSize', pageSize.toString());
   
   const response = await fetch(url.toString(), {
@@ -121,7 +115,7 @@ server.tool(
     try {
       const query = buildQuery(params);
       
-      if (!query) {
+      if (query.size === 0) {
         return {
           content: [{ type: "text", text: "Please provide at least one search parameter." }],
         };
@@ -178,7 +172,7 @@ server.tool(
   },
   async (params) => {
     try {
-      const response = await fetch(`https://api.pokemontcg.io/v2/cards/${params.cardId}`, {
+      const response = await fetch(new URL(`/api/tcg/catalog/cards/${encodeURIComponent(params.cardId)}/price`, catalogBaseUrl), {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -193,15 +187,18 @@ server.tool(
         throw new Error(`API request failed: ${response.status} ${response.statusText}`);
       }
       
-      const data = await response.json() as { data: Card };
+      const data = await response.json() as { data: {
+        id: string; name: string; set: string; rarity?: string; image?: string;
+        tcgplayer?: Card['tcgplayer']; cardmarket?: Card['cardmarket'];
+      } };
       const card = data.data;
       
       const priceInfo: Record<string, unknown> = {
         cardId: card.id,
         name: card.name,
-        set: card.set.name,
+        set: card.set,
         rarity: card.rarity,
-        image: card.images.small,
+        image: card.image,
       };
       
       if (card.tcgplayer) {

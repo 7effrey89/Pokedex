@@ -9,8 +9,10 @@ from __future__ import annotations
 import hashlib
 import logging
 import os
+import re
 import sqlite3
 import threading
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ElementTree
 from dataclasses import dataclass, field
@@ -558,7 +560,22 @@ class AssetManager:
         request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         logger.info("Downloading missing or invalid %s asset: %s -> %s", media, url, destination)
         try:
-            with urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT_SECONDS) as response:
+            try:
+                response = urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT_SECONDS)
+            except urllib.error.HTTPError as exc:
+                set_image = re.fullmatch(
+                    r"https://images\.pokemontcg\.io/([A-Za-z0-9_-]+)/(logo|symbol)\.png", url
+                )
+                if exc.code != 404 or media != "image" or set_image is None:
+                    raise
+                exc.close()
+                set_id, asset_kind = set_image.groups()
+                fallback_url = f"https://images.scrydex.com/pokemon/{set_id}-{asset_kind}/{asset_kind}"
+                logger.warning("Set image returned 404: %s; trying %s -> %s",
+                               url, fallback_url, destination)
+                request = urllib.request.Request(fallback_url, headers={"User-Agent": USER_AGENT})
+                response = urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT_SECONDS)
+            with response:
                 temporary.write_bytes(response.read())
             if media == "image":
                 metadata = _image_metadata(temporary)

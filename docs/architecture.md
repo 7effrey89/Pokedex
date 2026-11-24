@@ -58,6 +58,13 @@ reused without renaming. Shared destinations hash owner ID plus asset kind.
 Valid destination images are reused even when their SQLite registration is
 missing; only missing or invalid files are downloaded.
 
+If a registered `images.pokemontcg.io/<set-id>/<logo|symbol>.png` image returns
+404, the shared asset downloader tries Scrydex's corresponding set image and
+logs the alternate URL. Other HTTP errors and other asset URLs are not retried
+through this fallback. The downloaded image must pass the same validation and
+is persisted at the normal destination with SQLite metadata; the catalog's
+original source URL is retained so refreshes preserve the local registration.
+
 Catalog ingestion, refresh, and asset-manager messages are copied to
 `data/logs/catalog.log` under the configured persistent root, while retaining
 terminal output. The file rotates at 5 MiB with three retained backups.
@@ -65,6 +72,45 @@ Download logs include source URL, destination, validation/reuse, and ingestion
 summaries. This is an operational log, not an HTTP or conversation transcript;
 it is not a backup component. Raw runtime snapshots are also not included in
 category backups and are not required to serve restored SQLite catalog rows.
+
+### TCGdex provider migration
+
+All runtime TCG lookups, explicit refreshes, new-content scans/ingestion, and
+script 01 acquisition use the free, keyless English TCGdex API. The historical
+`PokemonTCGTools` name and seed envelope remain compatibility contracts, not
+calls to `api.pokemontcg.io`. Old seeds and stored assets remain supported.
+
+TCGdex set IDs cannot simply replace catalog IDs: older IDs collide, modern
+set IDs use different zero-padding, and card numbers can have prefixes.
+The adapter matches English set identities to existing SQLite IDs, with
+explicit aliases for known naming differences. Card identity is checked by
+set, normalized collector number, and name before an existing ID is reused.
+Ambiguities/mismatches fail explicitly. New sets use provider IDs unless they
+collide with a different catalog set, in which case `tcgdex-` is prefixed.
+Legendary Treasures' separate Radiant Collection is folded into the existing
+parent set; separately stored trainer galleries retain their own identities.
+TCG Pocket sets are excluded from this physical-card catalog.
+
+TCGPlayer `marketPrice`/`midPrice`/other metrics and variant names are converted
+to the existing USD price contract; Cardmarket metrics retain EUR. Null,
+non-finite, negative, and boolean amounts are not prices; valid zero amounts
+remain zero. Provider timestamps and product links are retained. Missing
+upstream pricing is not fabricated; existing observations are preserved with
+a warning rather than erased. Complete pages are fetched before atomic writes.
+
+Valid local card/set images are preserved across this verified provider
+identity migration, even when their source URLs change. New missing images use
+`assets.tcgdex.net` through the same validating persistent asset manager.
+Brief set metadata is held in memory for five minutes during upstream work;
+card prices are fetched fresh when the existing SQLite expiry policy requires.
+Ordinary browsing continues to read SQLite only.
+
+The optional `ptcg-mcp` server uses the shared Flask catalog endpoints instead
+of duplicating provider mappings. Run Flask first; its default URL is
+`http://localhost:5050`, overridable with `POKEDEX_API_URL` for the MCP process.
+`GET /api/tcg/catalog/cards` reads SQLite; the card `.../<id>/price` endpoint
+uses the same price-expiry/TCGdex refresh logic as text chat and realtime voice.
+Existing tool names and frontend actions are unchanged.
 
 ## Seed Preparation and Shared Backup Bundles
 

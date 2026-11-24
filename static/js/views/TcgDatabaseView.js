@@ -973,8 +973,8 @@ class TcgDatabaseView {
         const prices = card.tcgplayer?.prices || card.prices;
         if (!prices) return 0;
         for (const variant of Object.values(prices)) {
-            if (variant?.market) return variant.market;
-            if (variant?.mid) return variant.mid;
+            if (Number.isFinite(variant?.market)) return variant.market;
+            if (Number.isFinite(variant?.mid)) return variant.mid;
         }
         return 0;
     }

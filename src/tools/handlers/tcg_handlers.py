@@ -6,12 +6,10 @@ Handles all Pokemon Trading Card Game operations:
 - Get card pricing information
 """
 
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 import logging
 import os
 from datetime import datetime, timezone
-
-from flask import g
 
 from src.api import pokemon_tcg_api
 from src.db.tcg_repository import SqliteTcgRepository
@@ -28,38 +26,8 @@ sqlite_tcg_repository = SqliteTcgRepository()
 TCG_PAGE_SIZE = int(os.getenv('TCG_PAGE_SIZE', '250'))
 
 
-def _get_request_tcg_api_key() -> Optional[str]:
-    try:
-        api_settings = getattr(g, 'api_settings', None)
-    except RuntimeError:
-        api_settings = None
-    if not api_settings:
-        return None
-    tcg_config = api_settings.get('tcg')
-    if not tcg_config:
-        return None
-    key = tcg_config.get('api_key')
-    if key:
-        trimmed = str(key).strip()
-        return trimmed or None
-    return None
-
-
 def _get_tcg_client() -> pokemon_tcg_api.PokemonTCGTools:
-    api_key = _get_request_tcg_api_key()
-    if not api_key:
-        return default_tcg_api_client
-    try:
-        cached_key = getattr(g, '_tcg_client_key', None)
-        cached_client = getattr(g, '_tcg_client_instance', None)
-        if cached_client and cached_key == api_key:
-            return cached_client
-        new_client = pokemon_tcg_api.PokemonTCGTools(api_key=api_key)
-        g._tcg_client_key = api_key
-        g._tcg_client_instance = new_client
-        return new_client
-    except RuntimeError:
-        return pokemon_tcg_api.PokemonTCGTools(api_key=api_key)
+    return default_tcg_api_client
 
 
 def handle_search_pokemon_cards(

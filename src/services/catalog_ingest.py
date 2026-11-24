@@ -14,13 +14,10 @@ import logging
 import os
 import re
 import threading
-import time
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable
-
-import requests
 
 from src.api.pokemon_tcg_api import PokemonTCGTools
 from src.config import get_storage_paths
@@ -28,17 +25,14 @@ from src.db.database import SqliteDatabase
 from src.db.importer import SqliteImporter, resource_id, resource_name
 from src.services.asset_manager import AssetManager
 from src.services.catalog_refresh import CatalogRefreshService
+from src.services.tcg_refresh import import_tcg_set
 
 logger = logging.getLogger(__name__)
 
 POKEAPI_ROOT = "https://pokeapi.co/api/v2"
-TCG_API_BASE_URL = "https://api.pokemontcg.io/v2"
 USER_AGENT = "Pokedex-Catalog-Scan/1.0"
 TCG_SET_PAGE_SIZE = 250
 MAX_LISTED_ITEMS = 200
-TCG_SCAN_TIMEOUT_SECONDS = 8
-TCG_SCAN_MAX_ATTEMPTS = 3
-TCG_SCAN_RETRY_DELAY_SECONDS = 1.5
 
 
 @dataclass
@@ -71,35 +65,6 @@ def _fetch_json(url: str) -> dict[str, Any]:
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=30) as response:
         return json.load(response)
-
-
-def _fetch_tcg_sets_page(page: int) -> dict[str, Any] | None:
-    """Fetch one page of TCG sets with a short timeout and a couple of quick retries.
-
-    The upstream TCG API occasionally returns a transient 5xx; retrying twice
-    with a brief pause absorbs that without making scans slow when the API is
-    genuinely down (worst case is bounded, unlike the shared PokemonTCGTools
-    client which is tuned for reliability over speed).
-    """
-    headers = {"Content-Type": "application/json"}
-    api_key = os.environ.get("POKEMON_TCG_API_KEY", "").strip()
-    if api_key:
-        headers["X-Api-Key"] = api_key
-    params = {"page": page, "pageSize": TCG_SET_PAGE_SIZE, "orderBy": "-releaseDate"}
-
-    last_error: requests.RequestException | None = None
-    for attempt in range(TCG_SCAN_MAX_ATTEMPTS):
-        try:
-            response = requests.get(
-                f"{TCG_API_BASE_URL}/sets", params=params, headers=headers, timeout=TCG_SCAN_TIMEOUT_SECONDS
-            )
-            response.raise_for_status()
-            return response.json()
-        except requests.RequestException as exc:
-            last_error = exc
-            if attempt + 1 < TCG_SCAN_MAX_ATTEMPTS:
-                time.sleep(TCG_SCAN_RETRY_DELAY_SECONDS)
-    raise last_error
 
 
 class CatalogScanService:
@@ -192,15 +157,11 @@ class CatalogScanService:
         return index
 
     def _fetch_all_sets(self) -> list[dict[str, Any]]:
+        client = PokemonTCGTools(self.database)
         sets: list[dict[str, Any]] = []
         page = 1
         while True:
-            try:
-                response = _fetch_tcg_sets_page(page)
-            except requests.RequestException as exc:
-                if page == 1:
-                    raise RuntimeError(f"TCG API is unavailable: {exc}") from exc
-                break
+            response = client.get_sets(page=page, page_size=TCG_SET_PAGE_SIZE)
             if not response or not response.get("data"):
                 break
             sets.extend(response["data"])
@@ -417,7 +378,7 @@ class CatalogIngestService:
                 "TCG set %s: %s upstream cards, %s already in SQLite; only missing card IDs will be imported",
                 set_id, len(cards), len(existing_ids),
             )
-            importer._import_set(connection, cards[0].get("set", {}))
+            import_tcg_set(connection, importer, importer._storage_paths, cards[0]["set"])
             added = 0
             for card_index, card in enumerate(cards, start=1):
                 if card.get("id") not in existing_ids:
@@ -435,12 +396,14 @@ class CatalogIngestService:
         return {"set_id": set_id, "added": True, "card_count": len(cards), "new_card_count": added}
 
     def _fetch_all_cards_for_set(self, set_id: str) -> list[dict[str, Any]]:
-        client = PokemonTCGTools()
+        client = PokemonTCGTools(self.database)
         cards: list[dict[str, Any]] = []
         page = 1
         while True:
             response = client.search_cards_by_set(set_id, page=page, page_size=TCG_SET_PAGE_SIZE)
-            if not response or not response.get("data"):
+            if not response.get("data"):
+                if len(cards) < response.get("totalCount", 0):
+                    raise RuntimeError(f"TCGdex pagination ended early for set {set_id}")
                 break
             cards.extend(response["data"])
             total_count = response.get("totalCount", 0)

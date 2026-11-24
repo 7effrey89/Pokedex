@@ -7,6 +7,7 @@ import unittest
 from contextlib import closing
 from pathlib import Path
 from unittest.mock import Mock, patch
+from PIL import Image
 
 from flask import Flask
 
@@ -25,7 +26,7 @@ class DatabaseRefreshTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(self.temporary.name).resolve()
         self.paths = StoragePaths(self.root)
         self.database = SqliteDatabase(self.paths.catalog_database)
         self.database.initialize()
@@ -112,6 +113,60 @@ class DatabaseRefreshTests(unittest.TestCase):
             ).fetchone()
             self.assertEqual(asset["source_url"], card["images"]["large"])
             self.assertIsNone(asset["local_path"])
+
+    def test_tcgdex_migration_preserves_valid_card_and_set_images(self):
+        self.paths.ensure_directories()
+        Image.new("RGB", (2, 2), "red").save(self.paths.tcg_images / "existing.png")
+        Image.new("RGB", (2, 2), "blue").save(self.paths.tcg_images / "logo.png")
+        with closing(self.database.connect()) as connection:
+            connection.execute(
+                "INSERT INTO set_asset(set_id, asset_kind, source_url, local_path) "
+                "VALUES ('base1', 'logo', 'https://example.test/old-logo.png', 'data/assets/tcg/logo.png')"
+            )
+            connection.commit()
+        card = self.card()
+        card["_source"] = "tcgdex"
+        card["images"]["large"] = "https://assets.tcgdex.net/en/base/base1/1/high.png"
+        card["set"].update({"_source": "tcgdex", "images": {"logo": "https://assets.tcgdex.net/en/base/base1/logo.png"}})
+        self.client.get_card.return_value = {"data": card}
+        tcg_handlers.handle_get_card_price("base1-1", force_refresh=True)
+        with closing(self.database.connect(read_only=True)) as connection:
+            self.assertEqual("data/assets/tcg/existing.png", connection.execute(
+                "SELECT local_path FROM card_asset WHERE card_id='base1-1' AND asset_kind='large'"
+            ).fetchone()[0])
+            self.assertEqual("data/assets/tcg/logo.png", connection.execute(
+                "SELECT local_path FROM set_asset WHERE set_id='base1' AND asset_kind='logo'"
+            ).fetchone()[0])
+
+    def test_tcgdex_missing_prices_preserve_existing_observations(self):
+        self.client.get_card.return_value = {"data": self.card()}
+        tcg_handlers.handle_get_card_price("base1-1", force_refresh=True)
+        card = self.card()
+        card["_source"] = "tcgdex"
+        card["tcgplayer"] = {"prices": {}}
+        card.pop("cardmarket")
+        self.client.get_card.return_value = {"data": card}
+        with self.assertLogs("src.services.tcg_refresh", level="WARNING"):
+            result = tcg_handlers.handle_get_card_price("base1-1", force_refresh=True)
+        self.assertEqual(42.5, result["card"]["tcgplayer"]["prices"]["normal"]["market"])
+        self.assertEqual(39.5, result["card"]["cardmarket"]["prices"]["averageSellPrice"])
+
+    def test_gallery_and_detail_receive_both_providers_and_card_metadata(self):
+        card = self.card()
+        card["_source"] = "tcgdex"
+        card["attacks"] = [{
+            "name": "Thunder Shock", "damage": "10", "text": "A coin flip.",
+            "cost": ["Lightning"], "convertedEnergyCost": 1,
+        }]
+        self.client.get_card.return_value = {"data": card}
+        tcg_handlers.handle_get_card_price("base1-1", force_refresh=True)
+        detail = self.repository.get_card("base1-1")
+        self.assertEqual(card["attacks"], detail["attacks"])
+        self.assertEqual(40, detail["tcgplayer"]["prices"]["normal"]["low"])
+        self.assertEqual("2026/10/28", detail["tcgplayer"]["updatedAt"])
+        self.assertEqual(39.5, detail["cardmarket"]["prices"]["averageSellPrice"])
+        self.assertEqual(42.5, self.repository.get_cards_by_set("base1", slim=True)["cards"][0]
+                         ["tcgplayer"]["prices"]["normal"]["market"])
 
     def test_sets_refresh_updates_existing_sets_and_adds_new_sets(self):
         self.client.get_sets.side_effect = [

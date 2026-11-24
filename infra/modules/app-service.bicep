@@ -22,8 +22,6 @@ param azureTenantId string
 param azureClientSecret string
 param azureTokenScope string
 param pokemonApiUrl string
-@secure()
-param pokemonTcgApiKey string
 param tcgPageSize int
 @secure()
 param adminPassword string
@@ -142,10 +140,6 @@ resource appService 'Microsoft.Web/sites@2026-07-15' = {
         {
           name: 'POKEMON_API_URL'
           value: pokemonApiUrl
-        }
-        {
-          name: 'POKEMON_TCG_API_KEY'
-          value: pokemonTcgApiKey
         }
         {
           name: 'TCG_PAGE_SIZE'

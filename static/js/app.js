@@ -1442,8 +1442,7 @@ class PokemonChatApp {
                 realtimeEndpoint: '',
                 realtimeKey: '',
                 realtimeDeployment: '',
-                realtimeApiVersion: '',
-                tcgApiKey: ''
+                realtimeApiVersion: ''
             }
         };
     }
@@ -1523,7 +1522,6 @@ class PokemonChatApp {
             this.bindApiField('customRealtimeKey', 'custom.realtimeKey');
             this.bindApiField('customRealtimeDeployment', 'custom.realtimeDeployment');
             this.bindApiField('customRealtimeApiVersion', 'custom.realtimeApiVersion');
-            this.bindApiField('customTcgApiKey', 'custom.tcgApiKey');
             this.initializeRealtimeLanguageControl();
 
             if (this.apiSettingsSaveBtn) {
@@ -1714,7 +1712,6 @@ class PokemonChatApp {
                 const realtimeKey = (custom.realtimeKey || chatKey).trim();
                 const realtimeDeployment = (custom.realtimeDeployment || chatDeployment).trim();
                 const realtimeApiVersion = (custom.realtimeApiVersion || '').trim();
-                const tcgApiKey = (custom.tcgApiKey || '').trim();
 
                 const payload = {
                     mode: 'custom',
@@ -1730,10 +1727,6 @@ class PokemonChatApp {
 
                 if (realtimeApiVersion) {
                     payload.custom.realtime_api_version = realtimeApiVersion;
-                }
-
-                if (tcgApiKey) {
-                    payload.custom.tcg_api_key = tcgApiKey;
                 }
 
                 return payload;
@@ -5059,7 +5052,7 @@ class PokemonChatApp {
 
         results.hidden = false;
         [pokemonGroup, setsGroup, cardsGroup].forEach(group => { if (group) group.hidden = true; });
-        this.setAdminStatusText('Scanning PokeAPI and the TCG API for new content...');
+        this.setAdminStatusText('Scanning PokeAPI and TCGdex for new content...');
 
         try {
             const response = await fetch('/api/admin/scan');
