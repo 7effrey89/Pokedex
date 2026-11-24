@@ -1,11 +1,34 @@
 """Fetch complete TCG refreshes and atomically normalize them into SQLite."""
 
+import logging
+import sqlite3
 from typing import Any, Callable
 
 from src.config import get_storage_paths
+from src.config.paths import StoragePaths
 from src.db.database import SqliteDatabase
 from src.db.importer import SqliteImporter
 from src.services.catalog_refresh import CatalogRefreshService, utc_now
+from src.services.asset_manager import _image_metadata
+
+logger = logging.getLogger(__name__)
+
+
+def import_tcg_set(
+    connection: sqlite3.Connection, importer: SqliteImporter,
+    paths: StoragePaths, item: dict[str, Any],
+) -> None:
+    assets = connection.execute("SELECT * FROM set_asset WHERE set_id = ?", (item["id"],)).fetchall()
+    importer._import_set(connection, item)
+    if item.get("_source") == "tcgdex":
+        for asset in assets:
+            stored = paths.resolve_stored(asset["local_path"]) if asset["local_path"] else None
+            if stored is not None and _image_metadata(stored) is not None:
+                connection.execute(
+                    "UPDATE set_asset SET local_path = ?, media_type = ?, sha256 = ? "
+                    "WHERE set_id = ? AND asset_kind = ?",
+                    (asset["local_path"], asset["media_type"], asset["sha256"], item["id"], asset["asset_kind"]),
+                )
 
 
 class TcgRefreshService:
@@ -13,6 +36,7 @@ class TcgRefreshService:
         self.client = client
         self.database = database or SqliteDatabase()
         paths = get_storage_paths()
+        self.paths = paths
         self.importer = SqliteImporter(
             paths.data_root, self.database.path, paths.data_root / "seeds" / "pokeapi",
             paths.data_root / "seeds" / "tcg", paths.data_root / "data" / "assets",
@@ -76,24 +100,58 @@ class TcgRefreshService:
                 for row in connection.execute("SELECT id, name FROM pokemon_species")
             }
             for item in sets:
-                self.importer._import_set(connection, item)
+                import_tcg_set(connection, self.importer, self.paths, item)
                 connection.execute(
                     "UPDATE tcg_set SET last_refreshed_at = ? WHERE id = ?", (utc_now(), item["id"])
                 )
             for card in cards:
-                self.importer._import_set(connection, card["set"])
+                import_tcg_set(connection, self.importer, self.paths, card["set"])
                 assets = connection.execute(
                     "SELECT * FROM card_asset WHERE card_id = ?", (card["id"],)
                 ).fetchall()
+                preserved_prices = []
+                if card.get("_source") == "tcgdex":
+                    for listing in connection.execute(
+                        "SELECT * FROM card_market_listing WHERE card_id = ?", (card["id"],),
+                    ):
+                        if not card.get(listing["provider"], {}).get("prices"):
+                            prices = connection.execute(
+                                "SELECT * FROM card_price WHERE listing_id = ?", (listing["id"],),
+                            ).fetchall()
+                            if prices:
+                                preserved_prices.append((listing, prices))
+                                logger.warning("TCGdex has no %s prices for %s; preserving stored observations",
+                                               listing["provider"], card["id"])
                 connection.execute("DELETE FROM tcg_card WHERE id = ?", (card["id"],))
                 self.importer._import_card(connection, card, species)
+                for listing, prices in preserved_prices:
+                    connection.execute(
+                        "DELETE FROM card_market_listing WHERE card_id = ? AND provider = ?",
+                        (card["id"], listing["provider"]),
+                    )
+                    cursor = connection.execute(
+                        "INSERT INTO card_market_listing (card_id, provider, listing_url, source_updated_at) "
+                        "VALUES (?, ?, ?, ?)",
+                        (card["id"], listing["provider"], listing["listing_url"], listing["source_updated_at"]),
+                    )
+                    connection.executemany("INSERT INTO card_price VALUES (?, ?, ?, ?, ?)", [
+                        (cursor.lastrowid, price["variant"], price["metric"], price["amount"], price["currency"])
+                        for price in prices
+                    ])
                 for asset in assets:
+                    preserve_migrated = card.get("_source") == "tcgdex" and self._valid_local_image(asset)
+                    if preserve_migrated:
+                        connection.execute(
+                            "INSERT OR IGNORE INTO card_asset (card_id, asset_kind, source_url) VALUES (?, ?, ?)",
+                            (card["id"], asset["asset_kind"], asset["source_url"]),
+                        )
                     connection.execute(
                         "UPDATE card_asset SET local_path = ?, media_type = ?, sha256 = ?, width = ?, height = ? "
-                        "WHERE card_id = ? AND asset_kind = ? AND source_url = ?",
+                        "WHERE card_id = ? AND asset_kind = ? AND (source_url = ? OR ?)",
                         (
                             asset["local_path"], asset["media_type"], asset["sha256"],
                             asset["width"], asset["height"], card["id"], asset["asset_kind"], asset["source_url"],
+                            preserve_migrated,
                         ),
                     )
                 connection.execute(
@@ -105,3 +163,7 @@ class TcgRefreshService:
             raise
         finally:
             connection.close()
+
+    def _valid_local_image(self, asset: sqlite3.Row) -> bool:
+        stored = self.paths.resolve_stored(asset["local_path"]) if asset["local_path"] else None
+        return stored is not None and _image_metadata(stored) is not None

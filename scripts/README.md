@@ -7,7 +7,7 @@ Script 03's apply mode installs catalog rows. Script 07, or
 
 | Order | Script | Purpose and default output |
 | --- | --- | --- |
-| 01 | `01-download_raw_pokemontcgapi_to_seed.py` | Raw TCG responses in `seeds/tcg/`; shared dex input in `seeds/pokemon_list.json`. |
+| 01 | `01-download_raw_pokemontcgapi_to_seed.py` | TCGdex responses normalized to the historical importer envelope in `seeds/tcg/`; shared dex input in `seeds/pokemon_list.json`. |
 | 02 | `02-download_raw_pokeapi_to_seed.py` | Raw Pokemon, species, evolution, and type responses in `seeds/pokeapi/`. |
 | 03 | `03-import_seed_catalog.py` | Validate raw metadata in disposable storage; optionally SQL-merge into the runtime catalog. No seed database. |
 | 04 | `04-download_raw_pokeapi_and_pokemontcgapi_assets_to_seed.py` | Raw JSON to validated media under `seeds/prepared/data/assets/` plus portable `seeds/prepared/asset-manifest.json`; no database. |
@@ -31,7 +31,11 @@ From the repository root in PowerShell:
 
 TCG acquisition accepts `--start`, `--end`, `--limit`, `--parallel`, and
 `--max-retries`. Existing seeds are skipped by default; `--no-skip-existing`
-redownloads them. `POKEMON_TCG_API_KEY` provides higher upstream rate limits.
+redownloads them. TCGdex access is free and requires no API key. Existing
+catalog identities are retained when a runtime catalog is present; an empty
+catalog uses TCGdex identities. Every matching card page is fetched, including
+its current TCGPlayer/Cardmarket pricing where available. Old seed files remain
+importable; filenames are retained for CLI/backward compatibility.
 
 PokeAPI acquisition accepts dex ranges, `--resources`, `--delay`, and `--refresh`.
 The `pokemon` resource also saves species-listed alternate forms so the catalog

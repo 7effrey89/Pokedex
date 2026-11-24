@@ -3,6 +3,7 @@ import io
 import sys
 import tempfile
 import unittest
+import urllib.error
 from contextlib import closing
 from pathlib import Path
 from unittest import mock
@@ -18,6 +19,81 @@ from src.services.asset_manager import AssetManager
 
 
 class AssetManagerTests(unittest.TestCase):
+    def test_missing_tcg_set_images_use_validated_persistent_fallback(self):
+        for kind in ("logo", "symbol"):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as temporary:
+                paths = StoragePaths(Path(temporary))
+                paths.ensure_directories()
+                database = SqliteDatabase(paths.catalog_database)
+                database.initialize()
+                source_url = f"https://images.pokemontcg.io/me6/{kind}.png"
+                with closing(database.connect()) as connection:
+                    connection.execute("INSERT INTO tcg_set (id, name) VALUES ('me6', 'Delta Reign')")
+                    connection.execute(
+                        "INSERT INTO set_asset (set_id, asset_kind, source_url) VALUES ('me6', ?, ?)",
+                        (kind, source_url),
+                    )
+                    connection.commit()
+                payload = io.BytesIO()
+                Image.new("RGBA", (3, 2), "red").save(payload, format="PNG")
+                manager = AssetManager(database, paths=paths)
+                with mock.patch("urllib.request.urlopen", side_effect=[
+                    urllib.error.HTTPError(source_url, 404, "Not Found", {}, None),
+                    io.BytesIO(payload.getvalue()),
+                ]) as download, self.assertLogs("src.services.asset_manager", level="WARNING") as logs:
+                    result = manager.materialize_tcg_set_image("me6", kind)
+                    repeated = manager.materialize_tcg_set_image("me6", kind)
+                self.assertEqual(2, download.call_count)
+                self.assertEqual(
+                    f"https://images.scrydex.com/pokemon/me6-{kind}/{kind}",
+                    download.call_args_list[1].args[0].full_url,
+                )
+                self.assertTrue(any("returned 404" in line for line in logs.output))
+                self.assertIsNotNone(result)
+                destination, media_type = result
+                self.assertEqual("image/png", media_type)
+                self.assertEqual(payload.getvalue(), destination.read_bytes())
+                self.assertEqual(result, repeated)
+                self.assertFalse(destination.with_suffix(".img.tmp").exists())
+                with closing(database.connect(read_only=True)) as connection:
+                    row = connection.execute("SELECT * FROM set_asset").fetchone()
+                    self.assertEqual(paths.relative_to_root(destination), row["local_path"])
+                    self.assertTrue(row["sha256"])
+                    self.assertEqual(source_url, row["source_url"])
+
+    def test_set_image_fallback_does_not_mask_other_http_errors(self):
+        cases = [
+            ("https://images.pokemontcg.io/me6/symbol.png", 503),
+            ("https://images.pokemontcg.io/me6/1_hires.png", 404),
+            ("https://example.test/me6/symbol.png", 404),
+        ]
+        for url, code in cases:
+            with self.subTest(url=url, code=code), tempfile.TemporaryDirectory() as temporary:
+                manager = AssetManager(paths=StoragePaths(Path(temporary)))
+                destination = Path(temporary) / "image.img"
+                error = urllib.error.HTTPError(url, code, "Failed", {}, None)
+                with mock.patch("urllib.request.urlopen", side_effect=error) as download:
+                    with self.assertRaises(urllib.error.HTTPError) as raised:
+                        manager._store(url, destination, "image")
+                self.assertIs(error, raised.exception)
+                error.close()
+                download.assert_called_once()
+                self.assertFalse(destination.exists())
+                self.assertFalse(destination.with_suffix(".img.tmp").exists())
+
+    def test_invalid_set_image_fallback_is_not_stored(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manager = AssetManager(paths=StoragePaths(Path(temporary)))
+            destination = Path(temporary) / "symbol.img"
+            url = "https://images.pokemontcg.io/me6/symbol.png"
+            with mock.patch("urllib.request.urlopen", side_effect=[
+                urllib.error.HTTPError(url, 404, "Not Found", {}, None),
+                io.BytesIO(b"not an image"),
+            ]), self.assertLogs("src.services.asset_manager", level="WARNING"):
+                self.assertIsNone(manager._store(url, destination, "image"))
+            self.assertFalse(destination.exists())
+            self.assertFalse(destination.with_suffix(".img.tmp").exists())
+
     def test_valid_unregistered_tcg_image_is_reused_and_registered(self):
         with tempfile.TemporaryDirectory() as temporary:
             paths = StoragePaths(Path(temporary))

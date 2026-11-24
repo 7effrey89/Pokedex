@@ -55,6 +55,10 @@ class SqliteTcgRepository:
         hp_min: int | None = None,
         hp_max: int | None = None,
         rarity: str | None = None,
+        supertype: str | None = None,
+        subtype: str | None = None,
+        set_id: str | None = None,
+        limit: int = 250,
     ) -> dict[str, Any]:
         """Search stable card catalog fields without calling the TCG API."""
         connection = self.database.connect(read_only=True)
@@ -79,6 +83,16 @@ class SqliteTcgRepository:
             if rarity:
                 clauses.append("c.rarity = ? COLLATE NOCASE")
                 parameters.append(rarity)
+            if supertype:
+                clauses.append("c.supertype = ? COLLATE NOCASE")
+                parameters.append("Pok\u00e9mon" if supertype.casefold() == "pokemon" else supertype)
+            if subtype:
+                clauses.append("EXISTS (SELECT 1 FROM card_subtype cs WHERE cs.card_id = c.id "
+                               "AND cs.subtype = ? COLLATE NOCASE)")
+                parameters.append(subtype)
+            if set_id:
+                clauses.append("c.set_id = ?")
+                parameters.append(set_id)
             where = " AND ".join(clauses) if clauses else "1 = 1"
             rows = connection.execute(
                 f"""
@@ -86,9 +100,9 @@ class SqliteTcgRepository:
                 FROM tcg_card c JOIN tcg_set s ON s.id = c.set_id
                 WHERE {where}
                 ORDER BY s.release_date DESC, c.name COLLATE NOCASE
-                LIMIT 250
+                LIMIT ?
                 """,
-                parameters,
+                [*parameters, limit],
             ).fetchall()
             cards = []
             by_set: dict[str, list[Any]] = defaultdict(list)
@@ -283,18 +297,38 @@ class SqliteTcgRepository:
                 WHERE cp.card_id IN ({placeholders}) ORDER BY ps.id"""
         )
         prices = grouped(
-            f"""SELECT l.card_id, p.variant, p.metric, p.amount FROM card_market_listing AS l
+            f"""SELECT l.card_id, l.provider, l.listing_url, l.source_updated_at,
+                       p.variant, p.metric, p.amount FROM card_market_listing AS l
                 JOIN card_price AS p ON p.listing_id = l.id
-                WHERE l.provider = 'tcgplayer' AND l.card_id IN ({placeholders})"""
+                WHERE l.card_id IN ({placeholders})"""
         )
+        if not slim:
+            attacks = grouped(f"SELECT * FROM card_attack WHERE card_id IN ({placeholders}) ORDER BY sort_order")
+            costs = grouped(
+                f"""SELECT a.card_id, c.attack_id, c.energy_type FROM card_attack_cost c
+                    JOIN card_attack a ON a.id = c.attack_id
+                    WHERE a.card_id IN ({placeholders}) ORDER BY c.slot"""
+            )
+            abilities = grouped(f"SELECT * FROM card_ability WHERE card_id IN ({placeholders}) ORDER BY sort_order")
+            legalities = grouped(f"SELECT * FROM card_legality WHERE card_id IN ({placeholders})")
+            effects = grouped(f"SELECT * FROM card_effectiveness WHERE card_id IN ({placeholders}) ORDER BY sort_order")
 
         cards = []
         for row in rows:
             card_id = row["id"]
             card_prices: dict[str, dict[str, float]] = defaultdict(dict)
+            providers: dict[str, dict[str, Any]] = {}
             for price in prices[card_id]:
-                if price["metric"] in {"market", "mid"}:
-                    card_prices[price["variant"]][price["metric"]] = price["amount"]
+                provider = providers.setdefault(price["provider"], {
+                    "url": price["listing_url"], "updatedAt": price["source_updated_at"], "prices": {},
+                })
+                if price["provider"] == "tcgplayer":
+                    if not slim or price["metric"] in {"market", "mid"}:
+                        card_prices[price["variant"]][price["metric"]] = price["amount"]
+                else:
+                    provider["prices"][price["metric"]] = price["amount"]
+            if "tcgplayer" in providers:
+                providers["tcgplayer"]["prices"] = dict(card_prices)
             card = {
                 "id": card_id,
                 "name": row["name"],
@@ -313,7 +347,7 @@ class SqliteTcgRepository:
                     "name": set_row["name"],
                     "releaseDate": set_row["release_date"],
                 },
-                "tcgplayer": {"prices": dict(card_prices)} if card_prices else {},
+                "tcgplayer": providers.get("tcgplayer", {}),
             }
             if not slim:
                 card.update({
@@ -325,6 +359,19 @@ class SqliteTcgRepository:
                     "flavorText": row["flavor_text"],
                     "regulationMark": row["regulation_mark"],
                     "rules": [row["rules_text"]] if row["rules_text"] else [],
+                    "cardmarket": providers.get("cardmarket", {}),
+                    "attacks": [{
+                        "name": attack["name"], "damage": attack["damage"], "text": attack["text"],
+                        "convertedEnergyCost": attack["converted_energy_cost"],
+                        "cost": [cost["energy_type"] for cost in costs[card_id] if cost["attack_id"] == attack["id"]],
+                    } for attack in attacks[card_id]],
+                    "abilities": [{"name": ability["name"], "type": ability["ability_type"], "text": ability["text"]}
+                                  for ability in abilities[card_id]],
+                    "legalities": {entry["format_name"]: entry["status"] for entry in legalities[card_id]},
+                    "weaknesses": [{"type": effect["type_name"], "value": effect["value"]}
+                                   for effect in effects[card_id] if effect["effect_kind"] == "weakness"],
+                    "resistances": [{"type": effect["type_name"], "value": effect["value"]}
+                                    for effect in effects[card_id] if effect["effect_kind"] == "resistance"],
                 })
             cards.append(card)
         return cards

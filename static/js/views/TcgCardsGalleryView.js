@@ -233,8 +233,8 @@ class TcgCardsGalleryView {
         const markets = [];
         for (const variant of Object.values(prices)) {
             if (variant && typeof variant === 'object') {
-                if (variant.market) markets.push(variant.market);
-                else if (variant.mid) markets.push(variant.mid);
+                if (Number.isFinite(variant.market)) markets.push(variant.market);
+                else if (Number.isFinite(variant.mid)) markets.push(variant.mid);
             }
         }
         if (markets.length === 0) return null;

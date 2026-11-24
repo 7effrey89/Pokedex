@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Download Pokemon TCG API responses for all Pokemon (001-1025)
+Download normalized TCGdex responses for all Pokemon (001-1025)
 
 This script fetches TCG card data for each Pokemon and stores the responses
 in seeds/tcg. Each response uses the historical seed-envelope structure
@@ -49,6 +49,9 @@ load_dotenv()
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Base directories
+from src.api.pokemon_tcg_api import PokemonTCGTools
+from src.api.tcgdex_api import TCGDEX_BASE_URL
+
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 TCG_SEED_DIR = PROJECT_DIR / "seeds" / "tcg"
@@ -56,8 +59,9 @@ DATA_DIR = PROJECT_DIR / "seeds"
 
 # API Configuration
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
-TCG_API_BASE_URL = "https://api.pokemontcg.io/v2"
+TCG_API_BASE_URL = TCGDEX_BASE_URL
 TCG_API_ENDPOINT = f"{TCG_API_BASE_URL}/cards"
+_tcg_clients = threading.local()
 
 
 def slugify(value: str) -> str:
@@ -177,36 +181,32 @@ def save_pokemon_list(pokemon_list: list):
     print(f"✓ Saved Pokemon list to: {output_file}")
 
 
-def fetch_tcg_data(session: requests.Session, pokemon_name: str, 
-                   api_key: Optional[str] = None) -> Optional[Dict]:
+def fetch_tcg_data(session: requests.Session, pokemon_name: str) -> Optional[Dict]:
     """
     Fetch TCG card data for a Pokemon
     
     Args:
         session: Requests session
         pokemon_name: Name of the Pokemon
-        api_key: Optional TCG API key for higher rate limits
         
     Returns:
         API response dict or None if error
     """
-    headers = {"Content-Type": "application/json"}
-    if api_key:
-        headers["X-Api-Key"] = api_key
-    
-    params = {"q": f"name:{pokemon_name}"}
-    
     try:
-        response = session.get(
-            TCG_API_ENDPOINT,
-            params=params,
-            headers=headers,
-            timeout=60
-        )
-        response.raise_for_status()
-        return response.json()
-        
-    except requests.RequestException as e:
+        if not hasattr(_tcg_clients, "client"):
+            _tcg_clients.client = PokemonTCGTools()
+        client = _tcg_clients.client
+        cards = []
+        page = 1
+        while True:
+            response = client.search_cards(pokemon_name, page=page, page_size=250)
+            cards.extend(response["data"])
+            if len(cards) >= response["totalCount"]:
+                return {"data": cards, "totalCount": len(cards)}
+            if not response["data"]:
+                raise RuntimeError(f"TCGdex pagination ended early for {pokemon_name}")
+            page += 1
+    except (requests.RequestException, ValueError, RuntimeError) as e:
         print(f"    ✗ Error fetching TCG data: {e}")
         return None
 
@@ -232,7 +232,6 @@ def is_pokemon_cached(pokemon_number: int, pokemon_name: str) -> bool:
 def process_single_pokemon(
     pokemon: Dict[str, Any],
     session: requests.Session,
-    api_key: Optional[str],
     skip_existing: bool,
     print_lock: Optional[threading.Lock] = None
 ) -> Tuple[str, int, int, int]:
@@ -242,7 +241,6 @@ def process_single_pokemon(
     Args:
         pokemon: Pokemon dict with 'number' and 'name'
         session: Requests session
-        api_key: Optional API key
         skip_existing: Whether to skip already-cached Pokemon
         print_lock: Optional lock for thread-safe printing
         
@@ -258,8 +256,8 @@ def process_single_pokemon(
         return ('skipped', number, 0, 0)
     
     # Fetch TCG data
-    params = {"q": f"name:{name}"}
-    tcg_data = fetch_tcg_data(session, name, api_key)
+    params = {"name": f"like:{name}"}
+    tcg_data = fetch_tcg_data(session, name)
     
     if tcg_data:
         # Save to cache
@@ -322,7 +320,7 @@ def save_tcg_cache(pokemon_number: int, pokemon_name: str,
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description="Download Pokemon TCG API responses for caching"
+        description="Download free TCGdex responses into importer-compatible seeds"
     )
     parser.add_argument(
         '--start', type=int, default=1,
@@ -368,13 +366,7 @@ def main():
     
     # Setup
     session = setup_session()
-    api_key = os.environ.get("POKEMON_TCG_API_KEY")
-    
-    if api_key:
-        print("✓ Using Pokemon TCG API key")
-    else:
-        print("ℹ No API key set (using lower rate limits)")
-        print("  Set POKEMON_TCG_API_KEY environment variable for higher limits")
+    print("Using free TCGdex access; no API key required")
     
     print()
     
@@ -432,7 +424,6 @@ def main():
                         process_single_pokemon,
                         pokemon,
                         session,
-                        api_key,
                         args.skip_existing,
                         print_lock
                     ): pokemon for pokemon in remaining_pokemon
@@ -470,8 +461,8 @@ def main():
                     print("⊙ Already cached (skipping)")
                     skipped_count += 1
                     continue
-                params = {"q": f"name:{name}"}
-                tcg_data = fetch_tcg_data(session, name, api_key)
+                params = {"name": f"like:{name}"}
+                tcg_data = fetch_tcg_data(session, name)
                 if tcg_data:
                     filepath = save_tcg_cache(
                         number, name, tcg_data,

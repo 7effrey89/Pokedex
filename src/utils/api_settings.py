@@ -146,17 +146,6 @@ def _resolve_custom_realtime_config(custom: Dict[str, Any], chat_config: Dict[st
     }
 
 
-def _resolve_tcg_config(override_key: Optional[str] = None, *, allow_env_fallback: bool = True) -> Optional[Dict[str, str]]:
-    key = str(override_key or '').strip()
-    if key:
-        return {'api_key': key}
-    if allow_env_fallback:
-        env_key = str(os.getenv('POKEMON_TCG_API_KEY', '')).strip()
-        if env_key:
-            return {'api_key': env_key}
-    return None
-
-
 def resolve_api_settings(payload: Optional[Dict[str, Any]], *, require_chat: bool = True, require_realtime: bool = False) -> Dict[str, Dict[str, str]]:
     """Resolve API credentials from incoming payload or environment defaults."""
     if not payload:
@@ -183,9 +172,7 @@ def resolve_api_settings(payload: Optional[Dict[str, Any]], *, require_chat: boo
                 settings['realtime'] = _resolve_env_realtime_config()
             except ValueError:
                 pass
-        tcg_config = _resolve_tcg_config(payload.get('tcg_api_key'))
-        if tcg_config:
-            settings['tcg'] = tcg_config
+        settings['tcg'] = {'provider': 'tcgdex'}
         return settings
 
     if mode == 'custom':
@@ -201,9 +188,7 @@ def resolve_api_settings(payload: Optional[Dict[str, Any]], *, require_chat: boo
         realtime_config = _resolve_custom_realtime_config(custom_payload, chat_config or settings.get('chat', {}))
         if realtime_config:
             settings['realtime'] = realtime_config
-        tcg_config = _resolve_tcg_config(custom_payload.get('tcg_api_key'))
-        if tcg_config:
-            settings['tcg'] = tcg_config
+        settings['tcg'] = {'provider': 'tcgdex'}
         return settings
 
     raise ValueError('Unknown API settings mode. Choose "app" or "custom".')
